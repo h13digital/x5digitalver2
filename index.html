@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X5 Digital — Your AI-Powered Digital Team at 1/6th the Cost</title>
+    <meta name="description" content="Full-stack AI-enhanced digital team embedded in your business. Full control. 1/6th the cost of one US hire. 30-day risk-free trial.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            /* Color System */
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #8b5cf6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            
+            /* Neutral Palette */
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Spacing System (8px grid) */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 1rem;     /* 16px */
+            --space-md: 1.5rem;   /* 24px */
+            --space-lg: 2rem;     /* 32px */
+            --space-xl: 3rem;     /* 48px */
+            --space-2xl: 4rem;    /* 64px */
+            --space-3xl: 6rem;    /* 96px */
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;    /* 12px */
+            --text-sm: 0.875rem;   /* 14px */
+            --text-base: 1rem;     /* 16px */
+            --text-lg: 1.125rem;   /* 18px */
+            --text-xl: 1.25rem;    /* 20px */
+            --text-2xl: 1.5rem;    /* 24px */
+            --text-3xl: 1.875rem;  /* 30px */
+            --text-4xl: 2.25rem;   /* 36px */
+            --text-5xl: 3rem;      /* 48px */
+            --text-6xl: 3.75rem;   /* 60px */
+            --text-7xl: 4.5rem;    /* 72px */
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-primary: 0 10px 40px rgba(79, 70, 229, 0.3);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background-color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .container-narrow {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .section-sm {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .section-lg {
+            padding: var(--space-3xl) 0;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            color: var(--gray-900);
+        }
+        
+        h1 {
+            font-size: var(--text-6xl);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: var(--text-4xl);
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: var(--text-2xl);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--gray-600);
+        }
+        
+        .lead {
+            font-size: var(--text-xl);
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--gray-700);
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-weight: 600;
+            font-size: var(--text-base);
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .btn:hover::after {
+            animation: shine 1s;
+        }
+        
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--gray-800);
+            border: 2px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-lg {
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: var(--text-lg);
+            border-radius: var(--radius-lg);
+        }
+        
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius-full);
+            background: white;
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .btn-icon:hover {
+            transform: translateY(-2px) scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--space-md) 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            transition: all var(--transition-normal);
+        }
+        
+        header.scrolled {
+            padding: var(--space-sm) 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 900;
+            font-size: var(--text-2xl);
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            font-size: var(--text-base);
+            color: var(--gray-700);
+            position: relative;
+            padding: var(--space-xs) 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-800);
+            position: relative;
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-800);
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before { top: -8px; }
+        .hamburger::after { bottom: -8px; }
+        
+        .mobile-menu-toggle.active .hamburger {
+            background: transparent;
+        }
+        
+        .mobile-menu-toggle.active .hamburger::before {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: calc(var(--space-3xl) * 2);
+            padding-bottom: var(--space-3xl);
+            background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .hero-bg-dot {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            filter: blur(80px);
+            top: -300px;
+            right: -200px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--gray-100);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .hero-badge .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-2xl);
+            margin-top: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .stat-label {
+            font-size: var(--text-sm);
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+        
+        /* ===== TRUST BAR ===== */
+        .trust-bar {
+            background: var(--gray-50);
+            padding: var(--space-lg) 0;
+            border-top: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .trust-title {
+            text-align: center;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--gray-600);
+            margin-bottom: var(--space-md);
+        }
+        
+        .trust-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 600;
+            color: var(--gray-700);
+            padding: var(--space-sm);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-normal);
+        }
+        
+        .trust-item:hover {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .trust-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 10px;
+            font-size: var(--text-lg);
+        }
+        
+        /* ===== COMPARISON TABLE ===== */
+        .comparison {
+            background: linear-gradient(180deg, white 0%, var(--gray-50) 100%);
+        }
+        
+        .comparison-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-3xl);
+        }
+        
+        .comparison-subtitle {
+            font-size: var(--text-lg);
+            color: var(--gray-600);
+        }
+        
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            min-width: 900px;
+            background: white;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th {
+            background: var(--gray-900);
+            color: white;
+            padding: var(--space-lg) var(--space-md);
+            text-align: center;
+            font-weight: 700;
+            font-size: var(--text-lg);
+        }
+        
+        .comparison-table td {
+            padding: var(--space-lg) var(--space-md);
+            text-align: center;
+            border-bottom: 1px solid var(--gray-200);
+            font-weight: 500;
+        }
+        
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .comparison-table .x5-col {
+            background: rgba(16, 185, 129, 0.05) !important;
+            font-weight: 800;
+            color: var(--secondary-dark);
+            position: relative;
+        }
+        
+        .comparison-table .x5-col::before {
+            content: '✓';
+            position: absolute;
+            left: var(--space-sm);
+            color: var(--secondary);
+            font-weight: bold;
+        }
+        
+        .bad {
+            color: var(--danger);
+            font-weight: 600;
+        }
+        
+        .feature-row {
+            background: var(--gray-50);
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+        
+        /* ===== SOLUTION CARDS ===== */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+        
+        .solution-card {
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            border: 1px solid transparent;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-light);
+        }
+        
+        .solution-card.x5 {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .solution-card.x5::before {
+            content: 'The X5 Way';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: var(--space-xs) var(--space-lg);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+        
+        .solution-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            color: white;
+            border-radius: var(--radius-lg);
+            font-size: var(--text-2xl);
+            margin-bottom: var(--space-md);
+        }
+        
+        .solution-price {
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            margin: var(--space-md) 0;
+        }
+        
+        .solution-price.x5 {
+            color: var(--secondary);
+        }
+        
+        /* ===== PERFORMANCE LOOP ===== */
+        .performance-loop {
+            background: var(--gray-50);
+        }
+        
+        .steps {
+            max-width: 1000px;
+            margin: var(--space-3xl) auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3xl);
+            position: relative;
+        }
+        
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50px;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-light), transparent);
+            z-index: 0;
+        }
+        
+        .step {
+            display: flex;
+            gap: var(--space-xl);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .step:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .step-content {
+            flex: 1;
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 50%;
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* ===== ROI CALCULATOR ===== */
+        .roi-calculator {
+            background: white;
+            padding: var(--space-xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: var(--space-2xl) auto;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .slider-container {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            -webkit-appearance: none;
+            background: var(--gray-200);
+            border-radius: var(--radius-full);
+            outline: none;
+        }
+        
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+        
+        .result-card {
+            background: var(--gray-50);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+        
+        .result-card.highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+        
+        .result-value {
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            margin-bottom: var(--space-xs);
+        }
+        
+        /* ===== FINAL CTA ===== */
+        .cta-final {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta-final h2 {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .slots {
+            font-size: var(--text-xl);
+            margin: var(--space-xl) 0;
+            font-weight: 600;
+        }
+        
+        .slots strong {
+            color: #fbbf24;
+            animation: pulse 2s infinite;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: var(--space-3xl) 0 var(--space-xl);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-logo {
+            font-weight: 900;
+            font-size: var(--text-2xl);
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: var(--gray-400);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--gray-800);
+            color: var(--gray-400);
+            font-size: var(--text-sm);
+        }
+        
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            h1 { font-size: var(--text-5xl); }
+            h2 { font-size: var(--text-3xl); }
+            
+            .hero {
+                padding-top: calc(var(--space-2xl) * 2);
+                padding-bottom: var(--space-2xl);
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                gap: var(--space-xl);
+                padding: var(--space-2xl);
+                box-shadow: var(--shadow-xl);
+                transition: right var(--transition-normal);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .step {
+                flex-direction: column !important;
+                text-align: center;
+            }
+            
+            .steps::before {
+                display: none;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: var(--text-4xl); }
+            h2 { font-size: var(--text-2xl); }
+            
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .section-lg {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .hero-stats {
+                gap: var(--space-xl);
+            }
+            
+            .stat-number {
+                font-size: var(--text-2xl);
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: var(--space-md) var(--space-sm);
+                font-size: var(--text-sm);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --space-lg: 1.5rem;
+                --space-xl: 2rem;
+                --space-2xl: 3rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .hero-badge {
+                flex-direction: column;
+                gap: var(--space-xs);
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mt-sm { margin-top: var(--space-sm); }
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">X5</div>
+                    <span>X5 Digital</span>
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="how-it-works.html" class="nav-link">How It Works</a>
+                    <a href="packages.html" class="nav-link">Packages</a>
+                    <a href="proofs.html" class="nav-link">Proof</a>
+                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="hero-bg">
+            <div class="hero-bg-dot"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>NEW: 30-Day Risk-Free Trial for First 10 U.S. Clients</span>
+                </div>
+                
+                <h1>Your AI-Powered Digital Team<br>at <span class="text-primary">1/6th the Cost</span></h1>
+                
+                <p class="lead">
+                    A complete digital strategy & execution team that works inside your Slack, Asana, and ad accounts — 
+                    with full control and at the price of one junior US hire.
+                </p>
+                
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#audit" class="btn btn-primary btn-lg">
+                        Get Your Free Performance Audit & LTV Forecast
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-item">
+                        <span class="stat-number">1/6</span>
+                        <span class="stat-label">Cost of US Hire</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Coverage & Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Client Control</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">$0</span>
+                        <span class="stat-label">Pivot Fees</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <p class="trust-title">Trusted by U.S. SMEs who value control & transparency</p>
+            <div class="trust-logos">
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>100% Client-Owned Automation</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <span>U.S. Business Hours Overlap</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <span>30-Day Risk-Free Trial</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison section" id="comparison">
+        <div class="container">
+            <div class="comparison-header" data-aos="fade-up">
+                <h2>Why Smart U.S. SMEs Are Switching</h2>
+                <p class="comparison-subtitle lead">The real numbers behind the old way vs. the X5 way</p>
+            </div>
+
+            <div class="table-wrapper" data-aos="fade-up" data-aos-delay="200">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>US In-House Hire</th>
+                            <th>Consultants</th>
+                            <th>Traditional Agency</th>
+                            <th class="x5-col">X5 Digital</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="feature-row">
+                            <td><strong>Annual Cost (min)</strong></td>
+                            <td>$80K–$120K+</td>
+                            <td>$40K–$80K</td>
+                            <td>$100K–$300K+</td>
+                            <td class="x5-col">$30K–$78K <small>(1/6th)</small></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Execution</strong></td>
+                            <td>Limited capacity</td>
+                            <td>Limited to scope</td>
+                            <td>None (deck only)</td>
+                            <td class="x5-col">100% embedded daily</td>
+                        </tr>
+                        <tr class="feature-row">
+                            <td><strong>Control</strong></td>
+                            <td>100% (internal)</td>
+                            <td>Low</td>
+                            <td>0%</td>
+                            <td class="x5-col">100% direct via Slack</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Automation</strong></td>
+                            <td>Manual</td>
+                            <td>Black-box</td>
+                            <td>None</td>
+                            <td class="x5-col">Open-source n8n (you own)</td>
+                        </tr>
+                        <tr class="feature-row">
+                            <td><strong>Pivot Fees</strong></td>
+                            <td>N/A</td>
+                            <td class="bad">Frequent</td>
+                            <td class="bad">Very common</td>
+                            <td class="x5-col">Zero — guaranteed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center mt-xl">
+                <a href="#audit" class="btn btn-secondary">
+                    <i class="fas fa-calculator"></i>
+                    Calculate Your Exact Savings
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Cards -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="text-center mb-xl" data-aos="fade-up">
+                <h2>The Story You're Probably Living Right Now</h2>
+                <p class="lead">And how thousands of U.S. SMEs are finally breaking free</p>
+            </div>
+            
+            <div class="solution-grid">
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3>High Cost</h3>
+                    <p>One solid US digital manager + benefits & overhead</p>
+                    <div class="solution-price">$80K–$120K+/year</div>
+                </div>
+                
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-icon">
+                        <i class="fas fa-gap"></i>
+                    </div>
+                    <h3>Execution Gap</h3>
+                    <p>Consultants hand you beautiful decks. Execution? That's on you.</p>
+                    <div class="solution-price">$40K–$80K</div>
+                </div>
+                
+                <div class="solution-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="solution-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h3>No Real Control</h3>
+                    <p>Agencies run everything internally. Scope creep fees hit hard.</p>
+                    <div class="solution-price">$100K–$300K+</div>
+                </div>
+                
+                <div class="solution-card x5" data-aos="fade-up" data-aos-delay="400">
+                    <div class="solution-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>You're the CEO</h3>
+                    <p>Embedded team + AI + n8n automation. Full ownership. Direct Slack management.</p>
+                    <div class="solution-price x5">$30K–$78K/year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="section" id="calculator">
+        <div class="container-narrow">
+            <div class="text-center mb-xl" data-aos="fade-up">
+                <h2>Calculate Your Potential Savings</h2>
+                <p class="lead">See exactly how much you could save with our AI-powered team</p>
+            </div>
+            
+            <div class="roi-calculator" data-aos="fade-up">
+                <div class="calculator-header">
+                    <h3>ROI Calculator</h3>
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Current Monthly Marketing Spend</span>
+                        <span id="spendValue">$15,000</span>
+                    </div>
+                    <input type="range" id="spendSlider" min="5000" max="50000" value="15000" step="1000">
+                </div>
+                
+                <div class="slider-container">
+                    <div class="slider-label">
+                        <span>Team Hours Spent on Manual Tasks</span>
+                        <span id="hoursValue">40 hours</span>
+                    </div>
+                    <input type="range" id="hoursSlider" min="10" max="80" value="40" step="5">
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <div class="result-value" id="x5Cost">$2,500</div>
+                        <div>Monthly X5 Cost</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-value" id="manualCost">$4,000</div>
+                        <div>Current Manual Labor Cost</div>
+                    </div>
+                    
+                    <div class="result-card highlight">
+                        <div class="result-value" id="savings">$11,500</div>
+                        <div>Monthly Savings</div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-xl">
+                    <a href="#audit" class="btn btn-primary btn-lg">
+                        Get Your Personalized Calculation
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Loop -->
+    <section class="performance-loop section bg-light">
+        <div class="container-narrow">
+            <div class="text-center mb-xl" data-aos="fade-up">
+                <h2>Every Month, Your Growth Looks Like This</h2>
+                <p class="lead">The client-controlled performance loop that runs 24/7</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>We Strategize (AI-backed)</h3>
+                        <p>X5 AI Agent analyzes your data & market → monthly strategy + quarterly roadmap.</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-left">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>You Control</h3>
+                        <p>Approve, reject, or pivot anything. Direct management via Slack & Asana.</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-right">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>We Execute Daily</h3>
+                        <p>Embedded team works in your accounts until KPIs are hit — fully automated with n8n.</p>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-left">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Review & Pivot — Free</h3>
+                        <p>Revenue review → feedback → we rebuild everything at zero extra cost.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-final section-lg" id="audit">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>End the Execution Gap for Good</h2>
+                
+                <p class="lead" style="color: rgba(255,255,255,0.9);">
+                    Your free 30-minute audit includes custom LTV forecast, savings breakdown, and exact ROI projection.
+                </p>
+                
+                <div class="slots">
+                    <strong>Only 5 audit slots left this week</strong>
+                </div>
+                
+                <a href="book-audit.html" class="btn btn-primary btn-lg" style="background: white; color: var(--primary);">
+                    Book My Free Audit Now
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <div class="mt-lg" style="color: rgba(255,255,255,0.8);">
+                    <small><i class="fas fa-lock"></i> Zero risk • Takes 30 minutes • You'll leave with your numbers</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">X5 Digital</div>
+                    <p style="color: var(--gray-400); margin-bottom: 0;">
+                        Vietnam-based • Built for U.S. SMEs<br>
+                        24/7 coverage with U.S. business hours overlap
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="how-it-works.html">How It Works</a>
+                        <a href="packages.html">Packages</a>
+                        <a href="proofs.html">Proof</a>
+                        <a href="book-audit.html">Book Free Audit</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Contact</h4>
+                    <div class="footer-links">
+                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="#">U.S. Phone: (555) 123-4567</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 X5 Digital. All rights reserved. • 30-Day Risk-Free Trial for qualified clients.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ROI Calculator
+        const spendSlider = document.getElementById('spendSlider');
+        const spendValue = document.getElementById('spendValue');
+        const hoursSlider = document.getElementById('hoursSlider');
+        const hoursValue = document.getElementById('hoursValue');
+        const x5Cost = document.getElementById('x5Cost');
+        const manualCost = document.getElementById('manualCost');
+        const savings = document.getElementById('savings');
+
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(amount);
+        }
+
+        function updateCalculator() {
+            const spend = parseInt(spendSlider.value);
+            const hours = parseInt(hoursSlider.value);
+            
+            // Update display values
+            spendValue.textContent = formatCurrency(spend);
+            hoursValue.textContent = `${hours} hours`;
+            
+            // Calculate costs (simplified model)
+            const x5Monthly = Math.max(833, spend * 0.15); // Minimum $833 or 15% of spend
+            const hourlyRate = 50; // Average US hourly rate
+            const manualMonthly = hours * hourlyRate;
+            const totalSavings = spend - x5Monthly + (manualMonthly * 0.8); // 80% automation
+            
+            // Update results
+            x5Cost.textContent = formatCurrency(x5Monthly);
+            manualCost.textContent = formatCurrency(manualMonthly);
+            savings.textContent = formatCurrency(totalSavings);
+        }
+
+        // Initialize calculator
+        spendSlider.addEventListener('input', updateCalculator);
+        hoursSlider.addEventListener('input', updateCalculator);
+        updateCalculator();
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Trust bar animation
+        const trustItems = document.querySelectorAll('.trust-item');
+        trustItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
