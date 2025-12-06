@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Free Performance Audit — X5 Digital</title>
+    <meta name="description" content="30-minute audit: Custom LTV forecast, operational savings breakdown, personalized ROI projection. Only for qualified U.S. SMEs.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            /* Color System */
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #8b5cf6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            
+            /* Form States */
+            --valid: #10b981;
+            --invalid: #ef4444;
+            --warning: #f59e0b;
+            
+            /* Neutral Palette */
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Spacing System (8px grid) */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 1rem;     /* 16px */
+            --space-md: 1.5rem;   /* 24px */
+            --space-lg: 2rem;     /* 32px */
+            --space-xl: 3rem;     /* 48px */
+            --space-2xl: 4rem;    /* 64px */
+            --space-3xl: 6rem;    /* 96px */
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;    /* 12px */
+            --text-sm: 0.875rem;   /* 14px */
+            --text-base: 1rem;     /* 16px */
+            --text-lg: 1.125rem;   /* 18px */
+            --text-xl: 1.25rem;    /* 20px */
+            --text-2xl: 1.5rem;    /* 24px */
+            --text-3xl: 1.875rem;  /* 30px */
+            --text-4xl: 2.25rem;   /* 36px */
+            --text-5xl: 3rem;      /* 48px */
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-primary: 0 10px 40px rgba(79, 70, 229, 0.3);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background-color: var(--gray-50);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .container-narrow {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .section-sm {
+            padding: var(--space-2xl) 0;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            color: var(--gray-900);
+        }
+        
+        h1 {
+            font-size: var(--text-5xl);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: var(--text-3xl);
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: var(--text-xl);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--gray-600);
+        }
+        
+        .lead {
+            font-size: var(--text-lg);
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--gray-700);
+        }
+        
+        small {
+            font-size: var(--text-sm);
+            color: var(--gray-500);
+        }
+        
+        .required {
+            color: var(--danger);
+            font-weight: 600;
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-weight: 600;
+            font-size: var(--text-base);
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .btn:hover::after {
+            animation: shine 1s;
+        }
+        
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--gray-800);
+            border: 2px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-lg {
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: var(--text-lg);
+            border-radius: var(--radius-lg);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--space-md) 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            transition: all var(--transition-normal);
+        }
+        
+        header.scrolled {
+            padding: var(--space-sm) 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 900;
+            font-size: var(--text-2xl);
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            font-size: var(--text-base);
+            color: var(--gray-700);
+            position: relative;
+            padding: var(--space-xs) 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-800);
+            position: relative;
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-800);
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before { top: -8px; }
+        .hamburger::after { bottom: -8px; }
+        
+        .mobile-menu-toggle.active .hamburger {
+            background: transparent;
+        }
+        
+        .mobile-menu-toggle.active .hamburger::before {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: calc(var(--space-3xl) * 2);
+            padding-bottom: var(--space-3xl);
+            background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .hero-bg-dot {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            filter: blur(80px);
+            top: -300px;
+            right: -200px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--gray-100);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .hero-badge .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* ===== QUALIFICATION METER ===== */
+        .qualification-meter {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: var(--space-2xl) auto;
+            border: 2px solid var(--gray-200);
+        }
+        
+        .meter-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .meter-visual {
+            height: 12px;
+            background: var(--gray-200);
+            border-radius: var(--radius-full);
+            margin: var(--space-lg) 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .meter-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--danger), var(--warning), var(--success));
+            width: 0%;
+            transition: width 1s ease;
+            border-radius: var(--radius-full);
+        }
+        
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+        
+        .meter-score {
+            text-align: center;
+            margin-top: var(--space-lg);
+        }
+        
+        .score-value {
+            font-size: var(--text-4xl);
+            font-weight: 900;
+            color: var(--primary);
+        }
+        
+        .score-label {
+            font-size: var(--text-sm);
+            color: var(--gray-600);
+        }
+        
+        .score-warning {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            color: #92400e;
+            padding: var(--space-md);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: var(--space-lg);
+            display: none;
+        }
+        
+        .score-warning.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ===== FORM STYLES ===== */
+        .form-wrapper {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+            margin: var(--space-2xl) auto;
+            max-width: 800px;
+        }
+        
+        .form-header {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: var(--space-2xl) var(--space-xl);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+        }
+        
+        .form-header h1 {
+            color: white;
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .form-header p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slots {
+            font-size: var(--text-lg);
+            margin-top: var(--space-lg);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .slots strong {
+            color: #fbbf24;
+            animation: pulse 2s infinite;
+        }
+        
+        .form-body {
+            padding: var(--space-2xl) var(--space-xl);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--gray-800);
+        }
+        
+        .field-hint {
+            display: block;
+            font-size: var(--text-sm);
+            color: var(--gray-500);
+            margin-top: var(--space-xs);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: var(--space-md) var(--space-lg);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--text-base);
+            font-family: 'Inter', sans-serif;
+            transition: all var(--transition-normal);
+            background: white;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+        }
+        
+        input.valid, select.valid, textarea.valid {
+            border-color: var(--valid);
+            background-color: rgba(16, 185, 129, 0.05);
+        }
+        
+        input.invalid, select.invalid, textarea.invalid {
+            border-color: var(--invalid);
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+        
+        .field-error {
+            color: var(--invalid);
+            font-size: var(--text-sm);
+            margin-top: var(--space-xs);
+            display: none;
+        }
+        
+        .field-error.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        /* ===== PRE-QUALIFICATION SUMMARY ===== */
+        .pre-qual-summary {
+            background: #f0f9ff;
+            border: 2px solid var(--primary);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            margin: var(--space-xl) 0;
+            display: none;
+        }
+        
+        .pre-qual-summary.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .summary-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-md);
+        }
+        
+        .summary-header i {
+            color: var(--primary);
+            font-size: var(--text-xl);
+        }
+        
+        .summary-content {
+            color: var(--gray-700);
+        }
+        
+        .summary-content strong {
+            color: var(--primary);
+        }
+        
+        /* ===== DISQUALIFICATION MESSAGES ===== */
+        .disqualification-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+        }
+        
+        .disqualification-overlay.show {
+            display: flex;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .disqualification-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            max-width: 500px;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            border: 2px solid var(--gray-200);
+        }
+        
+        .disqualification-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--gray-200), var(--gray-300));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            color: var(--gray-600);
+            margin: 0 auto var(--space-lg);
+        }
+        
+        /* ===== GUARANTEE BOX ===== */
+        .guarantee-box {
+            background: #f0fdf4;
+            border: 2px solid var(--secondary);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--space-2xl) 0;
+        }
+        
+        .guarantee-box h4 {
+            color: #166534;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .guarantee-box p {
+            color: #166534;
+            margin-bottom: 0;
+        }
+        
+        /* ===== CALENDLY REDIRECT ===== */
+        .calendly-redirect {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid #f59e0b;
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin: var(--space-2xl) 0;
+            display: none;
+        }
+        
+        .calendly-redirect.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .redirect-countdown {
+            font-size: var(--text-2xl);
+            font-weight: 800;
+            color: #92400e;
+            margin: var(--space-md) 0;
+        }
+        
+        /* ===== FORM SUBMISSION STATES ===== */
+        .form-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            border-radius: var(--radius-xl);
+        }
+        
+        .form-loading.show {
+            display: flex;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--gray-200);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .form-success {
+            text-align: center;
+            padding: var(--space-2xl);
+            display: none;
+        }
+        
+        .form-success.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--success), #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            color: white;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: var(--space-3xl) 0 var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-logo {
+            font-weight: 900;
+            font-size: var(--text-2xl);
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: var(--gray-400);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--gray-800);
+            color: var(--gray-400);
+            font-size: var(--text-sm);
+        }
+        
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            h1 { font-size: var(--text-4xl); }
+            h2 { font-size: var(--text-2xl); }
+            
+            .hero {
+                padding-top: calc(var(--space-2xl) * 2);
+                padding-bottom: var(--space-2xl);
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                gap: var(--space-xl);
+                padding: var(--space-2xl);
+                box-shadow: var(--shadow-xl);
+                transition: right var(--transition-normal);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .form-header {
+                padding: var(--space-xl) var(--space-lg);
+            }
+            
+            .form-body {
+                padding: var(--space-xl) var(--space-lg);
+            }
+            
+            .qualification-meter {
+                padding: var(--space-lg);
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --space-lg: 1.5rem;
+                --space-xl: 2rem;
+                --space-2xl: 3rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .form-header h1 {
+                font-size: var(--text-3xl);
+            }
+            
+            .score-value {
+                font-size: var(--text-3xl);
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mt-sm { margin-top: var(--space-sm); }
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">X5</div>
+                    <span>X5 Digital</span>
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="how-it-works.html" class="nav-link">How It Works</a>
+                    <a href="packages.html" class="nav-link">Packages</a>
+                    <a href="proofs.html" class="nav-link">Proof</a>
+                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section-sm">
+        <div class="hero-bg">
+            <div class="hero-bg-dot"></div>
+        </div>
+        
+        <div class="container-narrow">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>Strict qualification process to ensure we're the right fit</span>
+                </div>
+                
+                <h1>Book Your Free 30-Minute<br><span class="text-primary">Performance Audit</span></h1>
+                
+                <p class="lead">
+                    You'll walk away with: Custom LTV forecast • Operational savings breakdown • Personalized ROI projection
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualification Meter -->
+    <section class="section-sm">
+        <div class="container-narrow">
+            <div class="qualification-meter" data-aos="fade-up">
+                <div class="meter-header">
+                    <h3>Qualification Score</h3>
+                    <p>Higher score = better fit for our system</p>
+                </div>
+                
+                <div class="meter-visual">
+                    <div class="meter-fill" id="meterFill"></div>
+                </div>
+                
+                <div class="meter-labels">
+                    <span>Poor Fit</span>
+                    <span>Maybe</span>
+                    <span>Good Fit</span>
+                    <span>Excellent Fit</span>
+                </div>
+                
+                <div class="meter-score">
+                    <div class="score-value" id="scoreValue">0</div>
+                    <div class="score-label" id="scoreLabel">Complete the form to see your score</div>
+                </div>
+                
+                <div class="score-warning" id="scoreWarning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Low Qualification Score:</strong> Based on your answers, we may not be the best fit at this stage.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Form -->
+    <section class="section-sm" id="auditFormSection">
+        <div class="container-narrow">
+            <div class="form-wrapper" data-aos="fade-up">
+                <div class="form-header">
+                    <h1>Complete Your Audit Request</h1>
+                    <p>Fill out this qualification form to see if we're the right fit for your business</p>
+                    <div class="slots">
+                        <strong>Only 5 qualified slots left this week</strong>
+                    </div>
+                </div>
+                
+                <div class="form-body">
+                    <!-- Pre-qualification Summary -->
+                    <div class="pre-qual-summary" id="preQualSummary">
+                        <div class="summary-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Based on your answers:</h4>
+                        </div>
+                        <div class="summary-content" id="summaryText">
+                            <!-- Dynamic content will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <form id="auditForm">
+                        <!-- Section 1: Business & Qualification -->
+                        <div class="form-group">
+                            <h3 style="color: var(--primary); border-bottom: 2px solid var(--primary-light); padding-bottom: var(--space-sm);">
+                                <i class="fas fa-building"></i> Business & Qualification
+                            </h3>
+                        </div>
+                        
+                        <div class="form-row">
+                            <!-- Industry -->
+                            <div class="form-group">
+                                <label for="industry">Your Industry <span class="required">*</span></label>
+                                <select id="industry" name="industry" required>
+                                    <option value="" disabled selected>Select industry...</option>
+                                    <option value="saas">SaaS / Software</option>
+                                    <option value="ecommerce">E-commerce / DTC</option>
+                                    <option value="b2b-services">B2B Services</option>
+                                    <option value="agency">Marketing Agency</option>
+                                    <option value="healthcare">Healthcare / Medtech</option>
+                                    <option value="fintech">Fintech / Financial Services</option>
+                                    <option value="education">Education / EdTech</option>
+                                    <option value="other">Other (please specify in notes)</option>
+                                    <option value="competitor">I'm a competitor/researcher</option>
+                                </select>
+                                <div class="field-error" id="industryError">Please select your industry</div>
+                            </div>
+                            
+                            <!-- Monthly Revenue -->
+                            <div class="form-group">
+                                <label for="revenue">Current Monthly Revenue <span class="required">*</span></label>
+                                <select id="revenue" name="revenue" required>
+                                    <option value="" disabled selected>Choose range...</option>
+                                    <option value="under-50k">Under $50K/month</option>
+                                    <option value="50k-200k">$50K – $200K/month</option>
+                                    <option value="200k-500k">$200K – $500K/month</option>
+                                    <option value="500k-1M">$500K – $1M/month</option>
+                                    <option value="over-1M">Over $1M/month</option>
+                                </select>
+                                <div class="field-hint">Helps us calculate accurate ROI projections</div>
+                                <div class="field-error" id="revenueError">Please select your revenue range</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <!-- Monthly Budget -->
+                            <div class="form-group">
+                                <label for="budget">Monthly Budget for Digital Growth <span class="required">*</span></label>
+                                <select id="budget" name="budget" required>
+                                    <option value="" disabled selected>Select budget range...</option>
+                                    <option value="under-2k">Under $2K (likely not a fit)</option>
+                                    <option value="2k-5k">$2K - $5K</option>
+                                    <option value="5k-10k">$5K - $10K</option>
+                                    <option value="10k-20k">$10K - $20K</option>
+                                    <option value="20k-plus">$20K+</option>
+                                </select>
+                                <div class="field-hint">Our packages start at $833/month. Budget under $2K won't be a good fit.</div>
+                                <div class="field-error" id="budgetError">Please select your budget range</div>
+                            </div>
+                            
+                            <!-- Decision Maker -->
+                            <div class="form-group">
+                                <label for="decision_maker">Are you the decision-maker? <span class="required">*</span></label>
+                                <select id="decision_maker" name="decision_maker" required>
+                                    <option value="" disabled selected>Select...</option>
+                                    <option value="yes-owner">Yes, I'm the founder/owner</option>
+                                    <option value="yes-exec">Yes, I'm the CEO/Head of Marketing</option>
+                                    <option value="need-approval">I need to get approval</option>
+                                    <option value="no">No, I'm just researching</option>
+                                </select>
+                                <div class="field-error" id="decisionMakerError">Please select your decision-maker status</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Section 2: Challenges & Goals -->
+                        <div class="form-group mt-xl">
+                            <h3 style="color: var(--primary); border-bottom: 2px solid var(--primary-light); padding-bottom: var(--space-sm);">
+                                <i class="fas fa-bullseye"></i> Challenges & Goals
+                            </h3>
+                        </div>
+                        
+                        <div class="form-row">
+                            <!-- Biggest Challenge -->
+                            <div class="form-group">
+                                <label for="challenge">Biggest Challenge Right Now <span class="required">*</span></label>
+                                <select id="challenge" name="challenge" required>
+                                    <option value="" disabled selected>Select your #1 pain...</option>
+                                    <option value="high-churn">High customer churn / low LTV</option>
+                                    <option value="low-roas">Low ROAS / high CAC</option>
+                                    <option value="manual-work">Team spends too much time on manual tasks</option>
+                                    <option value="no-control">No real control over agency/freelancers</option>
+                                    <option value="scope-creep">Scope creep & hidden fees</option>
+                                    <option value="scaling">Difficulty scaling operations</option>
+                                    <option value="data">Poor data visibility & reporting</option>
+                                    <option value="other-challenge">Other (please specify below)</option>
+                                </select>
+                                <div class="field-error" id="challengeError">Please select your biggest challenge</div>
+                            </div>
+                            
+                            <!-- Timeline -->
+                            <div class="form-group">
+                                <label for="timeline">When to Start Seeing Results? <span class="required">*</span></label>
+                                <select id="timeline" name="timeline" required>
+                                    <option value="" disabled selected>Choose...</option>
+                                    <option value="asap">ASAP (next 30 days)</option>
+                                    <option value="1-3-months">Within 1–3 months</option>
+                                    <option value="3-6-months">3–6 months</option>
+                                    <option value="just-research">Just researching for now</option>
+                                </select>
+                                <div class="field-error" id="timelineError">Please select your timeline</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Vietnam Concern -->
+                        <div class="form-group">
+                            <label for="concern">Biggest Concern About Vietnam-Based Team <span class="required">*</span></label>
+                            <select id="concern" name="concern" required>
+                                <option value="" disabled selected>Be honest - we appreciate it!</option>
+                                <option value="timezone">Time zone differences</option>
+                                <option value="communication">Communication / English fluency</option>
+                                <option value="quality">Quality of work</option>
+                                <option value="data-security">Data security</option>
+                                <option value="cultural">Cultural differences</option>
+                                <option value="none">No concerns</option>
+                                <option value="just-curious">Just curious about pricing</option>
+                            </select>
+                            <div class="field-hint">We address all these concerns upfront</div>
+                            <div class="field-error" id="concernError">Please select your biggest concern</div>
+                        </div>
+                        
+                        <!-- Section 3: Contact Information -->
+                        <div class="form-group mt-xl">
+                            <h3 style="color: var(--primary); border-bottom: 2px solid var(--primary-light); padding-bottom: var(--space-sm);">
+                                <i class="fas fa-user"></i> Contact Information
+                            </h3>
+                        </div>
+                        
+                        <div class="form-row">
+                            <!-- Full Name -->
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required placeholder="John Smith">
+                                <div class="field-error" id="nameError">Please enter your full name</div>
+                            </div>
+                            
+                            <!-- Email -->
+                            <div class="form-group">
+                                <label for="email">Business Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="john@yourcompany.com">
+                                <div class="field-hint">We'll send calendar invite to this email</div>
+                                <div class="field-error" id="emailError">Please enter a valid business email</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <!-- Company -->
+                            <div class="form-group">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company" name="company" placeholder="Your Company Inc.">
+                            </div>
+                            
+                            <!-- Website -->
+                            <div class="form-group">
+                                <label for="website">Company Website</label>
+                                <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+                            </div>
+                        </div>
+                        
+                        <!-- Additional Notes -->
+                        <div class="form-group">
+                            <label for="notes">Anything else we should know?</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Current tools, team size, specific goals, or anything else..."></textarea>
+                        </div>
+                        
+                        <!-- Hidden Qualification Score -->
+                        <input type="hidden" name="qualification_score" id="qualificationScore" value="0">
+                        <input type="hidden" name="qualification_level" id="qualificationLevel" value="poor">
+                        
+                        <!-- Guarantee Box -->
+                        <div class="guarantee-box">
+                            <h4>100% Zero Risk Guarantee</h4>
+                            <p>If we don't deliver clear ROI projection in the audit, you pay nothing and we part as friends.</p>
+                        </div>
+                        
+                        <!-- Calendly Redirect (Initially Hidden) -->
+                        <div class="calendly-redirect" id="calendlyRedirect">
+                            <h4>🎉 Excellent! You're Qualified!</h4>
+                            <p>Based on your answers, you're an excellent fit for our system.</p>
+                            <p>Redirecting to calendar booking in <span class="redirect-countdown" id="redirectCountdown">5</span> seconds...</p>
+                            <p><small>If not redirected, <a href="https://calendly.com/x5digital/30min" id="calendlyLink">click here to book your audit</a></small></p>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" id="submitBtn">
+                            <i class="fas fa-calendar-check"></i>
+                            Submit & Check Qualification
+                        </button>
+                        
+                        <p class="text-center mt-md" style="color: var(--gray-500); font-size: var(--text-sm);">
+                            <i class="fas fa-lock"></i> Your information is secure. We never share your data.
+                        </p>
+                    </form>
+                    
+                    <!-- Form Loading Overlay -->
+                    <div class="form-loading" id="formLoading">
+                        <div class="loading-spinner"></div>
+                    </div>
+                    
+                    <!-- Form Success Message -->
+                    <div class="form-success" id="formSuccess">
+                        <div class="success-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h3>Audit Request Submitted!</h3>
+                        <p>We're reviewing your qualification and will contact you within 24 hours to schedule your audit.</p>
+                        <p><strong>Next steps:</strong></p>
+                        <ol style="text-align: left; max-width: 400px; margin: var(--space-md) auto;">
+                            <li>We'll review your qualification score</li>
+                            <li>If qualified, we'll send calendar invite</li>
+                            <li>30-minute audit with ROI projection</li>
+                            <li>Custom package recommendation</li>
+                        </ol>
+                        <a href="index.html" class="btn btn-secondary mt-lg">
+                            <i class="fas fa-home"></i>
+                            Back to Homepage
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disqualification Overlay -->
+    <div class="disqualification-overlay" id="disqualificationOverlay">
+        <div class="disqualification-card">
+            <div class="disqualification-icon">
+                <i class="fas fa-info-circle"></i>
+            </div>
+            <h3>Thanks for Your Interest!</h3>
+            <div id="disqualificationMessage">
+                <!-- Dynamic message will be inserted here -->
+            </div>
+            <div class="mt-lg">
+                <button class="btn btn-secondary" onclick="location.reload()">
+                    <i class="fas fa-redo"></i>
+                    Start Over
+                </button>
+                <a href="index.html" class="btn btn-primary ml-sm">
+                    <i class="fas fa-home"></i>
+                    Back to Homepage
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">X5 Digital</div>
+                    <p style="color: var(--gray-400); margin-bottom: 0;">
+                        Vietnam-based • Built for U.S. SMEs<br>
+                        24/7 coverage with U.S. business hours overlap
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="how-it-works.html">How It Works</a>
+                        <a href="packages.html">Packages</a>
+                        <a href="proofs.html">Proof</a>
+                        <a href="book-audit.html">Book Free Audit</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Contact</h4>
+                    <div class="footer-links">
+                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="#">U.S. Phone: (555) 123-4567</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 X5 Digital. All rights reserved. • Strict qualification ensures best fit for both parties.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // DOM Elements
+        const form = document.getElementById('auditForm');
+        const meterFill = document.getElementById('meterFill');
+        const scoreValue = document.getElementById('scoreValue');
+        const scoreLabel = document.getElementById('scoreLabel');
+        const scoreWarning = document.getElementById('scoreWarning');
+        const preQualSummary = document.getElementById('preQualSummary');
+        const summaryText = document.getElementById('summaryText');
+        const qualificationScore = document.getElementById('qualificationScore');
+        const qualificationLevel = document.getElementById('qualificationLevel');
+        const calendlyRedirect = document.getElementById('calendlyRedirect');
+        const redirectCountdown = document.getElementById('redirectCountdown');
+        const disqualificationOverlay = document.getElementById('disqualificationOverlay');
+        const disqualificationMessage = document.getElementById('disqualificationMessage');
+        const formLoading = document.getElementById('formLoading');
+        const formSuccess = document.getElementById('formSuccess');
+        const submitBtn = document.getElementById('submitBtn');
+
+        // Qualification Scoring System
+        const scoreWeights = {
+            industry: {
+                'saas': 10, 'ecommerce': 8, 'b2b-services': 7, 'agency': 6, 
+                'healthcare': 9, 'fintech': 9, 'education': 7, 'other': 5,
+                'competitor': -100 // Automatic disqualification
+            },
+            revenue: {
+                'under-50k': 2, '50k-200k': 5, '200k-500k': 8, 
+                '500k-1M': 10, 'over-1M': 12
+            },
+            budget: {
+                'under-2k': -5, '2k-5k': 3, '5k-10k': 6, 
+                '10k-20k': 8, '20k-plus': 10
+            },
+            decision_maker: {
+                'yes-owner': 10, 'yes-exec': 8, 'need-approval': 4, 'no': 1
+            },
+            challenge: {
+                'high-churn': 8, 'low-roas': 7, 'manual-work': 9, 
+                'no-control': 8, 'scope-creep': 7, 'scaling': 6, 
+                'data': 7, 'other-challenge': 5
+            },
+            timeline: {
+                'asap': 10, '1-3-months': 8, '3-6-months': 4, 'just-research': -5
+            },
+            concern: {
+                'timezone': 3, 'communication': 2, 'quality': 2, 
+                'data-security': 3, 'cultural': 2, 'none': 5,
+                'just-curious': -10 // Indicates pricing shopper
+            }
+        };
+
+        // Real-time Score Calculation
+        function calculateScore() {
+            let totalScore = 0;
+            let maxPossible = 0;
+            
+            // Calculate scores from each field
+            for (const [field, weights] of Object.entries(scoreWeights)) {
+                const element = document.getElementById(field);
+                if (element && element.value) {
+                    const value = element.value;
+                    if (weights[value] !== undefined) {
+                        totalScore += weights[value];
+                        maxPossible += Math.max(...Object.values(weights));
+                    }
+                }
+            }
+            
+            // Bonus for high-value combinations
+            const revenue = document.getElementById('revenue').value;
+            const budget = document.getElementById('budget').value;
+            const timeline = document.getElementById('timeline').value;
+            
+            if (revenue && budget && timeline) {
+                // High revenue + high budget + ASAP = bonus
+                if ((revenue === '500k-1M' || revenue === 'over-1M') && 
+                    (budget === '10k-20k' || budget === '20k-plus') && 
+                    timeline === 'asap') {
+                    totalScore += 5;
+                }
+                
+                // Low budget + high revenue = warning
+                if ((budget === 'under-2k' || budget === '2k-5k') && 
+                    (revenue === '500k-1M' || revenue === 'over-1M')) {
+                    totalScore -= 3;
+                }
+            }
+            
+            // Cap score between 0 and 100
+            const percentage = Math.min(100, Math.max(0, (totalScore / 50) * 100));
+            
+            return {
+                score: totalScore,
+                percentage: percentage,
+                level: getQualificationLevel(percentage)
+            };
+        }
+
+        function getQualificationLevel(percentage) {
+            if (percentage >= 80) return 'excellent';
+            if (percentage >= 60) return 'good';
+            if (percentage >= 40) return 'fair';
+            return 'poor';
+        }
+
+        function updateScoreDisplay(scoreData) {
+            const { percentage, level } = scoreData;
+            
+            // Update meter
+            meterFill.style.width = `${percentage}%`;
+            
+            // Update score value
+            scoreValue.textContent = Math.round(percentage);
+            
+            // Update label
+            const labels = {
+                'excellent': '🎯 Excellent fit!',
+                'good': '👍 Good potential fit',
+                'fair': '🤔 Maybe a fit',
+                'poor': '⚠️ Poor fit likely'
+            };
+            scoreLabel.textContent = labels[level] || 'Complete the form to see your score';
+            
+            // Show/hide warning
+            if (level === 'poor' || level === 'fair') {
+                scoreWarning.classList.add('show');
+            } else {
+                scoreWarning.classList.remove('show');
+            }
+            
+            // Update hidden fields
+            qualificationScore.value = Math.round(percentage);
+            qualificationLevel.value = level;
+            
+            // Update summary
+            updatePreQualSummary(scoreData);
+        }
+
+        function updatePreQualSummary(scoreData) {
+            const industry = document.getElementById('industry').value;
+            const revenue = document.getElementById('revenue').value;
+            const timeline = document.getElementById('timeline').value;
+            const challenge = document.getElementById('challenge').value;
+            
+            if (industry && revenue && timeline) {
+                let summary = '';
+                
+                // Industry-specific insights
+                const industryInsights = {
+                    'saas': 'SaaS businesses benefit greatly from our churn prediction and LTV optimization.',
+                    'ecommerce': 'E-commerce brands see strong ROAS improvements with our AI bidding systems.',
+                    'b2b-services': 'B2B services achieve better lead scoring and sales alignment.',
+                    'agency': 'Agencies scale operations while reducing manual work by 80%.'
+                };
+                
+                if (industryInsights[industry]) {
+                    summary += `<strong>${industryInsights[industry]}</strong><br>`;
+                }
+                
+                // Revenue stage insights
+                const revenueLabels = {
+                    'under-50k': 'early-stage testing',
+                    '50k-200k': 'growth stage',
+                    '200k-500k': 'scaling stage',
+                    '500k-1M': 'established business',
+                    'over-1M': 'enterprise-ready'
+                };
+                
+                if (revenueLabels[revenue]) {
+                    summary += `You're at the <strong>${revenueLabels[revenue]}</strong> — perfect for our ${getRecommendedPackage(scoreData.percentage)} package.<br>`;
+                }
+                
+                // Timeline urgency
+                if (timeline === 'asap') {
+                    summary += `Ready to move fast — we can onboard within 2 weeks.<br>`;
+                }
+                
+                // Challenge focus
+                const challengeFocus = {
+                    'high-churn': 'Focus on churn reduction and LTV optimization.',
+                    'low-roas': 'Focus on ROAS improvement and CAC reduction.',
+                    'manual-work': 'Focus on automation to free up team capacity.',
+                    'no-control': 'Focus on complete transparency and direct management.'
+                };
+                
+                if (challengeFocus[challenge]) {
+                    summary += `${challengeFocus[challenge]}`;
+                }
+                
+                summaryText.innerHTML = summary;
+                preQualSummary.classList.add('show');
+            } else {
+                preQualSummary.classList.remove('show');
+            }
+        }
+
+        function getRecommendedPackage(scorePercentage) {
+            if (scorePercentage >= 80) return 'Intelligence Suite';
+            if (scorePercentage >= 60) return 'Full Stack';
+            if (scorePercentage >= 40) return 'Strategic';
+            return 'Foundation';
+        }
+
+        // Real-time validation and score updates
+        const formInputs = document.querySelectorAll('#auditForm select, #auditForm input');
+        formInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                validateField(this);
+                const scoreData = calculateScore();
+                updateScoreDisplay(scoreData);
+                checkForDisqualification(this);
+            });
+            
+            // Real-time validation for text inputs
+            if (input.type === 'text' || input.type === 'email') {
+                input.addEventListener('blur', function() {
+                    validateField(this);
+                });
+            }
+        });
+
+        // Field validation
+        function validateField(field) {
+            const errorElement = document.getElementById(`${field.id}Error`);
+            
+            if (!field.value) {
+                field.classList.remove('valid');
+                field.classList.add('invalid');
+                if (errorElement) errorElement.classList.add('show');
+                return false;
+            }
+            
+            // Email validation
+            if (field.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value)) {
+                    field.classList.remove('valid');
+                    field.classList.add('invalid');
+                    if (errorElement) errorElement.classList.add('show');
+                    return false;
+                }
+            }
+            
+            field.classList.remove('invalid');
+            field.classList.add('valid');
+            if (errorElement) errorElement.classList.remove('show');
+            return true;
+        }
+
+        // Automatic Disqualification Checks
+        function checkForDisqualification(changedField) {
+            // Check for competitors
+            if (changedField.id === 'industry' && changedField.value === 'competitor') {
+                showDisqualification(
+                    "We don't currently provide audits to direct competitors. " +
+                    "Feel free to reach out for partnership opportunities."
+                );
+                return true;
+            }
+            
+            // Check for pricing shoppers
+            if (changedField.id === 'concern' && changedField.value === 'just-curious') {
+                showDisqualification(
+                    "Our pricing is transparent on the Packages page. " +
+                    "We focus audits on businesses ready to implement within 90 days."
+                );
+                return true;
+            }
+            
+            // Check for "just researching"
+            if (changedField.id === 'timeline' && changedField.value === 'just-research') {
+                showDisqualification(
+                    "Thanks for your interest! We currently prioritize businesses ready to move fast. " +
+                    "Feel free to reach out again when timing is better."
+                );
+                return true;
+            }
+            
+            // Check for extremely low budget with high revenue (unrealistic)
+            const budget = document.getElementById('budget').value;
+            const revenue = document.getElementById('revenue').value;
+            
+            if (budget === 'under-2k' && (revenue === '500k-1M' || revenue === 'over-1M')) {
+                showDisqualification(
+                    "Our system requires minimum $833/month investment for proper implementation. " +
+                    "We're likely not the right fit for your budget at this stage."
+                );
+                return true;
+            }
+            
+            return false;
+        }
+
+        function showDisqualification(message) {
+            disqualificationMessage.innerHTML = `<p>${message}</p>`;
+            disqualificationOverlay.classList.add('show');
+            form.reset();
+            
+            // Reset score display
+            meterFill.style.width = '0%';
+            scoreValue.textContent = '0';
+            scoreLabel.textContent = 'Complete the form to see your score';
+            scoreWarning.classList.remove('show');
+            preQualSummary.classList.remove('show');
+        }
+
+        // Form Submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate all required fields
+            let isValid = true;
+            const requiredFields = form.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                if (!validateField(field)) {
+                    isValid = false;
+                    // Scroll to first error
+                    if (isValid === false) {
+                        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        isValid = null; // Prevent multiple scrolls
+                    }
+                }
+            });
+            
+            if (!isValid) return;
+            
+            // Check final score
+            const scoreData = calculateScore();
+            
+            // If score is excellent, redirect to Calendly
+            if (scoreData.level === 'excellent' && scoreData.percentage >= 80) {
+                showCalendlyRedirect();
+                return;
+            }
+            
+            // Otherwise, submit form normally
+            submitForm();
+        });
+
+        function showCalendlyRedirect() {
+            calendlyRedirect.classList.add('show');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Qualified - Redirecting...';
+            
+            let countdown = 5;
+            redirectCountdown.textContent = countdown;
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                redirectCountdown.textContent = countdown;
+                
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'https://calendly.com/x5digital/30min';
+                }
+            }, 1000);
+        }
+
+        function submitForm() {
+            // Show loading
+            formLoading.classList.add('show');
+            
+            // Simulate form submission (replace with actual FormSubmit/backend)
+            setTimeout(() => {
+                formLoading.classList.remove('show');
+                formSuccess.classList.add('show');
+                form.style.display = 'none';
+                
+                // You would typically submit to FormSubmit here
+                // const formData = new FormData(form);
+                // fetch('https://formsubmit.co/your-email-here@gmail.com', {
+                //     method: 'POST',
+                //     body: formData
+                // })
+                // .then(response => {
+                //     formLoading.classList.remove('show');
+                //     if (response.ok) {
+                //         formSuccess.classList.add('show');
+                //         form.style.display = 'none';
+                //     } else {
+                //         alert('There was an error submitting the form. Please try again.');
+                //     }
+                // })
+                // .catch(error => {
+                //     formLoading.classList.remove('show');
+                //     alert('There was an error submitting the form. Please try again.');
+                // });
+            }, 2000);
+        }
+
+        // Initialize form with first calculation
+        setTimeout(() => {
+            const scoreData = calculateScore();
+            updateScoreDisplay(scoreData);
+        }, 500);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add input formatting
+        document.getElementById('name').addEventListener('input', function() {
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
+        });
+
+        // Add URL validation for website
+        document.getElementById('website').addEventListener('blur', function() {
+            if (this.value && !this.value.startsWith('http')) {
+                this.value = 'https://' + this.value;
+            }
+        });
+
+        // Initialize tooltips for field hints
+        const fieldHints = document.querySelectorAll('.field-hint');
+        fieldHints.forEach(hint => {
+            hint.setAttribute('title', hint.textContent);
+        });
+    </script>
+</body>
+</html>
