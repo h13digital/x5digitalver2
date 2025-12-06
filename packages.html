@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages — X5 Digital | Choose Your Growth Engine</title>
+    <meta name="description" content="Choose the growth engine that fits your business stage. Every package includes the Pivot Guarantee and full client control.">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS VARIABLES & RESET ===== */
+        :root {
+            /* Color System */
+            --primary: #4f46e5;
+            --primary-dark: #3730a3;
+            --primary-light: #818cf8;
+            --secondary: #10b981;
+            --secondary-dark: #059669;
+            --accent: #8b5cf6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --success: #10b981;
+            
+            /* Package Colors */
+            --foundation: #e0e7ff;
+            --foundation-dark: #4f46e5;
+            --strategic: #c7d2fe;
+            --strategic-dark: #4338ca;
+            --fullstack: #818cf8;
+            --fullstack-dark: #3730a3;
+            --intelligence: #4f46e5;
+            --intelligence-dark: #312e81;
+            
+            /* Neutral Palette */
+            --gray-50: #fafafa;
+            --gray-100: #f5f5f5;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            
+            /* Spacing System (8px grid) */
+            --space-xs: 0.5rem;   /* 8px */
+            --space-sm: 1rem;     /* 16px */
+            --space-md: 1.5rem;   /* 24px */
+            --space-lg: 2rem;     /* 32px */
+            --space-xl: 3rem;     /* 48px */
+            --space-2xl: 4rem;    /* 64px */
+            --space-3xl: 6rem;    /* 96px */
+            
+            /* Typography Scale */
+            --text-xs: 0.75rem;    /* 12px */
+            --text-sm: 0.875rem;   /* 14px */
+            --text-base: 1rem;     /* 16px */
+            --text-lg: 1.125rem;   /* 18px */
+            --text-xl: 1.25rem;    /* 20px */
+            --text-2xl: 1.5rem;    /* 24px */
+            --text-3xl: 1.875rem;  /* 30px */
+            --text-4xl: 2.25rem;   /* 36px */
+            --text-5xl: 3rem;      /* 48px */
+            --text-6xl: 3.75rem;   /* 60px */
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-primary: 0 10px 40px rgba(79, 70, 229, 0.3);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 9999px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.7;
+            color: var(--gray-800);
+            background-color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition-fast);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .container-narrow {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .section {
+            padding: var(--space-3xl) 0;
+        }
+        
+        .section-sm {
+            padding: var(--space-2xl) 0;
+        }
+        
+        .section-lg {
+            padding: var(--space-3xl) 0;
+        }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: var(--space-md);
+            color: var(--gray-900);
+        }
+        
+        h1 {
+            font-size: var(--text-6xl);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: var(--text-4xl);
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: var(--text-2xl);
+        }
+        
+        p {
+            margin-bottom: var(--space-md);
+            color: var(--gray-600);
+        }
+        
+        .lead {
+            font-size: var(--text-xl);
+            font-weight: 500;
+            line-height: 1.6;
+            color: var(--gray-700);
+        }
+        
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            font-weight: 600;
+            font-size: var(--text-base);
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            white-space: nowrap;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .btn:hover::after {
+            animation: shine 1s;
+        }
+        
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.4);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--gray-800);
+            border: 2px solid var(--gray-200);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-package {
+            width: 100%;
+            padding: var(--space-lg);
+            font-size: var(--text-lg);
+            font-weight: 700;
+            border-radius: var(--radius-lg);
+        }
+        
+        .btn-lg {
+            padding: var(--space-lg) var(--space-2xl);
+            font-size: var(--text-lg);
+            border-radius: var(--radius-lg);
+        }
+        
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: var(--space-md) 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            transition: all var(--transition-normal);
+        }
+        
+        header.scrolled {
+            padding: var(--space-sm) 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-weight: 900;
+            font-size: var(--text-2xl);
+            color: var(--primary);
+        }
+        
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .nav-link {
+            font-weight: 600;
+            font-size: var(--text-base);
+            color: var(--gray-700);
+            position: relative;
+            padding: var(--space-xs) 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width var(--transition-normal);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-800);
+            position: relative;
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-800);
+            transition: all var(--transition-fast);
+        }
+        
+        .hamburger::before { top: -8px; }
+        .hamburger::after { bottom: -8px; }
+        
+        .mobile-menu-toggle.active .hamburger {
+            background: transparent;
+        }
+        
+        .mobile-menu-toggle.active .hamburger::before {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .mobile-menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: calc(var(--space-3xl) * 2);
+            padding-bottom: var(--space-3xl);
+            background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .hero-bg-dot {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
+            filter: blur(80px);
+            top: -300px;
+            right: -200px;
+        }
+        
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* ===== PACKAGES COMPARISON ===== */
+        .package-comparison {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .comparison-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .package-tabs {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-2xl);
+            flex-wrap: wrap;
+        }
+        
+        .package-tab {
+            padding: var(--space-sm) var(--space-xl);
+            background: var(--gray-100);
+            border: 2px solid transparent;
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+        
+        .package-tab:hover {
+            background: var(--gray-200);
+            transform: translateY(-2px);
+        }
+        
+        .package-tab.active {
+            background: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-primary);
+        }
+        
+        .packages-grid {
+            display: grid;
+            gap: var(--space-xl);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        
+        .package-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-normal);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .package-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .package-card.highlight {
+            border: 3px solid var(--primary);
+            transform: scale(1.02);
+        }
+        
+        .package-card.highlight::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: var(--space-xs) var(--space-xl);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 800;
+            z-index: 2;
+            white-space: nowrap;
+        }
+        
+        .package-header {
+            padding: var(--space-xl);
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .package-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1), transparent);
+        }
+        
+        .package-header.foundation {
+            background: linear-gradient(135deg, var(--foundation), #a5b4fc);
+            color: var(--foundation-dark);
+        }
+        
+        .package-header.strategic {
+            background: linear-gradient(135deg, var(--strategic), #818cf8);
+            color: var(--strategic-dark);
+        }
+        
+        .package-header.fullstack {
+            background: linear-gradient(135deg, var(--fullstack), #6366f1);
+            color: white;
+        }
+        
+        .package-header.intelligence {
+            background: linear-gradient(135deg, var(--intelligence), #3730a3);
+            color: white;
+        }
+        
+        .package-price {
+            font-size: var(--text-5xl);
+            font-weight: 900;
+            margin: var(--space-sm) 0;
+            line-height: 1;
+        }
+        
+        .package-price span {
+            font-size: var(--text-lg);
+            font-weight: 500;
+        }
+        
+        .package-period {
+            font-size: var(--text-sm);
+            opacity: 0.9;
+        }
+        
+        .package-body {
+            padding: var(--space-xl);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .package-features {
+            list-style: none;
+            margin: var(--space-lg) 0;
+            flex-grow: 1;
+        }
+        
+        .package-features li {
+            padding: var(--space-sm) 0;
+            position: relative;
+            padding-left: var(--space-xl);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: var(--text-lg);
+        }
+        
+        .package-features .not-included {
+            opacity: 0.5;
+        }
+        
+        .package-features .not-included::before {
+            content: '○';
+            color: var(--gray-400);
+        }
+        
+        .package-cta {
+            margin-top: auto;
+            text-align: center;
+        }
+        
+        /* ===== LAYER MATRIX ===== */
+        .layer-matrix {
+            background: var(--gray-50);
+        }
+        
+        .matrix-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+        
+        .matrix-table {
+            width: 100%;
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            border-collapse: collapse;
+        }
+        
+        .matrix-table th {
+            background: var(--gray-900);
+            color: white;
+            padding: var(--space-lg);
+            text-align: left;
+            font-weight: 700;
+        }
+        
+        .matrix-table td {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .layer-cell {
+            font-weight: 600;
+            color: var(--gray-900);
+            background: var(--gray-100);
+        }
+        
+        .package-cell {
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .included {
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .included::before {
+            content: '✓ ';
+        }
+        
+        .partial {
+            color: var(--warning);
+            font-weight: 600;
+        }
+        
+        .partial::before {
+            content: '◐ ';
+        }
+        
+        .not-included {
+            color: var(--gray-400);
+        }
+        
+        .not-included::before {
+            content: '○ ';
+        }
+        
+        /* ===== GUARANTEE SECTION ===== */
+        .guarantee-section {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-top: 1px solid var(--secondary);
+            border-bottom: 1px solid var(--secondary);
+        }
+        
+        .guarantee-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 3px solid var(--secondary);
+            position: relative;
+        }
+        
+        .guarantee-badge {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+            color: white;
+            padding: var(--space-sm) var(--space-xl);
+            border-radius: var(--radius-full);
+            font-weight: 800;
+            font-size: var(--text-lg);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* ===== TEAM PREVIEW ===== */
+        .team-preview {
+            background: linear-gradient(180deg, white 0%, var(--gray-50) 100%);
+        }
+        
+        .team-grid {
+            display: grid;
+            gap: var(--space-xl);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            max-width: 1200px;
+            margin: var(--space-3xl) auto;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .team-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto var(--space-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-3xl);
+            font-weight: 800;
+            color: white;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .ai-icon {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+        }
+        
+        .revops-icon {
+            background: linear-gradient(135deg, var(--success), #059669);
+        }
+        
+        .brand-icon {
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+        }
+        
+        .team-features {
+            list-style: none;
+            margin-top: var(--space-lg);
+            text-align: left;
+        }
+        
+        .team-features li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .team-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .team-features li::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        /* ===== ROI CALCULATOR ===== */
+        .roi-section {
+            background: var(--gray-50);
+        }
+        
+        .roi-calculator {
+            background: white;
+            padding: var(--space-2xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            max-width: 900px;
+            margin: var(--space-3xl) auto;
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .calculator-grid {
+            display: grid;
+            gap: var(--space-xl);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            margin-bottom: var(--space-xl);
+        }
+        
+        .calculator-input {
+            background: var(--gray-50);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+        }
+        
+        .input-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--gray-700);
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .input-group input {
+            flex: 1;
+            padding: var(--space-sm);
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius-md);
+            font-size: var(--text-lg);
+            font-weight: 600;
+        }
+        
+        .input-group span {
+            font-weight: 600;
+            color: var(--gray-600);
+        }
+        
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-2xl);
+        }
+        
+        .result-card {
+            background: var(--gray-50);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            text-align: center;
+        }
+        
+        .result-card.highlight {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+        }
+        
+        .result-value {
+            font-size: var(--text-3xl);
+            font-weight: 900;
+            margin-bottom: var(--space-xs);
+            line-height: 1;
+        }
+        
+        /* ===== FINAL CTA ===== */
+        .cta-final {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .cta-final h2 {
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .slots {
+            font-size: var(--text-xl);
+            margin: var(--space-xl) 0;
+            font-weight: 600;
+        }
+        
+        .slots strong {
+            color: #fbbf24;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--gray-900);
+            color: white;
+            padding: var(--space-3xl) 0 var(--space-xl);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+        
+        .footer-logo {
+            font-weight: 900;
+            font-size: var(--text-2xl);
+            color: white;
+            margin-bottom: var(--space-md);
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+        
+        .footer-links a {
+            color: var(--gray-400);
+            transition: color var(--transition-fast);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-xl);
+            border-top: 1px solid var(--gray-800);
+            color: var(--gray-400);
+            font-size: var(--text-sm);
+        }
+        
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            h1 { font-size: var(--text-5xl); }
+            h2 { font-size: var(--text-3xl); }
+            
+            .hero {
+                padding-top: calc(var(--space-2xl) * 2);
+                padding-bottom: var(--space-2xl);
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                gap: var(--space-xl);
+                padding: var(--space-2xl);
+                box-shadow: var(--shadow-xl);
+                transition: right var(--transition-normal);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+            
+            .package-card.highlight {
+                transform: none;
+            }
+            
+            .matrix-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: var(--text-4xl); }
+            h2 { font-size: var(--text-2xl); }
+            
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .section-lg {
+                padding: var(--space-2xl) 0;
+            }
+            
+            .package-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .package-tab {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .guarantee-card {
+                padding: var(--space-xl) var(--space-lg);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --space-lg: 1.5rem;
+                --space-xl: 2rem;
+                --space-2xl: 3rem;
+            }
+            
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .package-price {
+                font-size: var(--text-4xl);
+            }
+            
+            .result-value {
+                font-size: var(--text-2xl);
+            }
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .text-center { text-align: center; }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mt-sm { margin-top: var(--space-sm); }
+        .mt-md { margin-top: var(--space-md); }
+        .mt-lg { margin-top: var(--space-lg); }
+        .mt-xl { margin-top: var(--space-xl); }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">X5</div>
+                    <span>X5 Digital</span>
+                </a>
+                
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <div class="nav-links">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="how-it-works.html" class="nav-link">How It Works</a>
+                    <a href="packages.html" class="nav-link active">Packages</a>
+                    <a href="proofs.html" class="nav-link">Proof</a>
+                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero section">
+        <div class="hero-bg">
+            <div class="hero-bg-dot"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <h1>Choose the Growth Engine<br><span class="text-primary">That Fits Your Business Right Now</span></h1>
+                
+                <p class="lead">
+                    Every package includes the full Client-Controlled Performance Loop, 
+                    <strong>Pivot Guarantee (zero scope-creep fees)</strong>, and direct Slack management.
+                </p>
+                
+                <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#calculator" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-calculator"></i>
+                        Calculate Your ROI First
+                    </a>
+                    <a href="#packages" class="btn btn-primary btn-lg">
+                        View Packages
+                        <i class="fas fa-arrow-down"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Tabs -->
+    <section class="section" id="packages">
+        <div class="container">
+            <div class="comparison-header" data-aos="fade-up">
+                <h2>Four Ways to Scale.<br>One Pivot Guarantee.</h2>
+                <p class="lead">Start where you are. Scale as you grow. Upgrade anytime.</p>
+            </div>
+            
+            <div class="package-tabs" data-aos="fade-up" data-aos-delay="100">
+                <button class="package-tab active" data-package="foundation">Foundation</button>
+                <button class="package-tab" data-package="strategic">Strategic</button>
+                <button class="package-tab" data-package="fullstack">Full Stack</button>
+                <button class="package-tab" data-package="intelligence">Intelligence Suite</button>
+            </div>
+            
+            <div class="packages-grid">
+                <!-- Foundation Package -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="200" data-package="foundation">
+                    <div class="package-header foundation">
+                        <h3>Foundation</h3>
+                        <div class="package-price">$833<span>/month</span></div>
+                        <p class="package-period">Perfect for testing the system</p>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>Ideal for:</strong> Startups testing digital channels or businesses with limited budget</p>
+                        
+                        <ul class="package-features">
+                            <li>Layer 1: Tracking & Data Setup</li>
+                            <li>1 core channel focus (choose: Ads, SEO, or Email)</li>
+                            <li>Monthly performance report</li>
+                            <li>Access to shared Automation Specialist</li>
+                            <li>n8n basic flows (up to 5 workflows)</li>
+                            <li>Weekly Slack check-ins</li>
+                            <li class="not-included">Dedicated Account Strategist</li>
+                            <li class="not-included">Multi-channel execution</li>
+                            <li class="not-included">Advanced AI automation</li>
+                        </ul>
+                        
+                        <div class="package-cta">
+                            <a href="book-audit.html" class="btn btn-secondary btn-package">
+                                See if this fits →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Strategic Package -->
+                <div class="package-card highlight" data-aos="fade-up" data-aos-delay="300" data-package="strategic">
+                    <div class="package-header strategic">
+                        <h3>Strategic</h3>
+                        <div class="package-price">$2,500 – $3,500<span>/month</span></div>
+                        <p class="package-period">Dedicated team + automation</p>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>Ideal for:</strong> Growing businesses needing dedicated team + multi-channel execution</p>
+                        
+                        <ul class="package-features">
+                            <li>Dedicated Account Strategist (your main POC)</li>
+                            <li>2 core channels (Ads + Content or Email)</li>
+                            <li>Full Layer 2 execution</li>
+                            <li>Standard n8n workflows (unlimited)</li>
+                            <li><strong>Pivot Guarantee included</strong></li>
+                            <li>Direct Slack & Asana management</li>
+                            <li>Weekly strategy sessions</li>
+                            <li>Basic RevOps integration</li>
+                            <li class="not-included">Predictive LTV scoring</li>
+                            <li class="not-included">Custom AI Agent</li>
+                        </ul>
+                        
+                        <div class="package-cta">
+                            <a href="book-audit.html" class="btn btn-primary btn-package">
+                                Get My Custom Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Full Stack Package -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="400" data-package="fullstack">
+                    <div class="package-header fullstack">
+                        <h3>Full Stack</h3>
+                        <div class="package-price">$4,500 – $5,500<span>/month</span></div>
+                        <p class="package-period">Multi-channel + RevOps</p>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>Ideal for:</strong> Established businesses needing full digital transformation</p>
+                        
+                        <ul class="package-features">
+                            <li>Full 5-Layer System</li>
+                            <li>3–4 channels A-Z execution</li>
+                            <li>RevOps integration (HubSpot/Salesforce)</li>
+                            <li>Basic Predictive LTV scoring</li>
+                            <li>Priority support (4-hour response)</li>
+                            <li>Quarterly planning sessions</li>
+                            <li>Custom dashboard setup</li>
+                            <li>Advanced AI automation</li>
+                            <li>Monthly business review</li>
+                            <li class="not-included">Dedicated Revenue Analyst</li>
+                        </ul>
+                        
+                        <div class="package-cta">
+                            <a href="book-audit.html" class="btn btn-primary btn-package">
+                                Get My Custom Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Intelligence Suite -->
+                <div class="package-card" data-aos="fade-up" data-aos-delay="500" data-package="intelligence">
+                    <div class="package-header intelligence">
+                        <h3>Intelligence Suite</h3>
+                        <div class="package-price">$6,000+<span>/month</span></div>
+                        <p class="package-period">Predictive growth & LTV guarantee</p>
+                    </div>
+                    <div class="package-body">
+                        <p><strong>Ideal for:</strong> Enterprise-ready businesses with complex data needs</p>
+                        
+                        <ul class="package-features">
+                            <li>All Full Stack features</li>
+                            <li>Dedicated Revenue Intelligence Analyst</li>
+                            <li>Full Predictive LTV & Churn models</li>
+                            <li>Custom AI Agent (your brand voice)</li>
+                            <li>Custom API & system integrations</li>
+                            <li>Quarterly Business Review + forecast</li>
+                            <li>Executive dashboard</li>
+                            <li>24/7 priority support</li>
+                            <li>Custom automation development</li>
+                            <li>Quarterly innovation workshops</li>
+                        </ul>
+                        
+                        <div class="package-cta">
+                            <a href="book-audit.html" class="btn btn-primary btn-package">
+                                Get My Custom Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layer Matrix -->
+    <section class="layer-matrix section">
+        <div class="container">
+            <div class="matrix-header" data-aos="fade-up">
+                <h2>See Exactly What's Included<br><span class="text-primary">Across All 5 Layers</span></h2>
+                <p class="lead">Compare feature coverage across packages at a glance</p>
+            </div>
+            
+            <div class="table-wrapper" data-aos="fade-up">
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th>5-Layer Feature</th>
+                            <th>Foundation</th>
+                            <th>Strategic</th>
+                            <th>Full Stack</th>
+                            <th>Intelligence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="layer-cell">Layer 5: Revenue Intelligence</td>
+                            <td class="package-cell not-included">-</td>
+                            <td class="package-cell not-included">-</td>
+                            <td class="package-cell partial">Basic</td>
+                            <td class="package-cell included">Full</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Layer 4: AI Automation</td>
+                            <td class="package-cell partial">Limited</td>
+                            <td class="package-cell included">Standard</td>
+                            <td class="package-cell included">Advanced</td>
+                            <td class="package-cell included">Custom</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Layer 3: Revenue Operations</td>
+                            <td class="package-cell not-included">-</td>
+                            <td class="package-cell partial">Basic</td>
+                            <td class="package-cell included">Full</td>
+                            <td class="package-cell included">Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Layer 2: MarTech Execution</td>
+                            <td class="package-cell partial">1 Channel</td>
+                            <td class="package-cell included">2 Channels</td>
+                            <td class="package-cell included">3-4 Channels</td>
+                            <td class="package-cell included">All Channels</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Layer 1: Foundation & Data</td>
+                            <td class="package-cell included">Basic</td>
+                            <td class="package-cell included">Full</td>
+                            <td class="package-cell included">Full</td>
+                            <td class="package-cell included">Enterprise</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Dedicated Team Member</td>
+                            <td class="package-cell not-included">Shared</td>
+                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell included">Yes + Specialist</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Pivot Guarantee</td>
+                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell included">Yes</td>
+                        </tr>
+                        <tr>
+                            <td class="layer-cell">Direct Slack Management</td>
+                            <td class="package-cell partial">Weekly</td>
+                            <td class="package-cell included">Daily</td>
+                            <td class="package-cell included">Daily</td>
+                            <td class="package-cell included">24/7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="text-center mt-xl">
+                <a href="#calculator" class="btn btn-secondary">
+                    <i class="fas fa-calculator"></i>
+                    Calculate Which Package Fits Your Budget
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pivot Guarantee -->
+    <section class="guarantee-section section">
+        <div class="container">
+            <div class="guarantee-card" data-aos="zoom-in">
+                <div class="guarantee-badge">Pivot Guarantee</div>
+                <h3 style="color: #166534;">Every Package Includes Our Pivot Guarantee</h3>
+                <p class="lead" style="color: #166534;">
+                    Strategic direction changes? Market shifts? New competitor emerged?<br>
+                    <strong>We rebuild strategy & automation completely — zero extra fees, ever.</strong>
+                </p>
+                <div style="margin-top: var(--space-lg); display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;">
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: 800; color: #166534;">$0</div>
+                        <div style="font-weight: 600;">Change Fees</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: 800; color: #166534;">∞</div>
+                        <div style="font-weight: 600;">Rebuilds Included</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: var(--text-3xl); font-weight: 800; color: #166534;">100%</div>
+                        <div style="font-weight: 600;">Transparency</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Preview -->
+    <section class="team-preview section">
+        <div class="container">
+            <div class="text-center mb-xl" data-aos="fade-up">
+                <h2>Your Dedicated Team From Day 1</h2>
+                <p class="lead">
+                    No account manager. No tickets. No junior-only team.<br>
+                    <strong>You manage these senior specialists directly via Slack — just like your own employees.</strong>
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <!-- AI Engineer -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-icon ai-icon">
+                        AI
+                    </div>
+                    <h3 style="color: var(--primary);">Senior AI & Automation Engineer</h3>
+                    <p>Builds and maintains your custom AI agents and n8n automation workflows</p>
+                    
+                    <ul class="team-features">
+                        <li>AI SDR tự book meeting cho sales team</li>
+                        <li>24/7 AI content engine</li>
+                        <li>Custom AI creative machine</li>
+                        <li>Weekly growth hypotheses + automated testing</li>
+                        <li>Your n8n workflow ownership & training</li>
+                    </ul>
+                </div>
+                
+                <!-- RevOps Expert -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-icon revops-icon">
+                        R
+                    </div>
+                    <h3 style="color: var(--success);">Digital Marketing & RevOps Expert</h3>
+                    <p>Executes campaigns and ensures data flows seamlessly across your systems</p>
+                    
+                    <ul class="team-features">
+                        <li>Google/Facebook/Meta Ads optimization</li>
+                        <li>Technical SEO + Content strategy</li>
+                        <li>HubSpot & Salesforce sync setup</li>
+                        <li>Predictive lead scoring models</li>
+                        <li>Real-time attribution & reporting</li>
+                    </ul>
+                </div>
+                
+                <!-- Brand Expert -->
+                <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-icon brand-icon">
+                        B
+                    </div>
+                    <h3 style="color: var(--accent);">Creative & Brand Expert</h3>
+                    <p>Ensures every pixel and word aligns with your brand voice and revenue goals</p>
+                    
+                    <ul class="team-features">
+                        <li>Visual identity system maintenance</li>
+                        <li>Messaging framework development</li>
+                        <li>Thought-leadership content creation</li>
+                        <li>Brand-led campaign strategy</li>
+                        <li>Competitive positioning analysis</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-xl" data-aos="fade-up">
+                <p class="lead" style="max-width: 800px; margin: 0 auto;">
+                    <strong>All of them report to you — not to an account manager.</strong><br>
+                    From day 1, in your Slack workspace, available during U.S. business hours.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-section section" id="calculator">
+        <div class="container-narrow">
+            <div class="text-center mb-xl" data-aos="fade-up">
+                <h2>Find Your Perfect Package Match</h2>
+                <p class="lead">Calculate which package delivers the best ROI for your business size</p>
+            </div>
+            
+            <div class="roi-calculator" data-aos="fade-up">
+                <div class="calculator-header">
+                    <h3>Package Recommendation Calculator</h3>
+                    <p>Answer three questions to see which package makes the most sense</p>
+                </div>
+                
+                <div class="calculator-grid">
+                    <div class="calculator-input">
+                        <label class="input-label">Current Monthly Revenue</label>
+                        <div class="input-group">
+                            <span>$</span>
+                            <input type="number" id="revenueInput" min="0" max="10000000" step="1000" value="50000">
+                            <span>/month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-input">
+                        <label class="input-label">Team Size (Marketing/Sales)</label>
+                        <div class="input-group">
+                            <input type="number" id="teamInput" min="0" max="100" step="1" value="3">
+                            <span>people</span>
+                        </div>
+                    </div>
+                    
+                    <div class="calculator-input">
+                        <label class="input-label">Current Marketing Spend</label>
+                        <div class="input-group">
+                            <span>$</span>
+                            <input type="number" id="spendInput" min="0" max="1000000" step="1000" value="10000">
+                            <span>/month</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <div class="result-value" id="recommendedPackage">Strategic</div>
+                        <div>Recommended Package</div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <div class="result-value" id="monthlyCost">$3,000</div>
+                        <div>Estimated Monthly Cost</div>
+                    </div>
+                    
+                    <div class="result-card highlight">
+                        <div class="result-value" id="roiValue">3.2x</div>
+                        <div>Projected ROI</div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: var(--space-xl);">
+                    <a href="book-audit.html" class="btn btn-primary btn-lg">
+                        Get My Customized Recommendation
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-final section-lg" id="audit">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up">
+                <h2>Don't Guess Which Package Is Right for You</h2>
+                
+                <p class="lead" style="color: rgba(255,255,255,0.9);">
+                    In your free 30-minute audit we'll analyze your current LTV, churn, and operational costs — 
+                    then show you exactly which package (and projected ROI) makes the most sense.
+                </p>
+                
+                <div class="slots">
+                    <strong>Only 5 audit slots left this week</strong>
+                </div>
+                
+                <a href="book-audit.html" class="btn btn-primary btn-lg" style="background: white; color: var(--primary);">
+                    Book My Free Audit & Custom Quote
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                
+                <div class="mt-lg" style="color: rgba(255,255,255,0.8);">
+                    <small><i class="fas fa-lock"></i> Zero risk • Takes 30 minutes • You'll leave with your exact numbers</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">X5 Digital</div>
+                    <p style="color: var(--gray-400); margin-bottom: 0;">
+                        Vietnam-based • Built for U.S. SMEs<br>
+                        24/7 coverage with U.S. business hours overlap
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="how-it-works.html">How It Works</a>
+                        <a href="packages.html">Packages</a>
+                        <a href="proofs.html">Proof</a>
+                        <a href="book-audit.html">Book Free Audit</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--space-md);">Packages</h4>
+                    <div class="footer-links">
+                        <a href="#packages">Foundation</a>
+                        <a href="#packages">Strategic</a>
+                        <a href="#packages">Full Stack</a>
+                        <a href="#packages">Intelligence Suite</a>
+                        <a href="#calculator">Package Calculator</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 X5 Digital. All rights reserved. • Pivot Guarantee included in all packages.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.mobile-menu-toggle').classList.remove('active');
+                document.querySelector('.nav-links').classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Package Tabs Functionality
+        const packageTabs = document.querySelectorAll('.package-tab');
+        const packageCards = document.querySelectorAll('.package-card');
+
+        packageTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const packageType = this.getAttribute('data-package');
+                
+                // Update active tab
+                packageTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show/hide packages
+                packageCards.forEach(card => {
+                    if (packageType === 'all' || card.getAttribute('data-package') === packageType) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // ROI Calculator
+        const revenueInput = document.getElementById('revenueInput');
+        const teamInput = document.getElementById('teamInput');
+        const spendInput = document.getElementById('spendInput');
+        const recommendedPackage = document.getElementById('recommendedPackage');
+        const monthlyCost = document.getElementById('monthlyCost');
+        const roiValue = document.getElementById('roiValue');
+
+        function updateCalculator() {
+            const revenue = parseInt(revenueInput.value) || 0;
+            const teamSize = parseInt(teamInput.value) || 0;
+            const spend = parseInt(spendInput.value) || 0;
+            
+            // Determine recommended package
+            let packageRec, cost, roi;
+            
+            if (revenue < 20000 || spend < 3000) {
+                packageRec = 'Foundation';
+                cost = 833;
+                roi = ((spend * 1.5) / cost).toFixed(1);
+            } else if (revenue < 100000 || spend < 20000) {
+                packageRec = 'Strategic';
+                cost = 3000;
+                roi = ((spend * 2.5) / cost).toFixed(1);
+            } else if (revenue < 500000) {
+                packageRec = 'Full Stack';
+                cost = 5000;
+                roi = ((spend * 3) / cost).toFixed(1);
+            } else {
+                packageRec = 'Intelligence Suite';
+                cost = 6000;
+                roi = ((spend * 4) / cost).toFixed(1);
+            }
+            
+            // Adjust for team size
+            if (teamSize > 5) {
+                if (packageRec === 'Foundation') packageRec = 'Strategic';
+                if (packageRec === 'Strategic') packageRec = 'Full Stack';
+                cost = cost * 1.2;
+            }
+            
+            // Update display
+            recommendedPackage.textContent = packageRec;
+            monthlyCost.textContent = '$' + Math.round(cost).toLocaleString();
+            roiValue.textContent = roi + 'x';
+            
+            // Highlight corresponding package card
+            packageCards.forEach(card => {
+                card.classList.remove('highlight');
+                if (card.getAttribute('data-package').toLowerCase() === packageRec.toLowerCase().replace(' ', '').replace('suite', '')) {
+                    card.classList.add('highlight');
+                    
+                    // Scroll to highlighted card if not in view
+                    const rect = card.getBoundingClientRect();
+                    if (rect.top < 0 || rect.bottom > window.innerHeight) {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+        }
+
+        // Initialize calculator
+        revenueInput.addEventListener('input', updateCalculator);
+        teamInput.addEventListener('input', updateCalculator);
+        spendInput.addEventListener('input', updateCalculator);
+        updateCalculator();
+
+        // Package card hover animations
+        packageCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('highlight')) {
+                    this.style.transform = 'translateY(0)';
+                } else {
+                    this.style.transform = 'scale(1.02)';
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Auto-highlight package based on scroll
+        const packageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const packageType = entry.target.getAttribute('data-package');
+                    packageTabs.forEach(tab => {
+                        if (tab.getAttribute('data-package') === packageType) {
+                            tab.classList.add('active');
+                        } else {
+                            tab.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        packageCards.forEach(card => {
+            packageObserver.observe(card);
+        });
+
+        // Add to cart animation
+        document.querySelectorAll('.btn-package').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.textContent.includes('See if')) return;
+                
+                e.preventDefault();
+                const originalText = this.innerHTML;
+                
+                // Animation
+                this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Calculating...';
+                this.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    this.innerHTML = '<i class="fas fa-check"></i> Redirecting to Audit Form';
+                    setTimeout(() => {
+                        window.location.href = 'book-audit.html';
+                    }, 500);
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
