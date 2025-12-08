@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTM Plan: Learn-to-Earn Social Trading Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0ea5e9; /* Sky blue */
+            --primary-dark: #0284c7;
+            --secondary: #10b981; /* Emerald */
+            --dark: #0f172a; /* Dark blue slate */
+            --light: #f8fafc;
+            --gray: #cbd5e1;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        /* Header & Nav */
+        header {
+            background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #334155;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--secondary); }
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.3rem 0;
+        }
+        nav a:hover, nav a.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1640340434855-6084b1f4901c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 3rem;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            margin: 0.5rem;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+        }
+        .cta-button.secondary { background: linear-gradient(to right, var(--secondary), #0d966c); }
+        /* Sections */
+        section {
+            background-color: rgba(30, 41, 59, 0.7);
+            margin: 2.5rem 0;
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        section:hover { transform: translateY(-5px); }
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 2px solid #334155;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2 i { font-size: 1.5rem; }
+        h3 { color: var(--secondary); margin: 1.8rem 0 0.8rem 0; }
+        p, li { color: #e2e8f0; }
+        ul, ol { padding-left: 1.5rem; margin: 1rem 0; }
+        li { margin-bottom: 0.7rem; }
+        .highlight { color: var(--primary); font-weight: 600; }
+        /* Cards & Data Display */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .card {
+            background: rgba(15, 23, 42, 0.8);
+            padding: 1.8rem;
+            border-radius: 12px;
+            border-top: 4px solid var(--secondary);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .card h4 { color: var(--light); margin-bottom: 1rem; font-size: 1.2rem; }
+        .metric { font-size: 2.2rem; font-weight: 700; color: var(--secondary); line-height: 1; }
+        .metric-label { color: var(--gray); font-size: 0.9rem; margin-top: 0.3rem; }
+        /* Toggleable Content */
+        .toggle-header {
+            background: none;
+            border: none;
+            color: var(--light);
+            width: 100%;
+            text-align: left;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 8px;
+            background-color: rgba(51, 65, 85, 0.5);
+            margin-top: 1rem;
+        }
+        .toggle-header:hover { background-color: rgba(51, 65, 85, 0.8); }
+        .toggle-content {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.3s;
+            border-left: 2px solid transparent;
+        }
+        .toggle-content.active {
+            max-height: 1500px;
+            padding: 1rem;
+            border-left: 2px solid var(--primary);
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #334155;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            section { padding: 1.8rem; }
+            .cards-container { grid-template-columns: 1fr; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><i class="fas fa-chart-network"></i> Alpha<span>Copy</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#executive-summary" class="active">Summary</a></li>
+                    <li><a href="#market-analysis">Market</a></li>
+                    <li><a href="#gtm-strategy">GTM Strategy</a></li>
+                    <li><a href="#execution-plan">Execution</a></li>
+                    <li><a href="#metrics">KPIs</a></li>
+                    <li><a href="#risk">Risk</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="hero">
+            <h1>Go-To-Market Strategy</h1>
+            <p class="tagline"><strong>"Learn-to-Earn Social Trading Hub"</strong> – A next-generation Crypto Copy Trading Platform designed to build trust through transparency, education, and community.</p>
+            <a href="#gtm-strategy" class="cta-button"><i class="fas fa-rocket"></i> View Core Strategy</a>
+            <button class="cta-button secondary" onclick="toggleAllDetails()"><i class="fas fa-eye"></i> Toggle All Details</button>
+        </section>
+
+        <!-- EXECUTIVE SUMMARY -->
+        <section id="executive-summary">
+            <h2><i class="fas fa-file-alt"></i> 1. Executive Summary</h2>
+            <p>This plan outlines the launch of <span class="highlight">AlphaCopy</span>, a platform that solves the core issues of existing copy trading: <strong>opaque strategies, uncontrolled risk, and zero learning</strong> for followers[citation:8][citation:9].</p>
+            <p><strong>Our Unique Value:</strong> We are not just a copy-paste tool. We are a <span class="highlight">"Learn-to-Earn Social Trading Hub"</span> where Followers learn the "why" behind trades and Masters build their personal brand and community.</p>
+            <button class="toggle-header" onclick="toggleDetail('detail-summary')">
+                <span>Core Objectives & Success Metrics</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="toggle-content" id="detail-summary">
+                <h3>6-Month Launch Objectives:</h3>
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="metric">20+</div>
+                        <div class="metric-label">Elite "Founder Masters"</div>
+                        <p>Onboarded with verified track records.</p>
+                    </div>
+                    <div class="card">
+                        <div class="metric">5,000+</div>
+                        <div class="metric-label">Registered Followers</div>
+                        <p>Acquired through targeted channels.</p>
+                    </div>
+                    <div class="card">
+                        <div class="metric">$500K</div>
+                        <div class="metric-label">Assets Under Management (AUM)</div>
+                        <p>Total capital copied on the platform.</p>
+                    </div>
+                </div>
+                <h3>Our Promise:</h3>
+                <p><strong>To Followers:</strong> "Invest with insight, not just instinct. Automate your portfolio with strategies you can learn from."</p>
+                <p><strong>To Masters (Traders):</strong> "Transform your strategy into an asset and your expertise into a brand."</p>
+            </div>
+        </section>
+
+        <!-- TARGET MARKET & COMPETITION -->
+        <section id="market-analysis">
+            <h2><i class="fas fa-bullseye"></i> 2. Target Market & Competitive Edge</h2>
+            <p>A successful GTM strategy starts with a deep understanding of the target customer and the competitive landscape[citation:1][citation:7].</p>
+            <div class="cards-container">
+                <div class="card">
+                    <h4><i class="fas fa-user-graduate"></i> Primary Follower (B2C)</h4>
+                    <p><strong>The "Eager Learner":</strong> New to crypto, lacks time/confidence to trade alone, suffers from FOMO and past losses. <em>Seeks safe, guided entry.</em></p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-crown"></i> Primary Master (B2B2C)</h4>
+                    <p><strong>The "Strategic Guru":</strong> Experienced trader with a proven record. <em>Seeks monetization, audience growth, and professional tools.</em></p>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-chess-knight"></i> Competitive Position</h4>
+                    <p>We avoid direct feature wars with giants like Binance. Instead, we <span class="highlight">own the niche</span> of <strong>Educative & Social Copy Trading</strong>, focusing on trust and community[citation:5].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE GTM STRATEGY -->
+        <section id="gtm-strategy">
+            <h2><i class="fas fa-chess-board"></i> 3. Core Go-to-Market Strategy</h2>
+            <p>Our launch is a phased, evidence-based campaign centered on acquiring and activating the most critical asset first: <span class="highlight">high-quality Masters</span>[citation:10].</p>
+
+            <button class="toggle-header" onclick="toggleDetail('detail-usp')">
+                <span>Our Unbeatable USP & Model</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="toggle-content" id="detail-usp">
+                <h3>The "Learn-to-Earn" Hub Difference:</h3>
+                <ul>
+                    <li><strong>Post-Trade Analysis:</strong> Every copied trade comes with the Master's notes on the "why" (strategy, market context).</li>
+                    <li><strong>Virtual Portfolio Sandbox:</strong> Followers test-copy strategies with fake money before committing real capital.</li>
+                    <li><strong>Master Tier System:</strong> A transparent ladder (Standard → Verified → Elite → Founder) with clear benefits and risk-based requirements.</li>
+                </ul>
+                <h3>Hybrid Pricing & Monetization:</h3>
+                <ul>
+                    <li><strong>For Masters:</strong> Performance fee (share of follower profits). Founder Masters get a 90/10 split for the first year.</li>
+                    <li><strong>For Followers:</strong> Freemium model. Basic copy trading is free. <strong>"Pro Learn" subscription</strong> ($5-7/month) unlocks deep analytics, real-time signals, and advanced educational content.</li>
+                </ul>
+            </div>
+
+            <button class="toggle-header" onclick="toggleDetail('detail-phases')">
+                <span>Phased Launch Timeline (90 Days)</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="toggle-content active" id="detail-phases">
+                <!-- Timeline visualized with description -->
+                <h3>Phase 1: Master Foundation (T-8 to T-4 Weeks) <i class="fas fa-hard-hat" style="color: var(--warning);"></i></h3>
+                <p><strong>Goal:</strong> Recruit & onboard 10-20 "Founder Masters."</p>
+                <ul>
+                    <li><strong>Action:</strong> Secret outreach via LinkedIn/Discord to top traders. Offer exceptional terms (90/10 split, seed capital).</li>
+                    <li><strong>KPI:</strong> Signed contracts and completed KYC/verification.</li>
+                </ul>
+
+                <h3>Phase 2: Content & Community Build (T-4 to T-1 Weeks) <i class="fas fa-users" style="color: var(--secondary);"></i></h3>
+                <p><strong>Goal:</strong> Generate social proof and pre-launch buzz.</p>
+                <ul>
+                    <li><strong>Action:</strong> "Founder Master Bootcamp" to train on platform and content creation. Teaser campaigns on crypto forums.</li>
+                    <li><strong>KPI:</strong> 2,000+ waitlist sign-ups for followers.</li>
+                </ul>
+
+                <h3>Phase 3: Official Launch & Blitz (D-Day to D+14) <i class="fas fa-bullhorn" style="color: var(--danger);"></i></h3>
+                <p><strong>Goal:</strong> Maximize awareness and initial user activation.</p>
+                <ul>
+                    <li><strong>Action:</strong> Coordinated launch: Press Release, CEO/KOL Livestream, Founder Master AMAs, targeted social ads.</li>
+                    <li><strong>KPI:</strong> 500 Masters, 5,000 Followers registered.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- EXECUTION & METRICS -->
+        <section id="execution-plan">
+            <h2><i class="fas fa-tasks"></i> 4. Execution & Channel Strategy</h2>
+            <p>How we will reach our target audiences effectively[citation:1][citation:5].</p>
+            <div class="cards-container">
+                <div class="card">
+                    <h4><i class="fas fa-bullseye"></i> Acquisition Channels</h4>
+                    <ul>
+                        <li><strong>Masters:</strong> Direct LinkedIn outreach, partnerships with trading educators, referral bonuses.</li>
+                        <li><strong>Followers:</strong> Content marketing (explainer videos, blog posts on "Crypto for Beginners"), strategic partnerships with crypto news sites, targeted Google/Facebook ads.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4><i class="fas fa-toolbox"></i> Sales & Onboarding</h4>
+                    <p><strong>Product-Led Growth (PLG) Model:</strong> The intuitive, self-serve platform is our main salesperson[citation:5].</p>
+                    <ul>
+                        <li><strong>Frictionless Sign-up:</strong> Under 3-minute registration.</li>
+                        <li><strong>Interactive Tutorials:</strong> Guided first copy trade.</li>
+                        <li><strong>Dedicated Support:</strong> Live chat for high-intent users.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="metrics">
+            <h2><i class="fas fa-chart-line"></i> 5. KPIs & Measurement</h2>
+            <p>Tracking the right metrics is critical to evaluate success and optimize the strategy post-launch[citation:10].</p>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="metric">CAC</div>
+                    <div class="metric-label">Customer Acquisition Cost</div>
+                    <p>Must be <strong>significantly lower</strong> than LTV. Target: Follower CAC < $50.</p>
+                </div>
+                <div class="card">
+                    <div class="metric">LTV</div>
+                    <div class="metric-label">Lifetime Value</div>
+                    <p>Driven by subscription fees and platform profit share. Target LTV:CAC ratio > 3:1.</p>
+                </div>
+                <div class="card">
+                    <div class="metric">AUM Growth</div>
+                    <div class="metric-label">Assets Under Management</div>
+                    <p>The primary health metric of the platform. Target: $500K in 6 months.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- RISK MANAGEMENT -->
+        <section id="risk">
+            <h2><i class="fas fa-shield-alt"></i> 6. Risk Management & Compliance</h2>
+            <p>Proactive mitigation is non-negotiable in fintech and crypto[citation:8].</p>
+            <button class="toggle-header" onclick="toggleDetail('detail-risk')">
+                <span>Key Mitigation Strategies</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="toggle-content" id="detail-risk">
+                <ul>
+                    <li><strong>Regulatory First:</strong> Entity registered in a crypto-friendly jurisdiction (e.g., Singapore). Clear Terms of Service positioning us as a technology platform, not a fund manager.</li>
+                    <li><strong>Built-in Risk Controls:</strong> Mandatory stop-loss settings for followers, "Risk Shield" tools for Masters, transparent performance metrics (Sharpe Ratio, Max Drawdown).</li>
+                    <li><strong>Security & Trust:</strong> 95%+ cold storage for custodial assets, published SAFU (Secure Asset Fund for Users) fund, regular third-party security audits.</li>
+                    <li><strong>FUD (Fear, Uncertainty, Doubt) Plan:</strong> Pre-prepared communication templates for potential crises (e.g., a Master's major loss, market crash).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section style="text-align: center; border-left-color: var(--secondary);">
+            <h2 style="border:none; justify-content: center;"><i class="fas fa-flag-checkered"></i> Ready for Launch</h2>
+            <p>This GTM plan provides a clear, phased roadmap to launch the "Learn-to-Earn Social Trading Hub," transforming a complex product into a trusted community brand.</p>
+            <p><strong>Next Steps:</strong> Finalize "Founder Master" contracts, begin MVP development of the Post-Trade Analysis feature, and initiate pre-launch content calendar.</p>
+            <a href="#hero" class="cta-button"><i class="fas fa-arrow-up"></i> Back to Top</a>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p><strong>Portfolio Document:</strong> This HTML/CSS/JS GTM Plan was created to demonstrate strategic planning and web development skills.</p>
+        <p>Concept: AlphaCopy "Learn-to-Earn Social Trading Hub" | Created: December 2025</p>
+    </footer>
+
+    <script>
+        // Toggle detail sections
+        function toggleDetail(id) {
+            const content = document.getElementById(id);
+            const icon = content.previousElementSibling.querySelector('i');
+            content.classList.toggle('active');
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+
+        // Expand/Collapse All Details
+        function toggleAllDetails() {
+            const allDetails = document.querySelectorAll('.toggle-content');
+            const allIcons = document.querySelectorAll('.toggle-header i');
+            const isAnyOpen = Array.from(allDetails).some(d => d.classList.contains('active'));
+
+            allDetails.forEach(detail => {
+                detail.classList.toggle('active', !isAnyOpen);
+            });
+            allIcons.forEach(icon => {
+                icon.classList.toggle('fa-chevron-down', isAnyOpen);
+                icon.classList.toggle('fa-chevron-up', !isAnyOpen);
+            });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                // Update active nav link
+                document.querySelectorAll('nav a').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', function() {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
