@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosystem Insight — Start2 Growth Engine v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg-primary: #050911;
+    --bg-card: #0d1423;
+    --bg-card2: #111d30;
+    --accent-blue: #3B82F6;
+    --accent-cyan: #06B6D4;
+    --accent-teal: #14B8A6;
+    --accent-green: #22C55E;
+    --accent-emerald: #10B981;
+    --accent-yellow: #EAB308;
+    --accent-orange: #F97316;
+    --text-primary: #F0F4FF;
+    --text-muted: #8B9EC8;
+    --border: #1a2540;
+    --border-bright: #2a3a60;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-y: scroll; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, .syne { font-family: 'Syne', sans-serif; }
+
+  /* ── NAV ── */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: 56px;
+    background: rgba(5,9,17,0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; width: 100%;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; white-space: nowrap; text-decoration: none;
+  }
+  .nav-tabs {
+    display: flex; align-items: center; gap: 2px;
+    list-style: none; flex: 1; justify-content: center;
+  }
+  .nav-tabs a {
+    display: block; padding: 5px 10px; border-radius: 6px;
+    font-size: 12px; font-weight: 500; color: var(--text-muted);
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
+  }
+  .nav-tabs a:hover { color: var(--text-primary); background: rgba(59,130,246,0.1); }
+  .nav-tabs a.active { color: var(--accent-cyan); background: rgba(6,182,212,0.12); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 0 20px rgba(59,130,246,0.35); transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { box-shadow: 0 0 35px rgba(59,130,246,0.55); transform: translateY(-1px); }
+  #hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  #hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+  #mobile-menu {
+    display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 999;
+    background: rgba(5,9,17,0.97); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem; flex-direction: column; gap: 4px;
+  }
+  #mobile-menu a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text-muted); font-size: 14px; text-decoration: none; }
+  #mobile-menu a:hover, #mobile-menu a.active { color: var(--accent-cyan); background: rgba(6,182,212,0.1); }
+  #mobile-menu.open { display: flex; }
+
+  /* ── PAGE WRAPPER ── */
+  .page-section {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 0 60px; position: relative; overflow: hidden;
+  }
+  .content-section {
+    padding: 80px 0 60px; position: relative;
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+  /* ── SHARED COMPONENTS ── */
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { border-color: var(--border-bright); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    background: rgba(59,130,246,0.15); color: var(--accent-blue);
+    border: 1px solid rgba(59,130,246,0.25);
+  }
+  .badge-cyan { background: rgba(6,182,212,0.12); color: var(--accent-cyan); border-color: rgba(6,182,212,0.25); }
+  .badge-green { background: rgba(34,197,94,0.12); color: var(--accent-green); border-color: rgba(34,197,94,0.25); }
+  .badge-orange { background: rgba(249,115,22,0.12); color: #fb923c; border-color: rgba(249,115,22,0.25); }
+  .badge-red { background: rgba(239,68,68,0.12); color: #f87171; border-color: rgba(239,68,68,0.25); }
+  .badge-yellow { background: rgba(234,179,8,0.12); color: #facc15; border-color: rgba(234,179,8,0.25); }
+  .section-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-cyan); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+  .section-sub { font-size: 17px; color: var(--text-muted); max-width: 640px; }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, #7dd3fc 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+  .quote-block {
+    border-left: 3px solid var(--accent-cyan); padding: 1rem 1.5rem;
+    background: rgba(6,182,212,0.05); border-radius: 0 10px 10px 0;
+    font-size: 16px; font-style: italic; color: var(--text-primary); line-height: 1.7;
+  }
+  .divider { height: 1px; background: var(--border); margin: 2rem 0; }
+
+  /* ── ECOSYSTEM NODE (original) ── */
+  .ecosystem-node { background: var(--bg-card); border: 1px solid var(--border-bright); border-radius: 12px; padding: 1rem 1.5rem; text-align: center; }
+  .ecosystem-hub { background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(6,182,212,0.15)); border-color: rgba(6,182,212,0.4); border-radius: 16px; padding: 1.5rem 2rem; }
+
+  /* ── BUYER CARDS ── */
+  .buyer-cards-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .buyer-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .buyer-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+  .buyer-card-header {
+    padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .buyer-card-header-left { display: flex; align-items: center; gap: 0.75rem; }
+  .buyer-card-emoji { font-size: 28px; }
+  .buyer-card-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; }
+  .buyer-card-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+  .buyer-card-body { padding: 0; }
+
+  /* color accent by buyer */
+  .buyer-gov { border-left: 4px solid var(--accent-yellow); }
+  .buyer-gov .buyer-card-header { border-left: none; }
+  .buyer-gov .buyer-card-accent { color: #facc15; }
+  .buyer-corp { border-left: 4px solid var(--accent-orange); }
+  .buyer-corp .buyer-card-accent { color: #fb923c; }
+  .buyer-startup { border-left: 4px solid var(--accent-blue); }
+  .buyer-startup .buyer-card-accent { color: var(--accent-blue); }
+  .buyer-bridge { border-left: 4px solid var(--accent-cyan); }
+  .buyer-bridge .buyer-card-accent { color: var(--accent-cyan); }
+
+  /* Q&A table inside card */
+  .qa-table { width: 100%; border-collapse: collapse; }
+  .qa-table tr { border-top: 1px solid var(--border); }
+  .qa-table tr:first-child { border-top: none; }
+  .qa-table td { padding: 0.85rem 1.25rem; vertical-align: top; }
+  .qa-table td:first-child {
+    font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--text-muted); white-space: nowrap; width: 160px;
+    border-right: 1px solid var(--border); background: rgba(255,255,255,0.015);
+  }
+  .qa-table td:last-child { font-size: 14px; color: var(--text-primary); line-height: 1.6; }
+
+  .buyer-card-footer {
+    padding: 1rem 1.5rem; border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    background: rgba(255,255,255,0.02);
+    flex-wrap: wrap;
+  }
+  .buyer-meta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .buyer-meta-item { font-size: 12px; color: var(--text-muted); }
+  .buyer-meta-item strong { font-weight: 600; color: var(--text-primary); }
+
+  /* ── SECTION DIVIDER BAND ── */
+  .section-band {
+    background: linear-gradient(180deg, #081022 0%, var(--bg-primary) 100%);
+    padding: 6px 0;
+  }
+
+  /* ── CUSTOMER JOURNEY STEPPER ── */
+  .journey-section { padding: 80px 0 60px; background: linear-gradient(180deg, var(--bg-primary), #07111e); }
+  .journey-buyer-block { margin-bottom: 5rem; }
+  .journey-buyer-block:last-child { margin-bottom: 0; }
+  .journey-persona-card {
+    background: var(--bg-card2); border: 1px solid var(--border);
+    border-radius: 12px; padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem; display: flex; align-items: flex-start; gap: 1rem;
+  }
+  .journey-persona-avatar {
+    width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; font-size: 22px; flex-shrink: 0;
+  }
+  .avatar-gov { background: rgba(234,179,8,0.15); border: 1px solid rgba(234,179,8,0.3); }
+  .avatar-corp { background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.3); }
+  .avatar-startup { background: rgba(59,130,246,0.15); border: 1px solid rgba(59,130,246,0.3); }
+  .journey-persona-info h4 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .journey-persona-info p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+  /* Horizontal stepper */
+  .stepper {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+    position: relative; margin-top: 0;
+  }
+  .stepper-connector {
+    position: absolute; top: 24px; left: calc(10% + 24px); right: calc(10% + 24px);
+    height: 2px; background: var(--border); z-index: 0;
+  }
+  .step {
+    display: flex; flex-direction: column; align-items: center; position: relative; z-index: 1;
+    padding: 0 0.5rem;
+  }
+  .step-number {
+    width: 48px; height: 48px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 800;
+    border: 2px solid; margin-bottom: 1rem; background: var(--bg-primary); position: relative;
+  }
+  .step-icon { font-size: 18px; }
+  .step-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; text-align: center; }
+  .step-desc { font-size: 13px; color: var(--text-muted); text-align: center; line-height: 1.55; }
+  .step-callout {
+    margin-top: 0.75rem; font-size: 11px; font-weight: 600;
+    padding: 4px 10px; border-radius: 999px; text-align: center;
+  }
+
+  /* step colors by buyer */
+  .step-gov .step-number { color: #facc15; border-color: #facc15; background: rgba(234,179,8,0.08); }
+  .step-gov .step-label { color: #facc15; }
+  .step-corp .step-number { color: #fb923c; border-color: #fb923c; background: rgba(249,115,22,0.08); }
+  .step-corp .step-label { color: #fb923c; }
+  .step-startup .step-number { color: var(--accent-blue); border-color: var(--accent-blue); background: rgba(59,130,246,0.08); }
+  .step-startup .step-label { color: var(--accent-blue); }
+
+  .journey-fears {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+  }
+  .fear-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1rem 1.25rem;
+  }
+  .fear-card-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+  .fear-card-text { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+
+  /* ── ANALOGY SECTION ── */
+  .analogy-section { padding: 80px 0 80px; background: linear-gradient(180deg, #07111e, var(--bg-primary)); }
+  .hospital-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2.5rem 0;
+  }
+  .hospital-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.75rem 1.5rem; text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .hospital-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+  .hospital-card-icon { font-size: 40px; margin-bottom: 1rem; }
+  .hospital-card-title { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 0.4rem; }
+  .hospital-card-equiv { font-size: 13px; font-weight: 600; margin-bottom: 0.75rem; }
+  .hospital-card-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+  .hospital-vs { margin: 2rem 0; }
+  .hospital-vs-title { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-primary); }
+  .hospital-problem-list { display: flex; flex-direction: column; gap: 0.75rem; max-width: 640px; }
+  .hospital-problem-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.18);
+    border-radius: 10px; padding: 0.85rem 1.25rem;
+  }
+  .hospital-problem-item .icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .hospital-problem-item p { font-size: 14px; color: var(--text-muted); line-height: 1.55; }
+  .hospital-problem-item strong { color: var(--text-primary); }
+
+  .analogy-callout {
+    background: linear-gradient(135deg, rgba(59,130,246,0.12), rgba(6,182,212,0.08));
+    border: 1px solid rgba(6,182,212,0.3);
+    border-radius: 16px; padding: 2rem 2.5rem; margin: 3rem 0;
+    position: relative; overflow: hidden;
+  }
+  .analogy-callout::before {
+    content: '"'; position: absolute; top: -20px; left: 16px;
+    font-family: 'Syne', sans-serif; font-size: 120px; font-weight: 800;
+    color: rgba(6,182,212,0.12); line-height: 1;
+  }
+  .analogy-callout p { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 0.75rem; }
+  .analogy-callout ul { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+  .analogy-callout li { font-size: 14px; color: var(--text-muted); margin-bottom: 0.4rem; line-height: 1.6; }
+  .analogy-callout li strong { color: var(--text-primary); }
+
+  .mega-quote {
+    background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(6,182,212,0.06));
+    border: 1px solid rgba(6,182,212,0.35);
+    border-radius: 20px; padding: 2.5rem 3rem; margin-top: 3rem; text-align: center;
+  }
+  .mega-quote p { font-size: 18px; font-weight: 600; line-height: 1.7; color: var(--text-primary); }
+  .mega-quote p em { color: var(--accent-cyan); font-style: normal; }
+  .mega-quote .summary-line {
+    font-family: 'Syne', sans-serif; font-size: clamp(16px, 2.5vw, 21px);
+    font-weight: 800; margin-top: 1.5rem; color: var(--text-primary);
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+
+  /* ── FOOTER ── */
+  footer { padding: 3rem 0; border-top: 1px solid var(--border); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .nav-tabs { display: none; }
+    #hamburger { display: flex; }
+    .buyer-cards-grid { grid-template-columns: 1fr; }
+    .stepper { grid-template-columns: 1fr; gap: 0; }
+    .stepper-connector { display: none; }
+    .step { flex-direction: row; align-items: flex-start; text-align: left; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step-number { margin-bottom: 0; margin-right: 1rem; flex-shrink: 0; }
+    .step-label { text-align: left; }
+    .step-desc { text-align: left; }
+    .step-callout { text-align: left; }
+    .hospital-grid { grid-template-columns: 1fr; }
+    .journey-fears { grid-template-columns: 1fr; }
+    .mega-quote { padding: 1.75rem 1.5rem; }
+  }
+  @media (max-width: 680px) {
+    .buyer-card-header { flex-direction: column; align-items: flex-start; }
+    .qa-table td:first-child { width: 120px; }
+    .ecosystem-layout { grid-template-columns: 1fr !important; }
+    .analogy-callout { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Start2 GE v2.0</a>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="index.html">Hook</a></li>
+      <li><a href="StatusQuo.html">Status Quo</a></li>
+      <li><a href="Ecosystem.html" class="active">Ecosystem</a></li>
+      <li><a href="Vision.html">Vision</a></li>
+      <li><a href="Framework.html">Framework</a></li>
+      <li><a href="ROI.html">ROI</a></li>
+      <li><a href="Roadmap.html">Roadmap</a></li>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="WhyHiep.html">Why Hiep</a></li>
+      <li><a href="Investment.html">Investment</a></li>
+    </ul>
+    <a href="Investment.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Contact Hiep
+    </a>
+    <div id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html" onclick="closeMobileMenu()">01 — Opening Hook</a>
+  <a href="StatusQuo.html" onclick="closeMobileMenu()">02 — Status Quo</a>
+  <a href="Ecosystem.html" onclick="closeMobileMenu()" class="active">03 — Ecosystem</a>
+  <a href="Vision.html" onclick="closeMobileMenu()">04 — Vision</a>
+  <a href="Framework.html" onclick="closeMobileMenu()">05 — Framework</a>
+  <a href="ROI.html" onclick="closeMobileMenu()">06 — ROI Case</a>
+  <a href="Roadmap.html" onclick="closeMobileMenu()">07 — 90-Day Roadmap</a>
+  <a href="Dashboard.html" onclick="closeMobileMenu()">08 — Dashboard</a>
+  <a href="WhyHiep.html" onclick="closeMobileMenu()">09 — Why Hiep</a>
+  <a href="Investment.html" onclick="closeMobileMenu()">10 — Investment & Ask</a>
+</div>
+
+<!-- ═══════ SECTION 0 — ORIGINAL ECOSYSTEM MAP ═══════ -->
+<section class="page-section" style="background: linear-gradient(180deg, var(--bg-primary) 0%, #081022 100%);">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label fade-in">Why Start2 Is Different</p>
+      <h2 class="section-title fade-in fade-in-delay-1" style="max-width:720px;margin:0 auto 1rem;">The Ecosystem That Makes This <span class="gradient-text">Harder — and More Valuable</span></h2>
+      <p class="section-sub fade-in fade-in-delay-2" style="margin:0 auto;">Start2 operates at the intersection of three entirely different buyer personas with radically different buying cycles.</p>
+    </div>
+    <div class="ecosystem-layout fade-in fade-in-delay-2" style="display:grid;grid-template-columns:1fr auto 1fr;gap:2rem;align-items:center;margin-bottom:2.5rem;">
+      <div class="ecosystem-node" style="text-align:right;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Buyer 1</div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px;">Government</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Germany / EU · Fund &amp; mandate</div>
+        <div class="badge badge-yellow">6–18 month cycle</div>
+      </div>
+      <div class="ecosystem-hub ecosystem-node" style="text-align:center;min-width:180px;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--accent-cyan);margin-bottom:6px;">The Bridge</div>
+        <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;">START2 GROUP</div>
+        <div style="font-size:11px;color:var(--text-muted);line-height:1.7;">Rise&amp;Scale · Cashwalk<br>Internationalization · Fundraising<br>Corporate Mandates · Public Sector</div>
+      </div>
+      <div class="ecosystem-node">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Buyer 2</div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px;">Corporate</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">DAX / Fortune 500 · Seek innovation</div>
+        <div class="badge badge-orange">2–4 month cycle</div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-bottom:2.5rem;" class="fade-in fade-in-delay-3">
+      <div class="ecosystem-node" style="text-align:center;max-width:300px;">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin-bottom:4px;">Buyer 3</div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px;">Startups</div>
+        <div style="font-size:13px;color:var(--text-muted);margin-bottom:8px;">Deeptech · ClimateTech · HealthTech</div>
+        <div class="badge">2–6 week cycle</div>
+      </div>
+    </div>
+    <div class="quote-block fade-in fade-in-delay-4" style="max-width:760px;margin:0 auto;">
+      "Most marketing frameworks are built for one buyer persona. Start2 has three — with completely different buying cycles. A single pipeline cannot serve all three. That is the fundamental architectural problem we need to solve."
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 1 — BUYER CARDS Q&A ═══════ -->
+<section class="content-section" id="buyer-cards" style="background: linear-gradient(180deg, #081022, var(--bg-primary));">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:1rem;">
+      <p class="section-label fade-in">Deep Dive — Buyer Intelligence</p>
+      <h2 class="section-title fade-in fade-in-delay-1" style="max-width:700px;margin:0 auto 1rem;">Who Are the <span class="gradient-text">3 Buyers</span> — and Why Do They Buy Differently?</h2>
+      <p class="section-sub fade-in fade-in-delay-2" style="margin:0 auto;">Each buyer operates on a fundamentally different logic: different budgets, different decision-makers, different timelines. Understanding each one in depth is prerequisite to any effective pipeline strategy.</p>
+    </div>
+
+    <div class="buyer-cards-grid">
+
+      <!-- GOV CARD -->
+      <div class="buyer-card buyer-gov fade-in fade-in-delay-1">
+        <div class="buyer-card-header">
+          <div class="buyer-card-header-left">
+            <div class="buyer-card-emoji">🏛️</div>
+            <div>
+              <div class="buyer-card-title">Government</div>
+              <div class="buyer-card-sub">Germany / EU · KfW · EIF · BMWK</div>
+            </div>
+          </div>
+          <span class="badge badge-yellow">6–18 month cycle</span>
+        </div>
+        <div class="buyer-card-body">
+          <table class="qa-table">
+            <tr>
+              <td>Who are they?</td>
+              <td>Government agencies and EU institutions (KfW, EIF, BMWK) that deploy public budgets to stimulate economic innovation and create high-tech jobs.</td>
+            </tr>
+            <tr>
+              <td>What do they want from Start2?</td>
+              <td>A professional operator to design and run startup support programs aligned to policy mandates — e.g. "bring 50 foreign startups into the German market in 12 months."</td>
+            </tr>
+            <tr>
+              <td>Why is the cycle 6–18 months?</td>
+              <td>Public funds require open RFP (Request for Proposal) bidding, multi-tier approvals, and legal audits. Nobody signs a €200K contract after a single meeting — budget accountability rules every step.</td>
+            </tr>
+            <tr>
+              <td>Real-world analogy</td>
+              <td>Like a public school buying new textbooks: first request budget approval, then post a tender, evaluate vendors, sign — weeks or months before a single book ships.</td>
+            </tr>
+          </table>
+        </div>
+        <div class="buyer-card-footer">
+          <div class="buyer-meta">
+            <div class="buyer-meta-item"><strong>Deal size:</strong> €50,000 – €500,000</div>
+            <div class="buyer-meta-item"><strong>Decision-maker:</strong> Innovation Officer · Trade Attaché · Parliament</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CORPORATE CARD -->
+      <div class="buyer-card buyer-corp fade-in fade-in-delay-2">
+        <div class="buyer-card-header">
+          <div class="buyer-card-header-left">
+            <div class="buyer-card-emoji">🏢</div>
+            <div>
+              <div class="buyer-card-title">Corporate</div>
+              <div class="buyer-card-sub">DAX 40 / Fortune 500 · Siemens · BMW · Bosch</div>
+            </div>
+          </div>
+          <span class="badge badge-orange">2–4 month cycle</span>
+        </div>
+        <div class="buyer-card-body">
+          <table class="qa-table">
+            <tr>
+              <td>Who are they?</td>
+              <td>Large enterprises like Siemens, BMW, and Bosch (DAX = top 40 German companies) or Fortune 500 multinationals. They have capital but lack the agility and creative velocity of startups.</td>
+            </tr>
+            <tr>
+              <td>What do they want from Start2?</td>
+              <td>Access to pre-vetted startups building cutting-edge technology — to invest in, acquire, or launch pilot collaborations without screening thousands of companies themselves.</td>
+            </tr>
+            <tr>
+              <td>Why is the cycle 2–4 months?</td>
+              <td>Corporate deals require multi-department alignment (Legal, Finance, R&D), risk assessment, and negotiation of an MSA (Master Service Agreement). Less complex than government, but far slower than startups.</td>
+            </tr>
+            <tr>
+              <td>Real-world analogy</td>
+              <td>Like a supermarket chain onboarding a new supplier: quality checks, price negotiations, sign a supply framework — takes months before the product hits shelves.</td>
+            </tr>
+          </table>
+        </div>
+        <div class="buyer-card-footer">
+          <div class="buyer-meta">
+            <div class="buyer-meta-item"><strong>Deal size:</strong> €20,000 – €150,000</div>
+            <div class="buyer-meta-item"><strong>Decision-maker:</strong> Head of Innovation · CDO · Procurement Officer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STARTUP CARD -->
+      <div class="buyer-card buyer-startup fade-in fade-in-delay-3">
+        <div class="buyer-card-header">
+          <div class="buyer-card-header-left">
+            <div class="buyer-card-emoji">🚀</div>
+            <div>
+              <div class="buyer-card-title">Startups</div>
+              <div class="buyer-card-sub">Deeptech · ClimateTech · HealthTech · AI</div>
+            </div>
+          </div>
+          <span class="badge">2–6 week cycle</span>
+        </div>
+        <div class="buyer-card-body">
+          <table class="qa-table">
+            <tr>
+              <td>Who are they?</td>
+              <td>Early-to-mid stage ventures (typically 1–50 people) building advanced tech in AI, renewable energy, new materials, or biotech — and actively seeking European market entry.</td>
+            </tr>
+            <tr>
+              <td>What do they want from Start2?</td>
+              <td>Training programs, investor introductions, and legal support to enter the German/EU market. Program value: €500–€5,000. They want tangible outcomes — a corporate name or an EU investor intro for their next pitch deck.</td>
+            </tr>
+            <tr>
+              <td>Why is the cycle only 2–6 weeks?</td>
+              <td>Startups live by burn rate — spending cash every month. The decision-maker is the founder directly; no committee, no procurement process. Speed is a survival instinct.</td>
+            </tr>
+            <tr>
+              <td>Real-world analogy</td>
+              <td>Like a freelancer buying an online skills course: browse for 2–3 days, enroll, pay — done in under a week because the buyer is also the decision-maker.</td>
+            </tr>
+          </table>
+        </div>
+        <div class="buyer-card-footer">
+          <div class="buyer-meta">
+            <div class="buyer-meta-item"><strong>Deal size:</strong> €500 – €5,000</div>
+            <div class="buyer-meta-item"><strong>Decision-maker:</strong> Founder / CEO / CTO — sole authority</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BRIDGE CARD -->
+      <div class="buyer-card buyer-bridge fade-in fade-in-delay-4">
+        <div class="buyer-card-header">
+          <div class="buyer-card-header-left">
+            <div class="buyer-card-emoji">🌉</div>
+            <div>
+              <div class="buyer-card-title">The Bridge: Start2 Group</div>
+              <div class="buyer-card-sub">Rise&amp;Scale · Cashwalk · Internationalization · Fundraising</div>
+            </div>
+          </div>
+          <span class="badge badge-cyan">3 revenue streams</span>
+        </div>
+        <div class="buyer-card-body">
+          <table class="qa-table">
+            <tr>
+              <td>Who are they?</td>
+              <td>Start2 Group is the central operator connecting all three groups via its program portfolio: Rise&amp;Scale, Cashwalk, Internationalization, Fundraising, Corporate Mandates, and Public Sector.</td>
+            </tr>
+            <tr>
+              <td>What do they do exactly?</td>
+              <td>Receive mandate funding from Government → design programs → recruit qualified startups → connect those startups with Corporate partners. Three revenue streams, one coordinating entity.</td>
+            </tr>
+            <tr>
+              <td>Why are they the "bridge"?</td>
+              <td>No side can connect directly: startups can't reach Siemens alone, corporates can't filter 10,000 startups, governments don't know which startups deserve investment. Start2 has context for all three.</td>
+            </tr>
+            <tr>
+              <td>Real-world analogy</td>
+              <td>Like a real estate broker: the buyer (corporate/gov) can't find the right property, the seller (startup) can't reach big clients — the intermediary who knows both sides is indispensable.</td>
+            </tr>
+          </table>
+        </div>
+        <div class="buyer-card-footer">
+          <div class="buyer-meta">
+            <div class="buyer-meta-item"><strong>Programs:</strong> Rise&amp;Scale · Cashwalk · Internationalization · Fundraising · Corporate Mandates · Public Sector</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /buyer-cards-grid -->
+  </div>
+</section>
+
+<!-- ═══════ SECTION 2 — PERSONA + CUSTOMER JOURNEY ═══════ -->
+<section class="journey-section" id="customer-journey">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <p class="section-label fade-in">Persona + Customer Journey</p>
+      <h2 class="section-title fade-in fade-in-delay-1" style="max-width:720px;margin:0 auto 1rem;">How Each Buyer <span class="gradient-text">Actually Decides</span></h2>
+      <p class="section-sub fade-in fade-in-delay-2" style="margin:0 auto;">Five-step journey maps for each buyer archetype — from the first trigger event to post-purchase experience. Each journey is structurally distinct and requires a dedicated pipeline.</p>
+    </div>
+
+    <!-- GOV JOURNEY -->
+    <div class="journey-buyer-block fade-in">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
+        <span style="font-size:28px;">🏛️</span>
+        <div>
+          <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#facc15;">Government Buyer Journey</h3>
+          <div style="font-size:13px;color:var(--text-muted);">Average timeline: 6–18 months from trigger to signed contract</div>
+        </div>
+      </div>
+      <div class="journey-persona-card">
+        <div class="journey-persona-avatar avatar-gov">🏛️</div>
+        <div class="journey-persona-info">
+          <h4>Klaus Weber, 52 — Innovation Officer, BMWK Berlin</h4>
+          <p>Responsible for deploying Germany's annual innovation budget. Answers to Parliament. Fears audit findings above all else. Needs ironclad reporting and crystal-clear KPIs to justify every euro spent.</p>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="stepper-connector"></div>
+        <div class="stepper">
+          <div class="step step-gov">
+            <div class="step-number"><span class="step-icon">⚡</span></div>
+            <div>
+              <div class="step-label">1 — Trigger</div>
+              <div class="step-desc">Parliament passes new budget: "€5M for innovation programs 2025 — find an implementation partner." Klaus receives the mandate.</div>
+              <div class="step-callout badge badge-yellow" style="margin-top:0.6rem;">Top-down mandate</div>
+            </div>
+          </div>
+          <div class="step step-gov">
+            <div class="step-number"><span class="step-icon">📋</span></div>
+            <div>
+              <div class="step-label">2 — Search</div>
+              <div class="step-desc">Procurement department issues an RFP (Request for Proposal) — a public tender notice. Organizations have 60 days to submit applications.</div>
+              <div class="step-callout badge badge-yellow" style="margin-top:0.6rem;">Public RFP process</div>
+            </div>
+          </div>
+          <div class="step step-gov">
+            <div class="step-number"><span class="step-icon">🔍</span></div>
+            <div>
+              <div class="step-label">3 — Evaluate</div>
+              <div class="step-desc">A committee of 5–10 people scores submissions on: implementation track record, methodology, pricing, and reporting capability. Process takes 3–6 months.</div>
+              <div class="step-callout badge badge-yellow" style="margin-top:0.6rem;">Committee scoring</div>
+            </div>
+          </div>
+          <div class="step step-gov">
+            <div class="step-number"><span class="step-icon">✍️</span></div>
+            <div>
+              <div class="step-label">4 — Decision</div>
+              <div class="step-desc">Contract signed after legal review from both sides. Value: €50,000–€500,000. Final approval may require sign-off from a Ministry-level officer.</div>
+              <div class="step-callout badge badge-yellow" style="margin-top:0.6rem;">Multi-level approval</div>
+            </div>
+          </div>
+          <div class="step step-gov">
+            <div class="step-number"><span class="step-icon">📊</span></div>
+            <div>
+              <div class="step-label">5 — Post-Purchase</div>
+              <div class="step-desc">Start2 must file quarterly progress reports proving tax money was used correctly and agreed KPIs were met. Audit-ready documentation required at all times.</div>
+              <div class="step-callout badge badge-yellow" style="margin-top:0.6rem;">Quarterly reporting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="journey-fears">
+        <div class="fear-card" style="border-color:rgba(239,68,68,0.2);">
+          <div class="fear-card-label" style="color:#f87171;">😨 Biggest Fear</div>
+          <div class="fear-card-text">Misusing public funds → triggering an audit → losing his position. Every spending decision is career risk.</div>
+        </div>
+        <div class="fear-card" style="border-color:rgba(234,179,8,0.2);">
+          <div class="fear-card-label" style="color:#facc15;">🎯 Biggest Want</div>
+          <div class="fear-card-text">Clean, beautiful reports with clear numbers that prove economic impact — so he can defend every euro in front of Parliament.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CORPORATE JOURNEY -->
+    <div class="journey-buyer-block fade-in">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
+        <span style="font-size:28px;">🏢</span>
+        <div>
+          <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#fb923c;">Corporate Buyer Journey</h3>
+          <div style="font-size:13px;color:var(--text-muted);">Average timeline: 2–4 months from first touchpoint to signed MSA</div>
+        </div>
+      </div>
+      <div class="journey-persona-card">
+        <div class="journey-persona-avatar avatar-corp">🏢</div>
+        <div class="journey-persona-info">
+          <h4>Sarah Müller, 44 — Head of Innovation, Siemens AG Munich</h4>
+          <p>Under CEO pressure: "Our competitor just shipped a product built on a foreign AI startup — and it's faster and cheaper than anything our R&D team has produced internally." Sarah needs results fast, but still within corporate governance frameworks.</p>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="stepper-connector"></div>
+        <div class="stepper">
+          <div class="step step-corp">
+            <div class="step-number"><span class="step-icon">📰</span></div>
+            <div>
+              <div class="step-label">1 — Trigger</div>
+              <div class="step-desc">Sarah reads internal competitive report: a rival just launched an AI-powered product — built with a foreign startup — faster and cheaper than Siemens' own R&D output.</div>
+              <div class="step-callout badge badge-orange" style="margin-top:0.6rem;">Competitive threat signal</div>
+            </div>
+          </div>
+          <div class="step step-corp">
+            <div class="step-number"><span class="step-icon">🤝</span></div>
+            <div>
+              <div class="step-label">2 — Search</div>
+              <div class="step-desc">Attends Rise&amp;Scale event, meets Start2 representatives, receives case studies of past partnerships. Researches Start2's LinkedIn track record and testimonials.</div>
+              <div class="step-callout badge badge-orange" style="margin-top:0.6rem;">Event + LinkedIn research</div>
+            </div>
+          </div>
+          <div class="step step-corp">
+            <div class="step-number"><span class="step-icon">⚖️</span></div>
+            <div>
+              <div class="step-label">3 — Evaluate</div>
+              <div class="step-desc">Internal meetings with Legal, Finance, and R&D teams: Does this fit strategy? What are the IP risks? Is the ROI quantifiable? Each department has veto power.</div>
+              <div class="step-callout badge badge-orange" style="margin-top:0.6rem;">Multi-dept alignment</div>
+            </div>
+          </div>
+          <div class="step step-corp">
+            <div class="step-number"><span class="step-icon">📝</span></div>
+            <div>
+              <div class="step-label">4 — Decision</div>
+              <div class="step-desc">MSA (Master Service Agreement) signed after 2–4 months of negotiation. Contract value: €20,000–€150,000. Procurement officer and legal counsel must both co-sign.</div>
+              <div class="step-callout badge badge-orange" style="margin-top:0.6rem;">MSA signed</div>
+            </div>
+          </div>
+          <div class="step step-corp">
+            <div class="step-number"><span class="step-icon">🔬</span></div>
+            <div>
+              <div class="step-label">5 — Post-Purchase</div>
+              <div class="step-desc">Matched with 5–10 pre-vetted startups. Attends demo day. May progress to a 3-month pilot or direct investment. Start2's curation quality determines whether Sarah renews.</div>
+              <div class="step-callout badge badge-orange" style="margin-top:0.6rem;">Pilot → possible investment</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="journey-fears">
+        <div class="fear-card" style="border-color:rgba(239,68,68,0.2);">
+          <div class="fear-card-label" style="color:#f87171;">😨 Biggest Fear</div>
+          <div class="fear-card-text">Partnering with a startup that isn't serious → wasting Siemens' time and budget → losing internal credibility and political capital.</div>
+        </div>
+        <div class="fear-card" style="border-color:rgba(249,115,22,0.2);">
+          <div class="fear-card-label" style="color:#fb923c;">🎯 Biggest Want</div>
+          <div class="fear-card-text">Startups already screened by Start2 — so Sarah doesn't have to sort through 10,000 companies herself. Quality curation is the core value proposition.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- STARTUP JOURNEY -->
+    <div class="journey-buyer-block fade-in">
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;">
+        <span style="font-size:28px;">🚀</span>
+        <div>
+          <h3 style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--accent-blue);">Startup Buyer Journey</h3>
+          <div style="font-size:13px;color:var(--text-muted);">Average timeline: 2–6 weeks from discovery to payment</div>
+        </div>
+      </div>
+      <div class="journey-persona-card">
+        <div class="journey-persona-avatar avatar-startup">🚀</div>
+        <div class="journey-persona-info">
+          <h4>Minh Nguyen, 31 — Founder, DeepMed Vietnam (HealthTech, Seed Round €800K)</h4>
+          <p>His lead investor just told him: "If you want to raise Series A from a European fund, you need EU revenue first. Go to Germany." Minh has budget, urgency, and full decision-making authority — he just needs the right program.</p>
+        </div>
+      </div>
+      <div style="position:relative;">
+        <div class="stepper-connector"></div>
+        <div class="stepper">
+          <div class="step step-startup">
+            <div class="step-number"><span class="step-icon">💡</span></div>
+            <div>
+              <div class="step-label">1 — Trigger</div>
+              <div class="step-desc">Investor delivers an ultimatum: "To raise Series A from European VCs, you need EU traction first. You should try entering Germany." Minh is on the clock.</div>
+              <div class="step-callout badge" style="margin-top:0.6rem;">Investor pressure → urgency</div>
+            </div>
+          </div>
+          <div class="step step-startup">
+            <div class="step-number"><span class="step-icon">🔎</span></div>
+            <div>
+              <div class="step-label">2 — Search</div>
+              <div class="step-desc">Googles "startup accelerator Germany HealthTech." Finds Start2. Visits the website, reads Internationalization and Rise&amp;Scale program pages, browses alumni testimonials.</div>
+              <div class="step-callout badge" style="margin-top:0.6rem;">Google → website → testimonials</div>
+            </div>
+          </div>
+          <div class="step step-startup">
+            <div class="step-number"><span class="step-icon">🧪</span></div>
+            <div>
+              <div class="step-label">3 — Evaluate</div>
+              <div class="step-desc">Compares 2–3 competing programs. Reads case studies of SEA/Vietnamese startups who participated. Sends 1–2 questions via contact form. Joins a free webinar to validate quality.</div>
+              <div class="step-callout badge" style="margin-top:0.6rem;">Short comparison window</div>
+            </div>
+          </div>
+          <div class="step step-startup">
+            <div class="step-number"><span class="step-icon">💳</span></div>
+            <div>
+              <div class="step-label">4 — Decision</div>
+              <div class="step-desc">Registers and pays €2,500 within 1–2 weeks. Decision made entirely by Minh — no board meeting, no procurement process, no committee. Burn rate makes delay expensive.</div>
+              <div class="step-callout badge" style="margin-top:0.6rem;">Solo decision in &lt;2 weeks</div>
+            </div>
+          </div>
+          <div class="step step-startup">
+            <div class="step-number"><span class="step-icon">🌱</span></div>
+            <div>
+              <div class="step-label">5 — Post-Purchase</div>
+              <div class="step-desc">8-week program: mentoring from German experts, connections to corporate partners, introductions to EU investors, and legal support for GmbH incorporation. Outcome quality determines referral.</div>
+              <div class="step-callout badge" style="margin-top:0.6rem;">8-week structured program</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="journey-fears">
+        <div class="fear-card" style="border-color:rgba(239,68,68,0.2);">
+          <div class="fear-card-label" style="color:#f87171;">😨 Biggest Fear</div>
+          <div class="fear-card-text">Spending €2,500 + 8 weeks of runway on a program that produces only shallow networking with zero concrete outcomes.</div>
+        </div>
+        <div class="fear-card" style="border-color:rgba(59,130,246,0.2);">
+          <div class="fear-card-label" style="color:var(--accent-blue);">🎯 Biggest Want</div>
+          <div class="fear-card-text">One corporate logo for his Series A pitch deck, or one warm intro to a European institutional investor — tangible, credible proof of EU traction.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ SECTION 3 — HOSPITAL ANALOGY ═══════ -->
+<section class="analogy-section" id="analogy">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;">
+      <p class="section-label fade-in">Analogy — Remember This Forever</p>
+      <h2 class="section-title fade-in fade-in-delay-1" style="max-width:760px;margin:0 auto 1rem;">Think of Start2 as a <span class="gradient-text">Hospital with 3 Queues</span></h2>
+      <p class="section-sub fade-in fade-in-delay-2" style="margin:0 auto;">Why does Start2 need three separate pipelines instead of one? Because combining them is as catastrophic as running a hospital on a single waiting list.</p>
+    </div>
+
+    <!-- 3 hospital cards -->
+    <div class="hospital-grid fade-in">
+      <div class="hospital-card" style="border-color:rgba(59,130,246,0.3);">
+        <div class="hospital-card-icon">🚨</div>
+        <div class="hospital-card-title">Emergency Ward</div>
+        <div class="hospital-card-equiv" style="color:var(--accent-blue);">≡ Startup</div>
+        <div class="hospital-card-desc">Needs immediate treatment. Cannot wait. Decision happens in hours, not days. Burn rate is the vital sign — every day of delay costs money and momentum.</div>
+      </div>
+      <div class="hospital-card" style="border-color:rgba(249,115,22,0.3);">
+        <div class="hospital-card-icon">📅</div>
+        <div class="hospital-card-title">Scheduled Specialist</div>
+        <div class="hospital-card-equiv" style="color:#fb923c;">≡ Corporate</div>
+        <div class="hospital-card-desc">Books weeks in advance. Needs the right specialist department. Thorough evaluation before treatment begins. Multiple sign-offs required before anything happens.</div>
+      </div>
+      <div class="hospital-card" style="border-color:rgba(234,179,8,0.3);">
+        <div class="hospital-card-icon">🏗️</div>
+        <div class="hospital-card-title">Major Planned Surgery</div>
+        <div class="hospital-card-equiv" style="color:#facc15;">≡ Government</div>
+        <div class="hospital-card-desc">Months of planning. Entire surgical team plus anesthesiologists. Pre-op assessments, signed consent forms, post-op reporting. Every step documented for institutional review.</div>
+      </div>
+    </div>
+
+    <!-- "What happens if 1 queue" callout -->
+    <div class="analogy-callout fade-in">
+      <div style="position:relative;z-index:1;">
+        <h3 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:1rem;color:var(--text-primary);">What happens if all 3 share one queue?</h3>
+        <div class="hospital-problem-list">
+          <div class="hospital-problem-item">
+            <span class="icon">💀</span>
+            <p><strong>The emergency patient (Startup)</strong> dies waiting — forced to follow a 6-month RFP process when they needed an answer in 2 weeks. By the time a decision is made, they've signed with a competitor or run out of runway.</p>
+          </div>
+          <div class="hospital-problem-item">
+            <span class="icon">⚠️</span>
+            <p><strong>The surgery patient (Government)</strong> gets rushed — critical compliance steps skipped under pressure to "move fast like a startup." The result is audit failures, contract clawbacks, and reputational damage.</p>
+          </div>
+          <div class="hospital-problem-item">
+            <span class="icon">🤯</span>
+            <p><strong>The doctors (Start2 team)</strong> have no idea who to prioritize — no process, no ownership, no specialist. Everyone handles everything, which means nobody handles anything well.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cooking school analogy -->
+    <div class="fade-in" style="margin-top:3rem;">
+      <h3 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:1.25rem;">Why one content strategy fails all three buyers</h3>
+      <div class="quote-block" style="margin-bottom:0;">
+        Imagine a cooking school with three types of students: a complete beginner, a professional restaurant chef, and a regional tourism board. If you send the same flyer to all three, none of them feels it was written for them — and none of them enrolls. The beginner needs: <em>"Cook family dinner in 3 months."</em> The chef needs: <em>"Elevate your plating to justify higher menu prices."</em> The tourism board needs: <em>"A 200-person training program with quarterly KPI reports for the governor."</em> — Same school, three entirely different value propositions, three entirely different channels.
+      </div>
+    </div>
+
+    <!-- Gov — why ads don't work callout -->
+    <div class="fade-in" style="margin-top:3rem;">
+      <h3 style="font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:1.25rem;">Why Government cannot be reached through advertising</h3>
+      <div class="quote-block">
+        Would you decide to buy a €500,000 home because you saw a Facebook banner ad? No. You'd ask a trusted friend who's bought before (Referral), seek out a broker with a verifiable track record (Thought Leadership), and visit the property multiple times before signing (Direct relationship). Government procurement works exactly the same way. Agencies don't sign €200,000 contracts because they saw an ad — they sign because <strong style="font-style:normal;color:var(--text-primary);">a trusted peer recommended Start2</strong>, because <strong style="font-style:normal;color:var(--text-primary);">Start2 has visible credibility in the ecosystem</strong>, and because <strong style="font-style:normal;color:var(--text-primary);">they've met face-to-face multiple times at the right events</strong>.
+      </div>
+    </div>
+
+    <!-- Final mega quote -->
+    <div class="mega-quote fade-in" style="margin-top:3rem;">
+      <p>
+        🏛️ <em>Government</em> pays Start2 to <strong>implement innovation policy</strong><br>
+        🏢 <em>Corporate</em> pays Start2 to <strong>connect them with the right startups</strong><br>
+        🚀 <em>Startup</em> pays Start2 to <strong>unlock the European market</strong>
+      </p>
+      <div class="summary-line">
+        The Marketing Operations Manager's job: serve all three simultaneously — right content, right channel, right speed, right owner — without ever mixing them up.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="container" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;">
+    <a href="index.html" class="nav-logo" style="font-size:22px;">Start2 Growth Engine v2.0</a>
+    <p style="font-size:13px;color:var(--text-muted);max-width:500px;line-height:1.7;">
+      A proposal by <strong style="color:var(--text-primary)">Hiep Nguyen</strong> · Marketing Operations &amp; Analytics Manager<br>
+      Prepared for Start2 Group · February 2026
+    </p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="https://start2.group" target="_blank" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">start2.group</a>
+      <span style="color:var(--border);">|</span>
+      <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">LinkedIn</a>
+      <span style="color:var(--border);">|</span>
+      <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">Download PDF</a>
+    </div>
+    <p style="font-size:12px;color:rgba(139,158,200,0.4);">© 2026 Hiep Nguyen · Start2 Growth Engine v2.0 · Outline version 1.0</p>
+  </div>
+</footer>
+
+<script>
+// ── Fade-in on scroll ──
+window.addEventListener('DOMContentLoaded', () => {
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06, rootMargin: '-20px 0px 0px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+  // Immediately show elements already in view
+  setTimeout(() => {
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 100);
+});
+
+// ── Mobile nav ──
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+</script>
+
+</body>
+</html>

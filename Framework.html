@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Framework — Start2 Growth Engine v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root{--bg-primary:#050911;--bg-card:#0d1423;--bg-card2:#111d30;--accent-blue:#3B82F6;--accent-cyan:#06B6D4;--accent-teal:#14B8A6;--accent-green:#22C55E;--accent-emerald:#10B981;--accent-purple:#8B5CF6;--accent-amber:#F59E0B;--text-primary:#F0F4FF;--text-muted:#8B9EC8;--border:#1a2540;--border-bright:#2a3a60;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.65;overflow-x:hidden;}
+h1,h2,h3,h4,.syne{font-family:'Syne',sans-serif;}
+#navbar{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:rgba(5,9,17,0.75);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border);display:flex;align-items:center;}
+.nav-inner{max-width:1280px;margin:0 auto;width:100%;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;background:linear-gradient(90deg,var(--accent-blue),var(--accent-cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;white-space:nowrap;text-decoration:none;}
+.nav-tabs{display:flex;align-items:center;gap:2px;list-style:none;flex:1;justify-content:center;}
+.nav-tabs a{display:block;padding:5px 10px;border-radius:6px;font-size:12px;font-weight:500;color:var(--text-muted);text-decoration:none;transition:all 0.2s;white-space:nowrap;}
+.nav-tabs a:hover{color:var(--text-primary);background:rgba(59,130,246,0.1);}
+.nav-tabs a.active{color:var(--accent-cyan);background:rgba(6,182,212,0.12);}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:8px;font-size:13px;font-weight:600;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));color:#fff;text-decoration:none;white-space:nowrap;box-shadow:0 0 20px rgba(59,130,246,0.35);transition:box-shadow 0.2s,transform 0.2s;}
+.nav-cta:hover{box-shadow:0 0 35px rgba(59,130,246,0.55);transform:translateY(-1px);}
+#hamburger{display:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px;}
+#hamburger span{display:block;width:22px;height:2px;background:var(--text-muted);border-radius:2px;transition:all 0.3s;}
+#mobile-menu{display:none;position:fixed;top:56px;left:0;right:0;z-index:999;background:rgba(5,9,17,0.97);border-bottom:1px solid var(--border);padding:1rem 1.5rem;flex-direction:column;gap:4px;}
+#mobile-menu a{display:block;padding:10px 12px;border-radius:8px;color:var(--text-muted);font-size:14px;text-decoration:none;}
+#mobile-menu a:hover,#mobile-menu a.active{color:var(--accent-cyan);background:rgba(6,182,212,0.1);}
+#mobile-menu.open{display:flex;}
+.gradient-text{background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan),#7dd3fc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.layer-card{background:var(--bg-card);border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:border-color 0.3s,box-shadow 0.3s;display:flex;flex-direction:column;}
+.layer-card:hover{border-color:var(--border-bright);box-shadow:0 20px 60px rgba(0,0,0,0.4);}
+.card-header{padding:20px 24px 16px;border-bottom:1px solid var(--border);}
+.layer-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:0.05em;margin-bottom:10px;}
+.layer-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:6px;}
+.layer-tagline{font-size:13px;color:var(--text-muted);font-style:italic;line-height:1.5;}
+.tab-nav{display:flex;padding:12px 24px 0;gap:4px;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.01);}
+.tab-btn{padding:8px 14px;border-radius:8px 8px 0 0;font-size:12px;font-weight:600;cursor:pointer;border:none;background:transparent;color:var(--text-muted);transition:all 0.2s;letter-spacing:0.03em;border-bottom:2px solid transparent;margin-bottom:-1px;}
+.tab-btn:hover{color:var(--text-primary);}
+.tab-btn.active{color:var(--text-primary);}
+.tab-panel{display:none;padding:20px 24px;flex:1;}
+.tab-panel.active{display:block;}
+.tool-tag{display:inline-flex;align-items:center;gap:4px;background:rgba(30,42,70,0.8);color:#67e8f9;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px;border:1px solid rgba(6,182,212,0.2);white-space:nowrap;}
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.checklist li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text-primary);line-height:1.5;}
+.chk{width:16px;height:16px;flex-shrink:0;margin-top:2px;}
+.success-badge{margin:0 24px 20px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.35);border-radius:12px;padding:14px 18px;display:flex;align-items:flex-start;gap:10px;}
+.success-badge-label{font-size:10px;font-weight:700;letter-spacing:0.08em;color:var(--accent-emerald);text-transform:uppercase;margin-bottom:3px;}
+.success-badge-content{font-size:13px;font-weight:600;color:#6ee7b7;line-height:1.5;}
+.flow-step{display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid var(--border);font-size:13px;}
+.flow-num{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;margin-top:1px;}
+.sub-heading{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+.pipeline-bar{display:flex;align-items:center;background:rgba(13,20,35,0.8);border:1px solid var(--border);border-radius:16px;padding:6px;overflow:hidden;}
+.pipeline-node{flex:1;display:flex;flex-direction:column;align-items:center;padding:10px 6px;border-radius:10px;transition:all 0.3s;}
+.pipeline-node:hover{background:rgba(255,255,255,0.04);}
+.pipeline-connector{width:20px;height:2px;flex-shrink:0;}
+.pipeline-num{font-family:'Syne',sans-serif;font-size:11px;font-weight:800;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:4px;flex-shrink:0;}
+.pipeline-label{font-size:10px;font-weight:500;color:var(--text-muted);text-align:center;line-height:1.3;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+.fu{animation:fadeUp 0.6s ease forwards;}
+.d1{animation-delay:0.1s;opacity:0;}.d2{animation-delay:0.2s;opacity:0;}.d3{animation-delay:0.3s;opacity:0;}.d4{animation-delay:0.4s;opacity:0;}.d5{animation-delay:0.5s;opacity:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.4)}}
+@media(max-width:767px){#hamburger{display:flex!important;}.nav-tabs{display:none!important;}.pipeline-label{display:none;}.pipeline-node{padding:8px 3px;}}
+</style>
+</head>
+<body>
+
+<!-- NAV (verbatim from index.html) -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Start2 GE v2.0</a>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="index.html#slide1">Hook</a></li>
+      <li><a href="index.html#slide2">Status Quo</a></li>
+      <li><a href="index.html#slide3">Ecosystem</a></li>
+      <li><a href="index.html#slide4">Vision</a></li>
+      <li><a href="Framework.html" class="active">Framework</a></li>
+      <li><a href="index.html#slide6">ROI</a></li>
+      <li><a href="index.html#slide7">Roadmap</a></li>
+      <li><a href="index.html#slide8">Traction</a></li>
+      <li><a href="index.html#slide9">Dashboard</a></li>
+      <li><a href="index.html#slide10">Why Hiep</a></li>
+      <li><a href="index.html#slide11">Investment</a></li>
+      <li><a href="index.html#slide12">Ask</a></li>
+    </ul>
+    <a href="index.html#slide12" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Contact Hiep
+    </a>
+    <div id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html#slide1" onclick="closeMobileMenu()">01 — Opening Hook</a>
+  <a href="index.html#slide2" onclick="closeMobileMenu()">02 — Status Quo</a>
+  <a href="index.html#slide3" onclick="closeMobileMenu()">03 — Ecosystem</a>
+  <a href="index.html#slide4" onclick="closeMobileMenu()">04 — Vision</a>
+  <a href="Framework.html" class="active" onclick="closeMobileMenu()">05 — Master Framework</a>
+  <a href="index.html#slide6" onclick="closeMobileMenu()">06 — ROI Case</a>
+  <a href="index.html#slide7" onclick="closeMobileMenu()">07 — 90-Day Roadmap</a>
+  <a href="index.html#slide8" onclick="closeMobileMenu()">08 — Traction</a>
+  <a href="index.html#slide9" onclick="closeMobileMenu()">09 — Dashboard</a>
+  <a href="index.html#slide10" onclick="closeMobileMenu()">10 — Why Hiep</a>
+  <a href="index.html#slide11" onclick="closeMobileMenu()">11 — Investment</a>
+  <a href="index.html#slide12" onclick="closeMobileMenu()">12 — The Ask</a>
+</div>
+
+<!-- HERO -->
+<section style="padding-top:56px;position:relative;overflow:hidden;min-height:380px;display:flex;flex-direction:column;justify-content:center;">
+  <div style="position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 60% at 15% 50%,rgba(59,130,246,0.14) 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 85% 40%,rgba(245,158,11,0.09) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 50% 90%,rgba(139,92,246,0.07) 0%,transparent 60%);"></div>
+  <div style="position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(59,130,246,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.04) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,rgba(0,0,0,0.5),transparent 75%);"></div>
+  <div style="max-width:1280px;margin:0 auto;width:100%;padding:60px 2rem 40px;position:relative;z-index:1;">
+    <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:999px;border:1px solid rgba(6,182,212,0.3);background:rgba(6,182,212,0.07);font-size:12px;font-weight:600;color:var(--accent-cyan);margin-bottom:20px;" class="fu d1">
+      <span style="width:6px;height:6px;border-radius:50%;background:var(--accent-cyan);display:inline-block;animation:pulse 2s infinite;"></span>
+      Start2 Group · Growth Engine v2.0 · Master Framework
+    </div>
+    <h1 style="font-family:'Syne',sans-serif;font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.1;max-width:800px;margin-bottom:14px;" class="fu d2">
+      The <span class="gradient-text">5-Layer Operating System</span><br>Behind Predictable Revenue
+    </h1>
+    <p style="font-size:16px;color:var(--text-muted);max-width:560px;margin-bottom:32px;line-height:1.6;" class="fu d3">
+      HubSpot × n8n × Looker Studio · Startup × Corporate × Government · DACH & EU
+    </p>
+    <!-- Pipeline progress bar -->
+    <div class="pipeline-bar fu d4" style="max-width:740px;">
+      <div class="pipeline-node">
+        <div class="pipeline-num" style="background:rgba(59,130,246,0.2);color:#3B82F6;border:1px solid rgba(59,130,246,0.4);">1</div>
+        <div class="pipeline-label" style="color:#3B82F6;">Foundation<br>&amp; Data</div>
+      </div>
+      <div class="pipeline-connector" style="background:linear-gradient(90deg,#3B82F6,#06B6D4);"></div>
+      <div class="pipeline-node">
+        <div class="pipeline-num" style="background:rgba(6,182,212,0.2);color:#06B6D4;border:1px solid rgba(6,182,212,0.4);">2</div>
+        <div class="pipeline-label" style="color:#06B6D4;">MarTech<br>Execution</div>
+      </div>
+      <div class="pipeline-connector" style="background:linear-gradient(90deg,#06B6D4,#14B8A6);"></div>
+      <div class="pipeline-node">
+        <div class="pipeline-num" style="background:rgba(20,184,166,0.2);color:#14B8A6;border:1px solid rgba(20,184,166,0.4);">3</div>
+        <div class="pipeline-label" style="color:#14B8A6;">Revenue<br>Operations</div>
+      </div>
+      <div class="pipeline-connector" style="background:linear-gradient(90deg,#14B8A6,#8B5CF6);"></div>
+      <div class="pipeline-node">
+        <div class="pipeline-num" style="background:rgba(139,92,246,0.2);color:#8B5CF6;border:1px solid rgba(139,92,246,0.4);">4</div>
+        <div class="pipeline-label" style="color:#8B5CF6;">AI<br>Automation</div>
+      </div>
+      <div class="pipeline-connector" style="background:linear-gradient(90deg,#8B5CF6,#F59E0B);"></div>
+      <div class="pipeline-node">
+        <div class="pipeline-num" style="background:rgba(245,158,11,0.2);color:#F59E0B;border:1px solid rgba(245,158,11,0.4);">5</div>
+        <div class="pipeline-label" style="color:#F59E0B;">Revenue<br>Intelligence</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:var(--text-muted);margin-top:12px;font-style:italic;" class="fu d5">
+      ⚡ You cannot have Layer 5 without Layer 1. The architecture is deliberately sequenced — foundation first, intelligence last.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN GRID -->
+<main style="max-width:1280px;margin:0 auto;padding:0 2rem 80px;width:100%;">
+  <div style="text-align:center;margin-bottom:40px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:8px;">Master Framework</div>
+    <h2 style="font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:800;line-height:1.1;margin-bottom:10px;">5 Layers · 3 Views Each</h2>
+    <p style="color:var(--text-muted);font-size:15px;max-width:480px;margin:0 auto;">Switch between <strong style="color:var(--text-primary)">Director</strong>, <strong style="color:var(--text-primary)">System</strong>, and <strong style="color:var(--text-primary)">Technical</strong> view per layer.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:24px;">
+
+    <!-- LAYER 1 -->
+    <div class="layer-card" id="card-l1">
+      <div class="card-header">
+        <div class="layer-badge" style="background:rgba(59,130,246,0.1);color:#3B82F6;border:1px solid rgba(59,130,246,0.25);">● LAYER 1</div>
+        <div class="layer-title" style="color:#3B82F6;">Foundation &amp; Data</div>
+        <div class="layer-tagline">"GDPR-compliant tracking, clean CRM, unified data model. You cannot optimize what you cannot measure."</div>
+      </div>
+      <div class="tab-nav">
+        <button class="tab-btn active" style="color:#3B82F6;border-bottom:2px solid #3B82F6;" onclick="switchTab('l1','director',this)">👔 Director</button>
+        <button class="tab-btn" onclick="switchTab('l1','system',this)">⚙️ System</button>
+        <button class="tab-btn" onclick="switchTab('l1','technical',this)">🛠 Technical</button>
+      </div>
+      <!-- Director -->
+      <div class="tab-panel active" id="l1-director">
+        <div class="sub-heading" style="color:#3B82F6;">Business Value</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;line-height:1.65;">Without a solid data foundation, every decision downstream is built on guesswork. Layer 1 establishes GDPR-compliant tracking across all touchpoints, audits and cleans HubSpot CRM, and creates a unified data model connecting companies, contacts, deals, and program enrollments into a single source of truth.</p>
+        <div class="sub-heading" style="color:#3B82F6;">Why We Do This</div>
+        <ul style="font-size:13px;color:var(--text-muted);padding-left:16px;line-height:1.7;">
+          <li>Zero leads lost from form submissions or event check-ins</li>
+          <li>Clean data = accurate AI lead scoring from day one</li>
+          <li>GDPR compliance across DE/EU — avoiding €20M+ fines</li>
+          <li>Legal basis mapped per segment: Consent / Legitimate Interest / Contract</li>
+        </ul>
+      </div>
+      <!-- System -->
+      <div class="tab-panel" id="l1-system">
+        <div class="sub-heading" style="color:#3B82F6;">Tracking Architecture Flow</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="flow-step"><div class="flow-num" style="background:rgba(59,130,246,0.2);color:#3B82F6;">1</div><div><strong>User action</strong> (form / event check-in / web visit) → triggers GTM Server-side tag</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(59,130,246,0.2);color:#3B82F6;">2</div><div><strong>GA4 Consent Mode v2</strong> records session under correct legal basis (GDPR-safe)</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(59,130,246,0.2);color:#3B82F6;">3</div><div><strong>LinkedIn CAPI</strong> sends server-side conversion signals back (no 3rd-party cookie exposure)</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(59,130,246,0.2);color:#3B82F6;">4</div><div><strong>HubSpot</strong> receives enriched contact with gdpr_legal_basis, data_source, gdpr_country auto-set</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(59,130,246,0.2);color:#3B82F6;">5</div><div><strong>Unified Data Model</strong> links Company → Contact → Deal → Program_Enrollment for full traceability</div></div>
+        </div>
+        <div style="margin-top:12px;padding:10px 14px;background:rgba(59,130,246,0.05);border-radius:8px;border-left:3px solid #3B82F6;font-size:12px;color:var(--text-muted);">
+          <strong style="color:#3B82F6;">Legal Basis by Segment:</strong> Startups → Consent + Legitimate Interest · Corporates → Legitimate Interest · Government → Contract-based
+        </div>
+      </div>
+      <!-- Technical -->
+      <div class="tab-panel" id="l1-technical">
+        <div class="sub-heading" style="color:#3B82F6;">Tool Stack</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+          <span class="tool-tag">🏷 GTM Server-side</span><span class="tool-tag">📊 GA4 Consent Mode v2</span><span class="tool-tag">🔗 LinkedIn CAPI</span><span class="tool-tag">🟠 HubSpot CRM</span><span class="tool-tag">⚙️ n8n</span>
+        </div>
+        <div class="sub-heading" style="color:#3B82F6;">Tasks (Things to Do)</div>
+        <ul class="checklist">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Tracking: GTM Server-side + GA4 Consent Mode v2 + LinkedIn CAPI</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>GDPR: Legal basis mapping (Consent / Legitimate Interest / Contract) + consent forms</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>HubSpot Audit: deduplicate contacts, clean properties, remove junk data</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Unified Data Model: Company + Contact + Deal + Program_Enrollment schema</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Event → HubSpot auto-sync via n8n (zero manual data entry)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Lead Scoring baseline: Group A (Startup 0–100pts) + Group B (Corporate account+contact)</li>
+        </ul>
+      </div>
+      <div class="success-badge"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">✅</div><div><div class="success-badge-label">Layer 1 Output</div><div class="success-badge-content">Zero leads lost. 3 pipelines live. Data sạch = scoring chính xác. GDPR compliant = không bị phạt.</div></div></div>
+    </div>
+
+    <!-- LAYER 2 -->
+    <div class="layer-card" id="card-l2">
+      <div class="card-header">
+        <div class="layer-badge" style="background:rgba(6,182,212,0.1);color:#06B6D4;border:1px solid rgba(6,182,212,0.25);">● LAYER 2</div>
+        <div class="layer-title" style="color:#06B6D4;">MarTech Execution</div>
+        <div class="layer-tagline">"Right message, right person, right channel — for startups, corporates, and government alike."</div>
+      </div>
+      <div class="tab-nav">
+        <button class="tab-btn active" style="color:#06B6D4;border-bottom:2px solid #06B6D4;" onclick="switchTab('l2','director',this)">👔 Director</button>
+        <button class="tab-btn" onclick="switchTab('l2','system',this)">⚙️ System</button>
+        <button class="tab-btn" onclick="switchTab('l2','technical',this)">🛠 Technical</button>
+      </div>
+      <div class="tab-panel active" id="l2-director">
+        <div class="sub-heading" style="color:#06B6D4;">Business Value</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;line-height:1.65;">Start2's three buyer personas require fundamentally different marketing approaches. Startups respond to digital ads and events; corporates expect VIP account-based outreach; governments trust only thought leadership and referrals. Layer 2 deploys the right channel for each segment so no budget is wasted on the wrong audience.</p>
+        <div class="sub-heading" style="color:#06B6D4;">Why We Do This</div>
+        <ul style="font-size:13px;color:var(--text-muted);padding-left:16px;line-height:1.7;">
+          <li>Marketing budget reaches only the right people — zero wasted spend</li>
+          <li>Corporates feel VIP-level personalisation, not mass outreach</li>
+          <li>Government partners trust Start2 as a domain expert, not a vendor</li>
+        </ul>
+      </div>
+      <div class="tab-panel" id="l2-system">
+        <div class="sub-heading" style="color:#06B6D4;">Channel Strategy by Segment</div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="padding:12px 14px;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.15);border-radius:10px;">
+            <div style="font-size:12px;font-weight:700;color:#06B6D4;margin-bottom:5px;">🚀 STARTUP — Digital-first</div>
+            <div style="font-size:12px;color:var(--text-muted);">LinkedIn Ads (35%) · Google Ads (25%) · SEO/Blog (20%) · Events (15%) · Partner Referral (5%)</div>
+            <div style="font-size:11px;color:#6ee7b7;margin-top:4px;font-style:italic;">Content: "Enter DACH in 8 weeks" · Alumni case studies · EU Market Entry Checklist</div>
+          </div>
+          <div style="padding:12px 14px;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.15);border-radius:10px;">
+            <div style="font-size:12px;font-weight:700;color:#06B6D4;margin-bottom:5px;">🏢 CORPORATE — ABM 3-Tier</div>
+            <div style="font-size:12px;color:var(--text-muted);">Tier 1: BD direct outreach · Exclusive roundtables · LinkedIn Sales Nav<br>Tier 2: LinkedIn Ads list targeting · Tier 3: Newsletter (NOT mass ads)</div>
+            <div style="font-size:11px;color:#6ee7b7;margin-top:4px;font-style:italic;">Content: Innovation Benchmark Report · ROI Case Study "€2M saved"</div>
+          </div>
+          <div style="padding:12px 14px;background:rgba(6,182,212,0.05);border:1px solid rgba(6,182,212,0.15);border-radius:10px;">
+            <div style="font-size:12px;font-weight:700;color:#06B6D4;margin-bottom:5px;">🏛️ GOVERNMENT — Relationship-first</div>
+            <div style="font-size:12px;color:var(--text-muted);">Thought Leadership (whitepaper, speaking) · Referrals from existing gov clients · Partnerships: KfW, EIF, GTAI · Invite-only roundtables</div>
+            <div style="font-size:11px;color:#ef4444;margin-top:4px;font-weight:600;">❌ NEVER use Paid Ads — government does not buy via ads</div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="l2-technical">
+        <div class="sub-heading" style="color:#06B6D4;">Tool Stack</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+          <span class="tool-tag">🟠 HubSpot Marketing Hub Pro</span><span class="tool-tag">🔷 LinkedIn Ads</span><span class="tool-tag">🟢 Google Ads</span><span class="tool-tag">📡 LinkedIn Sales Nav</span><span class="tool-tag">🔎 Ahrefs SEO</span>
+        </div>
+        <div class="sub-heading" style="color:#06B6D4;">Tasks (Things to Do)</div>
+        <ul class="checklist">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Startup: LinkedIn Ads + Google Ads campaigns with DACH targeting</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Corporate: Build ABM 3-tier list in LinkedIn Sales Nav (Tier 1/2/3 accounts)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Government: Thought Leadership content calendar (whitepaper co-brand with Fraunhofer)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>UTM convention setup + team training for consistent attribution</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>SEO: Ahrefs keyword research for "EU market entry", "DACH startup expansion" clusters</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Invite-only roundtable process: invite → RSVP → pre-event brief → post-event follow-up</li>
+        </ul>
+      </div>
+      <div class="success-badge"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">✅</div><div><div class="success-badge-label">Layer 2 Output</div><div class="success-badge-content">Marketing budget reaches the right person. Corporate feels VIP. Gov trusts Start2 as domain expert. Open rate ≥30%.</div></div></div>
+    </div>
+
+    <!-- LAYER 3 -->
+    <div class="layer-card" id="card-l3">
+      <div class="card-header">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+          <div>
+            <div class="layer-badge" style="background:rgba(20,184,166,0.1);color:#14B8A6;border:1px solid rgba(20,184,166,0.25);">● LAYER 3</div>
+            <div class="layer-title" style="color:#14B8A6;">Revenue Operations</div>
+            <div class="layer-tagline">"Three pipelines, three personas, three deal velocities. Nothing falls through the cracks."</div>
+          </div>
+          <!-- Scoring at-a-glance pills -->
+          <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:flex-start;padding-top:4px;">
+            <div style="padding:5px 10px;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.25);border-radius:8px;text-align:center;min-width:64px;">
+              <div style="font-size:15px;font-family:'Syne',sans-serif;font-weight:800;color:#14B8A6;line-height:1;">≥60</div>
+              <div style="font-size:9px;color:var(--text-muted);font-weight:600;letter-spacing:0.05em;">MQL</div>
+            </div>
+            <div style="padding:5px 10px;background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.4);border-radius:8px;text-align:center;min-width:64px;">
+              <div style="font-size:15px;font-family:'Syne',sans-serif;font-weight:800;color:#14B8A6;line-height:1;">≥80</div>
+              <div style="font-size:9px;color:var(--text-muted);font-weight:600;letter-spacing:0.05em;">SQL → PM</div>
+            </div>
+            <div style="padding:5px 10px;background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.2);border-radius:8px;text-align:center;min-width:64px;">
+              <div style="font-size:15px;font-family:'Syne',sans-serif;font-weight:800;color:#14B8A6;line-height:1;">3</div>
+              <div style="font-size:9px;color:var(--text-muted);font-weight:600;letter-spacing:0.05em;">Pipelines</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-nav">
+        <button class="tab-btn active" style="color:#14B8A6;border-bottom:2px solid #14B8A6;" onclick="switchTab('l3','director',this)">👔 Director</button>
+        <button class="tab-btn" onclick="switchTab('l3','system',this)">🎯 Scoring Model</button>
+        <button class="tab-btn" onclick="switchTab('l3','technical',this)">🛠 Technical</button>
+      </div>
+
+      <!-- TAB 1 — DIRECTOR VIEW -->
+      <div class="tab-panel active" id="l3-director">
+        <div class="sub-heading" style="color:#14B8A6;">Business Value</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;line-height:1.65;">
+          A single pipeline cannot serve a startup closing in 2–6 weeks, a corporate taking 2–4 months, and a government deal requiring 6–18 months. Layer 3 deploys three purpose-built pipelines — each with its own stages, velocity benchmarks, and an automated scoring brain that ensures the team only invests time in leads that meet strict criteria.
+        </p>
+        <div class="sub-heading" style="color:#14B8A6;">Why We Do This</div>
+        <ul style="font-size:13px;color:var(--text-muted);padding-left:0;list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:16px;">
+          <li style="display:flex;align-items:flex-start;gap:8px;"><span style="color:#14B8A6;font-size:15px;line-height:1.4;">→</span><span>PM chỉ gặp lead đã đủ điều kiện — automated MQL→SQL handover, no manual filtering</span></li>
+          <li style="display:flex;align-items:flex-start;gap:8px;"><span style="color:#14B8A6;font-size:15px;line-height:1.4;">→</span><span>Không nhầm lẫn giữa 3 nhóm — each segment scores and routes independently</span></li>
+          <li style="display:flex;align-items:flex-start;gap:8px;"><span style="color:#14B8A6;font-size:15px;line-height:1.4;">→</span><span>Pipeline velocity đo được chính xác — stage-level benchmarks per persona</span></li>
+        </ul>
+        <div class="sub-heading" style="color:#14B8A6;">Deal Size &amp; Cycle by Segment</div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+          <div style="padding:12px 10px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.15);border-radius:8px;text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px;">🚀</div>
+            <div style="font-size:11px;font-weight:700;color:#14B8A6;margin-bottom:2px;">Startup</div>
+            <div style="font-size:13px;font-weight:800;color:var(--text-primary);">€500–5K</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">2–6 weeks</div>
+            <div style="margin-top:6px;padding:2px 6px;background:rgba(20,184,166,0.12);border-radius:4px;font-size:10px;font-weight:700;color:#14B8A6;">Win: Payment received</div>
+          </div>
+          <div style="padding:12px 10px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.15);border-radius:8px;text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px;">🏢</div>
+            <div style="font-size:11px;font-weight:700;color:#14B8A6;margin-bottom:2px;">Corporate</div>
+            <div style="font-size:13px;font-weight:800;color:var(--text-primary);">€20K–150K</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">2–4 months</div>
+            <div style="margin-top:6px;padding:2px 6px;background:rgba(20,184,166,0.12);border-radius:4px;font-size:10px;font-weight:700;color:#14B8A6;">Win: MSA signed</div>
+          </div>
+          <div style="padding:12px 10px;background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.15);border-radius:8px;text-align:center;">
+            <div style="font-size:20px;margin-bottom:4px;">🏛️</div>
+            <div style="font-size:11px;font-weight:700;color:#14B8A6;margin-bottom:2px;">Government</div>
+            <div style="font-size:13px;font-weight:800;color:var(--text-primary);">€50K–500K</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">6–18 months</div>
+            <div style="margin-top:6px;padding:2px 6px;background:rgba(20,184,166,0.12);border-radius:4px;font-size:10px;font-weight:700;color:#14B8A6;">Win: PO received</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2 — LEAD SCORING MODEL (System View) -->
+      <div class="tab-panel" id="l3-system">
+
+        <!-- PIPELINE STAGES — restored -->
+        <div class="sub-heading" style="color:#14B8A6;">Pipeline Stages</div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <div style="padding:10px 14px;background:rgba(20,184,166,0.04);border:1px solid rgba(20,184,166,0.12);border-radius:8px;">
+            <div style="font-size:11px;font-weight:700;color:#14B8A6;margin-bottom:5px;">🚀 STARTUP PIPELINE</div>
+            <div style="font-size:12px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:4px;align-items:center;">
+              <span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Inquiry</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Qualified</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Discovery Call</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Pitch</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Enrolled</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Active</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Alumni</span>
+            </div>
+          </div>
+          <div style="padding:10px 14px;background:rgba(20,184,166,0.04);border:1px solid rgba(20,184,166,0.12);border-radius:8px;">
+            <div style="font-size:11px;font-weight:700;color:#14B8A6;margin-bottom:5px;">🏢 CORPORATE PIPELINE</div>
+            <div style="font-size:12px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:4px;align-items:center;">
+              <span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Prospect</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Intro</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Needs Assessment</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Proposal</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Negotiation</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Signed</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Upsell</span>
+            </div>
+          </div>
+          <div style="padding:10px 14px;background:rgba(20,184,166,0.04);border:1px solid rgba(20,184,166,0.12);border-radius:8px;">
+            <div style="font-size:11px;font-weight:700;color:#14B8A6;margin-bottom:5px;">🏛️ GOVERNMENT PIPELINE</div>
+            <div style="font-size:12px;color:var(--text-muted);display:flex;flex-wrap:wrap;gap:4px;align-items:center;">
+              <span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Relationship Building</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">RFP Identified</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Bid</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Shortlisted</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Awarded</span>→<span style="padding:2px 7px;background:rgba(20,184,166,0.1);border-radius:4px;color:#14B8A6;">Renewal</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- DUAL-SCORE MODEL -->
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+          <div class="sub-heading" style="color:#14B8A6;margin-bottom:0;">🎯 Dual-Score Model — AI Tính Điểm Tự Động</div>
+          <div style="font-size:11px;color:var(--text-muted);font-style:italic;">Source: CheatSheet "LEAD SCORING" table</div>
+        </div>
+
+        <!-- GROUP A — STARTUP -->
+        <div style="border:1px solid rgba(20,184,166,0.25);border-radius:12px;overflow:hidden;margin-bottom:12px;">
+          <div style="padding:10px 14px;background:rgba(20,184,166,0.1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+            <span style="font-size:12px;font-weight:800;color:#14B8A6;letter-spacing:0.04em;">🚀 GROUP A — STARTUP</span>
+            <div style="display:flex;gap:6px;">
+              <span style="padding:2px 8px;background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.3);border-radius:999px;font-size:11px;font-weight:700;color:#14B8A6;">MQL ≥ 60pts</span>
+              <span style="padding:2px 8px;background:rgba(20,184,166,0.25);border:1px solid rgba(20,184,166,0.5);border-radius:999px;font-size:11px;font-weight:700;color:#14B8A6;">SQL ≥ 80pts → Auto-assign PM</span>
+            </div>
+          </div>
+          <div style="padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Firmographic Score (max 60pts)</div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">DeepTech / Climate / Health</span><span style="font-weight:700;color:#14B8A6;">+20</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Series A funding stage</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">HQ: DACH region</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Seed funding stage</span><span style="font-weight:700;color:#14B8A6;">+10</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Team size: 6–20</span><span style="font-weight:700;color:#14B8A6;">+10</span></div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Engagement Score (max 40pts)</div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Form submitted</span><span style="font-weight:700;color:#14B8A6;">+20</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Event attendance</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Visited /apply page</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Downloaded resource</span><span style="font-weight:700;color:#14B8A6;">+10</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.04);border-radius:5px;"><span style="color:var(--text-muted);">Web visit (tracked)</span><span style="font-weight:700;color:#14B8A6;">+8</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP B — CORPORATE -->
+        <div style="border:1px solid rgba(20,184,166,0.2);border-radius:12px;overflow:hidden;margin-bottom:12px;">
+          <div style="padding:10px 14px;background:rgba(20,184,166,0.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+            <span style="font-size:12px;font-weight:800;color:#14B8A6;letter-spacing:0.04em;">🏢 GROUP B — CORPORATE</span>
+            <span style="padding:2px 8px;background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.3);border-radius:999px;font-size:11px;font-weight:700;color:#14B8A6;">Account ≥55 AND Contact ≥25 → BD Call</span>
+          </div>
+          <div style="padding:12px 14px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Account Firmographic (max 60pts)</div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">Has CVC</span><span style="font-weight:700;color:#14B8A6;">+20</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">Revenue &gt; €1B</span><span style="font-weight:700;color:#14B8A6;">+20</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">Has Innovation Lab</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">HQ: Germany</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">Contact Engagement (max 40pts)</div>
+              <div style="display:flex;flex-direction:column;gap:5px;">
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">Head of Innovation / CDO</span><span style="font-weight:700;color:#14B8A6;">+20</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">Attended event</span><span style="font-weight:700;color:#14B8A6;">+15</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">LinkedIn InMail response</span><span style="font-weight:700;color:#14B8A6;">+12</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:4px 8px;background:rgba(20,184,166,0.03);border-radius:5px;"><span style="color:var(--text-muted);">Case study request</span><span style="font-weight:700;color:#14B8A6;">+10</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GROUP C — GOVERNMENT -->
+        <div style="border:1px solid rgba(20,184,166,0.18);border-radius:12px;overflow:hidden;margin-bottom:14px;">
+          <div style="padding:10px 14px;background:rgba(20,184,166,0.05);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;">
+            <span style="font-size:12px;font-weight:800;color:#14B8A6;letter-spacing:0.04em;">🏛️ GROUP C — GOVERNMENT</span>
+            <span style="padding:2px 8px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:999px;font-size:11px;font-weight:700;color:#F59E0B;">Không dùng điểm số — Relationship Tracking</span>
+          </div>
+          <div style="padding:12px 14px;">
+            <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">relationship_strength progression</div>
+            <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+              <span style="padding:4px 10px;background:rgba(20,184,166,0.06);border:1px solid rgba(20,184,166,0.2);border-radius:6px;font-size:12px;font-weight:600;color:#14B8A6;">new_contact</span>
+              <span style="color:var(--text-muted);">→</span>
+              <span style="padding:4px 10px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.3);border-radius:6px;font-size:12px;font-weight:600;color:#14B8A6;">engaged</span>
+              <span style="color:var(--text-muted);">→</span>
+              <span style="padding:4px 10px;background:rgba(20,184,166,0.18);border:1px solid rgba(20,184,166,0.45);border-radius:6px;font-size:12px;font-weight:700;color:#14B8A6;">trusted_partner</span>
+            </div>
+            <div style="padding:8px 12px;background:rgba(245,158,11,0.06);border:1px solid rgba(245,158,11,0.2);border-radius:8px;font-size:12px;color:var(--text-muted);">
+              <strong style="color:#F59E0B;">BD Trigger:</strong> relationship_strength = <code style="background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px;color:#14B8A6;">"engaged"</code> AND rfp_timeline ≤ 90 days → Create Task: "Prepare RFP Bid Package" + Slack alert to BD Lead
+            </div>
+          </div>
+        </div>
+
+        <!-- MQL→SQL HANDOVER FLOW -->
+        <div class="sub-heading" style="color:#14B8A6;">MQL → SQL Handover Flow (n8n)</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div class="flow-step"><div class="flow-num" style="background:rgba(20,184,166,0.2);color:#14B8A6;">1</div><div><strong>Score threshold reached</strong> → n8n trigger fires on HubSpot property change</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(20,184,166,0.2);color:#14B8A6;">2</div><div><strong>Create Deal</strong> in the correct pipeline (Startup / Corporate / Government) based on persona_group</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(20,184,166,0.2);color:#14B8A6;">3</div><div><strong>Assign PM</strong> as Deal Owner → auto-create Task: "Discovery Call within 48h"</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(20,184,166,0.2);color:#14B8A6;">4</div><div><strong>Slack alert</strong> → #sales-alerts: "🚀 New SQL: {company} | Score: {score} | Persona: {group} | Source: {lead_source}"</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(20,184,166,0.2);color:#14B8A6;">5</div><div><strong>Enroll contact</strong> in "Pre-Discovery Email Sequence" automatically</div></div>
+        </div>
+      </div>
+
+      <!-- TAB 3 — TECHNICAL VIEW -->
+      <div class="tab-panel" id="l3-technical">
+        <div class="sub-heading" style="color:#14B8A6;">Tool Stack</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;">
+          <span class="tool-tag">🟠 HubSpot Sales Pro</span>
+          <span class="tool-tag">⚙️ n8n (self-hosted)</span>
+          <span class="tool-tag">🔭 Apollo.io (enrichment)</span>
+          <span class="tool-tag">📊 Looker Studio</span>
+        </div>
+        <div class="sub-heading" style="color:#14B8A6;">Tasks (Things to Do)</div>
+        <ul class="checklist">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Tạo 3 Deal Pipelines riêng biệt trong HubSpot với stages và exit criteria đúng theo từng persona</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Cấu hình Lead Scoring: Startup (Firmographic 60pts + Engagement 40pts, MQL ≥60, SQL ≥80) + Corporate (account+contact dual-score)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Government: Relationship Tracking (không dùng điểm số) — build relationship_strength custom property in HubSpot</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>MQL→SQL Handover Logic tự động via n8n (deal create → assign PM → 48h task → Slack alert → email sequence)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Setup n8n workflow to fetch Funding Data from Apollo.io for Startup firmographic scoring automation</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Configure Slack #sales-alerts integration for real-time SQL notifications with company + score + persona data</li>
+        </ul>
+
+        <!-- HubSpot scoring properties reference -->
+        <div style="margin-top:16px;padding:12px 14px;background:rgba(20,184,166,0.04);border:1px solid rgba(20,184,166,0.15);border-radius:10px;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#14B8A6;margin-bottom:8px;">HubSpot Scoring Properties to Build</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;">
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">hs_lead_score</code>
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">firmographic_score</code>
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">engagement_score</code>
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">persona_group</code>
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">relationship_strength</code>
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">rfp_timeline</code>
+            <code style="font-size:11px;padding:2px 7px;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:4px;color:var(--text-muted);">lead_source</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS BADGE — always visible, outside tabs -->
+      <div class="success-badge">
+        <div style="font-size:20px;flex-shrink:0;margin-top:2px;">✅</div>
+        <div>
+          <div class="success-badge-label">Layer 3 Output</div>
+          <div class="success-badge-content">Zero leads lost. PM only meets pre-qualified leads. No confusion between 3 segments. Pipeline velocity measurable and accurate.</div>
+        </div>
+      </div>
+    </div>
+    <!-- /LAYER 3 -->
+
+    <!-- LAYER 4 -->
+    <div class="layer-card" id="card-l4">
+      <div class="card-header">
+        <div class="layer-badge" style="background:rgba(139,92,246,0.1);color:#8B5CF6;border:1px solid rgba(139,92,246,0.25);">● LAYER 4</div>
+        <div class="layer-title" style="color:#8B5CF6;">AI Automation &amp; Agents</div>
+        <div class="layer-tagline">"The system follows up, nurtures, and alerts — so your team acts only when it matters."</div>
+      </div>
+      <div class="tab-nav">
+        <button class="tab-btn active" style="color:#8B5CF6;border-bottom:2px solid #8B5CF6;" onclick="switchTab('l4','director',this)">👔 Director</button>
+        <button class="tab-btn" onclick="switchTab('l4','system',this)">⚙️ System</button>
+        <button class="tab-btn" onclick="switchTab('l4','technical',this)">🛠 Technical</button>
+      </div>
+      <div class="tab-panel active" id="l4-director">
+        <div class="sub-heading" style="color:#8B5CF6;">Business Value</div>
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:14px;line-height:1.65;">Without automation, Program Managers spend 8–10 hours per week manually following up, sending nurture emails, and logging outcomes. Layer 4 deploys n8n workflows and Claude AI to handle all of this — the system nurtures, enriches, and alerts, while the PM only acts when a lead is qualified and ready.</p>
+        <div class="sub-heading" style="color:#8B5CF6;">Why We Do This</div>
+        <ul style="font-size:13px;color:var(--text-muted);padding-left:16px;line-height:1.7;">
+          <li>PM saves 8–10h/week previously lost to manual follow-up</li>
+          <li>Email response time drops to &lt;2 hours — automatically</li>
+          <li>Zero leads forgotten after a meeting — every outcome triggers a chain</li>
+          <li>AI personalization lifts email open rates +30–50%</li>
+        </ul>
+      </div>
+      <div class="tab-panel" id="l4-system">
+        <div class="sub-heading" style="color:#8B5CF6;">Automation Workflows</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="flow-step"><div class="flow-num" style="background:rgba(139,92,246,0.2);color:#8B5CF6;">1</div><div><strong>Data Enrichment:</strong> Form submit → n8n calls Apollo + LinkedIn + Crunchbase + Hunter.io in parallel → contact enriched in 30 seconds</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(139,92,246,0.2);color:#8B5CF6;">2</div><div><strong>MQL→SQL Handover:</strong> Score ≥ SQL threshold → create deal in correct pipeline → assign PM → 48h task → Slack alert → Pre-Discovery email</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(139,92,246,0.2);color:#8B5CF6;">3</div><div><strong>Post-Meeting WIN:</strong> outcome=WIN → move stage → onboarding checklist → welcome email → Slack #new-clients → Program_Enrollment created</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(139,92,246,0.2);color:#8B5CF6;">4</div><div><strong>Post-Meeting LOST:</strong> outcome=LOST → log lost_reason (budget/timing/competitor) → tag for re-marketing in 6 months</div></div>
+          <div class="flow-step"><div class="flow-num" style="background:rgba(139,92,246,0.2);color:#8B5CF6;">5</div><div><strong>AI Personalization:</strong> Score &gt;50 → n8n → Claude API → generate opening paragraph based on country + industry + funding stage</div></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="l4-technical">
+        <div class="sub-heading" style="color:#8B5CF6;">Tool Stack</div>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+          <span class="tool-tag">⚙️ n8n (self-hosted)</span><span class="tool-tag">🤖 Claude API Sonnet</span><span class="tool-tag">🔭 Apollo.io</span><span class="tool-tag">🟠 HubSpot</span><span class="tool-tag">💬 Slack</span><span class="tool-tag">🔗 LinkedIn API</span>
+        </div>
+        <div class="sub-heading" style="color:#8B5CF6;">Tasks (Things to Do)</div>
+        <ul class="checklist">
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Startup Nurture: 6 emails over 25 days (Day1: case study → Day3: checklist → Day7: event invite → Day12: LinkedIn → Day18: social proof → Day25: last-touch)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Corporate Nurture: 5 touchpoints over 10 weeks (Wk1: Industry Report → Wk3: Roundtable → Wk5: ROI Case → Wk8: BD Call → Wk10: Workshop)</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Post-Meeting Workflows: WIN / NOT_READY / LOST / REFERRAL — each with full automation chain</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>AI Email Personalization MVP: n8n → Claude API (claude-sonnet-4-6) → personalized opening paragraph per contact</li>
+          <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Data Enrichment: Apollo + LinkedIn + Crunchbase + Hunter.io parallel API calls via n8n</li>
+        </ul>
+      </div>
+      <div class="success-badge"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">✅</div><div><div class="success-badge-label">Layer 4 Output</div><div class="success-badge-content">PM saves 8–10h/week. Email response &lt;2h. Zero leads forgotten post-meeting. Open rate +30–50%. AI personalization live.</div></div></div>
+    </div>
+
+    <!-- LAYER 5 (full width) -->
+    <div class="layer-card" id="card-l5" style="grid-column:1/-1;">
+      <div class="card-header">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <div>
+            <div class="layer-badge" style="background:rgba(245,158,11,0.1);color:#F59E0B;border:1px solid rgba(245,158,11,0.25);">● LAYER 5</div>
+            <div class="layer-title" style="color:#F59E0B;">Revenue Intelligence</div>
+            <div class="layer-tagline">"CEOs &amp; Gov get real-time reports. No more manual PowerPoints."</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <div style="padding:8px 12px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;text-align:center;min-width:72px;">
+              <div style="font-size:20px;font-family:'Syne',sans-serif;font-weight:800;color:#F59E0B;">4</div><div style="font-size:10px;color:var(--text-muted);">Dashboards</div>
+            </div>
+            <div style="padding:8px 12px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;text-align:center;min-width:72px;">
+              <div style="font-size:14px;font-family:'Syne',sans-serif;font-weight:800;color:#F59E0B;line-height:1.4;">Real-time</div><div style="font-size:10px;color:var(--text-muted);">CEO visibility</div>
+            </div>
+            <div style="padding:8px 12px;background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.2);border-radius:10px;text-align:center;min-width:72px;">
+              <div style="font-size:20px;font-family:'Syne',sans-serif;font-weight:800;color:#F59E0B;">0</div><div style="font-size:10px;color:var(--text-muted);">Manual reports</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-nav">
+        <button class="tab-btn active" style="color:#F59E0B;border-bottom:2px solid #F59E0B;" onclick="switchTab('l5','director',this)">👔 Director</button>
+        <button class="tab-btn" onclick="switchTab('l5','system',this)">⚙️ System</button>
+        <button class="tab-btn" onclick="switchTab('l5','technical',this)">🛠 Technical</button>
+      </div>
+      <div class="tab-panel active" id="l5-director">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;">
+          <div>
+            <div class="sub-heading" style="color:#F59E0B;">Business Value</div>
+            <p style="font-size:14px;color:var(--text-muted);line-height:1.65;">The final layer transforms raw CRM and campaign data into executive-level intelligence. CEOs see pipeline in real-time. Government funders receive automated KPI reports. Program Managers track enrollment daily. Decisions are made on data — the weekly manual PowerPoint becomes obsolete.</p>
+          </div>
+          <div>
+            <div class="sub-heading" style="color:#F59E0B;">4 Dashboard Design</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="padding:8px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:2px;">1 — Executive Growth (CEO/CCO)</div><div style="color:var(--text-muted);">Total pipeline value · MRR × 3 segments · Pipeline Velocity · CAC vs LTV · MQL by source</div></div>
+              <div style="padding:8px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:2px;">2 — Program Operations (PM)</div><div style="color:var(--text-muted);">Enrollment vs capacity · MQL→Enrollment rate · Alumni outcomes · NPS trend · Geographic map</div></div>
+              <div style="padding:8px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:2px;">3 — Sales Intelligence (BD Team)</div><div style="color:var(--text-muted);">Deals by stage · Deals at risk · Deal source attribution · Win/Loss breakdown · PM performance</div></div>
+              <div style="padding:8px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.15);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:2px;">4 — Government Reporting (German Govt / EU Funders)</div><div style="color:var(--text-muted);">Startups supported · Funding raised by alumni · Jobs created · Partnerships formed · ESG indicators</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="l5-system">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+          <div>
+            <div class="sub-heading" style="color:#F59E0B;">Data Flow Architecture</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div class="flow-step"><div class="flow-num" style="background:rgba(245,158,11,0.2);color:#F59E0B;">1</div><div><strong>HubSpot CRM</strong> is the single data source — all deals, contacts, activity synced live</div></div>
+              <div class="flow-step"><div class="flow-num" style="background:rgba(245,158,11,0.2);color:#F59E0B;">2</div><div><strong>GA4 + UTM data</strong> flows into HubSpot — full attribution chain visible from first touch to close</div></div>
+              <div class="flow-step"><div class="flow-num" style="background:rgba(245,158,11,0.2);color:#F59E0B;">3</div><div><strong>W-Shaped Attribution</strong> assigns credit: 30% first touch · 30% MQL touch · 30% SQL touch · 10% distributed</div></div>
+              <div class="flow-step"><div class="flow-num" style="background:rgba(245,158,11,0.2);color:#F59E0B;">4</div><div><strong>Looker Studio</strong> connects to HubSpot API — all 4 dashboards auto-refresh, no manual input</div></div>
+              <div class="flow-step"><div class="flow-num" style="background:rgba(245,158,11,0.2);color:#F59E0B;">5</div><div><strong>OKR Dashboard</strong> tracks 4 objectives vs. KR targets — CEO gets at-a-glance health check</div></div>
+            </div>
+          </div>
+          <div>
+            <div class="sub-heading" style="color:#F59E0B;">OKR Framework — 4 Objectives</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="padding:10px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.12);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:4px;">O1: Startup Acquisition Engine</div><div style="color:var(--text-muted);">KR1: 500 MQL/quarter (inbound) · KR2: Enrollment rate ≥25% from MQL · KR3: CAC ≤€150 | LTV ≥€1,500 (10:1)</div></div>
+              <div style="padding:10px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.12);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:4px;">O2: Scale Corporate Revenue → 50% ARR</div><div style="color:var(--text-muted);">KR1: 20 Tier-1 accounts in ABM pipeline · KR2: Avg deal ≥€45K · KR3: Renewal/upsell ≥60%</div></div>
+              <div style="padding:10px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.12);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:4px;">O3: Win &amp; Retain Government Contracts</div><div style="color:var(--text-muted);">KR1: 3 contracts/year ≥€100K · KR2: Gov NPS ≥50 · KR3: Contract renewal ≥80%</div></div>
+              <div style="padding:10px 12px;background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.12);border-radius:8px;font-size:12px;"><div style="font-weight:700;color:#F59E0B;margin-bottom:4px;">O4: Events = Profitable Growth Channel</div><div style="color:var(--text-muted);">KR1: Events → ≥30% quarterly MQL · KR2: Event-to-Pipeline ≥40% · KR3: Event NPS ≥60</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-panel" id="l5-technical">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;">
+          <div>
+            <div class="sub-heading" style="color:#F59E0B;">Tool Stack</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;">
+              <span class="tool-tag">📊 Looker Studio (Free)</span><span class="tool-tag">🟠 HubSpot API</span><span class="tool-tag">📈 GA4</span><span class="tool-tag">⚙️ n8n</span>
+            </div>
+            <div class="sub-heading" style="color:#F59E0B;">Tasks (Things to Do)</div>
+            <ul class="checklist">
+              <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Build all 4 Looker Studio dashboards (Executive / Program Ops / Sales Intelligence / Government Reporting)</li>
+              <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Configure W-Shaped Attribution in HubSpot (30% first / 30% MQL / 30% SQL / 10% other)</li>
+              <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>OKR framework: 4 objectives with KRs tracked in Executive Dashboard</li>
+              <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>LTV calculation per segment: Startup / Corporate / Government with lifecycle modelling</li>
+              <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Government Reporting Module: auto-generate impact report (startups supported, jobs, ESG)</li>
+              <li><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>90-day review: establish OKR baselines + present data-backed Q2 plan</li>
+            </ul>
+          </div>
+          <div>
+            <div class="sub-heading" style="color:#F59E0B;">Full Tool Stack &amp; Monthly Cost</div>
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">HubSpot Marketing + Sales Pro</span><span style="font-weight:700;color:#F59E0B;">€800–1,500/mo</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">n8n (self-hosted, GDPR-safe)</span><span style="font-weight:700;color:#F59E0B;">~€50/mo</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">Apollo.io Starter</span><span style="font-weight:700;color:#F59E0B;">$99/mo</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">Claude API (AI personalization)</span><span style="font-weight:700;color:#F59E0B;">$50–200/mo</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">Looker Studio</span><span style="font-weight:700;color:#22C55E;">Free</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">GA4 + GTM Server-side</span><span style="font-weight:700;color:#22C55E;">Free + ~$30</span></div>
+              <div style="display:flex;justify-content:space-between;padding:8px 10px;background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.1);border-radius:6px;font-size:12px;"><span style="color:var(--text-muted);">Ahrefs SEO</span><span style="font-weight:700;color:#F59E0B;">$99/mo</span></div>
+              <div style="display:flex;justify-content:space-between;padding:10px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);border-radius:6px;font-size:13px;font-weight:700;"><span style="color:var(--text-primary);">TOTAL</span><span style="color:#F59E0B;">~€1,500–2,500/mo</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="success-badge"><div style="font-size:20px;flex-shrink:0;margin-top:2px;">✅</div><div><div class="success-badge-label">Layer 5 Output</div><div class="success-badge-content">4 dashboards live. CEO sees pipeline real-time. Gov receives automated KPI reports. Decisions based on data. Zero manual PowerPoints.</div></div></div>
+    </div>
+
+  </div><!-- /grid -->
+
+  <!-- WISDOM BAR -->
+  <div style="margin-top:48px;padding:24px 28px;background:var(--bg-card2);border:1px solid var(--border);border-radius:20px;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-cyan);margin-bottom:16px;">💡 One-Line Memory — The Mental Model</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;">
+      <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#3B82F6;flex-shrink:0;">1</div><div style="font-size:13px;"><strong style="color:#3B82F6;">Mắt thần</strong> <span style="color:var(--text-muted);">— đo mọi thứ</span></div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#06B6D4;flex-shrink:0;">2</div><div style="font-size:13px;"><strong style="color:#06B6D4;">Giọng nói</strong> <span style="color:var(--text-muted);">— nói đúng với đúng người</span></div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#14B8A6;flex-shrink:0;">3</div><div style="font-size:13px;"><strong style="color:#14B8A6;">Đường ray</strong> <span style="color:var(--text-muted);">— dẫn từng nhóm đúng hướng</span></div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#8B5CF6;flex-shrink:0;">4</div><div style="font-size:13px;"><strong style="color:#8B5CF6;">Động cơ</strong> <span style="color:var(--text-muted);">— tự chạy không cần người điều khiển</span></div></div>
+      <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:28px;height:28px;border-radius:8px;background:rgba(245,158,11,0.15);border:1px solid rgba(245,158,11,0.3);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#F59E0B;flex-shrink:0;">5</div><div style="font-size:13px;"><strong style="color:#F59E0B;">Buồng lái</strong> <span style="color:var(--text-muted);">— nhìn thấy toàn bộ, ra quyết định đúng lúc</span></div></div>
+    </div>
+    <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--text-muted);font-style:italic;text-align:center;">Thiếu bất kỳ tầng nào — cả hệ thống hoạt động không trọn vẹn. · Missing any layer — the whole system underperforms.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="text-align:center;padding:40px 0 20px;border-top:1px solid var(--border);margin-top:40px;">
+    <a href="index.html" class="nav-logo" style="font-size:20px;">Start2 Growth Engine v2.0</a>
+    <p style="font-size:13px;color:var(--text-muted);margin-top:8px;line-height:1.6;">Master Framework — Source of Truth · Prepared by <strong style="color:var(--text-primary);">Hiep Nguyen</strong> · Marketing Operations &amp; Analytics Manager<br>For Start2 Group · February 2026</p>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:14px;flex-wrap:wrap;">
+      <a href="index.html" style="font-size:12px;color:var(--accent-cyan);text-decoration:none;">← Back to Pitch Deck</a>
+      <span style="color:var(--border-bright);">·</span>
+      <a href="index.html#slide7" style="font-size:12px;color:var(--accent-cyan);text-decoration:none;">90-Day Roadmap →</a>
+    </div>
+  </div>
+</main>
+
+<script>
+function switchTab(cardId, tabName, btn) {
+  document.querySelectorAll('[id^="' + cardId + '-"]').forEach(function(p){ p.classList.remove('active'); });
+  btn.closest('.tab-nav').querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); b.style.borderBottom='2px solid transparent'; });
+  var panel = document.getElementById(cardId + '-' + tabName);
+  if(panel) panel.classList.add('active');
+  btn.classList.add('active');
+  btn.style.borderBottom = '2px solid ' + btn.style.color;
+}
+function toggleMobileMenu(){ document.getElementById('mobile-menu').classList.toggle('open'); }
+function closeMobileMenu(){ document.getElementById('mobile-menu').classList.remove('open'); }
+document.addEventListener('click', function(e){
+  var menu=document.getElementById('mobile-menu'), ham=document.getElementById('hamburger');
+  if(menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) menu.classList.remove('open');
+});
+</script>
+
+</body>
+</html>
