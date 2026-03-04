@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opening Hook — Start2 Growth Engine v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg-primary: #050911;
+    --bg-card: #0d1423;
+    --bg-card2: #111d30;
+    --accent-blue: #3B82F6;
+    --accent-cyan: #06B6D4;
+    --accent-teal: #14B8A6;
+    --accent-green: #22C55E;
+    --accent-emerald: #10B981;
+    --text-primary: #F0F4FF;
+    --text-muted: #8B9EC8;
+    --border: #1a2540;
+    --border-bright: #2a3a60;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-y: scroll; }
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, .syne { font-family: 'Syne', sans-serif; }
+
+  /* ── NAV ── */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    height: 56px;
+    background: rgba(5,9,17,0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+  }
+  .nav-inner {
+    max-width: 1280px; margin: 0 auto; width: 100%;
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; white-space: nowrap; text-decoration: none;
+  }
+  .nav-tabs {
+    display: flex; align-items: center; gap: 2px;
+    list-style: none; flex: 1; justify-content: center;
+  }
+  .nav-tabs a {
+    display: block; padding: 5px 10px; border-radius: 6px;
+    font-size: 12px; font-weight: 500; color: var(--text-muted);
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
+  }
+  .nav-tabs a:hover { color: var(--text-primary); background: rgba(59,130,246,0.1); }
+  .nav-tabs a.active { color: var(--accent-cyan); background: rgba(6,182,212,0.12); }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 16px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff; text-decoration: none; white-space: nowrap;
+    box-shadow: 0 0 20px rgba(59,130,246,0.35); transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .nav-cta:hover { box-shadow: 0 0 35px rgba(59,130,246,0.55); transform: translateY(-1px); }
+  #hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; padding: 4px; }
+  #hamburger span { display: block; width: 22px; height: 2px; background: var(--text-muted); border-radius: 2px; transition: all 0.3s; }
+  #mobile-menu {
+    display: none; position: fixed; top: 56px; left: 0; right: 0; z-index: 999;
+    background: rgba(5,9,17,0.97); border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem; flex-direction: column; gap: 4px;
+  }
+  #mobile-menu a { display: block; padding: 10px 12px; border-radius: 8px; color: var(--text-muted); font-size: 14px; text-decoration: none; }
+  #mobile-menu a:hover, #mobile-menu a.active { color: var(--accent-cyan); background: rgba(6,182,212,0.1); }
+  #mobile-menu.open { display: flex; }
+
+  /* ── PAGE WRAPPER ── */
+  .page-section {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 0 60px; position: relative; overflow: hidden;
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+  /* ── SHARED COMPONENTS ── */
+  .card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 1.5rem;
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .card:hover { border-color: var(--border-bright); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600;
+    background: rgba(59,130,246,0.15); color: var(--accent-blue);
+    border: 1px solid rgba(59,130,246,0.25);
+  }
+  .badge-cyan { background: rgba(6,182,212,0.12); color: var(--accent-cyan); border-color: rgba(6,182,212,0.25); }
+  .badge-green { background: rgba(34,197,94,0.12); color: var(--accent-green); border-color: rgba(34,197,94,0.25); }
+  .badge-orange { background: rgba(249,115,22,0.12); color: #fb923c; border-color: rgba(249,115,22,0.25); }
+  .badge-red { background: rgba(239,68,68,0.12); color: #f87171; border-color: rgba(239,68,68,0.25); }
+  .badge-yellow { background: rgba(234,179,8,0.12); color: #facc15; border-color: rgba(234,179,8,0.25); }
+  .section-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent-cyan); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: clamp(28px, 4vw, 44px); font-weight: 800; line-height: 1.15; margin-bottom: 1rem; }
+  .section-sub { font-size: 17px; color: var(--text-muted); max-width: 640px; }
+  .gradient-text {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 50%, #7dd3fc 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .fade-in-delay-1 { transition-delay: 0.1s; }
+  .fade-in-delay-2 { transition-delay: 0.2s; }
+  .fade-in-delay-3 { transition-delay: 0.3s; }
+  .fade-in-delay-4 { transition-delay: 0.4s; }
+  .quote-block {
+    border-left: 3px solid var(--accent-cyan); padding: 1rem 1.5rem;
+    background: rgba(6,182,212,0.05); border-radius: 0 10px 10px 0;
+    font-size: 16px; font-style: italic; color: var(--text-primary); line-height: 1.7;
+  }
+  .divider { height: 1px; background: var(--border); margin: 2rem 0; }
+
+  /* ── PLACEHOLDER ── */
+  .deep-dive-placeholder {
+    margin-top: 2.5rem; padding: 2rem;
+    border: 2px dashed rgba(59,130,246,0.3); border-radius: 16px;
+    background: rgba(59,130,246,0.04); text-align: center; color: var(--text-muted);
+  }
+  .deep-dive-placeholder .ph-icon { font-size: 28px; margin-bottom: 10px; }
+  .deep-dive-placeholder .ph-label {
+    font-size: 12px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--accent-blue); margin-bottom: 6px;
+  }
+  .deep-dive-placeholder p { font-size: 14px; }
+
+  /* ── FOOTER ── */
+  footer { background: var(--bg-primary); border-top: 1px solid var(--border); padding: 2.5rem 0; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 767px) {
+    .nav-tabs { display: none; }
+    #hamburger { display: flex; }
+    .responsive-split { grid-template-columns: 1fr !important; }
+    .responsive-2col { grid-template-columns: 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    .section-title { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Start2 Growth Engine</a>
+    <ul class="nav-tabs" id="navTabs">
+      <li><a href="index.html" class="active">Hook</a></li>
+      <li><a href="StatusQuo.html">Status Quo</a></li>
+      <li><a href="Ecosystem.html">Ecosystem</a></li>
+      <li><a href="Vision.html">Vision</a></li>
+      <li><a href="Framework.html">Framework</a></li>
+      <li><a href="Dashboard.html">Dashboard</a></li>
+      <li><a href="ROI.html">ROI</a></li>
+      <li><a href="Roadmap.html">Roadmap</a></li>
+      <li><a href="Investment.html">Investment</a></li>
+      <li><a href="About.html">About</a></li>
+    </ul>
+    <a href="Investment.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.64A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      Contact Hiep
+    </a>
+    <div id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html" onclick="closeMobileMenu()" class="active">01 — Opening Hook</a>
+  <a href="StatusQuo.html" onclick="closeMobileMenu()">02 — Status Quo</a>
+  <a href="Ecosystem.html" onclick="closeMobileMenu()">03 — Ecosystem</a>
+  <a href="Vision.html" onclick="closeMobileMenu()">04 — Vision</a>
+  <a href="Framework.html" onclick="closeMobileMenu()">05 — Framework</a>
+  <a href="ROI.html" onclick="closeMobileMenu()">06 — ROI Case</a>
+  <a href="Roadmap.html" onclick="closeMobileMenu()">07 — 90-Day Roadmap</a>
+  <a href="Dashboard.html" onclick="closeMobileMenu()">08 — Dashboard</a>
+  <a href="WhyHiep.html" onclick="closeMobileMenu()">09 — Why Hiep</a>
+  <a href="Investment.html" onclick="closeMobileMenu()">10 — Investment & Ask</a>
+</div>
+
+<style>
+  .hero-bg { position: fixed; inset: 0; z-index: -1; background: var(--bg-primary); overflow: hidden; }
+  .hero-mesh {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 40%, rgba(59,130,246,0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 60%, rgba(6,182,212,0.13) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 50% 80%, rgba(20,184,166,0.10) 0%, transparent 60%);
+    animation: meshShift 12s ease-in-out infinite alternate;
+  }
+  @keyframes meshShift { 0% { transform: scale(1) translate(0,0); } 100% { transform: scale(1.08) translate(1%,1%); } }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.6), transparent 75%);
+  }
+  .hero-content {
+    position: relative; z-index: 1; min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    align-items: center; text-align: center; padding: 80px 2rem 60px;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 16px; border-radius: 999px; margin-bottom: 2rem;
+    border: 1px solid rgba(6,182,212,0.35); background: rgba(6,182,212,0.08);
+    font-size: 13px; font-weight: 500; color: var(--accent-cyan);
+  }
+  .hero-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-cyan); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+  .hero-h1 { font-family: 'Syne', sans-serif; font-size: clamp(36px, 6vw, 72px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.5rem; max-width: 900px; }
+  .hero-subtitle { font-size: clamp(16px, 2vw, 20px); color: var(--text-muted); max-width: 600px; margin: 0 auto 2.5rem; }
+  .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 4rem; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+    color: #fff; text-decoration: none; border: none; cursor: pointer;
+    box-shadow: 0 0 30px rgba(59,130,246,0.4); transition: all 0.2s;
+  }
+  .btn-primary:hover { box-shadow: 0 0 50px rgba(59,130,246,0.65); transform: translateY(-2px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 10px; font-size: 15px; font-weight: 600;
+    background: rgba(255,255,255,0.06); color: var(--text-primary);
+    text-decoration: none; border: 1px solid var(--border-bright); cursor: pointer; transition: all 0.2s;
+  }
+  .btn-secondary:hover { background: rgba(255,255,255,0.10); border-color: var(--accent-blue); }
+  .hero-stats { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
+  .stat-badge {
+    padding: 16px 24px; border-radius: 16px;
+    background: rgba(13,20,35,0.8); border: 1px solid var(--border-bright);
+    backdrop-filter: blur(10px); text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4); transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .stat-badge:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 30px rgba(59,130,246,0.15); }
+  .stat-number { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; line-height: 1; }
+  .stat-label { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+  .stat-n1 .stat-number { background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .stat-n2 .stat-number { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .stat-n3 .stat-number { background: linear-gradient(135deg, var(--accent-teal), var(--accent-green)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+</style>
+
+<div class="hero-bg"><div class="hero-mesh"></div><div class="hero-grid"></div></div>
+<div class="hero-content">
+  <div class="hero-badge fade-in">
+    <span class="hero-badge-dot"></span>
+    Start2 Group · Growth Engine v2.0 · Feb 2026
+  </div>
+  <h1 class="hero-h1 fade-in fade-in-delay-1">
+    From <span class="gradient-text">Invisible Pipeline</span><br>to Predictable Revenue
+  </h1>
+  <p class="hero-subtitle fade-in fade-in-delay-2">
+    A Director-level proposal by <strong style="color:var(--text-primary)">Hiep Nguyen</strong> — Marketing Architect
+  </p>
+  <div class="hero-buttons fade-in fade-in-delay-3">
+    <a href="StatusQuo.html" class="btn-primary">
+      Explore the Case
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    </a>
+    <a href="#" class="btn-secondary">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+      Download PDF
+    </a>
+  </div>
+  <div class="hero-stats fade-in fade-in-delay-4">
+    <div class="stat-badge stat-n1">
+      <div class="stat-number"><span class="count-up" data-target="5" data-suffix="x">0x</span></div>
+      <div class="stat-label">Conservative Year 1 ROI</div>
+    </div>
+    <div class="stat-badge stat-n2">
+      <div class="stat-number"><span class="count-up" data-target="90" data-suffix=" days">0 days</span></div>
+      <div class="stat-label">To Full Deployment</div>
+    </div>
+    <div class="stat-badge stat-n3">
+      <div class="stat-number"><span class="count-up" data-target="150" data-prefix="€" data-suffix="K+">€0K+</span></div>
+      <div class="stat-label">Upside in Year 1</div>
+    </div>
+  </div>
+
+ 
+</div>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="container" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:1.5rem;">
+    <a href="index.html" class="nav-logo" style="font-size:22px;">Start2 Growth Engine v2.0</a>
+    <p style="font-size:13px;color:var(--text-muted);max-width:500px;line-height:1.7;">
+      A proposal by <strong style="color:var(--text-primary)">Hiep Nguyen</strong> · Marketing Architect<br>
+      Prepared for Start2 Group · February 2026
+    </p>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="https://start2.group" target="_blank" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">start2.group</a>
+      <span style="color:var(--border);">|</span>
+      <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">LinkedIn</a>
+      <span style="color:var(--border);">|</span>
+      <a href="#" style="font-size:13px;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='#06B6D4'" onmouseout="this.style.color='#8B9EC8'">Download PDF</a>
+    </div>
+    <p style="font-size:12px;color:rgba(139,158,200,0.4);">© 2026 Hiep Nguyen · Start2 Growth Engine v2.0 · Outline version 1.0</p>
+  </div>
+</footer>
+
+<script>
+// ── Fade-in on load ──
+window.addEventListener('DOMContentLoaded', () => {
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '-20px 0px 0px 0px' });
+  fadeEls.forEach(el => observer.observe(el));
+  // Immediately show elements in view
+  setTimeout(() => {
+    fadeEls.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }, 100);
+});
+
+// ── Mobile nav ──
+function toggleMobileMenu() {
+  document.getElementById('mobile-menu').classList.toggle('open');
+}
+function closeMobileMenu() {
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+document.addEventListener('click', (e) => {
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger');
+  if (menu && menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+</script>
+
+<script>
+let countUpDone = false;
+function runCountUp() {
+  if (countUpDone) return;
+  countUpDone = true;
+  document.querySelectorAll('.count-up').forEach(el => {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800, step = 16, steps = duration / step;
+    let current = 0;
+    const increment = target / steps;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) { current = target; clearInterval(timer); }
+      const display = Number.isInteger(target) ? Math.floor(current) : current.toFixed(1);
+      el.textContent = prefix + display + suffix;
+    }, step);
+  });
+}
+window.addEventListener('load', () => setTimeout(runCountUp, 400));
+</script>
+
+</body>
+</html>
