@@ -501,6 +501,8 @@
         
         .hero-badge {
             display: inline-flex;
+            flex-wrap: wrap;                /* Cho phép xuống dòng trên mobile */
+            justify-content: center;         /* Căn giữa khi wrap */
             align-items: center;
             gap: var(--space-xs);
             background: rgba(29,155,240,0.08);
@@ -514,6 +516,9 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: var(--space-xl);
+            max-width: 100%;                 /* Đảm bảo không tràn */
+            white-space: normal;              /* Cho phép text wrap */
+            text-align: center;
         }
         
         .hero-badge .badge-dot {
@@ -579,7 +584,7 @@
         
         .trust-logos {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;    /* Căn trái khi wrap */
             align-items: center;
             gap: var(--space-2xl);
             flex-wrap: wrap;
@@ -629,6 +634,15 @@
         .comparison-subtitle {
             font-size: var(--text-lg);
             color: var(--text-secondary);
+        }
+        
+        /* Swipe hint now above table */
+        .swipe-hint {
+            display: none;
+            text-align: center;
+            margin-bottom: 1rem;            /* Điều chỉnh khoảng cách với bảng */
+            color: var(--text-secondary);
+            font-size: 0.875rem;
         }
         
         .table-wrapper {
@@ -702,15 +716,6 @@
         
         .feature-row td {
             color: var(--text-primary);
-        }
-        
-        /* Swipe hint for mobile (hidden by default) */
-        .swipe-hint {
-            display: none;
-            text-align: center;
-            margin-top: 1rem;
-            color: var(--text-secondary);
-            font-size: 0.875rem;
         }
         
         /* ===== SOLUTION CARDS ===== */
@@ -1169,7 +1174,7 @@
             }
             
             .hero-badge {
-                flex-direction: column;
+                flex-direction: column;       /* Xếp dọc trên màn hình rất nhỏ */
                 gap: var(--space-xs);
             }
         }
@@ -1328,6 +1333,11 @@
                 <p class="comparison-subtitle lead">The real numbers behind the old way vs. the X<sup>5</sup> way</p>
             </div>
 
+            <!-- Swipe hint moved ABOVE the table -->
+            <div class="swipe-hint">
+                <i class="fas fa-arrow-left"></i> Swipe to see full comparison <i class="fas fa-arrow-right"></i>
+            </div>
+
             <div class="table-wrapper" data-aos="fade-up" data-aos-delay="200">
                 <table class="comparison-table">
                     <thead>
@@ -1377,11 +1387,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            
-            <!-- Swipe hint for mobile -->
-            <div class="swipe-hint">
-                <i class="fas fa-arrow-left"></i> Swipe to see full comparison <i class="fas fa-arrow-right"></i>
             </div>
             
             <div class="text-center mt-xl">
