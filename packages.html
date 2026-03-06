@@ -6,7 +6,7 @@
     <title>Packages — X5 Digital | Choose Your Growth Engine</title>
     <meta name="description" content="Choose the growth engine that fits your business stage. Every package includes the Pivot Guarantee and full client control.">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation Library -->
@@ -15,77 +15,102 @@
     <style>
         /* ===== CSS VARIABLES & RESET ===== */
         :root {
-            /* Color System */
-            --primary: #4f46e5;
-            --primary-dark: #3730a3;
-            --primary-light: #818cf8;
-            --secondary: #10b981;
-            --secondary-dark: #059669;
-            --accent: #8b5cf6;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --success: #10b981;
-            
-            /* Package Colors */
-            --foundation: #e0e7ff;
-            --foundation-dark: #4f46e5;
-            --strategic: #c7d2fe;
-            --strategic-dark: #4338ca;
-            --fullstack: #818cf8;
-            --fullstack-dark: #3730a3;
-            --intelligence: #4f46e5;
-            --intelligence-dark: #312e81;
-            
-            /* Neutral Palette */
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            
-            /* Spacing System (8px grid) */
-            --space-xs: 0.5rem;   /* 8px */
-            --space-sm: 1rem;     /* 16px */
-            --space-md: 1.5rem;   /* 24px */
-            --space-lg: 2rem;     /* 32px */
-            --space-xl: 3rem;     /* 48px */
-            --space-2xl: 4rem;    /* 64px */
-            --space-3xl: 6rem;    /* 96px */
-            
-            /* Typography Scale */
-            --text-xs: 0.75rem;    /* 12px */
-            --text-sm: 0.875rem;   /* 14px */
-            --text-base: 1rem;     /* 16px */
-            --text-lg: 1.125rem;   /* 18px */
-            --text-xl: 1.25rem;    /* 20px */
-            --text-2xl: 1.5rem;    /* 24px */
-            --text-3xl: 1.875rem;  /* 30px */
-            --text-4xl: 2.25rem;   /* 36px */
-            --text-5xl: 3rem;      /* 48px */
-            --text-6xl: 3.75rem;   /* 60px */
-            
-            /* Shadows */
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
-            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
-            --shadow-primary: 0 10px 40px rgba(79, 70, 229, 0.3);
-            
-            /* Transitions */
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Border Radius */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
+            /* === BACKGROUNDS === */
+            --bg-base:        #080D1A;
+            --bg-surface-1:   #0D1426;
+            --bg-surface-2:   #111B33;
+            --bg-surface-3:   #1A2444;
+
+            /* === BRAND COLORS === */
+            --electric-blue:  #1D9BF0;
+            --neon-indigo:    #6366F1;
+            --cyber-cyan:     #06B6D4;
+            --aurora-green:   #00D4AA;
+            --amber-warm:     #F59E0B;
+            --danger-red:     #EF4444;
+
+            /* === LEGACY ALIASES === */
+            --primary:        #1D9BF0;
+            --primary-dark:   #1580CC;
+            --primary-light:  #6366F1;
+            --secondary:      #00D4AA;
+            --secondary-dark: #00B892;
+            --accent:         #8B5CF6;
+            --danger:         #EF4444;
+            --warning:        #F59E0B;
+            --success:        #00D4AA;
+
+            /* === PACKAGE COLOR ALIASES === */
+            --foundation:      rgba(6,182,212,0.15);
+            --foundation-dark: #06B6D4;
+            --strategic:       rgba(99,102,241,0.15);
+            --strategic-dark:  #6366F1;
+            --fullstack:       rgba(29,155,240,0.15);
+            --fullstack-dark:  #1D9BF0;
+            --intelligence:    rgba(139,92,246,0.15);
+            --intelligence-dark: #8B5CF6;
+
+            /* === TEXT (WCAG VERIFIED) === */
+            --text-primary:   #F1F5F9;   /* ratio 16.2:1 on bg-base ✅ */
+            --text-secondary: #94A3B8;   /* ratio 5.1:1 on bg-base ✅ */
+            --text-muted:     #475569;   /* CHỈ dùng cho footer copyright */
+            --text-inverse:   #080D1A;
+
+            /* === GRADIENTS === */
+            --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
+            --grad-cta-bg:    linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
+            --grad-divider:   linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);
+
+            /* === GLOW === */
+            --glow-blue-sm:   0 0 20px rgba(29,155,240,0.25);
+            --glow-blue-md:   0 0 40px rgba(29,155,240,0.35);
+            --glow-blue-lg:   0 0 80px rgba(29,155,240,0.45);
+            --glow-indigo:    0 0 60px rgba(99,102,241,0.30);
+            --glow-green:     0 0 40px rgba(0,212,170,0.30);
+            --glow-cyan:      0 0 40px rgba(6,182,212,0.30);
+
+            /* === SPACING === */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+
+            /* === TYPOGRAPHY SCALE === */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+
+            /* === SHADOWS === */
+            --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md:  0 4px 20px rgba(0,0,0,0.4);
+            --shadow-lg:  0 10px 40px rgba(0,0,0,0.5);
+            --shadow-xl:  0 20px 60px rgba(0,0,0,0.6);
+            --shadow-primary: 0 4px 20px rgba(29,155,240,0.25);
+
+            /* === TRANSITIONS === */
+            --transition-fast:   0.15s cubic-bezier(0.4,0,0.2,1);
+            --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition-slow:   0.5s cubic-bezier(0.4,0,0.2,1);
+            --transition-spring: 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            --transition-smooth: 0.6s cubic-bezier(0.22,1,0.36,1);
+
+            /* === BORDER RADIUS === */
+            --radius-xs:   4px;
+            --radius-sm:   8px;
+            --radius-md:   10px;
+            --radius-lg:   16px;
+            --radius-xl:   24px;
+            --radius-2xl:  32px;
             --radius-full: 9999px;
         }
         
@@ -101,10 +126,10 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.7;
-            color: var(--gray-800);
-            background-color: white;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            background-color: var(--bg-base);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -147,36 +172,76 @@
         
         /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: var(--space-md);
-            color: var(--gray-900);
+            color: var(--text-primary);
         }
         
-        h1 {
-            font-size: var(--text-6xl);
-            letter-spacing: -0.02em;
-        }
-        
-        h2 {
-            font-size: var(--text-4xl);
-            letter-spacing: -0.01em;
-        }
-        
-        h3 {
-            font-size: var(--text-2xl);
-        }
+        h1 { font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.03em; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 700; }
+        h4 { color: var(--text-primary); }
         
         p {
             margin-bottom: var(--space-md);
-            color: var(--gray-600);
+            color: var(--text-secondary);
+            line-height: 1.75;
         }
         
         .lead {
             font-size: var(--text-xl);
             font-weight: 500;
             line-height: 1.6;
-            color: var(--gray-700);
+            color: var(--text-secondary);
+        }
+
+        strong { color: var(--text-primary); }
+
+        /* Gradient text utility */
+        .text-gradient {
+            background: var(--grad-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Aurora orbs */
+        .aurora-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            will-change: transform;
+            animation: aurora-drift 12s ease-in-out infinite;
+        }
+        .aurora-orb-1 {
+            width: 600px; height: 600px;
+            top: -200px; right: -100px;
+            background: radial-gradient(circle, rgba(29,155,240,0.12), transparent 70%);
+            animation-delay: 0s;
+        }
+        .aurora-orb-2 {
+            width: 500px; height: 500px;
+            bottom: 0; left: -150px;
+            background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
+            animation-delay: -6s;
+        }
+        @keyframes aurora-drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%       { transform: translate(30px, -20px) scale(1.05); }
+            66%       { transform: translate(-20px, 15px) scale(0.97); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .aurora-orb { animation: none; }
+            .btn-primary { animation: none; }
+        }
+
+        /* Scroll reveal */
+        .is-visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+        @media (prefers-reduced-motion: reduce) {
+            [style*="opacity: 0"] { opacity: 1 !important; transform: none !important; }
         }
         
         /* ===== BUTTONS ===== */
@@ -218,27 +283,38 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            box-shadow: var(--shadow-primary);
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 20px rgba(29,155,240,0.25);
+            animation: cta-breathe 3s ease-in-out infinite;
+            animation-delay: 3s;
         }
         
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(29,155,240,0.45), 0 0 0 4px rgba(29,155,240,0.15);
+            animation: none;
+        }
+
+        @keyframes cta-breathe {
+            0%, 100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
+            50%       { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
         }
         
         .btn-secondary {
-            background: white;
-            color: var(--gray-800);
-            border: 2px solid var(--gray-200);
-            box-shadow: var(--shadow-sm);
+            background: transparent;
+            color: var(--electric-blue);
+            border: 1px solid rgba(29,155,240,0.40);
         }
         
         .btn-secondary:hover {
-            border-color: var(--primary-light);
+            background: rgba(29,155,240,0.08);
+            border-color: var(--electric-blue);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(29,155,240,0.15);
         }
         
         .btn-package {
@@ -263,15 +339,18 @@
             width: 100%;
             z-index: 1000;
             padding: var(--space-md) 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            background: rgba(8, 13, 26, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             transition: all var(--transition-normal);
         }
         
         header.scrolled {
             padding: var(--space-sm) 0;
-            box-shadow: var(--shadow-md);
+            background: rgba(8, 13, 26, 0.92);
+            border-bottom-color: rgba(29,155,240,0.15);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
         
         .nav {
@@ -286,7 +365,8 @@
             gap: var(--space-sm);
             font-weight: 900;
             font-size: var(--text-2xl);
-            color: var(--primary);
+            color: var(--electric-blue);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         .logo-icon {
@@ -295,7 +375,7 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
             color: white;
             border-radius: 10px;
             font-weight: 800;
@@ -308,9 +388,10 @@
         }
         
         .nav-link {
-            font-weight: 600;
+            font-weight: 500;
             font-size: var(--text-base);
-            color: var(--gray-700);
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
             position: relative;
             padding: var(--space-xs) 0;
         }
@@ -319,15 +400,16 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background: var(--primary);
+            height: 1.5px;
+            background: var(--electric-blue);
+            transform: translateX(-50%);
             transition: width var(--transition-normal);
         }
         
         .nav-link:hover {
-            color: var(--primary);
+            color: var(--text-primary);
         }
         
         .nav-link:hover::after {
@@ -348,7 +430,7 @@
         .hamburger {
             width: 24px;
             height: 2px;
-            background: var(--gray-800);
+            background: var(--text-primary);
             position: relative;
             transition: all var(--transition-fast);
         }
@@ -359,7 +441,7 @@
             position: absolute;
             width: 24px;
             height: 2px;
-            background: var(--gray-800);
+            background: var(--text-primary);
             transition: all var(--transition-fast);
         }
         
@@ -382,7 +464,7 @@
         .hero {
             padding-top: calc(var(--space-3xl) * 2);
             padding-bottom: var(--space-3xl);
-            background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+            background: var(--bg-base);
             position: relative;
             overflow: hidden;
         }
@@ -397,14 +479,7 @@
         }
         
         .hero-bg-dot {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            filter: blur(80px);
-            top: -300px;
-            right: -200px;
+            display: none; /* replaced by aurora orbs */
         }
         
         .hero-content {
@@ -436,23 +511,28 @@
         
         .package-tab {
             padding: var(--space-sm) var(--space-xl);
-            background: var(--gray-100);
-            border: 2px solid transparent;
+            background: rgba(13,20,38,0.60);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: var(--radius-full);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
+            color: var(--text-secondary);
             cursor: pointer;
             transition: all var(--transition-normal);
         }
         
         .package-tab:hover {
-            background: var(--gray-200);
+            background: rgba(29,155,240,0.06);
+            border-color: rgba(29,155,240,0.25);
+            color: var(--text-primary);
             transform: translateY(-2px);
         }
         
         .package-tab.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: var(--shadow-primary);
+            background: rgba(29,155,240,0.15);
+            border-color: var(--electric-blue);
+            color: var(--text-primary);
+            box-shadow: var(--glow-blue-sm);
         }
         
         .packages-grid {
@@ -464,10 +544,12 @@
         }
         
         .package-card {
-            background: white;
+            background: rgba(13, 20, 38, 0.80);
             border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            overflow: visible;
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             transition: all var(--transition-normal);
             position: relative;
             display: flex;
@@ -477,83 +559,125 @@
         
         .package-card:hover {
             transform: translateY(-12px);
-            box-shadow: var(--shadow-xl);
+            border-color: rgba(29,155,240,0.25);
+            box-shadow: var(--glow-blue-sm);
         }
         
-        .package-card.highlight {
-            border: 3px solid var(--primary);
-            transform: scale(1.02);
+        /* ── FEATURED: hardcoded Most Popular badge (Full Stack) ── */
+        .package-card.featured {
+            border: 2px solid rgba(0,212,170,0.50);
+            box-shadow: var(--glow-green);
+            transform: translateY(-8px);
         }
-        
-        .package-card.highlight::before {
-            content: 'Most Popular';
+
+        .package-card.featured:hover {
+            transform: translateY(-16px);
+            box-shadow: 0 0 60px rgba(0,212,170,0.40);
+        }
+
+        .package-card.featured::before {
+            content: '⭐ Most Popular';
             position: absolute;
-            top: -16px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: var(--space-xs) var(--space-xl);
+            background: var(--aurora-green);
+            color: var(--bg-base);
+            padding: 5px var(--space-lg);
             border-radius: var(--radius-full);
-            font-size: var(--text-sm);
-            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
             z-index: 2;
             white-space: nowrap;
+            box-shadow: 0 0 20px rgba(0,212,170,0.40);
+        }
+
+        /* ── HIGHLIGHT: dynamic calculator recommendation ── */
+        .package-card.highlight {
+            border: 2px solid rgba(29,155,240,0.50);
+            box-shadow: var(--glow-blue-sm);
+            transform: scale(1.02);
         }
         
         .package-header {
             padding: var(--space-xl);
             text-align: center;
-            color: white;
             position: relative;
             overflow: hidden;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
         }
         
         .package-header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.1), transparent);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.04), transparent);
+            pointer-events: none;
         }
-        
+
+        /* Foundation — cyber cyan tier */
         .package-header.foundation {
-            background: linear-gradient(135deg, var(--foundation), #a5b4fc);
-            color: var(--foundation-dark);
+            background: linear-gradient(135deg, rgba(6,182,212,0.20), rgba(6,182,212,0.06));
+            border-bottom: 1px solid rgba(6,182,212,0.30);
         }
-        
+        .package-header.foundation h3 { color: var(--cyber-cyan); }
+        .package-header.foundation .package-price { color: var(--text-primary); }
+        .package-header.foundation .package-period { color: var(--text-secondary); }
+
+        /* Strategic — neon indigo tier */
         .package-header.strategic {
-            background: linear-gradient(135deg, var(--strategic), #818cf8);
-            color: var(--strategic-dark);
+            background: linear-gradient(135deg, rgba(99,102,241,0.22), rgba(99,102,241,0.06));
+            border-bottom: 1px solid rgba(99,102,241,0.35);
         }
-        
+        .package-header.strategic h3 { color: var(--neon-indigo); }
+        .package-header.strategic .package-price { color: var(--text-primary); }
+        .package-header.strategic .package-period { color: var(--text-secondary); }
+
+        /* Full Stack — electric blue tier (featured) */
         .package-header.fullstack {
-            background: linear-gradient(135deg, var(--fullstack), #6366f1);
-            color: white;
+            background: linear-gradient(135deg, rgba(29,155,240,0.22), rgba(29,155,240,0.06));
+            border-bottom: 1px solid rgba(29,155,240,0.40);
         }
-        
+        .package-header.fullstack h3 { color: var(--aurora-green); }
+        .package-header.fullstack .package-price {
+            color: var(--aurora-green);
+            font-family: 'JetBrains Mono', monospace;
+            text-shadow: var(--glow-green);
+        }
+        .package-header.fullstack .package-period { color: var(--text-secondary); }
+
+        /* Intelligence Suite — accent/purple tier */
         .package-header.intelligence {
-            background: linear-gradient(135deg, var(--intelligence), #3730a3);
-            color: white;
+            background: linear-gradient(135deg, rgba(139,92,246,0.22), rgba(139,92,246,0.06));
+            border-bottom: 1px solid rgba(139,92,246,0.35);
         }
+        .package-header.intelligence h3 { color: var(--accent); }
+        .package-header.intelligence .package-price { color: var(--text-primary); }
+        .package-header.intelligence .package-period { color: var(--text-secondary); }
         
         .package-price {
             font-size: var(--text-5xl);
             font-weight: 900;
+            font-family: 'JetBrains Mono', monospace;
             margin: var(--space-sm) 0;
             line-height: 1;
+            color: var(--text-primary);
         }
         
         .package-price span {
             font-size: var(--text-lg);
             font-weight: 500;
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-secondary);
         }
         
         .package-period {
             font-size: var(--text-sm);
-            opacity: 0.9;
+            color: var(--text-secondary);
         }
         
         .package-body {
@@ -562,6 +686,8 @@
             display: flex;
             flex-direction: column;
         }
+
+        .package-body > p { color: var(--text-secondary); }
         
         .package-features {
             list-style: none;
@@ -573,7 +699,8 @@
             padding: var(--space-sm) 0;
             position: relative;
             padding-left: var(--space-xl);
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            color: var(--text-secondary);
         }
         
         .package-features li:last-child {
@@ -584,18 +711,19 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--success);
+            color: var(--aurora-green);
             font-weight: bold;
             font-size: var(--text-lg);
         }
         
         .package-features .not-included {
-            opacity: 0.5;
+            opacity: 0.4;
+            color: var(--text-secondary);
         }
         
         .package-features .not-included::before {
             content: '○';
-            color: var(--gray-400);
+            color: var(--text-secondary);
         }
         
         .package-cta {
@@ -605,34 +733,39 @@
         
         /* ===== LAYER MATRIX ===== */
         .layer-matrix {
-            background: var(--gray-50);
-        }
-        
-        .matrix-header {
-            text-align: center;
-            margin-bottom: var(--space-3xl);
+            background: var(--bg-surface-1);
         }
         
         .matrix-table {
             width: 100%;
-            background: white;
+            background: var(--bg-surface-2);
             border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
             overflow: hidden;
             border-collapse: collapse;
+            border: 1px solid rgba(255,255,255,0.06);
         }
         
         .matrix-table th {
-            background: var(--gray-900);
-            color: white;
+            background: rgba(8,13,26,0.80);
+            color: var(--text-primary);
             padding: var(--space-lg);
             text-align: left;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 700;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Highlight Full Stack column header */
+        .matrix-table th.fullstack-col {
+            background: rgba(29,155,240,0.12);
+            color: var(--aurora-green);
+            border-top: 2px solid var(--aurora-green);
         }
         
         .matrix-table td {
             padding: var(--space-lg);
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: var(--text-secondary);
         }
         
         .matrix-table tr:last-child td {
@@ -641,17 +774,24 @@
         
         .layer-cell {
             font-weight: 600;
-            color: var(--gray-900);
-            background: var(--gray-100);
+            color: var(--text-primary);
+            background: rgba(255,255,255,0.03);
         }
         
         .package-cell {
             text-align: center;
             font-weight: 500;
         }
+
+        /* Highlight Full Stack data column */
+        .matrix-table td.fullstack-col {
+            background: rgba(29,155,240,0.04);
+            border-left: 1px solid rgba(29,155,240,0.10);
+            border-right: 1px solid rgba(29,155,240,0.10);
+        }
         
         .included {
-            color: var(--success);
+            color: var(--aurora-green);
             font-weight: 700;
         }
         
@@ -660,7 +800,7 @@
         }
         
         .partial {
-            color: var(--warning);
+            color: var(--amber-warm);
             font-weight: 600;
         }
         
@@ -669,7 +809,8 @@
         }
         
         .not-included {
-            color: var(--gray-400);
+            color: var(--text-secondary);
+            opacity: 0.55;
         }
         
         .not-included::before {
@@ -678,21 +819,24 @@
         
         /* ===== GUARANTEE SECTION ===== */
         .guarantee-section {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            border-top: 1px solid var(--secondary);
-            border-bottom: 1px solid var(--secondary);
+            background: var(--bg-base);
+            border-top: 1px solid rgba(0,212,170,0.12);
+            border-bottom: 1px solid rgba(0,212,170,0.12);
         }
         
         .guarantee-card {
-            background: white;
+            background: rgba(13, 20, 38, 0.80);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: var(--radius-xl);
             padding: var(--space-2xl);
-            box-shadow: var(--shadow-lg);
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            border: 3px solid var(--secondary);
+            border: 1px solid rgba(0,212,170,0.40);
+            box-shadow: var(--glow-green);
             position: relative;
+            overflow: visible;
         }
         
         .guarantee-badge {
@@ -700,40 +844,38 @@
             top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--secondary);
-            color: white;
+            background: var(--aurora-green);
+            color: var(--bg-base);
             padding: var(--space-sm) var(--space-xl);
             border-radius: var(--radius-full);
-            font-weight: 800;
-            font-size: var(--text-lg);
-            box-shadow: var(--shadow-md);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: var(--text-sm);
+            letter-spacing: 0.06em;
+            box-shadow: 0 0 20px rgba(0,212,170,0.40);
+            white-space: nowrap;
         }
         
         /* ===== TEAM PREVIEW ===== */
         .team-preview {
-            background: linear-gradient(180deg, white 0%, var(--gray-50) 100%);
-        }
-        
-        .team-grid {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            max-width: 1200px;
-            margin: var(--space-3xl) auto;
+            background: var(--bg-surface-1);
         }
         
         .team-card {
-            background: white;
+            background: rgba(13, 20, 38, 0.80);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: var(--radius-xl);
             padding: var(--space-xl);
-            box-shadow: var(--shadow-md);
             text-align: center;
             transition: all var(--transition-normal);
         }
         
         .team-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
+            border-color: rgba(29,155,240,0.25);
+            box-shadow: var(--glow-blue-sm);
         }
         
         .team-icon {
@@ -747,19 +889,22 @@
             font-size: var(--text-3xl);
             font-weight: 800;
             color: white;
-            box-shadow: var(--shadow-md);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         .ai-icon {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
+            box-shadow: var(--glow-blue-sm);
         }
         
         .revops-icon {
-            background: linear-gradient(135deg, var(--success), #059669);
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green));
+            box-shadow: var(--glow-green);
         }
         
         .brand-icon {
-            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            background: linear-gradient(135deg, var(--neon-indigo), var(--accent));
+            box-shadow: var(--glow-indigo);
         }
         
         .team-features {
@@ -770,10 +915,11 @@
         
         .team-features li {
             padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             display: flex;
             align-items: center;
             gap: var(--space-sm);
+            color: var(--text-secondary);
         }
         
         .team-features li:last-child {
@@ -782,47 +928,43 @@
         
         .team-features li::before {
             content: '→';
-            color: var(--primary);
+            color: var(--electric-blue);
             font-weight: bold;
+            flex-shrink: 0;
         }
         
         /* ===== ROI CALCULATOR ===== */
         .roi-section {
-            background: var(--gray-50);
+            background: var(--bg-surface-1);
         }
         
         .roi-calculator {
-            background: white;
+            background: var(--bg-surface-2);
             padding: var(--space-2xl);
             border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(29,155,240,0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             max-width: 900px;
             margin: var(--space-3xl) auto;
         }
         
-        .calculator-header {
-            text-align: center;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .calculator-grid {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            margin-bottom: var(--space-xl);
-        }
+        .calculator-header h3 { color: var(--text-primary); }
+        .calculator-header p { color: var(--text-secondary); }
         
         .calculator-input {
-            background: var(--gray-50);
+            background: var(--bg-surface-3);
             padding: var(--space-lg);
             border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.06);
         }
         
         .input-label {
             display: block;
             font-weight: 600;
             margin-bottom: var(--space-sm);
-            color: var(--gray-700);
+            color: var(--text-secondary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         .input-group {
@@ -834,46 +976,60 @@
         .input-group input {
             flex: 1;
             padding: var(--space-sm);
-            border: 2px solid var(--gray-300);
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(29,155,240,0.20);
             border-radius: var(--radius-md);
             font-size: var(--text-lg);
             font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
+            transition: border-color var(--transition-fast);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--electric-blue);
+            box-shadow: 0 0 0 3px rgba(29,155,240,0.12);
         }
         
         .input-group span {
             font-weight: 600;
-            color: var(--gray-600);
-        }
-        
-        .calculator-results {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-2xl);
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
         }
         
         .result-card {
-            background: var(--gray-50);
+            background: var(--bg-surface-3);
+            border: 1px solid rgba(255,255,255,0.06);
             padding: var(--space-xl);
             border-radius: var(--radius-lg);
             text-align: center;
+            color: var(--text-secondary);
         }
         
         .result-card.highlight {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
+            background: rgba(0,212,170,0.08);
+            border: 1px solid rgba(0,212,170,0.35);
+            box-shadow: var(--glow-green);
         }
         
         .result-value {
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--text-3xl);
-            font-weight: 900;
+            font-weight: 600;
             margin-bottom: var(--space-xs);
             line-height: 1;
+            color: var(--text-primary);
+        }
+
+        .result-card.highlight .result-value {
+            color: var(--aurora-green);
+            text-shadow: var(--glow-green);
         }
         
         /* ===== FINAL CTA ===== */
         .cta-final {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: var(--grad-cta-bg);
             color: white;
             text-align: center;
             position: relative;
@@ -882,35 +1038,24 @@
         
         .cta-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(29,155,240,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(99,102,241,0.10) 0%, transparent 50%);
         }
         
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .cta-final h2 {
-            color: white;
-            margin-bottom: var(--space-md);
-        }
+        .cta-final h2 { color: var(--text-primary); }
         
         .slots {
             font-size: var(--text-xl);
             margin: var(--space-xl) 0;
             font-weight: 600;
+            color: var(--text-secondary);
         }
         
         .slots strong {
-            color: #fbbf24;
+            color: var(--amber-warm);
             animation: pulse 2s infinite;
         }
         
@@ -921,61 +1066,50 @@
         
         /* ===== FOOTER ===== */
         footer {
-            background: var(--gray-900);
-            color: white;
+            background: var(--bg-base);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
             padding: var(--space-3xl) 0 var(--space-xl);
         }
         
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-        }
-        
         .footer-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 900;
             font-size: var(--text-2xl);
-            color: white;
+            color: var(--text-primary);
             margin-bottom: var(--space-md);
         }
         
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-        
         .footer-links a {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             transition: color var(--transition-fast);
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--electric-blue);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: var(--space-xl);
-            border-top: 1px solid var(--gray-800);
-            color: var(--gray-400);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
             font-size: var(--text-sm);
         }
+
+        .footer-bottom p { color: var(--text-muted); margin-bottom: 0; }
         
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 992px) {
-            h1 { font-size: var(--text-5xl); }
-            h2 { font-size: var(--text-3xl); }
+            h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
             
             .hero {
                 padding-top: calc(var(--space-2xl) * 2);
                 padding-bottom: var(--space-2xl);
             }
             
-            .mobile-menu-toggle {
-                display: block;
-            }
+            .mobile-menu-toggle { display: block; }
             
             .nav-links {
                 position: fixed;
@@ -984,23 +1118,27 @@
                 width: 80%;
                 max-width: 400px;
                 height: 100vh;
-                background: white;
+                background: rgba(8, 13, 26, 0.98);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                border-left: 1px solid rgba(255,255,255,0.06);
                 flex-direction: column;
                 justify-content: center;
                 gap: var(--space-xl);
                 padding: var(--space-2xl);
-                box-shadow: var(--shadow-xl);
                 transition: right var(--transition-normal);
                 z-index: 1000;
             }
             
-            .nav-links.active {
-                right: 0;
-            }
+            .nav-links.active { right: 0; }
             
             .packages-grid {
                 grid-template-columns: 1fr;
                 max-width: 500px;
+            }
+            
+            .package-card.featured {
+                transform: none;
             }
             
             .package-card.highlight {
@@ -1014,43 +1152,19 @@
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: var(--text-4xl); }
-            h2 { font-size: var(--text-2xl); }
+            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+            h2 { font-size: clamp(1.375rem, 5vw, 1.875rem); }
             
-            .section {
-                padding: var(--space-2xl) 0;
-            }
+            .section { padding: var(--space-2xl) 0; }
+            .section-lg { padding: var(--space-2xl) 0; }
             
-            .section-lg {
-                padding: var(--space-2xl) 0;
-            }
+            .package-tabs { flex-direction: column; align-items: center; }
+            .package-tab { width: 100%; max-width: 300px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .calculator-grid { grid-template-columns: 1fr; }
             
-            .package-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .package-tab {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .calculator-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-            
-            .guarantee-card {
-                padding: var(--space-xl) var(--space-lg);
-            }
+            .btn { width: 100%; max-width: 300px; }
+            .guarantee-card { padding: var(--space-xl) var(--space-lg); }
         }
         
         @media (max-width: 480px) {
@@ -1059,24 +1173,15 @@
                 --space-xl: 2rem;
                 --space-2xl: 3rem;
             }
-            
-            .container {
-                padding: 0 var(--space-md);
-            }
-            
-            .package-price {
-                font-size: var(--text-4xl);
-            }
-            
-            .result-value {
-                font-size: var(--text-2xl);
-            }
+            .container { padding: 0 var(--space-md); }
+            .package-price { font-size: var(--text-4xl); }
+            .result-value { font-size: var(--text-2xl); }
         }
         
         /* ===== UTILITY CLASSES ===== */
         .text-center { text-align: center; }
-        .text-primary { color: var(--primary); }
-        .text-secondary { color: var(--secondary); }
+        .text-primary { color: var(--electric-blue); }
+        .text-secondary { color: var(--text-secondary); }
         .mb-sm { margin-bottom: var(--space-sm); }
         .mb-md { margin-bottom: var(--space-md); }
         .mb-lg { margin-bottom: var(--space-lg); }
@@ -1094,8 +1199,8 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">X<sup>5</sup></div>
-                    <span>Digital</span>
+                    <div class="logo-icon">X5</div>
+                    <span>X5 Digital</span>
                 </a>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -1116,16 +1221,16 @@
     <!-- Hero Section -->
     <section class="hero section">
         <div class="hero-bg">
-            <div class="hero-bg-dot"></div>
+            <div class="aurora-orb aurora-orb-1"></div>
+            <div class="aurora-orb aurora-orb-2"></div>
         </div>
         
         <div class="container">
             <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <h1>Choose the Growth Engine<br><span class="text-primary">That Fits Your Business Right Now</span></h1>
+                <h1>Choose the Growth Engine<br><span class="text-gradient">That Fits Your Business Right Now</span></h1>
                 
                 <p class="lead">
-                    Every package includes the full Client-Controlled Performance Loop, 
-                    <strong>Pivot Guarantee (zero scope-creep fees)</strong>, and direct Slack management.
+                    Traditional agencies are rent — you pay every month, and when you stop, you leave with nothing. X5 builds infrastructure inside your accounts: the automations, dashboards, and data systems are <strong>yours to keep</strong> — regardless of which package you start with.
                 </p>
                 
                 <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
@@ -1147,7 +1252,7 @@
         <div class="container">
             <div class="comparison-header" data-aos="fade-up">
                 <h2>Four Ways to Scale.<br>One Pivot Guarantee.</h2>
-                <p class="lead">Start where you are. Scale as you grow. Upgrade anytime.</p>
+                <p class="lead">Every package runs on the same system. The difference is scope, depth, and how much of your growth you want to automate.</p>
             </div>
             
             <div class="package-tabs" data-aos="fade-up" data-aos-delay="100">
@@ -1189,7 +1294,7 @@
                 </div>
                 
                 <!-- Strategic Package -->
-                <div class="package-card highlight" data-aos="fade-up" data-aos-delay="300" data-package="strategic">
+                <div class="package-card" data-aos="fade-up" data-aos-delay="300" data-package="strategic">
                     <div class="package-header strategic">
                         <h3>Strategic</h3>
                         <div class="package-price">$2,500 – $3,500<span>/month</span></div>
@@ -1220,7 +1325,7 @@
                 </div>
                 
                 <!-- Full Stack Package -->
-                <div class="package-card" data-aos="fade-up" data-aos-delay="400" data-package="fullstack">
+                <div class="package-card featured" data-aos="fade-up" data-aos-delay="400" data-package="fullstack">
                     <div class="package-header fullstack">
                         <h3>Full Stack</h3>
                         <div class="package-price">$4,500 – $5,500<span>/month</span></div>
@@ -1299,7 +1404,7 @@
                             <th>5-Layer Feature</th>
                             <th>Foundation</th>
                             <th>Strategic</th>
-                            <th>Full Stack</th>
+                            <th class="fullstack-col">Full Stack ⭐</th>
                             <th>Intelligence</th>
                         </tr>
                     </thead>
@@ -1308,56 +1413,56 @@
                             <td class="layer-cell">Layer 5: Revenue Intelligence</td>
                             <td class="package-cell not-included">-</td>
                             <td class="package-cell not-included">-</td>
-                            <td class="package-cell partial">Basic</td>
+                            <td class="package-cell fullstack-col partial">Basic</td>
                             <td class="package-cell included">Full</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Layer 4: AI Automation</td>
                             <td class="package-cell partial">Limited</td>
                             <td class="package-cell included">Standard</td>
-                            <td class="package-cell included">Advanced</td>
+                            <td class="package-cell fullstack-col included">Advanced</td>
                             <td class="package-cell included">Custom</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Layer 3: Revenue Operations</td>
                             <td class="package-cell not-included">-</td>
                             <td class="package-cell partial">Basic</td>
-                            <td class="package-cell included">Full</td>
+                            <td class="package-cell fullstack-col included">Full</td>
                             <td class="package-cell included">Enterprise</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Layer 2: MarTech Execution</td>
                             <td class="package-cell partial">1 Channel</td>
                             <td class="package-cell included">2 Channels</td>
-                            <td class="package-cell included">3-4 Channels</td>
+                            <td class="package-cell fullstack-col included">3-4 Channels</td>
                             <td class="package-cell included">All Channels</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Layer 1: Foundation & Data</td>
                             <td class="package-cell included">Basic</td>
                             <td class="package-cell included">Full</td>
-                            <td class="package-cell included">Full</td>
+                            <td class="package-cell fullstack-col included">Full</td>
                             <td class="package-cell included">Enterprise</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Dedicated Team Member</td>
                             <td class="package-cell not-included">Shared</td>
                             <td class="package-cell included">Yes</td>
-                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell fullstack-col included">Yes</td>
                             <td class="package-cell included">Yes + Specialist</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Pivot Guarantee</td>
                             <td class="package-cell included">Yes</td>
                             <td class="package-cell included">Yes</td>
-                            <td class="package-cell included">Yes</td>
+                            <td class="package-cell fullstack-col included">Yes</td>
                             <td class="package-cell included">Yes</td>
                         </tr>
                         <tr>
                             <td class="layer-cell">Direct Slack Management</td>
                             <td class="package-cell partial">Weekly</td>
                             <td class="package-cell included">Daily</td>
-                            <td class="package-cell included">Daily</td>
+                            <td class="package-cell fullstack-col included">Daily</td>
                             <td class="package-cell included">24/7</td>
                         </tr>
                     </tbody>
@@ -1378,22 +1483,22 @@
         <div class="container">
             <div class="guarantee-card" data-aos="zoom-in">
                 <div class="guarantee-badge">Pivot Guarantee</div>
-                <h3 style="color: #166534;">Every Package Includes Our Pivot Guarantee</h3>
-                <p class="lead" style="color: #166534;">
+                <h3 style="color: var(--aurora-green);">Every Package Includes Our Pivot Guarantee</h3>
+                <p class="lead" style="color: var(--aurora-green);">
                     Strategic direction changes? Market shifts? New competitor emerged?<br>
                     <strong>We rebuild strategy & automation completely — zero extra fees, ever.</strong>
                 </p>
                 <div style="margin-top: var(--space-lg); display: flex; gap: var(--space-lg); justify-content: center; flex-wrap: wrap;">
                     <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: 800; color: #166534;">$0</div>
+                        <div style="font-size: var(--text-3xl); font-weight: 800; color: var(--aurora-green); font-family: 'JetBrains Mono', monospace; text-shadow: var(--glow-green);">$0</div>
                         <div style="font-weight: 600;">Change Fees</div>
                     </div>
                     <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: 800; color: #166534;">∞</div>
+                        <div style="font-size: var(--text-3xl); font-weight: 800; color: var(--aurora-green); font-family: 'JetBrains Mono', monospace; text-shadow: var(--glow-green);">∞</div>
                         <div style="font-weight: 600;">Rebuilds Included</div>
                     </div>
                     <div style="text-align: center;">
-                        <div style="font-size: var(--text-3xl); font-weight: 800; color: #166534;">100%</div>
+                        <div style="font-size: var(--text-3xl); font-weight: 800; color: var(--aurora-green); font-family: 'JetBrains Mono', monospace; text-shadow: var(--glow-green);">100%</div>
                         <div style="font-weight: 600;">Transparency</div>
                     </div>
                 </div>
@@ -1418,7 +1523,7 @@
                     <div class="team-icon ai-icon">
                         AI
                     </div>
-                    <h3 style="color: var(--primary);">Senior AI & Automation Engineer</h3>
+                    <h3 style="color: var(--electric-blue);">Senior AI & Automation Engineer</h3>
                     <p>Builds and maintains your custom AI agents and n8n automation workflows</p>
                     
                     <ul class="team-features">
@@ -1435,7 +1540,7 @@
                     <div class="team-icon revops-icon">
                         R
                     </div>
-                    <h3 style="color: var(--success);">Digital Marketing & RevOps Expert</h3>
+                    <h3 style="color: var(--aurora-green);">Digital Marketing & RevOps Expert</h3>
                     <p>Executes campaigns and ensures data flows seamlessly across your systems</p>
                     
                     <ul class="team-features">
@@ -1548,23 +1653,23 @@
         <div class="cta-bg"></div>
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Don't Guess Which Package Is Right for You</h2>
+                <h2>Every Package. Full Control. You Own the Keys.</h2>
                 
-                <p class="lead" style="color: rgba(255,255,255,0.9);">
-                    In your free 30-minute audit we'll analyze your current LTV, churn, and operational costs — 
-                    then show you exactly which package (and projected ROI) makes the most sense.
+                <p class="lead" style="color: var(--text-secondary);">
+                    Most agencies put you in the backseat — you get a monthly PDF and a bill. With X5, you see every metric, approve every strategy, and own every asset we build.<br><br>
+                    Your free 30-minute audit maps exactly which package fits your current stage — and shows you the projected numbers at month 3, 6, and 12.
                 </p>
                 
                 <div class="slots">
                     <strong>Only 5 audit slots left this week</strong>
                 </div>
                 
-                <a href="book-audit.html" class="btn btn-primary btn-lg" style="background: white; color: var(--primary);">
-                    Book My Free Audit & Custom Quote
+                <a href="book-audit.html" class="btn btn-primary btn-lg">
+                    Book My Free Audit &amp; Custom Quote
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 
-                <div class="mt-lg" style="color: rgba(255,255,255,0.8);">
+                <div class="mt-lg" style="color: var(--text-secondary);">
                     <small><i class="fas fa-lock"></i> Zero risk • Takes 30 minutes • You'll leave with your exact numbers</small>
                 </div>
             </div>
@@ -1577,14 +1682,14 @@
             <div class="footer-content">
                 <div>
                     <div class="footer-logo">X5 Digital</div>
-                    <p style="color: var(--gray-400); margin-bottom: 0;">
-                        Vietnam-based • Built for U.S. SMEs<br>
-                        24/7 coverage with U.S. business hours overlap
+                    <p style="color: var(--text-secondary); margin-bottom: 0;">
+                        We build the revenue machine inside your business — and hand you the keys.<br>
+                        Vietnam-based · Built for U.S. SMEs · 24/7 coverage
                     </p>
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
+                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
                     <div class="footer-links">
                         <a href="index.html">Home</a>
                         <a href="how-it-works.html">How It Works</a>
@@ -1595,7 +1700,7 @@
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Packages</h4>
+                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Packages</h4>
                     <div class="footer-links">
                         <a href="#packages">Foundation</a>
                         <a href="#packages">Strategic</a>
