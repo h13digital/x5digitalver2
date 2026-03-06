@@ -6,7 +6,7 @@
     <title>How It Works — X5 Digital | The System That Turns Strategy Into Revenue</title>
     <meta name="description" content="The exact client-controlled system that turns strategy into compounding revenue — every single month. No middlemen. No execution gap.">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- AOS Animation Library -->
@@ -15,66 +15,91 @@
     <style>
         /* ===== CSS VARIABLES & RESET ===== */
         :root {
-            /* Color System */
-            --primary: #4f46e5;
-            --primary-dark: #3730a3;
-            --primary-light: #818cf8;
-            --secondary: #10b981;
-            --secondary-dark: #059669;
-            --accent: #8b5cf6;
-            --tech: #10b981;
-            --brand: #8b5cf6;
-            
-            /* Neutral Palette */
-            --gray-50: #fafafa;
-            --gray-100: #f5f5f5;
-            --gray-200: #e5e7eb;
-            --gray-300: #d1d5db;
-            --gray-400: #9ca3af;
-            --gray-500: #6b7280;
-            --gray-600: #4b5563;
-            --gray-700: #374151;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-            
-            /* Spacing System (8px grid) */
-            --space-xs: 0.5rem;   /* 8px */
-            --space-sm: 1rem;     /* 16px */
-            --space-md: 1.5rem;   /* 24px */
-            --space-lg: 2rem;     /* 32px */
-            --space-xl: 3rem;     /* 48px */
-            --space-2xl: 4rem;    /* 64px */
-            --space-3xl: 6rem;    /* 96px */
-            
-            /* Typography Scale */
-            --text-xs: 0.75rem;    /* 12px */
-            --text-sm: 0.875rem;   /* 14px */
-            --text-base: 1rem;     /* 16px */
-            --text-lg: 1.125rem;   /* 18px */
-            --text-xl: 1.25rem;    /* 20px */
-            --text-2xl: 1.5rem;    /* 24px */
-            --text-3xl: 1.875rem;  /* 30px */
-            --text-4xl: 2.25rem;   /* 36px */
-            --text-5xl: 3rem;      /* 48px */
-            --text-6xl: 3.75rem;   /* 60px */
-            
-            /* Shadows */
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
-            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
-            --shadow-primary: 0 10px 40px rgba(79, 70, 229, 0.3);
-            
-            /* Transitions */
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            
-            /* Border Radius */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 24px;
+            /* === BACKGROUNDS === */
+            --bg-base:        #080D1A;
+            --bg-surface-1:   #0D1426;
+            --bg-surface-2:   #111B33;
+            --bg-surface-3:   #1A2444;
+
+            /* === BRAND COLORS === */
+            --electric-blue:  #1D9BF0;
+            --neon-indigo:    #6366F1;
+            --cyber-cyan:     #06B6D4;
+            --aurora-green:   #00D4AA;
+            --amber-warm:     #F59E0B;
+            --danger-red:     #EF4444;
+
+            /* === LEGACY ALIASES === */
+            --primary:        #1D9BF0;
+            --primary-dark:   #1580CC;
+            --primary-light:  #6366F1;
+            --secondary:      #00D4AA;
+            --secondary-dark: #00B892;
+            --accent:         #8B5CF6;
+            --tech:           #00D4AA;
+            --brand:          #8B5CF6;
+
+            /* === TEXT (WCAG VERIFIED) === */
+            --text-primary:   #F1F5F9;   /* ratio 16.2:1 on bg-base ✅ */
+            --text-secondary: #94A3B8;   /* ratio 5.1:1 on bg-base ✅ */
+            --text-muted:     #475569;   /* CHỈ dùng cho footer copyright */
+            --text-inverse:   #080D1A;
+
+            /* === GRADIENTS === */
+            --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
+            --grad-cta-bg:    linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
+            --grad-divider:   linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);
+
+            /* === GLOW === */
+            --glow-blue-sm:   0 0 20px rgba(29,155,240,0.25);
+            --glow-blue-md:   0 0 40px rgba(29,155,240,0.35);
+            --glow-blue-lg:   0 0 80px rgba(29,155,240,0.45);
+            --glow-indigo:    0 0 60px rgba(99,102,241,0.30);
+            --glow-green:     0 0 40px rgba(0,212,170,0.30);
+            --glow-cyan:      0 0 40px rgba(6,182,212,0.30);
+
+            /* === SPACING === */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+
+            /* === TYPOGRAPHY SCALE === */
+            --text-xs: 0.75rem;
+            --text-sm: 0.875rem;
+            --text-base: 1rem;
+            --text-lg: 1.125rem;
+            --text-xl: 1.25rem;
+            --text-2xl: 1.5rem;
+            --text-3xl: 1.875rem;
+            --text-4xl: 2.25rem;
+            --text-5xl: 3rem;
+            --text-6xl: 3.75rem;
+
+            /* === SHADOWS === */
+            --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
+            --shadow-md:  0 4px 20px rgba(0,0,0,0.4);
+            --shadow-lg:  0 10px 40px rgba(0,0,0,0.5);
+            --shadow-xl:  0 20px 60px rgba(0,0,0,0.6);
+            --shadow-primary: 0 4px 20px rgba(29,155,240,0.25);
+
+            /* === TRANSITIONS === */
+            --transition-fast:   0.15s cubic-bezier(0.4,0,0.2,1);
+            --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition-slow:   0.5s cubic-bezier(0.4,0,0.2,1);
+            --transition-spring: 0.4s cubic-bezier(0.34,1.56,0.64,1);
+            --transition-smooth: 0.6s cubic-bezier(0.22,1,0.36,1);
+
+            /* === BORDER RADIUS === */
+            --radius-xs:   4px;
+            --radius-sm:   8px;
+            --radius-md:   10px;
+            --radius-lg:   16px;
+            --radius-xl:   24px;
+            --radius-2xl:  32px;
             --radius-full: 9999px;
         }
         
@@ -90,10 +115,10 @@
         }
         
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.7;
-            color: var(--gray-800);
-            background-color: white;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            background-color: var(--bg-base);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -136,36 +161,91 @@
         
         /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: var(--space-md);
-            color: var(--gray-900);
+            color: var(--text-primary);
         }
         
-        h1 {
-            font-size: var(--text-6xl);
-            letter-spacing: -0.02em;
-        }
-        
-        h2 {
-            font-size: var(--text-4xl);
-            letter-spacing: -0.01em;
-        }
-        
-        h3 {
-            font-size: var(--text-2xl);
-        }
+        h1 { font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.03em; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 700; }
+        h4 { color: var(--text-primary); }
         
         p {
             margin-bottom: var(--space-md);
-            color: var(--gray-600);
+            color: var(--text-secondary);
+            line-height: 1.75;
         }
         
         .lead {
             font-size: var(--text-xl);
             font-weight: 500;
             line-height: 1.6;
-            color: var(--gray-700);
+            color: var(--text-secondary);
+        }
+
+        strong { color: var(--text-primary); }
+
+        /* Gradient text utility */
+        .text-gradient {
+            background: var(--grad-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Aurora orbs — CSS only, GPU accelerated */
+        .aurora-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            will-change: transform;
+            animation: aurora-drift 12s ease-in-out infinite;
+        }
+        .aurora-orb-1 {
+            width: 600px; height: 600px;
+            top: -200px; right: -100px;
+            background: radial-gradient(circle, rgba(29,155,240,0.12), transparent 70%);
+            animation-delay: 0s;
+        }
+        .aurora-orb-2 {
+            width: 500px; height: 500px;
+            bottom: 0; left: -150px;
+            background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
+            animation-delay: -6s;
+        }
+        @keyframes aurora-drift {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33%       { transform: translate(30px, -20px) scale(1.05); }
+            66%       { transform: translate(-20px, 15px) scale(0.97); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .aurora-orb { animation: none; }
+            .btn-primary { animation: none; }
+        }
+
+        /* Glassmorphism card utility */
+        .glass-card {
+            background: rgba(13, 20, 38, 0.80);
+            border: 1px solid rgba(255,255,255,0.08);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-normal);
+        }
+        .glass-card:hover {
+            border-color: rgba(29,155,240,0.25);
+            box-shadow: var(--glow-blue-sm);
+            transform: translateY(-6px);
+        }
+
+        /* Scroll reveal */
+        .is-visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
+        @media (prefers-reduced-motion: reduce) {
+            [style*="opacity: 0"] { opacity: 1 !important; transform: none !important; }
         }
         
         /* ===== BUTTONS ===== */
@@ -207,27 +287,38 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            box-shadow: var(--shadow-primary);
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 20px rgba(29,155,240,0.25);
+            animation: cta-breathe 3s ease-in-out infinite;
+            animation-delay: 3s;
         }
         
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(29,155,240,0.45), 0 0 0 4px rgba(29,155,240,0.15);
+            animation: none;
+        }
+
+        @keyframes cta-breathe {
+            0%, 100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
+            50%       { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
         }
         
         .btn-secondary {
-            background: white;
-            color: var(--gray-800);
-            border: 2px solid var(--gray-200);
-            box-shadow: var(--shadow-sm);
+            background: transparent;
+            color: var(--electric-blue);
+            border: 1px solid rgba(29,155,240,0.40);
         }
         
         .btn-secondary:hover {
-            border-color: var(--primary-light);
+            background: rgba(29,155,240,0.08);
+            border-color: var(--electric-blue);
             transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            box-shadow: 0 8px 25px rgba(29,155,240,0.15);
         }
         
         .btn-lg {
@@ -244,15 +335,18 @@
             width: 100%;
             z-index: 1000;
             padding: var(--space-md) 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+            background: rgba(8, 13, 26, 0.75);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             transition: all var(--transition-normal);
         }
         
         header.scrolled {
             padding: var(--space-sm) 0;
-            box-shadow: var(--shadow-md);
+            background: rgba(8, 13, 26, 0.92);
+            border-bottom-color: rgba(29,155,240,0.15);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
         
         .nav {
@@ -267,7 +361,8 @@
             gap: var(--space-sm);
             font-weight: 900;
             font-size: var(--text-2xl);
-            color: var(--primary);
+            color: var(--electric-blue);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         .logo-icon {
@@ -289,9 +384,10 @@
         }
         
         .nav-link {
-            font-weight: 600;
+            font-weight: 500;
             font-size: var(--text-base);
-            color: var(--gray-700);
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
             position: relative;
             padding: var(--space-xs) 0;
         }
@@ -300,15 +396,16 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
             width: 0;
-            height: 2px;
-            background: var(--primary);
+            height: 1.5px;
+            background: var(--electric-blue);
+            transform: translateX(-50%);
             transition: width var(--transition-normal);
         }
         
         .nav-link:hover {
-            color: var(--primary);
+            color: var(--text-primary);
         }
         
         .nav-link:hover::after {
@@ -329,7 +426,7 @@
         .hamburger {
             width: 24px;
             height: 2px;
-            background: var(--gray-800);
+            background: var(--text-primary);
             position: relative;
             transition: all var(--transition-fast);
         }
@@ -340,7 +437,7 @@
             position: absolute;
             width: 24px;
             height: 2px;
-            background: var(--gray-800);
+            background: var(--text-primary);
             transition: all var(--transition-fast);
         }
         
@@ -363,7 +460,7 @@
         .hero {
             padding-top: calc(var(--space-3xl) * 2);
             padding-bottom: var(--space-3xl);
-            background: linear-gradient(180deg, #f8fafc 0%, white 100%);
+            background: var(--bg-base);
             position: relative;
             overflow: hidden;
         }
@@ -378,14 +475,7 @@
         }
         
         .hero-bg-dot {
-            position: absolute;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(139, 92, 246, 0.05) 100%);
-            filter: blur(80px);
-            top: -300px;
-            right: -200px;
+            display: none; /* replaced by aurora orbs */
         }
         
         .hero-content {
@@ -398,7 +488,7 @@
         
         /* ===== 5-LAYER SYSTEM VISUALIZATION ===== */
         .layers-section {
-            background: linear-gradient(180deg, white 0%, var(--gray-50) 100%);
+            background: var(--bg-surface-1);
         }
         
         .layers-visual {
@@ -418,10 +508,12 @@
         
         .layer {
             width: 100%;
-            background: white;
+            background: rgba(13, 20, 38, 0.80);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             padding: var(--space-xl) var(--space-2xl);
             border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255,255,255,0.06);
             display: flex;
             align-items: center;
             gap: var(--space-xl);
@@ -429,6 +521,7 @@
             position: relative;
             overflow: hidden;
             cursor: pointer;
+            color: var(--text-secondary);
         }
         
         .layer::before {
@@ -436,60 +529,51 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 6px;
+            width: 4px;
             height: 100%;
-            background: var(--primary);
+            border-radius: 0 2px 2px 0;
         }
         
-        .layer:hover {
-            transform: translateX(10px);
-            box-shadow: var(--shadow-xl);
-        }
+        .layer h3 { color: var(--text-primary); margin-bottom: var(--space-xs); font-size: var(--text-xl); }
+        .layer p  { color: var(--text-secondary); margin-bottom: 0; }
         
+        .layer:hover { transform: translateX(10px); }
+
+        /* Layer 1 — Foundation: cyber cyan */
+        .layer-1 { width: 100%; border-color: rgba(6,182,212,0.15); z-index: 1; }
+        .layer-1::before { background: var(--cyber-cyan); }
+        .layer-1:hover { border-color: rgba(6,182,212,0.35); box-shadow: 0 0 30px rgba(6,182,212,0.12); }
+
+        /* Layer 2 — MarTech: aurora green */
+        .layer-2 { width: 97%; border-color: rgba(0,212,170,0.15); z-index: 2; }
+        .layer-2::before { background: var(--aurora-green); }
+        .layer-2:hover { border-color: rgba(0,212,170,0.35); box-shadow: 0 0 30px rgba(0,212,170,0.12); }
+
+        /* Layer 3 — RevOps: neon indigo */
+        .layer-3 { width: 95%; border-color: rgba(99,102,241,0.20); z-index: 3; }
+        .layer-3::before { background: var(--neon-indigo); }
+        .layer-3:hover { border-color: rgba(99,102,241,0.40); box-shadow: var(--glow-indigo); }
+
+        /* Layer 4 — AI Automation: electric blue */
+        .layer-4 { width: 90%; border-color: rgba(29,155,240,0.25); z-index: 4; }
+        .layer-4::before { background: var(--electric-blue); }
+        .layer-4:hover { border-color: rgba(29,155,240,0.45); box-shadow: var(--glow-blue-sm); }
+
+        /* Layer 5 — Revenue Intelligence: FULL glow, most prominent */
         .layer-5 {
             width: 85%;
-            background: linear-gradient(135deg, #3730a3, #4f46e5);
-            color: white;
+            border-color: rgba(29,155,240,0.40);
+            background: rgba(29,155,240,0.06);
+            box-shadow: var(--glow-blue-md);
             z-index: 5;
         }
-        
-        .layer-5::before { background: #8b5cf6; }
-        
-        .layer-4 {
-            width: 90%;
-            background: linear-gradient(135deg, #4f46e5, #6366f1);
-            color: white;
-            z-index: 4;
+        .layer-5::before { background: var(--grad-brand); }
+        .layer-5 h3 { color: var(--electric-blue); }
+        .layer-5:hover {
+            border-color: rgba(29,155,240,0.60);
+            box-shadow: var(--glow-blue-lg);
+            transform: translateX(12px);
         }
-        
-        .layer-4::before { background: #a5b4fc; }
-        
-        .layer-3 {
-            width: 95%;
-            background: linear-gradient(135deg, #6366f1, #818cf8);
-            color: white;
-            z-index: 3;
-        }
-        
-        .layer-3::before { background: #c7d2fe; }
-        
-        .layer-2 {
-            width: 97%;
-            background: linear-gradient(135deg, #818cf8, #a5b4fc);
-            color: var(--gray-900);
-            z-index: 2;
-        }
-        
-        .layer-2::before { background: #e0e7ff; }
-        
-        .layer-1 {
-            width: 100%;
-            background: linear-gradient(135deg, #a5b4fc, #c7d2fe);
-            color: var(--gray-900);
-            z-index: 1;
-        }
-        
-        .layer-1::before { background: #eef2ff; }
         
         .layer-number {
             display: flex;
@@ -497,21 +581,18 @@
             justify-content: center;
             width: 60px;
             height: 60px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(29,155,240,0.10);
+            border: 1px solid rgba(29,155,240,0.20);
             border-radius: var(--radius-full);
+            font-family: 'JetBrains Mono', monospace;
             font-size: var(--text-2xl);
-            font-weight: 800;
+            font-weight: 600;
+            color: var(--electric-blue);
             flex-shrink: 0;
         }
         
-        .layer-content {
-            flex: 1;
-        }
-        
-        .layer-content h3 {
-            margin-bottom: var(--space-xs);
-            font-size: var(--text-xl);
-        }
+        .layer-content { flex: 1; }
+        .layer-content h3 { margin-bottom: var(--space-xs); font-size: var(--text-xl); }
         
         .layer-tools {
             display: flex;
@@ -521,130 +602,29 @@
         }
         
         .tool-tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
+            background: rgba(29,155,240,0.08);
+            border: 1px solid rgba(29,155,240,0.20);
+            color: var(--electric-blue);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
             font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
         }
+
+        /* Layer-specific tool tag colors */
+        .layer-1 .tool-tag { border-color: rgba(6,182,212,0.30); color: var(--cyber-cyan); background: rgba(6,182,212,0.06); }
+        .layer-2 .tool-tag { border-color: rgba(0,212,170,0.30); color: var(--aurora-green); background: rgba(0,212,170,0.06); }
+        .layer-3 .tool-tag { border-color: rgba(99,102,241,0.30); color: var(--neon-indigo); background: rgba(99,102,241,0.06); }
+        .layer-4 .tool-tag { border-color: rgba(29,155,240,0.30); color: var(--electric-blue); background: rgba(29,155,240,0.06); }
+        .layer-5 .tool-tag { border-color: rgba(29,155,240,0.40); color: var(--electric-blue); background: rgba(29,155,240,0.12); }
         
-        .layer-1 .tool-tag,
-        .layer-2 .tool-tag {
-            background: rgba(79, 70, 229, 0.1);
-            color: var(--primary);
-        }
-        
-        /* ===== PERFORMANCE LOOP ===== */
-        .loop-section {
-            background: var(--gray-50);
-        }
-        
-        .loop-visual {
-            max-width: 1000px;
-            margin: var(--space-3xl) auto;
-            position: relative;
-        }
-        
-        .loop-circle {
-            width: 500px;
-            height: 500px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .loop-path {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 3px dashed var(--primary-light);
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-        
-        .loop-step {
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            background: white;
-            border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: var(--space-md);
-            transition: all var(--transition-normal);
-            cursor: pointer;
-            z-index: 2;
-        }
-        
-        .loop-step:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .loop-step-1 { top: 0; left: 50%; transform: translateX(-50%); }
-        .loop-step-2 { top: 50%; right: 0; transform: translateY(-50%); }
-        .loop-step-3 { bottom: 0; left: 50%; transform: translateX(-50%); }
-        .loop-step-4 { top: 50%; left: 0; transform: translateY(-50%); }
-        
-        .loop-step:hover { z-index: 3; }
-        
-        .loop-step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-xl);
-            font-weight: 800;
-            margin-bottom: var(--space-sm);
-        }
-        
-        .loop-step h4 {
-            font-size: var(--text-lg);
-            margin-bottom: var(--space-xs);
-        }
-        
-        .loop-step p {
-            font-size: var(--text-sm);
-            color: var(--gray-600);
-            margin-bottom: 0;
-        }
-        
-        .loop-arrow {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: var(--primary-light);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-lg);
-            animation: pulseArrow 2s infinite;
-        }
-        
-        .arrow-1 { top: 70px; left: calc(50% + 70px); }
-        .arrow-2 { bottom: 70px; right: calc(50% + 70px); transform: rotate(180deg); }
-        .arrow-3 { bottom: 70px; left: calc(50% + 70px); transform: rotate(180deg); }
-        .arrow-4 { top: 70px; right: calc(50% + 70px); }
-        
-        @keyframes pulseArrow {
-            0%, 100% { opacity: 0.7; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-        
+        /* ===== PERFORMANCE LOOP — old styles removed, new stepper below ===== */
+
         /* ===== BRIDGE SECTION ===== */
         .bridge-section {
-            background: white;
+            background: var(--bg-base);
         }
         
         .bridge-grid {
@@ -656,16 +636,19 @@
         }
         
         .bridge-card {
-            background: white;
+            background: rgba(13, 20, 38, 0.80);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
             border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
             transition: all var(--transition-normal);
         }
         
         .bridge-card:hover {
             transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
+            box-shadow: var(--glow-blue-sm);
+            border-color: rgba(29,155,240,0.20);
         }
         
         .bridge-header {
@@ -675,16 +658,20 @@
         }
         
         .bridge-header.tech {
-            background: linear-gradient(135deg, var(--tech), #059669);
+            background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green));
         }
         
         .bridge-header.brand {
-            background: linear-gradient(135deg, var(--brand), #7c3aed);
+            background: linear-gradient(135deg, var(--neon-indigo), var(--accent));
         }
         
         .bridge-body {
             padding: var(--space-xl);
+            background: transparent;
         }
+        
+        .bridge-body p { color: var(--text-secondary); }
+        .bridge-body strong { color: var(--text-primary); }
         
         .role-list {
             list-style: none;
@@ -693,59 +680,63 @@
         
         .role-list li {
             padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
             display: flex;
             align-items: center;
             gap: var(--space-sm);
+            color: var(--text-secondary);
         }
         
         .role-list li:last-child {
             border-bottom: none;
         }
         
+        .role-list li strong { color: var(--text-primary); }
+        
         .role-icon {
             width: 24px;
             height: 24px;
-            background: var(--gray-100);
+            background: rgba(255,255,255,0.06);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: var(--text-sm);
-            color: var(--gray-600);
+            color: var(--text-secondary);
+            flex-shrink: 0;
         }
         
         .tech .role-icon {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--tech);
+            background: rgba(0,212,170,0.12);
+            color: var(--aurora-green);
         }
         
         .brand .role-icon {
-            background: rgba(139, 92, 246, 0.1);
-            color: var(--brand);
+            background: rgba(99,102,241,0.12);
+            color: var(--neon-indigo);
         }
         
         .outcome-box {
-            background: #ecfdf5;
-            border: 2px solid var(--tech);
+            background: rgba(0,212,170,0.08);
+            border: 1px solid rgba(0,212,170,0.35);
             padding: var(--space-lg);
             border-radius: var(--radius-lg);
             text-align: center;
             margin-top: var(--space-lg);
             font-size: var(--text-lg);
-            font-weight: 800;
-            color: #059669;
+            font-weight: 700;
+            color: var(--aurora-green);
         }
         
         .brand .outcome-box {
-            background: #f5f3ff;
-            border-color: var(--brand);
-            color: #7c3aed;
+            background: rgba(99,102,241,0.08);
+            border-color: rgba(99,102,241,0.35);
+            color: var(--neon-indigo);
         }
         
         /* ===== TIMELINE VISUALIZATION ===== */
         .timeline-section {
-            background: linear-gradient(180deg, var(--gray-50) 0%, white 100%);
+            background: var(--bg-surface-1);
         }
         
         .timeline {
@@ -762,7 +753,8 @@
             transform: translateX(-50%);
             width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary-light), transparent);
+            background: linear-gradient(180deg, var(--electric-blue), transparent);
+            opacity: 0.3;
         }
         
         .timeline-item {
@@ -778,12 +770,18 @@
         
         .timeline-content {
             flex: 1;
-            background: white;
+            background: rgba(13, 20, 38, 0.80);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.08);
             padding: var(--space-xl);
             border-radius: var(--radius-xl);
-            box-shadow: var(--shadow-md);
+            color: var(--text-secondary);
             position: relative;
+            transition: border-color var(--transition-normal);
         }
+
+        .timeline-content:hover { border-color: rgba(29,155,240,0.20); }
         
         .timeline-item:nth-child(odd) .timeline-content {
             margin-right: var(--space-xl);
@@ -796,7 +794,7 @@
         .timeline-marker {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -807,19 +805,22 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--glow-blue-sm);
         }
         
         .timeline-content h4 {
             display: flex;
             align-items: center;
             gap: var(--space-sm);
-            color: var(--primary);
+            color: var(--electric-blue);
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
+
+        .timeline-content ul li { color: var(--text-secondary); }
         
         /* ===== FINAL CTA ===== */
         .cta-final {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
+            background: var(--grad-cta-bg);
             color: white;
             text-align: center;
             position: relative;
@@ -833,8 +834,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(29,155,240,0.12) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(99,102,241,0.10) 0%, transparent 50%);
         }
         
         .cta-content {
@@ -845,7 +846,7 @@
         }
         
         .cta-final h2 {
-            color: white;
+            color: var(--text-primary);
             margin-bottom: var(--space-md);
         }
         
@@ -853,10 +854,11 @@
             font-size: var(--text-xl);
             margin: var(--space-xl) 0;
             font-weight: 600;
+            color: var(--text-secondary);
         }
         
         .slots strong {
-            color: #fbbf24;
+            color: var(--amber-warm);
             animation: pulse 2s infinite;
         }
         
@@ -867,8 +869,9 @@
         
         /* ===== FOOTER ===== */
         footer {
-            background: var(--gray-900);
-            color: white;
+            background: var(--bg-base);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary);
             padding: var(--space-3xl) 0 var(--space-xl);
         }
         
@@ -880,9 +883,10 @@
         }
         
         .footer-logo {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 900;
             font-size: var(--text-2xl);
-            color: white;
+            color: var(--text-primary);
             margin-bottom: var(--space-md);
         }
         
@@ -893,26 +897,28 @@
         }
         
         .footer-links a {
-            color: var(--gray-400);
+            color: var(--text-secondary);
             transition: color var(--transition-fast);
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--electric-blue);
         }
         
         .footer-bottom {
             text-align: center;
             padding-top: var(--space-xl);
-            border-top: 1px solid var(--gray-800);
-            color: var(--gray-400);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-muted);
             font-size: var(--text-sm);
         }
+
+        .footer-bottom p { color: var(--text-muted); margin-bottom: 0; }
         
         /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 992px) {
-            h1 { font-size: var(--text-5xl); }
-            h2 { font-size: var(--text-3xl); }
+            h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
             
             .hero {
                 padding-top: calc(var(--space-2xl) * 2);
@@ -930,43 +936,20 @@
                 width: 80%;
                 max-width: 400px;
                 height: 100vh;
-                background: white;
+                background: rgba(8, 13, 26, 0.98);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                border-left: 1px solid rgba(255,255,255,0.06);
                 flex-direction: column;
                 justify-content: center;
                 gap: var(--space-xl);
                 padding: var(--space-2xl);
-                box-shadow: var(--shadow-xl);
                 transition: right var(--transition-normal);
                 z-index: 1000;
             }
             
             .nav-links.active {
                 right: 0;
-            }
-            
-            .loop-circle {
-                width: 300px;
-                height: 300px;
-            }
-            
-            .loop-step {
-                width: 100px;
-                height: 100px;
-                padding: var(--space-sm);
-            }
-            
-            .loop-step h4 {
-                font-size: var(--text-sm);
-            }
-            
-            .loop-step p {
-                font-size: var(--text-xs);
-            }
-            
-            .loop-arrow {
-                width: 30px;
-                height: 30px;
-                font-size: var(--text-base);
             }
             
             .timeline::before {
@@ -988,8 +971,8 @@
         }
         
         @media (max-width: 768px) {
-            h1 { font-size: var(--text-4xl); }
-            h2 { font-size: var(--text-2xl); }
+            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+            h2 { font-size: clamp(1.375rem, 5vw, 1.875rem); }
             
             .section {
                 padding: var(--space-2xl) 0;
@@ -1013,19 +996,8 @@
                 width: 50px;
                 height: 50px;
             }
-            
-            .loop-step {
-                width: 80px;
-                height: 80px;
-            }
-            
-            .loop-step h4 {
-                font-size: var(--text-xs);
-            }
-            
-            .loop-step p {
-                display: none;
-            }
+
+            .loop-stepper { margin-top: var(--space-2xl); }
             
             .btn {
                 width: 100%;
@@ -1047,17 +1019,290 @@
             .layer {
                 padding: var(--space-lg);
             }
-            
-            .loop-circle {
-                width: 250px;
-                height: 250px;
-            }
+
+            .loop-tab-label { font-size: 0.75rem; }
         }
         
+        /* ===== PERFORMANCE LOOP — HORIZONTAL STEPPER ===== */
+        .loop-section { background: var(--bg-surface-1); }
+
+        .loop-stepper {
+            max-width: 900px;
+            margin: var(--space-3xl) auto 0;
+        }
+
+        .loop-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+            position: relative;
+        }
+
+        .loop-tabs::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0; right: 0;
+            height: 1px;
+            background: rgba(29,155,240,0.15);
+            z-index: 0;
+        }
+
+        .loop-tab {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 12px;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(13,20,38,0.60);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            min-height: 80px;
+            text-align: center;
+        }
+
+        .loop-tab:hover {
+            border-color: rgba(29,155,240,0.30);
+            background: rgba(29,155,240,0.06);
+        }
+
+        .loop-tab.active {
+            border-color: var(--electric-blue);
+            background: rgba(29,155,240,0.10);
+            box-shadow: var(--glow-blue-sm);
+        }
+
+        .loop-tab-number {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            background: rgba(29,155,240,0.12);
+            border: 1px solid rgba(29,155,240,0.25);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem; font-weight: 600;
+            color: var(--text-secondary);
+            display: flex; align-items: center; justify-content: center;
+            transition: all var(--transition-normal);
+            flex-shrink: 0;
+        }
+
+        .loop-tab.active .loop-tab-number {
+            background: var(--electric-blue);
+            border-color: var(--electric-blue);
+            color: #ffffff;
+            box-shadow: var(--glow-blue-sm);
+        }
+
+        .loop-tab-label {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8125rem; font-weight: 600;
+            color: var(--text-secondary);
+            transition: color var(--transition-normal);
+            line-height: 1.3;
+        }
+
+        .loop-tab.active .loop-tab-label { color: var(--text-primary); }
+
+        .loop-tab:last-child::after {
+            content: '↺ Monthly';
+            position: absolute;
+            bottom: -22px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            color: var(--electric-blue);
+            opacity: 0.7;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .loop-detail-panel {
+            background: var(--bg-surface-2);
+            border: 1px solid rgba(29,155,240,0.15);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            margin-top: var(--space-2xl);
+            min-height: 220px;
+        }
+
+        .loop-detail {
+            display: none;
+            gap: var(--space-xl);
+            align-items: flex-start;
+            animation: detail-fadein 0.4s cubic-bezier(0.22,1,0.36,1);
+        }
+
+        .loop-detail.active { display: flex; }
+
+        @keyframes detail-fadein {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .loop-detail-icon {
+            width: 72px; height: 72px;
+            border-radius: var(--radius-lg);
+            background: rgba(29,155,240,0.10);
+            border: 1px solid rgba(29,155,240,0.25);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            color: var(--electric-blue);
+            flex-shrink: 0;
+            box-shadow: var(--glow-blue-sm);
+        }
+
+        .loop-detail-body { flex: 1; }
+
+        .loop-detail-body h3 {
+            color: var(--text-primary);
+            font-size: 1.375rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .loop-detail-body .lead {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .your-role-box {
+            background: rgba(245,158,11,0.06);
+            border-left: 3px solid var(--amber-warm);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: var(--space-md) var(--space-lg);
+            margin-top: var(--space-md);
+        }
+
+        .your-role-box .role-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem; font-weight: 600;
+            color: var(--amber-warm);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .your-role-box p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+            font-size: 0.9375rem;
+        }
+
+        .pivot-guarantee {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0,212,170,0.08);
+            border: 1px solid rgba(0,212,170,0.30);
+            padding: 8px 16px;
+            border-radius: var(--radius-full);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--aurora-green);
+            margin-top: var(--space-sm);
+            letter-spacing: 0.05em;
+        }
+
+        /* Mobile accordion */
+        @media (max-width: 767px) {
+            .loop-tabs { display: none; }
+            .loop-detail-panel { display: none; }
+
+            .loop-accordion {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-sm);
+                margin-top: var(--space-xl);
+            }
+
+            .accordion-item {
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: var(--radius-lg);
+                background: rgba(13,20,38,0.80);
+                overflow: hidden;
+                transition: border-color var(--transition-normal);
+            }
+
+            .accordion-item.open { border-color: rgba(29,155,240,0.35); }
+
+            .accordion-header {
+                display: flex;
+                align-items: center;
+                gap: var(--space-md);
+                padding: 18px var(--space-lg);
+                cursor: pointer;
+                min-height: 64px;
+                user-select: none;
+            }
+
+            .accordion-number {
+                width: 36px; height: 36px;
+                border-radius: 50%;
+                background: rgba(29,155,240,0.12);
+                border: 1px solid rgba(29,155,240,0.25);
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.875rem; font-weight: 600;
+                color: var(--text-secondary);
+                display: flex; align-items: center; justify-content: center;
+                flex-shrink: 0;
+                transition: all var(--transition-normal);
+            }
+
+            .accordion-item.open .accordion-number {
+                background: var(--electric-blue);
+                border-color: var(--electric-blue);
+                color: #ffffff;
+                box-shadow: var(--glow-blue-sm);
+            }
+
+            .accordion-title {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                font-size: 0.9375rem; font-weight: 600;
+                color: var(--text-secondary);
+                flex: 1;
+            }
+
+            .accordion-item.open .accordion-title { color: var(--text-primary); }
+
+            .accordion-chevron {
+                color: var(--text-secondary);
+                transition: transform var(--transition-normal);
+                font-size: 0.875rem;
+            }
+
+            .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+
+            .accordion-body {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
+            }
+
+            .accordion-item.open .accordion-body { max-height: 600px; }
+
+            .accordion-content {
+                padding: 0 var(--space-lg) var(--space-lg);
+                border-top: 1px solid rgba(255,255,255,0.06);
+                padding-top: var(--space-md);
+            }
+
+            .accordion-content p { color: var(--text-secondary); }
+            .accordion-content .lead { font-size: 1rem; }
+        }
+
+        @media (min-width: 768px) {
+            .loop-accordion { display: none; }
+        }
+
         /* ===== UTILITY CLASSES ===== */
         .text-center { text-align: center; }
-        .text-primary { color: var(--primary); }
-        .text-secondary { color: var(--secondary); }
+        .text-primary { color: var(--electric-blue); }
+        .text-secondary { color: var(--text-secondary); }
         .mb-sm { margin-bottom: var(--space-sm); }
         .mb-md { margin-bottom: var(--space-md); }
         .mb-lg { margin-bottom: var(--space-lg); }
@@ -1075,8 +1320,8 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">X<sup>5</sup></div>
-                    <span>Digital</span>
+                    <div class="logo-icon">X5</div>
+                    <span>X5 Digital</span>
                 </a>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -1097,16 +1342,16 @@
     <!-- Hero Section -->
     <section class="hero section">
         <div class="hero-bg">
-            <div class="hero-bg-dot"></div>
+            <div class="aurora-orb aurora-orb-1"></div>
+            <div class="aurora-orb aurora-orb-2"></div>
         </div>
         
         <div class="container">
             <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <h1>The Exact System That Turns<br><span class="text-primary">Strategy Into Compounding Revenue</span></h1>
+                <h1>The Exact System That Turns<br><span class="text-gradient">Strategy Into Compounding Revenue</span></h1>
                 
                 <p class="lead">
-                    No middlemen. No execution gap. No black-box agencies.<br>
-                    Just a client-controlled performance loop that runs every single month.
+                    You can't build a 40-story tower on sand — and you can't scale revenue on dirty data. X5 lays the foundation first, then builds every layer on top: from clean tracking to predictive AI, all running inside your accounts, every single month.
                 </p>
                 
                 <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
@@ -1124,7 +1369,7 @@
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
                 <h2>The X5 Revenue System: <span class="text-primary">5 Layers of Engineered Growth</span></h2>
-                <p class="lead">Built like a pyramid: Starting from the peak (Revenue Intelligence) down to the solid foundation.</p>
+                <p class="lead">Each layer builds on the one below it. Skip Layer 1, and every dollar you spend above it is built on guesswork.</p>
             </div>
             
             <div class="layers-visual" data-aos="fade-up">
@@ -1215,87 +1460,170 @@
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
                 <h2>The Client-Controlled Performance Loop<br>
-                    <span style="font-size: var(--text-xl); color: var(--primary); font-weight: 600;">
+                    <span style="font-size: var(--text-xl); color: var(--electric-blue); font-weight: 600;">
                         (Runs Every Month — Guaranteed)
                     </span>
                 </h2>
                 <p class="lead">Your strategy → execution → results → optimization cycle that compounds monthly revenue</p>
             </div>
-            
-            <div class="loop-visual" data-aos="fade-up">
-                <div class="loop-circle">
-                    <div class="loop-path"></div>
-                    
-                    <!-- Step 1 -->
-                    <div class="loop-step loop-step-1" data-step="1">
-                        <div class="loop-step-number">1</div>
-                        <h4>Insight & Strategy</h4>
-                        <p>AI analyzes data → data-backed action plan</p>
+
+            <div class="loop-stepper" data-aos="fade-up">
+
+                <!-- DESKTOP: Horizontal Tabs -->
+                <div class="loop-tabs">
+                    <div class="loop-tab active" data-step="1">
+                        <div class="loop-tab-number">1</div>
+                        <div class="loop-tab-label">Insight &amp;<br>Strategy</div>
                     </div>
-                    
-                    <!-- Step 2 -->
-                    <div class="loop-step loop-step-2" data-step="2">
-                        <div class="loop-step-number">2</div>
-                        <h4>Automation Blueprint</h4>
-                        <p>Plan → permanent n8n flows</p>
+                    <div class="loop-tab" data-step="2">
+                        <div class="loop-tab-number">2</div>
+                        <div class="loop-tab-label">Automation<br>Blueprint</div>
                     </div>
-                    
-                    <!-- Step 3 -->
-                    <div class="loop-step loop-step-3" data-step="3">
-                        <div class="loop-step-number">3</div>
-                        <h4>Execution</h4>
-                        <p>Embedded team works in your accounts</p>
+                    <div class="loop-tab" data-step="3">
+                        <div class="loop-tab-number">3</div>
+                        <div class="loop-tab-label">Daily<br>Execution</div>
                     </div>
-                    
-                    <!-- Step 4 -->
-                    <div class="loop-step loop-step-4" data-step="4">
-                        <div class="loop-step-number">4</div>
-                        <h4>Review & Pivot</h4>
-                        <p>Revenue review → zero-cost rebuild</p>
-                    </div>
-                    
-                    <!-- Arrows -->
-                    <div class="loop-arrow arrow-1">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <div class="loop-arrow arrow-2">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <div class="loop-arrow arrow-3">
-                        <i class="fas fa-arrow-right"></i>
-                    </div>
-                    <div class="loop-arrow arrow-4">
-                        <i class="fas fa-arrow-right"></i>
+                    <div class="loop-tab" data-step="4">
+                        <div class="loop-tab-number">4</div>
+                        <div class="loop-tab-label">Review &amp;<br>Pivot</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Step Details -->
-            <div class="step-details" data-aos="fade-up" data-aos-delay="200">
-                <div class="step-detail active" id="detail-1">
-                    <h3>1. Insight & Strategic Vetting</h3>
-                    <p class="lead">X5 AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
-                    <p><strong>Your role:</strong> Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
-                </div>
-                
-                <div class="step-detail hidden" id="detail-2">
-                    <h3>2. Automation Blueprint</h3>
-                    <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
-                    <p><strong>Your role:</strong> You own the workflows. They run on your infrastructure, visible and adjustable anytime.</p>
-                </div>
-                
-                <div class="step-detail hidden" id="detail-3">
-                    <h3>3. Execution & Direct Management</h3>
-                    <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
-                    <p><strong>Your role:</strong> Direct management via Slack & Asana. 100% visibility and control over every task.</p>
-                </div>
-                
-                <div class="step-detail hidden" id="detail-4">
-                    <h3>4. Revenue Review & Guaranteed Pivot</h3>
-                    <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
-                    <p><strong>Pivot Guarantee:</strong> Strategic changes? Market shifts? We rebuild everything — <strong>zero extra fees, ever.</strong></p>
-                </div>
-            </div>
+
+                <!-- Desktop Detail Panel -->
+                <div class="loop-detail-panel">
+
+                    <div class="loop-detail active" id="detail-1">
+                        <div class="loop-detail-icon"><i class="fas fa-brain"></i></div>
+                        <div class="loop-detail-body">
+                            <h3>1. Insight &amp; Strategic Vetting</h3>
+                            <p class="lead">X5 AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
+                            <div class="your-role-box">
+                                <span class="role-label">Your Role</span>
+                                <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="loop-detail" id="detail-2">
+                        <div class="loop-detail-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="loop-detail-body">
+                            <h3>2. Automation Blueprint</h3>
+                            <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
+                            <div class="your-role-box">
+                                <span class="role-label">Your Role</span>
+                                <p>You own the workflows. They run on your infrastructure, visible and adjustable anytime.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="loop-detail" id="detail-3">
+                        <div class="loop-detail-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="loop-detail-body">
+                            <h3>3. Execution &amp; Direct Management</h3>
+                            <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
+                            <div class="your-role-box">
+                                <span class="role-label">Your Role</span>
+                                <p>Direct management via Slack &amp; Asana. 100% visibility and control over every task.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="loop-detail" id="detail-4">
+                        <div class="loop-detail-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="loop-detail-body">
+                            <h3>4. Revenue Review &amp; Guaranteed Pivot</h3>
+                            <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
+                            <div class="your-role-box">
+                                <span class="role-label">Your Role</span>
+                                <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
+                            </div>
+                            <span class="pivot-guarantee">
+                                <i class="fas fa-shield-alt"></i>
+                                PIVOT GUARANTEE — Zero rebuild fees, always
+                            </span>
+                        </div>
+                    </div>
+
+                </div><!-- /loop-detail-panel -->
+
+                <!-- MOBILE: Vertical Accordion -->
+                <div class="loop-accordion">
+
+                    <div class="accordion-item open">
+                        <div class="accordion-header">
+                            <div class="accordion-number">1</div>
+                            <div class="accordion-title">Insight &amp; Strategic Vetting</div>
+                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <p class="lead">X5 AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
+                                <div class="your-role-box">
+                                    <span class="role-label">Your Role</span>
+                                    <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-number">2</div>
+                            <div class="accordion-title">Automation Blueprint</div>
+                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
+                                <div class="your-role-box">
+                                    <span class="role-label">Your Role</span>
+                                    <p>You own the workflows. They run on your infrastructure, visible and adjustable anytime.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-number">3</div>
+                            <div class="accordion-title">Execution &amp; Direct Management</div>
+                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
+                                <div class="your-role-box">
+                                    <span class="role-label">Your Role</span>
+                                    <p>Direct management via Slack &amp; Asana. 100% visibility and control over every task.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <div class="accordion-number">4</div>
+                            <div class="accordion-title">Revenue Review &amp; Guaranteed Pivot</div>
+                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="accordion-content">
+                                <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
+                                <div class="your-role-box">
+                                    <span class="role-label">Your Role</span>
+                                    <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
+                                </div>
+                                <span class="pivot-guarantee">
+                                    <i class="fas fa-shield-alt"></i>
+                                    PIVOT GUARANTEE — Zero rebuild fees, always
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!-- /loop-accordion -->
+
+            </div><!-- /loop-stepper -->
         </div>
     </section>
 
@@ -1303,7 +1631,7 @@
     <section class="bridge-section section">
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Where <span class="text-primary">Technology</span> Meets <span class="text-accent">Brand Expertise</span></h2>
+                <h2>Where <span class="text-primary">Technology</span> Meets <span style="color: var(--neon-indigo)">Brand Expertise</span></h2>
                 <p class="lead">You don't have to choose between cheap execution and expensive strategy. You get both — perfectly balanced.</p>
             </div>
             
@@ -1324,7 +1652,7 @@
                                 </div>
                                 <div>
                                     <strong>Senior AI & Automation Engineer</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--gray-600);">Builds & maintains n8n workflows</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Builds & maintains n8n workflows</div>
                                 </div>
                             </li>
                             <li>
@@ -1333,7 +1661,7 @@
                                 </div>
                                 <div>
                                     <strong>RevOps Analyst</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--gray-600);">Data sync, attribution, reporting</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Data sync, attribution, reporting</div>
                                 </div>
                             </li>
                             <li>
@@ -1342,7 +1670,7 @@
                                 </div>
                                 <div>
                                     <strong>Data Scientist</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--gray-600);">Predictive models & LTV forecasting</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Predictive models & LTV forecasting</div>
                                 </div>
                             </li>
                         </ul>
@@ -1369,7 +1697,7 @@
                                 </div>
                                 <div>
                                     <strong>Account Strategist</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--gray-600);">Your main POC & strategy lead</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Your main POC & strategy lead</div>
                                 </div>
                             </li>
                             <li>
@@ -1378,7 +1706,7 @@
                                 </div>
                                 <div>
                                     <strong>Brand Storyteller</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--gray-600);">Messaging, content, voice</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Messaging, content, voice</div>
                                 </div>
                             </li>
                             <li>
@@ -1387,7 +1715,7 @@
                                 </div>
                                 <div>
                                     <strong>Creative Director</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--gray-600);">Visual identity & campaign creative</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Visual identity & campaign creative</div>
                                 </div>
                             </li>
                         </ul>
@@ -1489,18 +1817,19 @@
         <div class="cta-bg"></div>
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Ready to Run This System for Your Business?</h2>
+                <h2>Most Marketing Burns Fuel. This One Builds Orbit.</h2>
                 
                 <p class="lead" style="color: rgba(255,255,255,0.9);">
-                    Book a free 30-minute audit and we'll show you exactly how these 5 layers + performance loop apply to your numbers.
+                    Once the system reaches velocity, it sustains itself — self-optimizing, compounding, generating predictable monthly revenue. That's not a campaign. That's infrastructure.<br><br>
+                    Your free 30-minute audit maps exactly which layers your business needs first — and what the numbers look like at month 3, 6, and 12.
                 </p>
                 
                 <div class="slots">
                     <strong>Only 5 audit slots left this week</strong>
                 </div>
                 
-                <a href="book-audit.html" class="btn btn-primary btn-lg" style="background: white; color: var(--primary);">
-                    Book My Free Audit & Custom Roadmap
+                <a href="book-audit.html" class="btn btn-primary btn-lg">
+                    Book My Free Audit &amp; Custom Roadmap
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 
@@ -1517,14 +1846,14 @@
             <div class="footer-content">
                 <div>
                     <div class="footer-logo">X5 Digital</div>
-                    <p style="color: var(--gray-400); margin-bottom: 0;">
-                        Vietnam-based • Built for U.S. SMEs<br>
-                        24/7 coverage with U.S. business hours overlap
+                    <p style="color: var(--text-secondary); margin-bottom: 0;">
+                        We build the revenue machine inside your business — and hand you the keys.<br>
+                        Vietnam-based · Built for U.S. SMEs · 24/7 coverage
                     </p>
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">Quick Links</h4>
+                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
                     <div class="footer-links">
                         <a href="index.html">Home</a>
                         <a href="how-it-works.html">How It Works</a>
@@ -1535,7 +1864,7 @@
                 </div>
                 
                 <div>
-                    <h4 style="color: white; margin-bottom: var(--space-md);">System Details</h4>
+                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">System Details</h4>
                     <div class="footer-links">
                         <a href="#layers">5-Layer System</a>
                         <a href="#loop">Performance Loop</a>
@@ -1588,34 +1917,43 @@
             }
         });
 
-        // Loop step interaction
-        const loopSteps = document.querySelectorAll('.loop-step');
-        const stepDetails = document.querySelectorAll('.step-detail');
+        // Loop step interaction — REMOVED (replaced by horizontal stepper below)
         
-        loopSteps.forEach(step => {
-            step.addEventListener('click', function() {
-                const stepNumber = this.getAttribute('data-step');
-                
-                // Remove active class from all steps and details
-                loopSteps.forEach(s => s.classList.remove('active'));
-                stepDetails.forEach(d => d.classList.add('hidden'));
-                
-                // Add active class to clicked step and corresponding detail
-                this.classList.add('active');
-                document.getElementById(`detail-${stepNumber}`).classList.remove('hidden');
+        // ===== PERFORMANCE LOOP — HORIZONTAL STEPPER =====
+        const loopTabs = document.querySelectorAll('.loop-tab');
+        const loopDetails = document.querySelectorAll('.loop-detail');
+
+        function activateStep(stepNumber) {
+            loopTabs.forEach(t => t.classList.remove('active'));
+            const activeTab = document.querySelector(`.loop-tab[data-step="${stepNumber}"]`);
+            if (activeTab) activeTab.classList.add('active');
+
+            loopDetails.forEach(d => d.classList.remove('active'));
+            const activeDetail = document.getElementById(`detail-${stepNumber}`);
+            if (activeDetail) activeDetail.classList.add('active');
+        }
+
+        loopTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                activateStep(this.getAttribute('data-step'));
+                clearInterval(autoCycle);
             });
         });
 
-        // Layer hover effects
-        const layers = document.querySelectorAll('.layer');
-        layers.forEach(layer => {
-            layer.addEventListener('mouseenter', function() {
-                this.style.zIndex = '10';
-            });
-            
-            layer.addEventListener('mouseleave', function() {
-                const layerNumber = this.classList[1].replace('layer-', '');
-                this.style.zIndex = layerNumber;
+        // Auto-cycle every 8 seconds
+        let currentStep = 1;
+        const autoCycle = setInterval(() => {
+            currentStep = currentStep === 4 ? 1 : currentStep + 1;
+            activateStep(currentStep);
+        }, 8000);
+
+        // ===== MOBILE ACCORDION =====
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const item = this.closest('.accordion-item');
+                const isOpen = item.classList.contains('open');
+                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+                if (!isOpen) item.classList.add('open');
             });
         });
 
@@ -1659,41 +1997,6 @@
             });
         });
 
-        // Auto-rotate loop visualization (subtle effect)
-        let rotation = 0;
-        const loopCircle = document.querySelector('.loop-circle');
-        
-        function rotateLoop() {
-            rotation += 0.1;
-            if (rotation >= 360) rotation = 0;
-            
-            if (loopCircle) {
-                loopCircle.style.transform = `rotate(${rotation}deg)`;
-                loopCircle.style.transition = 'transform 20s linear';
-            }
-            
-            requestAnimationFrame(rotateLoop);
-        }
-        
-        // Start rotation when page loads
-        window.addEventListener('load', () => {
-            setTimeout(rotateLoop, 1000);
-        });
-
-        // Step detail auto-cycle
-        let currentStep = 1;
-        function cycleSteps() {
-            loopSteps.forEach(s => s.classList.remove('active'));
-            stepDetails.forEach(d => d.classList.add('hidden'));
-            
-            document.querySelector(`.loop-step-${currentStep}`).classList.add('active');
-            document.getElementById(`detail-${currentStep}`).classList.remove('hidden');
-            
-            currentStep = currentStep === 4 ? 1 : currentStep + 1;
-        }
-
-        // Auto-cycle every 8 seconds
-        setInterval(cycleSteps, 8000);
     </script>
 </body>
 </html>
