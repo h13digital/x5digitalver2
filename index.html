@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X5 Digital — Your AI-Powered Digital Team at 1/6th the Cost</title>
-    <meta name="description" content="Full-stack AI-enhanced digital team embedded in your business. Full control. 1/6th the cost of one US hire. 30-day risk-free trial.">
+    <title>X^5 Digital — Your AI-Powered Digital Team at 1/6^th the Cost</title>
+    <meta name="description" content="Full-stack AI-enhanced digital team embedded in your business. Full control. 1/6^th the cost of one US hire. 30-day risk-free trial.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -347,7 +347,7 @@
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: all var(--transition-normal);
+            transition: top 0.3s ease, background 0.3s ease, padding 0.3s ease;
         }
         
         header.scrolled {
@@ -355,6 +355,11 @@
             background: rgba(8, 13, 26, 0.92);
             border-bottom-color: rgba(29,155,240,0.15);
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+        
+        /* Class for hiding header on mobile when scrolling down */
+        header.header-hidden {
+            top: -100px; /* Adjust based on header height */
         }
         
         .nav {
@@ -697,6 +702,15 @@
         
         .feature-row td {
             color: var(--text-primary);
+        }
+        
+        /* Swipe hint for mobile (hidden by default) */
+        .swipe-hint {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
         }
         
         /* ===== SOLUTION CARDS ===== */
@@ -1125,12 +1139,21 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
+                white-space: normal;        /* Allow text wrapping */
+                height: auto;                /* Auto height */
+                min-height: 44px;            /* Minimum touch target */
+                padding: 0.75rem 1rem;       /* Adjust padding */
             }
             
             .comparison-table th,
             .comparison-table td {
                 padding: var(--space-md) var(--space-sm);
                 font-size: var(--text-sm);
+            }
+            
+            /* Show swipe hint on mobile */
+            .swipe-hint {
+                display: block;
             }
         }
         
@@ -1201,15 +1224,15 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">X5</div>
-                    <span>X5 Digital</span>
+                    <div class="logo-icon">X^5</div>
+                    <span>X^5 Digital</span>
                 </a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
                     <span class="hamburger"></span>
                 </button>
                 
-                <div class="nav-links">
+                <div class="nav-links" id="navLinks">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="how-it-works.html" class="nav-link">How It Works</a>
                     <a href="packages.html" class="nav-link">Packages</a>
@@ -1235,10 +1258,10 @@
                     <span>NEW: 30-Day Risk-Free Trial for First 10 U.S. Clients</span>
                 </div>
                 
-                <h1>Your <span class="text-gradient">AI-Powered</span> Digital Team<br>at <span class="text-gradient">1/6th the Cost</span></h1>
+                <h1>Your <span class="text-gradient">AI-Powered</span> Digital Team<br>at <span class="text-gradient">1/6^th the Cost</span></h1>
                 
                 <p class="lead">
-                    Most businesses run marketing like a one-man shop — skilled, but slow, expensive, and always one person away from falling behind. X5 gives you the F1 pit crew: specialists embedded in your Slack, your ad accounts, and your CRM, for less than what you'd pay a single U.S. hire.
+                    Most businesses run marketing like a one-man shop — skilled, but slow, expensive, and always one person away from falling behind. X^5 gives you the F1 pit crew: specialists embedded in your Slack, your ad accounts, and your CRM, for less than what you'd pay a single U.S. hire.
                 </p>
                 
                 <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
@@ -1302,7 +1325,7 @@
         <div class="container">
             <div class="comparison-header" data-aos="fade-up">
                 <h2>Why Smart U.S. SMEs Are Switching</h2>
-                <p class="comparison-subtitle lead">The real numbers behind the old way vs. the X5 way</p>
+                <p class="comparison-subtitle lead">The real numbers behind the old way vs. the X^5 way</p>
             </div>
 
             <div class="table-wrapper" data-aos="fade-up" data-aos-delay="200">
@@ -1313,7 +1336,7 @@
                             <th>US In-House Hire</th>
                             <th>Consultants</th>
                             <th>Traditional Agency</th>
-                            <th class="x5-col">X5 Digital</th>
+                            <th class="x5-col">X^5 Digital</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1322,7 +1345,7 @@
                             <td>$80K–$120K+</td>
                             <td>$40K–$80K</td>
                             <td>$100K–$300K+</td>
-                            <td class="x5-col">$30K–$78K <small>(1/6th)</small></td>
+                            <td class="x5-col">$30K–$78K <small>(1/6^th)</small></td>
                         </tr>
                         <tr>
                             <td><strong>Execution</strong></td>
@@ -1356,6 +1379,11 @@
                 </table>
             </div>
             
+            <!-- Swipe hint for mobile -->
+            <div class="swipe-hint">
+                <i class="fas fa-arrow-left"></i> Swipe to see full comparison <i class="fas fa-arrow-right"></i>
+            </div>
+            
             <div class="text-center mt-xl">
                 <a href="#audit" class="btn btn-secondary">
                     <i class="fas fa-calculator"></i>
@@ -1385,7 +1413,7 @@
                 
                 <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="solution-icon">
-                        <i class="fas fa-gap"></i>
+                        <i class="fas fa-arrow-right-arrow-left"></i>   <!-- Fixed icon -->
                     </div>
                     <h3>Execution Gap</h3>
                     <p>Consultants hand you beautiful decks. Execution? That's on you.</p>
@@ -1431,7 +1459,7 @@
                         <span>Current Monthly Marketing Spend</span>
                         <span id="spendValue">$15,000</span>
                     </div>
-                    <input type="range" id="spendSlider" min="5000" max="50000" value="15000" step="1000">
+                    <input type="range" id="spendSlider" min="5000" max="50000" value="15000" step="1000" aria-label="Marketing spend slider">
                 </div>
                 
                 <div class="slider-container">
@@ -1439,13 +1467,13 @@
                         <span>Team Hours Spent on Manual Tasks</span>
                         <span id="hoursValue">40 hours</span>
                     </div>
-                    <input type="range" id="hoursSlider" min="10" max="80" value="40" step="5">
+                    <input type="range" id="hoursSlider" min="10" max="80" value="40" step="5" aria-label="Manual hours slider">
                 </div>
                 
                 <div class="calculator-results">
                     <div class="result-card">
                         <div class="result-value" id="x5Cost">$2,500</div>
-                        <div>Monthly X5 Cost</div>
+                        <div>Monthly X^5 Cost</div>
                     </div>
                     
                     <div class="result-card">
@@ -1482,7 +1510,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>We Strategize (AI-backed)</h3>
-                        <p>X5 AI Agent analyzes your data & market → monthly strategy + quarterly roadmap.</p>
+                        <p>X^5 AI Agent analyzes your data & market → monthly strategy + quarterly roadmap.</p>
                     </div>
                 </div>
                 
@@ -1546,7 +1574,7 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">X5 Digital</div>
+                    <div class="footer-logo">X^5 Digital</div>
                     <p style="color: var(--text-secondary); margin-bottom: 0;">
                         We build the revenue machine inside your business — and hand you the keys.<br>
                         Vietnam-based · Built for U.S. SMEs · 24/7 coverage
@@ -1576,7 +1604,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 X5 Digital. All rights reserved. • 30-Day Risk-Free Trial for qualified clients.</p>
+                <p>&copy; 2025 X^5 Digital. All rights reserved. • 30-Day Risk-Free Trial for qualified clients.</p>
             </div>
         </div>
     </footer>
@@ -1591,29 +1619,68 @@
             offset: 100
         });
 
-        // Mobile Navigation Toggle
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            this.classList.toggle('active');
-            document.querySelector('.nav-links').classList.toggle('active');
-            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+        // Mobile Navigation Toggle with ARIA
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        toggle.addEventListener('click', function() {
+            const expanded = this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            this.setAttribute('aria-expanded', expanded);
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelector('.mobile-menu-toggle').classList.remove('active');
-                document.querySelector('.nav-links').classList.remove('active');
+                toggle.classList.remove('active');
+                navLinks.classList.remove('active');
                 document.body.style.overflow = '';
+                toggle.setAttribute('aria-expanded', 'false');
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
+        // Header scroll effect (background change + hide/show on mobile)
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            // Background change (scrolled class)
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
+            }
+
+            // Hide/show header on mobile only (width <= 992px)
+            if (window.innerWidth <= 992) {
+                if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                    // Scrolling down -> hide
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scrolling up -> show
+                    header.classList.remove('header-hidden');
+                }
+            } else {
+                // On desktop, always show
+                header.classList.remove('header-hidden');
+            }
+            lastScrollY = window.scrollY;
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        });
+
+        // Also update on resize to handle orientation change
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 992) {
+                header.classList.remove('header-hidden');
             }
         });
 
