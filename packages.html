@@ -1008,11 +1008,12 @@
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             max-width: 900px;
-            margin: var(--space-3xl) auto;
+            margin: 0 auto;
         }
         
+        .calculator-header { margin-bottom: var(--space-xl); }
         .calculator-header h3 { color: var(--text-primary); }
-        .calculator-header p { color: var(--text-secondary); }
+        .calculator-header p { color: var(--text-secondary); margin-bottom: 0; }
         
         .calculator-input {
             background: var(--bg-surface-3);
@@ -1027,21 +1028,23 @@
             margin-bottom: var(--space-sm);
             color: var(--text-secondary);
             font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: var(--text-sm);
         }
         
         .input-group {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
+            gap: 6px;
         }
         
         .input-group input {
             flex: 1;
+            min-width: 0;
             padding: var(--space-sm);
             background: rgba(255,255,255,0.05);
             border: 1px solid rgba(29,155,240,0.20);
             border-radius: var(--radius-md);
-            font-size: var(--text-lg);
+            font-size: var(--text-base);
             font-weight: 600;
             font-family: 'JetBrains Mono', monospace;
             color: var(--text-primary);
@@ -1058,6 +1061,9 @@
             font-weight: 600;
             color: var(--text-secondary);
             font-family: 'Outfit', sans-serif;
+            font-size: var(--text-sm);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         
         .result-card {
@@ -1346,7 +1352,11 @@
                 50%       { transform: translateX(6px); }
             }
 
-            .guarantee-card { padding: var(--space-xl) var(--space-lg); }
+            .guarantee-card {
+                padding: var(--space-xl) var(--space-lg);
+                padding-top: 3rem;
+            }
+            .roi-calculator { padding: var(--space-lg); }
         }
         
         @media (max-width: 480px) {
