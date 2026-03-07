@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How It Works — X5 Digital | The System That Turns Strategy Into Revenue</title>
+    <title>How It Works — X⁵ Digital | The System That Turns Strategy Into Revenue</title>
     <meta name="description" content="The exact client-controlled system that turns strategy into compounding revenue — every single month. No middlemen. No execution gap.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -15,13 +15,11 @@
     <style>
         /* ===== CSS VARIABLES & RESET ===== */
         :root {
-            /* === BACKGROUNDS === */
             --bg-base:        #080D1A;
             --bg-surface-1:   #0D1426;
             --bg-surface-2:   #111B33;
             --bg-surface-3:   #1A2444;
 
-            /* === BRAND COLORS === */
             --electric-blue:  #1D9BF0;
             --neon-indigo:    #6366F1;
             --cyber-cyan:     #06B6D4;
@@ -29,7 +27,6 @@
             --amber-warm:     #F59E0B;
             --danger-red:     #EF4444;
 
-            /* === LEGACY ALIASES === */
             --primary:        #1D9BF0;
             --primary-dark:   #1580CC;
             --primary-light:  #6366F1;
@@ -39,18 +36,15 @@
             --tech:           #00D4AA;
             --brand:          #8B5CF6;
 
-            /* === TEXT (WCAG VERIFIED) === */
-            --text-primary:   #F1F5F9;   /* ratio 16.2:1 on bg-base ✅ */
-            --text-secondary: #94A3B8;   /* ratio 5.1:1 on bg-base ✅ */
-            --text-muted:     #475569;   /* CHỈ dùng cho footer copyright */
+            --text-primary:   #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted:     #475569;
             --text-inverse:   #080D1A;
 
-            /* === GRADIENTS === */
             --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
             --grad-cta-bg:    linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
             --grad-divider:   linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);
 
-            /* === GLOW === */
             --glow-blue-sm:   0 0 20px rgba(29,155,240,0.25);
             --glow-blue-md:   0 0 40px rgba(29,155,240,0.35);
             --glow-blue-lg:   0 0 80px rgba(29,155,240,0.45);
@@ -58,7 +52,6 @@
             --glow-green:     0 0 40px rgba(0,212,170,0.30);
             --glow-cyan:      0 0 40px rgba(6,182,212,0.30);
 
-            /* === SPACING === */
             --space-xs: 0.5rem;
             --space-sm: 1rem;
             --space-md: 1.5rem;
@@ -67,33 +60,29 @@
             --space-2xl: 4rem;
             --space-3xl: 6rem;
 
-            /* === TYPOGRAPHY SCALE === */
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
+            --text-xs:   0.75rem;
+            --text-sm:   0.875rem;
             --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            --text-3xl: 1.875rem;
-            --text-4xl: 2.25rem;
-            --text-5xl: 3rem;
-            --text-6xl: 3.75rem;
+            --text-lg:   1.125rem;
+            --text-xl:   1.25rem;
+            --text-2xl:  1.5rem;
+            --text-3xl:  1.875rem;
+            --text-4xl:  2.25rem;
+            --text-5xl:  3rem;
+            --text-6xl:  3.75rem;
 
-            /* === SHADOWS === */
             --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
             --shadow-md:  0 4px 20px rgba(0,0,0,0.4);
             --shadow-lg:  0 10px 40px rgba(0,0,0,0.5);
             --shadow-xl:  0 20px 60px rgba(0,0,0,0.6);
             --shadow-primary: 0 4px 20px rgba(29,155,240,0.25);
 
-            /* === TRANSITIONS === */
             --transition-fast:   0.15s cubic-bezier(0.4,0,0.2,1);
             --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
             --transition-slow:   0.5s cubic-bezier(0.4,0,0.2,1);
             --transition-spring: 0.4s cubic-bezier(0.34,1.56,0.64,1);
             --transition-smooth: 0.6s cubic-bezier(0.22,1,0.36,1);
 
-            /* === BORDER RADIUS === */
             --radius-xs:   4px;
             --radius-sm:   8px;
             --radius-md:   10px;
@@ -103,16 +92,9 @@
             --radius-full: 9999px;
         }
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
+        html { scroll-behavior: smooth; font-size: 16px; }
         
         body {
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -124,71 +106,39 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color var(--transition-fast);
-        }
+        a { text-decoration: none; color: inherit; transition: color var(--transition-fast); }
+        img { max-width: 100%; height: auto; }
         
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        
-        .container-narrow {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        
-        .section {
-            padding: var(--space-3xl) 0;
-        }
-        
-        .section-sm {
-            padding: var(--space-2xl) 0;
-        }
-        
-        .section-lg {
-            padding: var(--space-3xl) 0;
-        }
+        .container       { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .container-narrow{ max-width: 1000px; margin: 0 auto; padding: 0 var(--space-lg); }
+        .section    { padding: var(--space-3xl) 0; }
+        .section-sm { padding: var(--space-2xl) 0; }
+        .section-lg { padding: var(--space-3xl) 0; }
         
         /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            line-height: 1.2;
+            font-weight: 800; line-height: 1.2;
             margin-bottom: var(--space-md);
             color: var(--text-primary);
         }
-        
         h1 { font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.03em; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem);    font-weight: 800; letter-spacing: -0.01em; }
         h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 700; }
         h4 { color: var(--text-primary); }
-        
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--text-secondary);
-            line-height: 1.75;
-        }
-        
-        .lead {
-            font-size: var(--text-xl);
-            font-weight: 500;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-
+        p  { margin-bottom: var(--space-md); color: var(--text-secondary); line-height: 1.75; }
+        .lead { font-size: var(--text-xl); font-weight: 500; line-height: 1.6; color: var(--text-secondary); }
         strong { color: var(--text-primary); }
 
-        /* Gradient text utility */
+        /* FIX #2 (logo): superscript */
+        sup {
+            font-size: 0.6em;
+            vertical-align: super;
+            line-height: 0;
+            font-weight: inherit;
+        }
+        .logo sup { -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
+
         .text-gradient {
             background: var(--grad-brand);
             -webkit-background-clip: text;
@@ -196,51 +146,42 @@
             background-clip: text;
         }
 
-        /* Aurora orbs — CSS only, GPU accelerated */
+        /* Aurora orbs */
         .aurora-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
+            position: absolute; border-radius: 50%;
+            filter: blur(80px); pointer-events: none;
             will-change: transform;
             animation: aurora-drift 12s ease-in-out infinite;
         }
         .aurora-orb-1 {
-            width: 600px; height: 600px;
-            top: -200px; right: -100px;
+            width: 600px; height: 600px; top: -200px; right: -100px;
             background: radial-gradient(circle, rgba(29,155,240,0.12), transparent 70%);
-            animation-delay: 0s;
         }
         .aurora-orb-2 {
-            width: 500px; height: 500px;
-            bottom: 0; left: -150px;
+            width: 500px; height: 500px; bottom: 0; left: -150px;
             background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
             animation-delay: -6s;
         }
         @keyframes aurora-drift {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33%       { transform: translate(30px, -20px) scale(1.05); }
-            66%       { transform: translate(-20px, 15px) scale(0.97); }
+            0%,100% { transform: translate(0,0) scale(1); }
+            33%      { transform: translate(30px,-20px) scale(1.05); }
+            66%      { transform: translate(-20px,15px) scale(0.97); }
         }
         @media (prefers-reduced-motion: reduce) {
             .aurora-orb { animation: none; }
             .btn-primary { animation: none; }
         }
 
-        /* Glassmorphism card utility */
+        /* Glass card utility */
         .glass-card {
-            background: rgba(13, 20, 38, 0.80);
+            background: rgba(13,20,38,0.80);
             border: 1px solid rgba(255,255,255,0.08);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-radius: var(--radius-xl);
             transition: all var(--transition-normal);
         }
-        .glass-card:hover {
-            border-color: rgba(29,155,240,0.25);
-            box-shadow: var(--glow-blue-sm);
-            transform: translateY(-6px);
-        }
+        .glass-card:hover { border-color: rgba(29,155,240,0.25); box-shadow: var(--glow-blue-sm); transform: translateY(-6px); }
 
         /* Scroll reveal */
         .is-visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
@@ -250,1059 +191,555 @@
         
         /* ===== BUTTONS ===== */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+            display: inline-flex; align-items: center; justify-content: center;
             gap: var(--space-sm);
             padding: var(--space-md) var(--space-xl);
-            font-weight: 600;
-            font-size: var(--text-base);
-            border-radius: var(--radius-md);
-            border: none;
-            cursor: pointer;
+            font-weight: 600; font-size: var(--text-base);
+            border-radius: var(--radius-md); border: none; cursor: pointer;
             transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
             text-align: center;
+            /* FIX M2: nowrap only on desktop; mobile overrides below */
             white-space: nowrap;
+            min-height: 44px;
         }
-        
         .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transform: translateX(-100%);
         }
-        
-        .btn:hover::after {
-            animation: shine 1s;
-        }
-        
-        @keyframes shine {
-            100% { transform: translateX(100%); }
-        }
+        .btn:hover::after { animation: shine 1s; }
+        @keyframes shine { 100% { transform: translateX(100%); } }
         
         .btn-primary {
             background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            color: #ffffff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
+            color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
             border-radius: var(--radius-md);
             box-shadow: 0 4px 20px rgba(29,155,240,0.25);
-            animation: cta-breathe 3s ease-in-out infinite;
-            animation-delay: 3s;
+            animation: cta-breathe 3s ease-in-out infinite; animation-delay: 3s;
         }
-        
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 12px 40px rgba(29,155,240,0.45), 0 0 0 4px rgba(29,155,240,0.15);
             animation: none;
         }
-
         @keyframes cta-breathe {
-            0%, 100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
-            50%       { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
+            0%,100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
+            50%      { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
         }
-        
         .btn-secondary {
-            background: transparent;
-            color: var(--electric-blue);
+            background: transparent; color: var(--electric-blue);
             border: 1px solid rgba(29,155,240,0.40);
         }
-        
         .btn-secondary:hover {
-            background: rgba(29,155,240,0.08);
-            border-color: var(--electric-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(29,155,240,0.15);
+            background: rgba(29,155,240,0.08); border-color: var(--electric-blue);
+            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(29,155,240,0.15);
         }
-        
-        .btn-lg {
-            padding: var(--space-lg) var(--space-2xl);
-            font-size: var(--text-lg);
-            border-radius: var(--radius-lg);
-        }
-        
+        .btn-lg { padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); border-radius: var(--radius-lg); }
+
         /* ===== HEADER & NAVIGATION ===== */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
             padding: var(--space-md) 0;
-            background: rgba(8, 13, 26, 0.75);
+            background: rgba(8,13,26,0.75);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: all var(--transition-normal);
+            /* FIX M8: smooth transition for hide/show */
+            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                        padding var(--transition-normal),
+                        background var(--transition-normal),
+                        border-color var(--transition-normal),
+                        box-shadow var(--transition-normal);
         }
-        
+        /* FIX M8: hide header on scroll down (mobile only, toggled by JS) */
+        header.header-hidden { transform: translateY(-100%); }
         header.scrolled {
             padding: var(--space-sm) 0;
-            background: rgba(8, 13, 26, 0.92);
+            background: rgba(8,13,26,0.92);
             border-bottom-color: rgba(29,155,240,0.15);
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
         
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
         
         .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-weight: 900;
-            font-size: var(--text-2xl);
-            color: var(--electric-blue);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex; align-items: center; gap: var(--space-sm);
+            font-weight: 900; font-size: var(--text-2xl);
+            color: var(--electric-blue); font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        
         .logo-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            border-radius: 10px;
-            font-weight: 800;
+            color: white; border-radius: 10px; font-weight: 800;
+            font-size: 0.9rem; letter-spacing: -0.03em;
         }
         
-        .nav-links {
-            display: flex;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-        
+        .nav-links { display: flex; gap: var(--space-xl); align-items: center; }
         .nav-link {
-            font-weight: 500;
-            font-size: var(--text-base);
-            color: var(--text-secondary);
-            font-family: 'Outfit', sans-serif;
-            position: relative;
-            padding: var(--space-xs) 0;
+            font-weight: 500; font-size: var(--text-base);
+            color: var(--text-secondary); font-family: 'Outfit', sans-serif;
+            position: relative; padding: var(--space-xs) 0;
         }
-        
         .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 1.5px;
-            background: var(--electric-blue);
-            transform: translateX(-50%);
-            transition: width var(--transition-normal);
+            content: ''; position: absolute; bottom: 0; left: 50%;
+            width: 0; height: 1.5px; background: var(--electric-blue);
+            transform: translateX(-50%); transition: width var(--transition-normal);
         }
-        
-        .nav-link:hover {
-            color: var(--text-primary);
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        
+        .nav-link:hover { color: var(--text-primary); }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link.active { color: var(--electric-blue); }
+        .nav-link.active::after { width: 100%; }
+
+        /* FIX M9: min tap target 44px */
         .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1001;
+            display: none; background: none; border: none;
+            width: 44px; height: 44px; cursor: pointer;
+            position: relative; z-index: 1001;
+            align-items: center; justify-content: center;
         }
-        
         .hamburger {
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary);
-            position: relative;
+            width: 24px; height: 2px; background: var(--text-primary);
+            position: relative; transition: all var(--transition-fast);
+        }
+        .hamburger::before, .hamburger::after {
+            content: ''; position: absolute;
+            width: 24px; height: 2px; background: var(--text-primary);
             transition: all var(--transition-fast);
         }
-        
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary);
-            transition: all var(--transition-fast);
-        }
-        
         .hamburger::before { top: -8px; }
-        .hamburger::after { bottom: -8px; }
-        
-        .mobile-menu-toggle.active .hamburger {
-            background: transparent;
-        }
-        
-        .mobile-menu-toggle.active .hamburger::before {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .mobile-menu-toggle.active .hamburger::after {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
+        .hamburger::after  { bottom: -8px; }
+        .mobile-menu-toggle.active .hamburger { background: transparent; }
+        .mobile-menu-toggle.active .hamburger::before { transform: rotate(45deg) translate(5px,5px); }
+        .mobile-menu-toggle.active .hamburger::after  { transform: rotate(-45deg) translate(7px,-6px); }
         
         /* ===== HERO SECTION ===== */
         .hero {
             padding-top: calc(var(--space-3xl) * 2);
             padding-bottom: var(--space-3xl);
             background: var(--bg-base);
+            position: relative; overflow: hidden;
+        }
+        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .hero-content { text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+
+        /* ===== 5-LAYER SYSTEM — UPGRADED UI ===== */
+        .layers-section {
+            background: var(--bg-surface-1);
             position: relative;
             overflow: hidden;
         }
-        
-        .hero-bg {
+
+        /* IMPROVEMENT: section-level glow backdrop */
+        .layers-section::before {
+            content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px; height: 600px;
+            background: radial-gradient(ellipse at center,
+                rgba(29,155,240,0.07) 0%,
+                rgba(99,102,241,0.05) 40%,
+                transparent 70%);
             pointer-events: none;
+            z-index: 0;
         }
-        
-        .hero-bg-dot {
-            display: none; /* replaced by aurora orbs */
+
+        /* IMPROVEMENT: eyebrow badge for the section */
+        .section-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(29,155,240,0.08);
+            border: 1px solid rgba(29,155,240,0.25);
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6875rem; font-weight: 600;
+            color: var(--electric-blue);
+            letter-spacing: 0.1em; text-transform: uppercase;
+            margin-bottom: var(--space-md);
         }
-        
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+        .section-eyebrow .eyebrow-dot {
+            width: 6px; height: 6px;
+            background: var(--aurora-green); border-radius: 50%;
+            box-shadow: 0 0 8px rgba(0,212,170,0.8);
+            animation: badge-pulse 2s ease-in-out infinite;
         }
-        
-        /* ===== 5-LAYER SYSTEM VISUALIZATION ===== */
-        .layers-section {
-            background: var(--bg-surface-1);
+        @keyframes badge-pulse {
+            0%,100% { box-shadow: 0 0 8px rgba(0,212,170,0.8); opacity: 1; }
+            50%      { box-shadow: 0 0 16px rgba(0,212,170,0.4); opacity: 0.6; }
         }
         
         .layers-visual {
-            max-width: 900px;
-            margin: var(--space-3xl) auto;
-            position: relative;
+            max-width: 900px; margin: var(--space-3xl) auto;
+            position: relative; z-index: 1;
         }
-        
         .layers-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-lg);
-            position: relative;
-            z-index: 1;
+            display: flex; flex-direction: column;
+            align-items: center; gap: var(--space-lg);
+            position: relative; z-index: 1;
         }
         
         .layer {
             width: 100%;
-            background: rgba(13, 20, 38, 0.80);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: rgba(13,20,38,0.85);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
             padding: var(--space-xl) var(--space-2xl);
             border-radius: var(--radius-xl);
             border: 1px solid rgba(255,255,255,0.06);
-            display: flex;
-            align-items: center;
-            gap: var(--space-xl);
+            display: flex; align-items: center; gap: var(--space-xl);
             transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
+            position: relative; overflow: hidden; cursor: pointer;
             color: var(--text-secondary);
         }
-        
         .layer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
+            content: ''; position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
             border-radius: 0 2px 2px 0;
         }
-        
         .layer h3 { color: var(--text-primary); margin-bottom: var(--space-xs); font-size: var(--text-xl); }
         .layer p  { color: var(--text-secondary); margin-bottom: 0; }
-        
-        .layer:hover { transform: translateX(10px); }
 
-        /* Layer 1 — Foundation: cyber cyan */
-        .layer-1 { width: 100%; border-color: rgba(6,182,212,0.15); z-index: 1; }
+        /* FIX M6: hover transform only on pointer devices */
+        @media (hover: hover) {
+            .layer:hover { transform: translateX(10px); }
+            .layer-5:hover { transform: translateX(12px); }
+        }
+
+        /* IMPROVEMENT: stronger borders, layer-specific tinted backgrounds */
+        .layer-1 {
+            width: 100%;
+            border-color: rgba(6,182,212,0.40);
+            background: rgba(6,182,212,0.04);
+            z-index: 1;
+        }
         .layer-1::before { background: var(--cyber-cyan); }
-        .layer-1:hover { border-color: rgba(6,182,212,0.35); box-shadow: 0 0 30px rgba(6,182,212,0.12); }
+        @media (hover: hover) {
+            .layer-1:hover { border-color: rgba(6,182,212,0.65); box-shadow: 0 0 30px rgba(6,182,212,0.18); }
+        }
 
-        /* Layer 2 — MarTech: aurora green */
-        .layer-2 { width: 97%; border-color: rgba(0,212,170,0.15); z-index: 2; }
+        .layer-2 {
+            /* IMPROVEMENT: wider visual separation in pyramid */
+            width: 93%;
+            border-color: rgba(0,212,170,0.40);
+            background: rgba(0,212,170,0.04);
+            z-index: 2;
+        }
         .layer-2::before { background: var(--aurora-green); }
-        .layer-2:hover { border-color: rgba(0,212,170,0.35); box-shadow: 0 0 30px rgba(0,212,170,0.12); }
+        @media (hover: hover) {
+            .layer-2:hover { border-color: rgba(0,212,170,0.65); box-shadow: 0 0 30px rgba(0,212,170,0.18); }
+        }
 
-        /* Layer 3 — RevOps: neon indigo */
-        .layer-3 { width: 95%; border-color: rgba(99,102,241,0.20); z-index: 3; }
+        .layer-3 {
+            width: 84%;
+            border-color: rgba(99,102,241,0.45);
+            background: rgba(99,102,241,0.05);
+            z-index: 3;
+        }
         .layer-3::before { background: var(--neon-indigo); }
-        .layer-3:hover { border-color: rgba(99,102,241,0.40); box-shadow: var(--glow-indigo); }
+        @media (hover: hover) {
+            .layer-3:hover { border-color: rgba(99,102,241,0.65); box-shadow: var(--glow-indigo); }
+        }
 
-        /* Layer 4 — AI Automation: electric blue */
-        .layer-4 { width: 90%; border-color: rgba(29,155,240,0.25); z-index: 4; }
-        .layer-4::before { background: var(--electric-blue); }
-        .layer-4:hover { border-color: rgba(29,155,240,0.45); box-shadow: var(--glow-blue-sm); }
-
-        /* Layer 5 — Revenue Intelligence: FULL glow, most prominent */
-        .layer-5 {
-            width: 85%;
-            border-color: rgba(29,155,240,0.40);
+        .layer-4 {
+            width: 74%;
+            border-color: rgba(29,155,240,0.50);
             background: rgba(29,155,240,0.06);
-            box-shadow: var(--glow-blue-md);
+            z-index: 4;
+        }
+        .layer-4::before { background: var(--electric-blue); }
+        @media (hover: hover) {
+            .layer-4:hover { border-color: rgba(29,155,240,0.70); box-shadow: var(--glow-blue-sm); }
+        }
+
+        /* IMPROVEMENT: Layer 5 — premium treatment, breathing glow */
+        .layer-5 {
+            width: 62%;
+            border-color: rgba(29,155,240,0.55);
+            background: rgba(29,155,240,0.10);
+            box-shadow: 0 0 40px rgba(29,155,240,0.20), 0 0 80px rgba(99,102,241,0.10);
             z-index: 5;
+            animation: layer5-breathe 4s ease-in-out infinite;
         }
         .layer-5::before { background: var(--grad-brand); }
         .layer-5 h3 { color: var(--electric-blue); }
-        .layer-5:hover {
-            border-color: rgba(29,155,240,0.60);
-            box-shadow: var(--glow-blue-lg);
-            transform: translateX(12px);
+        @keyframes layer5-breathe {
+            0%,100% { box-shadow: 0 0 40px rgba(29,155,240,0.20), 0 0 80px rgba(99,102,241,0.10); }
+            50%      { box-shadow: 0 0 60px rgba(29,155,240,0.40), 0 0 120px rgba(99,102,241,0.20); }
         }
-        
+        @media (hover: hover) {
+            .layer-5:hover {
+                border-color: rgba(29,155,240,0.75);
+                box-shadow: 0 0 80px rgba(29,155,240,0.50), 0 0 140px rgba(99,102,241,0.25);
+                animation: none;
+            }
+        }
+
+        /* IMPROVEMENT: "PEAK LAYER" badge on layer-5 */
+        .layer-5::after {
+            content: '★ PEAK';
+            position: absolute;
+            top: 12px; right: 14px;
+            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
+            color: #fff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6rem; font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
+            border-radius: var(--radius-full);
+        }
+
+        /* IMPROVEMENT: layer numbers — match accent color per layer */
         .layer-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(29,155,240,0.10);
-            border: 1px solid rgba(29,155,240,0.20);
+            display: flex; align-items: center; justify-content: center;
+            width: 60px; height: 60px;
             border-radius: var(--radius-full);
             font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-2xl);
-            font-weight: 600;
-            color: var(--electric-blue);
+            font-size: var(--text-2xl); font-weight: 600;
             flex-shrink: 0;
+        }
+        .layer-1 .layer-number { background: rgba(6,182,212,0.12); border: 1.5px solid rgba(6,182,212,0.40); color: var(--cyber-cyan); }
+        .layer-2 .layer-number { background: rgba(0,212,170,0.12); border: 1.5px solid rgba(0,212,170,0.40); color: var(--aurora-green); }
+        .layer-3 .layer-number { background: rgba(99,102,241,0.12); border: 1.5px solid rgba(99,102,241,0.45); color: var(--neon-indigo); }
+        .layer-4 .layer-number { background: rgba(29,155,240,0.12); border: 1.5px solid rgba(29,155,240,0.50); color: var(--electric-blue); }
+        .layer-5 .layer-number {
+            background: rgba(29,155,240,0.18);
+            border: 1.5px solid rgba(29,155,240,0.60);
+            color: var(--electric-blue);
+            box-shadow: var(--glow-blue-sm);
         }
         
         .layer-content { flex: 1; }
         .layer-content h3 { margin-bottom: var(--space-xs); font-size: var(--text-xl); }
         
-        .layer-tools {
-            display: flex;
-            gap: var(--space-xs);
-            margin-top: var(--space-sm);
-            flex-wrap: wrap;
-        }
-        
+        .layer-tools { display: flex; gap: var(--space-xs); margin-top: var(--space-sm); flex-wrap: wrap; }
         .tool-tag {
             background: rgba(29,155,240,0.08);
             border: 1px solid rgba(29,155,240,0.20);
             color: var(--electric-blue);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 600;
+            font-size: 0.7rem; font-weight: 600;
             letter-spacing: 0.05em;
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
+            padding: 3px 10px; border-radius: var(--radius-full);
         }
-
-        /* Layer-specific tool tag colors */
-        .layer-1 .tool-tag { border-color: rgba(6,182,212,0.30); color: var(--cyber-cyan); background: rgba(6,182,212,0.06); }
-        .layer-2 .tool-tag { border-color: rgba(0,212,170,0.30); color: var(--aurora-green); background: rgba(0,212,170,0.06); }
-        .layer-3 .tool-tag { border-color: rgba(99,102,241,0.30); color: var(--neon-indigo); background: rgba(99,102,241,0.06); }
-        .layer-4 .tool-tag { border-color: rgba(29,155,240,0.30); color: var(--electric-blue); background: rgba(29,155,240,0.06); }
-        .layer-5 .tool-tag { border-color: rgba(29,155,240,0.40); color: var(--electric-blue); background: rgba(29,155,240,0.12); }
-        
-        /* ===== PERFORMANCE LOOP — old styles removed, new stepper below ===== */
+        .layer-1 .tool-tag { border-color: rgba(6,182,212,0.40);  color: var(--cyber-cyan);    background: rgba(6,182,212,0.08); }
+        .layer-2 .tool-tag { border-color: rgba(0,212,170,0.40);  color: var(--aurora-green);  background: rgba(0,212,170,0.08); }
+        .layer-3 .tool-tag { border-color: rgba(99,102,241,0.40); color: var(--neon-indigo);   background: rgba(99,102,241,0.08); }
+        .layer-4 .tool-tag { border-color: rgba(29,155,240,0.40); color: var(--electric-blue); background: rgba(29,155,240,0.08); }
+        .layer-5 .tool-tag { border-color: rgba(29,155,240,0.55); color: var(--electric-blue); background: rgba(29,155,240,0.14); font-weight: 700; }
 
         /* ===== BRIDGE SECTION ===== */
-        .bridge-section {
-            background: var(--bg-base);
-        }
-        
+        .bridge-section { background: var(--bg-base); }
         .bridge-grid {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            max-width: 1100px;
-            margin: var(--space-3xl) auto;
+            display: grid; gap: var(--space-xl);
+            /* FIX M3: use min() to prevent overflow on very small screens */
+            grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+            max-width: 1100px; margin: var(--space-3xl) auto;
         }
-        
         .bridge-card {
-            background: rgba(13, 20, 38, 0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(13,20,38,0.80);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
+            border-radius: var(--radius-xl); overflow: hidden;
             transition: all var(--transition-normal);
         }
-        
-        .bridge-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--glow-blue-sm);
-            border-color: rgba(29,155,240,0.20);
-        }
-        
-        .bridge-header {
-            padding: var(--space-xl);
-            text-align: center;
-            color: white;
-        }
-        
-        .bridge-header.tech {
-            background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green));
-        }
-        
-        .bridge-header.brand {
-            background: linear-gradient(135deg, var(--neon-indigo), var(--accent));
-        }
-        
-        .bridge-body {
-            padding: var(--space-xl);
-            background: transparent;
-        }
-        
+        .bridge-card:hover { transform: translateY(-8px); box-shadow: var(--glow-blue-sm); border-color: rgba(29,155,240,0.20); }
+        .bridge-header { padding: var(--space-xl); text-align: center; color: white; }
+        .bridge-header.tech  { background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green)); }
+        .bridge-header.brand { background: linear-gradient(135deg, var(--neon-indigo), var(--accent)); }
+        .bridge-body { padding: var(--space-xl); background: transparent; }
         .bridge-body p { color: var(--text-secondary); }
         .bridge-body strong { color: var(--text-primary); }
-        
-        .role-list {
-            list-style: none;
-            margin: var(--space-lg) 0;
-        }
-        
+        .role-list { list-style: none; margin: var(--space-lg) 0; }
         .role-list li {
             padding: var(--space-sm) 0;
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
+            display: flex; align-items: center; gap: var(--space-sm);
             color: var(--text-secondary);
         }
-        
-        .role-list li:last-child {
-            border-bottom: none;
-        }
-        
+        .role-list li:last-child { border-bottom: none; }
         .role-list li strong { color: var(--text-primary); }
-        
         .role-icon {
-            width: 24px;
-            height: 24px;
+            width: 24px; height: 24px;
             background: rgba(255,255,255,0.06);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            flex-shrink: 0;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            font-size: var(--text-sm); color: var(--text-secondary); flex-shrink: 0;
         }
-        
-        .tech .role-icon {
-            background: rgba(0,212,170,0.12);
-            color: var(--aurora-green);
-        }
-        
-        .brand .role-icon {
-            background: rgba(99,102,241,0.12);
-            color: var(--neon-indigo);
-        }
-        
+        .tech .role-icon  { background: rgba(0,212,170,0.12);  color: var(--aurora-green); }
+        .brand .role-icon { background: rgba(99,102,241,0.12); color: var(--neon-indigo); }
         .outcome-box {
-            background: rgba(0,212,170,0.08);
-            border: 1px solid rgba(0,212,170,0.35);
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            margin-top: var(--space-lg);
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--aurora-green);
+            background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.35);
+            padding: var(--space-lg); border-radius: var(--radius-lg);
+            text-align: center; margin-top: var(--space-lg);
+            font-size: var(--text-lg); font-weight: 700; color: var(--aurora-green);
         }
-        
-        .brand .outcome-box {
-            background: rgba(99,102,241,0.08);
-            border-color: rgba(99,102,241,0.35);
-            color: var(--neon-indigo);
-        }
-        
-        /* ===== TIMELINE VISUALIZATION ===== */
-        .timeline-section {
-            background: var(--bg-surface-1);
-        }
-        
-        .timeline {
-            max-width: 900px;
-            margin: var(--space-3xl) auto;
-            position: relative;
-        }
-        
+        .brand .outcome-box { background: rgba(99,102,241,0.08); border-color: rgba(99,102,241,0.35); color: var(--neon-indigo); }
+
+        /* ===== TIMELINE ===== */
+        .timeline-section { background: var(--bg-surface-1); }
+        .timeline { max-width: 900px; margin: var(--space-3xl) auto; position: relative; }
         .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
+            content: ''; position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 2px; height: 100%;
             background: linear-gradient(180deg, var(--electric-blue), transparent);
             opacity: 0.3;
         }
-        
         .timeline-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: var(--space-2xl);
-            position: relative;
+            display: flex; align-items: center;
+            margin-bottom: var(--space-2xl); position: relative;
         }
-        
-        .timeline-item:nth-child(odd) {
-            flex-direction: row-reverse;
-        }
-        
+        .timeline-item:nth-child(odd) { flex-direction: row-reverse; }
         .timeline-content {
             flex: 1;
-            background: rgba(13, 20, 38, 0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(13,20,38,0.80);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
             border: 1px solid rgba(255,255,255,0.08);
-            padding: var(--space-xl);
-            border-radius: var(--radius-xl);
-            color: var(--text-secondary);
-            position: relative;
+            padding: var(--space-xl); border-radius: var(--radius-xl);
+            color: var(--text-secondary); position: relative;
             transition: border-color var(--transition-normal);
         }
-
         .timeline-content:hover { border-color: rgba(29,155,240,0.20); }
-        
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-right: var(--space-xl);
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: var(--space-xl);
-        }
-        
+        .timeline-item:nth-child(odd)  .timeline-content { margin-right: var(--space-xl); }
+        .timeline-item:nth-child(even) .timeline-content { margin-left:  var(--space-xl); }
         .timeline-marker {
-            width: 40px;
-            height: 40px;
+            width: 40px; height: 40px;
             background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 800;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            box-shadow: var(--glow-blue-sm);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 800;
+            position: absolute; left: 50%; transform: translateX(-50%);
+            z-index: 2; box-shadow: var(--glow-blue-sm);
         }
-        
         .timeline-content h4 {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--electric-blue);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex; align-items: center; gap: var(--space-sm);
+            color: var(--electric-blue); font-family: 'Plus Jakarta Sans', sans-serif;
         }
-
         .timeline-content ul li { color: var(--text-secondary); }
-        
+
         /* ===== FINAL CTA ===== */
-        .cta-final {
-            background: var(--grad-cta-bg);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
+        .cta-final { background: var(--grad-cta-bg); color: white; text-align: center; position: relative; overflow: hidden; }
         .cta-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image:
                 radial-gradient(circle at 20% 80%, rgba(29,155,240,0.12) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(99,102,241,0.10) 0%, transparent 50%);
         }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .cta-final h2 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-md);
-        }
-        
-        .slots {
-            font-size: var(--text-xl);
-            margin: var(--space-xl) 0;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-        
-        .slots strong {
-            color: var(--amber-warm);
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        /* ===== FOOTER ===== */
+        .cta-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+        .cta-final h2 { color: var(--text-primary); margin-bottom: var(--space-md); }
+        .slots { font-size: var(--text-xl); margin: var(--space-xl) 0; font-weight: 600; color: var(--text-secondary); }
+        .slots strong { color: var(--amber-warm); animation: badge-pulse 2s ease-in-out infinite; }
+
+        /* ===== FOOTER (matches index.html) ===== */
         footer {
-            background: var(--bg-base);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-secondary);
-            padding: var(--space-3xl) 0 var(--space-xl);
+            background: var(--bg-base); border-top: 1px solid rgba(255,255,255,0.05);
+            color: var(--text-secondary); padding: var(--space-3xl) 0 var(--space-xl);
         }
-        
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
+            gap: var(--space-2xl); margin-bottom: var(--space-2xl);
         }
-        
         .footer-logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 900;
-            font-size: var(--text-2xl);
-            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900;
+            font-size: var(--text-2xl); color: var(--text-primary);
             margin-bottom: var(--space-md);
         }
-        
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            transition: color var(--transition-fast);
-        }
-        
-        .footer-links a:hover {
-            color: var(--electric-blue);
-        }
-        
+        .footer-links { display: flex; flex-direction: column; gap: var(--space-sm); }
+        .footer-links a { color: var(--text-secondary); transition: color var(--transition-fast); }
+        .footer-links a:hover { color: var(--electric-blue); }
         .footer-bottom {
-            text-align: center;
-            padding-top: var(--space-xl);
+            text-align: center; padding-top: var(--space-xl);
             border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: var(--text-sm);
+            color: var(--text-muted); font-size: var(--text-sm);
         }
-
         .footer-bottom p { color: var(--text-muted); margin-bottom: 0; }
-        
-        /* ===== MOBILE RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            h1 { font-size: clamp(2rem, 8vw, 3rem); }
-            h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
-            
-            .hero {
-                padding-top: calc(var(--space-2xl) * 2);
-                padding-bottom: var(--space-2xl);
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: rgba(8, 13, 26, 0.98);
-                backdrop-filter: blur(30px);
-                -webkit-backdrop-filter: blur(30px);
-                border-left: 1px solid rgba(255,255,255,0.06);
-                flex-direction: column;
-                justify-content: center;
-                gap: var(--space-xl);
-                padding: var(--space-2xl);
-                transition: right var(--transition-normal);
-                z-index: 1000;
-            }
-            
-            .nav-links.active {
-                right: 0;
-            }
-            
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                flex-direction: row !important;
-            }
-            
-            .timeline-content {
-                margin-left: 70px !important;
-                margin-right: 0 !important;
-            }
-            
-            .timeline-marker {
-                left: 30px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-            h2 { font-size: clamp(1.375rem, 5vw, 1.875rem); }
-            
-            .section {
-                padding: var(--space-2xl) 0;
-            }
-            
-            .section-lg {
-                padding: var(--space-2xl) 0;
-            }
-            
-            .bridge-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .layer {
-                flex-direction: column;
-                text-align: center;
-                gap: var(--space-md);
-            }
-            
-            .layer-number {
-                width: 50px;
-                height: 50px;
-            }
 
-            .loop-stepper { margin-top: var(--space-2xl); }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            :root {
-                --space-lg: 1.5rem;
-                --space-xl: 2rem;
-                --space-2xl: 3rem;
-            }
-            
-            .container {
-                padding: 0 var(--space-md);
-            }
-            
-            .layer {
-                padding: var(--space-lg);
-            }
-
-            .loop-tab-label { font-size: 0.75rem; }
-        }
-        
         /* ===== PERFORMANCE LOOP — HORIZONTAL STEPPER ===== */
         .loop-section { background: var(--bg-surface-1); }
-
-        .loop-stepper {
-            max-width: 900px;
-            margin: var(--space-3xl) auto 0;
-        }
-
+        .loop-stepper { max-width: 900px; margin: var(--space-3xl) auto 0; }
         .loop-tabs {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: var(--space-sm);
-            margin-bottom: var(--space-lg);
+            display: grid; grid-template-columns: repeat(4,1fr);
+            gap: var(--space-sm); margin-bottom: var(--space-lg);
             position: relative;
         }
-
         .loop-tabs::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0; right: 0;
-            height: 1px;
-            background: rgba(29,155,240,0.15);
-            z-index: 0;
+            content: ''; position: absolute;
+            top: 50%; left: 0; right: 0; height: 1px;
+            background: rgba(29,155,240,0.15); z-index: 0;
         }
-
         .loop-tab {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 12px;
-            border-radius: var(--radius-lg);
+            position: relative; z-index: 1;
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            padding: 16px 12px; border-radius: var(--radius-lg);
             border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(13,20,38,0.60);
-            cursor: pointer;
+            background: rgba(13,20,38,0.60); cursor: pointer;
             transition: all var(--transition-normal);
-            min-height: 80px;
-            text-align: center;
+            min-height: 80px; text-align: center;
         }
-
-        .loop-tab:hover {
-            border-color: rgba(29,155,240,0.30);
-            background: rgba(29,155,240,0.06);
-        }
-
-        .loop-tab.active {
-            border-color: var(--electric-blue);
-            background: rgba(29,155,240,0.10);
-            box-shadow: var(--glow-blue-sm);
-        }
-
+        .loop-tab:hover { border-color: rgba(29,155,240,0.30); background: rgba(29,155,240,0.06); }
+        .loop-tab.active { border-color: var(--electric-blue); background: rgba(29,155,240,0.10); box-shadow: var(--glow-blue-sm); }
         .loop-tab-number {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            background: rgba(29,155,240,0.12);
-            border: 1px solid rgba(29,155,240,0.25);
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem; font-weight: 600;
-            color: var(--text-secondary);
+            font-size: 0.875rem; font-weight: 600; color: var(--text-secondary);
             display: flex; align-items: center; justify-content: center;
-            transition: all var(--transition-normal);
-            flex-shrink: 0;
+            transition: all var(--transition-normal); flex-shrink: 0;
         }
-
-        .loop-tab.active .loop-tab-number {
-            background: var(--electric-blue);
-            border-color: var(--electric-blue);
-            color: #ffffff;
-            box-shadow: var(--glow-blue-sm);
-        }
-
+        .loop-tab.active .loop-tab-number { background: var(--electric-blue); border-color: var(--electric-blue); color: #fff; box-shadow: var(--glow-blue-sm); }
         .loop-tab-label {
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.8125rem; font-weight: 600;
-            color: var(--text-secondary);
-            transition: color var(--transition-normal);
-            line-height: 1.3;
+            color: var(--text-secondary); transition: color var(--transition-normal); line-height: 1.3;
         }
-
         .loop-tab.active .loop-tab-label { color: var(--text-primary); }
-
         .loop-tab:last-child::after {
-            content: '↺ Monthly';
-            position: absolute;
-            bottom: -22px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.625rem;
-            color: var(--electric-blue);
-            opacity: 0.7;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
+            content: '↺ Monthly'; position: absolute; bottom: -22px; left: 50%;
+            transform: translateX(-50%); font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem; color: var(--electric-blue); opacity: 0.7;
+            letter-spacing: 0.05em; white-space: nowrap;
         }
-
         .loop-detail-panel {
-            background: var(--bg-surface-2);
-            border: 1px solid rgba(29,155,240,0.15);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            margin-top: var(--space-2xl);
-            min-height: 220px;
+            background: var(--bg-surface-2); border: 1px solid rgba(29,155,240,0.15);
+            border-radius: var(--radius-xl); padding: var(--space-2xl);
+            margin-top: var(--space-2xl); min-height: 220px;
         }
-
-        .loop-detail {
-            display: none;
-            gap: var(--space-xl);
-            align-items: flex-start;
-            animation: detail-fadein 0.4s cubic-bezier(0.22,1,0.36,1);
-        }
-
+        .loop-detail { display: none; gap: var(--space-xl); align-items: flex-start; animation: detail-fadein 0.4s cubic-bezier(0.22,1,0.36,1); }
         .loop-detail.active { display: flex; }
-
-        @keyframes detail-fadein {
-            from { opacity: 0; transform: translateY(12px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
+        @keyframes detail-fadein { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
         .loop-detail-icon {
-            width: 72px; height: 72px;
-            border-radius: var(--radius-lg);
-            background: rgba(29,155,240,0.10);
-            border: 1px solid rgba(29,155,240,0.25);
+            width: 72px; height: 72px; border-radius: var(--radius-lg);
+            background: rgba(29,155,240,0.10); border: 1px solid rgba(29,155,240,0.25);
             display: flex; align-items: center; justify-content: center;
-            font-size: 2rem;
-            color: var(--electric-blue);
-            flex-shrink: 0;
-            box-shadow: var(--glow-blue-sm);
+            font-size: 2rem; color: var(--electric-blue); flex-shrink: 0; box-shadow: var(--glow-blue-sm);
         }
-
         .loop-detail-body { flex: 1; }
-
-        .loop-detail-body h3 {
-            color: var(--text-primary);
-            font-size: 1.375rem;
-            margin-bottom: var(--space-sm);
-        }
-
-        .loop-detail-body .lead {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-md);
-        }
-
+        .loop-detail-body h3 { color: var(--text-primary); font-size: 1.375rem; margin-bottom: var(--space-sm); }
+        .loop-detail-body .lead { color: var(--text-secondary); margin-bottom: var(--space-md); }
         .your-role-box {
-            background: rgba(245,158,11,0.06);
-            border-left: 3px solid var(--amber-warm);
+            background: rgba(245,158,11,0.06); border-left: 3px solid var(--amber-warm);
             border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--space-md) var(--space-lg);
-            margin-top: var(--space-md);
+            padding: var(--space-md) var(--space-lg); margin-top: var(--space-md);
         }
-
         .your-role-box .role-label {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.6875rem; font-weight: 600;
-            color: var(--amber-warm);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 6px;
+            font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600;
+            color: var(--amber-warm); letter-spacing: 0.1em; text-transform: uppercase;
+            display: block; margin-bottom: 6px;
         }
-
-        .your-role-box p {
-            color: var(--text-secondary);
-            margin-bottom: 0;
-            font-size: 0.9375rem;
-        }
-
+        .your-role-box p { color: var(--text-secondary); margin-bottom: 0; font-size: 0.9375rem; }
         .pivot-guarantee {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(0,212,170,0.08);
-            border: 1px solid rgba(0,212,170,0.30);
-            padding: 8px 16px;
-            border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: var(--aurora-green);
-            margin-top: var(--space-sm);
-            letter-spacing: 0.05em;
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.30);
+            padding: 8px 16px; border-radius: var(--radius-full);
+            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
+            color: var(--aurora-green); margin-top: var(--space-sm); letter-spacing: 0.05em;
         }
 
-        /* Mobile accordion */
-        @media (max-width: 767px) {
-            .loop-tabs { display: none; }
-            .loop-detail-panel { display: none; }
-
-            .loop-accordion {
-                display: flex;
-                flex-direction: column;
-                gap: var(--space-sm);
-                margin-top: var(--space-xl);
-            }
-
-            .accordion-item {
-                border: 1px solid rgba(255,255,255,0.08);
-                border-radius: var(--radius-lg);
-                background: rgba(13,20,38,0.80);
-                overflow: hidden;
-                transition: border-color var(--transition-normal);
-            }
-
-            .accordion-item.open { border-color: rgba(29,155,240,0.35); }
-
-            .accordion-header {
-                display: flex;
-                align-items: center;
-                gap: var(--space-md);
-                padding: 18px var(--space-lg);
-                cursor: pointer;
-                min-height: 64px;
-                user-select: none;
-            }
-
-            .accordion-number {
-                width: 36px; height: 36px;
-                border-radius: 50%;
-                background: rgba(29,155,240,0.12);
-                border: 1px solid rgba(29,155,240,0.25);
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 0.875rem; font-weight: 600;
-                color: var(--text-secondary);
-                display: flex; align-items: center; justify-content: center;
-                flex-shrink: 0;
-                transition: all var(--transition-normal);
-            }
-
-            .accordion-item.open .accordion-number {
-                background: var(--electric-blue);
-                border-color: var(--electric-blue);
-                color: #ffffff;
-                box-shadow: var(--glow-blue-sm);
-            }
-
-            .accordion-title {
-                font-family: 'Plus Jakarta Sans', sans-serif;
-                font-size: 0.9375rem; font-weight: 600;
-                color: var(--text-secondary);
-                flex: 1;
-            }
-
-            .accordion-item.open .accordion-title { color: var(--text-primary); }
-
-            .accordion-chevron {
-                color: var(--text-secondary);
-                transition: transform var(--transition-normal);
-                font-size: 0.875rem;
-            }
-
-            .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
-
-            .accordion-body {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1);
-            }
-
-            .accordion-item.open .accordion-body { max-height: 600px; }
-
-            .accordion-content {
-                padding: 0 var(--space-lg) var(--space-lg);
-                border-top: 1px solid rgba(255,255,255,0.06);
-                padding-top: var(--space-md);
-            }
-
-            .accordion-content p { color: var(--text-secondary); }
-            .accordion-content .lead { font-size: 1rem; }
-        }
-
-        @media (min-width: 768px) {
-            .loop-accordion { display: none; }
-        }
-
-        /* ===== UTILITY CLASSES ===== */
-        .text-center { text-align: center; }
+        /* ===== UTILITY ===== */
+        .text-center  { text-align: center; }
         .text-primary { color: var(--electric-blue); }
-        .text-secondary { color: var(--text-secondary); }
+        .text-secondary-util { color: var(--text-secondary); }
         .mb-sm { margin-bottom: var(--space-sm); }
         .mb-md { margin-bottom: var(--space-md); }
         .mb-lg { margin-bottom: var(--space-lg); }
@@ -1312,71 +749,226 @@
         .mt-lg { margin-top: var(--space-lg); }
         .mt-xl { margin-top: var(--space-xl); }
         .hidden { display: none; }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+
+        /* --- 992px --- */
+        @media (max-width: 992px) {
+            h1 { font-size: clamp(2rem, 8vw, 3rem); }
+            h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
+
+            /* FIX M1: safe padding above fixed header */
+            .hero { padding-top: 8rem; padding-bottom: var(--space-2xl); }
+
+            .mobile-menu-toggle { display: inline-flex; }
+
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px;
+                height: 100vh; background: rgba(8,13,26,0.98);
+                backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+                border-left: 1px solid rgba(255,255,255,0.06);
+                flex-direction: column; justify-content: center;
+                gap: var(--space-xl); padding: var(--space-2xl);
+                transition: right var(--transition-normal); z-index: 1000;
+                box-shadow: var(--shadow-xl);
+            }
+            /* FIX M9: hide nav links from keyboard when closed */
+            .nav-links[aria-hidden="true"]  { visibility: hidden; }
+            .nav-links[aria-hidden="false"] { visibility: visible; }
+            .nav-links.active { right: 0; }
+
+            .timeline::before    { left: 30px; }
+            .timeline-item       { flex-direction: row !important; }
+            .timeline-content    { margin-left: 70px !important; margin-right: 0 !important; }
+            .timeline-marker     { left: 30px; }
+            .loop-stepper        { margin-top: var(--space-2xl); }
+        }
+
+        /* --- 768px --- */
+        @media (max-width: 768px) {
+            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+            h2 { font-size: clamp(1.375rem, 5vw, 1.875rem); }
+
+            .section    { padding: var(--space-2xl) 0; }
+            .section-lg { padding: var(--space-2xl) 0; }
+
+            /* FIX M2: CTA button wrapping on mobile */
+            .btn {
+                white-space: normal;
+                width: 100%; max-width: 420px;
+                min-height: 52px;
+                padding: 14px 20px;
+                line-height: 1.4;
+            }
+            .btn-lg { font-size: var(--text-base); padding: 16px 22px; }
+            /* Keep nav CTA compact */
+            .nav-links .btn { width: auto; max-width: none; white-space: nowrap; min-height: 44px; }
+
+            /* FIX M3: bridge grid single column */
+            .bridge-grid { grid-template-columns: 1fr; }
+
+            /* FIX M4: layer padding on mid-size mobile */
+            .layer {
+                padding: var(--space-md) var(--space-lg);
+                flex-direction: column; text-align: center; gap: var(--space-md);
+            }
+
+            /* FIX M5: all layers full width on mobile */
+            .layer-1, .layer-2, .layer-3, .layer-4, .layer-5 { width: 100% !important; }
+
+            /* Remove PEAK badge on mobile (too small) */
+            .layer-5::after { display: none; }
+
+            .layer-number { width: 50px; height: 50px; font-size: var(--text-xl); }
+
+            /* FIX M7: timeline margin adjustment */
+            .timeline-content { padding: var(--space-md); }
+        }
+
+        /* --- 480px --- */
+        @media (max-width: 480px) {
+            :root {
+                --space-lg: 1.5rem;
+                --space-xl: 2rem;
+                --space-2xl: 3rem;
+            }
+
+            /* FIX M1: maintain explicit hero padding at 480px */
+            .hero { padding-top: 7rem; }
+
+            .container, .container-narrow { padding: 0 1rem; }
+
+            .lead { font-size: var(--text-base); }
+
+            /* FIX M7: tighter timeline on very small screens */
+            .timeline-content    { margin-left: 52px !important; padding: var(--space-sm) var(--space-md); }
+            .timeline::before    { left: 18px; }
+            .timeline-marker     { left: 18px; width: 32px; height: 32px; font-size: var(--text-sm); }
+
+            .loop-tab-label { font-size: 0.75rem; }
+        }
+
+        /* Mobile accordion for performance loop */
+        @media (max-width: 767px) {
+            .loop-tabs         { display: none; }
+            .loop-detail-panel { display: none; }
+            .loop-accordion {
+                display: flex; flex-direction: column;
+                gap: var(--space-sm); margin-top: var(--space-xl);
+            }
+            .accordion-item {
+                border: 1px solid rgba(255,255,255,0.08);
+                border-radius: var(--radius-lg);
+                background: rgba(13,20,38,0.80); overflow: hidden;
+                transition: border-color var(--transition-normal);
+            }
+            .accordion-item.open { border-color: rgba(29,155,240,0.35); }
+            .accordion-header {
+                display: flex; align-items: center; gap: var(--space-md);
+                padding: 18px var(--space-lg); cursor: pointer;
+                min-height: 64px; user-select: none;
+            }
+            .accordion-number {
+                width: 36px; height: 36px; border-radius: 50%;
+                background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25);
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.875rem; font-weight: 600; color: var(--text-secondary);
+                display: flex; align-items: center; justify-content: center;
+                flex-shrink: 0; transition: all var(--transition-normal);
+            }
+            .accordion-item.open .accordion-number { background: var(--electric-blue); border-color: var(--electric-blue); color: #fff; box-shadow: var(--glow-blue-sm); }
+            .accordion-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--text-secondary); flex: 1; }
+            .accordion-item.open .accordion-title { color: var(--text-primary); }
+            .accordion-chevron { color: var(--text-secondary); transition: transform var(--transition-normal); font-size: 0.875rem; }
+            .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
+            .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
+            .accordion-item.open .accordion-body { max-height: 600px; }
+            .accordion-content {
+                padding: 0 var(--space-lg) var(--space-lg);
+                border-top: 1px solid rgba(255,255,255,0.06);
+                padding-top: var(--space-md);
+            }
+            .accordion-content p { color: var(--text-secondary); }
+            .accordion-content .lead { font-size: 1rem; }
+        }
+        @media (min-width: 768px) {
+            .loop-accordion { display: none; }
+        }
     </style>
 </head>
 <body>
     <!-- Header -->
     <header id="header">
         <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">X5</div>
-                    <span>X5 Digital</span>
+            <!-- FIX M9: aria-expanded + aria-controls -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="logo" aria-label="X5 Digital — Home">
+                    <div class="logo-icon" aria-hidden="true">X<sup>5</sup></div>
+                    <span>X<sup>5</sup> Digital</span>
                 </a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span class="hamburger"></span>
+                <button class="mobile-menu-toggle"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                        aria-controls="nav-links">
+                    <span class="hamburger" aria-hidden="true"></span>
                 </button>
                 
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="how-it-works.html" class="nav-link active">How It Works</a>
-                    <a href="packages.html" class="nav-link">Packages</a>
-                    <a href="proofs.html" class="nav-link">Proof</a>
-                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
+                <div class="nav-links" id="nav-links" role="menu" aria-hidden="true">
+                    <a href="index.html" class="nav-link" role="menuitem">Home</a>
+                    <a href="how-it-works.html" class="nav-link active" role="menuitem">How It Works</a>
+                    <a href="packages.html" class="nav-link" role="menuitem">Packages</a>
+                    <a href="proofs.html" class="nav-link" role="menuitem">Proof</a>
+                    <a href="book-audit.html" class="btn btn-primary" role="menuitem">Book Free Audit →</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero section">
-        <div class="hero-bg">
+    <section class="hero section" aria-labelledby="hero-heading">
+        <div class="hero-bg" aria-hidden="true">
             <div class="aurora-orb aurora-orb-1"></div>
             <div class="aurora-orb aurora-orb-2"></div>
         </div>
         
         <div class="container">
             <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <h1>The Exact System That Turns<br><span class="text-gradient">Strategy Into Compounding Revenue</span></h1>
+                <h1 id="hero-heading">The Exact System That Turns<br><span class="text-gradient">Strategy Into Compounding Revenue</span></h1>
                 
                 <p class="lead">
-                    You can't build a 40-story tower on sand — and you can't scale revenue on dirty data. X5 lays the foundation first, then builds every layer on top: from clean tracking to predictive AI, all running inside your accounts, every single month.
+                    You can't build a 40-story tower on sand — and you can't scale revenue on dirty data. X<sup>5</sup> lays the foundation first, then builds every layer on top: from clean tracking to predictive AI, all running inside your accounts, every single month.
                 </p>
                 
                 <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
                     <a href="#audit" class="btn btn-primary btn-lg">
                         See If This System Fits Your Business
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5-Layer System -->
-    <section class="layers-section section" id="layers">
+    <!-- 5-Layer System — CORE VALUE -->
+    <section class="layers-section section" id="layers" aria-labelledby="layers-heading">
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>The X5 Revenue System: <span class="text-primary">5 Layers of Engineered Growth</span></h2>
+                <!-- IMPROVEMENT: eyebrow badge -->
+                <div class="section-eyebrow">
+                    <span class="eyebrow-dot" aria-hidden="true"></span>
+                    Core Value System
+                </div>
+                <h2 id="layers-heading">The X<sup>5</sup> Revenue System:<br><span class="text-gradient">5 Layers of Engineered Growth</span></h2>
                 <p class="lead">Each layer builds on the one below it. Skip Layer 1, and every dollar you spend above it is built on guesswork.</p>
             </div>
             
             <div class="layers-visual" data-aos="fade-up">
                 <div class="layers-container">
-                    <!-- Layer 5 -->
+
+                    <!-- Layer 5 — PEAK (shown first = top of pyramid visually) -->
                     <div class="layer layer-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="layer-number">5</div>
+                        <div class="layer-number" aria-hidden="true">5</div>
                         <div class="layer-content">
                             <h3>Revenue Intelligence</h3>
                             <p>Predictive LTV modeling, churn forecasting, ROI mapping, customer segmentation</p>
@@ -1390,9 +982,9 @@
                     
                     <!-- Layer 4 -->
                     <div class="layer layer-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="layer-number">4</div>
+                        <div class="layer-number" aria-hidden="true">4</div>
                         <div class="layer-content">
-                            <h3>AI Automation & Agent</h3>
+                            <h3>AI Automation &amp; Agent</h3>
                             <p>24/7 AI content generation, chat agents, n8n workflows, automated reporting</p>
                             <div class="layer-tools">
                                 <span class="tool-tag">n8n Workflows</span>
@@ -1404,7 +996,7 @@
                     
                     <!-- Layer 3 -->
                     <div class="layer layer-3" data-aos="fade-up" data-aos-delay="300">
-                        <div class="layer-number">3</div>
+                        <div class="layer-number" aria-hidden="true">3</div>
                         <div class="layer-content">
                             <h3>Revenue Operations</h3>
                             <p>Data sync, attribution modeling, Sales-Marketing alignment, pipeline management</p>
@@ -1418,7 +1010,7 @@
                     
                     <!-- Layer 2 -->
                     <div class="layer layer-2" data-aos="fade-up" data-aos-delay="400">
-                        <div class="layer-number">2</div>
+                        <div class="layer-number" aria-hidden="true">2</div>
                         <div class="layer-content">
                             <h3>MarTech Execution</h3>
                             <p>Paid ads, SEO, social media, email marketing — executed daily with optimization</p>
@@ -1430,12 +1022,12 @@
                         </div>
                     </div>
                     
-                    <!-- Layer 1 -->
+                    <!-- Layer 1 — Foundation -->
                     <div class="layer layer-1" data-aos="fade-up" data-aos-delay="500">
-                        <div class="layer-number">1</div>
+                        <div class="layer-number" aria-hidden="true">1</div>
                         <div class="layer-content">
-                            <h3>Foundation & Data</h3>
-                            <p>Clean tracking setup, Customer Data Platform, compliance, data integrity & hygiene</p>
+                            <h3>Foundation &amp; Data</h3>
+                            <p>Clean tracking setup, Customer Data Platform, compliance, data integrity &amp; hygiene</p>
                             <div class="layer-tools">
                                 <span class="tool-tag">Google Analytics</span>
                                 <span class="tool-tag">Tracking</span>
@@ -1443,12 +1035,13 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
             
-            <div class="text-center mt-xl">
+            <div class="text-center mt-xl" data-aos="fade-up">
                 <a href="#loop" class="btn btn-secondary">
-                    <i class="fas fa-arrow-down"></i>
+                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
                     See How These Layers Work Together
                 </a>
             </div>
@@ -1456,10 +1049,10 @@
     </section>
 
     <!-- Performance Loop -->
-    <section class="loop-section section" id="loop">
+    <section class="loop-section section" id="loop" aria-labelledby="loop-heading">
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>The Client-Controlled Performance Loop<br>
+                <h2 id="loop-heading">The Client-Controlled Performance Loop<br>
                     <span style="font-size: var(--text-xl); color: var(--electric-blue); font-weight: 600;">
                         (Runs Every Month — Guaranteed)
                     </span>
@@ -1470,42 +1063,40 @@
             <div class="loop-stepper" data-aos="fade-up">
 
                 <!-- DESKTOP: Horizontal Tabs -->
-                <div class="loop-tabs">
-                    <div class="loop-tab active" data-step="1">
+                <div class="loop-tabs" role="tablist" aria-label="Performance loop steps">
+                    <div class="loop-tab active" data-step="1" role="tab" aria-selected="true" aria-controls="detail-1">
                         <div class="loop-tab-number">1</div>
                         <div class="loop-tab-label">Insight &amp;<br>Strategy</div>
                     </div>
-                    <div class="loop-tab" data-step="2">
+                    <div class="loop-tab" data-step="2" role="tab" aria-selected="false" aria-controls="detail-2">
                         <div class="loop-tab-number">2</div>
                         <div class="loop-tab-label">Automation<br>Blueprint</div>
                     </div>
-                    <div class="loop-tab" data-step="3">
+                    <div class="loop-tab" data-step="3" role="tab" aria-selected="false" aria-controls="detail-3">
                         <div class="loop-tab-number">3</div>
                         <div class="loop-tab-label">Daily<br>Execution</div>
                     </div>
-                    <div class="loop-tab" data-step="4">
+                    <div class="loop-tab" data-step="4" role="tab" aria-selected="false" aria-controls="detail-4">
                         <div class="loop-tab-number">4</div>
                         <div class="loop-tab-label">Review &amp;<br>Pivot</div>
                     </div>
                 </div>
 
                 <!-- Desktop Detail Panel -->
-                <div class="loop-detail-panel">
-
+                <div class="loop-detail-panel" role="tabpanel">
                     <div class="loop-detail active" id="detail-1">
-                        <div class="loop-detail-icon"><i class="fas fa-brain"></i></div>
+                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-brain"></i></div>
                         <div class="loop-detail-body">
                             <h3>1. Insight &amp; Strategic Vetting</h3>
-                            <p class="lead">X5 AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
+                            <p class="lead">X<sup>5</sup> AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
                             <div class="your-role-box">
                                 <span class="role-label">Your Role</span>
                                 <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="loop-detail" id="detail-2">
-                        <div class="loop-detail-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
                         <div class="loop-detail-body">
                             <h3>2. Automation Blueprint</h3>
                             <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
@@ -1515,9 +1106,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="loop-detail" id="detail-3">
-                        <div class="loop-detail-icon"><i class="fas fa-rocket"></i></div>
+                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
                         <div class="loop-detail-body">
                             <h3>3. Execution &amp; Direct Management</h3>
                             <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
@@ -1527,9 +1117,8 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="loop-detail" id="detail-4">
-                        <div class="loop-detail-icon"><i class="fas fa-sync-alt"></i></div>
+                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-rotate"></i></div>
                         <div class="loop-detail-body">
                             <h3>4. Revenue Review &amp; Guaranteed Pivot</h3>
                             <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
@@ -1538,26 +1127,25 @@
                                 <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
                             </div>
                             <span class="pivot-guarantee">
-                                <i class="fas fa-shield-alt"></i>
+                                <!-- FIX M11: fa-shield-alt → fa-shield-halved -->
+                                <i class="fas fa-shield-halved" aria-hidden="true"></i>
                                 PIVOT GUARANTEE — Zero rebuild fees, always
                             </span>
                         </div>
                     </div>
-
-                </div><!-- /loop-detail-panel -->
+                </div>
 
                 <!-- MOBILE: Vertical Accordion -->
-                <div class="loop-accordion">
-
+                <div class="loop-accordion" aria-label="Performance loop steps">
                     <div class="accordion-item open">
-                        <div class="accordion-header">
-                            <div class="accordion-number">1</div>
+                        <div class="accordion-header" role="button" aria-expanded="true">
+                            <div class="accordion-number" aria-hidden="true">1</div>
                             <div class="accordion-title">Insight &amp; Strategic Vetting</div>
-                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
                         </div>
                         <div class="accordion-body">
                             <div class="accordion-content">
-                                <p class="lead">X5 AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
+                                <p class="lead">X<sup>5</sup> AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
                                 <div class="your-role-box">
                                     <span class="role-label">Your Role</span>
                                     <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
@@ -1565,12 +1153,11 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="accordion-item">
-                        <div class="accordion-header">
-                            <div class="accordion-number">2</div>
+                        <div class="accordion-header" role="button" aria-expanded="false">
+                            <div class="accordion-number" aria-hidden="true">2</div>
                             <div class="accordion-title">Automation Blueprint</div>
-                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
                         </div>
                         <div class="accordion-body">
                             <div class="accordion-content">
@@ -1582,12 +1169,11 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="accordion-item">
-                        <div class="accordion-header">
-                            <div class="accordion-number">3</div>
+                        <div class="accordion-header" role="button" aria-expanded="false">
+                            <div class="accordion-number" aria-hidden="true">3</div>
                             <div class="accordion-title">Execution &amp; Direct Management</div>
-                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
                         </div>
                         <div class="accordion-body">
                             <div class="accordion-content">
@@ -1599,12 +1185,11 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="accordion-item">
-                        <div class="accordion-header">
-                            <div class="accordion-number">4</div>
+                        <div class="accordion-header" role="button" aria-expanded="false">
+                            <div class="accordion-number" aria-hidden="true">4</div>
                             <div class="accordion-title">Revenue Review &amp; Guaranteed Pivot</div>
-                            <i class="fas fa-chevron-down accordion-chevron"></i>
+                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
                         </div>
                         <div class="accordion-body">
                             <div class="accordion-content">
@@ -1614,24 +1199,23 @@
                                     <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
                                 </div>
                                 <span class="pivot-guarantee">
-                                    <i class="fas fa-shield-alt"></i>
+                                    <i class="fas fa-shield-halved" aria-hidden="true"></i>
                                     PIVOT GUARANTEE — Zero rebuild fees, always
                                 </span>
                             </div>
                         </div>
                     </div>
+                </div>
 
-                </div><!-- /loop-accordion -->
-
-            </div><!-- /loop-stepper -->
+            </div>
         </div>
     </section>
 
     <!-- Bridge Section -->
-    <section class="bridge-section section">
+    <section class="bridge-section section" aria-labelledby="bridge-heading">
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Where <span class="text-primary">Technology</span> Meets <span style="color: var(--neon-indigo)">Brand Expertise</span></h2>
+                <h2 id="bridge-heading">Where <span class="text-primary">Technology</span> Meets <span style="color: var(--neon-indigo)">Brand Expertise</span></h2>
                 <p class="lead">You don't have to choose between cheap execution and expensive strategy. You get both — perfectly balanced.</p>
             </div>
             
@@ -1644,40 +1228,30 @@
                     <div class="bridge-body">
                         <p><strong>Guarantees speed, data accuracy, and cost-efficiency</strong></p>
                         <p>This is the machinery that makes everything run smoothly, accurately, and at scale.</p>
-                        
                         <ul class="role-list tech">
                             <li>
-                                <div class="role-icon">
-                                    <i class="fas fa-robot"></i>
-                                </div>
+                                <div class="role-icon" aria-hidden="true"><i class="fas fa-robot"></i></div>
                                 <div>
-                                    <strong>Senior AI & Automation Engineer</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Builds & maintains n8n workflows</div>
+                                    <strong>Senior AI &amp; Automation Engineer</strong>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Builds &amp; maintains n8n workflows</div>
                                 </div>
                             </li>
                             <li>
-                                <div class="role-icon">
-                                    <i class="fas fa-database"></i>
-                                </div>
+                                <div class="role-icon" aria-hidden="true"><i class="fas fa-database"></i></div>
                                 <div>
                                     <strong>RevOps Analyst</strong>
                                     <div style="font-size: var(--text-sm); color: var(--text-secondary);">Data sync, attribution, reporting</div>
                                 </div>
                             </li>
                             <li>
-                                <div class="role-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
+                                <div class="role-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
                                 <div>
                                     <strong>Data Scientist</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Predictive models & LTV forecasting</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Predictive models &amp; LTV forecasting</div>
                                 </div>
                             </li>
                         </ul>
-                        
-                        <div class="outcome-box">
-                            Reduces human overhead by up to 80%
-                        </div>
+                        <div class="outcome-box">Reduces human overhead by up to 80%</div>
                     </div>
                 </div>
                 
@@ -1688,41 +1262,31 @@
                     </div>
                     <div class="bridge-body">
                         <p><strong>Guarantees brand alignment, creative velocity, and market strategy</strong></p>
-                        <p>This is the creative and strategic thinking that ensures every pixel and word supports your brand voice & revenue goals.</p>
-                        
+                        <p>This is the creative and strategic thinking that ensures every pixel and word supports your brand voice &amp; revenue goals.</p>
                         <ul class="role-list brand">
                             <li>
-                                <div class="role-icon">
-                                    <i class="fas fa-chess-queen"></i>
-                                </div>
+                                <div class="role-icon" aria-hidden="true"><i class="fas fa-chess-queen"></i></div>
                                 <div>
                                     <strong>Account Strategist</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Your main POC & strategy lead</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Your main POC &amp; strategy lead</div>
                                 </div>
                             </li>
                             <li>
-                                <div class="role-icon">
-                                    <i class="fas fa-pen-nib"></i>
-                                </div>
+                                <div class="role-icon" aria-hidden="true"><i class="fas fa-pen-nib"></i></div>
                                 <div>
                                     <strong>Brand Storyteller</strong>
                                     <div style="font-size: var(--text-sm); color: var(--text-secondary);">Messaging, content, voice</div>
                                 </div>
                             </li>
                             <li>
-                                <div class="role-icon">
-                                    <i class="fas fa-palette"></i>
-                                </div>
+                                <div class="role-icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
                                 <div>
                                     <strong>Creative Director</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Visual identity & campaign creative</div>
+                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Visual identity &amp; campaign creative</div>
                                 </div>
                             </li>
                         </ul>
-                        
-                        <div class="outcome-box brand">
-                            Every pixel & word supports your brand voice & revenue goals
-                        </div>
+                        <div class="outcome-box brand">Every pixel &amp; word supports your brand voice &amp; revenue goals</div>
                     </div>
                 </div>
             </div>
@@ -1737,37 +1301,30 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="timeline-section section">
+    <section class="timeline-section section" id="timeline" aria-labelledby="timeline-heading">
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Your First 90 Days: <span class="text-primary">From Setup to Scale</span></h2>
+                <h2 id="timeline-heading">Your First 90 Days: <span class="text-primary">From Setup to Scale</span></h2>
                 <p class="lead">Here's exactly what happens from day 1 to day 90</p>
             </div>
             
             <div class="timeline" data-aos="fade-up">
-                <!-- Week 1-2 -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-rocket"></i>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-rocket"></i></div>
                     <div class="timeline-content">
-                        <h4><i class="fas fa-calendar-week text-primary"></i> Week 1-2: Foundation & Integration</h4>
+                        <h4><i class="fas fa-calendar-week text-primary" aria-hidden="true"></i> Week 1-2: Foundation &amp; Integration</h4>
                         <ul style="margin-top: var(--space-sm);">
-                            <li>Complete data audit & tracking setup</li>
-                            <li>Slack/Asana integration & team onboarding</li>
+                            <li>Complete data audit &amp; tracking setup</li>
+                            <li>Slack/Asana integration &amp; team onboarding</li>
                             <li>Initial strategy session with AI analysis</li>
                             <li>First n8n automation workflows deployed</li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Week 3-4 -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-play"></i>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-play"></i></div>
                     <div class="timeline-content">
-                        <h4><i class="fas fa-running text-primary"></i> Week 3-4: Execution Launch</h4>
+                        <h4><i class="fas fa-person-running text-primary" aria-hidden="true"></i> Week 3-4: Execution Launch</h4>
                         <ul style="margin-top: var(--space-sm);">
                             <li>First campaigns live (ads, content, email)</li>
                             <li>Daily performance monitoring begins</li>
@@ -1776,30 +1333,22 @@
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Month 2 -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
                     <div class="timeline-content">
-                        <h4><i class="fas fa-chart-bar text-primary"></i> Month 2: Optimization & Scale</h4>
+                        <h4><i class="fas fa-chart-bar text-primary" aria-hidden="true"></i> Month 2: Optimization &amp; Scale</h4>
                         <ul style="margin-top: var(--space-sm);">
                             <li>Comprehensive performance review</li>
-                            <li>Scale winning channels & strategies</li>
+                            <li>Scale winning channels &amp; strategies</li>
                             <li>Advanced automation workflows added</li>
                             <li>Predictive LTV modeling begins</li>
                         </ul>
                     </div>
                 </div>
-                
-                <!-- Month 3 -->
                 <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <i class="fas fa-crown"></i>
-                    </div>
+                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-crown"></i></div>
                     <div class="timeline-content">
-                        <h4><i class="fas fa-trophy text-primary"></i> Month 3: System Mastery</h4>
+                        <h4><i class="fas fa-trophy text-primary" aria-hidden="true"></i> Month 3: System Mastery</h4>
                         <ul style="margin-top: var(--space-sm);">
                             <li>Full system optimization complete</li>
                             <li>Quarterly strategy planning session</li>
@@ -1813,11 +1362,11 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="cta-final section-lg" id="audit">
-        <div class="cta-bg"></div>
+    <section class="cta-final section-lg" id="audit" aria-labelledby="cta-heading">
+        <div class="cta-bg" aria-hidden="true"></div>
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Most Marketing Burns Fuel. This One Builds Orbit.</h2>
+                <h2 id="cta-heading">Most Marketing Burns Fuel. This One Builds Orbit.</h2>
                 
                 <p class="lead" style="color: rgba(255,255,255,0.9);">
                     Once the system reaches velocity, it sustains itself — self-optimizing, compounding, generating predictable monthly revenue. That's not a campaign. That's infrastructure.<br><br>
@@ -1830,22 +1379,22 @@
                 
                 <a href="book-audit.html" class="btn btn-primary btn-lg">
                     Book My Free Audit &amp; Custom Roadmap
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
                 
                 <div class="mt-lg" style="color: rgba(255,255,255,0.8);">
-                    <small><i class="fas fa-lock"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day plan</small>
+                    <small><i class="fas fa-lock" aria-hidden="true"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day plan</small>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer — matches index.html -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">X5 Digital</div>
+                    <div class="footer-logo">X<sup>5</sup> Digital</div>
                     <p style="color: var(--text-secondary); margin-bottom: 0;">
                         We build the revenue machine inside your business — and hand you the keys.<br>
                         Vietnam-based · Built for U.S. SMEs · 24/7 coverage
@@ -1854,29 +1403,29 @@
                 
                 <div>
                     <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
-                    <div class="footer-links">
+                    <nav class="footer-links" aria-label="Footer navigation">
                         <a href="index.html">Home</a>
                         <a href="how-it-works.html">How It Works</a>
                         <a href="packages.html">Packages</a>
                         <a href="proofs.html">Proof</a>
                         <a href="book-audit.html">Book Free Audit</a>
-                    </div>
+                    </nav>
                 </div>
                 
+                <!-- FIX FOOTER: Contact column matching index.html -->
                 <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">System Details</h4>
+                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Contact</h4>
                     <div class="footer-links">
-                        <a href="#layers">5-Layer System</a>
-                        <a href="#loop">Performance Loop</a>
-                        <a href="#timeline">90-Day Timeline</a>
-                        <a href="#">n8n Automation</a>
-                        <a href="#">AI Integration</a>
+                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter / X">Twitter</a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 X5 Digital. All rights reserved. • Pivot Guarantee included in all packages.</p>
+                <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. • 30-Day Risk-Free Trial for qualified clients.</p>
             </div>
         </div>
     </footer>
@@ -1884,50 +1433,78 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll)
+        // FIX M10: reduced offset, disable on very small screens
         AOS.init({
             duration: 800,
             once: true,
-            offset: 100
+            offset: 60,
+            disable: function() { return window.innerWidth < 480; }
         });
 
-        // Mobile Navigation Toggle
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+        // ===== MOBILE NAVIGATION =====
+        const menuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks   = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
             this.classList.toggle('active');
-            document.querySelector('.nav-links').classList.toggle('active');
-            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+            navLinks.classList.toggle('active');
+            // FIX M9: toggle aria attributes
+            this.setAttribute('aria-expanded', String(!isExpanded));
+            navLinks.setAttribute('aria-hidden', String(isExpanded));
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
         });
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                document.querySelector('.mobile-menu-toggle').classList.remove('active');
-                document.querySelector('.nav-links').classList.remove('active');
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
             });
         });
 
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+        // ===== HEADER SCROLL — FIX M8: hide/show on mobile =====
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        let ticking    = false;
 
-        // Loop step interaction — REMOVED (replaced by horizontal stepper below)
-        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const currentScrollY = window.scrollY;
+
+                    // scrolled background effect (all viewports)
+                    header.classList.toggle('scrolled', currentScrollY > 50);
+
+                    // FIX M8: hide/show only on mobile, only when menu is closed
+                    if (window.innerWidth <= 992 && !navLinks.classList.contains('active')) {
+                        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                            header.classList.add('header-hidden');
+                        } else {
+                            header.classList.remove('header-hidden');
+                        }
+                    }
+
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
         // ===== PERFORMANCE LOOP — HORIZONTAL STEPPER =====
-        const loopTabs = document.querySelectorAll('.loop-tab');
+        const loopTabs    = document.querySelectorAll('.loop-tab');
         const loopDetails = document.querySelectorAll('.loop-detail');
+        let autoCycle;
 
         function activateStep(stepNumber) {
-            loopTabs.forEach(t => t.classList.remove('active'));
-            const activeTab = document.querySelector(`.loop-tab[data-step="${stepNumber}"]`);
-            if (activeTab) activeTab.classList.add('active');
-
+            loopTabs.forEach(t => {
+                const active = t.getAttribute('data-step') === String(stepNumber);
+                t.classList.toggle('active', active);
+                t.setAttribute('aria-selected', String(active));
+            });
             loopDetails.forEach(d => d.classList.remove('active'));
             const activeDetail = document.getElementById(`detail-${stepNumber}`);
             if (activeDetail) activeDetail.classList.add('active');
@@ -1940,63 +1517,58 @@
             });
         });
 
-        // Auto-cycle every 8 seconds
         let currentStep = 1;
-        const autoCycle = setInterval(() => {
+        autoCycle = setInterval(() => {
             currentStep = currentStep === 4 ? 1 : currentStep + 1;
             activateStep(currentStep);
         }, 8000);
 
         // ===== MOBILE ACCORDION =====
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', function() {
-                const item = this.closest('.accordion-item');
+        document.querySelectorAll('.accordion-header').forEach(hdr => {
+            hdr.addEventListener('click', function() {
+                const item   = this.closest('.accordion-item');
                 const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
-                if (!isOpen) item.classList.add('open');
+                document.querySelectorAll('.accordion-item').forEach(i => {
+                    i.classList.remove('open');
+                    i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    item.classList.add('open');
+                    this.setAttribute('aria-expanded', 'true');
+                }
             });
         });
 
-        // Timeline item animation
+        // ===== TIMELINE ANIMATION =====
         const timelineItems = document.querySelectorAll('.timeline-item');
-        const observerOptions = {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        const tlObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
+                    entry.target.style.opacity   = '1';
                     entry.target.style.transform = 'translateY(0)';
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
         timelineItems.forEach(item => {
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
+            item.style.opacity    = '0';
+            item.style.transform  = 'translateY(20px)';
             item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(item);
+            tlObserver.observe(item);
         });
 
-        // Smooth scroll for anchor links
+        // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) {
+                    window.scrollTo({ top: targetEl.offsetTop - 80, behavior: 'smooth' });
                 }
             });
         });
-
     </script>
 </body>
 </html>
