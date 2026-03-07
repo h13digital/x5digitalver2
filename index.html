@@ -608,7 +608,7 @@
         }
         
         .trust-title {
-            text-align: center;
+            text-align: left;
             font-size: var(--text-sm);
             font-weight: 600;
             color: var(--text-secondary);
@@ -617,7 +617,7 @@
         
         .trust-logos {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             gap: var(--space-2xl);
             flex-wrap: wrap;
@@ -1106,7 +1106,8 @@
             h2 { font-size: var(--text-3xl); }
             
             .hero {
-                padding-top: calc(var(--space-2xl) * 2);
+                /* Safe padding-top = fixed header height (~76px) + generous breathing room */
+                padding-top: 8rem;
                 padding-bottom: var(--space-2xl);
             }
             
@@ -1259,6 +1260,11 @@
                 --space-lg: 1.5rem;
                 --space-xl: 2rem;
                 --space-2xl: 3rem;
+            }
+
+            /* Keep hero padding-top explicit so shrunken --space vars don't hide badge behind header */
+            .hero {
+                padding-top: 7rem;
             }
             
             .container,
@@ -1452,6 +1458,12 @@
                 <p class="comparison-subtitle lead">The real numbers behind the old way vs. the X<sup>5</sup> way</p>
             </div>
 
+            <!-- FIX #4: swipe hint — shown on mobile only via CSS, placed ABOVE table -->
+            <div class="swipe-hint" aria-hidden="true">
+                <i class="fas fa-arrow-right"></i>
+                <span>Swipe to see more</span>
+            </div>
+
             <div class="table-wrapper" data-aos="fade-up" data-aos-delay="200" role="region" aria-label="Comparison table — scroll horizontally to see all columns">
                 <table class="comparison-table">
                     <thead>
@@ -1505,12 +1517,6 @@
                 </table>
             </div>
 
-            <!-- FIX #4: swipe hint — shown on mobile only via CSS -->
-            <div class="swipe-hint" aria-hidden="true">
-                <i class="fas fa-arrow-right"></i>
-                <span>Swipe to see more</span>
-            </div>
-            
             <div class="text-center mt-xl">
                 <a href="#audit" class="btn btn-secondary">
                     <i class="fas fa-calculator" aria-hidden="true"></i>
@@ -1727,7 +1733,7 @@
                 <div>
                     <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Contact</h4>
                     <div class="footer-links">
-                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="/cdn-cgi/l/email-protection#4028252c2c2f0038752429272934212c6e232f2d"><span class="__cf_email__" data-cfemail="1b737e7777745b632e7f727c726f7a7735787476">[email&#160;protected]</span></a>
                         <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
                         <a href="#" aria-label="LinkedIn">LinkedIn</a>
                         <a href="#" aria-label="Twitter / X">Twitter</a>
@@ -1743,7 +1749,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // ===== FIX #8d: AOS offset reduced to 60 to avoid skipped animations on mobile =====
         AOS.init({
@@ -1931,10 +1937,4 @@
 
         document.querySelectorAll('.solution-card, .step-content, .stat-item, .trust-item').forEach(el => {
             el.style.opacity    = '0';
-            el.style.transform  = 'translateY(24px)';
-            el.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
-            revealObserver.observe(el);
-        });
-    </script>
-</body>
-</html>
+            el.
