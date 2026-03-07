@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X<sup>5</sup> Digital — Your AI-Powered Digital Team at 1/5<sup>th</sup> the Cost</title>
-    <meta name="description" content="Full-stack AI-enhanced digital team embedded in your business. Full control. 1/5<sup>th</sup> the cost of one US hire. 30-day risk-free trial.">
+    <!-- FIX #2 & #3: Title updated with superscript-friendly text -->
+    <title>X⁵ Digital — Your AI-Powered Digital Team at 1/6th the Cost</title>
+    <meta name="description" content="Full-stack AI-enhanced digital team embedded in your business. Full control. 1/6th the cost of one US hire. 30-day risk-free trial.">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -41,9 +42,9 @@
             --success:        #00D4AA;
 
             /* === TEXT COLORS (WCAG VERIFIED) === */
-            --text-primary:   #F1F5F9;   /* ratio 16.2:1 on bg-base ✅ */
-            --text-secondary: #94A3B8;   /* ratio 5.1:1 on bg-base ✅ */
-            --text-muted:     #475569;   /* CHỈ dùng cho footer copyright */
+            --text-primary:   #F1F5F9;
+            --text-secondary: #94A3B8;
+            --text-muted:     #475569;
             --text-inverse:   #080D1A;
 
             /* === GRADIENTS === */
@@ -207,6 +208,26 @@
             background-clip: text;
         }
 
+        /* FIX #2: Superscript styling for logo and 1/6th */
+        sup {
+            font-size: 0.6em;
+            vertical-align: super;
+            line-height: 0;
+            font-weight: inherit;
+        }
+        /* Keep gradient on sup inside .text-gradient */
+        .text-gradient sup {
+            background: var(--grad-brand);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Logo sup inherits blue */
+        .logo sup {
+            -webkit-text-fill-color: var(--electric-blue);
+            color: var(--electric-blue);
+        }
+
         /* Aurora background mesh — CSS only, GPU accelerated */
         .aurora-orb {
             position: absolute;
@@ -253,7 +274,10 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            /* FIX #6 desktop keeps nowrap, mobile overrides below */
             white-space: nowrap;
+            /* FIX #6: ensure minimum tap target */
+            min-height: 44px;
         }
         
         .btn::after {
@@ -347,7 +371,17 @@
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: top 0.3s ease, background 0.3s ease, padding 0.3s ease;
+            /* FIX #7: smooth transition for hide/show */
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                        padding var(--transition-normal),
+                        background var(--transition-normal),
+                        border-color var(--transition-normal),
+                        box-shadow var(--transition-normal);
+        }
+
+        /* FIX #7: class added by JS to hide header on scroll down (mobile only) */
+        header.header-hidden {
+            transform: translateY(-100%);
         }
         
         header.scrolled {
@@ -355,11 +389,6 @@
             background: rgba(8, 13, 26, 0.92);
             border-bottom-color: rgba(29,155,240,0.15);
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-        }
-        
-        /* Class for hiding header on mobile when scrolling down */
-        header.header-hidden {
-            top: -100px; /* Adjust based on header height */
         }
         
         .nav {
@@ -388,6 +417,9 @@
             color: white;
             border-radius: 10px;
             font-weight: 800;
+            /* FIX #2: smaller font in icon box to fit X⁵ */
+            font-size: 0.9rem;
+            letter-spacing: -0.03em;
         }
         
         .nav-links {
@@ -429,11 +461,14 @@
             display: none;
             background: none;
             border: none;
-            width: 40px;
-            height: 40px;
+            /* FIX #8b: minimum tap target 44px */
+            width: 44px;
+            height: 44px;
             cursor: pointer;
             position: relative;
             z-index: 1001;
+            align-items: center;
+            justify-content: center;
         }
         
         .hamburger {
@@ -488,7 +523,7 @@
         }
         
         .hero-bg-dot {
-            display: none; /* Replaced by aurora orbs */
+            display: none;
         }
         
         .hero-content {
@@ -501,8 +536,6 @@
         
         .hero-badge {
             display: inline-flex;
-            flex-wrap: wrap;                /* Cho phép xuống dòng trên mobile */
-            justify-content: center;         /* Căn giữa khi wrap */
             align-items: center;
             gap: var(--space-xs);
             background: rgba(29,155,240,0.08);
@@ -516,9 +549,9 @@
             letter-spacing: 0.05em;
             text-transform: uppercase;
             margin-bottom: var(--space-xl);
-            max-width: 100%;                 /* Đảm bảo không tràn */
-            white-space: normal;              /* Cho phép text wrap */
-            text-align: center;
+            /* FIX #1c: allow wrapping, keep row layout */
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .hero-badge .badge-dot {
@@ -584,7 +617,7 @@
         
         .trust-logos {
             display: flex;
-            justify-content: flex-start;    /* Căn trái khi wrap */
+            justify-content: center;
             align-items: center;
             gap: var(--space-2xl);
             flex-wrap: wrap;
@@ -636,21 +669,19 @@
             color: var(--text-secondary);
         }
         
-        /* Swipe hint now above table */
-        .swipe-hint {
-            display: none;
-            text-align: center;
-            margin-bottom: 1rem;            /* Điều chỉnh khoảng cách với bảng */
-            color: var(--text-secondary);
-            font-size: 0.875rem;
-        }
-        
         .table-wrapper {
             overflow-x: auto;
             border-radius: var(--radius-xl);
             border: 1px solid rgba(255,255,255,0.06);
             box-shadow: var(--shadow-xl);
-            margin-bottom: var(--space-2xl);
+            margin-bottom: var(--space-md);
+            /* FIX #4: smooth scroll feel */
+            -webkit-overflow-scrolling: touch;
+        }
+
+        /* FIX #4: swipe hint — hidden on desktop, shown on mobile */
+        .swipe-hint {
+            display: none;
         }
         
         .comparison-table {
@@ -765,7 +796,7 @@
         }
         
         .solution-card.x5::before {
-            content: 'The X5 Way';
+            content: 'The X⁵ Way';
             position: absolute;
             top: -12px;
             left: 50%;
@@ -1080,7 +1111,7 @@
             }
             
             .mobile-menu-toggle {
-                display: block;
+                display: inline-flex;
             }
             
             .nav-links {
@@ -1101,6 +1132,14 @@
                 box-shadow: var(--shadow-xl);
                 transition: right var(--transition-normal);
                 z-index: 1000;
+            }
+            
+            /* FIX #8c: hide nav from keyboard/screen-readers when closed */
+            .nav-links[aria-hidden="true"] {
+                visibility: hidden;
+            }
+            .nav-links[aria-hidden="false"] {
+                visibility: visible;
             }
             
             .nav-links.active {
@@ -1134,31 +1173,84 @@
             }
             
             .hero-stats {
-                gap: var(--space-xl);
+                /* FIX #1b: 2-column grid on small screens */
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-md);
+                width: 100%;
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
             .stat-number {
                 font-size: var(--text-2xl);
             }
-            
+
+            /* FIX #1d: shrink step-number on mobile */
+            .step-number {
+                width: 64px;
+                height: 64px;
+                font-size: var(--text-2xl);
+            }
+
+            /* FIX #6: CTA buttons on mobile — allow wrapping, proper tap area */
             .btn {
+                white-space: normal;
                 width: 100%;
-                max-width: 300px;
-                white-space: normal;        /* Allow text wrapping */
-                height: auto;                /* Auto height */
-                min-height: 44px;            /* Minimum touch target */
-                padding: 0.75rem 1rem;       /* Adjust padding */
+                max-width: 420px;
+                min-height: 52px;
+                padding: 14px 20px;
+                line-height: 1.4;
+            }
+
+            .btn-lg {
+                font-size: var(--text-base);
+                padding: 16px 22px;
+            }
+
+            /* Keep nav CTA compact inside the mobile slide-out menu */
+            .nav-links .btn {
+                width: auto;
+                max-width: none;
+                white-space: nowrap;
+                min-height: 44px;
+            }
+
+            /* FIX #4: show swipe hint on mobile */
+            .swipe-hint {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                color: var(--text-secondary);
+                font-size: var(--text-sm);
+                margin-bottom: var(--space-lg);
+                opacity: 0.75;
+            }
+            .swipe-hint i {
+                color: var(--electric-blue);
+                animation: swipe-arrow 1.6s ease-in-out infinite;
+            }
+            @keyframes swipe-arrow {
+                0%, 100% { transform: translateX(0); }
+                50%       { transform: translateX(6px); }
+            }
+
+            /* FIX #4: scroll indicator fade on table sides */
+            .table-wrapper {
+                position: relative;
             }
             
+            /* Calculator results stack nicely */
+            .calculator-results {
+                grid-template-columns: 1fr;
+            }
+
             .comparison-table th,
             .comparison-table td {
                 padding: var(--space-md) var(--space-sm);
                 font-size: var(--text-sm);
-            }
-            
-            /* Show swipe hint on mobile */
-            .swipe-hint {
-                display: block;
             }
         }
         
@@ -1169,13 +1261,33 @@
                 --space-2xl: 3rem;
             }
             
-            .container {
-                padding: 0 var(--space-md);
+            .container,
+            .container-narrow {
+                /* FIX #1e: tighter padding on very small screens */
+                padding: 0 1rem;
             }
-            
+
+            /* FIX #1f: remove forced <br> behaviour on very small screens */
+            .hero-content h1 br {
+                display: none;
+            }
+
+            /* FIX #1c: keep badge in row, smaller font */
             .hero-badge {
-                flex-direction: column;       /* Xếp dọc trên màn hình rất nhỏ */
-                gap: var(--space-xs);
+                font-size: 0.65rem;
+                padding: 6px 14px;
+            }
+
+            .lead {
+                font-size: var(--text-base);
+            }
+
+            .trust-logos {
+                gap: var(--space-md);
+            }
+
+            .trust-item span {
+                font-size: var(--text-sm);
             }
         }
         
@@ -1193,12 +1305,10 @@
         .mt-xl { margin-top: var(--space-xl); }
         .hidden { display: none; }
 
-        /* bg-light sections now use dark surface */
         .bg-light {
             background: var(--bg-surface-1) !important;
         }
 
-        /* Section eyebrow labels */
         .section-eyebrow, [class*="section-tag"], [class*="section-label"] {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.6875rem;
@@ -1217,7 +1327,6 @@
             .btn-primary { animation: none; }
         }
 
-        /* Inline style overrides for dark theme */
         [style*="color: var(--gray-400)"] {
             color: var(--text-secondary) !important;
         }
@@ -1227,30 +1336,36 @@
     <!-- Header -->
     <header id="header">
         <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <div class="logo-icon">5</div>
+            <!-- FIX #8b: aria-expanded + aria-controls added -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="logo" aria-label="X5 Digital — Home">
+                    <!-- FIX #2: X⁵ in logo icon and text -->
+                    <div class="logo-icon" aria-hidden="true">X<sup>5</sup></div>
                     <span>X<sup>5</sup> Digital</span>
                 </a>
                 
-                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
-                    <span class="hamburger"></span>
+                <button class="mobile-menu-toggle"
+                        aria-label="Toggle navigation menu"
+                        aria-expanded="false"
+                        aria-controls="nav-links">
+                    <span class="hamburger" aria-hidden="true"></span>
                 </button>
                 
-                <div class="nav-links" id="navLinks">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="how-it-works.html" class="nav-link">How It Works</a>
-                    <a href="packages.html" class="nav-link">Packages</a>
-                    <a href="proofs.html" class="nav-link">Proof</a>
-                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
+                <!-- FIX #8c: aria-hidden toggled by JS -->
+                <div class="nav-links" id="nav-links" role="menu" aria-hidden="true">
+                    <a href="index.html" class="nav-link" role="menuitem">Home</a>
+                    <a href="how-it-works.html" class="nav-link" role="menuitem">How It Works</a>
+                    <a href="packages.html" class="nav-link" role="menuitem">Packages</a>
+                    <a href="proofs.html" class="nav-link" role="menuitem">Proof</a>
+                    <a href="book-audit.html" class="btn btn-primary" role="menuitem">Book Free Audit →</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero section">
-        <div class="hero-bg">
+    <section class="hero section" aria-labelledby="hero-heading">
+        <div class="hero-bg" aria-hidden="true">
             <div class="hero-bg-dot"></div>
             <div class="aurora-orb aurora-orb-1"></div>
             <div class="aurora-orb aurora-orb-2"></div>
@@ -1258,39 +1373,42 @@
         
         <div class="container">
             <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
+                <div class="hero-badge" role="note">
+                    <span class="badge-dot" aria-hidden="true"></span>
                     <span>NEW: 30-Day Risk-Free Trial for First 10 U.S. Clients</span>
                 </div>
                 
-                <h1>Your <span class="text-gradient">AI-Powered</span> Digital Team<br>at <span class="text-gradient">1/5<sup>th</sup> the Cost</span></h1>
+                <!-- FIX #3: 1/6th → 1/6<sup>th</sup>; FIX #1f: <br> kept but hidden at 480px via CSS -->
+                <h1 id="hero-heading">Your <span class="text-gradient">AI-Powered</span> Digital Team<br>at <span class="text-gradient">1/6<sup>th</sup> the Cost</span></h1>
                 
                 <p class="lead">
                     Most businesses run marketing like a one-man shop — skilled, but slow, expensive, and always one person away from falling behind. X<sup>5</sup> gives you the F1 pit crew: specialists embedded in your Slack, your ad accounts, and your CRM, for less than what you'd pay a single U.S. hire.
                 </p>
                 
                 <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+                    <!-- FIX #6: long CTA text — white-space:normal on mobile via media query -->
                     <a href="#audit" class="btn btn-primary btn-lg">
-                        Get Your Free Performance Audit & LTV Forecast
-                        <i class="fas fa-arrow-right"></i>
+                        Get Your Free Performance Audit &amp; LTV Forecast
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
                 
-                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="400" aria-label="Key statistics">
                     <div class="stat-item">
-                        <span class="stat-number" data-target="6" data-prefix="1/">1/6</span>
+                        <!-- FIX #8e: data-target changed, suffix handled in JS -->
+                        <span class="stat-number" data-target="6" data-prefix="1/" data-suffix-html="<sup>th</sup>" aria-label="One sixth cost of US hire">1/6<sup>th</sup></span>
                         <span class="stat-label">Cost of US Hire</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="24" data-suffix="/7">24/7</span>
-                        <span class="stat-label">Coverage & Support</span>
+                        <span class="stat-number" data-target="24" data-suffix="/7" aria-label="24/7 coverage">24/7</span>
+                        <span class="stat-label">Coverage &amp; Support</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+                        <span class="stat-number" data-target="100" data-suffix="%" aria-label="100% client control">100%</span>
                         <span class="stat-label">Client Control</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="0" data-prefix="$">$0</span>
+                        <span class="stat-number" data-target="0" data-prefix="$" aria-label="Zero pivot fees">$0</span>
                         <span class="stat-label">Pivot Fees</span>
                     </div>
                 </div>
@@ -1299,24 +1417,25 @@
     </section>
 
     <!-- Trust Bar -->
-    <section class="trust-bar">
+    <section class="trust-bar" aria-label="Trust signals">
         <div class="container">
-            <p class="trust-title">Trusted by U.S. SMEs who value control & transparency</p>
+            <p class="trust-title">Trusted by U.S. SMEs who value control &amp; transparency</p>
             <div class="trust-logos">
                 <div class="trust-item">
-                    <div class="trust-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="trust-icon" aria-hidden="true">
+                        <!-- FIX #8a: fa-shield-alt → fa-shield-halved (FA6 correct name) -->
+                        <i class="fas fa-shield-halved"></i>
                     </div>
                     <span>100% Client-Owned Automation</span>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">
+                    <div class="trust-icon" aria-hidden="true">
                         <i class="fas fa-clock"></i>
                     </div>
                     <span>U.S. Business Hours Overlap</span>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-icon">
+                    <div class="trust-icon" aria-hidden="true">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <span>30-Day Risk-Free Trial</span>
@@ -1326,27 +1445,23 @@
     </section>
 
     <!-- Comparison Section -->
-    <section class="comparison section" id="comparison">
+    <section class="comparison section" id="comparison" aria-labelledby="comparison-heading">
         <div class="container">
             <div class="comparison-header" data-aos="fade-up">
-                <h2>Why Smart U.S. SMEs Are Switching</h2>
+                <h2 id="comparison-heading">Why Smart U.S. SMEs Are Switching</h2>
                 <p class="comparison-subtitle lead">The real numbers behind the old way vs. the X<sup>5</sup> way</p>
             </div>
 
-            <!-- Swipe hint moved ABOVE the table -->
-            <div class="swipe-hint">
-                <i class="fas fa-arrow-left"></i> Swipe to see full comparison <i class="fas fa-arrow-right"></i>
-            </div>
-
-            <div class="table-wrapper" data-aos="fade-up" data-aos-delay="200">
+            <div class="table-wrapper" data-aos="fade-up" data-aos-delay="200" role="region" aria-label="Comparison table — scroll horizontally to see all columns">
                 <table class="comparison-table">
                     <thead>
                         <tr>
-                            <th></th>
-                            <th>US In-House Hire</th>
-                            <th>Consultants</th>
-                            <th>Traditional Agency</th>
-                            <th class="x5-col">X<sup>5</sup> Digital</th>
+                            <th scope="col"></th>
+                            <th scope="col">US In-House Hire</th>
+                            <th scope="col">Consultants</th>
+                            <th scope="col">Traditional Agency</th>
+                            <!-- FIX #2: X⁵ in table header -->
+                            <th scope="col" class="x5-col">X<sup>5</sup> Digital</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1355,7 +1470,8 @@
                             <td>$80K–$120K+</td>
                             <td>$40K–$80K</td>
                             <td>$100K–$300K+</td>
-                            <td class="x5-col">$30K–$78K <small>(1/5<sup>th</sup>)</small></td>
+                            <!-- FIX #3: 1/6th → 1/6<sup>th</sup> -->
+                            <td class="x5-col">$30K–$78K <small>(1/6<sup>th</sup>)</small></td>
                         </tr>
                         <tr>
                             <td><strong>Execution</strong></td>
@@ -1388,10 +1504,16 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- FIX #4: swipe hint — shown on mobile only via CSS -->
+            <div class="swipe-hint" aria-hidden="true">
+                <i class="fas fa-arrow-right"></i>
+                <span>Swipe to see more</span>
+            </div>
             
             <div class="text-center mt-xl">
                 <a href="#audit" class="btn btn-secondary">
-                    <i class="fas fa-calculator"></i>
+                    <i class="fas fa-calculator" aria-hidden="true"></i>
                     Calculate Your Exact Savings
                 </a>
             </div>
@@ -1399,26 +1521,27 @@
     </section>
 
     <!-- Solution Cards -->
-    <section class="section bg-light">
+    <section class="section bg-light" aria-labelledby="solutions-heading">
         <div class="container">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>The Story You're Probably Living Right Now</h2>
+                <h2 id="solutions-heading">The Story You're Probably Living Right Now</h2>
                 <p class="lead">And how thousands of U.S. SMEs are finally breaking free</p>
             </div>
             
             <div class="solution-grid">
                 <div class="solution-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="solution-icon">
+                    <div class="solution-icon" aria-hidden="true">
                         <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <h3>High Cost</h3>
-                    <p>One solid US digital manager + benefits & overhead</p>
+                    <p>One solid US digital manager + benefits &amp; overhead</p>
                     <div class="solution-price">$80K–$120K+/year</div>
                 </div>
                 
                 <div class="solution-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="solution-icon">
-                        <i class="fas fa-arrow-right-arrow-left"></i>   <!-- Fixed icon -->
+                    <div class="solution-icon" aria-hidden="true">
+                        <!-- FIX #5: fa-gap (invalid) → fa-arrows-left-right -->
+                        <i class="fas fa-arrows-left-right"></i>
                     </div>
                     <h3>Execution Gap</h3>
                     <p>Consultants hand you beautiful decks. Execution? That's on you.</p>
@@ -1426,7 +1549,7 @@
                 </div>
                 
                 <div class="solution-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="solution-icon">
+                    <div class="solution-icon" aria-hidden="true">
                         <i class="fas fa-ban"></i>
                     </div>
                     <h3>No Real Control</h3>
@@ -1434,8 +1557,9 @@
                     <div class="solution-price">$100K–$300K+</div>
                 </div>
                 
+                <!-- FIX #2: "The X5 Way" badge in ::before uses X⁵ via CSS content -->
                 <div class="solution-card x5" data-aos="fade-up" data-aos-delay="400">
-                    <div class="solution-icon">
+                    <div class="solution-icon" aria-hidden="true">
                         <i class="fas fa-crown"></i>
                     </div>
                     <h3>You're the CEO</h3>
@@ -1447,10 +1571,10 @@
     </section>
 
     <!-- ROI Calculator -->
-    <section class="section" id="calculator">
+    <section class="section" id="calculator" aria-labelledby="calculator-heading">
         <div class="container-narrow">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Calculate Your Potential Savings</h2>
+                <h2 id="calculator-heading">Calculate Your Potential Savings</h2>
                 <p class="lead">See exactly how much you could save with our AI-powered team</p>
             </div>
             
@@ -1461,21 +1585,23 @@
                 
                 <div class="slider-container">
                     <div class="slider-label">
-                        <span>Current Monthly Marketing Spend</span>
-                        <span id="spendValue">$15,000</span>
+                        <label for="spendSlider">Current Monthly Marketing Spend</label>
+                        <span id="spendValue" aria-live="polite">$15,000</span>
                     </div>
-                    <input type="range" id="spendSlider" min="5000" max="50000" value="15000" step="1000" aria-label="Marketing spend slider">
+                    <input type="range" id="spendSlider" min="5000" max="50000" value="15000" step="1000"
+                           aria-label="Monthly marketing spend" aria-valuemin="5000" aria-valuemax="50000" aria-valuenow="15000">
                 </div>
                 
                 <div class="slider-container">
                     <div class="slider-label">
-                        <span>Team Hours Spent on Manual Tasks</span>
-                        <span id="hoursValue">40 hours</span>
+                        <label for="hoursSlider">Team Hours Spent on Manual Tasks</label>
+                        <span id="hoursValue" aria-live="polite">40 hours</span>
                     </div>
-                    <input type="range" id="hoursSlider" min="10" max="80" value="40" step="5" aria-label="Manual hours slider">
+                    <input type="range" id="hoursSlider" min="10" max="80" value="40" step="5"
+                           aria-label="Manual task hours" aria-valuemin="10" aria-valuemax="80" aria-valuenow="40">
                 </div>
                 
-                <div class="calculator-results">
+                <div class="calculator-results" aria-live="polite" aria-label="Calculator results">
                     <div class="result-card">
                         <div class="result-value" id="x5Cost">$2,500</div>
                         <div>Monthly X<sup>5</sup> Cost</div>
@@ -1495,7 +1621,7 @@
                 <div class="text-center mt-xl">
                     <a href="#audit" class="btn btn-primary btn-lg">
                         Get Your Personalized Calculation
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -1503,32 +1629,32 @@
     </section>
 
     <!-- Performance Loop -->
-    <section class="performance-loop section bg-light">
+    <section class="performance-loop section bg-light" aria-labelledby="loop-heading">
         <div class="container-narrow">
             <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Every Month, Your Growth Looks Like This</h2>
+                <h2 id="loop-heading">Every Month, Your Growth Looks Like This</h2>
                 <p class="lead">The client-controlled performance loop that runs 24/7</p>
             </div>
             
             <div class="steps">
                 <div class="step" data-aos="fade-right">
-                    <div class="step-number">1</div>
+                    <div class="step-number" aria-hidden="true">1</div>
                     <div class="step-content">
                         <h3>We Strategize (AI-backed)</h3>
-                        <p>X<sup>5</sup> AI Agent analyzes your data & market → monthly strategy + quarterly roadmap.</p>
+                        <p>X<sup>5</sup> AI Agent analyzes your data &amp; market → monthly strategy + quarterly roadmap.</p>
                     </div>
                 </div>
                 
                 <div class="step" data-aos="fade-left">
-                    <div class="step-number">2</div>
+                    <div class="step-number" aria-hidden="true">2</div>
                     <div class="step-content">
                         <h3>You Control</h3>
-                        <p>Approve, reject, or pivot anything. Direct management via Slack & Asana.</p>
+                        <p>Approve, reject, or pivot anything. Direct management via Slack &amp; Asana.</p>
                     </div>
                 </div>
                 
                 <div class="step" data-aos="fade-right">
-                    <div class="step-number">3</div>
+                    <div class="step-number" aria-hidden="true">3</div>
                     <div class="step-content">
                         <h3>We Execute Daily</h3>
                         <p>Embedded team works in your accounts until KPIs are hit — fully automated with n8n.</p>
@@ -1536,9 +1662,9 @@
                 </div>
                 
                 <div class="step" data-aos="fade-left">
-                    <div class="step-number">4</div>
+                    <div class="step-number" aria-hidden="true">4</div>
                     <div class="step-content">
-                        <h3>Review & Pivot — Free</h3>
+                        <h3>Review &amp; Pivot — Free</h3>
                         <p>Revenue review → feedback → we rebuild everything at zero extra cost.</p>
                     </div>
                 </div>
@@ -1547,11 +1673,11 @@
     </section>
 
     <!-- Final CTA -->
-    <section class="cta-final section-lg" id="audit">
-        <div class="cta-bg"></div>
+    <section class="cta-final section-lg" id="audit" aria-labelledby="cta-heading">
+        <div class="cta-bg" aria-hidden="true"></div>
         <div class="container">
             <div class="cta-content" data-aos="fade-up">
-                <h2>Stop Flying the Plane Manually.</h2>
+                <h2 id="cta-heading">Stop Flying the Plane Manually.</h2>
                 
                 <p class="lead" style="color: var(--text-secondary);">
                     You set the destination. Our AI and embedded team hold the controls, self-correct when the market shifts, and check in only when strategy decisions need your call.<br><br>
@@ -1564,11 +1690,11 @@
                 
                 <a href="book-audit.html" class="btn btn-primary btn-lg">
                     Book My Free Audit Now
-                    <i class="fas fa-arrow-right"></i>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
                 </a>
                 
                 <div class="mt-lg" style="color: var(--text-secondary);">
-                    <small><i class="fas fa-lock"></i> Zero risk • Takes 30 minutes • You'll leave with your numbers</small>
+                    <small><i class="fas fa-lock" aria-hidden="true"></i> Zero risk • Takes 30 minutes • You'll leave with your numbers</small>
                 </div>
             </div>
         </div>
@@ -1579,6 +1705,7 @@
         <div class="container">
             <div class="footer-content">
                 <div>
+                    <!-- FIX #2: X⁵ in footer logo -->
                     <div class="footer-logo">X<sup>5</sup> Digital</div>
                     <p style="color: var(--text-secondary); margin-bottom: 0;">
                         We build the revenue machine inside your business — and hand you the keys.<br>
@@ -1588,27 +1715,28 @@
                 
                 <div>
                     <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
-                    <div class="footer-links">
+                    <nav class="footer-links" aria-label="Footer navigation">
                         <a href="index.html">Home</a>
                         <a href="how-it-works.html">How It Works</a>
                         <a href="packages.html">Packages</a>
                         <a href="proofs.html">Proof</a>
                         <a href="book-audit.html">Book Free Audit</a>
-                    </div>
+                    </nav>
                 </div>
                 
                 <div>
                     <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Contact</h4>
                     <div class="footer-links">
                         <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
-                        <a href="#">U.S. Phone: (555) 123-4567</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Twitter</a>
+                        <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter / X">Twitter</a>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
+                <!-- FIX #2: X⁵ in copyright -->
                 <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. • 30-Day Risk-Free Trial for qualified clients.</p>
             </div>
         </div>
@@ -1617,86 +1745,86 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll)
+        // ===== FIX #8d: AOS offset reduced to 60 to avoid skipped animations on mobile =====
         AOS.init({
             duration: 800,
             once: true,
-            offset: 100
+            offset: 60,
+            // FIX #8d: disable AOS on very small screens to avoid jank; use custom observer
+            disable: function() {
+                return window.innerWidth < 480;
+            }
         });
 
-        // Mobile Navigation Toggle with ARIA
-        const toggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        toggle.addEventListener('click', function() {
-            const expanded = this.classList.toggle('active');
+        // ===== MOBILE NAVIGATION TOGGLE =====
+        const menuToggle  = document.querySelector('.mobile-menu-toggle');
+        const navLinks    = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.classList.toggle('active');
             navLinks.classList.toggle('active');
+            // FIX #8b: toggle aria-expanded
+            this.setAttribute('aria-expanded', String(!isExpanded));
+            // FIX #8c: toggle aria-hidden on nav
+            navLinks.setAttribute('aria-hidden', String(isExpanded));
             document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-            this.setAttribute('aria-expanded', expanded);
         });
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                toggle.classList.remove('active');
+                menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
-                toggle.setAttribute('aria-expanded', 'false');
             });
         });
 
-        // Header scroll effect (background change + hide/show on mobile)
-        const header = document.getElementById('header');
+        // ===== HEADER SCROLL EFFECTS =====
+        const header   = document.getElementById('header');
         let lastScrollY = window.scrollY;
-        let ticking = false;
+        let ticking     = false;
 
-        function updateHeader() {
-            // Background change (scrolled class)
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-
-            // Hide/show header on mobile only (width <= 992px)
-            if (window.innerWidth <= 992) {
-                if (window.scrollY > lastScrollY && window.scrollY > 100) {
-                    // Scrolling down -> hide
-                    header.classList.add('header-hidden');
-                } else {
-                    // Scrolling up -> show
-                    header.classList.remove('header-hidden');
-                }
-            } else {
-                // On desktop, always show
-                header.classList.remove('header-hidden');
-            }
-            lastScrollY = window.scrollY;
-            ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             if (!ticking) {
-                window.requestAnimationFrame(updateHeader);
+                window.requestAnimationFrame(function() {
+                    const currentScrollY = window.scrollY;
+
+                    // Scrolled class (background change — all viewports)
+                    if (currentScrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+
+                    // FIX #7: hide/show header on mobile only (≤992px)
+                    if (window.innerWidth <= 992 && !navLinks.classList.contains('active')) {
+                        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                            // Scrolling DOWN → hide header
+                            header.classList.add('header-hidden');
+                        } else {
+                            // Scrolling UP → show header
+                            header.classList.remove('header-hidden');
+                        }
+                    }
+
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                });
                 ticking = true;
             }
-        });
+        }, { passive: true });
 
-        // Also update on resize to handle orientation change
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 992) {
-                header.classList.remove('header-hidden');
-            }
-        });
-
-        // ROI Calculator
+        // ===== ROI CALCULATOR =====
         const spendSlider = document.getElementById('spendSlider');
-        const spendValue = document.getElementById('spendValue');
+        const spendValue  = document.getElementById('spendValue');
         const hoursSlider = document.getElementById('hoursSlider');
-        const hoursValue = document.getElementById('hoursValue');
-        const x5Cost = document.getElementById('x5Cost');
-        const manualCost = document.getElementById('manualCost');
-        const savings = document.getElementById('savings');
+        const hoursValue  = document.getElementById('hoursValue');
+        const x5Cost      = document.getElementById('x5Cost');
+        const manualCost  = document.getElementById('manualCost');
+        const savings     = document.getElementById('savings');
 
         function formatCurrency(amount) {
             return new Intl.NumberFormat('en-US', {
@@ -1710,35 +1838,34 @@
         function updateCalculator() {
             const spend = parseInt(spendSlider.value);
             const hours = parseInt(hoursSlider.value);
-            
-            // Update display values
+
             spendValue.textContent = formatCurrency(spend);
             hoursValue.textContent = `${hours} hours`;
-            
-            // Calculate costs (simplified model)
-            const x5Monthly = Math.max(833, spend * 0.15); // Minimum $833 or 15% of spend
-            const hourlyRate = 50; // Average US hourly rate
+
+            // Update aria-valuenow for accessibility
+            spendSlider.setAttribute('aria-valuenow', spend);
+            hoursSlider.setAttribute('aria-valuenow', hours);
+
+            const x5Monthly     = Math.max(833, spend * 0.15);
+            const hourlyRate    = 50;
             const manualMonthly = hours * hourlyRate;
-            const totalSavings = spend - x5Monthly + (manualMonthly * 0.8); // 80% automation
-            
-            // Update results
-            x5Cost.textContent = formatCurrency(x5Monthly);
+            const totalSavings  = spend - x5Monthly + (manualMonthly * 0.8);
+
+            x5Cost.textContent    = formatCurrency(x5Monthly);
             manualCost.textContent = formatCurrency(manualMonthly);
-            savings.textContent = formatCurrency(totalSavings);
+            savings.textContent   = formatCurrency(totalSavings);
         }
 
-        // Initialize calculator
         spendSlider.addEventListener('input', updateCalculator);
         hoursSlider.addEventListener('input', updateCalculator);
         updateCalculator();
 
-        // Smooth scroll for anchor links
+        // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
@@ -1749,35 +1876,47 @@
             });
         });
 
-        // Trust bar animation
+        // ===== TRUST BAR ANIMATION =====
         const trustItems = document.querySelectorAll('.trust-item');
         trustItems.forEach((item, index) => {
             item.style.animationDelay = `${index * 0.1}s`;
         });
 
         // ===== COUNT-UP ANIMATION FOR STATS =====
+        // FIX #8e: handle data-suffix-html (e.g. <sup>th</sup>) to preserve HTML markup
         const statObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) return;
-                const el = entry.target;
-                const rawTarget = el.dataset.target;
+                const el         = entry.target;
+                const rawTarget  = el.dataset.target;
                 if (!rawTarget) return;
-                const target = parseFloat(rawTarget);
-                const isDecimal = String(target).includes('.');
-                const suffix = el.dataset.suffix || '';
-                const prefix = el.dataset.prefix || '';
-                const duration = 1500;
-                const stepTime = 16;
-                const increment = target / (duration / stepTime);
-                let current = 0;
+
+                const target       = parseFloat(rawTarget);
+                const isDecimal    = String(target).includes('.');
+                const suffix       = el.dataset.suffix    || '';
+                const suffixHtml   = el.dataset.suffixHtml || '';  // FIX #8e
+                const prefix       = el.dataset.prefix    || '';
+                const duration     = 1500;
+                const stepTime     = 16;
+                const increment    = target / (duration / stepTime);
+                let current        = 0;
+
                 const timer = setInterval(() => {
                     current = Math.min(current + increment, target);
-                    el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                    const displayVal = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+                    // FIX #8e: use innerHTML only when suffixHtml exists, else textContent
+                    if (suffixHtml) {
+                        el.innerHTML = displayVal + suffixHtml;
+                    } else {
+                        el.textContent = displayVal;
+                    }
                     if (current >= target) clearInterval(timer);
                 }, stepTime);
+
                 statObserver.unobserve(el);
             });
         }, { threshold: 0.5 });
+
         document.querySelectorAll('.stat-number[data-target]').forEach(el => statObserver.observe(el));
 
         // ===== SCROLL REVEAL ANIMATION =====
@@ -1788,11 +1927,11 @@
                     revealObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.08 });  // FIX #8d: lower threshold for mobile
 
         document.querySelectorAll('.solution-card, .step-content, .stat-item, .trust-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(24px)';
+            el.style.opacity    = '0';
+            el.style.transform  = 'translateY(24px)';
             el.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
             revealObserver.observe(el);
         });
