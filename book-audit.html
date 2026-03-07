@@ -404,20 +404,6 @@
             position: relative;
             z-index: 1001;
         }
-
-        /* Mobile nav backdrop overlay */
-        .nav-backdrop {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(8,13,26,0.6);
-            z-index: 999;
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
-        }
-
-        .nav-backdrop.active { display: block; }
         
         .hamburger {
             width: 24px; height: 2px;
@@ -539,24 +525,6 @@
             font-size: var(--text-sm);
             font-weight: 600;
             color: var(--text-secondary);
-            gap: 4px;
-        }
-
-        /* Hide middle labels on very small screens to avoid crushing */
-        @media (max-width: 400px) {
-            .meter-labels span:nth-child(2),
-            .meter-labels span:nth-child(3) {
-                display: none;
-            }
-            .meter-labels {
-                font-size: var(--text-xs);
-            }
-        }
-
-        @media (min-width: 401px) and (max-width: 520px) {
-            .meter-labels {
-                font-size: var(--text-xs);
-            }
         }
         
         .meter-score {
@@ -607,7 +575,6 @@
             overflow: hidden;
             margin: var(--space-2xl) auto;
             max-width: 800px;
-            position: relative; /* Required for .form-loading absolute overlay */
         }
         
         .form-header {
@@ -974,12 +941,14 @@
             h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
             h2 { font-size: clamp(1.375rem, 4vw, 1.75rem); }
             
+            /* B1: explicit padding-top so content clears fixed header */
             .hero {
-                padding-top: calc(var(--space-2xl) * 2);
+                padding-top: 8rem;
                 padding-bottom: var(--space-2xl);
             }
             
-            .mobile-menu-toggle { display: block; }
+            /* B3: inline-flex so hamburger icon is properly centred */
+            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
             
             .nav-links {
                 position: fixed;
@@ -1012,11 +981,31 @@
             .form-header { padding: var(--space-xl) var(--space-lg); }
             .form-body { padding: var(--space-xl) var(--space-lg); }
             .qualification-meter { padding: var(--space-lg); }
-            /* Buttons full-width on mobile — no artificial max-width cap */
+
+            /* B2: allow button text to wrap on narrow screens */
             .btn {
+                white-space: normal;
                 width: 100%;
-                white-space: normal;   /* allow text to wrap if needed */
-                word-break: break-word;
+                max-width: 420px;
+                min-height: 52px;
+                line-height: 1.4;
+                padding: 14px 20px;
+            }
+            /* Keep nav CTA compact */
+            .nav-links .btn {
+                width: auto;
+                max-width: none;
+                white-space: nowrap;
+                min-height: 44px;
+            }
+
+            /* B6: hero badge wraps cleanly */
+            .hero-badge {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+                font-size: 0.65rem;
+                padding: 6px 14px;
             }
         }
         
@@ -1026,23 +1015,11 @@
                 --space-xl: 2rem;
                 --space-2xl: 3rem;
             }
+            /* B1: explicit override so shrunken vars don't hide hero behind header */
+            .hero { padding-top: 7rem; }
             .container { padding: 0 var(--space-md); }
             .form-header h1 { font-size: var(--text-3xl); }
             .score-value { font-size: var(--text-3xl); }
-
-            /* Hero badge: allow wrapping on very small screens */
-            .hero-badge {
-                text-align: center;
-                padding: 8px 14px;
-                max-width: 100%;
-                white-space: normal;
-                word-break: break-word;
-            }
-
-            /* Reduce input padding on very small screens */
-            input, select, textarea {
-                padding: var(--space-sm) var(--space-md);
-            }
         }
         
         /* ===== UTILITY CLASSES ===== */
@@ -1057,43 +1034,24 @@
         .mt-md { margin-top: var(--space-md); }
         .mt-lg { margin-top: var(--space-lg); }
         .mt-xl { margin-top: var(--space-xl); }
-        .ml-sm { margin-left: var(--space-sm); }
         .hidden { display: none; }
-
-        /* Disqualification card buttons — stack on mobile */
-        .disqualification-card .mt-lg {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-            justify-content: center;
-        }
-
-        @media (max-width: 480px) {
-            .disqualification-card .mt-lg .btn {
-                margin-left: 0 !important;
-            }
-            .ml-sm { margin-left: 0; }
-        }
     </style>
 </head>
 <body>
-    <!-- Mobile Nav Backdrop -->
-    <div class="nav-backdrop" id="navBackdrop"></div>
-
     <!-- Header -->
     <header id="header">
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">X5</div>
-                    <span>X5 Digital</span>
+                    <div class="logo-icon">X<sup>5</sup></div>
+                    <span>X<sup>5</sup> Digital</span>
                 </a>
                 
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
                     <span class="hamburger"></span>
                 </button>
                 
-                <div class="nav-links">
+                <div class="nav-links" id="nav-links">
                     <a href="index.html" class="nav-link">Home</a>
                     <a href="how-it-works.html" class="nav-link">How It Works</a>
                     <a href="packages.html" class="nav-link">Packages</a>
@@ -1425,12 +1383,12 @@
             <div id="disqualificationMessage">
                 <!-- Dynamic message will be inserted here -->
             </div>
-            <div class="mt-lg">
+            <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center;justify-content:center;margin-top:var(--space-lg);">
                 <button class="btn btn-secondary" onclick="location.reload()">
                     <i class="fas fa-redo"></i>
                     Start Over
                 </button>
-                <a href="index.html" class="btn btn-primary ml-sm">
+                <a href="index.html" class="btn btn-primary">
                     <i class="fas fa-home"></i>
                     Back to Homepage
                 </a>
@@ -1443,37 +1401,31 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">X5 Digital</div>
-                    <p style="color: var(--text-secondary); margin-bottom: 0;">
-                        We build the revenue machine inside your business — and hand you the keys.<br>
-                        Vietnam-based · Built for U.S. SMEs · 24/7 coverage
-                    </p>
+                    <div class="footer-logo">X<sup>5</sup> Digital</div>
+                    <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business &mdash; and hand you the keys.<br>Vietnam-based &middot; Built for U.S. SMEs &middot; 24/7 coverage</p>
                 </div>
-                
                 <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
-                    <div class="footer-links">
+                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
+                    <nav class="footer-links" aria-label="Footer navigation">
                         <a href="index.html">Home</a>
                         <a href="how-it-works.html">How It Works</a>
                         <a href="packages.html">Packages</a>
                         <a href="proofs.html">Proof</a>
                         <a href="book-audit.html">Book Free Audit</a>
-                    </div>
+                    </nav>
                 </div>
-                
                 <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Contact</h4>
+                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
                     <div class="footer-links">
                         <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
-                        <a href="#">U.S. Phone: (555) 123-4567</a>
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Twitter</a>
+                        <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter / X">Twitter</a>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 X5 Digital. All rights reserved. • Strict qualification ensures best fit for both parties.</p>
+                <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
             </div>
         </div>
     </footer>
@@ -1485,33 +1437,28 @@
         AOS.init({
             duration: 800,
             once: true,
-            offset: 100
+            offset: 60,
+            disable: function() { return window.innerWidth < 480; }
         });
 
         // Mobile Navigation Toggle
-        const navBackdrop = document.getElementById('navBackdrop');
-
-        function closeMobileMenu() {
-            document.querySelector('.mobile-menu-toggle').classList.remove('active');
-            document.querySelector('.nav-links').classList.remove('active');
-            navBackdrop.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+        var menuToggle = document.querySelector('.mobile-menu-toggle');
+        var navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', function() {
+            var isOpen = navLinks.classList.toggle('active');
             this.classList.toggle('active');
-            document.querySelector('.nav-links').classList.toggle('active');
-            const isOpen = document.querySelector('.nav-links').classList.contains('active');
-            navBackdrop.classList.toggle('active', isOpen);
+            this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        // Close mobile menu when clicking backdrop
-        navBackdrop.addEventListener('click', closeMobileMenu);
-
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
         });
 
         // Header scroll effect
