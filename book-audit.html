@@ -404,6 +404,20 @@
             position: relative;
             z-index: 1001;
         }
+
+        /* Mobile nav backdrop overlay */
+        .nav-backdrop {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(8,13,26,0.6);
+            z-index: 999;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        .nav-backdrop.active { display: block; }
         
         .hamburger {
             width: 24px; height: 2px;
@@ -525,6 +539,24 @@
             font-size: var(--text-sm);
             font-weight: 600;
             color: var(--text-secondary);
+            gap: 4px;
+        }
+
+        /* Hide middle labels on very small screens to avoid crushing */
+        @media (max-width: 400px) {
+            .meter-labels span:nth-child(2),
+            .meter-labels span:nth-child(3) {
+                display: none;
+            }
+            .meter-labels {
+                font-size: var(--text-xs);
+            }
+        }
+
+        @media (min-width: 401px) and (max-width: 520px) {
+            .meter-labels {
+                font-size: var(--text-xs);
+            }
         }
         
         .meter-score {
@@ -575,6 +607,7 @@
             overflow: hidden;
             margin: var(--space-2xl) auto;
             max-width: 800px;
+            position: relative; /* Required for .form-loading absolute overlay */
         }
         
         .form-header {
@@ -979,7 +1012,12 @@
             .form-header { padding: var(--space-xl) var(--space-lg); }
             .form-body { padding: var(--space-xl) var(--space-lg); }
             .qualification-meter { padding: var(--space-lg); }
-            .btn { width: 100%; max-width: 300px; }
+            /* Buttons full-width on mobile — no artificial max-width cap */
+            .btn {
+                width: 100%;
+                white-space: normal;   /* allow text to wrap if needed */
+                word-break: break-word;
+            }
         }
         
         @media (max-width: 480px) {
@@ -991,6 +1029,20 @@
             .container { padding: 0 var(--space-md); }
             .form-header h1 { font-size: var(--text-3xl); }
             .score-value { font-size: var(--text-3xl); }
+
+            /* Hero badge: allow wrapping on very small screens */
+            .hero-badge {
+                text-align: center;
+                padding: 8px 14px;
+                max-width: 100%;
+                white-space: normal;
+                word-break: break-word;
+            }
+
+            /* Reduce input padding on very small screens */
+            input, select, textarea {
+                padding: var(--space-sm) var(--space-md);
+            }
         }
         
         /* ===== UTILITY CLASSES ===== */
@@ -1005,10 +1057,29 @@
         .mt-md { margin-top: var(--space-md); }
         .mt-lg { margin-top: var(--space-lg); }
         .mt-xl { margin-top: var(--space-xl); }
+        .ml-sm { margin-left: var(--space-sm); }
         .hidden { display: none; }
+
+        /* Disqualification card buttons — stack on mobile */
+        .disqualification-card .mt-lg {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-sm);
+            justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            .disqualification-card .mt-lg .btn {
+                margin-left: 0 !important;
+            }
+            .ml-sm { margin-left: 0; }
+        }
     </style>
 </head>
 <body>
+    <!-- Mobile Nav Backdrop -->
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
     <!-- Header -->
     <header id="header">
         <div class="container">
@@ -1418,19 +1489,29 @@
         });
 
         // Mobile Navigation Toggle
+        const navBackdrop = document.getElementById('navBackdrop');
+
+        function closeMobileMenu() {
+            document.querySelector('.mobile-menu-toggle').classList.remove('active');
+            document.querySelector('.nav-links').classList.remove('active');
+            navBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
             this.classList.toggle('active');
             document.querySelector('.nav-links').classList.toggle('active');
-            document.body.style.overflow = document.querySelector('.nav-links').classList.contains('active') ? 'hidden' : '';
+            const isOpen = document.querySelector('.nav-links').classList.contains('active');
+            navBackdrop.classList.toggle('active', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
+
+        // Close mobile menu when clicking backdrop
+        navBackdrop.addEventListener('click', closeMobileMenu);
 
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.mobile-menu-toggle').classList.remove('active');
-                document.querySelector('.nav-links').classList.remove('active');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
 
         // Header scroll effect
