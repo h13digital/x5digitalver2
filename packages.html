@@ -738,6 +738,7 @@
         
         .matrix-table {
             width: 100%;
+            min-width: 680px;
             background: var(--bg-surface-2);
             border-radius: var(--radius-xl);
             overflow: hidden;
@@ -933,11 +934,121 @@
             flex-shrink: 0;
         }
         
+        /* ===== TEAM SECTION — DESKTOP CAROUSEL ===== */
+        /* B1: team-grid base CSS — carousel track on desktop */
+        .team-grid {
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Carousel track: all 3 cards in a single row */
+        .team-track {
+            display: flex;
+            gap: var(--space-xl);
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+        }
+
+        /* Each card takes exactly 1/3 of available width */
+        .team-track .team-card {
+            flex: 0 0 calc(33.333% - var(--space-xl) * 2 / 3);
+            min-width: 0;
+        }
+
+        /* Carousel navigation */
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .carousel-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(29,155,240,0.10);
+            border: 1px solid rgba(29,155,240,0.30);
+            color: var(--electric-blue);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-size: var(--text-base);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(29,155,240,0.20);
+            border-color: var(--electric-blue);
+            box-shadow: var(--glow-blue-sm);
+            transform: scale(1.1);
+        }
+
+        .carousel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+        }
+
+        .carousel-dot.active {
+            background: var(--electric-blue);
+            width: 24px;
+            border-radius: 4px;
+            box-shadow: var(--glow-blue-sm);
+        }
+
+        /* Auto-slide progress bar */
+        .carousel-progress {
+            height: 2px;
+            background: rgba(29,155,240,0.15);
+            border-radius: 2px;
+            margin-top: var(--space-md);
+            overflow: hidden;
+        }
+
+        .carousel-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--electric-blue), var(--neon-indigo));
+            border-radius: 2px;
+            transform-origin: left;
+            animation: carousel-progress-anim 4s linear infinite;
+        }
+
+        @keyframes carousel-progress-anim {
+            0%   { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+
         /* ===== ROI CALCULATOR ===== */
         .roi-section {
             background: var(--bg-surface-1);
         }
-        
+
+        /* B1: calculator-grid base CSS — 3 columns on desktop */
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
         .roi-calculator {
             background: var(--bg-surface-2);
             padding: var(--space-2xl);
@@ -1064,6 +1175,64 @@
             50% { opacity: 0.7; }
         }
         
+        /* ===== MISSING BASE CSS FIXES ===== */
+
+        /* B6: hero-cta — flex row, wrap, centered gap */
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
+        /* B3: table-wrapper — scroll container for matrix table */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: var(--radius-xl);
+            border: 1px solid rgba(255,255,255,0.06);
+            box-shadow: var(--shadow-xl);
+            margin-bottom: var(--space-md);
+        }
+
+        /* B3: matrix-header spacing */
+        .matrix-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* Swipe hint — hidden on desktop, shown on mobile */
+        .swipe-hint {
+            display: none;
+        }
+
+        /* B3: calculator-results grid */
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        /* B3: footer-content grid */
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-2xl);
+        }
+
+        /* B3: cta-content centred */
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         /* ===== FOOTER ===== */
         footer {
             background: var(--bg-base);
@@ -1104,12 +1273,14 @@
             h1 { font-size: clamp(2rem, 8vw, 3rem); }
             h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
             
+            /* B7: explicit padding-top so content clears fixed header */
             .hero {
-                padding-top: calc(var(--space-2xl) * 2);
+                padding-top: 8rem;
                 padding-bottom: var(--space-2xl);
             }
             
-            .mobile-menu-toggle { display: block; }
+            /* B6: hamburger must be inline-flex to center the icon */
+            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
             
             .nav-links {
                 position: fixed;
@@ -1135,7 +1306,20 @@
             .packages-grid {
                 grid-template-columns: 1fr;
                 max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
             }
+            
+            /* B1: on ≤992px, team carousel becomes stacked cards */
+            .team-track {
+                flex-direction: column;
+            }
+            .team-track .team-card {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            .carousel-nav { display: none; }
+            .carousel-progress { display: none; }
             
             .package-card.featured {
                 transform: none;
@@ -1157,13 +1341,54 @@
             
             .section { padding: var(--space-2xl) 0; }
             .section-lg { padding: var(--space-2xl) 0; }
+
+            /* hero-cta: stack buttons vertically on mobile */
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+                max-width: 380px;
+                margin-left: auto;
+                margin-right: auto;
+            }
             
             .package-tabs { flex-direction: column; align-items: center; }
             .package-tab { width: 100%; max-width: 300px; }
-            .team-grid { grid-template-columns: 1fr; }
             .calculator-grid { grid-template-columns: 1fr; }
+            .calculator-results { grid-template-columns: 1fr; }
             
-            .btn { width: 100%; max-width: 300px; }
+            /* B5: CTA buttons allow text wrapping on mobile */
+            .btn {
+                white-space: normal;
+                width: 100%;
+                max-width: 380px;
+                min-height: 52px;
+                padding: 14px 20px;
+                line-height: 1.4;
+            }
+            .btn-lg { font-size: var(--text-base); padding: 16px 22px; }
+            /* Nav CTA stays compact */
+            .nav-links .btn { width: auto; max-width: none; white-space: nowrap; min-height: 44px; }
+
+            /* B3: Show swipe hint on mobile */
+            .swipe-hint {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                color: var(--text-secondary);
+                font-size: var(--text-sm);
+                margin-bottom: var(--space-md);
+                opacity: 0.75;
+            }
+            .swipe-hint i {
+                color: var(--electric-blue);
+                animation: swipe-arrow 1.6s ease-in-out infinite;
+            }
+            @keyframes swipe-arrow {
+                0%, 100% { transform: translateX(0); }
+                50%       { transform: translateX(6px); }
+            }
+
             .guarantee-card { padding: var(--space-xl) var(--space-lg); }
         }
         
@@ -1173,6 +1398,8 @@
                 --space-xl: 2rem;
                 --space-2xl: 3rem;
             }
+            /* B7: explicit override so shrunken vars don't hide hero behind header */
+            .hero { padding-top: 7rem; }
             .container { padding: 0 var(--space-md); }
             .package-price { font-size: var(--text-4xl); }
             .result-value { font-size: var(--text-2xl); }
@@ -1396,6 +1623,12 @@
                 <h2>See Exactly What's Included<br><span class="text-primary">Across All 5 Layers</span></h2>
                 <p class="lead">Compare feature coverage across packages at a glance</p>
             </div>
+
+            <!-- Swipe hint — shown on mobile only via CSS -->
+            <div class="swipe-hint" aria-hidden="true">
+                <i class="fas fa-arrow-right"></i>
+                <span>Swipe to see more</span>
+            </div>
             
             <div class="table-wrapper" data-aos="fade-up">
                 <table class="matrix-table">
@@ -1517,7 +1750,8 @@
                 </p>
             </div>
             
-            <div class="team-grid">
+            <div class="team-grid" id="teamCarousel">
+                <div class="team-track" id="teamTrack">
                 <!-- AI Engineer -->
                 <div class="team-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="team-icon ai-icon">
@@ -1567,6 +1801,25 @@
                         <li>Brand-led campaign strategy</li>
                         <li>Competitive positioning analysis</li>
                     </ul>
+                </div>
+                </div><!-- /team-track -->
+
+                <!-- Carousel navigation (desktop only) -->
+                <div class="carousel-nav" id="carouselNav" aria-label="Team member navigation">
+                    <button class="carousel-btn" id="carouselPrev" aria-label="Previous team member" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="carousel-dots" id="carouselDots">
+                        <div class="carousel-dot active" data-index="0"></div>
+                        <div class="carousel-dot" data-index="1"></div>
+                        <div class="carousel-dot" data-index="2"></div>
+                    </div>
+                    <button class="carousel-btn" id="carouselNext" aria-label="Next team member">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-progress" id="carouselProgress">
+                    <div class="carousel-progress-bar" id="carouselProgressBar"></div>
                 </div>
             </div>
             
@@ -1720,11 +1973,12 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS (Animate On Scroll)
+        // B10: reduced AOS offset, disable on very small screens to avoid skipped animations
         AOS.init({
             duration: 800,
             once: true,
-            offset: 100
+            offset: 60,
+            disable: function() { return window.innerWidth < 480; }
         });
 
         // Mobile Navigation Toggle
@@ -1923,6 +2177,108 @@
                 }, 1000);
             });
         });
+        // ===== DESKTOP TEAM CAROUSEL =====
+        (function() {
+            var track      = document.getElementById('teamTrack');
+            var prevBtn    = document.getElementById('carouselPrev');
+            var nextBtn    = document.getElementById('carouselNext');
+            var dots       = document.querySelectorAll('.carousel-dot');
+            var progressBar = document.getElementById('carouselProgressBar');
+            var nav        = document.getElementById('carouselNav');
+            var progress   = document.getElementById('carouselProgress');
+
+            if (!track) return;
+
+            var cards     = track.querySelectorAll('.team-card');
+            var total     = cards.length;
+            var current   = 0;
+            var autoTimer = null;
+            var AUTO_DELAY = 4000; // ms per slide
+
+            function isDesktop() {
+                return window.innerWidth > 992;
+            }
+
+            function getCardWidth() {
+                if (!cards[0]) return 0;
+                var gap = parseFloat(getComputedStyle(track).gap) || 48;
+                return cards[0].offsetWidth + gap;
+            }
+
+            function goTo(index) {
+                if (!isDesktop()) return;
+                current = Math.max(0, Math.min(index, total - 1));
+                track.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)';
+
+                // Update dots
+                dots.forEach(function(d, i) {
+                    d.classList.toggle('active', i === current);
+                });
+
+                // Update buttons
+                if (prevBtn) prevBtn.disabled = current === 0;
+                if (nextBtn) nextBtn.disabled = current === total - 1;
+
+                // Restart progress animation
+                if (progressBar) {
+                    progressBar.style.animation = 'none';
+                    void progressBar.offsetWidth; // reflow
+                    progressBar.style.animation = 'carousel-progress-anim ' + (AUTO_DELAY / 1000) + 's linear infinite';
+                }
+            }
+
+            function next() {
+                goTo(current < total - 1 ? current + 1 : 0);
+            }
+
+            function startAuto() {
+                clearInterval(autoTimer);
+                if (isDesktop()) {
+                    autoTimer = setInterval(next, AUTO_DELAY);
+                }
+            }
+
+            function stopAuto() {
+                clearInterval(autoTimer);
+            }
+
+            // Button listeners
+            if (prevBtn) prevBtn.addEventListener('click', function() { stopAuto(); goTo(current - 1); startAuto(); });
+            if (nextBtn) nextBtn.addEventListener('click', function() { stopAuto(); goTo(current + 1); startAuto(); });
+
+            // Dot listeners
+            dots.forEach(function(dot) {
+                dot.addEventListener('click', function() {
+                    stopAuto();
+                    goTo(parseInt(this.getAttribute('data-index')));
+                    startAuto();
+                });
+            });
+
+            // Pause on hover
+            if (track) {
+                track.addEventListener('mouseenter', stopAuto);
+                track.addEventListener('mouseleave', startAuto);
+            }
+
+            // Handle resize — reset carousel on viewport change
+            window.addEventListener('resize', function() {
+                if (isDesktop()) {
+                    goTo(current);
+                    startAuto();
+                } else {
+                    stopAuto();
+                    track.style.transform = '';
+                }
+            });
+
+            // Init
+            if (isDesktop()) {
+                goTo(0);
+                startAuto();
+            }
+        })();
+
     </script>
 </body>
 </html>
