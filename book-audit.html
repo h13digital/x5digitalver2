@@ -80,7 +80,7 @@
             --text-2xl:  1.5rem;
             --text-3xl:  1.875rem;
             --text-4xl:  2.25rem;
-            --text-l:  3rem;
+            --text-5xl:  3rem;
 
             /* === SHADOWS === */
             --shadow-sm:      0 1px 3px rgba(0,0,0,0.3);
@@ -339,7 +339,12 @@
             border-bottom-color: rgba(29,155,240,0.15);
             box-shadow: 0 4px 30px rgba(0,0,0,0.3);
         }
-        
+
+        /* Hide on scroll-down (mobile) — matches index/packages */
+        header.header-hidden {
+            transform: translateY(-100%);
+        }
+
         .nav {
             display: flex;
             justify-content: space-between;
@@ -355,16 +360,28 @@
             font-size: var(--text-2xl);
             color: var(--electric-blue);
         }
-        
-        .logo-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px; height: 40px;
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            color: white;
-            border-radius: 10px;
-            font-weight: 800;
+
+        /* fix sup colour when no gradient on parent */
+        .logo sup { font-size: 0.83em; -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
+
+        .logo-typed {
+            display: inline-block; overflow: hidden; white-space: nowrap;
+            max-width: 0; vertical-align: middle;
+            animation: logo-typing 1.4s steps(10, end) 0.3s forwards;
+        }
+        .logo-cursor {
+            display: inline-block; width: 2px; height: 1em;
+            background: var(--electric-blue); border-radius: 2px;
+            margin-left: 2px; vertical-align: middle; opacity: 0;
+            animation: logo-cursor-appear 0s 1.7s forwards,
+                       logo-cursor-blink  1s 1.7s step-end infinite;
+        }
+        @keyframes logo-typing { from { max-width: 0; } to { max-width: 180px; } }
+        @keyframes logo-cursor-appear { to { opacity: 1; } }
+        @keyframes logo-cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @media (prefers-reduced-motion: reduce) {
+            .logo-typed  { max-width: 180px; animation: none; }
+            .logo-cursor { opacity: 1; animation: none; }
         }
         
         .nav-links {
@@ -1043,7 +1060,7 @@
         <div class="container">
             <nav class="nav">
                 <a href="index.html" class="logo">
-                    <span>X<sup>5</sup> Digital</span>
+                    <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
                 </a>
                 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
@@ -1416,7 +1433,7 @@
                 <div>
                     <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
                     <div class="footer-links">
-                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="/cdn-cgi/l/email-protection#ee868b828281ae96db8a8789879a8f82c08d8183"><span class="__cf_email__" data-cfemail="80e8e5ececefc0f8b5e4e9e7e9f4e1ecaee3efed">[email&#160;protected]</span></a>
                         <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
                         <a href="#" aria-label="LinkedIn">LinkedIn</a>
                         <a href="#" aria-label="Twitter / X">Twitter</a>
@@ -1430,7 +1447,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // Initialize AOS (Animate On Scroll)
         AOS.init({
@@ -1460,15 +1477,29 @@
             });
         });
 
-        // Header scroll effect
+        // Header scroll — hide on scroll-down (mobile), show on scroll-up
+        var header      = document.getElementById('header');
+        var lastScrollY = window.scrollY;
+        var ticking     = false;
+
         window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    var cur = window.scrollY;
+                    header.classList.toggle('scrolled', cur > 50);
+                    if (window.innerWidth <= 992 && !navLinks.classList.contains('active')) {
+                        if (cur > lastScrollY && cur > 80) {
+                            header.classList.add('header-hidden');
+                        } else {
+                            header.classList.remove('header-hidden');
+                        }
+                    }
+                    lastScrollY = cur;
+                    ticking = false;
+                });
+                ticking = true;
             }
-        });
+        }, { passive: true });
 
         // DOM Elements
         const form = document.getElementById('auditForm');
