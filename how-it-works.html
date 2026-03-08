@@ -137,7 +137,7 @@
             line-height: 0;
             font-weight: inherit;
         }
-        .logo sup { -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
+        .logo sup { font-size: 0.83em; -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
 
         .text-gradient {
             background: var(--grad-brand);
@@ -269,12 +269,24 @@
             font-weight: 900; font-size: var(--text-2xl);
             color: var(--electric-blue); font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        .logo-icon {
-            display: flex; align-items: center; justify-content: center;
-            width: 40px; height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white; border-radius: 10px; font-weight: 800;
-            font-size: 0.9rem; letter-spacing: -0.03em;
+        .logo-typed {
+            display: inline-block; overflow: hidden; white-space: nowrap;
+            max-width: 0; vertical-align: middle;
+            animation: logo-typing 1.4s steps(10, end) 0.3s forwards;
+        }
+        .logo-cursor {
+            display: inline-block; width: 2px; height: 1em;
+            background: var(--electric-blue); border-radius: 2px;
+            margin-left: 2px; vertical-align: middle; opacity: 0;
+            animation: logo-cursor-appear 0s 1.7s forwards,
+                       logo-cursor-blink  1s 1.7s step-end infinite;
+        }
+        @keyframes logo-typing { from { max-width: 0; } to { max-width: 180px; } }
+        @keyframes logo-cursor-appear { to { opacity: 1; } }
+        @keyframes logo-cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        @media (prefers-reduced-motion: reduce) {
+            .logo-typed  { max-width: 180px; animation: none; }
+            .logo-cursor { opacity: 1; animation: none; }
         }
         
         .nav-links { display: flex; gap: var(--space-xl); align-items: center; }
@@ -903,8 +915,7 @@
             <!-- FIX M9: aria-expanded + aria-controls -->
             <nav class="nav" role="navigation" aria-label="Main navigation">
                 <a href="index.html" class="logo" aria-label="X5 Digital — Home">
-                    <div class="logo-icon" aria-hidden="true">X<sup>5</sup></div>
-                    <span>X<sup>5</sup> Digital</span>
+                    <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
                 </a>
                 
                 <button class="mobile-menu-toggle"
@@ -1416,7 +1427,7 @@
                 <div>
                     <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Contact</h4>
                     <div class="footer-links">
-                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="/cdn-cgi/l/email-protection#1179747d7d7e5169247578767865707d3f727e7c"><span class="__cf_email__" data-cfemail="573f323b3b38172f62333e303e23363b7934383a">[email&#160;protected]</span></a>
                         <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
                         <a href="#" aria-label="LinkedIn">LinkedIn</a>
                         <a href="#" aria-label="Twitter / X">Twitter</a>
@@ -1431,7 +1442,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // FIX M10: reduced offset, disable on very small screens
         AOS.init({
@@ -1563,9 +1574,9 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                const targetEl = document.querySelector(targetId);
-                if (targetEl) {
-                    window.scrollTo({ top: targetEl.offsetTop - 80, behavior: 'smooth' });
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
                 }
             });
         });
