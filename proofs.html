@@ -472,7 +472,23 @@
         }
 
         .hero-bg-dot { display: none; }
-        
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: var(--space-xl);
+        }
+
         /* Hero badge — per Design System §12 */
         .hero-badge {
             display: inline-flex;
@@ -1080,8 +1096,9 @@
             h1 { font-size: clamp(2rem, 8vw, 3rem); }
             h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
             
+            /* Fix 1: explicit hero padding above fixed header */
             .hero {
-                padding-top: calc(var(--space-2xl) * 2);
+                padding-top: 8rem;
                 padding-bottom: var(--space-2xl);
             }
             
@@ -1124,9 +1141,25 @@
             
             .demo-features { grid-template-columns: 1fr; }
             .risk-features  { grid-template-columns: 1fr; }
-            
-            .btn { width: 100%; max-width: 300px; }
-            .risk-card { padding: var(--space-xl) var(--space-lg); }
+
+            /* Fix 2: CTA buttons column on mobile */
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Fix 2: full-width buttons, cap width */
+            .btn {
+                white-space: normal;
+                width: 100%;
+                max-width: 380px;
+                min-height: 52px;
+                line-height: 1.4;
+            }
+            .nav-links .btn { width: auto; max-width: none; white-space: nowrap; min-height: 44px; }
+
+            /* Fix 3: push risk-card content below the absolute badge */
+            .risk-card { padding: var(--space-xl) var(--space-lg); padding-top: 3rem; }
         }
         
         @media (max-width: 480px) {
@@ -1135,6 +1168,8 @@
                 --space-xl: 2rem;
                 --space-2xl: 3rem;
             }
+            /* Fix 1: hardcode hero padding so shrunken vars don't break it */
+            .hero { padding-top: 7rem; }
             .container { padding: 0 var(--space-md); }
             .benchmark-result { font-size: var(--text-2xl); }
             .chart-bar { width: 30px; }
@@ -1676,38 +1711,31 @@
         <div class="container">
             <div class="footer-content">
                 <div>
-                    <div class="footer-logo">X5 Digital</div>
-                    <p style="color: var(--text-secondary); margin-bottom: 0;">
-                        We build the revenue machine inside your business — and hand you the keys.<br>
-                        Vietnam-based · Built for U.S. SMEs · 24/7 coverage
-                    </p>
+                    <div class="footer-logo">X<sup>5</sup> Digital</div>
+                    <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business &mdash; and hand you the keys.<br>Vietnam-based &middot; Built for U.S. SMEs &middot; 24/7 coverage</p>
                 </div>
-                
                 <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
-                    <div class="footer-links">
+                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
+                    <nav class="footer-links" aria-label="Footer navigation">
                         <a href="index.html">Home</a>
                         <a href="how-it-works.html">How It Works</a>
                         <a href="packages.html">Packages</a>
                         <a href="proofs.html">Proof</a>
                         <a href="book-audit.html">Book Free Audit</a>
-                    </div>
+                    </nav>
                 </div>
-                
                 <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Proof &amp; Demos</h4>
+                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
                     <div class="footer-links">
-                        <a href="#benchmarks">Benchmarks</a>
-                        <a href="#demos">Live Demos</a>
-                        <a href="#portfolio">Vietnam Portfolio</a>
-                        <a href="#founders">Founders</a>
-                        <a href="#audit">Free Audit</a>
+                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                        <a href="tel:+15551234567">U.S. Phone: (555) 123-4567</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="Twitter / X">Twitter</a>
                     </div>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p>&copy; 2025 X5 Digital. All rights reserved. • Zero-Risk Pilot Program for first 10 U.S. clients.</p>
+                <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
             </div>
         </div>
     </footer>
