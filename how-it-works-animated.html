@@ -33,7 +33,7 @@
         --transition-spring:.4s cubic-bezier(.34,1.56,.64,1);
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;font-size:16px}
+    html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
     body{font-family:'Outfit',sans-serif;line-height:1.75;color:var(--text-secondary);background:var(--bg-base);overflow-x:hidden;-webkit-font-smoothing:antialiased}
     a{text-decoration:none;color:inherit;transition:color var(--transition-fast)}
     .container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg)}
@@ -278,10 +278,11 @@
     .role-list li:hover .role-icon{transform:rotate(20deg) scale(1.2)}
     .tech .role-icon{background:rgba(0,212,170,.12);color:var(--aurora-green)}
     .brand .role-icon{background:rgba(99,102,241,.12);color:var(--neon-indigo)}
-    .outcome-box{background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.35);padding:var(--space-lg);border-radius:var(--radius-lg);text-align:center;margin-top:var(--space-lg);font-size:var(--text-lg);font-weight:700;color:var(--aurora-green);overflow:hidden;white-space:nowrap}
-    .outcome-box.typing{overflow:hidden;border-right:2px solid var(--aurora-green);animation:typingCursor .7s step-end infinite}
+    .outcome-box{background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.35);padding:var(--space-lg);border-radius:var(--radius-lg);text-align:center;margin-top:var(--space-lg);font-size:var(--text-lg);font-weight:700;color:var(--aurora-green);overflow:hidden;white-space:normal;word-break:break-word;line-height:1.4}
+    .outcome-box.typing{border-right:2px solid var(--aurora-green);animation:typingCursor .7s step-end infinite}
     @keyframes typingCursor{0%,100%{border-color:var(--aurora-green)}50%{border-color:transparent}}
-    .brand .outcome-box{background:rgba(99,102,241,.08);border-color:rgba(99,102,241,.35);color:var(--neon-indigo);animation:typingCursor2 .7s step-end infinite}
+    .brand .outcome-box{background:rgba(99,102,241,.08);border-color:rgba(99,102,241,.35);color:var(--neon-indigo)}
+    .brand .outcome-box.typing{border-right:2px solid var(--neon-indigo);animation:typingCursor2 .7s step-end infinite}
     @keyframes typingCursor2{0%,100%{border-color:var(--neon-indigo)}50%{border-color:transparent}}
 
     /* ═══════════════════════════════════════════════
@@ -898,7 +899,7 @@
             <div class="sr sr-up" style="transition-delay:.3s">
                 <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
                 <div class="footer-links">
-                    <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                    <a href="/cdn-cgi/l/email-protection#e088858c8c8fa098d58489878994818cce838f8d"><span class="__cf_email__" data-cfemail="f59d9099999ab58dc0919c929c819499db969a98">[email&#160;protected]</span></a>
                     <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
                     <a href="#" aria-label="LinkedIn">LinkedIn</a>
                     <a href="#" aria-label="Twitter / X">Twitter</a>
@@ -911,7 +912,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ═══════════════════════════════════════════════
    1. HERO PARTICLE NETWORK (same as index)
 ═══════════════════════════════════════════════ */
@@ -1203,8 +1204,4 @@ document.querySelectorAll('.btn-magnetic').forEach(function(wrap){
    14. SMOOTH SCROLL
 ═══════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){e.preventDefault();var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el)window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});});
-});
-</script>
-</body>
-</html>
+  
