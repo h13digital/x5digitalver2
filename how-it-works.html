@@ -4,954 +4,464 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How It Works — X⁵ Digital | The System That Turns Strategy Into Revenue</title>
-    <meta name="description" content="The exact client-controlled system that turns strategy into compounding revenue — every single month. No middlemen. No execution gap.">
-    <!-- Google Fonts -->
+    <meta name="description" content="The exact client-controlled system that turns strategy into compounding revenue — every single month.">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <style>
-        /* ===== CSS VARIABLES & RESET ===== */
-        :root {
-            --bg-base:        #080D1A;
-            --bg-surface-1:   #0D1426;
-            --bg-surface-2:   #111B33;
-            --bg-surface-3:   #1A2444;
+    /* ═══════════════════════════════════════════════
+       TOKENS (identical to index.html)
+    ═══════════════════════════════════════════════ */
+    :root {
+        --bg-base:#080D1A; --bg-surface-1:#0D1426; --bg-surface-2:#111B33; --bg-surface-3:#1A2444;
+        --electric-blue:#1D9BF0; --neon-indigo:#6366F1; --cyber-cyan:#06B6D4;
+        --aurora-green:#00D4AA; --amber-warm:#F59E0B; --danger-red:#EF4444;
+        --primary:#1D9BF0; --accent:#8B5CF6;
+        --text-primary:#F1F5F9; --text-secondary:#94A3B8; --text-muted:#475569;
+        --grad-brand:linear-gradient(135deg,#1D9BF0 0%,#6366F1 50%,#8B5CF6 100%);
+        --grad-cta-bg:linear-gradient(135deg,#0D1F3C 0%,#1A1040 100%);
+        --glow-blue-sm:0 0 20px rgba(29,155,240,.25); --glow-blue-md:0 0 40px rgba(29,155,240,.35);
+        --glow-indigo:0 0 60px rgba(99,102,241,.30); --glow-green:0 0 40px rgba(0,212,170,.30);
+        --glow-cyan:0 0 40px rgba(6,182,212,.30);
+        --space-xs:.5rem; --space-sm:1rem; --space-md:1.5rem; --space-lg:2rem;
+        --space-xl:3rem; --space-2xl:4rem; --space-3xl:6rem;
+        --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem;
+        --text-xl:1.25rem; --text-2xl:1.5rem; --text-3xl:1.875rem; --text-4xl:2.25rem;
+        --shadow-xl:0 20px 60px rgba(0,0,0,.6);
+        --radius-sm:8px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px; --radius-full:9999px;
+        --transition-fast:.15s cubic-bezier(.4,0,.2,1);
+        --transition-normal:.3s cubic-bezier(.4,0,.2,1);
+        --transition-spring:.4s cubic-bezier(.34,1.56,.64,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px;overflow-x:hidden}
+    body{font-family:'Outfit',sans-serif;line-height:1.75;color:var(--text-secondary);background:var(--bg-base);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit;transition:color var(--transition-fast)}
+    .container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg)}
+    .container-narrow{max-width:1000px;margin:0 auto;padding:0 var(--space-lg)}
+    .section{padding:var(--space-3xl) 0} .section-lg{padding:var(--space-3xl) 0}
+    h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.2;margin-bottom:var(--space-md);color:var(--text-primary)}
+    h1{font-size:clamp(2.75rem,6vw,5rem);font-weight:900;letter-spacing:-.03em}
+    h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.01em}
+    h3{font-size:clamp(1.25rem,2vw,1.75rem);font-weight:700}
+    p{margin-bottom:var(--space-md);color:var(--text-secondary);line-height:1.75}
+    .lead{font-size:var(--text-xl);font-weight:500;line-height:1.6;color:var(--text-secondary)}
+    strong{color:var(--text-primary)}
+    sup{font-size:.6em;vertical-align:super;line-height:0;font-weight:inherit}
+    .logo sup{font-size:.83em;-webkit-text-fill-color:var(--electric-blue);color:var(--electric-blue)}
+    .text-gradient{background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .text-center{text-align:center}
+    .mb-xl{margin-bottom:var(--space-xl)} .mt-xl{margin-top:var(--space-xl)}
+    .mt-lg{margin-top:var(--space-lg)} .bg-light{background:var(--bg-surface-1)!important}
 
-            --electric-blue:  #1D9BF0;
-            --neon-indigo:    #6366F1;
-            --cyber-cyan:     #06B6D4;
-            --aurora-green:   #00D4AA;
-            --amber-warm:     #F59E0B;
-            --danger-red:     #EF4444;
+    /* ═══════════════════════════════════════════════
+       SCROLL REVEAL (same system as index)
+    ═══════════════════════════════════════════════ */
+    .sr{opacity:0;transition:opacity .7s ease,transform .7s ease}
+    .sr-up    {transform:translateY(40px)}
+    .sr-left  {transform:translateX(-60px)}
+    .sr-right {transform:translateX(60px)}
+    .sr-scale {transform:scale(.85)}
+    .sr-flip  {transform:perspective(600px) rotateX(25deg)}
+    .sr.in    {opacity:1!important;transform:none!important}
 
-            --primary:        #1D9BF0;
-            --primary-dark:   #1580CC;
-            --primary-light:  #6366F1;
-            --secondary:      #00D4AA;
-            --secondary-dark: #00B892;
-            --accent:         #8B5CF6;
-            --tech:           #00D4AA;
-            --brand:          #8B5CF6;
+    /* ═══════════════════════════════════════════════
+       AURORA + CANVAS
+    ═══════════════════════════════════════════════ */
+    .aurora-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;will-change:transform;animation:aurora-drift 12s ease-in-out infinite}
+    .aurora-orb-1{width:600px;height:600px;top:-200px;right:-100px;background:radial-gradient(circle,rgba(29,155,240,.12),transparent 70%)}
+    .aurora-orb-2{width:500px;height:500px;bottom:0;left:-150px;background:radial-gradient(circle,rgba(99,102,241,.10),transparent 70%);animation-delay:-6s}
+    @keyframes aurora-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(.97)}}
+    #hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.7}
+    #cta-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.5}
 
-            --text-primary:   #F1F5F9;
-            --text-secondary: #94A3B8;
-            --text-muted:     #475569;
-            --text-inverse:   #080D1A;
+    /* ═══════════════════════════════════════════════
+       BUTTONS (same as index)
+    ═══════════════════════════════════════════════ */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);font-weight:600;font-size:var(--text-base);border-radius:var(--radius-md);border:none;cursor:pointer;transition:all var(--transition-normal);position:relative;overflow:hidden;text-align:center;white-space:nowrap;min-height:44px}
+    .btn::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%)}
+    .btn:hover::after{animation:shine .8s ease}
+    @keyframes shine{100%{transform:translateX(100%)}}
+    .btn-primary{background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;box-shadow:0 4px 20px rgba(29,155,240,.25);animation:cta-breathe 3s ease-in-out 3s infinite}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(29,155,240,.5),0 0 0 4px rgba(29,155,240,.15);animation:none}
+    @keyframes cta-breathe{0%,100%{box-shadow:0 4px 20px rgba(29,155,240,.20)}50%{box-shadow:0 4px 40px rgba(29,155,240,.55),0 0 60px rgba(99,102,241,.25)}}
+    .btn-secondary{background:transparent;color:var(--electric-blue);border:1px solid rgba(29,155,240,.40)}
+    .btn-secondary:hover{background:rgba(29,155,240,.08);border-color:var(--electric-blue);transform:translateY(-2px)}
+    .btn-lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-lg);border-radius:var(--radius-lg)}
+    .btn-magnetic{display:inline-block;transition:transform .2s ease}
 
-            --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
-            --grad-cta-bg:    linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
-            --grad-divider:   linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);
+    /* ═══════════════════════════════════════════════
+       HEADER (identical to index)
+    ═══════════════════════════════════════════════ */
+    header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:var(--space-md) 0;background:rgba(8,13,26,.75);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.4,0,.2,1),padding var(--transition-normal),background var(--transition-normal),box-shadow var(--transition-normal);animation:headerIn .6s ease both}
+    @keyframes headerIn{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+    header.header-hidden{transform:translateY(-100%)}
+    header.scrolled{padding:var(--space-sm) 0;background:rgba(8,13,26,.95);border-bottom-color:rgba(29,155,240,.15);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{display:flex;align-items:center;gap:var(--space-sm);font-weight:900;font-size:var(--text-2xl);color:var(--electric-blue);font-family:'Plus Jakarta Sans',sans-serif}
+    .logo-typed{display:inline-block;overflow:hidden;white-space:nowrap;max-width:0;vertical-align:middle;animation:logo-typing 1.4s steps(10,end) .3s forwards}
+    .logo-cursor{display:inline-block;width:2px;height:1em;background:var(--electric-blue);border-radius:2px;margin-left:2px;vertical-align:middle;opacity:0;animation:logo-cursor-appear 0s 1.7s forwards,logo-cursor-blink 1s 1.7s step-end infinite}
+    @keyframes logo-typing{from{max-width:0}to{max-width:180px}}
+    @keyframes logo-cursor-appear{to{opacity:1}}
+    @keyframes logo-cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
+    .nav-links{display:flex;gap:var(--space-xl);align-items:center}
+    .nav-link{font-weight:500;font-size:var(--text-base);color:var(--text-secondary);font-family:'Outfit',sans-serif;position:relative;padding:var(--space-xs) 0}
+    .nav-link::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:1.5px;background:var(--electric-blue);transform:translateX(-50%);transition:width var(--transition-normal)}
+    .nav-link:hover{color:var(--text-primary)} .nav-link:hover::after{width:100%}
+    .nav-link.active{color:var(--electric-blue)} .nav-link.active::after{width:100%}
+    .mobile-menu-toggle{display:none;background:none;border:none;width:44px;height:44px;cursor:pointer;position:relative;z-index:1001;align-items:center;justify-content:center}
+    .hamburger{width:24px;height:2px;background:var(--text-primary);position:relative;transition:all var(--transition-fast)}
+    .hamburger::before,.hamburger::after{content:'';position:absolute;width:24px;height:2px;background:var(--text-primary);transition:all var(--transition-fast)}
+    .hamburger::before{top:-8px} .hamburger::after{bottom:-8px}
+    .mobile-menu-toggle.active .hamburger{background:transparent}
+    .mobile-menu-toggle.active .hamburger::before{transform:rotate(45deg) translate(5px,5px)}
+    .mobile-menu-toggle.active .hamburger::after{transform:rotate(-45deg) translate(7px,-6px)}
 
-            --glow-blue-sm:   0 0 20px rgba(29,155,240,0.25);
-            --glow-blue-md:   0 0 40px rgba(29,155,240,0.35);
-            --glow-blue-lg:   0 0 80px rgba(29,155,240,0.45);
-            --glow-indigo:    0 0 60px rgba(99,102,241,0.30);
-            --glow-green:     0 0 40px rgba(0,212,170,0.30);
-            --glow-cyan:      0 0 40px rgba(6,182,212,0.30);
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    .hero{padding-top:calc(var(--space-3xl)*2);padding-bottom:var(--space-3xl);background:var(--bg-base);position:relative;overflow:hidden}
+    .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+    .hero-content{text-align:center;max-width:900px;margin:0 auto;position:relative;z-index:1}
 
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
+    /* Badge */
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--space-xs);background:rgba(29,155,240,.08);border:1px solid rgba(29,155,240,.25);padding:8px 18px;border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:600;color:var(--electric-blue);letter-spacing:.05em;text-transform:uppercase;margin-bottom:var(--space-xl);position:relative;overflow:hidden;opacity:0;animation:fadeInDown .8s ease .4s forwards}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+    .hero-badge::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(29,155,240,.3),transparent);animation:badge-scan 3s ease-in-out 2s infinite}
+    @keyframes badge-scan{0%{left:-100%}100%{left:200%}}
+    .badge-dot{width:6px;height:6px;background:var(--aurora-green);border-radius:50%;flex-shrink:0;box-shadow:0 0 8px rgba(0,212,170,.8);animation:badge-pulse 2s ease-in-out infinite}
+    @keyframes badge-pulse{0%,100%{box-shadow:0 0 8px rgba(0,212,170,.8);opacity:1}50%{box-shadow:0 0 16px rgba(0,212,170,.4);opacity:.6}}
+    .hero h1{opacity:0;animation:heroTitleIn 1s ease .9s forwards}
+    @keyframes heroTitleIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .hero .lead{opacity:0;animation:fadeInUp .8s ease 1.4s forwards}
+    .hero-cta{opacity:0;animation:fadeInUp .8s ease 1.7s forwards}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-            --text-xs:   0.75rem;
-            --text-sm:   0.875rem;
-            --text-base: 1rem;
-            --text-lg:   1.125rem;
-            --text-xl:   1.25rem;
-            --text-2xl:  1.5rem;
-            --text-3xl:  1.875rem;
-            --text-4xl:  2.25rem;
-            --text-5xl:  3rem;
-            --text-6xl:  3.75rem;
+    /* ═══════════════════════════════════════════════
+       SECTION EYEBROW
+    ═══════════════════════════════════════════════ */
+    .section-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(29,155,240,.08);border:1px solid rgba(29,155,240,.25);padding:6px 16px;border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-size:.6875rem;font-weight:600;color:var(--electric-blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:var(--space-md)}
+    .eyebrow-dot{width:6px;height:6px;background:var(--aurora-green);border-radius:50%;box-shadow:0 0 8px rgba(0,212,170,.8);animation:badge-pulse 2s ease-in-out infinite}
 
-            --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md:  0 4px 20px rgba(0,0,0,0.4);
-            --shadow-lg:  0 10px 40px rgba(0,0,0,0.5);
-            --shadow-xl:  0 20px 60px rgba(0,0,0,0.6);
-            --shadow-primary: 0 4px 20px rgba(29,155,240,0.25);
+    /* ═══════════════════════════════════════════════
+       5-LAYER PYRAMID
+    ═══════════════════════════════════════════════ */
+    .layers-section{background:var(--bg-surface-1);position:relative;overflow:hidden}
+    .layers-section::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:900px;height:600px;background:radial-gradient(ellipse at center,rgba(29,155,240,.07) 0%,rgba(99,102,241,.05) 40%,transparent 70%);pointer-events:none;z-index:0}
+    .layers-visual{max-width:900px;margin:var(--space-3xl) auto;position:relative;z-index:1}
+    .layers-container{display:flex;flex-direction:column;align-items:center;gap:var(--space-lg);position:relative;z-index:1}
 
-            --transition-fast:   0.15s cubic-bezier(0.4,0,0.2,1);
-            --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
-            --transition-slow:   0.5s cubic-bezier(0.4,0,0.2,1);
-            --transition-spring: 0.4s cubic-bezier(0.34,1.56,0.64,1);
-            --transition-smooth: 0.6s cubic-bezier(0.22,1,0.36,1);
+    /* Layer base — builds UP so Layer 1 is last in DOM but visually bottom */
+    .layer{width:100%;background:rgba(13,20,38,.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);padding:var(--space-xl) var(--space-2xl);border-radius:var(--radius-xl);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:var(--space-xl);position:relative;overflow:hidden;cursor:pointer;color:var(--text-secondary);
+        /* start state for build-up */
+        opacity:0;transform:translateY(30px);
+        transition:opacity .6s ease,transform .6s ease,border-color .3s ease,box-shadow .3s ease}
+    .layer.layer-in{opacity:1;transform:translateY(0)}
+    /* left border draw */
+    .layer::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;border-radius:0 2px 2px 0;transition:height .5s ease .3s}
+    .layer.layer-in::before{height:100%}
+    /* hover scan line */
+    .layer::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;pointer-events:none;transition:none}
+    .layer:hover::after{background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent);animation:layerScan .6s ease}
+    @keyframes layerScan{from{left:-100%}to{left:100%}}
+    @media(hover:hover){.layer:hover{transform:translateX(10px)!important}}
+    .layer h3{color:var(--text-primary);margin-bottom:var(--space-xs);font-size:var(--text-xl)}
+    .layer p{color:var(--text-secondary);margin-bottom:0}
 
-            --radius-xs:   4px;
-            --radius-sm:   8px;
-            --radius-md:   10px;
-            --radius-lg:   16px;
-            --radius-xl:   24px;
-            --radius-2xl:  32px;
-            --radius-full: 9999px;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        html { scroll-behavior: smooth; font-size: 16px; }
-        
-        body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.75;
-            color: var(--text-secondary);
-            background-color: var(--bg-base);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        a { text-decoration: none; color: inherit; transition: color var(--transition-fast); }
-        img { max-width: 100%; height: auto; }
-        
-        .container       { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .container-narrow{ max-width: 1000px; margin: 0 auto; padding: 0 var(--space-lg); }
-        .section    { padding: var(--space-3xl) 0; }
-        .section-sm { padding: var(--space-2xl) 0; }
-        .section-lg { padding: var(--space-3xl) 0; }
-        
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800; line-height: 1.2;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-        }
-        h1 { font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.03em; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem);    font-weight: 800; letter-spacing: -0.01em; }
-        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 700; }
-        h4 { color: var(--text-primary); }
-        p  { margin-bottom: var(--space-md); color: var(--text-secondary); line-height: 1.75; }
-        .lead { font-size: var(--text-xl); font-weight: 500; line-height: 1.6; color: var(--text-secondary); }
-        strong { color: var(--text-primary); }
+    /* Per-layer colours */
+    .layer-1{width:100%;border-color:rgba(6,182,212,.40);background:rgba(6,182,212,.04)}
+    .layer-1::before{background:var(--cyber-cyan)}
+    @media(hover:hover){.layer-1:hover{border-color:rgba(6,182,212,.65);box-shadow:0 0 30px rgba(6,182,212,.18)}}
+    .layer-2{width:93%;border-color:rgba(0,212,170,.40);background:rgba(0,212,170,.04)}
+    .layer-2::before{background:var(--aurora-green)}
+    @media(hover:hover){.layer-2:hover{border-color:rgba(0,212,170,.65);box-shadow:0 0 30px rgba(0,212,170,.18)}}
+    .layer-3{width:84%;border-color:rgba(99,102,241,.45);background:rgba(99,102,241,.05)}
+    .layer-3::before{background:var(--neon-indigo)}
+    @media(hover:hover){.layer-3:hover{border-color:rgba(99,102,241,.65);box-shadow:var(--glow-indigo)}}
+    .layer-4{width:74%;border-color:rgba(29,155,240,.50);background:rgba(29,155,240,.06)}
+    .layer-4::before{background:var(--electric-blue)}
+    @media(hover:hover){.layer-4:hover{border-color:rgba(29,155,240,.70);box-shadow:var(--glow-blue-sm)}}
+    .layer-5{width:62%;border-color:rgba(29,155,240,.55);background:rgba(29,155,240,.10);box-shadow:0 0 40px rgba(29,155,240,.20);animation:layer5-breathe 4s ease-in-out infinite}
+    .layer-5::before{background:var(--grad-brand)}
+    .layer-5 h3{color:var(--electric-blue)}
+    @keyframes layer5-breathe{0%,100%{box-shadow:0 0 40px rgba(29,155,240,.20),0 0 80px rgba(99,102,241,.10)}50%{box-shadow:0 0 60px rgba(29,155,240,.45),0 0 120px rgba(99,102,241,.22)}}
+    /* PEAK badge */
+    .layer-5 .peak-badge{position:absolute;top:12px;right:14px;background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));color:#fff;font-family:'JetBrains Mono',monospace;font-size:.6rem;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:var(--radius-full);overflow:hidden}
+    .layer-5 .peak-badge::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:badge-scan 2.5s ease infinite 3s}
 
-        /* FIX #2 (logo): superscript */
-        sup {
-            font-size: 0.6em;
-            vertical-align: super;
-            line-height: 0;
-            font-weight: inherit;
-        }
-        .logo sup { font-size: 0.83em; -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
+    /* layer numbers */
+    .layer-number{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-size:var(--text-2xl);font-weight:600;flex-shrink:0;transition:transform var(--transition-spring)}
+    .layer:hover .layer-number{transform:scale(1.15) rotate(-5deg)}
+    .layer-1 .layer-number{background:rgba(6,182,212,.12);border:1.5px solid rgba(6,182,212,.40);color:var(--cyber-cyan)}
+    .layer-2 .layer-number{background:rgba(0,212,170,.12);border:1.5px solid rgba(0,212,170,.40);color:var(--aurora-green)}
+    .layer-3 .layer-number{background:rgba(99,102,241,.12);border:1.5px solid rgba(99,102,241,.45);color:var(--neon-indigo)}
+    .layer-4 .layer-number{background:rgba(29,155,240,.12);border:1.5px solid rgba(29,155,240,.50);color:var(--electric-blue)}
+    .layer-5 .layer-number{background:rgba(29,155,240,.18);border:1.5px solid rgba(29,155,240,.60);color:var(--electric-blue);box-shadow:var(--glow-blue-sm)}
+    .layer-content{flex:1}
+    .layer-tools{display:flex;gap:var(--space-xs);margin-top:var(--space-sm);flex-wrap:wrap}
+    .tool-tag{background:rgba(29,155,240,.08);border:1px solid rgba(29,155,240,.20);color:var(--electric-blue);font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:600;letter-spacing:.05em;padding:3px 10px;border-radius:var(--radius-full);
+        /* pop-in start */
+        opacity:0;transform:scale(0);transition:opacity .3s ease,transform .3s var(--transition-spring)}
+    .tool-tag.tag-in{opacity:1;transform:scale(1)}
+    .layer-1 .tool-tag{border-color:rgba(6,182,212,.40);color:var(--cyber-cyan);background:rgba(6,182,212,.08)}
+    .layer-2 .tool-tag{border-color:rgba(0,212,170,.40);color:var(--aurora-green);background:rgba(0,212,170,.08)}
+    .layer-3 .tool-tag{border-color:rgba(99,102,241,.40);color:var(--neon-indigo);background:rgba(99,102,241,.08)}
+    .layer-4 .tool-tag{border-color:rgba(29,155,240,.40);color:var(--electric-blue);background:rgba(29,155,240,.08)}
+    .layer-5 .tool-tag{border-color:rgba(29,155,240,.55);color:var(--electric-blue);background:rgba(29,155,240,.14);font-weight:700}
 
-        .text-gradient {
-            background: var(--grad-brand);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    /* ═══════════════════════════════════════════════
+       PERFORMANCE LOOP
+    ═══════════════════════════════════════════════ */
+    .loop-section{background:var(--bg-surface-1)}
+    .loop-stepper{max-width:900px;margin:var(--space-3xl) auto 0}
+    .loop-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-sm);margin-bottom:var(--space-lg);position:relative}
+    .loop-tabs::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:rgba(29,155,240,.15);z-index:0}
+    .loop-tab{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 12px;border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.08);background:rgba(13,20,38,.60);cursor:pointer;transition:all var(--transition-normal);min-height:80px;text-align:center;overflow:hidden}
+    /* progress fill per tab */
+    .loop-tab .tab-progress{position:absolute;bottom:0;left:0;height:3px;width:0;background:var(--electric-blue);border-radius:0 0 var(--radius-lg) var(--radius-lg);transition:width linear}
+    .loop-tab:hover{border-color:rgba(29,155,240,.30);background:rgba(29,155,240,.06)}
+    .loop-tab.active{border-color:var(--electric-blue);background:rgba(29,155,240,.10);box-shadow:var(--glow-blue-sm)}
+    .loop-tab-number{width:36px;height:36px;border-radius:50%;background:rgba(29,155,240,.12);border:1px solid rgba(29,155,240,.25);font-family:'JetBrains Mono',monospace;font-size:.875rem;font-weight:600;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;transition:all var(--transition-normal);flex-shrink:0}
+    .loop-tab.active .loop-tab-number{background:var(--electric-blue);border-color:var(--electric-blue);color:#fff;box-shadow:var(--glow-blue-sm);animation:tabNumFlip .4s ease}
+    @keyframes tabNumFlip{0%{transform:rotateX(90deg)}100%{transform:rotateX(0deg)}}
+    .loop-tab-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:.8125rem;font-weight:600;color:var(--text-secondary);transition:color var(--transition-normal);line-height:1.3}
+    .loop-tab.active .loop-tab-label{color:var(--text-primary)}
+    .loop-tab:last-child::after{content:'↺ Monthly';position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:.625rem;color:var(--electric-blue);opacity:.7;letter-spacing:.05em;white-space:nowrap}
+    /* rotating ↺ on the last tab label */
+    .loop-tab:last-child .loop-tab-label{position:relative}
 
-        /* Aurora orbs */
-        .aurora-orb {
-            position: absolute; border-radius: 50%;
-            filter: blur(80px); pointer-events: none;
-            will-change: transform;
-            animation: aurora-drift 12s ease-in-out infinite;
-        }
-        .aurora-orb-1 {
-            width: 600px; height: 600px; top: -200px; right: -100px;
-            background: radial-gradient(circle, rgba(29,155,240,0.12), transparent 70%);
-        }
-        .aurora-orb-2 {
-            width: 500px; height: 500px; bottom: 0; left: -150px;
-            background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
-            animation-delay: -6s;
-        }
-        @keyframes aurora-drift {
-            0%,100% { transform: translate(0,0) scale(1); }
-            33%      { transform: translate(30px,-20px) scale(1.05); }
-            66%      { transform: translate(-20px,15px) scale(0.97); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .aurora-orb { animation: none; }
-            .btn-primary { animation: none; }
-        }
+    .loop-detail-panel{background:var(--bg-surface-2);border:1px solid rgba(29,155,240,.15);border-radius:var(--radius-xl);padding:var(--space-2xl);margin-top:var(--space-2xl);min-height:220px;overflow:hidden}
+    .loop-detail{display:none;gap:var(--space-xl);align-items:flex-start}
+    .loop-detail.active{display:flex;animation:detailIn .45s cubic-bezier(.22,1,.36,1)}
+    .loop-detail.slide-right{animation:detailFromRight .45s cubic-bezier(.22,1,.36,1)}
+    .loop-detail.slide-left{animation:detailFromLeft .45s cubic-bezier(.22,1,.36,1)}
+    @keyframes detailIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes detailFromRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes detailFromLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+    .loop-detail-icon{width:72px;height:72px;border-radius:var(--radius-lg);background:rgba(29,155,240,.10);border:1px solid rgba(29,155,240,.25);display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--electric-blue);flex-shrink:0;box-shadow:var(--glow-blue-sm);transition:transform var(--transition-spring)}
+    .loop-detail.active .loop-detail-icon{animation:iconSpin .5s ease}
+    @keyframes iconSpin{0%{transform:rotate(-20deg) scale(.8)}100%{transform:rotate(0) scale(1)}}
+    .loop-detail-body{flex:1}
+    .loop-detail-body h3{color:var(--text-primary);font-size:1.375rem;margin-bottom:var(--space-sm)}
+    .loop-detail-body .lead{color:var(--text-secondary);margin-bottom:var(--space-md)}
+    .your-role-box{background:rgba(245,158,11,.06);border-left:3px solid var(--amber-warm);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:var(--space-md) var(--space-lg);margin-top:var(--space-md);transform:translateX(-20px);opacity:0;transition:transform .4s ease .3s,opacity .4s ease .3s}
+    .loop-detail.active .your-role-box{transform:translateX(0);opacity:1}
+    .your-role-box .role-label{font-family:'JetBrains Mono',monospace;font-size:.6875rem;font-weight:600;color:var(--amber-warm);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:6px}
+    .your-role-box p{color:var(--text-secondary);margin-bottom:0;font-size:.9375rem}
+    .pivot-guarantee{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.30);padding:8px 16px;border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--aurora-green);margin-top:var(--space-sm);letter-spacing:.05em}
 
-        /* Glass card utility */
-        .glass-card {
-            background: rgba(13,20,38,0.80);
-            border: 1px solid rgba(255,255,255,0.08);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-radius: var(--radius-xl);
-            transition: all var(--transition-normal);
-        }
-        .glass-card:hover { border-color: rgba(29,155,240,0.25); box-shadow: var(--glow-blue-sm); transform: translateY(-6px); }
+    /* Rotate icon on monthly tab */
+    @keyframes rotateLoop{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+    .rotating-icon{display:inline-block;animation:rotateLoop 3s linear infinite}
 
-        /* Scroll reveal */
-        .is-visible { opacity: 1 !important; transform: translateY(0) scale(1) !important; }
-        @media (prefers-reduced-motion: reduce) {
-            [style*="opacity: 0"] { opacity: 1 !important; transform: none !important; }
-        }
-        
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex; align-items: center; justify-content: center;
-            gap: var(--space-sm);
-            padding: var(--space-md) var(--space-xl);
-            font-weight: 600; font-size: var(--text-base);
-            border-radius: var(--radius-md); border: none; cursor: pointer;
-            transition: all var(--transition-normal);
-            position: relative; overflow: hidden;
-            text-align: center;
-            /* FIX M2: nowrap only on desktop; mobile overrides below */
-            white-space: nowrap;
-            min-height: 44px;
-        }
-        .btn::after {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-        }
-        .btn:hover::after { animation: shine 1s; }
-        @keyframes shine { 100% { transform: translateX(100%); } }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
-            border-radius: var(--radius-md);
-            box-shadow: 0 4px 20px rgba(29,155,240,0.25);
-            animation: cta-breathe 3s ease-in-out infinite; animation-delay: 3s;
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(29,155,240,0.45), 0 0 0 4px rgba(29,155,240,0.15);
-            animation: none;
-        }
-        @keyframes cta-breathe {
-            0%,100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
-            50%      { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
-        }
-        .btn-secondary {
-            background: transparent; color: var(--electric-blue);
-            border: 1px solid rgba(29,155,240,0.40);
-        }
-        .btn-secondary:hover {
-            background: rgba(29,155,240,0.08); border-color: var(--electric-blue);
-            transform: translateY(-2px); box-shadow: 0 8px 25px rgba(29,155,240,0.15);
-        }
-        .btn-lg { padding: var(--space-lg) var(--space-2xl); font-size: var(--text-lg); border-radius: var(--radius-lg); }
+    /* ═══════════════════════════════════════════════
+       BRIDGE SECTION
+    ═══════════════════════════════════════════════ */
+    .bridge-section{background:var(--bg-base)}
+    .bridge-grid{display:grid;gap:var(--space-xl);grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr));max-width:1100px;margin:var(--space-3xl) auto}
+    .bridge-card{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);overflow:hidden;transition:all var(--transition-normal)}
+    .bridge-card:hover{transform:translateY(-8px);box-shadow:var(--glow-blue-sm);border-color:rgba(29,155,240,.20)}
+    .bridge-header{padding:var(--space-xl);text-align:center;color:white;position:relative;overflow:hidden}
+    .bridge-header::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:none}
+    .bridge-card:hover .bridge-header::after{animation:bridgeShimmer .8s ease}
+    @keyframes bridgeShimmer{from{left:-100%}to{left:150%}}
+    .bridge-header.tech{background:linear-gradient(135deg,var(--cyber-cyan),var(--aurora-green))}
+    .bridge-header.brand{background:linear-gradient(135deg,var(--neon-indigo),var(--accent))}
+    .bridge-body{padding:var(--space-xl)}
+    .bridge-body p{color:var(--text-secondary)} .bridge-body strong{color:var(--text-primary)}
+    .role-list{list-style:none;margin:var(--space-lg) 0}
+    .role-list li{padding:var(--space-sm) 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:var(--space-sm);color:var(--text-secondary);
+        opacity:0;transform:translateX(-20px);transition:opacity .4s ease,transform .4s ease}
+    .role-list li.item-in{opacity:1;transform:translateX(0)}
+    .role-list li:last-child{border-bottom:none}
+    .role-list li strong{color:var(--text-primary)}
+    .role-icon{width:24px;height:24px;background:rgba(255,255,255,.06);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:var(--text-sm);color:var(--text-secondary);flex-shrink:0;transition:transform var(--transition-spring)}
+    .role-list li:hover .role-icon{transform:rotate(20deg) scale(1.2)}
+    .tech .role-icon{background:rgba(0,212,170,.12);color:var(--aurora-green)}
+    .brand .role-icon{background:rgba(99,102,241,.12);color:var(--neon-indigo)}
+    .outcome-box{background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.35);padding:var(--space-lg);border-radius:var(--radius-lg);text-align:center;margin-top:var(--space-lg);font-size:var(--text-lg);font-weight:700;color:var(--aurora-green);overflow:hidden;white-space:normal;word-break:break-word;line-height:1.4}
+    .outcome-box.typing{border-right:2px solid var(--aurora-green);animation:typingCursor .7s step-end infinite}
+    @keyframes typingCursor{0%,100%{border-color:var(--aurora-green)}50%{border-color:transparent}}
+    .brand .outcome-box{background:rgba(99,102,241,.08);border-color:rgba(99,102,241,.35);color:var(--neon-indigo)}
+    .brand .outcome-box.typing{border-right:2px solid var(--neon-indigo);animation:typingCursor2 .7s step-end infinite}
+    @keyframes typingCursor2{0%,100%{border-color:var(--neon-indigo)}50%{border-color:transparent}}
 
-        /* ===== HEADER & NAVIGATION ===== */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            padding: var(--space-md) 0;
-            background: rgba(8,13,26,0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            /* FIX M8: smooth transition for hide/show */
-            transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
-                        padding var(--transition-normal),
-                        background var(--transition-normal),
-                        border-color var(--transition-normal),
-                        box-shadow var(--transition-normal);
-        }
-        /* FIX M8: hide header on scroll down (mobile only, toggled by JS) */
-        header.header-hidden { transform: translateY(-100%); }
-        header.scrolled {
-            padding: var(--space-sm) 0;
-            background: rgba(8,13,26,0.92);
-            border-bottom-color: rgba(29,155,240,0.15);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-        }
-        
-        .nav { display: flex; justify-content: space-between; align-items: center; }
-        
-        .logo {
-            display: flex; align-items: center; gap: var(--space-sm);
-            font-weight: 900; font-size: var(--text-2xl);
-            color: var(--electric-blue); font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .logo-typed {
-            display: inline-block; overflow: hidden; white-space: nowrap;
-            max-width: 0; vertical-align: middle;
-            animation: logo-typing 1.4s steps(10, end) 0.3s forwards;
-        }
-        .logo-cursor {
-            display: inline-block; width: 2px; height: 1em;
-            background: var(--electric-blue); border-radius: 2px;
-            margin-left: 2px; vertical-align: middle; opacity: 0;
-            animation: logo-cursor-appear 0s 1.7s forwards,
-                       logo-cursor-blink  1s 1.7s step-end infinite;
-        }
-        @keyframes logo-typing { from { max-width: 0; } to { max-width: 180px; } }
-        @keyframes logo-cursor-appear { to { opacity: 1; } }
-        @keyframes logo-cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        @media (prefers-reduced-motion: reduce) {
-            .logo-typed  { max-width: 180px; animation: none; }
-            .logo-cursor { opacity: 1; animation: none; }
-        }
-        
-        .nav-links { display: flex; gap: var(--space-xl); align-items: center; }
-        .nav-link {
-            font-weight: 500; font-size: var(--text-base);
-            color: var(--text-secondary); font-family: 'Outfit', sans-serif;
-            position: relative; padding: var(--space-xs) 0;
-        }
-        .nav-link::after {
-            content: ''; position: absolute; bottom: 0; left: 50%;
-            width: 0; height: 1.5px; background: var(--electric-blue);
-            transform: translateX(-50%); transition: width var(--transition-normal);
-        }
-        .nav-link:hover { color: var(--text-primary); }
-        .nav-link:hover::after { width: 100%; }
-        .nav-link.active { color: var(--electric-blue); }
-        .nav-link.active::after { width: 100%; }
+    /* ═══════════════════════════════════════════════
+       90-DAY TIMELINE
+    ═══════════════════════════════════════════════ */
+    .timeline-section{background:var(--bg-surface-1)}
+    .timeline{max-width:900px;margin:var(--space-3xl) auto;position:relative}
+    /* Draw line */
+    .timeline::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:2px;height:0;background:linear-gradient(180deg,var(--electric-blue),var(--neon-indigo),var(--aurora-green));transition:height 2s ease;z-index:0}
+    .timeline.line-drawn::before{height:100%}
 
-        /* FIX M9: min tap target 44px */
-        .mobile-menu-toggle {
-            display: none; background: none; border: none;
-            width: 44px; height: 44px; cursor: pointer;
-            position: relative; z-index: 1001;
-            align-items: center; justify-content: center;
-        }
-        .hamburger {
-            width: 24px; height: 2px; background: var(--text-primary);
-            position: relative; transition: all var(--transition-fast);
-        }
-        .hamburger::before, .hamburger::after {
-            content: ''; position: absolute;
-            width: 24px; height: 2px; background: var(--text-primary);
-            transition: all var(--transition-fast);
-        }
-        .hamburger::before { top: -8px; }
-        .hamburger::after  { bottom: -8px; }
-        .mobile-menu-toggle.active .hamburger { background: transparent; }
-        .mobile-menu-toggle.active .hamburger::before { transform: rotate(45deg) translate(5px,5px); }
-        .mobile-menu-toggle.active .hamburger::after  { transform: rotate(-45deg) translate(7px,-6px); }
-        
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding-top: calc(var(--space-3xl) * 2);
-            padding-bottom: var(--space-3xl);
-            background: var(--bg-base);
-            position: relative; overflow: hidden;
-        }
-        .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-        .hero-content { text-align: center; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
+    .timeline-item{display:flex;align-items:center;margin-bottom:var(--space-2xl);position:relative;opacity:0;transition:opacity .6s ease,transform .6s ease}
+    .timeline-item:nth-child(odd){flex-direction:row-reverse;transform:translateX(60px)}
+    .timeline-item:nth-child(even){transform:translateX(-60px)}
+    .timeline-item.tl-in{opacity:1;transform:translateX(0)!important}
 
-        /* ===== 5-LAYER SYSTEM — UPGRADED UI ===== */
-        .layers-section {
-            background: var(--bg-surface-1);
-            position: relative;
-            overflow: hidden;
-        }
+    .timeline-content{flex:1;background:rgba(13,20,38,.80);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);padding:var(--space-xl);border-radius:var(--radius-xl);color:var(--text-secondary);transition:border-color .3s ease,box-shadow .3s ease}
+    .timeline-content:hover{border-color:rgba(29,155,240,.20);box-shadow:0 10px 30px rgba(0,0,0,.3)}
+    .timeline-item:nth-child(odd)  .timeline-content{margin-right:var(--space-xl)}
+    .timeline-item:nth-child(even) .timeline-content{margin-left:var(--space-xl)}
+    .timeline-content h4{display:flex;align-items:center;gap:var(--space-sm);color:var(--electric-blue);font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:var(--space-sm)}
+    .timeline-content ul{margin-top:var(--space-sm);padding-left:var(--space-md);color:var(--text-secondary)}
+    .timeline-content ul li{margin-bottom:6px;opacity:0;transform:translateX(-10px);transition:opacity .4s ease,transform .4s ease}
+    .timeline-item.tl-in .timeline-content ul li{opacity:1;transform:translateX(0)}
 
-        /* IMPROVEMENT: section-level glow backdrop */
-        .layers-section::before {
-            content: '';
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 900px; height: 600px;
-            background: radial-gradient(ellipse at center,
-                rgba(29,155,240,0.07) 0%,
-                rgba(99,102,241,0.05) 40%,
-                transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
+    /* Stagger bullets */
+    .timeline-item.tl-in .timeline-content ul li:nth-child(1){transition-delay:.2s}
+    .timeline-item.tl-in .timeline-content ul li:nth-child(2){transition-delay:.32s}
+    .timeline-item.tl-in .timeline-content ul li:nth-child(3){transition-delay:.44s}
+    .timeline-item.tl-in .timeline-content ul li:nth-child(4){transition-delay:.56s}
 
-        /* IMPROVEMENT: eyebrow badge for the section */
-        .section-eyebrow {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(29,155,240,0.08);
-            border: 1px solid rgba(29,155,240,0.25);
-            padding: 6px 16px;
-            border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.6875rem; font-weight: 600;
-            color: var(--electric-blue);
-            letter-spacing: 0.1em; text-transform: uppercase;
-            margin-bottom: var(--space-md);
-        }
-        .section-eyebrow .eyebrow-dot {
-            width: 6px; height: 6px;
-            background: var(--aurora-green); border-radius: 50%;
-            box-shadow: 0 0 8px rgba(0,212,170,0.8);
-            animation: badge-pulse 2s ease-in-out infinite;
-        }
-        @keyframes badge-pulse {
-            0%,100% { box-shadow: 0 0 8px rgba(0,212,170,0.8); opacity: 1; }
-            50%      { box-shadow: 0 0 16px rgba(0,212,170,0.4); opacity: 0.6; }
-        }
-        
-        .layers-visual {
-            max-width: 900px; margin: var(--space-3xl) auto;
-            position: relative; z-index: 1;
-        }
-        .layers-container {
-            display: flex; flex-direction: column;
-            align-items: center; gap: var(--space-lg);
-            position: relative; z-index: 1;
-        }
-        
-        .layer {
-            width: 100%;
-            background: rgba(13,20,38,0.85);
-            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-            padding: var(--space-xl) var(--space-2xl);
-            border-radius: var(--radius-xl);
-            border: 1px solid rgba(255,255,255,0.06);
-            display: flex; align-items: center; gap: var(--space-xl);
-            transition: all var(--transition-normal);
-            position: relative; overflow: hidden; cursor: pointer;
-            color: var(--text-secondary);
-        }
-        .layer::before {
-            content: ''; position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            border-radius: 0 2px 2px 0;
-        }
-        .layer h3 { color: var(--text-primary); margin-bottom: var(--space-xs); font-size: var(--text-xl); }
-        .layer p  { color: var(--text-secondary); margin-bottom: 0; }
+    .timeline-marker{width:40px;height:40px;background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;position:absolute;left:50%;transform:translateX(-50%);z-index:2;box-shadow:var(--glow-blue-sm);transition:transform var(--transition-spring)}
+    .timeline-marker:hover{transform:translateX(-50%) scale(1.3) rotate(15deg)}
+    .timeline-item:nth-child(1) .timeline-marker{animation:markerBounce .6s var(--transition-spring)}
+    .timeline-item:nth-child(2) .timeline-marker{animation:markerSpin .5s ease}
+    .timeline-item:nth-child(3) .timeline-marker{animation:markerSlide .5s ease}
+    .timeline-item:nth-child(4) .timeline-marker{animation:markerDrop .6s var(--transition-spring)}
+    @keyframes markerBounce{0%{transform:translateX(-50%) translateY(20px);opacity:0}100%{transform:translateX(-50%) translateY(0);opacity:1}}
+    @keyframes markerSpin{0%{transform:translateX(-50%) scale(0) rotate(180deg);opacity:0}100%{transform:translateX(-50%) scale(1) rotate(0);opacity:1}}
+    @keyframes markerSlide{0%{transform:translateX(calc(-50% + 30px));opacity:0}100%{transform:translateX(-50%);opacity:1}}
+    @keyframes markerDrop{0%{transform:translateX(-50%) translateY(-25px);opacity:0}100%{transform:translateX(-50%) translateY(0);opacity:1}}
 
-        /* FIX M6: hover transform only on pointer devices */
-        @media (hover: hover) {
-            .layer:hover { transform: translateX(10px); }
-            .layer-5:hover { transform: translateX(12px); }
-        }
+    /* ═══════════════════════════════════════════════
+       FINAL CTA
+    ═══════════════════════════════════════════════ */
+    .cta-final{background:var(--grad-cta-bg);color:white;text-align:center;position:relative;overflow:hidden}
+    .cta-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 80%,rgba(29,155,240,.12) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(99,102,241,.10) 0%,transparent 50%)}
+    .cta-content{position:relative;z-index:1;max-width:900px;margin:0 auto}
+    .cta-final h2{color:var(--text-primary);margin-bottom:var(--space-md)}
+    /* Word highlight */
+    .word-hl{display:inline;position:relative}
+    .word-hl.lit::after{content:'';position:absolute;inset:0 -4px -2px;background:rgba(29,155,240,.12);border-radius:4px;animation:wordLit .6s ease forwards}
+    @keyframes wordLit{from{opacity:0;transform:scaleX(.5)}to{opacity:1;transform:scaleX(1)}}
+    .slots{font-size:var(--text-xl);margin:var(--space-xl) 0;font-weight:600;color:var(--text-secondary)}
+    .slots strong{color:var(--amber-warm)}
+    /* Orbit visual */
+    .orbit-ring{position:absolute;border-radius:50%;border:1px solid rgba(29,155,240,.12);pointer-events:none}
+    .orbit-ring-1{width:300px;height:300px;top:50%;left:50%;margin:-150px 0 0 -150px;animation:orbitSpin 20s linear infinite}
+    .orbit-ring-2{width:500px;height:500px;top:50%;left:50%;margin:-250px 0 0 -250px;animation:orbitSpin 35s linear infinite reverse}
+    @keyframes orbitSpin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .orbit-dot{position:absolute;width:8px;height:8px;background:var(--electric-blue);border-radius:50%;box-shadow:0 0 10px rgba(29,155,240,.8);top:-4px;left:50%;margin-left:-4px}
+    .urgency-timer{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:var(--radius-full);padding:8px 18px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--amber-warm);animation:timerGlow 2s ease-in-out infinite}
+    @keyframes timerGlow{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.2)}50%{box-shadow:0 0 15px rgba(245,158,11,.3)}}
+    .timer-dot{width:6px;height:6px;background:var(--amber-warm);border-radius:50%;animation:badge-pulse 1s ease-in-out infinite}
 
-        /* IMPROVEMENT: stronger borders, layer-specific tinted backgrounds */
-        .layer-1 {
-            width: 100%;
-            border-color: rgba(6,182,212,0.40);
-            background: rgba(6,182,212,0.04);
-            z-index: 1;
-        }
-        .layer-1::before { background: var(--cyber-cyan); }
-        @media (hover: hover) {
-            .layer-1:hover { border-color: rgba(6,182,212,0.65); box-shadow: 0 0 30px rgba(6,182,212,0.18); }
-        }
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    footer{background:var(--bg-base);color:var(--text-secondary);padding:var(--space-3xl) 0 var(--space-xl);border-top:1px solid rgba(255,255,255,.05)}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-2xl);margin-bottom:var(--space-2xl)}
+    .footer-logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:var(--text-2xl);color:var(--text-primary);margin-bottom:var(--space-md)}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-sm)}
+    .footer-links a{color:var(--text-secondary);transition:all var(--transition-fast);position:relative;padding-left:0}
+    .footer-links a::before{content:'→';position:absolute;left:0;opacity:0;transition:all .3s ease}
+    .footer-links a:hover{color:var(--electric-blue);padding-left:18px}
+    .footer-links a:hover::before{opacity:1}
+    .footer-bottom{text-align:center;padding-top:var(--space-xl);border-top:1px solid rgba(255,255,255,.05);color:var(--text-muted);font-size:var(--text-sm)}
+    .footer-bottom p{color:var(--text-muted);margin-bottom:0}
 
-        .layer-2 {
-            /* IMPROVEMENT: wider visual separation in pyramid */
-            width: 93%;
-            border-color: rgba(0,212,170,0.40);
-            background: rgba(0,212,170,0.04);
-            z-index: 2;
-        }
-        .layer-2::before { background: var(--aurora-green); }
-        @media (hover: hover) {
-            .layer-2:hover { border-color: rgba(0,212,170,0.65); box-shadow: 0 0 30px rgba(0,212,170,0.18); }
-        }
-
-        .layer-3 {
-            width: 84%;
-            border-color: rgba(99,102,241,0.45);
-            background: rgba(99,102,241,0.05);
-            z-index: 3;
-        }
-        .layer-3::before { background: var(--neon-indigo); }
-        @media (hover: hover) {
-            .layer-3:hover { border-color: rgba(99,102,241,0.65); box-shadow: var(--glow-indigo); }
-        }
-
-        .layer-4 {
-            width: 74%;
-            border-color: rgba(29,155,240,0.50);
-            background: rgba(29,155,240,0.06);
-            z-index: 4;
-        }
-        .layer-4::before { background: var(--electric-blue); }
-        @media (hover: hover) {
-            .layer-4:hover { border-color: rgba(29,155,240,0.70); box-shadow: var(--glow-blue-sm); }
-        }
-
-        /* IMPROVEMENT: Layer 5 — premium treatment, breathing glow */
-        .layer-5 {
-            width: 62%;
-            border-color: rgba(29,155,240,0.55);
-            background: rgba(29,155,240,0.10);
-            box-shadow: 0 0 40px rgba(29,155,240,0.20), 0 0 80px rgba(99,102,241,0.10);
-            z-index: 5;
-            animation: layer5-breathe 4s ease-in-out infinite;
-        }
-        .layer-5::before { background: var(--grad-brand); }
-        .layer-5 h3 { color: var(--electric-blue); }
-        @keyframes layer5-breathe {
-            0%,100% { box-shadow: 0 0 40px rgba(29,155,240,0.20), 0 0 80px rgba(99,102,241,0.10); }
-            50%      { box-shadow: 0 0 60px rgba(29,155,240,0.40), 0 0 120px rgba(99,102,241,0.20); }
-        }
-        @media (hover: hover) {
-            .layer-5:hover {
-                border-color: rgba(29,155,240,0.75);
-                box-shadow: 0 0 80px rgba(29,155,240,0.50), 0 0 140px rgba(99,102,241,0.25);
-                animation: none;
-            }
-        }
-
-        /* IMPROVEMENT: "PEAK LAYER" badge on layer-5 */
-        .layer-5::after {
-            content: '★ PEAK';
-            position: absolute;
-            top: 12px; right: 14px;
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            color: #fff;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.6rem; font-weight: 700;
-            letter-spacing: 0.1em;
-            padding: 3px 10px;
-            border-radius: var(--radius-full);
-        }
-
-        /* IMPROVEMENT: layer numbers — match accent color per layer */
-        .layer-number {
-            display: flex; align-items: center; justify-content: center;
-            width: 60px; height: 60px;
-            border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-2xl); font-weight: 600;
-            flex-shrink: 0;
-        }
-        .layer-1 .layer-number { background: rgba(6,182,212,0.12); border: 1.5px solid rgba(6,182,212,0.40); color: var(--cyber-cyan); }
-        .layer-2 .layer-number { background: rgba(0,212,170,0.12); border: 1.5px solid rgba(0,212,170,0.40); color: var(--aurora-green); }
-        .layer-3 .layer-number { background: rgba(99,102,241,0.12); border: 1.5px solid rgba(99,102,241,0.45); color: var(--neon-indigo); }
-        .layer-4 .layer-number { background: rgba(29,155,240,0.12); border: 1.5px solid rgba(29,155,240,0.50); color: var(--electric-blue); }
-        .layer-5 .layer-number {
-            background: rgba(29,155,240,0.18);
-            border: 1.5px solid rgba(29,155,240,0.60);
-            color: var(--electric-blue);
-            box-shadow: var(--glow-blue-sm);
-        }
-        
-        .layer-content { flex: 1; }
-        .layer-content h3 { margin-bottom: var(--space-xs); font-size: var(--text-xl); }
-        
-        .layer-tools { display: flex; gap: var(--space-xs); margin-top: var(--space-sm); flex-wrap: wrap; }
-        .tool-tag {
-            background: rgba(29,155,240,0.08);
-            border: 1px solid rgba(29,155,240,0.20);
-            color: var(--electric-blue);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.7rem; font-weight: 600;
-            letter-spacing: 0.05em;
-            padding: 3px 10px; border-radius: var(--radius-full);
-        }
-        .layer-1 .tool-tag { border-color: rgba(6,182,212,0.40);  color: var(--cyber-cyan);    background: rgba(6,182,212,0.08); }
-        .layer-2 .tool-tag { border-color: rgba(0,212,170,0.40);  color: var(--aurora-green);  background: rgba(0,212,170,0.08); }
-        .layer-3 .tool-tag { border-color: rgba(99,102,241,0.40); color: var(--neon-indigo);   background: rgba(99,102,241,0.08); }
-        .layer-4 .tool-tag { border-color: rgba(29,155,240,0.40); color: var(--electric-blue); background: rgba(29,155,240,0.08); }
-        .layer-5 .tool-tag { border-color: rgba(29,155,240,0.55); color: var(--electric-blue); background: rgba(29,155,240,0.14); font-weight: 700; }
-
-        /* ===== BRIDGE SECTION ===== */
-        .bridge-section { background: var(--bg-base); }
-        .bridge-grid {
-            display: grid; gap: var(--space-xl);
-            /* FIX M3: use min() to prevent overflow on very small screens */
-            grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
-            max-width: 1100px; margin: var(--space-3xl) auto;
-        }
-        .bridge-card {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl); overflow: hidden;
-            transition: all var(--transition-normal);
-        }
-        .bridge-card:hover { transform: translateY(-8px); box-shadow: var(--glow-blue-sm); border-color: rgba(29,155,240,0.20); }
-        .bridge-header { padding: var(--space-xl); text-align: center; color: white; }
-        .bridge-header.tech  { background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green)); }
-        .bridge-header.brand { background: linear-gradient(135deg, var(--neon-indigo), var(--accent)); }
-        .bridge-body { padding: var(--space-xl); background: transparent; }
-        .bridge-body p { color: var(--text-secondary); }
-        .bridge-body strong { color: var(--text-primary); }
-        .role-list { list-style: none; margin: var(--space-lg) 0; }
-        .role-list li {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex; align-items: center; gap: var(--space-sm);
-            color: var(--text-secondary);
-        }
-        .role-list li:last-child { border-bottom: none; }
-        .role-list li strong { color: var(--text-primary); }
-        .role-icon {
-            width: 24px; height: 24px;
-            background: rgba(255,255,255,0.06);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: var(--text-sm); color: var(--text-secondary); flex-shrink: 0;
-        }
-        .tech .role-icon  { background: rgba(0,212,170,0.12);  color: var(--aurora-green); }
-        .brand .role-icon { background: rgba(99,102,241,0.12); color: var(--neon-indigo); }
-        .outcome-box {
-            background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.35);
-            padding: var(--space-lg); border-radius: var(--radius-lg);
-            text-align: center; margin-top: var(--space-lg);
-            font-size: var(--text-lg); font-weight: 700; color: var(--aurora-green);
-        }
-        .brand .outcome-box { background: rgba(99,102,241,0.08); border-color: rgba(99,102,241,0.35); color: var(--neon-indigo); }
-
-        /* ===== TIMELINE ===== */
-        .timeline-section { background: var(--bg-surface-1); }
-        .timeline { max-width: 900px; margin: var(--space-3xl) auto; position: relative; }
-        .timeline::before {
-            content: ''; position: absolute;
-            top: 0; left: 50%; transform: translateX(-50%);
-            width: 2px; height: 100%;
-            background: linear-gradient(180deg, var(--electric-blue), transparent);
-            opacity: 0.3;
-        }
-        .timeline-item {
-            display: flex; align-items: center;
-            margin-bottom: var(--space-2xl); position: relative;
-        }
-        .timeline-item:nth-child(odd) { flex-direction: row-reverse; }
-        .timeline-content {
-            flex: 1;
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            padding: var(--space-xl); border-radius: var(--radius-xl);
-            color: var(--text-secondary); position: relative;
-            transition: border-color var(--transition-normal);
-        }
-        .timeline-content:hover { border-color: rgba(29,155,240,0.20); }
-        .timeline-item:nth-child(odd)  .timeline-content { margin-right: var(--space-xl); }
-        .timeline-item:nth-child(even) .timeline-content { margin-left:  var(--space-xl); }
-        .timeline-marker {
-            width: 40px; height: 40px;
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: white; font-weight: 800;
-            position: absolute; left: 50%; transform: translateX(-50%);
-            z-index: 2; box-shadow: var(--glow-blue-sm);
-        }
-        .timeline-content h4 {
-            display: flex; align-items: center; gap: var(--space-sm);
-            color: var(--electric-blue); font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .timeline-content ul li { color: var(--text-secondary); }
-
-        /* ===== FINAL CTA ===== */
-        .cta-final { background: var(--grad-cta-bg); color: white; text-align: center; position: relative; overflow: hidden; }
-        .cta-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(29,155,240,0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(99,102,241,0.10) 0%, transparent 50%);
-        }
-        .cta-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
-        .cta-final h2 { color: var(--text-primary); margin-bottom: var(--space-md); }
-        .slots { font-size: var(--text-xl); margin: var(--space-xl) 0; font-weight: 600; color: var(--text-secondary); }
-        .slots strong { color: var(--amber-warm); animation: badge-pulse 2s ease-in-out infinite; }
-
-        /* ===== FOOTER (matches index.html) ===== */
-        footer {
-            background: var(--bg-base); border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-secondary); padding: var(--space-3xl) 0 var(--space-xl);
-        }
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl); margin-bottom: var(--space-2xl);
-        }
-        .footer-logo {
-            font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900;
-            font-size: var(--text-2xl); color: var(--text-primary);
-            margin-bottom: var(--space-md);
-        }
-        .footer-links { display: flex; flex-direction: column; gap: var(--space-sm); }
-        .footer-links a { color: var(--text-secondary); transition: color var(--transition-fast); }
-        .footer-links a:hover { color: var(--electric-blue); }
-        .footer-bottom {
-            text-align: center; padding-top: var(--space-xl);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted); font-size: var(--text-sm);
-        }
-        .footer-bottom p { color: var(--text-muted); margin-bottom: 0; }
-
-        /* ===== PERFORMANCE LOOP — HORIZONTAL STEPPER ===== */
-        .loop-section { background: var(--bg-surface-1); }
-        .loop-stepper { max-width: 900px; margin: var(--space-3xl) auto 0; }
-        .loop-tabs {
-            display: grid; grid-template-columns: repeat(4,1fr);
-            gap: var(--space-sm); margin-bottom: var(--space-lg);
-            position: relative;
-        }
-        .loop-tabs::before {
-            content: ''; position: absolute;
-            top: 50%; left: 0; right: 0; height: 1px;
-            background: rgba(29,155,240,0.15); z-index: 0;
-        }
-        .loop-tab {
-            position: relative; z-index: 1;
-            display: flex; flex-direction: column; align-items: center; gap: 10px;
-            padding: 16px 12px; border-radius: var(--radius-lg);
-            border: 1px solid rgba(255,255,255,0.08);
-            background: rgba(13,20,38,0.60); cursor: pointer;
-            transition: all var(--transition-normal);
-            min-height: 80px; text-align: center;
-        }
-        .loop-tab:hover { border-color: rgba(29,155,240,0.30); background: rgba(29,155,240,0.06); }
-        .loop-tab.active { border-color: var(--electric-blue); background: rgba(29,155,240,0.10); box-shadow: var(--glow-blue-sm); }
-        .loop-tab-number {
-            width: 36px; height: 36px; border-radius: 50%;
-            background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.875rem; font-weight: 600; color: var(--text-secondary);
-            display: flex; align-items: center; justify-content: center;
-            transition: all var(--transition-normal); flex-shrink: 0;
-        }
-        .loop-tab.active .loop-tab-number { background: var(--electric-blue); border-color: var(--electric-blue); color: #fff; box-shadow: var(--glow-blue-sm); }
-        .loop-tab-label {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 0.8125rem; font-weight: 600;
-            color: var(--text-secondary); transition: color var(--transition-normal); line-height: 1.3;
-        }
-        .loop-tab.active .loop-tab-label { color: var(--text-primary); }
-        .loop-tab:last-child::after {
-            content: '↺ Monthly'; position: absolute; bottom: -22px; left: 50%;
-            transform: translateX(-50%); font-family: 'JetBrains Mono', monospace;
-            font-size: 0.625rem; color: var(--electric-blue); opacity: 0.7;
-            letter-spacing: 0.05em; white-space: nowrap;
-        }
-        .loop-detail-panel {
-            background: var(--bg-surface-2); border: 1px solid rgba(29,155,240,0.15);
-            border-radius: var(--radius-xl); padding: var(--space-2xl);
-            margin-top: var(--space-2xl); min-height: 220px;
-        }
-        .loop-detail { display: none; gap: var(--space-xl); align-items: flex-start; animation: detail-fadein 0.4s cubic-bezier(0.22,1,0.36,1); }
-        .loop-detail.active { display: flex; }
-        @keyframes detail-fadein { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
-        .loop-detail-icon {
-            width: 72px; height: 72px; border-radius: var(--radius-lg);
-            background: rgba(29,155,240,0.10); border: 1px solid rgba(29,155,240,0.25);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 2rem; color: var(--electric-blue); flex-shrink: 0; box-shadow: var(--glow-blue-sm);
-        }
-        .loop-detail-body { flex: 1; }
-        .loop-detail-body h3 { color: var(--text-primary); font-size: 1.375rem; margin-bottom: var(--space-sm); }
-        .loop-detail-body .lead { color: var(--text-secondary); margin-bottom: var(--space-md); }
-        .your-role-box {
-            background: rgba(245,158,11,0.06); border-left: 3px solid var(--amber-warm);
-            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-            padding: var(--space-md) var(--space-lg); margin-top: var(--space-md);
-        }
-        .your-role-box .role-label {
-            font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600;
-            color: var(--amber-warm); letter-spacing: 0.1em; text-transform: uppercase;
-            display: block; margin-bottom: 6px;
-        }
-        .your-role-box p { color: var(--text-secondary); margin-bottom: 0; font-size: 0.9375rem; }
-        .pivot-guarantee {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(0,212,170,0.08); border: 1px solid rgba(0,212,170,0.30);
-            padding: 8px 16px; border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-            color: var(--aurora-green); margin-top: var(--space-sm); letter-spacing: 0.05em;
-        }
-
-        /* ===== UTILITY ===== */
-        .text-center  { text-align: center; }
-        .text-primary { color: var(--electric-blue); }
-        .text-secondary-util { color: var(--text-secondary); }
-        .mb-sm { margin-bottom: var(--space-sm); }
-        .mb-md { margin-bottom: var(--space-md); }
-        .mb-lg { margin-bottom: var(--space-lg); }
-        .mb-xl { margin-bottom: var(--space-xl); }
-        .mt-sm { margin-top: var(--space-sm); }
-        .mt-md { margin-top: var(--space-md); }
-        .mt-lg { margin-top: var(--space-lg); }
-        .mt-xl { margin-top: var(--space-xl); }
-        .hidden { display: none; }
-
-        /* ===== MOBILE RESPONSIVE ===== */
-
-        /* --- 992px --- */
-        @media (max-width: 992px) {
-            h1 { font-size: clamp(2rem, 8vw, 3rem); }
-            h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
-
-            /* FIX M1: safe padding above fixed header */
-            .hero { padding-top: 8rem; padding-bottom: var(--space-2xl); }
-
-            .mobile-menu-toggle { display: inline-flex; }
-
-            .nav-links {
-                position: fixed; top: 0; right: -100%; width: 80%; max-width: 400px;
-                height: 100vh; background: rgba(8,13,26,0.98);
-                backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-                border-left: 1px solid rgba(255,255,255,0.06);
-                flex-direction: column; justify-content: center;
-                gap: var(--space-xl); padding: var(--space-2xl);
-                transition: right var(--transition-normal); z-index: 1000;
-                box-shadow: var(--shadow-xl);
-            }
-            /* FIX M9: hide nav links from keyboard when closed */
-            .nav-links[aria-hidden="true"]  { visibility: hidden; }
-            .nav-links[aria-hidden="false"] { visibility: visible; }
-            .nav-links.active { right: 0; }
-
-            .timeline::before    { left: 30px; }
-            .timeline-item       { flex-direction: row !important; }
-            .timeline-content    { margin-left: 70px !important; margin-right: 0 !important; }
-            .timeline-marker     { left: 30px; }
-            .loop-stepper        { margin-top: var(--space-2xl); }
-        }
-
-        /* --- 768px --- */
-        @media (max-width: 768px) {
-            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-            h2 { font-size: clamp(1.375rem, 5vw, 1.875rem); }
-
-            .section    { padding: var(--space-2xl) 0; }
-            .section-lg { padding: var(--space-2xl) 0; }
-
-            /* FIX M2: CTA button wrapping on mobile */
-            .btn {
-                white-space: normal;
-                width: 100%; max-width: 420px;
-                min-height: 52px;
-                padding: 14px 20px;
-                line-height: 1.4;
-            }
-            .btn-lg { font-size: var(--text-base); padding: 16px 22px; }
-            /* Keep nav CTA compact */
-            .nav-links .btn { width: auto; max-width: none; white-space: nowrap; min-height: 44px; }
-
-            /* FIX M3: bridge grid single column */
-            .bridge-grid { grid-template-columns: 1fr; }
-
-            /* FIX M4: layer padding on mid-size mobile */
-            .layer {
-                padding: var(--space-md) var(--space-lg);
-                flex-direction: column; text-align: center; gap: var(--space-md);
-            }
-
-            /* FIX M5: all layers full width on mobile */
-            .layer-1, .layer-2, .layer-3, .layer-4, .layer-5 { width: 100% !important; }
-
-            /* Remove PEAK badge on mobile (too small) */
-            .layer-5::after { display: none; }
-
-            .layer-number { width: 50px; height: 50px; font-size: var(--text-xl); }
-
-            /* FIX M7: timeline margin adjustment */
-            .timeline-content { padding: var(--space-md); }
-        }
-
-        /* --- 480px --- */
-        @media (max-width: 480px) {
-            :root {
-                --space-lg: 1.5rem;
-                --space-xl: 2rem;
-                --space-2xl: 3rem;
-            }
-
-            /* FIX M1: maintain explicit hero padding at 480px */
-            .hero { padding-top: 7rem; }
-
-            .container, .container-narrow { padding: 0 1rem; }
-
-            .lead { font-size: var(--text-base); }
-
-            /* FIX M7: tighter timeline on very small screens */
-            .timeline-content    { margin-left: 52px !important; padding: var(--space-sm) var(--space-md); }
-            .timeline::before    { left: 18px; }
-            .timeline-marker     { left: 18px; width: 32px; height: 32px; font-size: var(--text-sm); }
-
-            .loop-tab-label { font-size: 0.75rem; }
-        }
-
-        /* Mobile accordion for performance loop */
-        @media (max-width: 767px) {
-            .loop-tabs         { display: none; }
-            .loop-detail-panel { display: none; }
-            .loop-accordion {
-                display: flex; flex-direction: column;
-                gap: var(--space-sm); margin-top: var(--space-xl);
-            }
-            .accordion-item {
-                border: 1px solid rgba(255,255,255,0.08);
-                border-radius: var(--radius-lg);
-                background: rgba(13,20,38,0.80); overflow: hidden;
-                transition: border-color var(--transition-normal);
-            }
-            .accordion-item.open { border-color: rgba(29,155,240,0.35); }
-            .accordion-header {
-                display: flex; align-items: center; gap: var(--space-md);
-                padding: 18px var(--space-lg); cursor: pointer;
-                min-height: 64px; user-select: none;
-            }
-            .accordion-number {
-                width: 36px; height: 36px; border-radius: 50%;
-                background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25);
-                font-family: 'JetBrains Mono', monospace;
-                font-size: 0.875rem; font-weight: 600; color: var(--text-secondary);
-                display: flex; align-items: center; justify-content: center;
-                flex-shrink: 0; transition: all var(--transition-normal);
-            }
-            .accordion-item.open .accordion-number { background: var(--electric-blue); border-color: var(--electric-blue); color: #fff; box-shadow: var(--glow-blue-sm); }
-            .accordion-title { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--text-secondary); flex: 1; }
-            .accordion-item.open .accordion-title { color: var(--text-primary); }
-            .accordion-chevron { color: var(--text-secondary); transition: transform var(--transition-normal); font-size: 0.875rem; }
-            .accordion-item.open .accordion-chevron { transform: rotate(180deg); }
-            .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.22,1,0.36,1); }
-            .accordion-item.open .accordion-body { max-height: 600px; }
-            .accordion-content {
-                padding: 0 var(--space-lg) var(--space-lg);
-                border-top: 1px solid rgba(255,255,255,0.06);
-                padding-top: var(--space-md);
-            }
-            .accordion-content p { color: var(--text-secondary); }
-            .accordion-content .lead { font-size: 1rem; }
-        }
-        @media (min-width: 768px) {
-            .loop-accordion { display: none; }
-        }
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media(max-width:992px){
+        h1{font-size:clamp(2rem,8vw,3rem)} h2{font-size:clamp(1.5rem,5vw,2.25rem)}
+        .hero{padding-top:8rem;padding-bottom:var(--space-2xl)}
+        .mobile-menu-toggle{display:inline-flex}
+        .nav-links{position:fixed;top:0;right:-100%;width:80%;max-width:400px;height:100vh;background:rgba(8,13,26,.98);backdrop-filter:blur(30px);border-left:1px solid rgba(255,255,255,.06);flex-direction:column;justify-content:center;gap:var(--space-xl);padding:var(--space-2xl);transition:right var(--transition-normal);z-index:1000;box-shadow:var(--shadow-xl)}
+        .nav-links.active{right:0}
+        .timeline::before{left:30px}
+        .timeline-item{flex-direction:row!important;transform:translateX(-30px)!important}
+        .timeline-content{margin-left:70px!important;margin-right:0!important}
+        .timeline-marker{left:30px}
+    }
+    @media(max-width:768px){
+        .section{padding:var(--space-2xl) 0}
+        .btn{white-space:normal;width:100%;max-width:420px;min-height:52px;padding:14px 20px;line-height:1.4}
+        .btn-lg{font-size:var(--text-base);padding:16px 22px}
+        .nav-links .btn{width:auto;max-width:none;white-space:nowrap;min-height:44px}
+        .bridge-grid{grid-template-columns:1fr}
+        .layer{padding:var(--space-md) var(--space-lg);flex-direction:column;text-align:center;gap:var(--space-md)}
+        .layer-1,.layer-2,.layer-3,.layer-4,.layer-5{width:100%!important}
+        .layer-5 .peak-badge{display:none}
+        .layer-number{width:50px;height:50px;font-size:var(--text-xl)}
+        .timeline-content{padding:var(--space-md)}
+    }
+    @media(max-width:767px){
+        .loop-tabs,.loop-detail-panel{display:none}
+        .loop-accordion{display:flex;flex-direction:column;gap:var(--space-sm);margin-top:var(--space-xl)}
+        .accordion-item{border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-lg);background:rgba(13,20,38,.80);overflow:hidden;transition:border-color var(--transition-normal)}
+        .accordion-item.open{border-color:rgba(29,155,240,.35)}
+        .accordion-header{display:flex;align-items:center;gap:var(--space-md);padding:18px var(--space-lg);cursor:pointer;min-height:64px;user-select:none}
+        .accordion-number{width:36px;height:36px;border-radius:50%;background:rgba(29,155,240,.12);border:1px solid rgba(29,155,240,.25);font-family:'JetBrains Mono',monospace;font-size:.875rem;font-weight:600;color:var(--text-secondary);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all var(--transition-normal)}
+        .accordion-item.open .accordion-number{background:var(--electric-blue);border-color:var(--electric-blue);color:#fff;box-shadow:var(--glow-blue-sm)}
+        .accordion-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9375rem;font-weight:600;color:var(--text-secondary);flex:1}
+        .accordion-item.open .accordion-title{color:var(--text-primary)}
+        .accordion-chevron{color:var(--text-secondary);transition:transform var(--transition-normal);font-size:.875rem}
+        .accordion-item.open .accordion-chevron{transform:rotate(180deg)}
+        .accordion-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,1,.36,1)}
+        .accordion-item.open .accordion-body{max-height:600px}
+        .accordion-content{padding:0 var(--space-lg) var(--space-lg);border-top:1px solid rgba(255,255,255,.06);padding-top:var(--space-md)}
+        .accordion-content p{color:var(--text-secondary)}
+        .orbit-ring{display:none}
+    }
+    @media(min-width:768px){.loop-accordion{display:none}}
+    @media(max-width:480px){
+        :root{--space-lg:1.5rem;--space-xl:2rem;--space-2xl:3rem}
+        .hero{padding-top:7rem}
+        .container,.container-narrow{padding:0 1rem}
+        .timeline::before{left:18px}
+        .timeline-content{margin-left:52px!important;padding:var(--space-sm) var(--space-md)}
+        .timeline-marker{left:18px;width:32px;height:32px;font-size:var(--text-sm)}
+    }
+    @media(prefers-reduced-motion:reduce){
+        *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+        .sr,.layer,.timeline-item{opacity:1!important;transform:none!important}
+        .tool-tag{opacity:1!important;transform:none!important}
+    }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <!-- FIX M9: aria-expanded + aria-controls -->
-            <nav class="nav" role="navigation" aria-label="Main navigation">
-                <a href="index.html" class="logo" aria-label="X5 Digital — Home">
-                    <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
-                </a>
-                
-                <button class="mobile-menu-toggle"
-                        aria-label="Toggle navigation menu"
-                        aria-expanded="false"
-                        aria-controls="nav-links">
-                    <span class="hamburger" aria-hidden="true"></span>
-                </button>
-                
-                <div class="nav-links" id="nav-links" role="menu" aria-hidden="true">
-                    <a href="index.html" class="nav-link" role="menuitem">Home</a>
-                    <a href="how-it-works.html" class="nav-link active" role="menuitem">How It Works</a>
-                    <a href="packages.html" class="nav-link" role="menuitem">Packages</a>
-                    <a href="proofs.html" class="nav-link" role="menuitem">Proof</a>
-                    <a href="book-audit.html" class="btn btn-primary" role="menuitem">Book Free Audit →</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero section" aria-labelledby="hero-heading">
-        <div class="hero-bg" aria-hidden="true">
-            <div class="aurora-orb aurora-orb-1"></div>
-            <div class="aurora-orb aurora-orb-2"></div>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <h1 id="hero-heading">The Exact System That Turns<br><span class="text-gradient">Strategy Into Compounding Revenue</span></h1>
-                
-                <p class="lead">
-                    You can't build a 40-story tower on sand — and you can't scale revenue on dirty data. X<sup>5</sup> lays the foundation first, then builds every layer on top: from clean tracking to predictive AI, all running inside your accounts, every single month.
-                </p>
-                
-                <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header id="header">
+    <div class="container">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
+            <a href="index.html" class="logo" aria-label="X5 Digital — Home">
+                <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="hamburger" aria-hidden="true"></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link active">How It Works</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="proofs.html" class="nav-link">Proof</a>
+                <a href="book-audit.html" class="btn btn-primary">Book Free Audit &rarr;</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero section" aria-labelledby="hero-heading">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-bg" aria-hidden="true">
+        <div class="aurora-orb aurora-orb-1"></div>
+        <div class="aurora-orb aurora-orb-2"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>The Exact System — No Guesswork</span>
+            </div>
+            <h1 id="hero-heading">The Exact System That Turns<br><span class="text-gradient">Strategy Into Compounding Revenue</span></h1>
+            <p class="lead">You can't build a 40-story tower on sand — and you can't scale revenue on dirty data. X<sup>5</sup> lays the foundation first, then builds every layer on top: from clean tracking to predictive AI, all running inside your accounts, every single month.</p>
+            <div class="hero-cta">
+                <div class="btn-magnetic">
                     <a href="#audit" class="btn btn-primary btn-lg">
                         See If This System Fits Your Business
                         <i class="fas fa-arrow-right" aria-hidden="true"></i>
@@ -959,630 +469,743 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- 5-Layer System — CORE VALUE -->
-    <section class="layers-section section" id="layers" aria-labelledby="layers-heading">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <!-- IMPROVEMENT: eyebrow badge -->
-                <div class="section-eyebrow">
-                    <span class="eyebrow-dot" aria-hidden="true"></span>
-                    Core Value System
-                </div>
-                <h2 id="layers-heading">The X<sup>5</sup> Revenue System:<br><span class="text-gradient">5 Layers of Engineered Growth</span></h2>
-                <p class="lead">Each layer builds on the one below it. Skip Layer 1, and every dollar you spend above it is built on guesswork.</p>
+<!-- ═══════════════ 5-LAYER SYSTEM ═══════════════ -->
+<section class="layers-section section" id="layers" aria-labelledby="layers-heading">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <div class="section-eyebrow">
+                <span class="eyebrow-dot" aria-hidden="true"></span>
+                Core Value System
             </div>
-            
-            <div class="layers-visual" data-aos="fade-up">
-                <div class="layers-container">
+            <h2 id="layers-heading">The X<sup>5</sup> Revenue System:<br><span class="text-gradient">5 Layers of Engineered Growth</span></h2>
+            <p class="lead">Each layer builds on the one below it. Skip Layer 1, and every dollar you spend above it is built on guesswork.</p>
+        </div>
 
-                    <!-- Layer 5 — PEAK (shown first = top of pyramid visually) -->
-                    <div class="layer layer-5" data-aos="fade-up" data-aos-delay="100">
-                        <div class="layer-number" aria-hidden="true">5</div>
-                        <div class="layer-content">
-                            <h3>Revenue Intelligence</h3>
-                            <p>Predictive LTV modeling, churn forecasting, ROI mapping, customer segmentation</p>
-                            <div class="layer-tools">
-                                <span class="tool-tag">Predictive Analytics</span>
-                                <span class="tool-tag">LTV Models</span>
-                                <span class="tool-tag">Churn Prediction</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Layer 4 -->
-                    <div class="layer layer-4" data-aos="fade-up" data-aos-delay="200">
-                        <div class="layer-number" aria-hidden="true">4</div>
-                        <div class="layer-content">
-                            <h3>AI Automation &amp; Agent</h3>
-                            <p>24/7 AI content generation, chat agents, n8n workflows, automated reporting</p>
-                            <div class="layer-tools">
-                                <span class="tool-tag">n8n Workflows</span>
-                                <span class="tool-tag">AI Agents</span>
-                                <span class="tool-tag">Automation</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Layer 3 -->
-                    <div class="layer layer-3" data-aos="fade-up" data-aos-delay="300">
-                        <div class="layer-number" aria-hidden="true">3</div>
-                        <div class="layer-content">
-                            <h3>Revenue Operations</h3>
-                            <p>Data sync, attribution modeling, Sales-Marketing alignment, pipeline management</p>
-                            <div class="layer-tools">
-                                <span class="tool-tag">HubSpot/Salesforce</span>
-                                <span class="tool-tag">Data Sync</span>
-                                <span class="tool-tag">Attribution</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Layer 2 -->
-                    <div class="layer layer-2" data-aos="fade-up" data-aos-delay="400">
-                        <div class="layer-number" aria-hidden="true">2</div>
-                        <div class="layer-content">
-                            <h3>MarTech Execution</h3>
-                            <p>Paid ads, SEO, social media, email marketing — executed daily with optimization</p>
-                            <div class="layer-tools">
-                                <span class="tool-tag">Google Ads</span>
-                                <span class="tool-tag">Meta Ads</span>
-                                <span class="tool-tag">LinkedIn Ads</span>
-                                <span class="tool-tag">Tiktok Ads</span>
-                                <span class="tool-tag">Programmatic Ads</span>
-                                <span class="tool-tag">SEO</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Layer 1 — Foundation -->
-                    <div class="layer layer-1" data-aos="fade-up" data-aos-delay="500">
-                        <div class="layer-number" aria-hidden="true">1</div>
-                        <div class="layer-content">
-                            <h3>Foundation &amp; Data</h3>
-                            <p>Clean tracking setup, Customer Data Platform, compliance, data integrity &amp; hygiene</p>
-                            <div class="layer-tools">
-                                <span class="tool-tag">Google Analytics</span>
-                                <span class="tool-tag">Tracking</span>
-                                <span class="tool-tag">Data Cleanup</span>
-                            </div>
-                        </div>
-                    </div>
+        <div class="layers-visual">
+            <div class="layers-container" id="layers-container">
 
+                <!-- Layer 5 — PEAK (visually at top of pyramid, but builds last) -->
+                <div class="layer layer-5" data-layer="5">
+                    <span class="peak-badge">★ PEAK</span>
+                    <div class="layer-number" aria-hidden="true">5</div>
+                    <div class="layer-content">
+                        <h3>Revenue Intelligence</h3>
+                        <p>Predictive LTV modeling, churn forecasting, ROI mapping, customer segmentation</p>
+                        <div class="layer-tools">
+                            <span class="tool-tag">Predictive Analytics</span>
+                            <span class="tool-tag">LTV Models</span>
+                            <span class="tool-tag">Churn Prediction</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-xl" data-aos="fade-up">
-                <a href="#loop" class="btn btn-secondary">
-                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
-                    See How These Layers Work Together
-                </a>
+
+                <!-- Layer 4 -->
+                <div class="layer layer-4" data-layer="4">
+                    <div class="layer-number" aria-hidden="true">4</div>
+                    <div class="layer-content">
+                        <h3>AI Automation &amp; Agent</h3>
+                        <p>24/7 AI content generation, chat agents, n8n workflows, automated reporting</p>
+                        <div class="layer-tools">
+                            <span class="tool-tag">n8n Workflows</span>
+                            <span class="tool-tag">AI Agents</span>
+                            <span class="tool-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 3 -->
+                <div class="layer layer-3" data-layer="3">
+                    <div class="layer-number" aria-hidden="true">3</div>
+                    <div class="layer-content">
+                        <h3>Revenue Operations</h3>
+                        <p>Data sync, attribution modeling, Sales-Marketing alignment, pipeline management</p>
+                        <div class="layer-tools">
+                            <span class="tool-tag">HubSpot / Salesforce</span>
+                            <span class="tool-tag">Data Sync</span>
+                            <span class="tool-tag">Attribution</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 2 -->
+                <div class="layer layer-2" data-layer="2">
+                    <div class="layer-number" aria-hidden="true">2</div>
+                    <div class="layer-content">
+                        <h3>MarTech Execution</h3>
+                        <p>Paid ads, SEO, social media, email marketing — executed daily with optimization</p>
+                        <div class="layer-tools">
+                            <span class="tool-tag">Google Ads</span>
+                            <span class="tool-tag">Meta Ads</span>
+                            <span class="tool-tag">LinkedIn Ads</span>
+                            <span class="tool-tag">TikTok Ads</span>
+                            <span class="tool-tag">SEO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layer 1 — Foundation (last in DOM = appears first in build-up) -->
+                <div class="layer layer-1" data-layer="1">
+                    <div class="layer-number" aria-hidden="true">1</div>
+                    <div class="layer-content">
+                        <h3>Foundation &amp; Data</h3>
+                        <p>Clean tracking setup, Customer Data Platform, compliance, data integrity &amp; hygiene</p>
+                        <div class="layer-tools">
+                            <span class="tool-tag">Google Analytics</span>
+                            <span class="tool-tag">Tracking</span>
+                            <span class="tool-tag">Data Cleanup</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Performance Loop -->
-    <section class="loop-section section" id="loop" aria-labelledby="loop-heading">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2 id="loop-heading">The Client-Controlled Performance Loop<br>
-                    <span style="font-size: var(--text-xl); color: var(--electric-blue); font-weight: 600;">
-                        (Runs Every Month — Guaranteed)
-                    </span>
-                </h2>
-                <p class="lead">Your strategy → execution → results → optimization cycle that compounds monthly revenue</p>
+        <div class="text-center mt-xl sr sr-up" style="transition-delay:.3s">
+            <a href="#loop" class="btn btn-secondary">
+                <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                See How These Layers Work Together
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ PERFORMANCE LOOP ═══════════════ -->
+<section class="loop-section section" id="loop" aria-labelledby="loop-heading">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2 id="loop-heading">The Client-Controlled Performance Loop<br>
+                <span style="font-size:var(--text-xl);color:var(--electric-blue);font-weight:600">
+                    (Runs Every Month — Guaranteed)
+                </span>
+            </h2>
+            <p class="lead">Your strategy → execution → results → optimization cycle that compounds monthly revenue</p>
+        </div>
+
+        <div class="loop-stepper sr sr-up" style="transition-delay:.2s">
+            <!-- Desktop Tabs -->
+            <div class="loop-tabs" role="tablist" aria-label="Performance loop steps">
+                <div class="loop-tab active" data-step="1" role="tab" aria-selected="true" aria-controls="detail-1">
+                    <div class="tab-progress" id="prog-1"></div>
+                    <div class="loop-tab-number">1</div>
+                    <div class="loop-tab-label">Insight &amp;<br>Strategy</div>
+                </div>
+                <div class="loop-tab" data-step="2" role="tab" aria-selected="false" aria-controls="detail-2">
+                    <div class="tab-progress" id="prog-2"></div>
+                    <div class="loop-tab-number">2</div>
+                    <div class="loop-tab-label">Automation<br>Blueprint</div>
+                </div>
+                <div class="loop-tab" data-step="3" role="tab" aria-selected="false" aria-controls="detail-3">
+                    <div class="tab-progress" id="prog-3"></div>
+                    <div class="loop-tab-number">3</div>
+                    <div class="loop-tab-label">Daily<br>Execution</div>
+                </div>
+                <div class="loop-tab" data-step="4" role="tab" aria-selected="false" aria-controls="detail-4">
+                    <div class="tab-progress" id="prog-4"></div>
+                    <div class="loop-tab-number">4</div>
+                    <div class="loop-tab-label">Review &amp;<br><span class="rotating-icon">↺</span> Pivot</div>
+                </div>
             </div>
 
-            <div class="loop-stepper" data-aos="fade-up">
-
-                <!-- DESKTOP: Horizontal Tabs -->
-                <div class="loop-tabs" role="tablist" aria-label="Performance loop steps">
-                    <div class="loop-tab active" data-step="1" role="tab" aria-selected="true" aria-controls="detail-1">
-                        <div class="loop-tab-number">1</div>
-                        <div class="loop-tab-label">Insight &amp;<br>Strategy</div>
-                    </div>
-                    <div class="loop-tab" data-step="2" role="tab" aria-selected="false" aria-controls="detail-2">
-                        <div class="loop-tab-number">2</div>
-                        <div class="loop-tab-label">Automation<br>Blueprint</div>
-                    </div>
-                    <div class="loop-tab" data-step="3" role="tab" aria-selected="false" aria-controls="detail-3">
-                        <div class="loop-tab-number">3</div>
-                        <div class="loop-tab-label">Daily<br>Execution</div>
-                    </div>
-                    <div class="loop-tab" data-step="4" role="tab" aria-selected="false" aria-controls="detail-4">
-                        <div class="loop-tab-number">4</div>
-                        <div class="loop-tab-label">Review &amp;<br>Pivot</div>
+            <!-- Desktop Detail Panel -->
+            <div class="loop-detail-panel" role="tabpanel">
+                <div class="loop-detail active" id="detail-1">
+                    <div class="loop-detail-icon"><i class="fas fa-brain"></i></div>
+                    <div class="loop-detail-body">
+                        <h3>1. Insight &amp; Strategic Vetting</h3>
+                        <p class="lead">X<sup>5</sup> AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
+                        <div class="your-role-box">
+                            <span class="role-label">Your Role</span>
+                            <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
+                        </div>
                     </div>
                 </div>
+                <div class="loop-detail" id="detail-2">
+                    <div class="loop-detail-icon"><i class="fas fa-diagram-project"></i></div>
+                    <div class="loop-detail-body">
+                        <h3>2. Automation Blueprint</h3>
+                        <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
+                        <div class="your-role-box">
+                            <span class="role-label">Your Role</span>
+                            <p>You own the workflows. They run on your infrastructure, visible and adjustable anytime.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="loop-detail" id="detail-3">
+                    <div class="loop-detail-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="loop-detail-body">
+                        <h3>3. Execution &amp; Direct Management</h3>
+                        <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
+                        <div class="your-role-box">
+                            <span class="role-label">Your Role</span>
+                            <p>Direct management via Slack &amp; Asana. 100% visibility and control over every task.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="loop-detail" id="detail-4">
+                    <div class="loop-detail-icon"><i class="fas fa-rotate"></i></div>
+                    <div class="loop-detail-body">
+                        <h3>4. Revenue Review &amp; Guaranteed Pivot</h3>
+                        <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
+                        <div class="your-role-box">
+                            <span class="role-label">Your Role</span>
+                            <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
+                        </div>
+                        <span class="pivot-guarantee">
+                            <i class="fas fa-shield-halved"></i>
+                            PIVOT GUARANTEE — Zero rebuild fees, always
+                        </span>
+                    </div>
+                </div>
+            </div>
 
-                <!-- Desktop Detail Panel -->
-                <div class="loop-detail-panel" role="tabpanel">
-                    <div class="loop-detail active" id="detail-1">
-                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-brain"></i></div>
-                        <div class="loop-detail-body">
-                            <h3>1. Insight &amp; Strategic Vetting</h3>
-                            <p class="lead">X<sup>5</sup> AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
-                            <div class="your-role-box">
+            <!-- Mobile Accordion -->
+            <div class="loop-accordion">
+                <div class="accordion-item open">
+                    <div class="accordion-header" role="button" aria-expanded="true">
+                        <div class="accordion-number">1</div>
+                        <div class="accordion-title">Insight &amp; Strategic Vetting</div>
+                        <i class="fas fa-chevron-down accordion-chevron"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            <p class="lead">X<sup>5</sup> AI analyzes your data &amp; market → creates a data-backed monthly action plan.</p>
+                            <div class="your-role-box" style="transform:none;opacity:1">
                                 <span class="role-label">Your Role</span>
-                                <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
+                                <p>Mandatory approval before we proceed.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="loop-detail" id="detail-2">
-                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
-                        <div class="loop-detail-body">
-                            <h3>2. Automation Blueprint</h3>
-                            <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
-                            <div class="your-role-box">
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-expanded="false">
+                        <div class="accordion-number">2</div>
+                        <div class="accordion-title">Automation Blueprint</div>
+                        <i class="fas fa-chevron-down accordion-chevron"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            <p class="lead">Approved strategy → permanent n8n automation workflows you own.</p>
+                            <div class="your-role-box" style="transform:none;opacity:1">
                                 <span class="role-label">Your Role</span>
-                                <p>You own the workflows. They run on your infrastructure, visible and adjustable anytime.</p>
+                                <p>You own the workflows. Visible &amp; adjustable anytime.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="loop-detail" id="detail-3">
-                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-rocket"></i></div>
-                        <div class="loop-detail-body">
-                            <h3>3. Execution &amp; Direct Management</h3>
-                            <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
-                            <div class="your-role-box">
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-expanded="false">
+                        <div class="accordion-number">3</div>
+                        <div class="accordion-title">Execution &amp; Direct Management</div>
+                        <i class="fas fa-chevron-down accordion-chevron"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            <p class="lead">Embedded team works in your accounts until KPIs are hit.</p>
+                            <div class="your-role-box" style="transform:none;opacity:1">
                                 <span class="role-label">Your Role</span>
-                                <p>Direct management via Slack &amp; Asana. 100% visibility and control over every task.</p>
+                                <p>Direct management via Slack &amp; Asana.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="loop-detail" id="detail-4">
-                        <div class="loop-detail-icon" aria-hidden="true"><i class="fas fa-rotate"></i></div>
-                        <div class="loop-detail-body">
-                            <h3>4. Revenue Review &amp; Guaranteed Pivot</h3>
-                            <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
-                            <div class="your-role-box">
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" role="button" aria-expanded="false">
+                        <div class="accordion-number">4</div>
+                        <div class="accordion-title">Revenue Review &amp; Guaranteed Pivot</div>
+                        <i class="fas fa-chevron-down accordion-chevron"></i>
+                    </div>
+                    <div class="accordion-body">
+                        <div class="accordion-content">
+                            <p class="lead">We review KPIs → rebuild strategy at zero extra cost.</p>
+                            <div class="your-role-box" style="transform:none;opacity:1">
                                 <span class="role-label">Your Role</span>
-                                <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
+                                <p>Zero extra fees for pivots. Ever.</p>
                             </div>
-                            <span class="pivot-guarantee">
-                                <!-- FIX M11: fa-shield-alt → fa-shield-halved -->
-                                <i class="fas fa-shield-halved" aria-hidden="true"></i>
-                                PIVOT GUARANTEE — Zero rebuild fees, always
+                            <span class="pivot-guarantee" style="margin-top:12px;display:inline-flex">
+                                <i class="fas fa-shield-halved"></i> PIVOT GUARANTEE — Always free
                             </span>
                         </div>
                     </div>
                 </div>
-
-                <!-- MOBILE: Vertical Accordion -->
-                <div class="loop-accordion" aria-label="Performance loop steps">
-                    <div class="accordion-item open">
-                        <div class="accordion-header" role="button" aria-expanded="true">
-                            <div class="accordion-number" aria-hidden="true">1</div>
-                            <div class="accordion-title">Insight &amp; Strategic Vetting</div>
-                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
-                        </div>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <p class="lead">X<sup>5</sup> AI analyzes your historical data, market trends, and competitive landscape → creates a data-backed monthly action plan.</p>
-                                <div class="your-role-box">
-                                    <span class="role-label">Your Role</span>
-                                    <p>Mandatory approval. You review, adjust, or reject any part of the strategy before we move forward.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header" role="button" aria-expanded="false">
-                            <div class="accordion-number" aria-hidden="true">2</div>
-                            <div class="accordion-title">Automation Blueprint</div>
-                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
-                        </div>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <p class="lead">Approved strategy → permanent n8n automation workflows. Your strategy becomes self-regulating and scalable.</p>
-                                <div class="your-role-box">
-                                    <span class="role-label">Your Role</span>
-                                    <p>You own the workflows. They run on your infrastructure, visible and adjustable anytime.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header" role="button" aria-expanded="false">
-                            <div class="accordion-number" aria-hidden="true">3</div>
-                            <div class="accordion-title">Execution &amp; Direct Management</div>
-                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
-                        </div>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <p class="lead">Embedded team works directly in your ad accounts, CMS, and CRM until KPIs are hit.</p>
-                                <div class="your-role-box">
-                                    <span class="role-label">Your Role</span>
-                                    <p>Direct management via Slack &amp; Asana. 100% visibility and control over every task.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <div class="accordion-header" role="button" aria-expanded="false">
-                            <div class="accordion-number" aria-hidden="true">4</div>
-                            <div class="accordion-title">Revenue Review &amp; Guaranteed Pivot</div>
-                            <i class="fas fa-chevron-down accordion-chevron" aria-hidden="true"></i>
-                        </div>
-                        <div class="accordion-body">
-                            <div class="accordion-content">
-                                <p class="lead">We review KPIs → you give feedback → we rebuild strategy and automation at zero extra cost.</p>
-                                <div class="your-role-box">
-                                    <span class="role-label">Your Role</span>
-                                    <p>Strategic changes? Market shifts? We rebuild everything — zero extra fees, ever.</p>
-                                </div>
-                                <span class="pivot-guarantee">
-                                    <i class="fas fa-shield-halved" aria-hidden="true"></i>
-                                    PIVOT GUARANTEE — Zero rebuild fees, always
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Bridge Section -->
-    <section class="bridge-section section" aria-labelledby="bridge-heading">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2 id="bridge-heading">Where <span class="text-primary">Technology</span> Meets <span style="color: var(--neon-indigo)">Brand Expertise</span></h2>
-                <p class="lead">You don't have to choose between cheap execution and expensive strategy. You get both — perfectly balanced.</p>
-            </div>
-            
-            <div class="bridge-grid">
-                <!-- Technology Engine -->
-                <div class="bridge-card" data-aos="fade-right">
-                    <div class="bridge-header tech">
-                        <h3>The Technology Engine<br><span style="font-size: var(--text-base); font-weight: 500;">(The HOW)</span></h3>
-                    </div>
-                    <div class="bridge-body">
-                        <p><strong>Guarantees speed, data accuracy, and cost-efficiency</strong></p>
-                        <p>This is the machinery that makes everything run smoothly, accurately, and at scale.</p>
-                        <ul class="role-list tech">
-                            <li>
-                                <div class="role-icon" aria-hidden="true"><i class="fas fa-robot"></i></div>
-                                <div>
-                                    <strong>Senior AI &amp; Automation Engineer</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Builds &amp; maintains n8n workflows</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="role-icon" aria-hidden="true"><i class="fas fa-database"></i></div>
-                                <div>
-                                    <strong>RevOps Analyst</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Data sync, attribution, reporting</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="role-icon" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
-                                <div>
-                                    <strong>Data Scientist</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Predictive models &amp; LTV forecasting</div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="outcome-box">Reduces human overhead by up to 80%</div>
-                    </div>
-                </div>
-                
-                <!-- Marketing Brain -->
-                <div class="bridge-card" data-aos="fade-left">
-                    <div class="bridge-header brand">
-                        <h3>The Marketing Brain<br><span style="font-size: var(--text-base); font-weight: 500;">(The WHAT)</span></h3>
-                    </div>
-                    <div class="bridge-body">
-                        <p><strong>Guarantees brand alignment, creative velocity, and market strategy</strong></p>
-                        <p>This is the creative and strategic thinking that ensures every pixel and word supports your brand voice &amp; revenue goals.</p>
-                        <ul class="role-list brand">
-                            <li>
-                                <div class="role-icon" aria-hidden="true"><i class="fas fa-chess-queen"></i></div>
-                                <div>
-                                    <strong>Account Strategist</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Your main POC &amp; strategy lead</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="role-icon" aria-hidden="true"><i class="fas fa-pen-nib"></i></div>
-                                <div>
-                                    <strong>Brand Storyteller</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Messaging, content, voice</div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="role-icon" aria-hidden="true"><i class="fas fa-palette"></i></div>
-                                <div>
-                                    <strong>Creative Director</strong>
-                                    <div style="font-size: var(--text-sm); color: var(--text-secondary);">Visual identity &amp; campaign creative</div>
-                                </div>
-                            </li>
-                        </ul>
-                        <div class="outcome-box brand">Every pixel &amp; word supports your brand voice &amp; revenue goals</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-xl" data-aos="fade-up">
-                <p class="lead" style="max-width: 900px; margin: 0 auto;">
-                    <strong>Result:</strong> You get a perfectly balanced team where technology handles the heavy lifting, 
-                    while marketing experts ensure everything aligns with your brand and business goals.
-                </p>
-            </div>
+<!-- ═══════════════ BRIDGE SECTION ═══════════════ -->
+<section class="bridge-section section" aria-labelledby="bridge-heading">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2 id="bridge-heading">Two Teams. One Mission. Zero Execution Gap.</h2>
+            <p class="lead">Technology and brand strategy working together — not in silos</p>
         </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="timeline-section section" id="timeline" aria-labelledby="timeline-heading">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2 id="timeline-heading">Your First 90 Days: <span class="text-primary">From Setup to Scale</span></h2>
-                <p class="lead">Here's exactly what happens from day 1 to day 90</p>
+        <div class="bridge-grid">
+            <!-- Tech Team -->
+            <div class="bridge-card sr sr-left" style="transition-delay:.1s" data-bridge="tech">
+                <div class="bridge-header tech">
+                    <h3 style="color:white;margin-bottom:.5rem">⚙ Tech &amp; Performance Team</h3>
+                    <p style="color:rgba(255,255,255,.85);margin-bottom:0">The engine room — data, automation, AI</p>
+                </div>
+                <div class="bridge-body">
+                    <p>Our tech specialists build and run the infrastructure that makes growth predictable and scalable.</p>
+                    <ul class="role-list" id="tech-roles">
+                        <li><div class="role-icon tech"><i class="fas fa-database"></i></div><div><strong>Data Architect</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">Clean data foundation &amp; CDP</div></div></li>
+                        <li><div class="role-icon tech"><i class="fas fa-robot"></i></div><div><strong>AI Automation Engineer</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">n8n workflows &amp; AI agents</div></div></li>
+                        <li><div class="role-icon tech"><i class="fas fa-chart-line"></i></div><div><strong>Performance Analyst</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">Attribution &amp; LTV modeling</div></div></li>
+                        <li><div class="role-icon tech"><i class="fas fa-bullseye"></i></div><div><strong>Paid Media Specialist</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">Google, Meta, LinkedIn, TikTok</div></div></li>
+                    </ul>
+                    <div class="outcome-box" id="outcome-tech">Every workflow you own — self-optimizing, 24/7</div>
+                </div>
             </div>
-            
-            <div class="timeline" data-aos="fade-up">
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-rocket"></i></div>
-                    <div class="timeline-content">
-                        <h4><i class="fas fa-calendar-week text-primary" aria-hidden="true"></i> Week 1-2: Foundation &amp; Integration</h4>
-                        <ul style="margin-top: var(--space-sm);">
-                            <li>Complete data audit &amp; tracking setup</li>
-                            <li>Slack/Asana integration &amp; team onboarding</li>
-                            <li>Initial strategy session with AI analysis</li>
-                            <li>First n8n automation workflows deployed</li>
-                        </ul>
-                    </div>
+            <!-- Brand Team -->
+            <div class="bridge-card sr sr-right" style="transition-delay:.25s" data-bridge="brand">
+                <div class="bridge-header brand">
+                    <h3 style="color:white;margin-bottom:.5rem">✦ Brand &amp; Strategy Team</h3>
+                    <p style="color:rgba(255,255,255,.85);margin-bottom:0">The voice — strategy, content, creative</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-play"></i></div>
-                    <div class="timeline-content">
-                        <h4><i class="fas fa-person-running text-primary" aria-hidden="true"></i> Week 3-4: Execution Launch</h4>
-                        <ul style="margin-top: var(--space-sm);">
-                            <li>First campaigns live (ads, content, email)</li>
-                            <li>Daily performance monitoring begins</li>
-                            <li>Weekly check-in cadence established</li>
-                            <li>Initial optimization based on early data</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-chart-line"></i></div>
-                    <div class="timeline-content">
-                        <h4><i class="fas fa-chart-bar text-primary" aria-hidden="true"></i> Month 2: Optimization &amp; Scale</h4>
-                        <ul style="margin-top: var(--space-sm);">
-                            <li>Comprehensive performance review</li>
-                            <li>Scale winning channels &amp; strategies</li>
-                            <li>Advanced automation workflows added</li>
-                            <li>Predictive LTV modeling begins</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker" aria-hidden="true"><i class="fas fa-crown"></i></div>
-                    <div class="timeline-content">
-                        <h4><i class="fas fa-trophy text-primary" aria-hidden="true"></i> Month 3: System Mastery</h4>
-                        <ul style="margin-top: var(--space-sm);">
-                            <li>Full system optimization complete</li>
-                            <li>Quarterly strategy planning session</li>
-                            <li>Team working at peak efficiency</li>
-                            <li>Predictable, scalable growth achieved</li>
-                        </ul>
-                    </div>
+                <div class="bridge-body">
+                    <p>Our strategists ensure every campaign, every word, and every pixel drives your revenue goals.</p>
+                    <ul class="role-list" id="brand-roles">
+                        <li><div class="role-icon brand"><i class="fas fa-lightbulb"></i></div><div><strong>Account Strategist</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">Your main POC &amp; strategy lead</div></div></li>
+                        <li><div class="role-icon brand"><i class="fas fa-pen-nib"></i></div><div><strong>Brand Storyteller</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">Messaging, content, voice</div></div></li>
+                        <li><div class="role-icon brand"><i class="fas fa-palette"></i></div><div><strong>Creative Director</strong><div style="font-size:var(--text-sm);color:var(--text-secondary)">Visual identity &amp; campaign creative</div></div></li>
+                    </ul>
+                    <div class="outcome-box brand" id="outcome-brand">Every pixel &amp; word supports your revenue goals</div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="text-center mt-xl sr sr-up" style="transition-delay:.4s">
+            <p class="lead" style="max-width:900px;margin:0 auto"><strong>Result:</strong> You get a perfectly balanced team where technology handles the heavy lifting, while marketing experts ensure everything aligns with your brand and business goals.</p>
+        </div>
+    </div>
+</section>
 
-    <!-- Final CTA -->
-    <section class="cta-final section-lg" id="audit" aria-labelledby="cta-heading">
-        <div class="cta-bg" aria-hidden="true"></div>
-        <div class="container">
-            <div class="cta-content" data-aos="fade-up">
-                <h2 id="cta-heading">Most Marketing Burns Fuel. This One Builds Orbit.</h2>
-                
-                <p class="lead" style="color: rgba(255,255,255,0.9);">
-                    Once the system reaches velocity, it sustains itself — self-optimizing, compounding, generating predictable monthly revenue. That's not a campaign. That's infrastructure.<br><br>
-                    Your free 30-minute audit maps exactly which layers your business needs first — and what the numbers look like at month 3, 6, and 12.
-                </p>
-                
-                <div class="slots">
-                    <strong>Only 5 audit slots left this week</strong>
+<!-- ═══════════════ 90-DAY TIMELINE ═══════════════ -->
+<section class="timeline-section section" id="timeline" aria-labelledby="timeline-heading">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2 id="timeline-heading">Your First 90 Days: <span style="color:var(--electric-blue)">From Setup to Scale</span></h2>
+            <p class="lead">Here's exactly what happens from day 1 to day 90</p>
+        </div>
+        <div class="timeline" id="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-marker"><i class="fas fa-rocket"></i></div>
+                <div class="timeline-content">
+                    <h4><i class="fas fa-calendar-week" style="color:var(--electric-blue)"></i> Week 1–2: Foundation &amp; Integration</h4>
+                    <ul>
+                        <li>Complete data audit &amp; tracking setup</li>
+                        <li>Slack / Asana integration &amp; team onboarding</li>
+                        <li>Initial strategy session with AI analysis</li>
+                        <li>First n8n automation workflows deployed</li>
+                    </ul>
                 </div>
-                
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"><i class="fas fa-play"></i></div>
+                <div class="timeline-content">
+                    <h4><i class="fas fa-person-running" style="color:var(--electric-blue)"></i> Week 3–4: Execution Launch</h4>
+                    <ul>
+                        <li>First campaigns live (ads, content, email)</li>
+                        <li>Daily performance monitoring begins</li>
+                        <li>Weekly check-in cadence established</li>
+                        <li>Initial optimization based on early data</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"><i class="fas fa-chart-line"></i></div>
+                <div class="timeline-content">
+                    <h4><i class="fas fa-chart-bar" style="color:var(--electric-blue)"></i> Month 2: Optimization &amp; Scale</h4>
+                    <ul>
+                        <li>Comprehensive performance review</li>
+                        <li>Scale winning channels &amp; strategies</li>
+                        <li>Advanced automation workflows added</li>
+                        <li>Predictive LTV modeling begins</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker"><i class="fas fa-crown"></i></div>
+                <div class="timeline-content">
+                    <h4><i class="fas fa-trophy" style="color:var(--electric-blue)"></i> Month 3: System Mastery</h4>
+                    <ul>
+                        <li>Full system optimization complete</li>
+                        <li>Quarterly strategy planning session</li>
+                        <li>Team working at peak efficiency</li>
+                        <li>Predictable, scalable growth achieved</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FINAL CTA ═══════════════ -->
+<section class="cta-final section-lg" id="audit" aria-labelledby="cta-heading">
+    <canvas id="cta-canvas" aria-hidden="true"></canvas>
+    <div class="cta-bg" aria-hidden="true"></div>
+    <!-- Orbit rings -->
+    <div class="orbit-ring orbit-ring-1"><div class="orbit-dot"></div></div>
+    <div class="orbit-ring orbit-ring-2"><div class="orbit-dot"></div></div>
+    <div class="container">
+        <div class="cta-content sr sr-up">
+            <h2 id="cta-heading">Most Marketing <span class="word-hl">Burns Fuel.</span><br>This One <span class="word-hl">Builds Orbit.</span></h2>
+            <p class="lead" style="color:rgba(255,255,255,.9)">
+                Once the system reaches velocity, it sustains itself — self-optimizing, compounding, generating predictable monthly revenue. That's not a campaign. That's infrastructure.<br><br>
+                Your free 30-minute audit maps exactly which layers your business needs first — and what the numbers look like at month 3, 6, and 12.
+            </p>
+            <div class="slots">
+                <strong>Only 5 audit slots left this week</strong>
+                <div>
+                    <span class="urgency-timer">
+                        <span class="timer-dot"></span>
+                        Closes in: <span id="timer-display">47:32:18</span>
+                    </span>
+                </div>
+            </div>
+            <div class="btn-magnetic">
                 <a href="book-audit.html" class="btn btn-primary btn-lg">
                     Book My Free Audit &amp; Custom Roadmap
-                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    <i class="fas fa-arrow-right"></i>
                 </a>
-                
-                <div class="mt-lg" style="color: rgba(255,255,255,0.8);">
-                    <small><i class="fas fa-lock" aria-hidden="true"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day plan</small>
+            </div>
+            <div class="mt-lg" style="color:rgba(255,255,255,.8)">
+                <small><i class="fas fa-lock"></i> Zero risk &bull; Takes 30 minutes &bull; You'll leave with your 90-day plan</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="sr sr-up" style="transition-delay:.1s">
+                <div class="footer-logo">X<sup>5</sup> Digital</div>
+                <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business — and hand you the keys.<br>Vietnam-based · Built for U.S. SMEs · 24/7 coverage</p>
+            </div>
+            <div class="sr sr-up" style="transition-delay:.2s">
+                <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
+                <nav class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="proofs.html">Proof</a>
+                    <a href="book-audit.html">Book Free Audit</a>
+                </nav>
+            </div>
+            <div class="sr sr-up" style="transition-delay:.3s">
+                <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
+                <div class="footer-links">
+                    <a href="/cdn-cgi/l/email-protection#e088858c8c8fa098d58489878994818cce838f8d"><span class="__cf_email__" data-cfemail="f59d9099999ab58dc0919c929c819499db969a98">[email&#160;protected]</span></a>
+                    <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter / X">Twitter</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer — matches index.html -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">X<sup>5</sup> Digital</div>
-                    <p style="color: var(--text-secondary); margin-bottom: 0;">
-                        We build the revenue machine inside your business — and hand you the keys.<br>
-                        Vietnam-based · Built for U.S. SMEs · 24/7 coverage
-                    </p>
-                </div>
-                
-                <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Quick Links</h4>
-                    <nav class="footer-links" aria-label="Footer navigation">
-                        <a href="index.html">Home</a>
-                        <a href="how-it-works.html">How It Works</a>
-                        <a href="packages.html">Packages</a>
-                        <a href="proofs.html">Proof</a>
-                        <a href="book-audit.html">Book Free Audit</a>
-                    </nav>
-                </div>
-                
-                <!-- FIX FOOTER: Contact column matching index.html -->
-                <div>
-                    <h4 style="color: var(--text-primary); margin-bottom: var(--space-md);">Contact</h4>
-                    <div class="footer-links">
-                        <a href="/cdn-cgi/l/email-protection#1179747d7d7e5169247578767865707d3f727e7c"><span class="__cf_email__" data-cfemail="573f323b3b38172f62333e303e23363b7934383a">x5vn@x5digital.io</span></a>
-                        <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Twitter / X">Twitter</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. • 30-Day Risk-Free Trial for qualified clients.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Scripts -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // FIX M10: reduced offset, disable on very small screens
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 60,
-            disable: function() { return window.innerWidth < 480; }
-        });
-
-        // ===== MOBILE NAVIGATION =====
-        const menuToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks   = document.querySelector('.nav-links');
-
-        menuToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            // FIX M9: toggle aria attributes
-            this.setAttribute('aria-expanded', String(!isExpanded));
-            navLinks.setAttribute('aria-hidden', String(isExpanded));
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
-        });
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.setAttribute('aria-hidden', 'true');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // ===== HEADER SCROLL — FIX M8: hide/show on mobile =====
-        const header = document.getElementById('header');
-        let lastScrollY = window.scrollY;
-        let ticking    = false;
-
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const currentScrollY = window.scrollY;
-
-                    // scrolled background effect (all viewports)
-                    header.classList.toggle('scrolled', currentScrollY > 50);
-
-                    // FIX M8: hide/show only on mobile, only when menu is closed
-                    if (window.innerWidth <= 992 && !navLinks.classList.contains('active')) {
-                        if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                            header.classList.add('header-hidden');
-                        } else {
-                            header.classList.remove('header-hidden');
-                        }
-                    }
-
-                    lastScrollY = currentScrollY;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // ===== PERFORMANCE LOOP — HORIZONTAL STEPPER =====
-        const loopTabs    = document.querySelectorAll('.loop-tab');
-        const loopDetails = document.querySelectorAll('.loop-detail');
-        let autoCycle;
-
-        function activateStep(stepNumber) {
-            loopTabs.forEach(t => {
-                const active = t.getAttribute('data-step') === String(stepNumber);
-                t.classList.toggle('active', active);
-                t.setAttribute('aria-selected', String(active));
-            });
-            loopDetails.forEach(d => d.classList.remove('active'));
-            const activeDetail = document.getElementById(`detail-${stepNumber}`);
-            if (activeDetail) activeDetail.classList.add('active');
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ═══════════════════════════════════════════════
+   1. HERO PARTICLE NETWORK (same as index)
+═══════════════════════════════════════════════ */
+(function(){
+    var c=document.getElementById('hero-canvas'),ctx=c.getContext('2d'),pts=[];
+    function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}
+    function mkPt(){return{x:Math.random()*c.width,y:Math.random()*c.height,dx:(Math.random()-.5)*.45,dy:(Math.random()-.5)*.45,r:Math.random()*1.8+.6,col:Math.random()>.5?'29,155,240':'99,102,241',o:Math.random()*.4+.15};}
+    function init(){resize();pts=[];for(var i=0;i<60;i++)pts.push(mkPt());}
+    function draw(){
+        ctx.clearRect(0,0,c.width,c.height);
+        for(var i=0;i<pts.length;i++){
+            var p=pts[i];p.x+=p.dx;p.y+=p.dy;
+            if(p.x<0||p.x>c.width)p.dx*=-1;if(p.y<0||p.y>c.height)p.dy*=-1;
+            ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+p.o+')';ctx.fill();
+            for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.sqrt(dx*dx+dy*dy);
+                if(d<130){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(29,155,240,'+(.13*(1-d/130))+')';ctx.lineWidth=.6;ctx.stroke();}}
         }
+        requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize',init);init();draw();
+})();
 
-        loopTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                activateStep(this.getAttribute('data-step'));
-                clearInterval(autoCycle);
+/* ═══════════════════════════════════════════════
+   2. CTA STAR FIELD (same as index)
+═══════════════════════════════════════════════ */
+(function(){
+    var c=document.getElementById('cta-canvas');if(!c)return;
+    var ctx=c.getContext('2d'),stars=[],t=0;
+    function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}
+    function init(){resize();stars=[];for(var i=0;i<80;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.2+.3,o:Math.random()*.6+.2,speed:Math.random()*.003+.001,phase:Math.random()*Math.PI*2});}
+    function draw(){t+=.016;ctx.clearRect(0,0,c.width,c.height);
+        for(var i=0;i<stars.length;i++){var s=stars[i];var a=s.o*(.5+.5*Math.sin(t*s.speed*60+s.phase));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+a+')';ctx.fill();}
+        requestAnimationFrame(draw);}
+    window.addEventListener('resize',init);init();draw();
+})();
+
+/* ═══════════════════════════════════════════════
+   3. SCROLL REVEAL
+═══════════════════════════════════════════════ */
+(function(){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.sr').forEach(function(el){obs.observe(el);});
+})();
+
+/* ═══════════════════════════════════════════════
+   4. 5-LAYER BUILD-UP (bottom → top)
+═══════════════════════════════════════════════ */
+(function(){
+    var container=document.getElementById('layers-container');
+    if(!container)return;
+    // Layers in DOM: 5,4,3,2,1 — we want to reveal 1 first, then 2,3,4,5
+    // So we collect in reverse DOM order
+    var layers=Array.from(container.querySelectorAll('.layer')).reverse(); // [layer-1, layer-2, ... layer-5]
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+            if(!entry.isIntersecting)return;
+            // Trigger build-up sequence
+            layers.forEach(function(layer,i){
+                setTimeout(function(){
+                    layer.classList.add('layer-in');
+                    // pop tags after layer appears
+                    setTimeout(function(){
+                        layer.querySelectorAll('.tool-tag').forEach(function(tag,ti){
+                            setTimeout(function(){tag.classList.add('tag-in');},ti*80);
+                        });
+                    },400);
+                    // Extra glow on layer-5 (last = index 4)
+                    if(i===4){
+                        setTimeout(function(){
+                            layer.style.boxShadow='0 0 80px rgba(29,155,240,.55),0 0 140px rgba(99,102,241,.25)';
+                            setTimeout(function(){layer.style.boxShadow='';},1200);
+                        },500);
+                    }
+                },i*180);
+            });
+            obs.unobserve(entry.target);
+        });
+    },{threshold:.1});
+    obs.observe(container);
+})();
+
+/* ═══════════════════════════════════════════════
+   5. PERFORMANCE LOOP — tabs + progress bar
+═══════════════════════════════════════════════ */
+(function(){
+    var tabs=document.querySelectorAll('.loop-tab');
+    var details=document.querySelectorAll('.loop-detail');
+    var CYCLE=8000;
+    var currentStep=1,prevStep=1,autoCycle,progTimer;
+
+    function startProgress(stepNum){
+        var bar=document.getElementById('prog-'+stepNum);
+        if(!bar)return;
+        bar.style.transition='none';bar.style.width='0%';
+        requestAnimationFrame(function(){
+            requestAnimationFrame(function(){
+                bar.style.transition='width '+CYCLE+'ms linear';
+                bar.style.width='100%';
             });
         });
+    }
+    function stopProgress(stepNum){
+        var bar=document.getElementById('prog-'+stepNum);
+        if(!bar)return;
+        bar.style.transition='none';bar.style.width='0%';
+    }
 
-        let currentStep = 1;
-        autoCycle = setInterval(() => {
-            currentStep = currentStep === 4 ? 1 : currentStep + 1;
-            activateStep(currentStep);
-        }, 8000);
-
-        // ===== MOBILE ACCORDION =====
-        document.querySelectorAll('.accordion-header').forEach(hdr => {
-            hdr.addEventListener('click', function() {
-                const item   = this.closest('.accordion-item');
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.accordion-item').forEach(i => {
-                    i.classList.remove('open');
-                    i.querySelector('.accordion-header').setAttribute('aria-expanded', 'false');
-                });
-                if (!isOpen) {
-                    item.classList.add('open');
-                    this.setAttribute('aria-expanded', 'true');
-                }
-            });
+    function activateStep(n,dir){
+        var prev=currentStep;prevStep=prev;
+        currentStep=parseInt(n);
+        // tabs
+        tabs.forEach(function(t){
+            var active=t.getAttribute('data-step')===String(currentStep);
+            t.classList.toggle('active',active);
+            t.setAttribute('aria-selected',String(active));
+            if(!active)stopProgress(t.getAttribute('data-step'));
         });
+        // details with direction
+        details.forEach(function(d){d.classList.remove('active','slide-right','slide-left');});
+        var target=document.getElementById('detail-'+currentStep);
+        if(target){
+            var cls=dir==='right'?'slide-right':dir==='left'?'slide-left':'';
+            target.classList.add('active');
+            if(cls)target.classList.add(cls);
+        }
+        startProgress(currentStep);
+    }
 
-        // ===== TIMELINE ANIMATION =====
-        const timelineItems = document.querySelectorAll('.timeline-item');
-        const tlObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity   = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
-
-        timelineItems.forEach(item => {
-            item.style.opacity    = '0';
-            item.style.transform  = 'translateY(20px)';
-            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            tlObserver.observe(item);
+    tabs.forEach(function(tab){
+        tab.addEventListener('click',function(){
+            var n=parseInt(this.getAttribute('data-step'));
+            var dir=n>currentStep?'right':'left';
+            activateStep(n,dir);
+            clearInterval(autoCycle);
+            // restart auto after pause
+            autoCycle=setInterval(function(){
+                var next=currentStep===4?1:currentStep+1;
+                activateStep(next,'right');
+            },CYCLE);
         });
+    });
 
-        // ===== SMOOTH SCROLL =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
-                }
-            });
+    // Start
+    activateStep(1,'');
+    autoCycle=setInterval(function(){
+        var next=currentStep===4?1:currentStep+1;
+        activateStep(next,'right');
+    },CYCLE);
+})();
+
+/* ═══════════════════════════════════════════════
+   6. MOBILE ACCORDION
+═══════════════════════════════════════════════ */
+document.querySelectorAll('.accordion-header').forEach(function(hdr){
+    hdr.addEventListener('click',function(){
+        var item=this.closest('.accordion-item'),isOpen=item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(function(i){
+            i.classList.remove('open');i.querySelector('.accordion-header').setAttribute('aria-expanded','false');
         });
-    </script>
+        if(!isOpen){item.classList.add('open');this.setAttribute('aria-expanded','true');}
+    });
+});
+
+/* ═══════════════════════════════════════════════
+   7. BRIDGE SECTION — cross-slide + role stagger + typewriter
+═══════════════════════════════════════════════ */
+(function(){
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+            if(!entry.isIntersecting)return;
+            var card=entry.target;
+            var roles=card.querySelectorAll('.role-list li');
+            roles.forEach(function(li,i){
+                setTimeout(function(){li.classList.add('item-in');},300+i*110);
+            });
+            // typewriter on outcome box
+            var box=card.querySelector('.outcome-box');
+            if(box){
+                var full=box.textContent.trim();
+                box.textContent='';
+                box.classList.add('typing');
+                setTimeout(function(){
+                    var i=0;
+                    var t=setInterval(function(){
+                        box.textContent=full.slice(0,i+1);
+                        i++;if(i>=full.length){clearInterval(t);box.classList.remove('typing');}
+                    },28);
+                },500+roles.length*110);
+            }
+            obs.unobserve(card);
+        });
+    },{threshold:.3});
+    document.querySelectorAll('.bridge-card').forEach(function(c){obs.observe(c);});
+})();
+
+/* ═══════════════════════════════════════════════
+   8. 90-DAY TIMELINE — line draw + item reveal
+═══════════════════════════════════════════════ */
+(function(){
+    var tl=document.getElementById('timeline-container');if(!tl)return;
+    var items=tl.querySelectorAll('.timeline-item');
+    // Line draw trigger
+    var lineObs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(e.isIntersecting){tl.classList.add('line-drawn');lineObs.unobserve(tl);}
+        });
+    },{threshold:.05});
+    lineObs.observe(tl);
+    // Items
+    var itemObs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(e.isIntersecting){e.target.classList.add('tl-in');itemObs.unobserve(e.target);}
+        });
+    },{threshold:.2});
+    items.forEach(function(item){itemObs.observe(item);});
+})();
+
+/* ═══════════════════════════════════════════════
+   9. CTA WORD HIGHLIGHT
+═══════════════════════════════════════════════ */
+(function(){
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(!e.isIntersecting)return;
+            e.target.querySelectorAll('.word-hl').forEach(function(w,i){
+                setTimeout(function(){w.classList.add('lit');},600+i*350);
+            });
+            obs.unobserve(e.target);
+        });
+    },{threshold:.5});
+    var cc=document.querySelector('.cta-content');if(cc)obs.observe(cc);
+})();
+
+/* ═══════════════════════════════════════════════
+   10. COUNTDOWN TIMER (same as index)
+═══════════════════════════════════════════════ */
+(function(){
+    var d=document.getElementById('timer-display');if(!d)return;
+    var deadline=Date.now()+(47*3600+32*60+18)*1000;
+    function upd(){var diff=Math.max(0,deadline-Date.now()),h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);d.textContent=pad(h)+':'+pad(m)+':'+pad(s);}
+    function pad(n){return n<10?'0'+n:n;}
+    upd();setInterval(upd,1000);
+})();
+
+/* ═══════════════════════════════════════════════
+   11. MAGNETIC BUTTON (same as index)
+═══════════════════════════════════════════════ */
+document.querySelectorAll('.btn-magnetic').forEach(function(wrap){
+    var btn=wrap.querySelector('.btn');if(!btn)return;
+    wrap.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);btn.style.transform='translate('+(dx*.18)+'px,'+(dy*.18)+'px) translateY(-3px)';});
+    wrap.addEventListener('mouseleave',function(){btn.style.transform='';});
+});
+
+/* ═══════════════════════════════════════════════
+   12. HEADER SCROLL
+═══════════════════════════════════════════════ */
+(function(){
+    var header=document.getElementById('header'),lastY=window.scrollY,ticking=false;
+    window.addEventListener('scroll',function(){
+        if(!ticking){requestAnimationFrame(function(){
+            var cur=window.scrollY;
+            header.classList.toggle('scrolled',cur>50);
+            if(window.innerWidth<=992&&!document.querySelector('.nav-links.active')){
+                if(cur>lastY&&cur>80)header.classList.add('header-hidden');
+                else header.classList.remove('header-hidden');
+            }
+            lastY=cur;ticking=false;
+        });ticking=true;}
+    },{passive:true});
+})();
+
+/* ═══════════════════════════════════════════════
+   13. MOBILE NAV
+═══════════════════════════════════════════════ */
+(function(){
+    var toggle=document.querySelector('.mobile-menu-toggle'),navLinks=document.querySelector('.nav-links');
+    toggle.addEventListener('click',function(){
+        var exp=this.getAttribute('aria-expanded')==='true';
+        this.classList.toggle('active');navLinks.classList.toggle('active');
+        this.setAttribute('aria-expanded',String(!exp));
+        document.body.style.overflow=navLinks.classList.contains('active')?'hidden':'';
+    });
+    document.querySelectorAll('.nav-link').forEach(function(l){
+        l.addEventListener('click',function(){toggle.classList.remove('active');navLinks.classList.remove('active');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';});
+    });
+})();
+
+/* ═══════════════════════════════════════════════
+   14. SMOOTH SCROLL
+═══════════════════════════════════════════════ */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click',function(e){e.preventDefault();var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el)window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});});
+});
+</script>
 </body>
 </html>

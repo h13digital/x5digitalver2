@@ -3,2033 +3,931 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proof — X5 Digital | See the System in Action</title>
+    <title>Proof — X⁵ Digital | See the System in Action</title>
     <meta name="description" content="Real benchmarks, live demos, and our Vietnam portfolio. See exactly how our 5-layer system works before you commit.">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <style>
-        /* ===== CSS VARIABLES & RESET ===== */
-        :root {
-            /* === BACKGROUNDS === */
-            --bg-base:        #080D1A;
-            --bg-surface-1:   #0D1426;
-            --bg-surface-2:   #111B33;
-            --bg-surface-3:   #1A2444;
+    /* ═══════════════════════════════════════════════
+       TOKENS — identical across all 4 pages
+    ═══════════════════════════════════════════════ */
+    :root {
+        --bg-base:#080D1A; --bg-surface-1:#0D1426; --bg-surface-2:#111B33; --bg-surface-3:#1A2444;
+        --electric-blue:#1D9BF0; --neon-indigo:#6366F1; --cyber-cyan:#06B6D4;
+        --aurora-green:#00D4AA; --amber-warm:#F59E0B; --danger-red:#EF4444;
+        --primary:#1D9BF0; --accent:#8B5CF6;
+        --text-primary:#F1F5F9; --text-secondary:#94A3B8; --text-muted:#475569;
+        --grad-brand:linear-gradient(135deg,#1D9BF0 0%,#6366F1 50%,#8B5CF6 100%);
+        --grad-cta-bg:linear-gradient(135deg,#0D1F3C 0%,#1A1040 100%);
+        --glow-blue-sm:0 0 20px rgba(29,155,240,.25); --glow-blue-md:0 0 40px rgba(29,155,240,.35);
+        --glow-indigo:0 0 60px rgba(99,102,241,.30); --glow-green:0 0 40px rgba(0,212,170,.30);
+        --glow-cyan:0 0 40px rgba(6,182,212,.30);
+        --space-xs:.5rem; --space-sm:1rem; --space-md:1.5rem; --space-lg:2rem;
+        --space-xl:3rem; --space-2xl:4rem; --space-3xl:6rem;
+        --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem;
+        --text-xl:1.25rem; --text-2xl:1.5rem; --text-3xl:1.875rem; --text-4xl:2.25rem; --text-5xl:3rem;
+        --shadow-xl:0 20px 60px rgba(0,0,0,.6);
+        --radius-sm:8px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px; --radius-full:9999px;
+        --transition-fast:.15s cubic-bezier(.4,0,.2,1);
+        --transition-normal:.3s cubic-bezier(.4,0,.2,1);
+        --transition-spring:.4s cubic-bezier(.34,1.56,.64,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Outfit',sans-serif;line-height:1.75;color:var(--text-secondary);background:var(--bg-base);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit;transition:color var(--transition-fast)}
+    img{max-width:100%;height:auto;border-radius:var(--radius-lg)}
+    .container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg)}
+    .container-narrow{max-width:1000px;margin:0 auto;padding:0 var(--space-lg)}
+    .section{padding:var(--space-3xl) 0} .section-lg{padding:var(--space-3xl) 0}
+    h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.2;margin-bottom:var(--space-md);color:var(--text-primary)}
+    h1{font-size:clamp(2.75rem,6vw,5rem);font-weight:900;letter-spacing:-.03em}
+    h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.01em}
+    h3{font-size:clamp(1.25rem,2vw,1.75rem);font-weight:700}
+    p{margin-bottom:var(--space-md);color:var(--text-secondary);line-height:1.75}
+    .lead{font-size:var(--text-xl);font-weight:500;line-height:1.6;color:var(--text-secondary)}
+    strong{color:var(--text-primary)}
+    sup{font-size:.6em;vertical-align:super;line-height:0;font-weight:inherit}
+    .logo sup{font-size:.83em;-webkit-text-fill-color:var(--electric-blue);color:var(--electric-blue)}
+    .text-gradient{background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .text-center{text-align:center}
+    .mb-xl{margin-bottom:var(--space-xl)} .mt-xl{margin-top:var(--space-xl)} .mt-lg{margin-top:var(--space-lg)}
 
-            /* === BRAND COLORS === */
-            --electric-blue:  #1D9BF0;
-            --neon-indigo:    #6366F1;
-            --cyber-cyan:     #06B6D4;
-            --aurora-green:   #00D4AA;
-            --amber-warm:     #F59E0B;
-            --danger-red:     #EF4444;
+    /* ═══════════════════════════════════════════════
+       SCROLL REVEAL — same system all 4 pages
+    ═══════════════════════════════════════════════ */
+    .sr{opacity:0;transition:opacity .7s ease,transform .7s ease}
+    .sr-up   {transform:translateY(40px)} .sr-left {transform:translateX(-60px)}
+    .sr-right{transform:translateX(60px)} .sr-scale{transform:scale(.85)}
+    .sr.in   {opacity:1!important;transform:none!important}
 
-            /* === LEGACY ALIASES === */
-            --primary:        #1D9BF0;
-            --primary-dark:   #1580CC;
-            --primary-light:  #6366F1;
-            --secondary:      #00D4AA;
-            --secondary-dark: #00B892;
-            --accent:         #8B5CF6;
-            --danger:         #EF4444;
-            --warning:        #F59E0B;
-            --success:        #00D4AA;
+    /* ═══════════════════════════════════════════════
+       AURORA + CANVAS — identical
+    ═══════════════════════════════════════════════ */
+    .aurora-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;will-change:transform;animation:aurora-drift 12s ease-in-out infinite}
+    .aurora-orb-1{width:600px;height:600px;top:-200px;right:-100px;background:radial-gradient(circle,rgba(29,155,240,.12),transparent 70%)}
+    .aurora-orb-2{width:500px;height:500px;bottom:0;left:-150px;background:radial-gradient(circle,rgba(99,102,241,.10),transparent 70%);animation-delay:-6s}
+    @keyframes aurora-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(.97)}}
+    #hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.7}
+    #cta-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;opacity:.5}
 
-            /* === PROOF COLOR ALIASES → design system === */
-            --proof-cost:       var(--aurora-green);
-            --proof-roas:       var(--amber-warm);
-            --proof-churn:      var(--neon-indigo);
-            --proof-automation: var(--electric-blue);
+    /* ═══════════════════════════════════════════════
+       BUTTONS — identical
+    ═══════════════════════════════════════════════ */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);font-weight:600;font-size:var(--text-base);border-radius:var(--radius-md);border:none;cursor:pointer;transition:all var(--transition-normal);position:relative;overflow:hidden;text-align:center;white-space:nowrap;min-height:44px}
+    .btn::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%)}
+    .btn:hover::after{animation:shine .8s ease}
+    @keyframes shine{100%{transform:translateX(100%)}}
+    .btn-primary{background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;box-shadow:0 4px 20px rgba(29,155,240,.25);animation:cta-breathe 3s ease-in-out 3s infinite}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(29,155,240,.5),0 0 0 4px rgba(29,155,240,.15);animation:none}
+    @keyframes cta-breathe{0%,100%{box-shadow:0 4px 20px rgba(29,155,240,.20)}50%{box-shadow:0 4px 40px rgba(29,155,240,.55),0 0 60px rgba(99,102,241,.25)}}
+    .btn-secondary{background:transparent;color:var(--electric-blue);border:1px solid rgba(29,155,240,.40)}
+    .btn-secondary:hover{background:rgba(29,155,240,.08);border-color:var(--electric-blue);transform:translateY(-2px);box-shadow:0 8px 25px rgba(29,155,240,.15)}
+    .btn-lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-lg);border-radius:var(--radius-lg)}
+    .btn-magnetic{display:inline-block;transition:transform .2s ease}
 
-            /* === TEXT (WCAG VERIFIED) === */
-            --text-primary:   #F1F5F9;   /* 16.2:1 on bg-base ✅ AAA */
-            --text-secondary: #94A3B8;   /* 5.1:1 on bg-base  ✅ AA  */
-            --text-muted:     #475569;   /* captions / footer-bottom only */
-            --text-inverse:   #080D1A;
+    /* ═══════════════════════════════════════════════
+       HEADER — identical
+    ═══════════════════════════════════════════════ */
+    header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:var(--space-md) 0;background:rgba(8,13,26,.75);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.4,0,.2,1),padding var(--transition-normal),background var(--transition-normal),box-shadow var(--transition-normal);animation:headerIn .6s ease both}
+    @keyframes headerIn{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+    header.header-hidden{transform:translateY(-100%)}
+    header.scrolled{padding:var(--space-sm) 0;background:rgba(8,13,26,.95);border-bottom-color:rgba(29,155,240,.15);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{display:flex;align-items:center;gap:var(--space-sm);font-weight:900;font-size:var(--text-2xl);color:var(--electric-blue);font-family:'Plus Jakarta Sans',sans-serif}
+    .logo-typed{display:inline-block;overflow:hidden;white-space:nowrap;max-width:0;vertical-align:middle;animation:logo-typing 1.4s steps(10,end) .3s forwards}
+    .logo-cursor{display:inline-block;width:2px;height:1em;background:var(--electric-blue);border-radius:2px;margin-left:2px;vertical-align:middle;opacity:0;animation:logo-cursor-appear 0s 1.7s forwards,logo-cursor-blink 1s 1.7s step-end infinite}
+    @keyframes logo-typing{from{max-width:0}to{max-width:180px}}
+    @keyframes logo-cursor-appear{to{opacity:1}}
+    @keyframes logo-cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
+    .nav-links{display:flex;gap:var(--space-xl);align-items:center}
+    .nav-link{font-weight:500;font-size:var(--text-base);color:var(--text-secondary);position:relative;padding:var(--space-xs) 0}
+    .nav-link::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:1.5px;background:var(--electric-blue);transform:translateX(-50%);transition:width var(--transition-normal)}
+    .nav-link:hover{color:var(--text-primary)} .nav-link:hover::after{width:100%}
+    .nav-link.active{color:var(--electric-blue)} .nav-link.active::after{width:100%}
+    .mobile-menu-toggle{display:none;background:none;border:none;width:44px;height:44px;cursor:pointer;z-index:1001;align-items:center;justify-content:center}
+    .hamburger{width:24px;height:2px;background:var(--text-primary);position:relative;transition:all var(--transition-fast)}
+    .hamburger::before,.hamburger::after{content:'';position:absolute;width:24px;height:2px;background:var(--text-primary);transition:all var(--transition-fast)}
+    .hamburger::before{top:-8px} .hamburger::after{bottom:-8px}
+    .mobile-menu-toggle.active .hamburger{background:transparent}
+    .mobile-menu-toggle.active .hamburger::before{transform:rotate(45deg) translate(5px,5px)}
+    .mobile-menu-toggle.active .hamburger::after{transform:rotate(-45deg) translate(7px,-6px)}
 
-            /* === GRADIENTS === */
-            --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
-            --grad-cta-bg:    linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
-            --grad-divider:   linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);
+    /* ═══════════════════════════════════════════════
+       HERO — identical pattern
+    ═══════════════════════════════════════════════ */
+    .hero{padding-top:calc(var(--space-3xl)*2);padding-bottom:var(--space-3xl);background:var(--bg-base);position:relative;overflow:hidden}
+    .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+    .hero-content{text-align:center;max-width:900px;margin:0 auto;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--space-xs);background:rgba(29,155,240,.08);border:1px solid rgba(29,155,240,.25);padding:8px 18px;border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:600;color:var(--electric-blue);letter-spacing:.05em;text-transform:uppercase;margin-bottom:var(--space-xl);position:relative;overflow:hidden;opacity:0;animation:fadeInDown .8s ease .4s forwards}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+    .hero-badge::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(29,155,240,.3),transparent);animation:badge-scan 3s ease-in-out 2s infinite}
+    @keyframes badge-scan{0%{left:-100%}100%{left:200%}}
+    .badge-dot{width:6px;height:6px;background:var(--aurora-green);border-radius:50%;flex-shrink:0;box-shadow:0 0 8px rgba(0,212,170,.8);animation:badge-pulse 2s ease-in-out infinite}
+    @keyframes badge-pulse{0%,100%{box-shadow:0 0 8px rgba(0,212,170,.8);opacity:1}50%{box-shadow:0 0 16px rgba(0,212,170,.4);opacity:.6}}
+    .hero h1{opacity:0;animation:heroTitleIn 1s ease .9s forwards}
+    @keyframes heroTitleIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .hero .lead{opacity:0;animation:fadeInUp .8s ease 1.4s forwards}
+    .hero-cta{opacity:0;animation:fadeInUp .8s ease 1.7s forwards;display:flex;gap:var(--space-md);justify-content:center;flex-wrap:wrap;margin-top:var(--space-xl)}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-            /* === GLOW === */
-            --glow-blue-sm:   0 0 20px rgba(29,155,240,0.25);
-            --glow-blue-md:   0 0 40px rgba(29,155,240,0.35);
-            --glow-blue-lg:   0 0 80px rgba(29,155,240,0.45);
-            --glow-indigo:    0 0 60px rgba(99,102,241,0.30);
-            --glow-green:     0 0 40px rgba(0,212,170,0.30);
-            --glow-cyan:      0 0 40px rgba(6,182,212,0.30);
+    /* ═══════════════════════════════════════════════
+       PROOF TYPE CARDS
+    ═══════════════════════════════════════════════ */
+    .proof-types{display:grid;gap:var(--space-xl);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1200px;margin:var(--space-3xl) auto}
+    .proof-card{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);padding:var(--space-xl);text-align:center;transition:all var(--transition-normal);height:100%;display:flex;flex-direction:column;
+        opacity:0;transform:scale(.88) translateY(20px)}
+    .proof-card.card-in{opacity:1;transform:scale(1) translateY(0);transition:opacity .6s ease,transform .6s var(--transition-spring)}
+    .proof-card:hover{transform:translateY(-8px) scale(1.01)!important;border-color:rgba(29,155,240,.25);box-shadow:var(--glow-blue-sm)}
+    .proof-card h3{margin-bottom:var(--space-sm)}
+    .proof-card .btn{margin-top:auto}
+    .proof-icon{width:80px;height:80px;border-radius:50%;margin:0 auto var(--space-lg);display:flex;align-items:center;justify-content:center;font-size:var(--text-2xl);color:white;transition:transform var(--transition-spring)}
+    .proof-card:hover .proof-icon{transform:rotate(15deg) scale(1.1)}
+    .proof-icon.icon-spin{animation:iconSpin360 .7s ease}
+    @keyframes iconSpin360{from{transform:rotate(-360deg) scale(.5);opacity:0}to{transform:rotate(0) scale(1);opacity:1}}
+    .proof-icon.demo{background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));box-shadow:var(--glow-blue-sm)}
+    .proof-icon.portfolio{background:linear-gradient(135deg,var(--cyber-cyan),var(--aurora-green));box-shadow:var(--glow-green)}
+    .proof-icon.founders{background:linear-gradient(135deg,var(--neon-indigo),var(--accent));box-shadow:var(--glow-indigo)}
+    /* play icon pulse */
+    .proof-icon.demo{animation:iconSpin360 .7s ease,demoPulse 2.5s ease-in-out 1s infinite}
+    @keyframes demoPulse{0%,100%{box-shadow:var(--glow-blue-sm)}50%{box-shadow:0 0 30px rgba(29,155,240,.55),0 0 60px rgba(29,155,240,.2)}}
+    .proof-card-btn{opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .4s ease}
+    .proof-card.card-in .proof-card-btn{opacity:1;transform:translateY(0);transition-delay:.4s}
 
-            /* === SPACING === */
-            --space-xs: 0.5rem;
-            --space-sm: 1rem;
-            --space-md: 1.5rem;
-            --space-lg: 2rem;
-            --space-xl: 3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
+    /* ═══════════════════════════════════════════════
+       BENCHMARKS
+    ═══════════════════════════════════════════════ */
+    .benchmarks-section{background:var(--bg-surface-1)}
+    .benchmarks-grid{display:grid;gap:var(--space-xl);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));max-width:1300px;margin:var(--space-3xl) auto}
+    .benchmark-card{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);overflow:hidden;transition:all var(--transition-normal);
+        opacity:0;transform:translateY(30px)}
+    .benchmark-card.bc-in{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s var(--transition-spring)}
+    .benchmark-card:hover{transform:translateY(-10px)!important;border-color:rgba(29,155,240,.25);box-shadow:var(--glow-blue-sm)}
+    .benchmark-header{padding:var(--space-xl);text-align:center;position:relative;overflow:hidden}
+    .benchmark-header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(255,255,255,.03),transparent);pointer-events:none}
+    .benchmark-header::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);transition:none}
+    .benchmark-card:hover .benchmark-header::after{animation:headerShimmer .7s ease}
+    @keyframes headerShimmer{from{left:-100%}to{left:150%}}
+    .benchmark-header h3{color:var(--text-primary);margin-bottom:var(--space-xs)}
+    .benchmark-header p{color:var(--text-secondary);margin-bottom:0;font-size:var(--text-sm)}
+    .bh-cost{background:rgba(0,212,170,.12);border-bottom:1px solid rgba(0,212,170,.30)}
+    .bh-cost h3{color:var(--aurora-green)} .bh-cost .benchmark-result{color:var(--aurora-green)}
+    .bh-roas{background:rgba(245,158,11,.12);border-bottom:1px solid rgba(245,158,11,.30)}
+    .bh-roas h3{color:var(--amber-warm)} .bh-roas .benchmark-result{color:var(--amber-warm)}
+    .bh-churn{background:rgba(99,102,241,.12);border-bottom:1px solid rgba(99,102,241,.30)}
+    .bh-churn h3{color:var(--neon-indigo)} .bh-churn .benchmark-result{color:var(--neon-indigo)}
+    .bh-automation{background:rgba(29,155,240,.12);border-bottom:1px solid rgba(29,155,240,.30)}
+    .bh-automation h3{color:var(--electric-blue)} .bh-automation .benchmark-result{color:var(--electric-blue)}
+    .benchmark-result{font-family:'JetBrains Mono',monospace;font-size:var(--text-4xl);font-weight:600;margin:var(--space-sm) 0;line-height:1}
+    .benchmark-result.counted{animation:statPop .4s var(--transition-spring)}
+    @keyframes statPop{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+    .benchmark-body{padding:var(--space-xl)}
+    .benchmark-body p{color:var(--text-secondary)}
+    /* Chart */
+    .benchmark-chart{width:100%;height:180px;margin:var(--space-lg) 0;position:relative;background:var(--bg-surface-3);border-radius:var(--radius-lg);overflow:hidden}
+    .chart-bar{position:absolute;bottom:0;width:40px;border-radius:var(--radius-sm) var(--radius-sm) 0 0;transition:height 1.2s cubic-bezier(.34,1.56,.64,1)}
+    .chart-bar.before{background:rgba(255,255,255,.15);left:25%;transform:translateX(-50%)}
+    .chart-bar.after{left:75%;transform:translateX(-50%)}
+    .chart-bar.after.glow-done{box-shadow:0 -8px 20px currentColor;animation:barGlow 1.5s ease-in-out infinite}
+    @keyframes barGlow{0%,100%{opacity:.7}50%{opacity:1}}
+    .chart-bar-cost .chart-bar.after{background:var(--aurora-green)}
+    .chart-bar-roas .chart-bar.after{background:var(--amber-warm)}
+    .chart-bar-churn .chart-bar.after{background:var(--neon-indigo)}
+    .chart-bar-automation .chart-bar.after{background:var(--electric-blue)}
+    .chart-label{position:absolute;bottom:-28px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:var(--text-sm);font-weight:600;color:var(--text-secondary);width:80px;opacity:0;transition:opacity .4s ease .8s}
+    .chart-label.lbl-in{opacity:1}
+    .chart-label.before{left:25%;transform:translateX(-50%)}
+    .chart-label.after{left:75%;transform:translateX(-50%)}
+    .benchmark-nums{display:flex;justify-content:space-between;margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:1px solid rgba(255,255,255,.06)}
+    .bnum{text-align:center}
+    .bnum-val{font-size:var(--text-xl);font-weight:600;font-family:'JetBrains Mono',monospace;line-height:1;margin-bottom:4px}
+    .bnum-lbl{font-size:var(--text-sm);color:var(--text-secondary)}
 
-            /* === TYPOGRAPHY SCALE === */
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
-            --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            --text-3xl: 1.875rem;
-            --text-4xl: 2.25rem;
-            --text-5xl: 3rem;
-            --text-6xl: 3.75rem;
+    /* ═══════════════════════════════════════════════
+       LIVE DEMO SECTION
+    ═══════════════════════════════════════════════ */
+    .demo-section{background:var(--bg-base)}
+    .demo-container{max-width:1000px;margin:var(--space-3xl) auto;background:var(--bg-surface-2);border:1px solid rgba(29,155,240,.15);border-radius:var(--radius-xl);overflow:hidden;position:relative}
+    /* border draw */
+    .demo-container::before{content:'';position:absolute;inset:0;border-radius:var(--radius-xl);background:linear-gradient(135deg,rgba(29,155,240,.3),rgba(99,102,241,.2),rgba(29,155,240,.3));background-size:300% 300%;z-index:-1;opacity:0;transition:opacity .5s ease;animation:featuredBorder 3s linear infinite}
+    @keyframes featuredBorder{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .demo-container.dc-in::before{opacity:.4}
+    .demo-header{padding:var(--space-xl);text-align:center;background:linear-gradient(135deg,rgba(29,155,240,.18),rgba(99,102,241,.08));border-bottom:1px solid rgba(29,155,240,.20);position:relative;overflow:hidden}
+    .demo-header::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);animation:demoHeaderScan 4s ease-in-out 2s infinite}
+    @keyframes demoHeaderScan{0%{left:-100%}100%{left:150%}}
+    .demo-header h3{color:var(--text-primary);margin-bottom:var(--space-xs)}
+    .demo-header p{color:var(--text-secondary);margin-bottom:0}
+    .demo-video{position:relative;padding-bottom:56.25%;height:0;background:var(--bg-base)}
+    .demo-placeholder{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-secondary);text-align:center;padding:var(--space-xl)}
+    .demo-placeholder i{font-size:var(--text-4xl);margin-bottom:var(--space-md);color:var(--neon-indigo);animation:playPulse 2s ease-in-out infinite}
+    @keyframes playPulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 8px rgba(99,102,241,.5))}50%{transform:scale(1.1);filter:drop-shadow(0 0 20px rgba(99,102,241,.8))}}
+    .demo-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-lg);padding:var(--space-xl);background:var(--bg-surface-1)}
+    .demo-feature{text-align:center;padding:var(--space-lg);opacity:0;transform:translateY(15px);transition:opacity .4s ease,transform .4s ease}
+    .demo-feature.feat-in{opacity:1;transform:translateY(0)}
+    .demo-feature h4{color:var(--text-primary)}
+    .demo-feature p{color:var(--text-secondary);margin-bottom:0}
+    .demo-feature i{font-size:var(--text-2xl);color:var(--electric-blue);margin-bottom:var(--space-sm);display:block;transition:transform var(--transition-spring)}
+    .demo-feature:hover i{transform:rotate(15deg) scale(1.2)}
 
-            /* === SHADOWS === */
-            --shadow-sm:  0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md:  0 4px 20px rgba(0,0,0,0.4);
-            --shadow-lg:  0 10px 40px rgba(0,0,0,0.5);
-            --shadow-xl:  0 20px 60px rgba(0,0,0,0.6);
-            --shadow-primary: 0 4px 20px rgba(29,155,240,0.25);
+    /* ═══════════════════════════════════════════════
+       VIETNAM PORTFOLIO
+    ═══════════════════════════════════════════════ */
+    .portfolio-section{background:var(--bg-surface-1)}
+    .portfolio-grid{display:grid;gap:var(--space-xl);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1200px;margin:var(--space-3xl) auto}
+    .portfolio-card{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);overflow:hidden;transition:all var(--transition-normal);
+        opacity:0;transform:translateY(30px)}
+    .portfolio-card.pc-in{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s var(--transition-spring)}
+    .portfolio-card:hover{transform:translateY(-8px)!important;border-color:rgba(29,155,240,.25);box-shadow:var(--glow-blue-sm)}
+    .portfolio-image{height:180px;background:var(--bg-surface-3);display:flex;align-items:center;justify-content:center;color:var(--electric-blue);font-size:var(--text-sm);font-weight:600;position:relative;overflow:hidden;transition:all var(--transition-normal)}
+    .portfolio-image::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(29,155,240,.08),transparent 70%);animation:imgPulse 3s ease-in-out infinite}
+    @keyframes imgPulse{0%,100%{opacity:.5}50%{opacity:1}}
+    .portfolio-image i{font-size:var(--text-3xl);position:relative;z-index:1;transition:transform var(--transition-spring)}
+    .portfolio-card:hover .portfolio-image i{transform:scale(1.2) rotate(10deg)}
+    .portfolio-content{padding:var(--space-xl)}
+    .portfolio-stats{display:flex;justify-content:space-between;margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:0px solid rgba(255,255,255,.08);position:relative}
+    /* border draw on stats */
+    .portfolio-stats::before{content:'';position:absolute;top:0;left:0;width:0;height:1px;background:rgba(255,255,255,.08);transition:width .6s ease .3s}
+    .portfolio-card.pc-in .portfolio-stats::before{width:100%}
+    .stat{text-align:center}
+    .stat-value{display:block;font-family:'JetBrains Mono',monospace;font-size:var(--text-xl);font-weight:600;color:var(--aurora-green);line-height:1;margin-bottom:4px}
+    .stat-label{font-size:var(--text-sm);color:var(--text-secondary)}
 
-            /* === TRANSITIONS === */
-            --transition-fast:   0.15s cubic-bezier(0.4,0,0.2,1);
-            --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
-            --transition-slow:   0.5s cubic-bezier(0.4,0,0.2,1);
+    /* ═══════════════════════════════════════════════
+       FOUNDERS SECTION
+    ═══════════════════════════════════════════════ */
+    .founders-section{background:var(--bg-base)}
+    .founders-grid{display:grid;gap:var(--space-xl);grid-template-columns:repeat(auto-fit,minmax(280px,1fr));max-width:1000px;margin:var(--space-3xl) auto}
+    .founder-card{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-xl);padding:var(--space-xl);text-align:center;transition:all var(--transition-normal)}
+    .founder-card:hover{transform:translateY(-5px);border-color:rgba(29,155,240,.25);box-shadow:var(--glow-blue-sm)}
+    .founder-avatar{width:120px;height:120px;border-radius:50%;margin:0 auto var(--space-lg);background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));box-shadow:var(--glow-blue-sm);display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--text-3xl);color:white;font-weight:800;transition:transform var(--transition-spring)}
+    .founder-avatar.avatar-spin{animation:iconSpin360 .8s ease}
+    .founder-card:hover .founder-avatar{transform:scale(1.08) rotate(5deg)}
+    .founder-experience{list-style:none;margin-top:var(--space-lg);text-align:left}
+    .founder-experience li{padding:var(--space-sm) 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:var(--space-sm);color:var(--text-secondary);
+        opacity:0;transform:translateX(-15px);transition:opacity .4s ease,transform .4s ease}
+    .founder-experience li.exp-in{opacity:1;transform:translateX(0)}
+    .founder-experience li:last-child{border-bottom:none}
+    .founder-experience li i{color:var(--aurora-green);flex-shrink:0}
 
-            /* === BORDER RADIUS === */
-            --radius-xs:   4px;
-            --radius-sm:   8px;
-            --radius-md:   10px;
-            --radius-lg:   16px;
-            --radius-xl:   24px;
-            --radius-2xl:  32px;
-            --radius-full: 9999px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        
-        body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.75;
-            color: var(--text-secondary);
-            background-color: var(--bg-base);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color var(--transition-fast);
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius-lg);
-        }
-        
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        
-        .container-narrow {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        
-        .section {
-            padding: var(--space-3xl) 0;
-        }
-        
-        .section-sm {
-            padding: var(--space-2xl) 0;
-        }
-        
-        .section-lg {
-            padding: var(--space-3xl) 0;
-        }
-        
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-        }
+    /* ═══════════════════════════════════════════════
+       RISK REVERSAL — clone of guarantee-card packages
+    ═══════════════════════════════════════════════ */
+    .risk-reversal{background:var(--bg-base);border-top:1px solid rgba(0,212,170,.12);border-bottom:1px solid rgba(0,212,170,.12)}
+    .risk-card{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--radius-xl);padding:var(--space-2xl);text-align:center;max-width:900px;margin:0 auto;border:1px solid rgba(0,212,170,.40);position:relative;overflow:visible;
+        opacity:0;transform:scale(.9);transition:opacity .7s ease,transform .7s var(--transition-spring)}
+    .risk-card.rc-in{opacity:1;transform:scale(1);animation:guaranteeBreath 4s ease-in-out 1s infinite}
+    @keyframes guaranteeBreath{0%,100%{box-shadow:0 0 40px rgba(0,212,170,.20),0 0 80px rgba(0,212,170,.10)}50%{box-shadow:0 0 60px rgba(0,212,170,.45),0 0 120px rgba(0,212,170,.22)}}
+    .risk-card::after{content:'';position:absolute;inset:-1px;border-radius:var(--radius-xl);background:linear-gradient(135deg,rgba(0,212,170,.4),rgba(29,155,240,.2),rgba(0,212,170,.4));background-size:300% 300%;z-index:-1;opacity:0;animation:featuredBorder 3s linear infinite}
+    .risk-card.rc-in::after{opacity:.6}
+    .risk-badge{position:absolute;top:-20px;left:50%;transform:translateX(-50%);background:var(--aurora-green);color:var(--bg-base);padding:var(--space-sm) var(--space-xl);border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-weight:700;font-size:var(--text-sm);letter-spacing:.06em;box-shadow:0 0 20px rgba(0,212,170,.40);white-space:nowrap;overflow:hidden}
+    .risk-badge::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:badge-scan 2.5s ease infinite 1s}
+    .risk-features{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:var(--space-lg);margin-top:var(--space-xl)}
+    .risk-feature{text-align:center;padding:var(--space-lg);background:var(--bg-surface-3);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);transition:all var(--transition-normal);
+        opacity:0;transform:scale(.85);transition:opacity .4s ease,transform .4s var(--transition-spring),border-color .3s ease,box-shadow .3s ease}
+    .risk-feature.rf-in{opacity:1;transform:scale(1)}
+    .risk-feature:hover{border-color:rgba(0,212,170,.25);box-shadow:0 0 20px rgba(0,212,170,.10);transform:translateY(-4px)!important}
+    .risk-feature i{font-size:var(--text-2xl);color:var(--aurora-green);margin-bottom:var(--space-sm);display:block;transition:transform var(--transition-spring)}
+    .risk-feature:hover i{transform:scale(1.25) rotate(10deg)}
+    .risk-feature h4{color:var(--text-primary)}
+    .risk-feature p{color:var(--text-secondary);margin-bottom:0}
 
-        h1 { font-size: clamp(2.75rem, 6vw, 5rem); font-weight: 900; letter-spacing: -0.03em; }
-        h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.01em; }
-        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); font-weight: 700; }
-        h4 { color: var(--text-primary); }
-        
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--text-secondary);
-            line-height: 1.75;
-        }
-        
-        .lead {
-            font-size: var(--text-xl);
-            font-weight: 500;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
+    /* ═══════════════════════════════════════════════
+       FINAL CTA — identical to all pages
+    ═══════════════════════════════════════════════ */
+    .cta-final{background:var(--grad-cta-bg);color:white;text-align:center;position:relative;overflow:hidden}
+    .cta-bg{position:absolute;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 20% 80%,rgba(29,155,240,.12) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(99,102,241,.10) 0%,transparent 50%)}
+    .cta-content{position:relative;z-index:1;max-width:900px;margin:0 auto;text-align:center}
+    .cta-final h2{color:var(--text-primary);margin-bottom:var(--space-md)}
+    .word-hl{display:inline;position:relative}
+    .word-hl.lit::after{content:'';position:absolute;inset:0 -4px -2px;background:rgba(29,155,240,.12);border-radius:4px;animation:wordLit .6s ease forwards}
+    @keyframes wordLit{from{opacity:0;transform:scaleX(.5)}to{opacity:1;transform:scaleX(1)}}
+    .slots{font-size:var(--text-xl);margin:var(--space-xl) 0;font-weight:600;color:var(--text-secondary)}
+    .slots strong{color:var(--amber-warm)}
+    .urgency-timer{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);border-radius:var(--radius-full);padding:8px 18px;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--amber-warm);animation:timerGlow 2s ease-in-out infinite}
+    @keyframes timerGlow{0%,100%{box-shadow:0 0 0 0 rgba(245,158,11,.2)}50%{box-shadow:0 0 15px rgba(245,158,11,.3)}}
+    .timer-dot{width:6px;height:6px;background:var(--amber-warm);border-radius:50%;animation:badge-pulse 1s ease-in-out infinite}
 
-        strong { color: var(--text-primary); }
+    /* ═══════════════════════════════════════════════
+       FOOTER — identical
+    ═══════════════════════════════════════════════ */
+    footer{background:var(--bg-base);color:var(--text-secondary);padding:var(--space-3xl) 0 var(--space-xl);border-top:1px solid rgba(255,255,255,.05)}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-2xl);margin-bottom:var(--space-2xl)}
+    .footer-logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:var(--text-2xl);color:var(--text-primary);margin-bottom:var(--space-md)}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-sm)}
+    .footer-links a{color:var(--text-secondary);transition:all var(--transition-fast);position:relative;padding-left:0}
+    .footer-links a::before{content:'→';position:absolute;left:0;opacity:0;transition:all .3s ease}
+    .footer-links a:hover{color:var(--electric-blue);padding-left:18px}
+    .footer-links a:hover::before{opacity:1}
+    .footer-bottom{text-align:center;padding-top:var(--space-xl);border-top:1px solid rgba(255,255,255,.05);color:var(--text-muted);font-size:var(--text-sm)}
+    .footer-bottom p{color:var(--text-muted);margin-bottom:0}
 
-        /* Gradient text utility */
-        .text-gradient {
-            background: var(--grad-brand);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Aurora orbs */
-        .aurora-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            will-change: transform;
-            animation: aurora-drift 12s ease-in-out infinite;
-        }
-        .aurora-orb-1 {
-            width: 600px; height: 600px;
-            top: -200px; right: -100px;
-            background: radial-gradient(circle, rgba(29,155,240,0.12), transparent 70%);
-        }
-        .aurora-orb-2 {
-            width: 500px; height: 500px;
-            bottom: 0; left: -150px;
-            background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 70%);
-            animation-delay: -6s;
-        }
-        @keyframes aurora-drift {
-            0%, 100% { transform: translate(0,0) scale(1); }
-            33%       { transform: translate(30px,-20px) scale(1.05); }
-            66%       { transform: translate(-20px,15px) scale(0.97); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .aurora-orb { animation: none; }
-            .btn-primary { animation: none; }
-        }
-        
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: var(--space-md) var(--space-xl);
-            font-weight: 600;
-            font-size: var(--text-base);
-            border-radius: var(--radius-md);
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-            white-space: nowrap;
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-        }
-        
-        .btn:hover::after {
-            animation: shine 1s;
-        }
-        
-        @keyframes shine {
-            100% { transform: translateX(100%); }
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            color: #ffffff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            box-shadow: 0 4px 20px rgba(29,155,240,0.25);
-            animation: cta-breathe 3s ease-in-out infinite;
-            animation-delay: 3s;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(29,155,240,0.45), 0 0 0 4px rgba(29,155,240,0.15);
-            animation: none;
-        }
-
-        @keyframes cta-breathe {
-            0%, 100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
-            50%       { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--electric-blue);
-            border: 1px solid rgba(29,155,240,0.40);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(29,155,240,0.08);
-            border-color: var(--electric-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(29,155,240,0.15);
-        }
-        
-        .btn-lg {
-            padding: var(--space-lg) var(--space-2xl);
-            font-size: var(--text-lg);
-            border-radius: var(--radius-lg);
-        }
-        
-        /* ===== HEADER & NAVIGATION ===== */
-        header {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: var(--space-md) 0;
-            background: rgba(8,13,26,0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: all var(--transition-normal);
-        }
-        
-        header.scrolled {
-            padding: var(--space-sm) 0;
-            background: rgba(8,13,26,0.92);
-            border-bottom-color: rgba(29,155,240,0.15);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Hide header on scroll-down (mobile) */
-        header.header-hidden {
-            transform: translateY(-100%);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 900;
-            font-size: var(--text-2xl);
-            color: var(--electric-blue);
-        }
-
-        /* Typewriter + cursor — matches index/packages/how-it-works/book-audit */
-        .logo sup { font-size: 0.83em; -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
-
-        .logo-typed {
-            display: inline-block;
-            overflow: hidden;
-            white-space: nowrap;
-            max-width: 0;
-            vertical-align: middle;
-            animation: logo-typing 1.4s steps(10, end) 0.3s forwards;
-        }
-
-        .logo-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1em;
-            background: var(--electric-blue);
-            border-radius: 2px;
-            margin-left: 2px;
-            vertical-align: middle;
-            opacity: 0;
-            animation: logo-cursor-appear 0s 1.7s forwards,
-                       logo-cursor-blink  1s 1.7s step-end infinite;
-        }
-
-        @keyframes logo-typing {
-            from { max-width: 0; }
-            to   { max-width: 180px; }
-        }
-
-        @keyframes logo-cursor-appear { to { opacity: 1; } }
-
-        @keyframes logo-cursor-blink {
-            0%, 100% { opacity: 1; }
-            50%       { opacity: 0; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .logo-typed  { max-width: 180px; animation: none; }
-            .logo-cursor { opacity: 1; animation: none; }
-        }
-
-        .nav-links {
-            display: flex;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-        
-        .nav-link {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: var(--text-base);
-            color: var(--text-secondary);
-            position: relative;
-            padding: var(--space-xs) 0;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            width: 0; height: 1.5px;
-            background: var(--electric-blue);
-            transform: translateX(-50%);
-            transition: width var(--transition-normal);
-        }
-        
-        .nav-link:hover { color: var(--text-primary); }
-        .nav-link:hover::after { width: 100%; }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            width: 40px; height: 40px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1001;
-        }
-        
-        .hamburger {
-            width: 24px; height: 2px;
-            background: var(--text-primary);
-            position: relative;
-            transition: all var(--transition-fast);
-        }
-        
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            width: 24px; height: 2px;
-            background: var(--text-primary);
-            transition: all var(--transition-fast);
-        }
-        
-        .hamburger::before { top: -8px; }
-        .hamburger::after { bottom: -8px; }
-        
-        .mobile-menu-toggle.active .hamburger { background: transparent; }
-        .mobile-menu-toggle.active .hamburger::before { transform: rotate(45deg) translate(5px,5px); }
-        .mobile-menu-toggle.active .hamburger::after  { transform: rotate(-45deg) translate(7px,-6px); }
-        
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding-top: calc(var(--space-3xl) * 2);
-            padding-bottom: var(--space-3xl);
-            background: var(--bg-base);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-        }
-
-        .hero-bg-dot { display: none; }
-
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: var(--space-md);
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: var(--space-xl);
-        }
-
-        /* Hero badge — per Design System §12 */
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            background: rgba(29,155,240,0.08);
-            border: 1px solid rgba(29,155,240,0.25);
-            padding: 8px 18px;
-            border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: var(--electric-blue);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .hero-badge .badge-dot {
-            width: 6px; height: 6px;
-            background: var(--aurora-green);
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(0,212,170,0.8);
-            animation: badge-pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes badge-pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(0,212,170,0.8); }
-            50%       { opacity: 0.6; box-shadow: 0 0 16px rgba(0,212,170,0.4); }
-        }
-        
-        /* ===== PROOF TYPES ===== */
-        .proof-types {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            max-width: 1200px;
-            margin: var(--space-3xl) auto;
-        }
-        
-        .proof-card {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            text-align: center;
-            transition: all var(--transition-normal);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .proof-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(29,155,240,0.25);
-            box-shadow: var(--glow-blue-sm);
-        }
-        
-        .proof-icon {
-            width: 80px; height: 80px;
-            border-radius: 50%;
-            margin: 0 auto var(--space-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-2xl);
-            color: white;
-        }
-        
-        .proof-icon.demo {
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            box-shadow: var(--glow-blue-sm);
-        }
-        
-        .proof-icon.portfolio {
-            background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green));
-            box-shadow: var(--glow-green);
-        }
-        
-        .proof-icon.founders {
-            background: linear-gradient(135deg, var(--neon-indigo), var(--accent));
-            box-shadow: var(--glow-indigo);
-        }
-        
-        .proof-card h3 { margin-bottom: var(--space-sm); }
-        .proof-card .btn { margin-top: auto; }
-        
-        /* ===== BENCHMARKS SECTION ===== */
-        .benchmarks-section {
-            background: var(--bg-surface-1);
-        }
-        
-        .benchmarks-grid {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            max-width: 1300px;
-            margin: var(--space-3xl) auto;
-        }
-        
-        .benchmark-card {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            transition: all var(--transition-normal);
-        }
-        
-        .benchmark-card:hover {
-            transform: translateY(-10px);
-            border-color: rgba(29,155,240,0.25);
-            box-shadow: var(--glow-blue-sm);
-        }
-        
-        .benchmark-header {
-            padding: var(--space-xl);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .benchmark-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
-            pointer-events: none;
-        }
-
-        .benchmark-header h3 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .benchmark-header p {
-            color: var(--text-secondary);
-            margin-bottom: 0;
-            font-size: var(--text-sm);
-        }
-
-        /* Cost Reduction — aurora-green */
-        .bh-cost {
-            background: rgba(0,212,170,0.12);
-            border-bottom: 1px solid rgba(0,212,170,0.30);
-        }
-        .bh-cost h3 { color: var(--aurora-green); }
-        .bh-cost .benchmark-result { color: var(--aurora-green); }
-
-        /* ROAS — amber-warm */
-        .bh-roas {
-            background: rgba(245,158,11,0.12);
-            border-bottom: 1px solid rgba(245,158,11,0.30);
-        }
-        .bh-roas h3 { color: var(--amber-warm); }
-        .bh-roas .benchmark-result { color: var(--amber-warm); }
-
-        /* Churn — neon-indigo */
-        .bh-churn {
-            background: rgba(99,102,241,0.12);
-            border-bottom: 1px solid rgba(99,102,241,0.30);
-        }
-        .bh-churn h3 { color: var(--neon-indigo); }
-        .bh-churn .benchmark-result { color: var(--neon-indigo); }
-
-        /* Automation — electric-blue (positive efficiency, not red) */
-        .bh-automation {
-            background: rgba(29,155,240,0.12);
-            border-bottom: 1px solid rgba(29,155,240,0.30);
-        }
-        .bh-automation h3 { color: var(--electric-blue); }
-        .bh-automation .benchmark-result { color: var(--electric-blue); }
-        
-        .benchmark-result {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-4xl);
-            font-weight: 600;
-            margin: var(--space-sm) 0;
-            line-height: 1;
-        }
-        
-        .benchmark-body {
-            padding: var(--space-xl);
-        }
-
-        .benchmark-body p { color: var(--text-secondary); }
-        
-        .benchmark-chart {
-            width: 100%;
-            height: 200px;
-            margin: var(--space-lg) 0;
-            position: relative;
-            background: var(--bg-surface-3);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-        
-        .chart-bar {
-            position: absolute;
-            bottom: 0;
-            width: 40px;
-            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-            transition: height 1s ease;
-        }
-        
-        .chart-bar.before {
-            background: rgba(255,255,255,0.15);
-            left: 25%;
-            transform: translateX(-50%);
-        }
-        
-        .chart-bar.after {
-            background: var(--aurora-green);
-            box-shadow: 0 0 12px rgba(0,212,170,0.50);
-            left: 75%;
-            transform: translateX(-50%);
-        }
-        
-        .chart-label {
-            position: absolute;
-            bottom: -30px;
-            text-align: center;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-sm);
-            font-weight: 400;
-            color: var(--text-secondary);
-            width: 100px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .chart-label.before { left: 25%; }
-        .chart-label.after  { left: 75%; }
-        
-        /* ===== LIVE DEMO SECTION ===== */
-        .demo-section {
-            background: var(--bg-base);
-        }
-        
-        .demo-container {
-            max-width: 1000px;
-            margin: var(--space-3xl) auto;
-            background: var(--bg-surface-2);
-            border: 1px solid rgba(29,155,240,0.15);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-        }
-        
-        .demo-header {
-            padding: var(--space-xl);
-            text-align: center;
-            background: linear-gradient(135deg, rgba(29,155,240,0.18), rgba(99,102,241,0.08));
-            border-bottom: 1px solid rgba(29,155,240,0.20);
-        }
-
-        .demo-header h3 { color: var(--text-primary); margin-bottom: var(--space-xs); }
-        .demo-header p  { color: var(--text-secondary); margin-bottom: 0; }
-        
-        .demo-video {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            background: var(--bg-base);
-        }
-        
-        .demo-placeholder {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-align: center;
-            padding: var(--space-xl);
-        }
-        
-        .demo-placeholder i {
-            font-size: var(--text-4xl);
-            margin-bottom: var(--space-md);
-            color: var(--neon-indigo);
-        }
-        
-        .demo-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-lg);
-            padding: var(--space-xl);
-            background: var(--bg-surface-1);
-        }
-        
-        .demo-feature {
-            text-align: center;
-            padding: var(--space-lg);
-        }
-
-        .demo-feature h4 { color: var(--text-primary); }
-        .demo-feature p  { color: var(--text-secondary); margin-bottom: 0; }
-        
-        .demo-feature i {
-            font-size: var(--text-2xl);
-            color: var(--electric-blue);
-            margin-bottom: var(--space-sm);
-        }
-        
-        /* ===== VIETNAM PORTFOLIO ===== */
-        .portfolio-section {
-            background: var(--bg-surface-1);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            max-width: 1200px;
-            margin: var(--space-3xl) auto;
-        }
-        
-        .portfolio-card {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            transition: all var(--transition-normal);
-        }
-        
-        .portfolio-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(29,155,240,0.25);
-            box-shadow: var(--glow-blue-sm);
-        }
-        
-        .portfolio-image {
-            height: 200px;
-            background: var(--bg-surface-3);
-            background-image: radial-gradient(circle at 50% 50%, rgba(29,155,240,0.08), transparent 70%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--electric-blue);
-            opacity: 0.8;
-            font-size: var(--text-sm);
-            font-weight: 600;
-        }
-        
-        .portfolio-content {
-            padding: var(--space-xl);
-        }
-        
-        .portfolio-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-top: var(--space-lg);
-            padding-top: var(--space-lg);
-            border-top: 1px solid rgba(255,255,255,0.08);
-        }
-        
-        .stat { text-align: center; }
-        
-        .stat-value {
-            display: block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-xl);
-            font-weight: 600;
-            color: var(--aurora-green);
-        }
-        
-        .stat-label {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-        }
-        
-        /* ===== FOUNDERS SECTION ===== */
-        .founders-section {
-            background: var(--bg-base);
-        }
-        
-        .founders-grid {
-            display: grid;
-            gap: var(--space-xl);
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            max-width: 1000px;
-            margin: var(--space-3xl) auto;
-        }
-        
-        .founder-card {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            text-align: center;
-            transition: all var(--transition-normal);
-        }
-        
-        .founder-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(29,155,240,0.25);
-            box-shadow: var(--glow-blue-sm);
-        }
-        
-        .founder-avatar {
-            width: 120px; height: 120px;
-            border-radius: 50%;
-            margin: 0 auto var(--space-lg);
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            box-shadow: var(--glow-blue-sm);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: var(--text-3xl);
-            color: white;
-            font-weight: 800;
-        }
-        
-        .founder-experience {
-            list-style: none;
-            margin-top: var(--space-lg);
-            text-align: left;
-        }
-        
-        .founder-experience li {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--text-secondary);
-        }
-        
-        .founder-experience li:last-child { border-bottom: none; }
-        
-        .founder-experience li i { color: var(--aurora-green); }
-        
-        /* ===== RISK REVERSAL ===== */
-        .risk-reversal {
-            background: var(--bg-base);
-            border-top: 1px solid rgba(0,212,170,0.12);
-            border-bottom: 1px solid rgba(0,212,170,0.12);
-        }
-        
-        .risk-card {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            border: 1px solid rgba(0,212,170,0.40);
-            box-shadow: var(--glow-green);
-            position: relative;
-            overflow: visible;
-        }
-        
-        .risk-badge {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--aurora-green);
-            color: var(--bg-base);
-            padding: var(--space-sm) var(--space-xl);
-            border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            font-size: var(--text-sm);
-            letter-spacing: 0.06em;
-            box-shadow: 0 0 20px rgba(0,212,170,0.40);
-            white-space: nowrap;
-        }
-        
-        .risk-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-lg);
-            margin-top: var(--space-xl);
-        }
-        
-        .risk-feature {
-            text-align: center;
-            padding: var(--space-lg);
-            background: var(--bg-surface-3);
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: var(--radius-lg);
-            transition: all var(--transition-normal);
-        }
-
-        .risk-feature:hover {
-            border-color: rgba(0,212,170,0.25);
-            box-shadow: 0 0 20px rgba(0,212,170,0.10);
-        }
-        
-        .risk-feature i {
-            font-size: var(--text-2xl);
-            color: var(--aurora-green);
-            margin-bottom: var(--space-sm);
-        }
-
-        .risk-feature h4 { color: var(--text-primary); }
-        .risk-feature p  { color: var(--text-secondary); margin-bottom: 0; }
-        
-        /* ===== FINAL CTA ===== */
-        .cta-final {
-            background: var(--grad-cta-bg);
-            color: var(--text-secondary);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-image:
-                radial-gradient(circle at 20% 80%, rgba(29,155,240,0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(99,102,241,0.10) 0%, transparent 50%);
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .cta-final h2 { color: var(--text-primary); }
-        
-        .slots {
-            font-size: var(--text-xl);
-            margin: var(--space-xl) 0;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-        
-        .slots strong {
-            color: var(--amber-warm);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--bg-base);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-secondary);
-            padding: var(--space-3xl) 0 var(--space-xl);
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-        }
-
-        .footer-logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 900;
-            font-size: var(--text-2xl);
-            color: var(--text-primary);
-            margin-bottom: var(--space-md);
-        }
-
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-
-        .footer-links a {
-            color: var(--text-secondary);
-            transition: color var(--transition-fast);
-        }
-
-        .footer-links a:hover { color: var(--electric-blue); }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: var(--space-xl);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: var(--text-sm);
-        }
-
-        .footer-bottom p { color: var(--text-muted); margin-bottom: 0; }
-        
-        /* ===== MOBILE RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            h1 { font-size: clamp(2rem, 8vw, 3rem); }
-            h2 { font-size: clamp(1.5rem, 5vw, 2.25rem); }
-            
-            /* Fix 1: explicit hero padding above fixed header */
-            .hero {
-                padding-top: 8rem;
-                padding-bottom: var(--space-2xl);
-            }
-            
-            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-            
-            .nav-links {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: rgba(8,13,26,0.98);
-                backdrop-filter: blur(30px);
-                -webkit-backdrop-filter: blur(30px);
-                border-left: 1px solid rgba(255,255,255,0.06);
-                flex-direction: column;
-                justify-content: center;
-                gap: var(--space-xl);
-                padding: var(--space-2xl);
-                transition: right var(--transition-normal);
-                z-index: 1000;
-            }
-            
-            .nav-links.active { right: 0; }
-            
-            .benchmark-result { font-size: var(--text-3xl); }
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-            h2 { font-size: clamp(1.375rem, 5vw, 1.875rem); }
-            
-            .section { padding: var(--space-2xl) 0; }
-            .section-lg { padding: var(--space-2xl) 0; }
-            
-            .proof-types,
-            .benchmarks-grid,
-            .portfolio-grid,
-            .founders-grid { grid-template-columns: 1fr; }
-            
-            .demo-features { grid-template-columns: 1fr; }
-            .risk-features  { grid-template-columns: 1fr; }
-
-            /* Fix 2: CTA buttons column on mobile */
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            /* Fix 2: full-width buttons, cap width */
-            .btn {
-                white-space: normal;
-                width: 100%;
-                max-width: 380px;
-                min-height: 52px;
-                line-height: 1.4;
-            }
-            .nav-links .btn { width: auto; max-width: none; white-space: nowrap; min-height: 44px; }
-
-            /* Fix 3: push risk-card content below the absolute badge */
-            .risk-card { padding: var(--space-xl) var(--space-lg); padding-top: 3rem; }
-        }
-        
-        @media (max-width: 480px) {
-            :root {
-                --space-lg: 1.5rem;
-                --space-xl: 2rem;
-                --space-2xl: 3rem;
-            }
-            /* Fix 1: hardcode hero padding so shrunken vars don't break it */
-            .hero { padding-top: 7rem; }
-            .container { padding: 0 var(--space-md); }
-            .benchmark-result { font-size: var(--text-2xl); }
-            .chart-bar { width: 30px; }
-        }
-        
-        /* ===== UTILITY CLASSES ===== */
-        .text-center { text-align: center; }
-        .text-primary { color: var(--electric-blue); }
-        .text-secondary { color: var(--text-secondary); }
-        .mb-sm { margin-bottom: var(--space-sm); }
-        .mb-md { margin-bottom: var(--space-md); }
-        .mb-lg { margin-bottom: var(--space-lg); }
-        .mb-xl { margin-bottom: var(--space-xl); }
-        .mt-sm { margin-top: var(--space-sm); }
-        .mt-md { margin-top: var(--space-md); }
-        .mt-lg { margin-top: var(--space-lg); }
-        .mt-xl { margin-top: var(--space-xl); }
-        .hidden { display: none; }
+    /* ═══════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════ */
+    @media(max-width:992px){
+        h1{font-size:clamp(2rem,8vw,3rem)} h2{font-size:clamp(1.5rem,5vw,2.25rem)}
+        .hero{padding-top:8rem;padding-bottom:var(--space-2xl)}
+        .mobile-menu-toggle{display:inline-flex}
+        .nav-links{position:fixed;top:0;right:-100%;width:80%;max-width:400px;height:100vh;background:rgba(8,13,26,.98);backdrop-filter:blur(30px);border-left:1px solid rgba(255,255,255,.06);flex-direction:column;justify-content:center;gap:var(--space-xl);padding:var(--space-2xl);transition:right var(--transition-normal);z-index:1000;box-shadow:var(--shadow-xl)}
+        .nav-links.active{right:0}
+        .benchmark-result{font-size:var(--text-3xl)}
+    }
+    @media(max-width:768px){
+        .section{padding:var(--space-2xl) 0}
+        .btn{white-space:normal;width:100%;max-width:380px;min-height:52px;padding:14px 20px;line-height:1.4}
+        .btn-lg{font-size:var(--text-base);padding:16px 22px}
+        .nav-links .btn{width:auto;max-width:none;white-space:nowrap;min-height:44px}
+        .hero-cta{flex-direction:column;align-items:center}
+        .proof-types,.benchmarks-grid,.portfolio-grid,.founders-grid{grid-template-columns:1fr}
+        .demo-features,.risk-features{grid-template-columns:1fr}
+        .risk-card{padding:var(--space-xl) var(--space-lg);padding-top:3rem}
+        .benchmark-result{font-size:var(--text-2xl)}
+        .chart-bar{width:30px}
+    }
+    @media(max-width:480px){
+        :root{--space-lg:1.5rem;--space-xl:2rem;--space-2xl:3rem}
+        .hero{padding-top:7rem}
+        .container,.container-narrow{padding:0 1rem}
+    }
+    @media(prefers-reduced-motion:reduce){
+        *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+        .sr,.proof-card,.benchmark-card,.portfolio-card,.risk-card,.risk-feature{opacity:1!important;transform:none!important}
+        .founder-experience li{opacity:1!important;transform:none!important}
+    }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo" aria-label="X5 Digital — Home">
-                    <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
-                </a>
-                
-                <button class="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span class="hamburger"></span>
-                </button>
-                
-                <div class="nav-links">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="how-it-works.html" class="nav-link">How It Works</a>
-                    <a href="packages.html" class="nav-link">Packages</a>
-                    <a href="proofs.html" class="nav-link active">Proof</a>
-                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero section">
-        <div class="hero-bg">
-            <div class="aurora-orb aurora-orb-1"></div>
-            <div class="aurora-orb aurora-orb-2"></div>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>Since we're newly launched in the U.S., here's how we prove our capabilities</span>
-                </div>
-                
-                <h1>See the System in Action<br><span class="text-gradient">Before You Commit</span></h1>
-                
-                <p class="lead">
-                    Most founders make major marketing decisions on gut feel and vanity metrics — without the instruments to see what's actually working. This page is those instruments: real benchmarks you can verify, live system demos you can watch, and a founding team track record you can research — before you commit to anything.
-                </p>
-                
-                <div class="hero-cta" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#demos" class="btn btn-secondary btn-lg">
-                        <i class="fas fa-play-circle"></i>
-                        Watch Live Demos
-                    </a>
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo" aria-label="X5 Digital — Home">
+                <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="proofs.html" class="nav-link active">Proof</a>
+                <a href="book-audit.html" class="btn btn-primary">Book Free Audit &rarr;</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero section">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-bg" aria-hidden="true">
+        <div class="aurora-orb aurora-orb-1"></div>
+        <div class="aurora-orb aurora-orb-2"></div>
+    </div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Since we're newly launched in the U.S., here's how we prove our capabilities</span>
+            </div>
+            <h1>See the System in Action<br><span class="text-gradient">Before You Commit</span></h1>
+            <p class="lead">Most founders make major marketing decisions on gut feel and vanity metrics — without the instruments to see what's actually working. This page is those instruments: real benchmarks you can verify, live system demos you can watch, and a founding team track record you can research — before you commit to anything.</p>
+            <div class="hero-cta">
+                <a href="#demos" class="btn btn-secondary btn-lg">
+                    <i class="fas fa-play-circle"></i> Watch Live Demos
+                </a>
+                <div class="btn-magnetic">
                     <a href="#audit" class="btn btn-primary btn-lg">
-                        Get Your Custom Forecast
-                        <i class="fas fa-arrow-right"></i>
+                        Get Your Custom Forecast <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Proof Types -->
-    <section class="section" id="proof-types">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Three Ways We Prove Our Capabilities</h2>
-                <p class="lead">Not a pitch deck. Not a testimonials page. Three forms of evidence you can actually examine.</p>
+<!-- ═══════════════ PROOF TYPES ═══════════════ -->
+<section class="section" id="proof-types">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2>Three Ways We Prove Our Capabilities</h2>
+            <p class="lead">Not a pitch deck. Not a testimonials page. Three forms of evidence you can actually examine.</p>
+        </div>
+        <div class="proof-types" id="proof-types-grid">
+            <div class="proof-card" data-delay="0">
+                <div class="proof-icon demo"><i class="fas fa-play-circle"></i></div>
+                <h3>1. Live System Demos</h3>
+                <p>Watch recorded walkthroughs of our actual n8n automation workflows, AI agents, and dashboard setups.</p>
+                <p><strong>See exactly how the system works before you buy.</strong></p>
+                <div class="proof-card-btn" style="margin-top:auto">
+                    <a href="#demos" class="btn btn-secondary"><i class="fas fa-play"></i> Watch 3-Minute Demo</a>
+                </div>
             </div>
-            
-            <div class="proof-types">
-                <!-- Live Demos -->
-                <div class="proof-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="proof-icon demo">
-                        <i class="fas fa-play-circle"></i>
+            <div class="proof-card" data-delay="150">
+                <div class="proof-icon portfolio"><i class="fas fa-chart-line"></i></div>
+                <h3>2. Vietnam Portfolio</h3>
+                <p>See our work for Vietnamese companies (under NDA) using the exact same 5-layer system we'll deploy for you.</p>
+                <p><strong>Same systems, different market.</strong></p>
+                <div class="proof-card-btn" style="margin-top:auto">
+                    <a href="#portfolio" class="btn btn-secondary"><i class="fas fa-eye"></i> View Vietnam Results</a>
+                </div>
+            </div>
+            <div class="proof-card" data-delay="300">
+                <div class="proof-icon founders"><i class="fas fa-award"></i></div>
+                <h3>3. Founders' Track Record</h3>
+                <p>Our team's previous exits, U.S. market experience, and technical expertise building scalable systems.</p>
+                <p><strong>Know who you're working with.</strong></p>
+                <div class="proof-card-btn" style="margin-top:auto">
+                    <a href="#founders" class="btn btn-secondary"><i class="fas fa-users"></i> Meet Our Founders</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ BENCHMARKS ═══════════════ -->
+<section class="benchmarks-section section" id="benchmarks">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2>System Performance Benchmarks</h2>
+            <p class="lead">Results from applying our 5-layer system to similar business challenges</p>
+            <p><small style="color:var(--text-muted)"><i class="fas fa-lock"></i> Data anonymized under NDA</small></p>
+        </div>
+        <div class="benchmarks-grid" id="benchmarks-grid">
+            <!-- Cost Reduction -->
+            <div class="benchmark-card" data-delay="0">
+                <div class="benchmark-header bh-cost">
+                    <h3>Operational Cost</h3>
+                    <div class="benchmark-result" data-target="-60" data-suffix="%">–60%</div>
+                    <p>Saved $60K+ annually</p>
+                </div>
+                <div class="benchmark-body">
+                    <p><strong>B2B Services Company</strong> — wasted 45% of team time on manual reporting &amp; lead routing.</p>
+                    <p>We automated 90% with n8n flows → embedded team took over the rest.</p>
+                    <div class="benchmark-chart chart-bar-cost" id="cost-chart"></div>
+                    <div class="benchmark-nums">
+                        <div class="bnum"><div class="bnum-val" style="color:var(--text-muted)">$15K</div><div class="bnum-lbl">Monthly Cost Before</div></div>
+                        <div class="bnum"><div class="bnum-val" style="color:var(--aurora-green)">$6K</div><div class="bnum-lbl">Monthly Cost After</div></div>
                     </div>
-                    <h3>1. Live System Demos</h3>
-                    <p>Watch recorded walkthroughs of our actual n8n automation workflows, AI agents, and dashboard setups.</p>
-                    <p><strong>See exactly how the system works before you buy.</strong></p>
-                    <div style="margin-top: auto;">
-                        <a href="#demos" class="btn btn-secondary">
-                            <i class="fas fa-play"></i>
-                            Watch 3-Minute Demo
+                </div>
+            </div>
+            <!-- ROAS -->
+            <div class="benchmark-card" data-delay="150">
+                <div class="benchmark-header bh-roas">
+                    <h3>ROAS Improvement</h3>
+                    <div class="benchmark-result" data-target="+55" data-suffix="%">+55%</div>
+                    <p>CAC reduced 21%</p>
+                </div>
+                <div class="benchmark-body">
+                    <p><strong>E-commerce Brand</strong> — manual bidding + siloed Google/Meta data.</p>
+                    <p>RevOps layer synced real-time sales → n8n adjusted bids every 4 hours by profitability.</p>
+                    <div class="benchmark-chart chart-bar-roas" id="roas-chart"></div>
+                    <div class="benchmark-nums">
+                        <div class="bnum"><div class="bnum-val" style="color:var(--text-muted)">2.4x</div><div class="bnum-lbl">ROAS Before</div></div>
+                        <div class="bnum"><div class="bnum-val" style="color:var(--amber-warm)">3.7x</div><div class="bnum-lbl">ROAS After</div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Churn -->
+            <div class="benchmark-card" data-delay="300">
+                <div class="benchmark-header bh-churn">
+                    <h3>Churn Reduction</h3>
+                    <div class="benchmark-result" data-target="-35" data-suffix="%">–35%</div>
+                    <p>LTV +28% in 9 months</p>
+                </div>
+                <div class="benchmark-body">
+                    <p><strong>SaaS Product</strong> — 12% monthly churn, no predictive model.</p>
+                    <p>Deployed AI churn model → n8n triggered personalized retention 7 days early.</p>
+                    <div class="benchmark-chart chart-bar-churn" id="churn-chart"></div>
+                    <div class="benchmark-nums">
+                        <div class="bnum"><div class="bnum-val" style="color:var(--text-muted)">12%</div><div class="bnum-lbl">Monthly Churn Before</div></div>
+                        <div class="bnum"><div class="bnum-val" style="color:var(--neon-indigo)">7.8%</div><div class="bnum-lbl">Monthly Churn After</div></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Automation -->
+            <div class="benchmark-card" data-delay="450">
+                <div class="benchmark-header bh-automation">
+                    <h3>Automation Efficiency</h3>
+                    <div class="benchmark-result" data-target="80" data-suffix="%">80%</div>
+                    <p>Manual hours eliminated</p>
+                </div>
+                <div class="benchmark-body">
+                    <p><strong>Marketing Agency</strong> — 120+ manual hours/month on reporting &amp; campaign setup.</p>
+                    <p>Built custom n8n workflows → reduced to 24 hours/month with same output quality.</p>
+                    <div class="benchmark-chart chart-bar-automation" id="automation-chart"></div>
+                    <div class="benchmark-nums">
+                        <div class="bnum"><div class="bnum-val" style="color:var(--text-muted)">120h</div><div class="bnum-lbl">Monthly Hours Before</div></div>
+                        <div class="bnum"><div class="bnum-val" style="color:var(--electric-blue)">24h</div><div class="bnum-lbl">Monthly Hours After</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-xl sr sr-up" style="transition-delay:.3s">
+            <a href="#demos" class="btn btn-secondary"><i class="fas fa-video"></i> See These Systems in Action</a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ LIVE DEMO ═══════════════ -->
+<section class="demo-section section" id="demos">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2>Live System Demos</h2>
+            <p class="lead">Watch our actual n8n workflows and AI agents in action</p>
+        </div>
+        <div class="demo-container sr sr-scale" style="transition-delay:.2s" id="demo-container">
+            <div class="demo-header">
+                <h3>n8n Automation Workflow Walkthrough</h3>
+                <p>See how we automate lead routing, reporting, and campaign optimization</p>
+            </div>
+            <div class="demo-video">
+                <div class="demo-placeholder">
+                    <i class="fas fa-play-circle"></i>
+                    <h4 style="margin-bottom:var(--space-sm)">Live Demo Video</h4>
+                    <p>3-minute walkthrough of our lead scoring automation</p>
+                    <div class="btn-magnetic" style="margin-top:var(--space-md)">
+                        <a href="https://www.loom.com/share/your-demo-link" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-external-link-alt"></i> Watch Full Demo on Loom
                         </a>
                     </div>
                 </div>
-                
-                <!-- Vietnam Portfolio -->
-                <div class="proof-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="proof-icon portfolio">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>2. Vietnam Portfolio</h3>
-                    <p>See our work for Vietnamese companies (under NDA) using the exact same 5-layer system we'll deploy for you.</p>
-                    <p><strong>Same systems, different market.</strong></p>
-                    <div style="margin-top: auto;">
-                        <a href="#portfolio" class="btn btn-secondary">
-                            <i class="fas fa-eye"></i>
-                            View Vietnam Results
-                        </a>
+            </div>
+            <div class="demo-features" id="demo-features">
+                <div class="demo-feature"><i class="fas fa-robot"></i><h4>AI Lead Scoring</h4><p>Watch how we score and route leads automatically</p></div>
+                <div class="demo-feature"><i class="fas fa-sync-alt"></i><h4>Real-time Data Sync</h4><p>See HubSpot → Google Sheets → Slack automation</p></div>
+                <div class="demo-feature"><i class="fas fa-chart-bar"></i><h4>Automated Reporting</h4><p>Daily performance reports generated automatically</p></div>
+            </div>
+        </div>
+        <div class="text-center mt-xl sr sr-up" style="transition-delay:.4s">
+            <a href="https://www.loom.com/your-demo-playlist" target="_blank" class="btn btn-secondary">
+                <i class="fas fa-list"></i> View All Demo Videos (5+ workflows)
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ VIETNAM PORTFOLIO ═══════════════ -->
+<section class="portfolio-section section" id="portfolio">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2>Our Vietnam Portfolio</h2>
+            <p class="lead">The same 5-layer system, applied to Vietnamese businesses</p>
+            <p><small style="color:var(--text-muted)"><i class="fas fa-lock"></i> Client names anonymized per NDA</small></p>
+        </div>
+        <div class="portfolio-grid" id="portfolio-grid">
+            <div class="portfolio-card" data-delay="0">
+                <div class="portfolio-image"><i class="fas fa-shopping-cart"></i></div>
+                <div class="portfolio-content">
+                    <h3>E-commerce Platform</h3>
+                    <p><strong>Challenge:</strong> 5% conversion rate, high cart abandonment</p>
+                    <p><strong>Solution:</strong> AI-powered recommendation engine + automated retargeting flows</p>
+                    <div class="portfolio-stats">
+                        <div class="stat"><span class="stat-value" data-target="42" data-prefix="+">+42%</span><span class="stat-label">Conversion Rate</span></div>
+                        <div class="stat"><span class="stat-value" data-target="31" data-prefix="-">–31%</span><span class="stat-label">Cart Abandonment</span></div>
                     </div>
                 </div>
-                
-                <!-- Founders' Track Record -->
-                <div class="proof-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="proof-icon founders">
-                        <i class="fas fa-award"></i>
+            </div>
+            <div class="portfolio-card" data-delay="150">
+                <div class="portfolio-image"><i class="fas fa-cloud"></i></div>
+                <div class="portfolio-content">
+                    <h3>SaaS Startup</h3>
+                    <p><strong>Challenge:</strong> 15% monthly churn, manual onboarding</p>
+                    <p><strong>Solution:</strong> Automated onboarding sequence + churn prediction model</p>
+                    <div class="portfolio-stats">
+                        <div class="stat"><span class="stat-value" data-target="58" data-prefix="-">–58%</span><span class="stat-label">Churn Rate</span></div>
+                        <div class="stat"><span class="stat-value" data-target="80" data-suffix="%">80%</span><span class="stat-label">Onboarding Auto</span></div>
                     </div>
-                    <h3>3. Founders' Track Record</h3>
-                    <p>Our team's previous exits, U.S. market experience, and technical expertise building scalable systems.</p>
-                    <p><strong>Know who you're working with.</strong></p>
-                    <div style="margin-top: auto;">
-                        <a href="#founders" class="btn btn-secondary">
-                            <i class="fas fa-users"></i>
-                            Meet Our Founders
-                        </a>
+                </div>
+            </div>
+            <div class="portfolio-card" data-delay="300">
+                <div class="portfolio-image"><i class="fas fa-graduation-cap"></i></div>
+                <div class="portfolio-content">
+                    <h3>EdTech Platform</h3>
+                    <p><strong>Challenge:</strong> Low student engagement, manual progress tracking</p>
+                    <p><strong>Solution:</strong> Engagement scoring + automated intervention system</p>
+                    <div class="portfolio-stats">
+                        <div class="stat"><span class="stat-value" data-target="67" data-prefix="+">+67%</span><span class="stat-label">Engagement</span></div>
+                        <div class="stat"><span class="stat-value" data-target="45" data-suffix="h">45h</span><span class="stat-label">Hours Saved/Month</span></div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="text-center mt-xl sr sr-up" style="transition-delay:.3s">
+            <p class="lead" style="max-width:800px;margin:0 auto">
+                <strong>Why this matters for U.S. clients:</strong> The systems are identical. We're applying the same technical expertise and automation frameworks, just with your U.S. market data and business context.
+            </p>
+        </div>
+    </div>
+</section>
 
-    <!-- Benchmarks -->
-    <section class="benchmarks-section section" id="benchmarks">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>System Performance Benchmarks</h2>
-                <p class="lead">Results from applying our 5-layer system to similar business challenges</p>
-                <p><small style="color: var(--text-muted);"><i class="fas fa-lock"></i> Data anonymized under NDA</small></p>
+<!-- ═══════════════ FOUNDERS ═══════════════ -->
+<section class="founders-section section" id="founders">
+    <div class="container">
+        <div class="text-center mb-xl sr sr-up">
+            <h2>Meet Our Founders</h2>
+            <p class="lead">The experienced team behind X⁵ Digital</p>
+        </div>
+        <div class="founders-grid">
+            <div class="founder-card sr sr-left" style="transition-delay:.1s" id="founder-1">
+                <div class="founder-avatar">TN</div>
+                <h3>Trung Nguyen</h3>
+                <p style="color:var(--electric-blue);font-weight:600">CEO &amp; Tech Lead</p>
+                <p>10+ years building scalable digital systems for Southeast Asian and U.S. markets.</p>
+                <ul class="founder-experience" id="exp-1">
+                    <li><i class="fas fa-check"></i> Previous exit: EdTech SaaS (2021)</li>
+                    <li><i class="fas fa-check"></i> Built 50+ n8n workflows for enterprise</li>
+                    <li><i class="fas fa-check"></i> U.S. market experience since 2018</li>
+                    <li><i class="fas fa-check"></i> Technical advisor for 3 VC-backed startups</li>
+                </ul>
             </div>
-            
-            <div class="benchmarks-grid">
-                <!-- Cost Reduction -->
-                <div class="benchmark-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="benchmark-header bh-cost">
-                        <h3>Operational Cost</h3>
-                        <div class="benchmark-result">–60%</div>
-                        <p>Saved $60K+ annually</p>
-                    </div>
-                    <div class="benchmark-body">
-                        <p><strong>B2B Services Company</strong> — wasted 45% of team time on manual reporting & lead routing.</p>
-                        <p>We automated 90% with n8n flows → embedded team took over the rest.</p>
-                        
-                        <div class="benchmark-chart" id="cost-chart">
-                            <!-- Chart will be generated by JS -->
-                        </div>
-                        
-                        <div style="display: flex; justify-content: space-between; margin-top: var(--space-lg);">
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">$15K</div>
-                                <div style="font-size: var(--text-sm);">Monthly Cost Before</div>
-                            </div>
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--success);">$6K</div>
-                                <div style="font-size: var(--text-sm);">Monthly Cost After</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ROAS Improvement -->
-                <div class="benchmark-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="benchmark-header bh-roas">
-                        <h3>ROAS Improvement</h3>
-                        <div class="benchmark-result">+55%</div>
-                        <p>CAC reduced 21%</p>
-                    </div>
-                    <div class="benchmark-body">
-                        <p><strong>E-commerce Brand</strong> — manual bidding + siloed Google/Meta data.</p>
-                        <p>RevOps layer synced real-time sales → n8n adjusted bids every 4 hours by profitability.</p>
-                        
-                        <div class="benchmark-chart" id="roas-chart">
-                            <!-- Chart will be generated by JS -->
-                        </div>
-                        
-                        <div style="display: flex; justify-content: space-between; margin-top: var(--space-lg);">
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">2.4x</div>
-                                <div style="font-size: var(--text-sm);">ROAS Before</div>
-                            </div>
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--warning);">3.7x</div>
-                                <div style="font-size: var(--text-sm);">ROAS After</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Churn Reduction -->
-                <div class="benchmark-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="benchmark-header bh-churn">
-                        <h3>Churn Reduction</h3>
-                        <div class="benchmark-result">–35%</div>
-                        <p>LTV +28% in 9 months</p>
-                    </div>
-                    <div class="benchmark-body">
-                        <p><strong>SaaS Product</strong> — 12% monthly churn, no predictive model.</p>
-                        <p>Deployed AI churn model → n8n triggered personalized retention 7 days early.</p>
-                        
-                        <div class="benchmark-chart" id="churn-chart">
-                            <!-- Chart will be generated by JS -->
-                        </div>
-                        
-                        <div style="display: flex; justify-content: space-between; margin-top: var(--space-lg);">
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">12%</div>
-                                <div style="font-size: var(--text-sm);">Monthly Churn Before</div>
-                            </div>
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--proof-churn);">7.8%</div>
-                                <div style="font-size: var(--text-sm);">Monthly Churn After</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Automation Efficiency -->
-                <div class="benchmark-card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="benchmark-header bh-automation">
-                        <h3>Automation Efficiency</h3>
-                        <div class="benchmark-result">80%</div>
-                        <p>Manual hours eliminated</p>
-                    </div>
-                    <div class="benchmark-body">
-                        <p><strong>Marketing Agency</strong> — 120+ manual hours/month on reporting & campaign setup.</p>
-                        <p>Built custom n8n workflows → reduced to 24 hours/month with same output quality.</p>
-                        
-                        <div class="benchmark-chart" id="automation-chart">
-                            <!-- Chart will be generated by JS -->
-                        </div>
-                        
-                        <div style="display: flex; justify-content: space-between; margin-top: var(--space-lg);">
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--text-muted);">120h</div>
-                                <div style="font-size: var(--text-sm);">Monthly Hours Before</div>
-                            </div>
-                            <div>
-                                <div style="font-size: var(--text-xl); font-weight: 600; font-family: 'JetBrains Mono', monospace; color: var(--danger);">24h</div>
-                                <div style="font-size: var(--text-sm);">Monthly Hours After</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-xl">
-                <a href="#demos" class="btn btn-secondary">
-                    <i class="fas fa-video"></i>
-                    See These Systems in Action
-                </a>
+            <div class="founder-card sr sr-right" style="transition-delay:.25s" id="founder-2">
+                <div class="founder-avatar">LM</div>
+                <h3>Linh Mai</h3>
+                <p style="color:var(--electric-blue);font-weight:600">Head of Growth &amp; Strategy</p>
+                <p>8+ years scaling U.S. and Vietnam businesses through data-driven marketing.</p>
+                <ul class="founder-experience" id="exp-2">
+                    <li><i class="fas fa-check"></i> Grew SaaS from $10K to $500K MRR</li>
+                    <li><i class="fas fa-check"></i> Managed $2M+ annual ad spend</li>
+                    <li><i class="fas fa-check"></i> Built 3 marketing teams from scratch</li>
+                    <li><i class="fas fa-check"></i> Fluent English, worked with 20+ U.S. clients</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Live Demo Section -->
-    <section class="demo-section section" id="demos">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Live System Demos</h2>
-                <p class="lead">Watch our actual n8n workflows and AI agents in action</p>
-            </div>
-            
-            <div class="demo-container" data-aos="fade-up">
-                <div class="demo-header">
-                    <h3>n8n Automation Workflow Walkthrough</h3>
-                    <p>See how we automate lead routing, reporting, and campaign optimization</p>
-                </div>
-                
-                <div class="demo-video">
-                    <div class="demo-placeholder">
-                        <i class="fas fa-play-circle"></i>
-                        <h4 style="margin-bottom: var(--space-sm);">Live Demo Video</h4>
-                        <p>3-minute walkthrough of our lead scoring automation</p>
-                        <a href="https://www.loom.com/share/your-demo-link" target="_blank" class="btn btn-primary" style="margin-top: var(--space-md);">
-                            <i class="fas fa-external-link-alt"></i>
-                            Watch Full Demo on Loom
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="demo-features">
-                    <div class="demo-feature">
-                        <i class="fas fa-robot"></i>
-                        <h4>AI Lead Scoring</h4>
-                        <p>Watch how we score and route leads automatically</p>
-                    </div>
-                    
-                    <div class="demo-feature">
-                        <i class="fas fa-sync-alt"></i>
-                        <h4>Real-time Data Sync</h4>
-                        <p>See HubSpot → Google Sheets → Slack automation</p>
-                    </div>
-                    
-                    <div class="demo-feature">
-                        <i class="fas fa-chart-bar"></i>
-                        <h4>Automated Reporting</h4>
-                        <p>Daily performance reports generated automatically</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-xl">
-                <a href="https://www.loom.com/your-demo-playlist" target="_blank" class="btn btn-secondary">
-                    <i class="fas fa-list"></i>
-                    View All Demo Videos (5+ workflows)
-                </a>
-            </div>
+        <div class="text-center mt-xl sr sr-up" style="transition-delay:.4s">
+            <p class="lead" style="max-width:800px;margin:0 auto">
+                <strong>Our commitment:</strong> We're not outsourcing middlemen. We're the founders who will personally oversee your account and ensure the system delivers results.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Vietnam Portfolio -->
-    <section class="portfolio-section section" id="portfolio">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Our Vietnam Portfolio</h2>
-                <p class="lead">The same 5-layer system, applied to Vietnamese businesses</p>
-                <p><small style="color: var(--text-muted);"><i class="fas fa-lock"></i> Client names anonymized per NDA</small></p>
-            </div>
-            
-            <div class="portfolio-grid">
-                <!-- E-commerce -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="portfolio-image">
-                        <i class="fas fa-shopping-cart" style="font-size: var(--text-3xl);"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>E-commerce Platform</h3>
-                        <p><strong>Challenge:</strong> 5% conversion rate, high cart abandonment</p>
-                        <p><strong>Solution:</strong> Implemented AI-powered recommendation engine + automated retargeting flows</p>
-                        
-                        <div class="portfolio-stats">
-                            <div class="stat">
-                                <span class="stat-value">+42%</span>
-                                <span class="stat-label">Conversion Rate</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">-31%</span>
-                                <span class="stat-label">Cart Abandonment</span>
-                            </div>
-                        </div>
-                    </div>
+<!-- ═══════════════ RISK REVERSAL ═══════════════ -->
+<section class="risk-reversal section">
+    <div class="container">
+        <div class="risk-card" id="risk-card">
+            <div class="risk-badge">Zero-Risk Pilot Program</div>
+            <h3 style="color:var(--aurora-green)">For Our First 10 U.S. Clients</h3>
+            <p class="lead" style="color:var(--text-secondary)">We're so confident in our system that we're offering unprecedented risk reversal.</p>
+            <div class="risk-features" id="risk-features">
+                <div class="risk-feature" data-delay="0">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h4>30-Day Money-Back</h4>
+                    <p>Full refund if not satisfied in first 30 days</p>
                 </div>
-                
-                <!-- SaaS -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="portfolio-image">
-                        <i class="fas fa-cloud" style="font-size: var(--text-3xl);"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>SaaS Startup</h3>
-                        <p><strong>Challenge:</strong> 15% monthly churn, manual onboarding</p>
-                        <p><strong>Solution:</strong> Built automated onboarding sequence + churn prediction model</p>
-                        
-                        <div class="portfolio-stats">
-                            <div class="stat">
-                                <span class="stat-value">-58%</span>
-                                <span class="stat-label">Churn Rate</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">80%</span>
-                                <span class="stat-label">Onboarding Auto</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="risk-feature" data-delay="100">
+                    <i class="fas fa-percentage"></i>
+                    <h4>50% First Month</h4>
+                    <p>Half-price trial to test the system</p>
                 </div>
-                
-                <!-- Education -->
-                <div class="portfolio-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="portfolio-image">
-                        <i class="fas fa-graduation-cap" style="font-size: var(--text-3xl);"></i>
-                    </div>
-                    <div class="portfolio-content">
-                        <h3>EdTech Platform</h3>
-                        <p><strong>Challenge:</strong> Low student engagement, manual progress tracking</p>
-                        <p><strong>Solution:</strong> Created engagement scoring + automated intervention system</p>
-                        
-                        <div class="portfolio-stats">
-                            <div class="stat">
-                                <span class="stat-value">+67%</span>
-                                <span class="stat-label">Engagement</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-value">45h</span>
-                                <span class="stat-label">Hours Saved/Month</span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="risk-feature" data-delay="200">
+                    <i class="fas fa-download"></i>
+                    <h4>Keep the Workflows</h4>
+                    <p>Cancel anytime, keep your n8n automations</p>
                 </div>
-            </div>
-            
-            <div class="text-center mt-xl" data-aos="fade-up">
-                <p class="lead" style="max-width: 800px; margin: 0 auto;">
-                    <strong>Why this matters for U.S. clients:</strong> The systems are identical. 
-                    We're applying the same technical expertise and automation frameworks, 
-                    just with your U.S. market data and business context.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Founders Section -->
-    <section class="founders-section section" id="founders">
-        <div class="container">
-            <div class="text-center mb-xl" data-aos="fade-up">
-                <h2>Meet Our Founders</h2>
-                <p class="lead">The experienced team behind X5 Digital</p>
-            </div>
-            
-            <div class="founders-grid">
-                <!-- Founder 1 -->
-                <div class="founder-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="founder-avatar">
-                        TN
-                    </div>
-                    <h3>Trung Nguyen</h3>
-                    <p style="color: var(--electric-blue); font-weight: 600;">CEO & Tech Lead</p>
-                    <p>10+ years building scalable digital systems for Southeast Asian and U.S. markets.</p>
-                    
-                    <ul class="founder-experience">
-                        <li><i class="fas fa-check"></i> Previous exit: EdTech SaaS (2021)</li>
-                        <li><i class="fas fa-check"></i> Built 50+ n8n workflows for enterprise</li>
-                        <li><i class="fas fa-check"></i> U.S. market experience since 2018</li>
-                        <li><i class="fas fa-check"></i> Technical advisor for 3 VC-backed startups</li>
-                    </ul>
-                </div>
-                
-                <!-- Founder 2 -->
-                <div class="founder-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="founder-avatar">
-                        LM
-                    </div>
-                    <h3>Linh Mai</h3>
-                    <p style="color: var(--electric-blue); font-weight: 600;">Head of Growth & Strategy</p>
-                    <p>8+ years scaling U.S. and Vietnam businesses through data-driven marketing.</p>
-                    
-                    <ul class="founder-experience">
-                        <li><i class="fas fa-check"></i> Grew SaaS from $10K to $500K MRR</li>
-                        <li><i class="fas fa-check"></i> Managed $2M+ annual ad spend</li>
-                        <li><i class="fas fa-check"></i> Built 3 marketing teams from scratch</li>
-                        <li><i class="fas fa-check"></i> Fluent English, worked with 20+ U.S. clients</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="text-center mt-xl" data-aos="fade-up">
-                <p class="lead" style="max-width: 800px; margin: 0 auto;">
-                    <strong>Our commitment:</strong> We're not outsourcing middlemen. We're the founders who will 
-                    personally oversee your account and ensure the system delivers results.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Risk Reversal -->
-    <section class="risk-reversal section">
-        <div class="container">
-            <div class="risk-card" data-aos="zoom-in">
-                <div class="risk-badge">Zero-Risk Pilot Program</div>
-                <h3 style="color: var(--aurora-green);">For Our First 10 U.S. Clients</h3>
-                <p class="lead" style="color: var(--text-secondary);">
-                    We're so confident in our system that we're offering unprecedented risk reversal.
-                </p>
-                
-                <div class="risk-features">
-                    <div class="risk-feature">
-                        <i class="fas fa-money-bill-wave"></i>
-                        <h4>30-Day Money-Back</h4>
-                        <p>Full refund if not satisfied in first 30 days</p>
-                    </div>
-                    
-                    <div class="risk-feature">
-                        <i class="fas fa-percentage"></i>
-                        <h4>50% First Month</h4>
-                        <p>Half-price trial to test the system</p>
-                    </div>
-                    
-                    <div class="risk-feature">
-                        <i class="fas fa-download"></i>
-                        <h4>Keep the Workflows</h4>
-                        <p>Cancel anytime, keep your n8n automations</p>
-                    </div>
-                    
-                    <div class="risk-feature">
-                        <i class="fas fa-handshake"></i>
-                        <h4>CEO Check-ins</h4>
-                        <p>Weekly calls with founders for first 90 days</p>
-                    </div>
+                <div class="risk-feature" data-delay="300">
+                    <i class="fas fa-handshake"></i>
+                    <h4>CEO Check-ins</h4>
+                    <p>Weekly calls with founders for first 90 days</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Final CTA -->
-    <section class="cta-final section-lg" id="audit">
-        <div class="cta-bg"></div>
-        <div class="container">
-            <div class="cta-content" data-aos="fade-up">
-                <h2>The Numbers Above Are From Other Businesses. Let's Get Yours.</h2>
-                
-                <p class="lead" style="color: var(--text-secondary);">
-                    Most businesses run marketing like a cottage industry — skilled in parts, but slow, expensive, and impossible to scale without adding headcount. An assembly line doesn't need more craftsmen. It needs better systems.<br><br>
-                    Your free 30-minute audit maps which systems your business needs first — and shows you the projected numbers at month 3, 6, and 12.
-                </p>
-                
-                <div class="slots">
-                    <strong>Only 5 audit slots left this week</strong>
+<!-- ═══════════════ FINAL CTA ═══════════════ -->
+<section class="cta-final section-lg" id="audit">
+    <canvas id="cta-canvas" aria-hidden="true"></canvas>
+    <div class="cta-bg" aria-hidden="true"></div>
+    <div class="container">
+        <div class="cta-content sr sr-up">
+            <h2>The Numbers Above Are From <span class="word-hl">Other Businesses.</span><br>Let's Get <span class="word-hl">Yours.</span></h2>
+            <p class="lead" style="color:var(--text-secondary)">
+                Most businesses run marketing like a cottage industry — skilled in parts, but slow, expensive, and impossible to scale without adding headcount. An assembly line doesn't need more craftsmen. It needs better systems.<br><br>
+                Your free 30-minute audit maps which systems your business needs first — and shows you the projected numbers at month 3, 6, and 12.
+            </p>
+            <div class="slots">
+                <strong>Only 5 audit slots left this week</strong>
+                <div>
+                    <span class="urgency-timer">
+                        <span class="timer-dot"></span>
+                        Closes in: <span id="timer-display">47:32:18</span>
+                    </span>
                 </div>
-                
+            </div>
+            <div class="btn-magnetic">
                 <a href="book-audit.html" class="btn btn-primary btn-lg">
-                    Book My Free Audit &amp; Custom Forecast
-                    <i class="fas fa-arrow-right"></i>
+                    Book My Free Audit &amp; Custom Forecast <i class="fas fa-arrow-right"></i>
                 </a>
-                
-                <div class="mt-lg" style="color: var(--text-secondary);">
-                    <small><i class="fas fa-lock"></i> Zero risk • Takes 30 minutes • You'll leave with your 90-day roadmap</small>
+            </div>
+            <div class="mt-lg" style="color:var(--text-secondary)">
+                <small><i class="fas fa-lock"></i> Zero risk &bull; Takes 30 minutes &bull; You'll leave with your 90-day roadmap</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="sr sr-up" style="transition-delay:.1s">
+                <div class="footer-logo">X<sup>5</sup> Digital</div>
+                <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business &mdash; and hand you the keys.<br>Vietnam-based &middot; Built for U.S. SMEs &middot; 24/7 coverage</p>
+            </div>
+            <div class="sr sr-up" style="transition-delay:.2s">
+                <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
+                <nav class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="proofs.html">Proof</a>
+                    <a href="book-audit.html">Book Free Audit</a>
+                </nav>
+            </div>
+            <div class="sr sr-up" style="transition-delay:.3s">
+                <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
+                <div class="footer-links">
+                    <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                    <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter / X">Twitter</a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">X<sup>5</sup> Digital</div>
-                    <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business &mdash; and hand you the keys.<br>Vietnam-based &middot; Built for U.S. SMEs &middot; 24/7 coverage</p>
-                </div>
-                <div>
-                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
-                    <nav class="footer-links" aria-label="Footer navigation">
-                        <a href="index.html">Home</a>
-                        <a href="how-it-works.html">How It Works</a>
-                        <a href="packages.html">Packages</a>
-                        <a href="proofs.html">Proof</a>
-                        <a href="book-audit.html">Book Free Audit</a>
-                    </nav>
-                </div>
-                <div>
-                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
-                    <div class="footer-links">
-                        <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
-                        <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Twitter / X">Twitter</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
+<script>
+/* 1. HERO PARTICLE NETWORK */
+(function(){var c=document.getElementById('hero-canvas'),ctx=c.getContext('2d'),pts=[];function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}function mkPt(){return{x:Math.random()*c.width,y:Math.random()*c.height,dx:(Math.random()-.5)*.45,dy:(Math.random()-.5)*.45,r:Math.random()*1.8+.6,col:Math.random()>.5?'29,155,240':'99,102,241',o:Math.random()*.4+.15};}function init(){resize();pts=[];for(var i=0;i<60;i++)pts.push(mkPt());}function draw(){ctx.clearRect(0,0,c.width,c.height);for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.dx;p.y+=p.dy;if(p.x<0||p.x>c.width)p.dx*=-1;if(p.y<0||p.y>c.height)p.dy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+p.o+')';ctx.fill();for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.sqrt(dx*dx+dy*dy);if(d<130){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(29,155,240,'+(.13*(1-d/130))+')';ctx.lineWidth=.6;ctx.stroke();}}}requestAnimationFrame(draw);}window.addEventListener('resize',init);init();draw();})();
 
-        // Mobile Navigation Toggle
-        var menuToggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks   = document.querySelector('.nav-links');
+/* 2. CTA STAR FIELD */
+(function(){var c=document.getElementById('cta-canvas');if(!c)return;var ctx=c.getContext('2d'),stars=[],t=0;function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}function init(){resize();stars=[];for(var i=0;i<80;i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.2+.3,o:Math.random()*.6+.2,speed:Math.random()*.003+.001,phase:Math.random()*Math.PI*2});}function draw(){t+=.016;ctx.clearRect(0,0,c.width,c.height);for(var i=0;i<stars.length;i++){var s=stars[i];var a=s.o*(.5+.5*Math.sin(t*s.speed*60+s.phase));ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);ctx.fillStyle='rgba(255,255,255,'+a+')';ctx.fill();}requestAnimationFrame(draw);}window.addEventListener('resize',init);init();draw();})();
 
-        menuToggle.addEventListener('click', function() {
-            var isOpen = navLinks.classList.toggle('active');
-            this.classList.toggle('active');
-            this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
+/* 3. SCROLL REVEAL */
+(function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});document.querySelectorAll('.sr').forEach(function(el){obs.observe(el);});})();
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
+/* 4. PROOF TYPE CARDS — stagger + icon spin */
+(function(){var grid=document.getElementById('proof-types-grid');if(!grid)return;var cards=grid.querySelectorAll('.proof-card');var obs=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(!entry.isIntersecting)return;cards.forEach(function(card){var delay=parseInt(card.getAttribute('data-delay'))||0;setTimeout(function(){card.classList.add('card-in');var icon=card.querySelector('.proof-icon');if(icon)icon.classList.add('icon-spin');},delay);});obs.unobserve(entry.target);});},{threshold:.1});obs.observe(grid);})();
+
+/* 5. BENCHMARKS — stagger + count-up + bar charts */
+(function(){
+    var grid=document.getElementById('benchmarks-grid');if(!grid)return;
+    var chartData={
+        'cost-chart':{before:70,after:28},
+        'roas-chart':{before:60,after:93},
+        'churn-chart':{before:75,after:49},
+        'automation-chart':{before:90,after:18}
+    };
+    function buildChart(id,data){
+        var container=document.getElementById(id);if(!container)return;
+        container.innerHTML='';
+        var cls=container.className.replace('benchmark-chart ','').replace('benchmark-chart','').trim();
+        var beforeBar=document.createElement('div');
+        beforeBar.className='chart-bar before';
+        beforeBar.style.height='0%';
+        container.appendChild(beforeBar);
+        var afterBar=document.createElement('div');
+        afterBar.className='chart-bar after';
+        afterBar.style.height='0%';
+        container.appendChild(afterBar);
+        var lblB=document.createElement('div');lblB.className='chart-label before';lblB.textContent='Before';container.appendChild(lblB);
+        var lblA=document.createElement('div');lblA.className='chart-label after';lblA.textContent='After';container.appendChild(lblA);
+        setTimeout(function(){
+            beforeBar.style.height=data.before+'%';
+            afterBar.style.height=data.after+'%';
+            setTimeout(function(){afterBar.classList.add('glow-done');lblB.classList.add('lbl-in');lblA.classList.add('lbl-in');},800);
+        },400);
+    }
+    function countUp(el,rawTarget){
+        var isNeg=rawTarget<0;var target=Math.abs(rawTarget);var suffix=el.dataset.suffix||'';
+        var inc=target/(1500/16);var cur=0;
+        var t=setInterval(function(){cur=Math.min(cur+inc,target);el.textContent=(isNeg?'–':rawTarget>0?'+':'')+Math.round(cur)+suffix;if(cur>=target){el.textContent=(isNeg?'–':rawTarget>0?'+':'')+target+suffix;clearInterval(t);el.classList.add('counted');}},16);
+    }
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+            if(!entry.isIntersecting)return;
+            var cards=entry.target.querySelectorAll('.benchmark-card');
+            cards.forEach(function(card){
+                var delay=parseInt(card.getAttribute('data-delay'))||0;
+                setTimeout(function(){
+                    card.classList.add('bc-in');
+                    // count-up
+                    var result=card.querySelector('.benchmark-result');
+                    if(result&&result.dataset.target){countUp(result,parseInt(result.dataset.target));}
+                    // chart
+                    var chart=card.querySelector('.benchmark-chart');
+                    if(chart&&chart.id&&chartData[chart.id]){buildChart(chart.id,chartData[chart.id]);}
+                },delay);
             });
+            obs.unobserve(entry.target);
         });
+    },{threshold:.1});
+    obs.observe(grid);
+})();
 
-        // Header scroll — hide on scroll-down (mobile), show on scroll-up
-        var header      = document.getElementById('header');
-        var lastScrollY = window.scrollY;
-        var ticking     = false;
+/* 6. DEMO CONTAINER — border in + feature stagger */
+(function(){
+    var dc=document.getElementById('demo-container');if(!dc)return;
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(!e.isIntersecting)return;
+            dc.classList.add('dc-in');
+            dc.querySelectorAll('.demo-feature').forEach(function(f,i){
+                setTimeout(function(){f.classList.add('feat-in');},300+i*120);
+            });
+            obs.unobserve(dc);
+        });
+    },{threshold:.2});
+    obs.observe(dc);
+})();
 
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    var cur = window.scrollY;
-                    header.classList.toggle('scrolled', cur > 50);
-                    if (window.innerWidth <= 992 && !navLinks.classList.contains('active')) {
-                        if (cur > lastScrollY && cur > 80) {
-                            header.classList.add('header-hidden');
-                        } else {
-                            header.classList.remove('header-hidden');
-                        }
-                    }
-                    lastScrollY = cur;
-                    ticking = false;
+/* 7. PORTFOLIO CARDS — stagger + stat count-up */
+(function(){
+    var grid=document.getElementById('portfolio-grid');if(!grid)return;
+    function countStat(el){
+        var target=parseInt(el.dataset.target);var prefix=el.dataset.prefix||'';var suffix=el.dataset.suffix||'';
+        var inc=target/(1200/16);var cur=0;
+        var t=setInterval(function(){cur=Math.min(cur+inc,target);el.textContent=prefix+Math.round(cur)+suffix;if(cur>=target){clearInterval(t);}},16);
+    }
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+            if(!entry.isIntersecting)return;
+            var cards=entry.target.querySelectorAll('.portfolio-card');
+            cards.forEach(function(card){
+                var delay=parseInt(card.getAttribute('data-delay'))||0;
+                setTimeout(function(){
+                    card.classList.add('pc-in');
+                    setTimeout(function(){
+                        card.querySelectorAll('.stat-value[data-target]').forEach(countStat);
+                    },400);
+                },delay);
+            });
+            obs.unobserve(entry.target);
+        });
+    },{threshold:.1});
+    obs.observe(grid);
+})();
+
+/* 8. FOUNDERS — avatar spin + experience stagger */
+(function(){
+    ['founder-1','founder-2'].forEach(function(id){
+        var card=document.getElementById(id);if(!card)return;
+        var obs=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){
+                if(!e.isIntersecting)return;
+                var av=card.querySelector('.founder-avatar');
+                if(av)av.classList.add('avatar-spin');
+                card.querySelectorAll('.founder-experience li').forEach(function(li,i){
+                    setTimeout(function(){li.classList.add('exp-in');},300+i*90);
                 });
-                ticking = true;
-            }
-        }, { passive: true });
-
-        // Benchmark Charts
-        function createBenchmarkCharts() {
-            const charts = [
-                { id: 'cost-chart', before: 70, after: 28, beforeLabel: 'Before', afterLabel: 'After' },
-                { id: 'roas-chart', before: 60, after: 93, beforeLabel: '2.4x', afterLabel: '3.7x' },
-                { id: 'churn-chart', before: 75, after: 49, beforeLabel: '12%', afterLabel: '7.8%' },
-                { id: 'automation-chart', before: 90, after: 18, beforeLabel: '120h', afterLabel: '24h' }
-            ];
-
-            charts.forEach(chart => {
-                const container = document.getElementById(chart.id);
-                if (!container) return;
-
-                // Clear container
-                container.innerHTML = '';
-
-                // Create before bar
-                const beforeBar = document.createElement('div');
-                beforeBar.className = 'chart-bar before';
-                beforeBar.style.height = '0%';
-                beforeBar.style.left = '25%';
-                container.appendChild(beforeBar);
-
-                // Create after bar
-                const afterBar = document.createElement('div');
-                afterBar.className = 'chart-bar after';
-                afterBar.style.height = '0%';
-                afterBar.style.left = '75%';
-                container.appendChild(afterBar);
-
-                // Create labels
-                const beforeLabel = document.createElement('div');
-                beforeLabel.className = 'chart-label before';
-                beforeLabel.textContent = chart.beforeLabel;
-                container.appendChild(beforeLabel);
-
-                const afterLabel = document.createElement('div');
-                afterLabel.className = 'chart-label after';
-                afterLabel.textContent = chart.afterLabel;
-                container.appendChild(afterLabel);
-
-                // Animate bars
-                setTimeout(() => {
-                    beforeBar.style.height = chart.before + '%';
-                    afterBar.style.height = chart.after + '%';
-                }, 500);
+                obs.unobserve(card);
             });
-        }
+        },{threshold:.3});
+        obs.observe(card);
+    });
+})();
 
-        // Initialize charts when in viewport
-        const benchmarkObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    createBenchmarkCharts();
-                    benchmarkObserver.unobserve(entry.target);
-                }
+/* 9. RISK REVERSAL CARD + features stagger */
+(function(){
+    var card=document.getElementById('risk-card');if(!card)return;
+    var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+            if(!e.isIntersecting)return;
+            card.classList.add('rc-in');
+            card.querySelectorAll('.risk-feature').forEach(function(f){
+                var delay=parseInt(f.getAttribute('data-delay'))||0;
+                setTimeout(function(){f.classList.add('rf-in');},400+delay);
             });
-        }, { threshold: 0.3 });
-
-        // Observe benchmarks section
-        const benchmarksSection = document.getElementById('benchmarks');
-        if (benchmarksSection) {
-            benchmarkObserver.observe(benchmarksSection);
-        }
-
-        // Interactive Demo Cards
-        const proofCards = document.querySelectorAll('.proof-card');
-        proofCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+            obs.unobserve(card);
         });
+    },{threshold:.3});
+    obs.observe(card);
+})();
 
-        // Portfolio Card Animation
-        const portfolioCards = document.querySelectorAll('.portfolio-card');
-        portfolioCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const image = this.querySelector('.portfolio-image');
-                if (image) {
-                    image.style.transform = 'scale(1.05)';
-                    image.style.transition = 'transform 0.3s ease';
-                }
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const image = this.querySelector('.portfolio-image');
-                if (image) {
-                    image.style.transform = 'scale(1)';
-                }
-            });
-        });
+/* 10. CTA WORD HIGHLIGHT */
+(function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(!e.isIntersecting)return;e.target.querySelectorAll('.word-hl').forEach(function(w,i){setTimeout(function(){w.classList.add('lit');},600+i*350);});obs.unobserve(e.target);});},{threshold:.5});var cc=document.querySelector('.cta-content');if(cc)obs.observe(cc);})();
 
-        // Founder Card Interaction
-        const founderCards = document.querySelectorAll('.founder-card');
-        founderCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                const avatar = this.querySelector('.founder-avatar');
-                if (avatar) {
-                    avatar.style.transform = 'scale(1.1)';
-                    avatar.style.transition = 'transform 0.3s ease';
-                }
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                const avatar = this.querySelector('.founder-avatar');
-                if (avatar) {
-                    avatar.style.transform = 'scale(1)';
-                }
-            });
-        });
+/* 11. COUNTDOWN TIMER — same deadline all 4 pages */
+(function(){var d=document.getElementById('timer-display');if(!d)return;var deadline=Date.now()+(47*3600+32*60+18)*1000;function upd(){var diff=Math.max(0,deadline-Date.now()),h=Math.floor(diff/3600000),m=Math.floor((diff%3600000)/60000),s=Math.floor((diff%60000)/1000);d.textContent=pad(h)+':'+pad(m)+':'+pad(s);}function pad(n){return n<10?'0'+n:n;}upd();setInterval(upd,1000);})();
 
-        // Risk Feature Animation
-        const riskFeatures = document.querySelectorAll('.risk-feature');
-        riskFeatures.forEach((feature, index) => {
-            feature.style.animationDelay = `${index * 0.1}s`;
-            
-            feature.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'scale(1.2)';
-                    icon.style.transition = 'transform 0.3s ease';
-                }
-            });
-            
-            feature.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'scale(1)';
-                }
-            });
-        });
+/* 12. MAGNETIC BUTTON */
+document.querySelectorAll('.btn-magnetic').forEach(function(wrap){var btn=wrap.querySelector('.btn');if(!btn)return;wrap.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);btn.style.transform='translate('+(dx*.18)+'px,'+(dy*.18)+'px) translateY(-3px)';});wrap.addEventListener('mouseleave',function(){btn.style.transform='';});});
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
+/* 13. HEADER SCROLL */
+(function(){var header=document.getElementById('header'),lastY=window.scrollY,ticking=false;window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var cur=window.scrollY;header.classList.toggle('scrolled',cur>50);if(window.innerWidth<=992&&!document.querySelector('.nav-links.active')){if(cur>lastY&&cur>80)header.classList.add('header-hidden');else header.classList.remove('header-hidden');}lastY=cur;ticking=false;});ticking=true;}},{passive:true});})();
 
-        // Auto-play demo video on hover
-        const demoPlaceholder = document.querySelector('.demo-placeholder');
-        if (demoPlaceholder) {
-            demoPlaceholder.addEventListener('mouseenter', function() {
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'scale(1.2)';
-                    icon.style.transition = 'transform 0.3s ease';
-                }
-            });
-            
-            demoPlaceholder.addEventListener('mouseleave', function() {
-                const icon = this.querySelector('i');
-                if (icon) {
-                    icon.style.transform = 'scale(1)';
-                }
-            });
-        }
+/* 14. MOBILE NAV */
+(function(){var toggle=document.querySelector('.mobile-menu-toggle'),navLinks=document.getElementById('nav-links');toggle.addEventListener('click',function(){var exp=this.getAttribute('aria-expanded')==='true';this.classList.toggle('active');navLinks.classList.toggle('active');this.setAttribute('aria-expanded',String(!exp));document.body.style.overflow=navLinks.classList.contains('active')?'hidden':'';});document.querySelectorAll('.nav-link').forEach(function(l){l.addEventListener('click',function(){toggle.classList.remove('active');navLinks.classList.remove('active');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';});});})();
 
-        // Benchmark number counting animation
-        function animateNumbers() {
-            const benchmarkNumbers = document.querySelectorAll('.benchmark-result');
-            
-            benchmarkNumbers.forEach(numberElement => {
-                const originalText = numberElement.textContent;
-                const value = parseFloat(originalText.replace(/[^0-9.-]/g, ''));
-                const isNegative = originalText.includes('-');
-                const suffix = originalText.replace(/[0-9.-]/g, '');
-                
-                if (!isNaN(value)) {
-                    let start = 0;
-                    const end = Math.abs(value);
-                    const duration = 1500;
-                    const increment = end / (duration / 16);
-                    
-                    const timer = setInterval(() => {
-                        start += increment;
-                        if (start >= end) {
-                            start = end;
-                            clearInterval(timer);
-                        }
-                        
-                        const displayValue = isNegative ? -start.toFixed(1) : start.toFixed(1);
-                        numberElement.textContent = displayValue + suffix;
-                    }, 16);
-                }
-            });
-        }
-
-        // Trigger number animation when benchmarks are in view
-        const numbersObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateNumbers();
-                    numbersObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        if (benchmarksSection) {
-            numbersObserver.observe(benchmarksSection);
-        }
-
-        // Risk reversal highlight
-        const riskCard = document.querySelector('.risk-card');
-        if (riskCard) {
-            riskCard.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.02)';
-                this.style.transition = 'transform 0.3s ease';
-            });
-            
-            riskCard.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
-
-        // Demo video placeholder click
-        if (demoPlaceholder) {
-            demoPlaceholder.addEventListener('click', function() {
-                window.open('https://www.loom.com/share/your-demo-link', '_blank');
-            });
-        }
-    </script>
+/* 15. SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el)window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});});});
+</script>
 </body>
 </html>

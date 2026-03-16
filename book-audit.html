@@ -3,1935 +3,866 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Free Performance Audit — X5 Digital</title>
+    <title>Book Your Free Performance Audit — X⁵ Digital</title>
     <meta name="description" content="30-minute audit: Custom LTV forecast, operational savings breakdown, personalized ROI projection. Only for qualified U.S. SMEs.">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
     <style>
-        /* ===== CSS VARIABLES & RESET ===== */
-        :root {
-            color-scheme: dark; /* Forces browser native elements (select, input) to dark defaults */
+    /* ═══════════════════════════════════════════
+       TOKENS — identical across all 5 pages
+    ═══════════════════════════════════════════ */
+    :root {
+        color-scheme:dark;
+        --bg-base:#080D1A; --bg-surface-1:#0D1426; --bg-surface-2:#111B33; --bg-surface-3:#1A2444;
+        --electric-blue:#1D9BF0; --neon-indigo:#6366F1; --cyber-cyan:#06B6D4;
+        --aurora-green:#00D4AA; --amber-warm:#F59E0B; --danger-red:#EF4444;
+        --primary:#1D9BF0; --accent:#8B5CF6;
+        --valid:#00D4AA; --invalid:#EF4444;
+        --text-primary:#F1F5F9; --text-secondary:#94A3B8; --text-muted:#475569;
+        --grad-brand:linear-gradient(135deg,#1D9BF0 0%,#6366F1 50%,#8B5CF6 100%);
+        --grad-cta-bg:linear-gradient(135deg,#0D1F3C 0%,#1A1040 100%);
+        --glow-blue-sm:0 0 20px rgba(29,155,240,.25); --glow-blue-md:0 0 40px rgba(29,155,240,.35);
+        --glow-indigo:0 0 60px rgba(99,102,241,.30); --glow-green:0 0 40px rgba(0,212,170,.30);
+        --space-xs:.5rem; --space-sm:1rem; --space-md:1.5rem; --space-lg:2rem;
+        --space-xl:3rem; --space-2xl:4rem; --space-3xl:6rem;
+        --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem;
+        --text-xl:1.25rem; --text-2xl:1.5rem; --text-3xl:1.875rem; --text-4xl:2.25rem; --text-5xl:3rem;
+        --shadow-xl:0 20px 60px rgba(0,0,0,.6);
+        --radius-sm:8px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px; --radius-full:9999px;
+        --transition-fast:.15s cubic-bezier(.4,0,.2,1);
+        --transition-normal:.3s cubic-bezier(.4,0,.2,1);
+        --transition-spring:.4s cubic-bezier(.34,1.56,.64,1);
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Outfit',sans-serif;line-height:1.75;color:var(--text-secondary);background:var(--bg-base);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    a{text-decoration:none;color:inherit;transition:color var(--transition-fast)}
+    .container{max-width:1280px;margin:0 auto;padding:0 var(--space-lg)}
+    .container-narrow{max-width:900px;margin:0 auto;padding:0 var(--space-lg)}
+    .section{padding:var(--space-3xl) 0} .section-sm{padding:var(--space-2xl) 0}
+    h1,h2,h3,h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:1.2;margin-bottom:var(--space-md);color:var(--text-primary)}
+    h1{font-size:clamp(2rem,5vw,3rem);font-weight:900;letter-spacing:-.03em}
+    h2{font-size:clamp(1.5rem,3vw,1.875rem);letter-spacing:-.01em}
+    h3{font-size:var(--text-xl)} h4{color:var(--text-primary)}
+    p{margin-bottom:var(--space-md);color:var(--text-secondary);line-height:1.75}
+    .lead{font-size:var(--text-lg);font-weight:500;line-height:1.6;color:var(--text-secondary)}
+    strong{color:var(--text-primary)}
+    small{font-size:var(--text-sm);color:var(--text-secondary)}
+    ol li{color:var(--text-secondary)}
+    .required{color:var(--danger-red);font-weight:600}
+    .text-gradient{background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .text-center{text-align:center}
+    .mt-md{margin-top:var(--space-md)} .mt-lg{margin-top:var(--space-lg)} .mt-xl{margin-top:var(--space-xl)}
+    .mt-sm{margin-top:var(--space-sm)} .mb-xl{margin-bottom:var(--space-xl)}
 
-            /* === BACKGROUNDS === */
-            --bg-base:        #080D1A;
-            --bg-surface-1:   #0D1426;
-            --bg-surface-2:   #111B33;
-            --bg-surface-3:   #1A2444;
+    /* ═══════════════════════════════════════════
+       SCROLL REVEAL — identical all 5 pages
+    ═══════════════════════════════════════════ */
+    .sr{opacity:0;transition:opacity .7s ease,transform .7s ease}
+    .sr-up{transform:translateY(40px)} .sr-left{transform:translateX(-60px)}
+    .sr-scale{transform:scale(.85)}
+    .sr.in{opacity:1!important;transform:none!important}
 
-            /* === BRAND COLORS === */
-            --electric-blue:  #1D9BF0;
-            --neon-indigo:    #6366F1;
-            --cyber-cyan:     #06B6D4;
-            --aurora-green:   #00D4AA;
-            --amber-warm:     #F59E0B;
-            --danger-red:     #EF4444;
+    /* ═══════════════════════════════════════════
+       AURORA + CANVAS — identical
+    ═══════════════════════════════════════════ */
+    .aurora-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;will-change:transform;animation:aurora-drift 12s ease-in-out infinite}
+    .aurora-orb-1{width:600px;height:600px;top:-200px;right:-100px;background:radial-gradient(circle,rgba(29,155,240,.10),transparent 70%)}
+    .aurora-orb-2{width:500px;height:500px;bottom:0;left:-150px;background:radial-gradient(circle,rgba(99,102,241,.08),transparent 70%);animation-delay:-6s}
+    @keyframes aurora-drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(.97)}}
+    #hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.6}
 
-            /* === LEGACY ALIASES === */
-            --primary:        #1D9BF0;
-            --primary-dark:   #1580CC;
-            --primary-light:  #6366F1;
-            --secondary:      #00D4AA;
-            --secondary-dark: #00B892;
-            --accent:         #8B5CF6;
-            --danger:         #EF4444;
-            --warning:        #F59E0B;
-            --success:        #00D4AA;
+    /* ═══════════════════════════════════════════
+       BUTTONS — identical
+    ═══════════════════════════════════════════ */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);padding:var(--space-md) var(--space-xl);font-weight:600;font-size:var(--text-base);border-radius:var(--radius-md);border:none;cursor:pointer;transition:all var(--transition-normal);position:relative;overflow:hidden;text-align:center;white-space:nowrap;min-height:44px}
+    .btn::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%)}
+    .btn:hover::after{animation:shine .8s ease}
+    @keyframes shine{100%{transform:translateX(100%)}}
+    .btn-primary{background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;box-shadow:0 4px 20px rgba(29,155,240,.25);animation:cta-breathe 3s ease-in-out 3s infinite}
+    .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(29,155,240,.5),0 0 0 4px rgba(29,155,240,.15);animation:none}
+    @keyframes cta-breathe{0%,100%{box-shadow:0 4px 20px rgba(29,155,240,.20)}50%{box-shadow:0 4px 40px rgba(29,155,240,.55),0 0 60px rgba(99,102,241,.25)}}
+    .btn-secondary{background:transparent;color:var(--electric-blue);border:1px solid rgba(29,155,240,.40)}
+    .btn-secondary:hover{background:rgba(29,155,240,.08);border-color:var(--electric-blue);transform:translateY(-2px)}
+    .btn-lg{padding:var(--space-lg) var(--space-2xl);font-size:var(--text-lg);border-radius:var(--radius-lg)}
+    .btn:disabled{opacity:.6;cursor:not-allowed;transform:none!important}
+    .btn-magnetic{display:inline-block;transition:transform .2s ease}
 
-            /* === FORM STATES === */
-            --valid:   #00D4AA;
-            --invalid: #EF4444;
+    /* ═══════════════════════════════════════════
+       HEADER — identical
+    ═══════════════════════════════════════════ */
+    header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:var(--space-md) 0;background:rgba(8,13,26,.75);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.4,0,.2,1),padding var(--transition-normal),background var(--transition-normal),box-shadow var(--transition-normal);animation:headerIn .6s ease both}
+    @keyframes headerIn{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+    header.header-hidden{transform:translateY(-100%)}
+    header.scrolled{padding:var(--space-sm) 0;background:rgba(8,13,26,.95);border-bottom-color:rgba(29,155,240,.15);box-shadow:0 4px 30px rgba(0,0,0,.3)}
+    .nav{display:flex;justify-content:space-between;align-items:center}
+    .logo{display:flex;align-items:center;gap:var(--space-sm);font-weight:900;font-size:var(--text-2xl);color:var(--electric-blue);font-family:'Plus Jakarta Sans',sans-serif}
+    .logo sup{font-size:.83em;-webkit-text-fill-color:var(--electric-blue);color:var(--electric-blue)}
+    .logo-typed{display:inline-block;overflow:hidden;white-space:nowrap;max-width:0;vertical-align:middle;animation:logo-typing 1.4s steps(10,end) .3s forwards}
+    .logo-cursor{display:inline-block;width:2px;height:1em;background:var(--electric-blue);border-radius:2px;margin-left:2px;vertical-align:middle;opacity:0;animation:logo-cursor-appear 0s 1.7s forwards,logo-cursor-blink 1s 1.7s step-end infinite}
+    @keyframes logo-typing{from{max-width:0}to{max-width:180px}}
+    @keyframes logo-cursor-appear{to{opacity:1}}
+    @keyframes logo-cursor-blink{0%,100%{opacity:1}50%{opacity:0}}
+    .nav-links{display:flex;gap:var(--space-xl);align-items:center}
+    .nav-link{font-weight:500;font-size:var(--text-base);color:var(--text-secondary);position:relative;padding:var(--space-xs) 0}
+    .nav-link::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:1.5px;background:var(--electric-blue);transform:translateX(-50%);transition:width var(--transition-normal)}
+    .nav-link:hover{color:var(--text-primary)} .nav-link:hover::after{width:100%}
+    .nav-link.active{color:var(--electric-blue)} .nav-link.active::after{width:100%}
+    .mobile-menu-toggle{display:none;background:none;border:none;width:44px;height:44px;cursor:pointer;z-index:1001;align-items:center;justify-content:center}
+    .hamburger{width:24px;height:2px;background:var(--text-primary);position:relative;transition:all var(--transition-fast)}
+    .hamburger::before,.hamburger::after{content:'';position:absolute;width:24px;height:2px;background:var(--text-primary);transition:all var(--transition-fast)}
+    .hamburger::before{top:-8px} .hamburger::after{bottom:-8px}
+    .mobile-menu-toggle.active .hamburger{background:transparent}
+    .mobile-menu-toggle.active .hamburger::before{transform:rotate(45deg) translate(5px,5px)}
+    .mobile-menu-toggle.active .hamburger::after{transform:rotate(-45deg) translate(7px,-6px)}
 
-            /* === TEXT (WCAG VERIFIED) === */
-            --text-primary:   #F1F5F9;   /* 16.2:1 on bg-base ✅ AAA */
-            --text-secondary: #94A3B8;   /* 5.1:1 on bg-base  ✅ AA  */
-            --text-muted:     #475569;   /* captions / footer-bottom only */
-            --text-inverse:   #080D1A;
+    /* ═══════════════════════════════════════════
+       HERO — identical pattern
+    ═══════════════════════════════════════════ */
+    .hero{padding-top:calc(var(--space-3xl)*2);padding-bottom:var(--space-3xl);background:var(--bg-base);position:relative;overflow:hidden}
+    .hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+    .hero-content{text-align:center;max-width:900px;margin:0 auto;position:relative;z-index:1}
+    .hero-badge{display:inline-flex;align-items:center;gap:var(--space-xs);background:rgba(29,155,240,.08);border:1px solid rgba(29,155,240,.25);padding:8px 18px;border-radius:var(--radius-full);font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:600;color:var(--electric-blue);letter-spacing:.05em;text-transform:uppercase;margin-bottom:var(--space-xl);position:relative;overflow:hidden;opacity:0;animation:fadeInDown .8s ease .4s forwards;flex-wrap:wrap;justify-content:center}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-15px)}to{opacity:1;transform:translateY(0)}}
+    .hero-badge::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(29,155,240,.3),transparent);animation:badge-scan 3s ease-in-out 2s infinite}
+    @keyframes badge-scan{0%{left:-100%}100%{left:200%}}
+    .badge-dot{width:6px;height:6px;background:var(--aurora-green);border-radius:50%;flex-shrink:0;box-shadow:0 0 8px rgba(0,212,170,.8);animation:badge-pulse 2s ease-in-out infinite}
+    @keyframes badge-pulse{0%,100%{box-shadow:0 0 8px rgba(0,212,170,.8);opacity:1}50%{box-shadow:0 0 16px rgba(0,212,170,.4);opacity:.6}}
+    .hero h1{opacity:0;animation:heroTitleIn 1s ease .9s forwards}
+    @keyframes heroTitleIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    .hero .lead{opacity:0;animation:fadeInUp .8s ease 1.4s forwards}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
-            /* === GRADIENTS === */
-            --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
-            --grad-cta-bg:    linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
+    /* ═══════════════════════════════════════════
+       QUALIFICATION METER
+    ═══════════════════════════════════════════ */
+    .qualification-meter{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-radius:var(--radius-xl);padding:var(--space-xl);max-width:800px;margin:var(--space-2xl) auto;position:relative;overflow:visible;
+        border:1px solid rgba(255,255,255,.08);transition:border-color .4s ease,box-shadow .4s ease}
+    .qualification-meter.meter-active{border-color:rgba(29,155,240,.3)}
+    .qualification-meter.meter-excellent{border-color:rgba(0,212,170,.5);box-shadow:0 0 40px rgba(0,212,170,.2),0 0 80px rgba(0,212,170,.1)}
+    /* Border draw on scroll-in */
+    .qualification-meter::after{content:'';position:absolute;inset:-1px;border-radius:var(--radius-xl);background:linear-gradient(135deg,rgba(29,155,240,.3),rgba(99,102,241,.2),rgba(29,155,240,.3));background-size:300% 300%;z-index:-1;opacity:0;transition:opacity .5s ease;animation:featuredBorder 3s linear infinite}
+    @keyframes featuredBorder{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+    .qualification-meter.mm-in::after{opacity:.3}
+    .meter-header{text-align:center;margin-bottom:var(--space-lg)}
+    .meter-header h3{color:var(--text-primary)}
+    .meter-visual{height:12px;background:var(--bg-surface-3);border-radius:var(--radius-full);margin:var(--space-lg) 0;overflow:hidden;position:relative}
+    .meter-fill{height:100%;width:0%;border-radius:var(--radius-full);transition:width 1s cubic-bezier(.34,1.56,.64,1);position:relative;background:linear-gradient(90deg,var(--danger-red),var(--amber-warm),var(--aurora-green))}
+    /* animated shimmer on fill */
+    .meter-fill::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:meterShimmer 2s ease-in-out infinite}
+    @keyframes meterShimmer{0%{left:-100%}100%{left:200%}}
+    .meter-labels{display:flex;justify-content:space-between;font-size:var(--text-sm);font-weight:600;color:var(--text-secondary)}
+    .meter-score{text-align:center;margin-top:var(--space-lg)}
+    .score-value{font-family:'JetBrains Mono',monospace;font-size:var(--text-4xl);font-weight:600;color:var(--aurora-green);transition:color .4s ease,text-shadow .4s ease;line-height:1}
+    .score-value.pulse{animation:scorePulse .4s var(--transition-spring)}
+    @keyframes scorePulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
+    .score-label{font-size:var(--text-sm);color:var(--text-secondary);font-family:'JetBrains Mono',monospace;transition:color .3s ease;display:block;margin-top:var(--space-xs)}
+    .score-warning{background:rgba(245,158,11,.10);border:1px solid rgba(245,158,11,.40);color:var(--amber-warm);padding:var(--space-md) var(--space-lg);border-radius:var(--radius-lg);text-align:center;margin-top:var(--space-lg);max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .4s ease,padding .4s ease;line-height:1.6;font-size:var(--text-sm)}
+    .score-warning.show{max-height:150px;opacity:1;animation:warnShake .5s ease}
+    @keyframes warnShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
 
-            /* === GLOW === */
-            --glow-blue-sm:   0 0 20px rgba(29,155,240,0.25);
-            --glow-blue-md:   0 0 40px rgba(29,155,240,0.35);
-            --glow-indigo:    0 0 60px rgba(99,102,241,0.30);
-            --glow-green:     0 0 40px rgba(0,212,170,0.30);
+    /* ═══════════════════════════════════════════
+       FORM WRAPPER
+    ═══════════════════════════════════════════ */
+    .form-wrapper{background:rgba(13,20,38,.80);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(29,155,240,.15);border-radius:var(--radius-xl);overflow:hidden;margin:var(--space-2xl) auto;max-width:800px;position:relative}
+    /* shimmer on border */
+    .form-wrapper::before{content:'';position:absolute;top:0;left:-100%;width:50%;height:2px;background:linear-gradient(90deg,transparent,var(--electric-blue),var(--aurora-green),transparent);animation:calc-shimmer 4s linear infinite;z-index:1}
+    @keyframes calc-shimmer{from{left:-50%}to{left:150%}}
+    .form-header{background:linear-gradient(135deg,rgba(29,155,240,.22),rgba(99,102,241,.10));border-bottom:1px solid rgba(29,155,240,.25);padding:var(--space-2xl) var(--space-xl);text-align:center;position:relative;overflow:hidden}
+    .form-header::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(255,255,255,.02),transparent);pointer-events:none}
+    /* header shimmer scan — same as demo-header */
+    .form-header::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.06),transparent);animation:demoHeaderScan 5s ease-in-out 2s infinite}
+    @keyframes demoHeaderScan{0%{left:-100%}100%{left:150%}}
+    .form-header h1{color:var(--text-primary);margin-bottom:var(--space-sm);position:relative;z-index:1}
+    .form-header p{color:var(--text-secondary);margin-bottom:0;position:relative;z-index:1}
+    .slots{font-family:'Plus Jakarta Sans',sans-serif;font-size:var(--text-lg);margin-top:var(--space-lg);font-weight:600;color:var(--text-secondary);position:relative;z-index:1}
+    .slots strong{color:var(--amber-warm);animation:slotsPulse 2s ease-in-out infinite}
+    @keyframes slotsPulse{0%,100%{opacity:1;text-shadow:none}50%{opacity:.8;text-shadow:0 0 10px rgba(245,158,11,.4)}}
+    .form-body{padding:var(--space-2xl) var(--space-xl);background:var(--bg-surface-2)}
+    .form-group{margin-bottom:var(--space-xl)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-lg);margin-bottom:var(--space-xl)}
 
-            /* === SPACING === */
-            --space-xs:  0.5rem;
-            --space-sm:  1rem;
-            --space-md:  1.5rem;
-            --space-lg:  2rem;
-            --space-xl:  3rem;
-            --space-2xl: 4rem;
-            --space-3xl: 6rem;
+    /* Form section headings slide-in */
+    .form-section-title{color:var(--electric-blue);border-bottom:1px solid rgba(29,155,240,.25);padding-bottom:var(--space-sm);opacity:0;transform:translateX(-20px);transition:opacity .5s ease,transform .5s ease}
+    .form-section-title.title-in{opacity:1;transform:translateX(0)}
 
-            /* === TYPOGRAPHY SCALE === */
-            --text-xs:   0.75rem;
-            --text-sm:   0.875rem;
-            --text-base: 1rem;
-            --text-lg:   1.125rem;
-            --text-xl:   1.25rem;
-            --text-2xl:  1.5rem;
-            --text-3xl:  1.875rem;
-            --text-4xl:  2.25rem;
-            --text-5xl:  3rem;
+    label{display:block;font-family:'Outfit',sans-serif;font-weight:600;margin-bottom:var(--space-sm);color:var(--text-primary)}
+    .field-hint{display:block;font-size:var(--text-sm);color:var(--text-secondary);margin-top:var(--space-xs)}
+    input,select,textarea{width:100%;padding:var(--space-md) var(--space-lg);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-md);font-size:var(--text-base);font-family:'Outfit',sans-serif;color:var(--text-primary);background:rgba(255,255,255,.05);transition:all var(--transition-normal)}
+    input::placeholder,textarea::placeholder{color:var(--text-muted)}
+    select option{background:var(--bg-surface-3);color:var(--text-primary)}
+    input:focus,select:focus,textarea:focus{outline:none;border-color:var(--electric-blue);box-shadow:0 0 0 3px rgba(29,155,240,.12),0 0 15px rgba(29,155,240,.08);background:rgba(29,155,240,.04)}
+    input.valid,select.valid,textarea.valid{border-color:var(--aurora-green);background:rgba(0,212,170,.06)}
+    input.invalid,select.invalid,textarea.invalid{border-color:var(--danger-red);background:rgba(239,68,68,.06);animation:fieldShake .4s ease}
+    @keyframes fieldShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
+    .field-error{color:var(--danger-red);font-size:var(--text-sm);margin-top:var(--space-xs);display:none}
+    .field-error.show{display:block;animation:fadeInDown .3s ease}
 
-            /* === SHADOWS === */
-            --shadow-sm:      0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md:      0 4px 20px rgba(0,0,0,0.4);
-            --shadow-lg:      0 10px 40px rgba(0,0,0,0.5);
-            --shadow-xl:      0 20px 60px rgba(0,0,0,0.6);
-            --shadow-primary: 0 4px 20px rgba(29,155,240,0.25);
+    /* ═══════════════════════════════════════════
+       PRE-QUAL SUMMARY
+    ═══════════════════════════════════════════ */
+    .pre-qual-summary{background:rgba(29,155,240,.08);border:1px solid rgba(29,155,240,.35);border-radius:var(--radius-lg);margin:var(--space-xl) 0;max-height:0;overflow:hidden;opacity:0;transition:max-height .5s ease,opacity .4s ease,padding .4s ease,margin .4s ease;padding:0 var(--space-xl)}
+    .pre-qual-summary.show{max-height:300px;opacity:1;padding:var(--space-xl)}
+    .summary-header{display:flex;align-items:center;gap:var(--space-sm);margin-bottom:var(--space-md)}
+    .summary-header i{color:var(--aurora-green);font-size:var(--text-xl);animation:iconBounce .5s var(--transition-spring)}
+    @keyframes iconBounce{0%{transform:scale(0);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+    .summary-header h4{color:var(--text-primary);margin-bottom:0}
+    .summary-content{color:var(--text-secondary)}
+    .summary-content strong{color:var(--electric-blue)}
 
-            /* === TRANSITIONS === */
-            --transition-fast:   0.15s cubic-bezier(0.4,0,0.2,1);
-            --transition-normal: 0.3s cubic-bezier(0.4,0,0.2,1);
-            --transition-slow:   0.5s cubic-bezier(0.4,0,0.2,1);
+    /* ═══════════════════════════════════════════
+       GUARANTEE BOX — same as packages guarantee
+    ═══════════════════════════════════════════ */
+    .guarantee-box{background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.35);padding:var(--space-xl);border-radius:var(--radius-lg);text-align:center;margin:var(--space-2xl) 0;position:relative;overflow:hidden}
+    .guarantee-box::after{content:'';position:absolute;top:0;left:-100%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(0,212,170,.1),transparent);animation:badge-scan 3.5s ease infinite 1s}
+    .guarantee-box h4{color:var(--aurora-green);margin-bottom:var(--space-sm)}
+    .guarantee-box p{color:var(--text-secondary);margin-bottom:0}
 
-            /* === BORDER RADIUS === */
-            --radius-xs:   4px;
-            --radius-sm:   8px;
-            --radius-md:   10px;
-            --radius-lg:   16px;
-            --radius-xl:   24px;
-            --radius-2xl:  32px;
-            --radius-full: 9999px;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            font-size: 16px;
-        }
-        
-        body {
-            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.75;
-            color: var(--text-secondary);
-            background-color: var(--bg-base);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color var(--transition-fast);
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        
-        .container-narrow {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-        
-        .section {
-            padding: var(--space-3xl) 0;
-        }
-        
-        .section-sm {
-            padding: var(--space-2xl) 0;
-        }
-        
-        /* ===== TYPOGRAPHY ===== */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-        }
+    /* ═══════════════════════════════════════════
+       CALENDLY REDIRECT — "You qualified!" moment
+    ═══════════════════════════════════════════ */
+    .calendly-redirect{background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.40);padding:var(--space-xl);border-radius:var(--radius-lg);text-align:center;margin:var(--space-2xl) 0;display:none;position:relative;overflow:hidden}
+    .calendly-redirect.show{display:block;animation:qualifiedReveal .6s var(--transition-spring)}
+    @keyframes qualifiedReveal{0%{transform:scale(.85);opacity:0}60%{transform:scale(1.03)}100%{transform:scale(1);opacity:1}}
+    .calendly-redirect.show{animation:qualifiedReveal .6s var(--transition-spring),qualifiedBreath 3s ease-in-out 1s infinite}
+    @keyframes qualifiedBreath{0%,100%{box-shadow:0 0 20px rgba(0,212,170,.15)}50%{box-shadow:0 0 40px rgba(0,212,170,.35),0 0 80px rgba(0,212,170,.15)}}
+    .calendly-redirect::after{content:'';position:absolute;inset:-1px;border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(0,212,170,.3),rgba(29,155,240,.2),rgba(0,212,170,.3));background-size:300% 300%;z-index:-1;animation:featuredBorder 3s linear infinite}
+    .calendly-redirect h4{color:var(--text-primary)}
+    .calendly-redirect p{color:var(--text-secondary)}
+    .calendly-redirect a{color:var(--electric-blue)}
+    /* Flip-clock countdown */
+    .redirect-countdown{font-family:'JetBrains Mono',monospace;font-size:var(--text-2xl);font-weight:600;color:var(--amber-warm);margin:var(--space-md) 0;display:inline-block;animation:timerGlow 1s ease-in-out infinite}
+    @keyframes timerGlow{0%,100%{text-shadow:0 0 0 rgba(245,158,11,0)}50%{text-shadow:0 0 15px rgba(245,158,11,.6)}}
+    .redirect-countdown.flip{animation:numFlip .3s ease}
+    @keyframes numFlip{0%{transform:rotateX(90deg);opacity:0}100%{transform:rotateX(0);opacity:1}}
+    /* Progress bar — same as carousel/loop progress */
+    .calendly-progress{height:4px;background:rgba(0,212,170,.15);border-radius:var(--radius-full);margin-top:var(--space-md);overflow:hidden}
+    .calendly-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--aurora-green),var(--electric-blue));border-radius:var(--radius-full);transition:width linear}
 
-        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: -0.03em; }
-        h2 { font-size: clamp(1.5rem, 3vw, 1.875rem); letter-spacing: -0.01em; }
-        h3 { font-size: var(--text-xl); }
-        h4 { color: var(--text-primary); }
-        
-        p {
-            margin-bottom: var(--space-md);
-            color: var(--text-secondary);
-            line-height: 1.75;
-        }
-        
-        .lead {
-            font-size: var(--text-lg);
-            font-weight: 500;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-        
-        small {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-        }
-        
-        strong { color: var(--text-primary); }
+    /* ═══════════════════════════════════════════
+       FORM SUBMISSION STATES
+    ═══════════════════════════════════════════ */
+    .form-loading{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(8,13,26,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;z-index:100;border-radius:var(--radius-xl)}
+    .form-loading.show{display:flex}
+    .loading-spinner{width:60px;height:60px;border:4px solid rgba(255,255,255,.10);border-top-color:var(--electric-blue);border-radius:50%;animation:spin 1s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .form-success{text-align:center;padding:var(--space-2xl);display:none}
+    .form-success.show{display:block;animation:fadeIn .5s ease}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+    .success-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--cyber-cyan),var(--aurora-green));box-shadow:var(--glow-green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:var(--text-3xl);color:white;margin:0 auto var(--space-lg)}
+    .success-icon.icon-spin{animation:iconSpin360 .8s var(--transition-spring)}
+    @keyframes iconSpin360{from{transform:rotate(-360deg) scale(.5);opacity:0}to{transform:rotate(0) scale(1);opacity:1}}
+    .success-step{opacity:0;transform:translateX(-15px);transition:opacity .4s ease,transform .4s ease}
+    .success-step.step-in{opacity:1;transform:translateX(0)}
 
-        ol li { color: var(--text-secondary); }
-        
-        .required {
-            color: var(--danger-red);
-            font-weight: 600;
-        }
+    /* ═══════════════════════════════════════════
+       DISQUALIFICATION OVERLAY
+    ═══════════════════════════════════════════ */
+    .disqualification-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(8,13,26,0);backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);z-index:2000;display:none;align-items:center;justify-content:center;padding:var(--space-lg);transition:background .4s ease,backdrop-filter .4s ease}
+    .disqualification-overlay.show{display:flex;animation:overlayIn .4s ease forwards}
+    @keyframes overlayIn{from{background:rgba(8,13,26,0);backdrop-filter:blur(0)}to{background:rgba(8,13,26,.92);backdrop-filter:blur(30px)}}
+    .disqualification-card{background:rgba(13,20,38,.95);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-xl);padding:var(--space-2xl);max-width:500px;text-align:center;box-shadow:var(--shadow-xl);animation:cardSpring .5s var(--transition-spring)}
+    @keyframes cardSpring{0%{transform:scale(.8) translateY(20px);opacity:0}60%{transform:scale(1.03)}100%{transform:scale(1);opacity:1}}
+    .disqualification-icon{width:80px;height:80px;background:rgba(29,155,240,.12);border:1px solid rgba(29,155,240,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:var(--text-3xl);color:var(--electric-blue);margin:0 auto var(--space-lg);animation:iconBounce .6s var(--transition-spring) .3s both}
 
-        /* Gradient text utility */
-        .text-gradient {
-            background: var(--grad-brand);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    /* ═══════════════════════════════════════════
+       FOOTER — identical
+    ═══════════════════════════════════════════ */
+    footer{background:var(--bg-base);color:var(--text-secondary);padding:var(--space-3xl) 0 var(--space-xl);border-top:1px solid rgba(255,255,255,.05);margin-top:var(--space-3xl)}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--space-2xl);margin-bottom:var(--space-2xl)}
+    .footer-logo{font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:var(--text-2xl);color:var(--text-primary);margin-bottom:var(--space-md)}
+    .footer-links{display:flex;flex-direction:column;gap:var(--space-sm)}
+    .footer-links a{color:var(--text-secondary);transition:all var(--transition-fast);position:relative;padding-left:0}
+    .footer-links a::before{content:'→';position:absolute;left:0;opacity:0;transition:all .3s ease}
+    .footer-links a:hover{color:var(--electric-blue);padding-left:18px}
+    .footer-links a:hover::before{opacity:1}
+    .footer-bottom{text-align:center;padding-top:var(--space-xl);border-top:1px solid rgba(255,255,255,.05);color:var(--text-muted);font-size:var(--text-sm)}
+    .footer-bottom p{color:var(--text-muted);margin-bottom:0}
 
-        /* Aurora orbs */
-        .aurora-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            will-change: transform;
-            animation: aurora-drift 12s ease-in-out infinite;
-        }
-        .aurora-orb-1 {
-            width: 600px; height: 600px;
-            top: -200px; right: -100px;
-            background: radial-gradient(circle, rgba(29,155,240,0.10), transparent 70%);
-        }
-        .aurora-orb-2 {
-            width: 500px; height: 500px;
-            bottom: 0; left: -150px;
-            background: radial-gradient(circle, rgba(99,102,241,0.08), transparent 70%);
-            animation-delay: -6s;
-        }
-        @keyframes aurora-drift {
-            0%, 100% { transform: translate(0,0) scale(1); }
-            33%       { transform: translate(30px,-20px) scale(1.05); }
-            66%       { transform: translate(-20px,15px) scale(0.97); }
-        }
-        @media (prefers-reduced-motion: reduce) {
-            .aurora-orb { animation: none; }
-            .btn-primary { animation: none; }
-        }
-        
-        /* ===== BUTTONS ===== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: var(--space-md) var(--space-xl);
-            font-weight: 600;
-            font-size: var(--text-base);
-            border-radius: var(--radius-md);
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition-normal);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-            white-space: nowrap;
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transform: translateX(-100%);
-        }
-        
-        .btn:hover::after {
-            animation: shine 1s;
-        }
-        
-        @keyframes shine {
-            100% { transform: translateX(100%); }
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, var(--electric-blue), var(--neon-indigo));
-            color: #ffffff;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            box-shadow: 0 4px 20px rgba(29,155,240,0.25);
-            animation: cta-breathe 3s ease-in-out infinite;
-            animation-delay: 3s;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(29,155,240,0.45), 0 0 0 4px rgba(29,155,240,0.15);
-            animation: none;
-        }
-
-        @keyframes cta-breathe {
-            0%, 100% { box-shadow: 0 4px 20px rgba(29,155,240,0.20); }
-            50%       { box-shadow: 0 4px 40px rgba(29,155,240,0.50), 0 0 60px rgba(99,102,241,0.20); }
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--electric-blue);
-            border: 1px solid rgba(29,155,240,0.40);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(29,155,240,0.08);
-            border-color: var(--electric-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(29,155,240,0.15);
-        }
-        
-        .btn-lg {
-            padding: var(--space-lg) var(--space-2xl);
-            font-size: var(--text-lg);
-            border-radius: var(--radius-lg);
-        }
-        
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-        
-        /* ===== HEADER & NAVIGATION ===== */
-        header {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: var(--space-md) 0;
-            background: rgba(8,13,26,0.75);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            transition: all var(--transition-normal);
-        }
-        
-        header.scrolled {
-            padding: var(--space-sm) 0;
-            background: rgba(8,13,26,0.92);
-            border-bottom-color: rgba(29,155,240,0.15);
-            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Hide on scroll-down (mobile) — matches index/packages */
-        header.header-hidden {
-            transform: translateY(-100%);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 900;
-            font-size: var(--text-2xl);
-            color: var(--electric-blue);
-        }
-
-        /* fix sup colour when no gradient on parent */
-        .logo sup { font-size: 0.83em; -webkit-text-fill-color: var(--electric-blue); color: var(--electric-blue); }
-
-        .logo-typed {
-            display: inline-block; overflow: hidden; white-space: nowrap;
-            max-width: 0; vertical-align: middle;
-            animation: logo-typing 1.4s steps(10, end) 0.3s forwards;
-        }
-        .logo-cursor {
-            display: inline-block; width: 2px; height: 1em;
-            background: var(--electric-blue); border-radius: 2px;
-            margin-left: 2px; vertical-align: middle; opacity: 0;
-            animation: logo-cursor-appear 0s 1.7s forwards,
-                       logo-cursor-blink  1s 1.7s step-end infinite;
-        }
-        @keyframes logo-typing { from { max-width: 0; } to { max-width: 180px; } }
-        @keyframes logo-cursor-appear { to { opacity: 1; } }
-        @keyframes logo-cursor-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-        @media (prefers-reduced-motion: reduce) {
-            .logo-typed  { max-width: 180px; animation: none; }
-            .logo-cursor { opacity: 1; animation: none; }
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: var(--space-xl);
-            align-items: center;
-        }
-        
-        .nav-link {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 500;
-            font-size: var(--text-base);
-            color: var(--text-secondary);
-            position: relative;
-            padding: var(--space-xs) 0;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 50%;
-            width: 0; height: 1.5px;
-            background: var(--electric-blue);
-            transform: translateX(-50%);
-            transition: width var(--transition-normal);
-        }
-        
-        .nav-link:hover { color: var(--text-primary); }
-        .nav-link:hover::after { width: 100%; }
-        
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            width: 40px; height: 40px;
-            cursor: pointer;
-            position: relative;
-            z-index: 1001;
-        }
-        
-        .hamburger {
-            width: 24px; height: 2px;
-            background: var(--text-primary);
-            position: relative;
-            transition: all var(--transition-fast);
-        }
-        
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            width: 24px; height: 2px;
-            background: var(--text-primary);
-            transition: all var(--transition-fast);
-        }
-        
-        .hamburger::before { top: -8px; }
-        .hamburger::after { bottom: -8px; }
-        
-        .mobile-menu-toggle.active .hamburger { background: transparent; }
-        .mobile-menu-toggle.active .hamburger::before { transform: rotate(45deg) translate(5px,5px); }
-        .mobile-menu-toggle.active .hamburger::after  { transform: rotate(-45deg) translate(7px,-6px); }
-        
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding-top: calc(var(--space-3xl) * 2);
-            padding-bottom: var(--space-3xl);
-            background: var(--bg-base);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-        }
-
-        .hero-bg-dot { display: none; }
-        
-        .hero-content {
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Hero badge — per Design System §12 */
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-xs);
-            background: rgba(29,155,240,0.08);
-            border: 1px solid rgba(29,155,240,0.25);
-            padding: 8px 18px;
-            border-radius: var(--radius-full);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: var(--electric-blue);
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin-bottom: var(--space-xl);
-        }
-        
-        .hero-badge .badge-dot {
-            width: 6px; height: 6px;
-            background: var(--aurora-green);
-            border-radius: 50%;
-            box-shadow: 0 0 8px rgba(0,212,170,0.8);
-            animation: badge-pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes badge-pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 8px rgba(0,212,170,0.8); }
-            50%       { opacity: 0.6; box-shadow: 0 0 16px rgba(0,212,170,0.4); }
-        }
-        
-        /* ===== QUALIFICATION METER ===== */
-        .qualification-meter {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
-            max-width: 800px;
-            margin: var(--space-2xl) auto;
-        }
-        
-        .meter-header {
-            text-align: center;
-            margin-bottom: var(--space-lg);
-        }
-        
-        .meter-visual {
-            height: 12px;
-            background: var(--bg-surface-3);
-            border-radius: var(--radius-full);
-            margin: var(--space-lg) 0;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .meter-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--danger-red), var(--amber-warm), var(--aurora-green));
-            width: 0%;
-            transition: width 1s ease;
-            border-radius: var(--radius-full);
-        }
-        
-        .meter-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: var(--text-sm);
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-        
-        .meter-score {
-            text-align: center;
-            margin-top: var(--space-lg);
-        }
-        
-        .score-value {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-4xl);
-            font-weight: 600;
-            color: var(--aurora-green);
-        }
-        
-        .score-label {
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-        }
-        
-        .score-warning {
-            background: rgba(245,158,11,0.10);
-            border: 1px solid rgba(245,158,11,0.40);
-            color: var(--amber-warm);
-            padding: var(--space-md);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            margin-top: var(--space-lg);
-            display: none;
-        }
-        
-        .score-warning.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* ===== FORM STYLES ===== */
-        .form-wrapper {
-            background: rgba(13,20,38,0.80);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(29,155,240,0.15);
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            margin: var(--space-2xl) auto;
-            max-width: 800px;
-        }
-        
-        .form-header {
-            background: linear-gradient(135deg, rgba(29,155,240,0.22), rgba(99,102,241,0.10));
-            border-bottom: 1px solid rgba(29,155,240,0.25);
-            padding: var(--space-2xl) var(--space-xl);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .form-header::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.02), transparent);
-            pointer-events: none;
-        }
-        
-        .form-header h1 {
-            color: var(--text-primary);
-            margin-bottom: var(--space-sm);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .form-header p {
-            color: var(--text-secondary);
-            margin-bottom: 0;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .slots {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: var(--text-lg);
-            margin-top: var(--space-lg);
-            font-weight: 600;
-            color: var(--text-secondary);
-            position: relative;
-            z-index: 1;
-        }
-        
-        .slots strong {
-            color: var(--amber-warm);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        
-        .form-body {
-            padding: var(--space-2xl) var(--space-xl);
-            background: var(--bg-surface-2);
-        }
-        
-        .form-group {
-            margin-bottom: var(--space-xl);
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-xl);
-        }
-        
-        label {
-            display: block;
-            font-family: 'Outfit', sans-serif;
-            font-weight: 600;
-            margin-bottom: var(--space-sm);
-            color: var(--text-primary);
-        }
-        
-        .field-hint {
-            display: block;
-            font-size: var(--text-sm);
-            color: var(--text-secondary);
-            margin-top: var(--space-xs);
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: var(--space-md) var(--space-lg);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: var(--radius-md);
-            font-size: var(--text-base);
-            font-family: 'Outfit', sans-serif;
-            color: var(--text-primary);
-            background: rgba(255,255,255,0.05);
-            transition: all var(--transition-normal);
-        }
-
-        input::placeholder, textarea::placeholder {
-            color: var(--text-muted);
-        }
-
-        select option {
-            background: var(--bg-surface-3);
-            color: var(--text-primary);
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--electric-blue);
-            box-shadow: 0 0 0 3px rgba(29,155,240,0.12);
-            background: rgba(29,155,240,0.04);
-        }
-        
-        input.valid, select.valid, textarea.valid {
-            border-color: var(--aurora-green);
-            background: rgba(0,212,170,0.06);
-        }
-        
-        input.invalid, select.invalid, textarea.invalid {
-            border-color: var(--danger-red);
-            background: rgba(239,68,68,0.06);
-        }
-        
-        .field-error {
-            color: var(--danger-red);
-            font-size: var(--text-sm);
-            margin-top: var(--space-xs);
-            display: none;
-        }
-        
-        .field-error.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
-        }
-        
-        /* ===== PRE-QUALIFICATION SUMMARY ===== */
-        .pre-qual-summary {
-            background: rgba(29,155,240,0.08);
-            border: 1px solid rgba(29,155,240,0.35);
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-            margin: var(--space-xl) 0;
-            display: none;
-        }
-        
-        .pre-qual-summary.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .summary-header {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            margin-bottom: var(--space-md);
-        }
-        
-        .summary-header i {
-            color: var(--aurora-green);
-            font-size: var(--text-xl);
-        }
-
-        .summary-header h4 { color: var(--text-primary); margin-bottom: 0; }
-        
-        .summary-content {
-            color: var(--text-secondary);
-        }
-        
-        .summary-content strong {
-            color: var(--electric-blue);
-        }
-        
-        /* ===== DISQUALIFICATION MESSAGES ===== */
-        .disqualification-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(8,13,26,0.92);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            z-index: 2000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-lg);
-        }
-        
-        .disqualification-overlay.show {
-            display: flex;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .disqualification-card {
-            background: rgba(13,20,38,0.95);
-            border: 1px solid rgba(255,255,255,0.12);
-            border-radius: var(--radius-xl);
-            padding: var(--space-2xl);
-            max-width: 500px;
-            text-align: center;
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .disqualification-icon {
-            width: 80px; height: 80px;
-            background: rgba(29,155,240,0.12);
-            border: 1px solid rgba(29,155,240,0.25);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-3xl);
-            color: var(--electric-blue);
-            margin: 0 auto var(--space-lg);
-        }
-        
-        /* ===== GUARANTEE BOX ===== */
-        .guarantee-box {
-            background: rgba(0,212,170,0.06);
-            border: 1px solid rgba(0,212,170,0.35);
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            margin: var(--space-2xl) 0;
-        }
-        
-        .guarantee-box h4 {
-            color: var(--aurora-green);
-            margin-bottom: var(--space-sm);
-        }
-        
-        .guarantee-box p {
-            color: var(--text-secondary);
-            margin-bottom: 0;
-        }
-        
-        /* ===== CALENDLY REDIRECT ===== */
-        .calendly-redirect {
-            background: rgba(245,158,11,0.10);
-            border: 1px solid rgba(245,158,11,0.40);
-            padding: var(--space-xl);
-            border-radius: var(--radius-lg);
-            text-align: center;
-            margin: var(--space-2xl) 0;
-            display: none;
-        }
-        
-        .calendly-redirect.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        .calendly-redirect h4 { color: var(--text-primary); }
-        .calendly-redirect p  { color: var(--text-secondary); }
-        .calendly-redirect a  { color: var(--electric-blue); }
-        
-        .redirect-countdown {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: var(--text-2xl);
-            font-weight: 600;
-            color: var(--amber-warm);
-            margin: var(--space-md) 0;
-        }
-        
-        /* ===== FORM SUBMISSION STATES ===== */
-        .form-loading {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(8,13,26,0.85);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            border-radius: var(--radius-xl);
-        }
-        
-        .form-loading.show { display: flex; }
-        
-        .loading-spinner {
-            width: 60px; height: 60px;
-            border: 4px solid rgba(255,255,255,0.10);
-            border-top-color: var(--electric-blue);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin { to { transform: rotate(360deg); } }
-        
-        .form-success {
-            text-align: center;
-            padding: var(--space-2xl);
-            display: none;
-        }
-        
-        .form-success.show {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .success-icon {
-            width: 80px; height: 80px;
-            background: linear-gradient(135deg, var(--cyber-cyan), var(--aurora-green));
-            box-shadow: var(--glow-green);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--text-3xl);
-            color: white;
-            margin: 0 auto var(--space-lg);
-        }
-        
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--bg-base);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-secondary);
-            padding: var(--space-3xl) 0 var(--space-xl);
-            margin-top: var(--space-3xl);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-        }
-        
-        .footer-logo {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 900;
-            font-size: var(--text-2xl);
-            color: var(--text-primary);
-            margin-bottom: var(--space-md);
-        }
-        
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-sm);
-        }
-        
-        .footer-links a {
-            color: var(--text-secondary);
-            transition: color var(--transition-fast);
-        }
-        
-        .footer-links a:hover { color: var(--electric-blue); }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: var(--space-xl);
-            border-top: 1px solid rgba(255,255,255,0.05);
-            color: var(--text-muted);
-            font-size: var(--text-sm);
-        }
-
-        .footer-bottom p { color: var(--text-muted); margin-bottom: 0; }
-        
-        /* ===== MOBILE RESPONSIVE ===== */
-        @media (max-width: 992px) {
-            h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
-            h2 { font-size: clamp(1.375rem, 4vw, 1.75rem); }
-            
-            /* B1: explicit padding-top so content clears fixed header */
-            .hero {
-                padding-top: 8rem;
-                padding-bottom: var(--space-2xl);
-            }
-            
-            /* B3: inline-flex so hamburger icon is properly centred */
-            .mobile-menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
-            
-            .nav-links {
-                position: fixed;
-                top: 0; right: -100%;
-                width: 80%;
-                max-width: 400px;
-                height: 100vh;
-                background: rgba(8,13,26,0.98);
-                backdrop-filter: blur(30px);
-                -webkit-backdrop-filter: blur(30px);
-                border-left: 1px solid rgba(255,255,255,0.06);
-                flex-direction: column;
-                justify-content: center;
-                gap: var(--space-xl);
-                padding: var(--space-2xl);
-                transition: right var(--transition-normal);
-                z-index: 1000;
-            }
-            
-            .nav-links.active { right: 0; }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .section { padding: var(--space-2xl) 0; }
-            .form-header { padding: var(--space-xl) var(--space-lg); }
-            .form-body { padding: var(--space-xl) var(--space-lg); }
-            .qualification-meter { padding: var(--space-lg); }
-
-            /* B2: allow button text to wrap on narrow screens */
-            .btn {
-                white-space: normal;
-                width: 100%;
-                max-width: 420px;
-                min-height: 52px;
-                line-height: 1.4;
-                padding: 14px 20px;
-            }
-            /* Keep nav CTA compact */
-            .nav-links .btn {
-                width: auto;
-                max-width: none;
-                white-space: nowrap;
-                min-height: 44px;
-            }
-
-            /* B6: hero badge wraps cleanly */
-            .hero-badge {
-                flex-wrap: wrap;
-                justify-content: center;
-                text-align: center;
-                font-size: 0.65rem;
-                padding: 6px 14px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            :root {
-                --space-lg: 1.5rem;
-                --space-xl: 2rem;
-                --space-2xl: 3rem;
-            }
-            /* B1: explicit override so shrunken vars don't hide hero behind header */
-            .hero { padding-top: 7rem; }
-            .container { padding: 0 var(--space-md); }
-            .form-header h1 { font-size: var(--text-3xl); }
-            .score-value { font-size: var(--text-3xl); }
-        }
-        
-        /* ===== UTILITY CLASSES ===== */
-        .text-center { text-align: center; }
-        .text-primary { color: var(--electric-blue); }
-        .text-secondary { color: var(--text-secondary); }
-        .mb-sm { margin-bottom: var(--space-sm); }
-        .mb-md { margin-bottom: var(--space-md); }
-        .mb-lg { margin-bottom: var(--space-lg); }
-        .mb-xl { margin-bottom: var(--space-xl); }
-        .mt-sm { margin-top: var(--space-sm); }
-        .mt-md { margin-top: var(--space-md); }
-        .mt-lg { margin-top: var(--space-lg); }
-        .mt-xl { margin-top: var(--space-xl); }
-        .hidden { display: none; }
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media(max-width:992px){
+        h1{font-size:clamp(1.75rem,7vw,2.5rem)}
+        .hero{padding-top:8rem;padding-bottom:var(--space-2xl)}
+        .mobile-menu-toggle{display:inline-flex}
+        .nav-links{position:fixed;top:0;right:-100%;width:80%;max-width:400px;height:100vh;background:rgba(8,13,26,.98);backdrop-filter:blur(30px);border-left:1px solid rgba(255,255,255,.06);flex-direction:column;justify-content:center;gap:var(--space-xl);padding:var(--space-2xl);transition:right var(--transition-normal);z-index:1000;box-shadow:var(--shadow-xl)}
+        .nav-links.active{right:0}
+        .form-row{grid-template-columns:1fr;gap:var(--space-md)}
+    }
+    @media(max-width:768px){
+        .section,.section-sm{padding:var(--space-2xl) 0}
+        .form-header{padding:var(--space-xl) var(--space-lg)}
+        .form-body{padding:var(--space-xl) var(--space-lg)}
+        .qualification-meter{padding:var(--space-lg)}
+        .btn{white-space:normal;width:100%;max-width:420px;min-height:52px;line-height:1.4;padding:14px 20px}
+        .nav-links .btn{width:auto;max-width:none;white-space:nowrap;min-height:44px}
+        .hero-badge{font-size:.65rem;padding:6px 14px}
+    }
+    @media(max-width:480px){
+        :root{--space-lg:1.5rem;--space-xl:2rem;--space-2xl:3rem}
+        .hero{padding-top:7rem}
+        .container,.container-narrow{padding:0 1rem}
+        .form-header h1{font-size:var(--text-3xl)}
+        .score-value{font-size:var(--text-3xl)}
+    }
+    @media(prefers-reduced-motion:reduce){
+        *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+        .sr,.qualification-meter,.pre-qual-summary{opacity:1!important;transform:none!important}
+    }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="logo">
-                    <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
-                </a>
-                
-                <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
-                    <span class="hamburger"></span>
-                </button>
-                
-                <div class="nav-links" id="nav-links">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="how-it-works.html" class="nav-link">How It Works</a>
-                    <a href="packages.html" class="nav-link">Packages</a>
-                    <a href="proofs.html" class="nav-link">Proof</a>
-                    <a href="book-audit.html" class="btn btn-primary">Book Free Audit →</a>
-                </div>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero section-sm">
-        <div class="hero-bg">
-            <div class="aurora-orb aurora-orb-1"></div>
-            <div class="aurora-orb aurora-orb-2"></div>
-        </div>
-        
-        <div class="container-narrow">
-            <div class="hero-content" data-aos="fade-up">
-                <div class="hero-badge">
-                    <span class="badge-dot"></span>
-                    <span>Strict qualification process to ensure we're the right fit</span>
-                </div>
-                
-                <h1>Book Your Free 30-Minute<br><span class="text-gradient">Performance Audit</span></h1>
-                
-                <p class="lead">
-                    Most agencies charge you to figure out if they're a fit — then bill you again when the strategy needs to change. We flip it: this audit is free, the numbers are yours to keep, and if X5 isn't the right fit, you leave with a clearer picture of your business than when you walked in.
-                </p>
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header id="header">
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <span class="logo-typed">X<sup>5</sup> Digital</span><span class="logo-cursor" aria-hidden="true"></span>
+            </a>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="how-it-works.html" class="nav-link">How It Works</a>
+                <a href="packages.html" class="nav-link">Packages</a>
+                <a href="proofs.html" class="nav-link">Proof</a>
+                <a href="book-audit.html" class="btn btn-primary nav-link active">Book Free Audit &rarr;</a>
             </div>
-        </div>
-    </section>
+        </nav>
+    </div>
+</header>
 
-    <!-- Qualification Meter -->
-    <section class="section-sm">
-        <div class="container-narrow">
-            <div class="qualification-meter" data-aos="fade-up">
-                <div class="meter-header">
-                    <h3>Qualification Score</h3>
-                    <p>Higher score = better fit for our system</p>
-                </div>
-                
-                <div class="meter-visual">
-                    <div class="meter-fill" id="meterFill"></div>
-                </div>
-                
-                <div class="meter-labels">
-                    <span>Poor Fit</span>
-                    <span>Maybe</span>
-                    <span>Good Fit</span>
-                    <span>Excellent Fit</span>
-                </div>
-                
-                <div class="meter-score">
-                    <div class="score-value" id="scoreValue">0</div>
-                    <div class="score-label" id="scoreLabel">Complete the form to see your score</div>
-                </div>
-                
-                <div class="score-warning" id="scoreWarning">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <strong>Low Qualification Score:</strong> Based on your answers, we may not be the best fit at this stage.
-                </div>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero section-sm">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-bg" aria-hidden="true">
+        <div class="aurora-orb aurora-orb-1"></div>
+        <div class="aurora-orb aurora-orb-2"></div>
+    </div>
+    <div class="container-narrow">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot" aria-hidden="true"></span>
+                <span>Strict qualification process to ensure we're the right fit</span>
             </div>
+            <h1>Book Your Free 30-Minute<br><span class="text-gradient">Performance Audit</span></h1>
+            <p class="lead">Most agencies charge you to figure out if they're a fit — then bill you again when the strategy needs to change. We flip it: this audit is free, the numbers are yours to keep, and if X⁵ isn't the right fit, you leave with a clearer picture of your business than when you walked in.</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Main Form -->
-    <section class="section-sm" id="auditFormSection">
-        <div class="container-narrow">
-            <div class="form-wrapper" data-aos="fade-up">
-                <div class="form-header">
-                    <h1>Complete Your Audit Request</h1>
-                    <p>This form qualifies both of us — you confirm we can actually move your numbers, and we confirm this is a fit worth both our time.</p>
-                    <div class="slots">
-                        <strong>Only 5 qualified slots left this week</strong>
-                    </div>
-                </div>
-                
-                <div class="form-body">
-                    <!-- Pre-qualification Summary -->
-                    <div class="pre-qual-summary" id="preQualSummary">
-                        <div class="summary-header">
-                            <i class="fas fa-check-circle"></i>
-                            <h4>Based on your answers:</h4>
-                        </div>
-                        <div class="summary-content" id="summaryText">
-                            <!-- Dynamic content will be inserted here -->
-                        </div>
-                    </div>
-                    
-                    <form id="auditForm">
-                        <!-- Section 1: Business & Qualification -->
-                        <div class="form-group">
-                            <h3 style="color: var(--electric-blue); border-bottom: 1px solid rgba(29,155,240,0.25); padding-bottom: var(--space-sm);">
-                                <i class="fas fa-building"></i> Business & Qualification
-                            </h3>
-                        </div>
-                        
-                        <div class="form-row">
-                            <!-- Industry -->
-                            <div class="form-group">
-                                <label for="industry">Your Industry <span class="required">*</span></label>
-                                <select id="industry" name="industry" required>
-                                    <option value="" disabled selected>Select industry...</option>
-                                    <option value="saas">SaaS / Software</option>
-                                    <option value="ecommerce">E-commerce / DTC</option>
-                                    <option value="b2b-services">B2B Services</option>
-                                    <option value="agency">Marketing Agency</option>
-                                    <option value="healthcare">Healthcare / Medtech</option>
-                                    <option value="fintech">Fintech / Financial Services</option>
-                                    <option value="education">Education / EdTech</option>
-                                    <option value="other">Other (please specify in notes)</option>
-                                    <option value="competitor">I'm a competitor/researcher</option>
-                                </select>
-                                <div class="field-error" id="industryError">Please select your industry</div>
-                            </div>
-                            
-                            <!-- Monthly Revenue -->
-                            <div class="form-group">
-                                <label for="revenue">Current Monthly Revenue <span class="required">*</span></label>
-                                <select id="revenue" name="revenue" required>
-                                    <option value="" disabled selected>Choose range...</option>
-                                    <option value="under-50k">Under $50K/month</option>
-                                    <option value="50k-200k">$50K – $200K/month</option>
-                                    <option value="200k-500k">$200K – $500K/month</option>
-                                    <option value="500k-1M">$500K – $1M/month</option>
-                                    <option value="over-1M">Over $1M/month</option>
-                                </select>
-                                <div class="field-hint">Helps us calculate accurate ROI projections</div>
-                                <div class="field-error" id="revenueError">Please select your revenue range</div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <!-- Monthly Budget -->
-                            <div class="form-group">
-                                <label for="budget">Monthly Budget for Digital Growth <span class="required">*</span></label>
-                                <select id="budget" name="budget" required>
-                                    <option value="" disabled selected>Select budget range...</option>
-                                    <option value="under-2k">Under $2K (likely not a fit)</option>
-                                    <option value="2k-5k">$2K - $5K</option>
-                                    <option value="5k-10k">$5K - $10K</option>
-                                    <option value="10k-20k">$10K - $20K</option>
-                                    <option value="20k-plus">$20K+</option>
-                                </select>
-                                <div class="field-hint">Our packages start at $833/month. Budget under $2K won't be a good fit.</div>
-                                <div class="field-error" id="budgetError">Please select your budget range</div>
-                            </div>
-                            
-                            <!-- Decision Maker -->
-                            <div class="form-group">
-                                <label for="decision_maker">Are you the decision-maker? <span class="required">*</span></label>
-                                <select id="decision_maker" name="decision_maker" required>
-                                    <option value="" disabled selected>Select...</option>
-                                    <option value="yes-owner">Yes, I'm the founder/owner</option>
-                                    <option value="yes-exec">Yes, I'm the CEO/Head of Marketing</option>
-                                    <option value="need-approval">I need to get approval</option>
-                                    <option value="no">No, I'm just researching</option>
-                                </select>
-                                <div class="field-error" id="decisionMakerError">Please select your decision-maker status</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Section 2: Challenges & Goals -->
-                        <div class="form-group mt-xl">
-                            <h3 style="color: var(--electric-blue); border-bottom: 1px solid rgba(29,155,240,0.25); padding-bottom: var(--space-sm);">
-                                <i class="fas fa-bullseye"></i> Challenges & Goals
-                            </h3>
-                        </div>
-                        
-                        <div class="form-row">
-                            <!-- Biggest Challenge -->
-                            <div class="form-group">
-                                <label for="challenge">Biggest Challenge Right Now <span class="required">*</span></label>
-                                <select id="challenge" name="challenge" required>
-                                    <option value="" disabled selected>Select your #1 pain...</option>
-                                    <option value="high-churn">High customer churn / low LTV</option>
-                                    <option value="low-roas">Low ROAS / high CAC</option>
-                                    <option value="manual-work">Team spends too much time on manual tasks</option>
-                                    <option value="no-control">No real control over agency/freelancers</option>
-                                    <option value="scope-creep">Scope creep & hidden fees</option>
-                                    <option value="scaling">Difficulty scaling operations</option>
-                                    <option value="data">Poor data visibility & reporting</option>
-                                    <option value="other-challenge">Other (please specify below)</option>
-                                </select>
-                                <div class="field-error" id="challengeError">Please select your biggest challenge</div>
-                            </div>
-                            
-                            <!-- Timeline -->
-                            <div class="form-group">
-                                <label for="timeline">When to Start Seeing Results? <span class="required">*</span></label>
-                                <select id="timeline" name="timeline" required>
-                                    <option value="" disabled selected>Choose...</option>
-                                    <option value="asap">ASAP (next 30 days)</option>
-                                    <option value="1-3-months">Within 1–3 months</option>
-                                    <option value="3-6-months">3–6 months</option>
-                                    <option value="just-research">Just researching for now</option>
-                                </select>
-                                <div class="field-error" id="timelineError">Please select your timeline</div>
-                            </div>
-                        </div>
-                        
-                        <!-- Vietnam Concern -->
-                        <div class="form-group">
-                            <label for="concern">Biggest Concern About Vietnam-Based Team <span class="required">*</span></label>
-                            <select id="concern" name="concern" required>
-                                <option value="" disabled selected>Be honest - we appreciate it!</option>
-                                <option value="timezone">Time zone differences</option>
-                                <option value="communication">Communication / English fluency</option>
-                                <option value="quality">Quality of work</option>
-                                <option value="data-security">Data security</option>
-                                <option value="cultural">Cultural differences</option>
-                                <option value="none">No concerns</option>
-                                <option value="just-curious">Just curious about pricing</option>
-                            </select>
-                            <div class="field-hint">We address all these concerns upfront</div>
-                            <div class="field-error" id="concernError">Please select your biggest concern</div>
-                        </div>
-                        
-                        <!-- Section 3: Contact Information -->
-                        <div class="form-group mt-xl">
-                            <h3 style="color: var(--electric-blue); border-bottom: 1px solid rgba(29,155,240,0.25); padding-bottom: var(--space-sm);">
-                                <i class="fas fa-user"></i> Contact Information
-                            </h3>
-                        </div>
-                        
-                        <div class="form-row">
-                            <!-- Full Name -->
-                            <div class="form-group">
-                                <label for="name">Full Name <span class="required">*</span></label>
-                                <input type="text" id="name" name="name" required placeholder="John Smith">
-                                <div class="field-error" id="nameError">Please enter your full name</div>
-                            </div>
-                            
-                            <!-- Email -->
-                            <div class="form-group">
-                                <label for="email">Business Email <span class="required">*</span></label>
-                                <input type="email" id="email" name="email" required placeholder="john@yourcompany.com">
-                                <div class="field-hint">We'll send calendar invite to this email</div>
-                                <div class="field-error" id="emailError">Please enter a valid business email</div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <!-- Company -->
-                            <div class="form-group">
-                                <label for="company">Company Name</label>
-                                <input type="text" id="company" name="company" placeholder="Your Company Inc.">
-                            </div>
-                            
-                            <!-- Website -->
-                            <div class="form-group">
-                                <label for="website">Company Website</label>
-                                <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
-                            </div>
-                        </div>
-                        
-                        <!-- Additional Notes -->
-                        <div class="form-group">
-                            <label for="notes">Anything else we should know?</label>
-                            <textarea id="notes" name="notes" rows="4" placeholder="Current tools, team size, specific goals, or anything else..."></textarea>
-                        </div>
-                        
-                        <!-- Hidden Qualification Score -->
-                        <input type="hidden" name="qualification_score" id="qualificationScore" value="0">
-                        <input type="hidden" name="qualification_level" id="qualificationLevel" value="poor">
-                        
-                        <!-- Guarantee Box -->
-                        <div class="guarantee-box">
-                            <h4>Zero Risk. Your Numbers Either Way.</h4>
-                            <p>We absorb the strategic risk so you can move fast without financial exposure. If the audit doesn't give you a clear ROI picture, you owe us nothing — and you keep everything we map.</p>
-                        </div>
-                        
-                        <!-- Calendly Redirect (Initially Hidden) -->
-                        <div class="calendly-redirect" id="calendlyRedirect">
-                            <h4>🎉 Excellent! You're Qualified!</h4>
-                            <p>Based on your answers, you're an excellent fit for our system.</p>
-                            <p>Redirecting to calendar booking in <span class="redirect-countdown" id="redirectCountdown">5</span> seconds...</p>
-                            <p><small>If not redirected, <a href="https://calendly.com/x5digital/30min" id="calendlyLink">click here to book your audit</a></small></p>
-                        </div>
-                        
-                        <!-- Submit Button -->
-                        <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;" id="submitBtn">
-                            <i class="fas fa-calendar-check"></i>
-                            Submit & Check Qualification
-                        </button>
-                        
-                        <p class="text-center mt-md" style="color: var(--text-muted); font-size: var(--text-sm);">
-                            <i class="fas fa-lock"></i> Your information is secure. We never share your data.
-                        </p>
-                    </form>
-                    
-                    <!-- Form Loading Overlay -->
-                    <div class="form-loading" id="formLoading">
-                        <div class="loading-spinner"></div>
-                    </div>
-                    
-                    <!-- Form Success Message -->
-                    <div class="form-success" id="formSuccess">
-                        <div class="success-icon">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <h3>Audit Request Submitted!</h3>
-                        <p>We're reviewing your qualification and will contact you within 24 hours to schedule your audit.</p>
-                        <p><strong>Next steps:</strong></p>
-                        <ol style="text-align: left; max-width: 400px; margin: var(--space-md) auto;">
-                            <li>We'll review your qualification score</li>
-                            <li>If qualified, we'll send calendar invite</li>
-                            <li>30-minute audit with ROI projection</li>
-                            <li>Custom package recommendation</li>
-                        </ol>
-                        <a href="index.html" class="btn btn-secondary mt-lg">
-                            <i class="fas fa-home"></i>
-                            Back to Homepage
-                        </a>
-                    </div>
-                </div>
+<!-- ═══════════════ QUALIFICATION METER ═══════════════ -->
+<section class="section-sm">
+    <div class="container-narrow">
+        <div class="qualification-meter sr sr-scale" id="qualMeter">
+            <div class="meter-header">
+                <h3>Qualification Score</h3>
+                <p style="margin-bottom:0">Higher score = better fit for our system</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Disqualification Overlay -->
-    <div class="disqualification-overlay" id="disqualificationOverlay">
-        <div class="disqualification-card">
-            <div class="disqualification-icon">
-                <i class="fas fa-info-circle"></i>
+            <div class="meter-visual">
+                <div class="meter-fill" id="meterFill"></div>
             </div>
-            <h3>Thanks for Your Interest!</h3>
-            <div id="disqualificationMessage">
-                <!-- Dynamic message will be inserted here -->
+            <div class="meter-labels">
+                <span>Poor Fit</span><span>Maybe</span><span>Good Fit</span><span>Excellent Fit</span>
             </div>
-            <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center;justify-content:center;margin-top:var(--space-lg);">
-                <button class="btn btn-secondary" onclick="location.reload()">
-                    <i class="fas fa-redo"></i>
-                    Start Over
-                </button>
-                <a href="index.html" class="btn btn-primary">
-                    <i class="fas fa-home"></i>
-                    Back to Homepage
-                </a>
+            <div class="meter-score">
+                <div class="score-value" id="scoreValue">0</div>
+                <span class="score-label" id="scoreLabel">Complete the form to see your score</span>
+            </div>
+            <div class="score-warning" id="scoreWarning">
+                <i class="fas fa-exclamation-triangle" style="display:block;margin-bottom:4px"></i>
+                <span><strong>Low Qualification Score:</strong> Based on your answers, we may not be the best fit at this stage.</span>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <div class="footer-logo">X<sup>5</sup> Digital</div>
-                    <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business &mdash; and hand you the keys.<br>Vietnam-based &middot; Built for U.S. SMEs &middot; 24/7 coverage</p>
+<!-- ═══════════════ MAIN FORM ═══════════════ -->
+<section class="section-sm" id="auditFormSection">
+    <div class="container-narrow">
+        <div class="form-wrapper sr sr-up" style="transition-delay:.1s" id="formWrapper">
+            <div class="form-header">
+                <h1>Complete Your Audit Request</h1>
+                <p>This form qualifies both of us — you confirm we can actually move your numbers, and we confirm this is a fit worth both our time.</p>
+                <div class="slots"><strong>Only 5 qualified slots left this week</strong></div>
+            </div>
+            <div class="form-body">
+                <!-- Pre-qual summary -->
+                <div class="pre-qual-summary" id="preQualSummary">
+                    <div class="summary-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Based on your answers:</h4>
+                    </div>
+                    <div class="summary-content" id="summaryText"></div>
                 </div>
-                <div>
-                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
-                    <nav class="footer-links" aria-label="Footer navigation">
-                        <a href="index.html">Home</a>
-                        <a href="how-it-works.html">How It Works</a>
-                        <a href="packages.html">Packages</a>
-                        <a href="proofs.html">Proof</a>
-                        <a href="book-audit.html">Book Free Audit</a>
-                    </nav>
-                </div>
-                <div>
-                    <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
-                    <div class="footer-links">
-                        <a href="/cdn-cgi/l/email-protection#ee868b828281ae96db8a8789879a8f82c08d8183"><span class="__cf_email__" data-cfemail="80e8e5ececefc0f8b5e4e9e7e9f4e1ecaee3efed">x5vn@x5digital.io</span></a>
-                        <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
-                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-                        <a href="#" aria-label="Twitter / X">Twitter</a>
+
+                <form id="auditForm">
+                    <!-- Section 1 -->
+                    <div class="form-group">
+                        <h3 class="form-section-title" id="sec1"><i class="fas fa-building"></i> Business &amp; Qualification</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="industry">Your Industry <span class="required">*</span></label>
+                            <select id="industry" name="industry" required>
+                                <option value="" disabled selected>Select industry...</option>
+                                <option value="saas">SaaS / Software</option>
+                                <option value="ecommerce">E-commerce / DTC</option>
+                                <option value="b2b-services">B2B Services</option>
+                                <option value="agency">Marketing Agency</option>
+                                <option value="healthcare">Healthcare / Medtech</option>
+                                <option value="fintech">Fintech / Financial Services</option>
+                                <option value="education">Education / EdTech</option>
+                                <option value="other">Other (please specify in notes)</option>
+                                <option value="competitor">I'm a competitor/researcher</option>
+                            </select>
+                            <div class="field-error" id="industryError">Please select your industry</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="revenue">Current Monthly Revenue <span class="required">*</span></label>
+                            <select id="revenue" name="revenue" required>
+                                <option value="" disabled selected>Choose range...</option>
+                                <option value="under-50k">Under $50K/month</option>
+                                <option value="50k-200k">$50K – $200K/month</option>
+                                <option value="200k-500k">$200K – $500K/month</option>
+                                <option value="500k-1M">$500K – $1M/month</option>
+                                <option value="over-1M">Over $1M/month</option>
+                            </select>
+                            <span class="field-hint">Helps us calculate accurate ROI projections</span>
+                            <div class="field-error" id="revenueError">Please select your revenue range</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="budget">Monthly Budget for Digital Growth <span class="required">*</span></label>
+                            <select id="budget" name="budget" required>
+                                <option value="" disabled selected>Select budget range...</option>
+                                <option value="under-2k">Under $2K (likely not a fit)</option>
+                                <option value="2k-5k">$2K - $5K</option>
+                                <option value="5k-10k">$5K - $10K</option>
+                                <option value="10k-20k">$10K - $20K</option>
+                                <option value="20k-plus">$20K+</option>
+                            </select>
+                            <span class="field-hint">Our packages start at $1,450/month. Budget under $2K won't be a good fit.</span>
+                            <div class="field-error" id="budgetError">Please select your budget range</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="decision_maker">Are you the decision-maker? <span class="required">*</span></label>
+                            <select id="decision_maker" name="decision_maker" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="yes-owner">Yes, I'm the founder/owner</option>
+                                <option value="yes-exec">Yes, I'm the CEO/Head of Marketing</option>
+                                <option value="need-approval">I need to get approval</option>
+                                <option value="no">No, I'm just researching</option>
+                            </select>
+                            <div class="field-error" id="decisionMakerError">Please select your decision-maker status</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div class="form-group mt-xl">
+                        <h3 class="form-section-title" id="sec2"><i class="fas fa-bullseye"></i> Challenges &amp; Goals</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="challenge">Biggest Challenge Right Now <span class="required">*</span></label>
+                            <select id="challenge" name="challenge" required>
+                                <option value="" disabled selected>Select your #1 pain...</option>
+                                <option value="high-churn">High customer churn / low LTV</option>
+                                <option value="low-roas">Low ROAS / high CAC</option>
+                                <option value="manual-work">Team spends too much time on manual tasks</option>
+                                <option value="no-control">No real control over agency/freelancers</option>
+                                <option value="scope-creep">Scope creep &amp; hidden fees</option>
+                                <option value="scaling">Difficulty scaling operations</option>
+                                <option value="data">Poor data visibility &amp; reporting</option>
+                                <option value="other-challenge">Other (please specify below)</option>
+                            </select>
+                            <div class="field-error" id="challengeError">Please select your biggest challenge</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">When to Start Seeing Results? <span class="required">*</span></label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="" disabled selected>Choose...</option>
+                                <option value="asap">ASAP (next 30 days)</option>
+                                <option value="1-3-months">Within 1–3 months</option>
+                                <option value="3-6-months">3–6 months</option>
+                                <option value="just-research">Just researching for now</option>
+                            </select>
+                            <div class="field-error" id="timelineError">Please select your timeline</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="concern">Biggest Concern About Vietnam-Based Team <span class="required">*</span></label>
+                        <select id="concern" name="concern" required>
+                            <option value="" disabled selected>Be honest - we appreciate it!</option>
+                            <option value="timezone">Time zone differences</option>
+                            <option value="communication">Communication / English fluency</option>
+                            <option value="quality">Quality of work</option>
+                            <option value="data-security">Data security</option>
+                            <option value="cultural">Cultural differences</option>
+                            <option value="none">No concerns</option>
+                            <option value="just-curious">Just curious about pricing</option>
+                        </select>
+                        <span class="field-hint">We address all these concerns upfront</span>
+                        <div class="field-error" id="concernError">Please select your biggest concern</div>
+                    </div>
+
+                    <!-- Section 3 -->
+                    <div class="form-group mt-xl">
+                        <h3 class="form-section-title" id="sec3"><i class="fas fa-user"></i> Contact Information</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required placeholder="John Smith">
+                            <div class="field-error" id="nameError">Please enter your full name</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Business Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="john@yourcompany.com">
+                            <span class="field-hint">We'll send calendar invite to this email</span>
+                            <div class="field-error" id="emailError">Please enter a valid business email</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" name="company" placeholder="Your Company Inc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="website">Company Website</label>
+                            <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Anything else we should know?</label>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Current tools, team size, specific goals, or anything else..."></textarea>
+                    </div>
+
+                    <input type="hidden" name="qualification_score" id="qualificationScore" value="0">
+                    <input type="hidden" name="qualification_level" id="qualificationLevel" value="poor">
+
+                    <!-- Guarantee Box -->
+                    <div class="guarantee-box">
+                        <h4>Zero Risk. Your Numbers Either Way.</h4>
+                        <p>We absorb the strategic risk so you can move fast without financial exposure. If the audit doesn't give you a clear ROI picture, you owe us nothing — and you keep everything we map.</p>
+                    </div>
+
+                    <!-- Calendly Redirect -->
+                    <div class="calendly-redirect" id="calendlyRedirect">
+                        <h4>🎉 Excellent! You're Qualified!</h4>
+                        <p>Based on your answers, you're an excellent fit for our system.</p>
+                        <p>Redirecting to calendar booking in <span class="redirect-countdown" id="redirectCountdown">5</span> seconds...</p>
+                        <div class="calendly-progress"><div class="calendly-progress-fill" id="calendlyProg"></div></div>
+                        <p style="margin-top:var(--space-sm)"><small>If not redirected, <a href="https://calendly.com/x5digital/30min" id="calendlyLink">click here to book your audit</a></small></p>
+                    </div>
+
+                    <!-- Submit -->
+                    <div class="btn-magnetic" style="display:block">
+                        <button type="submit" class="btn btn-primary btn-lg" style="width:100%" id="submitBtn">
+                            <i class="fas fa-calendar-check"></i> Submit &amp; Check Qualification
+                        </button>
+                    </div>
+                    <p class="text-center mt-md" style="color:var(--text-muted);font-size:var(--text-sm)">
+                        <i class="fas fa-lock"></i> Your information is secure. We never share your data.
+                    </p>
+                </form>
+
+                <!-- Loading -->
+                <div class="form-loading" id="formLoading"><div class="loading-spinner"></div></div>
+
+                <!-- Success -->
+                <div class="form-success" id="formSuccess">
+                    <div class="success-icon"><i class="fas fa-check"></i></div>
+                    <h3>Audit Request Submitted!</h3>
+                    <p>We're reviewing your qualification and will contact you within 24 hours to schedule your audit.</p>
+                    <p><strong>Next steps:</strong></p>
+                    <ol style="text-align:left;max-width:400px;margin:var(--space-md) auto">
+                        <li class="success-step">We'll review your qualification score</li>
+                        <li class="success-step">If qualified, we'll send calendar invite</li>
+                        <li class="success-step">30-minute audit with ROI projection</li>
+                        <li class="success-step">Custom package recommendation</li>
+                    </ol>
+                    <div class="btn-magnetic" style="margin-top:var(--space-lg)">
+                        <a href="index.html" class="btn btn-secondary"><i class="fas fa-home"></i> Back to Homepage</a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ DISQUALIFICATION OVERLAY ═══════════════ -->
+<div class="disqualification-overlay" id="disqualificationOverlay">
+    <div class="disqualification-card">
+        <div class="disqualification-icon"><i class="fas fa-info-circle"></i></div>
+        <h3>Thanks for Your Interest!</h3>
+        <div id="disqualificationMessage"></div>
+        <div style="display:flex;flex-wrap:wrap;gap:var(--space-sm);align-items:center;justify-content:center;margin-top:var(--space-lg)">
+            <button class="btn btn-secondary" onclick="location.reload()">
+                <i class="fas fa-redo"></i> Start Over
+            </button>
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Homepage
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="sr sr-up" style="transition-delay:.1s">
+                <div class="footer-logo">X<sup>5</sup> Digital</div>
+                <p style="color:var(--text-secondary);margin-bottom:0">We build the revenue machine inside your business &mdash; and hand you the keys.<br>Vietnam-based &middot; Built for U.S. SMEs &middot; 24/7 coverage</p>
+            </div>
+            <div class="sr sr-up" style="transition-delay:.2s">
+                <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Quick Links</h4>
+                <nav class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="how-it-works.html">How It Works</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="proofs.html">Proof</a>
+                    <a href="book-audit.html">Book Free Audit</a>
+                </nav>
+            </div>
+            <div class="sr sr-up" style="transition-delay:.3s">
+                <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
+                <div class="footer-links">
+                    <a href="/cdn-cgi/l/email-protection#f199949d9d9eb189c49598969885909ddf929e9c"><span class="__cf_email__" data-cfemail="1d75787171725d652879747a74697c71337e7270">[email&#160;protected]</span></a>
+                    <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Twitter / X">Twitter</a>
+                </div>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
+        </div>
+    </div>
+</footer>
 
-    <!-- Scripts -->
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS (Animate On Scroll)
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 60,
-            disable: function() { return window.innerWidth < 480; }
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* 1. HERO PARTICLE NETWORK */
+(function(){var c=document.getElementById('hero-canvas'),ctx=c.getContext('2d'),pts=[];function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}function mkPt(){return{x:Math.random()*c.width,y:Math.random()*c.height,dx:(Math.random()-.5)*.4,dy:(Math.random()-.5)*.4,r:Math.random()*1.6+.5,col:Math.random()>.5?'29,155,240':'99,102,241',o:Math.random()*.35+.1};}function init(){resize();pts=[];for(var i=0;i<55;i++)pts.push(mkPt());}function draw(){ctx.clearRect(0,0,c.width,c.height);for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.dx;p.y+=p.dy;if(p.x<0||p.x>c.width)p.dx*=-1;if(p.y<0||p.y>c.height)p.dy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+p.o+')';ctx.fill();for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(29,155,240,'+(.11*(1-d/120))+')';ctx.lineWidth=.5;ctx.stroke();}}}requestAnimationFrame(draw);}window.addEventListener('resize',init);init();draw();})();
+
+/* 2. SCROLL REVEAL */
+(function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});document.querySelectorAll('.sr').forEach(function(el){obs.observe(el);});})();
+
+/* 3. METER CARD REVEAL */
+(function(){var m=document.getElementById('qualMeter');if(!m)return;var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){m.classList.add('mm-in');obs.unobserve(m);}});},{threshold:.2});obs.observe(m);})();
+
+/* 4. FORM SECTION TITLE REVEAL */
+(function(){var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('title-in');obs.unobserve(e.target);}});},{threshold:.5});document.querySelectorAll('.form-section-title').forEach(function(el){obs.observe(el);});})();
+
+/* 5. SCORE LOGIC + METER ANIMATION */
+var meterFill=document.getElementById('meterFill');
+var scoreValueEl=document.getElementById('scoreValue');
+var scoreLabelEl=document.getElementById('scoreLabel');
+var scoreWarning=document.getElementById('scoreWarning');
+var preQualSummary=document.getElementById('preQualSummary');
+var summaryText=document.getElementById('summaryText');
+var qualMeter=document.getElementById('qualMeter');
+var prevScore=-1;
+
+function calculateScore(){
+    var score=0;
+    var industry=document.getElementById('industry').value;
+    var revenue=document.getElementById('revenue').value;
+    var budget=document.getElementById('budget').value;
+    var decisionMaker=document.getElementById('decision_maker').value;
+    var challenge=document.getElementById('challenge').value;
+    var timeline=document.getElementById('timeline').value;
+    var concern=document.getElementById('concern').value;
+
+    // Industry score
+    var industryScores={saas:25,ecommerce:25,'b2b-services':20,agency:15,healthcare:15,fintech:20,education:15,other:10,competitor:0};
+    score+=industryScores[industry]||0;
+    // Revenue
+    var revenueScores={'under-50k':5,'50k-200k':15,'200k-500k':20,'500k-1M':25,'over-1M':25};
+    score+=revenueScores[revenue]||0;
+    // Budget
+    var budgetScores={'under-2k':0,'2k-5k':5,'5k-10k':15,'10k-20k':20,'20k-plus':25};
+    score+=budgetScores[budget]||0;
+    // Decision maker
+    var dmScores={'yes-owner':15,'yes-exec':15,'need-approval':5,no:0};
+    score+=dmScores[decisionMaker]||0;
+    // Timeline
+    var timelineScores={asap:10,'1-3-months':8,'3-6-months':4,'just-research':0};
+    score+=timelineScores[timeline]||0;
+
+    var max=100,pct=Math.min((score/max)*100,100);
+    var level='poor',label='Poor fit at this stage';
+    if(pct>=80){level='excellent';label='Excellent fit — you qualify!';}
+    else if(pct>=60){level='good';label='Good fit — strong candidate';}
+    else if(pct>=40){level='maybe';label='Potential fit — let us assess';}
+    return{score:score,percentage:pct,level:level,label:label};
+}
+
+function animateScore(from,to){
+    var dur=600,start=null;
+    function step(ts){
+        if(!start)start=ts;
+        var prog=Math.min((ts-start)/dur,1);
+        var ease=prog<.5?2*prog*prog:1-Math.pow(-2*prog+2,2)/2;
+        var cur=Math.round(from+(to-from)*ease);
+        scoreValueEl.textContent=cur;
+        if(prog<1)requestAnimationFrame(step);
+        else{scoreValueEl.classList.remove('pulse');void scoreValueEl.offsetWidth;scoreValueEl.classList.add('pulse');}
+    }
+    requestAnimationFrame(step);
+}
+
+function updateScoreDisplay(data){
+    // Animate fill
+    meterFill.style.width=data.percentage+'%';
+    // Color of score
+    var colors={poor:'#EF4444',maybe:'#F59E0B',good:'#1D9BF0',excellent:'#00D4AA'};
+    scoreValueEl.style.color=colors[data.level]||'#00D4AA';
+    scoreValueEl.style.textShadow='0 0 20px '+(colors[data.level]||'#00D4AA')+'44';
+    // Animated count
+    if(prevScore!==-1)animateScore(prevScore,data.score);
+    else scoreValueEl.textContent=data.score;
+    prevScore=data.score;
+    // Label typewriter
+    var lblTarget=data.label+' ('+Math.round(data.percentage)+'%)';
+    scoreLabelEl.textContent='';
+    var k=0,t=setInterval(function(){scoreLabelEl.textContent=lblTarget.slice(0,k+1);k++;if(k>=lblTarget.length)clearInterval(t);},20);
+    scoreLabelEl.style.color=colors[data.level]||'#94A3B8';
+    // Warning
+    if(data.level==='poor')scoreWarning.classList.add('show');
+    else scoreWarning.classList.remove('show');
+    // Meter card state
+    qualMeter.classList.toggle('meter-excellent',data.level==='excellent');
+    qualMeter.classList.toggle('meter-active',data.level!=='poor');
+    // Pre-qual summary
+    if(data.percentage>=40){
+        var rev=document.getElementById('revenue').value;
+        var budget=document.getElementById('budget').value;
+        var revMap={'under-50k':'under $50K','50k-200k':'$50K–$200K','200k-500k':'$200K–$500K','500k-1M':'$500K–$1M','over-1M':'over $1M'};
+        var budMap={'under-2k':'under $2K','2k-5k':'$2K–$5K','5k-10k':'$5K–$10K','10k-20k':'$10K–$20K','20k-plus':'$20K+'};
+        var txt='';
+        if(rev)txt+='Revenue '+revMap[rev]+'/month. ';
+        if(budget)txt+='Budget '+budMap[budget]+'. ';
+        txt+='You score <strong>'+Math.round(data.percentage)+'%</strong> qualification — '+data.label+'.';
+        summaryText.innerHTML=txt;
+        preQualSummary.classList.add('show');
+    } else {
+        preQualSummary.classList.remove('show');
+    }
+    document.getElementById('qualificationScore').value=data.score;
+    document.getElementById('qualificationLevel').value=data.level;
+}
+
+/* 6. FIELD INTERACTIONS */
+var form=document.getElementById('auditForm');
+var disqualificationOverlay=document.getElementById('disqualificationOverlay');
+var disqualificationMessage=document.getElementById('disqualificationMessage');
+var formLoading=document.getElementById('formLoading');
+var formSuccess=document.getElementById('formSuccess');
+var submitBtn=document.getElementById('submitBtn');
+var calendlyRedirect=document.getElementById('calendlyRedirect');
+var redirectCountdown=document.getElementById('redirectCountdown');
+
+form.querySelectorAll('select,input,textarea').forEach(function(input){
+    input.addEventListener('change',function(){
+        var data=calculateScore();updateScoreDisplay(data);checkForDisqualification(this);
+        if(this.value){this.classList.remove('invalid');this.classList.add('valid');}
+    });
+    if(input.type==='text'||input.type==='email'||input.type==='url'){
+        input.addEventListener('blur',function(){validateField(this);});
+    }
+});
+
+function validateField(field){
+    var err=document.getElementById(field.id+'Error');
+    if(!field.value){field.classList.remove('valid');field.classList.add('invalid');if(err)err.classList.add('show');return false;}
+    if(field.type==='email'){var re=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!re.test(field.value)){field.classList.remove('valid');field.classList.add('invalid');if(err)err.classList.add('show');return false;}}
+    field.classList.remove('invalid');field.classList.add('valid');if(err)err.classList.remove('show');return true;
+}
+
+function checkForDisqualification(f){
+    if(f.id==='industry'&&f.value==='competitor'){showDisqualification("We don't currently provide audits to direct competitors. Feel free to reach out for partnership opportunities.");return true;}
+    if(f.id==='concern'&&f.value==='just-curious'){showDisqualification("Our pricing is transparent on the Packages page. We focus audits on businesses ready to implement within 90 days.");return true;}
+    if(f.id==='timeline'&&f.value==='just-research'){showDisqualification("Thanks for your interest! We currently prioritize businesses ready to move fast. Feel free to reach out again when timing is better.");return true;}
+    var bgt=document.getElementById('budget').value,rev=document.getElementById('revenue').value;
+    if(bgt==='under-2k'&&(rev==='500k-1M'||rev==='over-1M')){showDisqualification("Our system requires minimum $1,450/month investment for proper implementation. We're likely not the right fit for your budget at this stage.");return true;}
+    return false;
+}
+
+function showDisqualification(msg){
+    disqualificationMessage.innerHTML='<p>'+msg+'</p>';
+    disqualificationOverlay.classList.add('show');
+    form.reset();prevScore=-1;
+    meterFill.style.width='0%';
+    scoreValueEl.textContent='0';scoreValueEl.style.color='';scoreValueEl.style.textShadow='';
+    scoreLabelEl.textContent='Complete the form to see your score';scoreLabelEl.style.color='';
+    scoreWarning.classList.remove('show');preQualSummary.classList.remove('show');
+    qualMeter.classList.remove('meter-excellent','meter-active');
+}
+
+form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var isValid=true;
+    form.querySelectorAll('[required]').forEach(function(field){
+        if(!validateField(field)&&isValid){isValid=false;field.scrollIntoView({behavior:'smooth',block:'center'});}
+    });
+    if(!isValid)return;
+    var data=calculateScore();
+    if(data.level==='excellent'&&data.percentage>=80){showCalendlyRedirect();return;}
+    submitForm();
+});
+
+function showCalendlyRedirect(){
+    calendlyRedirect.classList.add('show');
+    submitBtn.disabled=true;
+    submitBtn.innerHTML='<i class="fas fa-check"></i> Qualified — Redirecting...';
+    var prog=document.getElementById('calendlyProg');
+    var cnt=5;redirectCountdown.textContent=cnt;
+    // Start progress bar over 5s
+    if(prog){prog.style.transition='none';prog.style.width='0%';requestAnimationFrame(function(){requestAnimationFrame(function(){prog.style.transition='width 5s linear';prog.style.width='100%';});});}
+    var iv=setInterval(function(){
+        cnt--;
+        redirectCountdown.classList.remove('flip');void redirectCountdown.offsetWidth;redirectCountdown.classList.add('flip');
+        redirectCountdown.textContent=cnt;
+        if(cnt<=0){clearInterval(iv);window.location.href='https://calendly.com/x5digital/30min';}
+    },1000);
+}
+
+function submitForm(){
+    formLoading.classList.add('show');
+    setTimeout(function(){
+        formLoading.classList.remove('show');
+        formSuccess.classList.add('show');
+        form.style.display='none';
+        // Icon spin
+        var icon=document.querySelector('.success-icon');
+        if(icon)icon.classList.add('icon-spin');
+        // Step stagger
+        document.querySelectorAll('.success-step').forEach(function(step,i){
+            setTimeout(function(){step.classList.add('step-in');},500+i*120);
         });
+    },2000);
+}
 
-        // Mobile Navigation Toggle
-        var menuToggle = document.querySelector('.mobile-menu-toggle');
-        var navLinks = document.querySelector('.nav-links');
-        menuToggle.addEventListener('click', function() {
-            var isOpen = navLinks.classList.toggle('active');
-            this.classList.toggle('active');
-            this.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
+setTimeout(function(){var data=calculateScore();updateScoreDisplay(data);},500);
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
+/* 7. MAGNETIC BUTTON */
+document.querySelectorAll('.btn-magnetic').forEach(function(wrap){var btn=wrap.querySelector('.btn');if(!btn)return;wrap.addEventListener('mousemove',function(e){var r=btn.getBoundingClientRect(),dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);btn.style.transform='translate('+(dx*.18)+'px,'+(dy*.18)+'px) translateY(-3px)';});wrap.addEventListener('mouseleave',function(){btn.style.transform='';});});
 
-        // Header scroll — hide on scroll-down (mobile), show on scroll-up
-        var header      = document.getElementById('header');
-        var lastScrollY = window.scrollY;
-        var ticking     = false;
+/* 8. HEADER SCROLL */
+(function(){var header=document.getElementById('header'),lastY=window.scrollY,ticking=false;window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){var cur=window.scrollY;header.classList.toggle('scrolled',cur>50);if(window.innerWidth<=992&&!document.querySelector('.nav-links.active')){if(cur>lastY&&cur>80)header.classList.add('header-hidden');else header.classList.remove('header-hidden');}lastY=cur;ticking=false;});ticking=true;}},{passive:true});})();
 
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    var cur = window.scrollY;
-                    header.classList.toggle('scrolled', cur > 50);
-                    if (window.innerWidth <= 992 && !navLinks.classList.contains('active')) {
-                        if (cur > lastScrollY && cur > 80) {
-                            header.classList.add('header-hidden');
-                        } else {
-                            header.classList.remove('header-hidden');
-                        }
-                    }
-                    lastScrollY = cur;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
+/* 9. MOBILE NAV */
+(function(){var toggle=document.querySelector('.mobile-menu-toggle'),navLinks=document.getElementById('nav-links');toggle.addEventListener('click',function(){var exp=this.getAttribute('aria-expanded')==='true';this.classList.toggle('active');navLinks.classList.toggle('active');this.setAttribute('aria-expanded',String(!exp));document.body.style.overflow=navLinks.classList.contains('active')?'hidden':'';});document.querySelectorAll('.nav-link').forEach(function(l){l.addEventListener('click',function(){toggle.classList.remove('active');navLinks.classList.remove('active');toggle.setAttribute('aria-expanded','false');document.body.style.overflow='';});});})();
 
-        // DOM Elements
-        const form = document.getElementById('auditForm');
-        const meterFill = document.getElementById('meterFill');
-        const scoreValue = document.getElementById('scoreValue');
-        const scoreLabel = document.getElementById('scoreLabel');
-        const scoreWarning = document.getElementById('scoreWarning');
-        const preQualSummary = document.getElementById('preQualSummary');
-        const summaryText = document.getElementById('summaryText');
-        const qualificationScore = document.getElementById('qualificationScore');
-        const qualificationLevel = document.getElementById('qualificationLevel');
-        const calendlyRedirect = document.getElementById('calendlyRedirect');
-        const redirectCountdown = document.getElementById('redirectCountdown');
-        const disqualificationOverlay = document.getElementById('disqualificationOverlay');
-        const disqualificationMessage = document.getElementById('disqualificationMessage');
-        const formLoading = document.getElementById('formLoading');
-        const formSuccess = document.getElementById('formSuccess');
-        const submitBtn = document.getElementById('submitBtn');
+/* 10. INPUT FORMATTING */
+document.getElementById('name').addEventListener('input',function(){this.value=this.value.replace(/[^a-zA-Z\s]/g,'');});
+document.getElementById('website').addEventListener('blur',function(){if(this.value&&!this.value.startsWith('http'))this.value='https://'+this.value;});
 
-        // Qualification Scoring System
-        const scoreWeights = {
-            industry: {
-                'saas': 10, 'ecommerce': 8, 'b2b-services': 7, 'agency': 6, 
-                'healthcare': 9, 'fintech': 9, 'education': 7, 'other': 5,
-                'competitor': -100 // Automatic disqualification
-            },
-            revenue: {
-                'under-50k': 2, '50k-200k': 5, '200k-500k': 8, 
-                '500k-1M': 10, 'over-1M': 12
-            },
-            budget: {
-                'under-2k': -5, '2k-5k': 3, '5k-10k': 6, 
-                '10k-20k': 8, '20k-plus': 10
-            },
-            decision_maker: {
-                'yes-owner': 10, 'yes-exec': 8, 'need-approval': 4, 'no': 1
-            },
-            challenge: {
-                'high-churn': 8, 'low-roas': 7, 'manual-work': 9, 
-                'no-control': 8, 'scope-creep': 7, 'scaling': 6, 
-                'data': 7, 'other-challenge': 5
-            },
-            timeline: {
-                'asap': 10, '1-3-months': 8, '3-6-months': 4, 'just-research': -5
-            },
-            concern: {
-                'timezone': 3, 'communication': 2, 'quality': 2, 
-                'data-security': 3, 'cultural': 2, 'none': 5,
-                'just-curious': -10 // Indicates pricing shopper
-            }
-        };
-
-        // Real-time Score Calculation
-        function calculateScore() {
-            let totalScore = 0;
-            let maxPossible = 0;
-            
-            // Calculate scores from each field
-            for (const [field, weights] of Object.entries(scoreWeights)) {
-                const element = document.getElementById(field);
-                if (element && element.value) {
-                    const value = element.value;
-                    if (weights[value] !== undefined) {
-                        totalScore += weights[value];
-                        maxPossible += Math.max(...Object.values(weights));
-                    }
-                }
-            }
-            
-            // Bonus for high-value combinations
-            const revenue = document.getElementById('revenue').value;
-            const budget = document.getElementById('budget').value;
-            const timeline = document.getElementById('timeline').value;
-            
-            if (revenue && budget && timeline) {
-                // High revenue + high budget + ASAP = bonus
-                if ((revenue === '500k-1M' || revenue === 'over-1M') && 
-                    (budget === '10k-20k' || budget === '20k-plus') && 
-                    timeline === 'asap') {
-                    totalScore += 5;
-                }
-                
-                // Low budget + high revenue = warning
-                if ((budget === 'under-2k' || budget === '2k-5k') && 
-                    (revenue === '500k-1M' || revenue === 'over-1M')) {
-                    totalScore -= 3;
-                }
-            }
-            
-            // Cap score between 0 and 100
-            const percentage = Math.min(100, Math.max(0, (totalScore / 50) * 100));
-            
-            return {
-                score: totalScore,
-                percentage: percentage,
-                level: getQualificationLevel(percentage)
-            };
-        }
-
-        function getQualificationLevel(percentage) {
-            if (percentage >= 80) return 'excellent';
-            if (percentage >= 60) return 'good';
-            if (percentage >= 40) return 'fair';
-            return 'poor';
-        }
-
-        function updateScoreDisplay(scoreData) {
-            const { percentage, level } = scoreData;
-            
-            // Update meter
-            meterFill.style.width = `${percentage}%`;
-            
-            // Update score value
-            scoreValue.textContent = Math.round(percentage);
-            
-            // Update label
-            const labels = {
-                'excellent': '🎯 Excellent fit!',
-                'good': '👍 Good potential fit',
-                'fair': '🤔 Maybe a fit',
-                'poor': '⚠️ Poor fit likely'
-            };
-            scoreLabel.textContent = labels[level] || 'Complete the form to see your score';
-            
-            // Show/hide warning
-            if (level === 'poor' || level === 'fair') {
-                scoreWarning.classList.add('show');
-            } else {
-                scoreWarning.classList.remove('show');
-            }
-            
-            // Update hidden fields
-            qualificationScore.value = Math.round(percentage);
-            qualificationLevel.value = level;
-            
-            // Update summary
-            updatePreQualSummary(scoreData);
-        }
-
-        function updatePreQualSummary(scoreData) {
-            const industry = document.getElementById('industry').value;
-            const revenue = document.getElementById('revenue').value;
-            const timeline = document.getElementById('timeline').value;
-            const challenge = document.getElementById('challenge').value;
-            
-            if (industry && revenue && timeline) {
-                let summary = '';
-                
-                // Industry-specific insights
-                const industryInsights = {
-                    'saas': 'SaaS businesses benefit greatly from our churn prediction and LTV optimization.',
-                    'ecommerce': 'E-commerce brands see strong ROAS improvements with our AI bidding systems.',
-                    'b2b-services': 'B2B services achieve better lead scoring and sales alignment.',
-                    'agency': 'Agencies scale operations while reducing manual work by 80%.'
-                };
-                
-                if (industryInsights[industry]) {
-                    summary += `<strong>${industryInsights[industry]}</strong><br>`;
-                }
-                
-                // Revenue stage insights
-                const revenueLabels = {
-                    'under-50k': 'early-stage testing',
-                    '50k-200k': 'growth stage',
-                    '200k-500k': 'scaling stage',
-                    '500k-1M': 'established business',
-                    'over-1M': 'enterprise-ready'
-                };
-                
-                if (revenueLabels[revenue]) {
-                    summary += `You're at the <strong>${revenueLabels[revenue]}</strong> — perfect for our ${getRecommendedPackage(scoreData.percentage)} package.<br>`;
-                }
-                
-                // Timeline urgency
-                if (timeline === 'asap') {
-                    summary += `Ready to move fast — we can onboard within 2 weeks.<br>`;
-                }
-                
-                // Challenge focus
-                const challengeFocus = {
-                    'high-churn': 'Focus on churn reduction and LTV optimization.',
-                    'low-roas': 'Focus on ROAS improvement and CAC reduction.',
-                    'manual-work': 'Focus on automation to free up team capacity.',
-                    'no-control': 'Focus on complete transparency and direct management.'
-                };
-                
-                if (challengeFocus[challenge]) {
-                    summary += `${challengeFocus[challenge]}`;
-                }
-                
-                summaryText.innerHTML = summary;
-                preQualSummary.classList.add('show');
-            } else {
-                preQualSummary.classList.remove('show');
-            }
-        }
-
-        function getRecommendedPackage(scorePercentage) {
-            if (scorePercentage >= 80) return 'Intelligence Suite';
-            if (scorePercentage >= 60) return 'Full Stack';
-            if (scorePercentage >= 40) return 'Strategic';
-            return 'Foundation';
-        }
-
-        // Real-time validation and score updates
-        const formInputs = document.querySelectorAll('#auditForm select, #auditForm input');
-        formInputs.forEach(input => {
-            input.addEventListener('change', function() {
-                validateField(this);
-                const scoreData = calculateScore();
-                updateScoreDisplay(scoreData);
-                checkForDisqualification(this);
-            });
-            
-            // Real-time validation for text inputs
-            if (input.type === 'text' || input.type === 'email') {
-                input.addEventListener('blur', function() {
-                    validateField(this);
-                });
-            }
-        });
-
-        // Field validation
-        function validateField(field) {
-            const errorElement = document.getElementById(`${field.id}Error`);
-            
-            if (!field.value) {
-                field.classList.remove('valid');
-                field.classList.add('invalid');
-                if (errorElement) errorElement.classList.add('show');
-                return false;
-            }
-            
-            // Email validation
-            if (field.type === 'email') {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(field.value)) {
-                    field.classList.remove('valid');
-                    field.classList.add('invalid');
-                    if (errorElement) errorElement.classList.add('show');
-                    return false;
-                }
-            }
-            
-            field.classList.remove('invalid');
-            field.classList.add('valid');
-            if (errorElement) errorElement.classList.remove('show');
-            return true;
-        }
-
-        // Automatic Disqualification Checks
-        function checkForDisqualification(changedField) {
-            // Check for competitors
-            if (changedField.id === 'industry' && changedField.value === 'competitor') {
-                showDisqualification(
-                    "We don't currently provide audits to direct competitors. " +
-                    "Feel free to reach out for partnership opportunities."
-                );
-                return true;
-            }
-            
-            // Check for pricing shoppers
-            if (changedField.id === 'concern' && changedField.value === 'just-curious') {
-                showDisqualification(
-                    "Our pricing is transparent on the Packages page. " +
-                    "We focus audits on businesses ready to implement within 90 days."
-                );
-                return true;
-            }
-            
-            // Check for "just researching"
-            if (changedField.id === 'timeline' && changedField.value === 'just-research') {
-                showDisqualification(
-                    "Thanks for your interest! We currently prioritize businesses ready to move fast. " +
-                    "Feel free to reach out again when timing is better."
-                );
-                return true;
-            }
-            
-            // Check for extremely low budget with high revenue (unrealistic)
-            const budget = document.getElementById('budget').value;
-            const revenue = document.getElementById('revenue').value;
-            
-            if (budget === 'under-2k' && (revenue === '500k-1M' || revenue === 'over-1M')) {
-                showDisqualification(
-                    "Our system requires minimum $833/month investment for proper implementation. " +
-                    "We're likely not the right fit for your budget at this stage."
-                );
-                return true;
-            }
-            
-            return false;
-        }
-
-        function showDisqualification(message) {
-            disqualificationMessage.innerHTML = `<p>${message}</p>`;
-            disqualificationOverlay.classList.add('show');
-            form.reset();
-            
-            // Reset score display
-            meterFill.style.width = '0%';
-            scoreValue.textContent = '0';
-            scoreLabel.textContent = 'Complete the form to see your score';
-            scoreWarning.classList.remove('show');
-            preQualSummary.classList.remove('show');
-        }
-
-        // Form Submission
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validate all required fields
-            let isValid = true;
-            const requiredFields = form.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                if (!validateField(field)) {
-                    isValid = false;
-                    // Scroll to first error
-                    if (isValid === false) {
-                        field.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        isValid = null; // Prevent multiple scrolls
-                    }
-                }
-            });
-            
-            if (!isValid) return;
-            
-            // Check final score
-            const scoreData = calculateScore();
-            
-            // If score is excellent, redirect to Calendly
-            if (scoreData.level === 'excellent' && scoreData.percentage >= 80) {
-                showCalendlyRedirect();
-                return;
-            }
-            
-            // Otherwise, submit form normally
-            submitForm();
-        });
-
-        function showCalendlyRedirect() {
-            calendlyRedirect.classList.add('show');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Qualified - Redirecting...';
-            
-            let countdown = 5;
-            redirectCountdown.textContent = countdown;
-            
-            const countdownInterval = setInterval(() => {
-                countdown--;
-                redirectCountdown.textContent = countdown;
-                
-                if (countdown <= 0) {
-                    clearInterval(countdownInterval);
-                    window.location.href = 'https://calendly.com/x5digital/30min';
-                }
-            }, 1000);
-        }
-
-        function submitForm() {
-            // Show loading
-            formLoading.classList.add('show');
-            
-            // Simulate form submission (replace with actual FormSubmit/backend)
-            setTimeout(() => {
-                formLoading.classList.remove('show');
-                formSuccess.classList.add('show');
-                form.style.display = 'none';
-                
-                // You would typically submit to FormSubmit here
-                // const formData = new FormData(form);
-                // fetch('https://formsubmit.co/your-email-here@gmail.com', {
-                //     method: 'POST',
-                //     body: formData
-                // })
-                // .then(response => {
-                //     formLoading.classList.remove('show');
-                //     if (response.ok) {
-                //         formSuccess.classList.add('show');
-                //         form.style.display = 'none';
-                //     } else {
-                //         alert('There was an error submitting the form. Please try again.');
-                //     }
-                // })
-                // .catch(error => {
-                //     formLoading.classList.remove('show');
-                //     alert('There was an error submitting the form. Please try again.');
-                // });
-            }, 2000);
-        }
-
-        // Initialize form with first calculation
-        setTimeout(() => {
-            const scoreData = calculateScore();
-            updateScoreDisplay(scoreData);
-        }, 500);
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add input formatting
-        document.getElementById('name').addEventListener('input', function() {
-            this.value = this.value.replace(/[^a-zA-Z\s]/g, '');
-        });
-
-        // Add URL validation for website
-        document.getElementById('website').addEventListener('blur', function() {
-            if (this.value && !this.value.startsWith('http')) {
-                this.value = 'https://' + this.value;
-            }
-        });
-
-        // Initialize tooltips for field hints
-        const fieldHints = document.querySelectorAll('.field-hint');
-        fieldHints.forEach(hint => {
-            hint.setAttribute('title', hint.textContent);
-        });
-    </script>
-</body>
-</html>
+/* 11. SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(function(
