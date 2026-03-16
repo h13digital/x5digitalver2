@@ -865,4 +865,7 @@ document.getElementById('name').addEventListener('input',function(){this.value=t
 document.getElementById('website').addEventListener('blur',function(){if(this.value&&!this.value.startsWith('http'))this.value='https://'+this.value;});
 
 /* 11. SMOOTH SCROLL */
-document.querySelectorAll('a[href^="#"]').forEach(function(
+document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el)window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});});});
+</script>
+</body>
+</html>
