@@ -631,6 +631,50 @@ p  { font-size: 1rem; font-weight: 400; line-height: 1.75; }
 .pkg-name em { color: var(--orange); font-style: italic; }
 .pkg-desc  { font-size: 0.925rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 16px; }
 
+/* ─── GROWTH ENGINE CTA BUTTON ─── */
+.cta-demo-wrap {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+.cta-demo-wrap.cta-left { justify-content: flex-start; }
+.cta-demo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 20px rgba(232,97,42,0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.cta-demo-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.cta-demo-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(232,97,42,0.5);
+  background: linear-gradient(135deg, var(--orange-light) 0%, var(--orange) 100%);
+}
+.cta-demo-btn .cta-arrow {
+  font-size: 1.05rem;
+  transition: transform 0.2s ease;
+}
+.cta-demo-btn:hover .cta-arrow { transform: translateX(4px); }
+
 /* ─── DEMO / EXAMPLE BLOCKS ─── */
 
 /* Shared demo wrapper */
@@ -1477,6 +1521,12 @@ p  { font-size: 1rem; font-weight: 400; line-height: 1.75; }
       <div class="x5-pkg-label">Package Match cho Huynchi</div>
       <p class="x5-pkg-text">Profile B2B low-volume high-value → <strong>Strategic Package</strong> là phù hợp nhất. Layer 1 + 2 + 4 đầy đủ, Layer 3 thu gọn, Layer 5 thay bằng Dashboard report tùy chọn.</p>
     </div>
+    <div class="cta-demo-wrap cta-left" style="margin-top:18px">
+      <a href="https://x5digital.io/huynchi-growth-engine-demo.html" target="_blank" class="cta-demo-btn">
+        View Huynchi Growth Engine Demo
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
   </div>
 
   <!-- Application -->
@@ -1632,6 +1682,12 @@ p  { font-size: 1rem; font-weight: 400; line-height: 1.75; }
         <span class="tag tag-orange">AI Chatbot</span>
         <span class="tag tag-green-d">Dashboard (opt.)</span>
       </div>
+    </div>
+    <div class="cta-demo-wrap" style="margin-top:20px">
+      <a href="https://x5digital.io/huynchi-growth-engine-demo.html" target="_blank" class="cta-demo-btn">
+        View Huynchi Growth Engine Demo
+        <span class="cta-arrow">→</span>
+      </a>
     </div>
   </div>
 
