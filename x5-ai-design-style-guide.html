@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>X5 Digital — AI Design Style Guide v1.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   GUIDE SHELL — uses X5 brand natively
+═══════════════════════════════════════════ */
+:root {
+  --bg-base:        #080D1A;
+  --bg-surface-1:   #0D1426;
+  --bg-surface-2:   #111B33;
+  --bg-surface-3:   #1A2444;
+  --electric-blue:  #1D9BF0;
+  --neon-indigo:    #6366F1;
+  --cyber-cyan:     #06B6D4;
+  --aurora-green:   #00D4AA;
+  --amber-warm:     #F59E0B;
+  --danger-red:     #EF4444;
+  --violet:         #8B5CF6;
+  --text-primary:   #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted:     #475569;
+  --grad-brand:     linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);
+  --font-display:   'Plus Jakarta Sans', sans-serif;
+  --font-body:      'Outfit', sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg-base);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LAYOUT ── */
+.guide-container { max-width: 1200px; margin: 0 auto; padding: 0 40px 120px; }
+
+/* ── COVER ── */
+.guide-cover {
+  background: linear-gradient(135deg, #0A1020 0%, #0D1A3A 50%, #0F0820 100%);
+  padding: 80px 40px;
+  border-bottom: 1px solid rgba(29,155,240,0.15);
+  position: relative; overflow: hidden;
+}
+.guide-cover::before {
+  content: '';
+  position: absolute; top: -200px; right: -100px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(29,155,240,0.12), transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.guide-cover::after {
+  content: '';
+  position: absolute; bottom: -200px; left: -100px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(99,102,241,0.10), transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.cover-inner { position: relative; z-index: 1; max-width: 900px; }
+.cover-eyebrow {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--electric-blue); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 12px;
+}
+.cover-eyebrow::before {
+  content: ''; width: 32px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--electric-blue));
+}
+.guide-cover h1 {
+  font-family: var(--font-display); font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900; line-height: 1.1; letter-spacing: -0.03em;
+  color: var(--text-primary); margin-bottom: 20px;
+}
+.grad-text {
+  background: var(--grad-brand);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cover-sub {
+  font-size: 18px; color: var(--text-secondary); margin-bottom: 48px;
+  max-width: 680px; line-height: 1.7;
+}
+.cover-pills { display: flex; gap: 12px; flex-wrap: wrap; }
+.cover-pill {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  padding: 6px 16px; border-radius: 999px; letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cp-1 { background: rgba(29,155,240,0.12); color: var(--electric-blue); border: 1px solid rgba(29,155,240,0.3); }
+.cp-2 { background: rgba(0,212,170,0.10); color: var(--aurora-green); border: 1px solid rgba(0,212,170,0.25); }
+.cp-3 { background: rgba(99,102,241,0.10); color: #A5B4FC; border: 1px solid rgba(99,102,241,0.25); }
+.cp-4 { background: rgba(245,158,11,0.10); color: var(--amber-warm); border: 1px solid rgba(245,158,11,0.25); }
+
+/* ── CHAPTER HEADER ── */
+.chapter {
+  margin-top: 80px; margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.chapter-num {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--electric-blue); letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.chapter h2 {
+  font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800; color: var(--text-primary); letter-spacing: -0.02em;
+}
+.chapter-desc {
+  font-size: 15px; color: var(--text-secondary); margin-top: 8px;
+  max-width: 700px;
+}
+
+/* ── SECTION ── */
+.section { margin-bottom: 56px; }
+.section-title {
+  font-family: var(--font-display); font-size: 16px; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-title::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), transparent);
+}
+
+/* ── RULE BOX ── */
+.rule-box {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-left: 3px solid var(--electric-blue);
+  border-radius: 12px; padding: 20px 24px;
+  font-size: 14px; color: var(--text-secondary);
+  margin-bottom: 16px; line-height: 1.7;
+}
+.rule-box.green  { border-left-color: var(--aurora-green); }
+.rule-box.amber  { border-left-color: var(--amber-warm); }
+.rule-box.red    { border-left-color: var(--danger-red); }
+.rule-box.indigo { border-left-color: var(--neon-indigo); }
+.rule-box strong { color: var(--text-primary); }
+.rule-box code {
+  font-family: var(--font-mono); font-size: 12px;
+  background: rgba(255,255,255,0.06); border-radius: 4px;
+  padding: 2px 6px; color: var(--cyber-cyan);
+}
+
+/* ── COLOR SWATCHES ── */
+.swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; }
+.swatch {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.swatch-color { height: 80px; }
+.swatch-info {
+  background: var(--bg-surface-1); padding: 12px 14px;
+}
+.swatch-name {
+  font-family: var(--font-display); font-size: 13px; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 4px;
+}
+.swatch-hex {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+}
+.swatch-use {
+  font-size: 11px; color: var(--text-secondary); margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* ── GRADIENT SWATCHES ── */
+.grad-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.grad-card {
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.grad-preview { height: 100px; }
+.grad-info { background: var(--bg-surface-1); padding: 12px 16px; }
+.grad-name { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.grad-value { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); line-height: 1.5; }
+
+/* ── TYPE SCALE ── */
+.type-row {
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: 20px 0; display: flex; align-items: baseline;
+  gap: 32px; flex-wrap: wrap;
+}
+.type-meta { min-width: 200px; }
+.type-label { font-family: var(--font-mono); font-size: 10px; font-weight: 600; color: var(--electric-blue); letter-spacing: 0.1em; text-transform: uppercase; }
+.type-spec  { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+
+/* ── COMPONENT DEMOS ── */
+.demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.demo-card {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 24px;
+}
+.demo-label {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* ── SOCIAL POST TEMPLATES ── */
+.templates-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; }
+
+/* ─── TEMPLATE: Text Post ─── */
+.tpl-text {
+  background: #080D1A;
+  border: 1px solid rgba(29,155,240,0.12);
+  border-radius: 16px; padding: 32px;
+  aspect-ratio: 1; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+}
+.tpl-text::before {
+  content: '';
+  position: absolute; top: -80px; right: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(29,155,240,0.10), transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.tpl-text .hook {
+  font-family: var(--font-display); font-size: 20px; font-weight: 800;
+  color: var(--text-primary); line-height: 1.3; letter-spacing: -0.02em;
+  margin-bottom: 16px; position: relative; z-index: 1;
+}
+.tpl-text .body-copy {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.7;
+  flex: 1; position: relative; z-index: 1;
+}
+.tpl-text .cta-line {
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--electric-blue); margin-top: 16px;
+  position: relative; z-index: 1;
+}
+.tpl-text .brand-mark {
+  position: absolute; bottom: 24px; right: 24px;
+  font-family: var(--font-display); font-size: 14px; font-weight: 900;
+  color: var(--electric-blue); opacity: 0.5;
+}
+
+/* ─── TEMPLATE: Metric Card ─── */
+.tpl-metric {
+  background: linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);
+  border: 1px solid rgba(29,155,240,0.2);
+  border-radius: 16px; padding: 32px;
+  aspect-ratio: 1; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+}
+.tpl-metric::after {
+  content: '';
+  position: absolute; bottom: -100px; left: -60px;
+  width: 350px; height: 350px;
+  background: radial-gradient(circle, rgba(0,212,170,0.12), transparent 65%);
+  border-radius: 50%; pointer-events: none;
+}
+.tpl-metric .metric-eyebrow {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.12em; text-transform: uppercase;
+}
+.tpl-metric .metric-number {
+  font-family: var(--font-mono); font-size: 72px; font-weight: 600;
+  color: var(--aurora-green); line-height: 1;
+  text-shadow: 0 0 40px rgba(0,212,170,0.4);
+}
+.tpl-metric .metric-unit {
+  font-size: 28px; color: var(--aurora-green); opacity: 0.7;
+}
+.tpl-metric .metric-label {
+  font-family: var(--font-display); font-size: 18px; font-weight: 700;
+  color: var(--text-primary); line-height: 1.3; position: relative; z-index: 1;
+}
+.tpl-metric .metric-sub {
+  font-size: 13px; color: var(--text-secondary); margin-top: 6px;
+  position: relative; z-index: 1;
+}
+
+/* ─── TEMPLATE: Comparison ─── */
+.tpl-compare {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 28px;
+  aspect-ratio: 1; display: flex; flex-direction: column; overflow: hidden;
+}
+.tpl-compare .compare-title {
+  font-family: var(--font-display); font-size: 16px; font-weight: 800;
+  color: var(--text-primary); margin-bottom: 20px; letter-spacing: -0.01em;
+}
+.tpl-compare .compare-cols {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; flex: 1;
+}
+.compare-col { border-radius: 10px; padding: 14px 16px; }
+.compare-col.bad {
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.15);
+}
+.compare-col.good {
+  background: rgba(0,212,170,0.06);
+  border: 1px solid rgba(0,212,170,0.2);
+}
+.compare-col-label {
+  font-family: var(--font-mono); font-size: 9px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px;
+}
+.compare-col.bad  .compare-col-label { color: #F87171; }
+.compare-col.good .compare-col-label { color: var(--aurora-green); }
+.compare-item {
+  font-size: 11px; padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  color: var(--text-secondary); display: flex; align-items: flex-start; gap: 6px;
+}
+.compare-item:last-child { border-bottom: none; }
+.compare-item .ci-icon { font-size: 10px; margin-top: 1px; flex-shrink: 0; }
+.compare-col.bad  .ci-icon { color: #F87171; }
+.compare-col.good .ci-icon { color: var(--aurora-green); }
+
+/* ─── TEMPLATE: Carousel Slide ─── */
+.tpl-carousel {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px; padding: 36px 32px;
+  aspect-ratio: 1; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+}
+.tpl-carousel .slide-num {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.1em;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.slide-progress {
+  display: flex; gap: 4px;
+}
+.slide-progress span {
+  width: 20px; height: 3px; border-radius: 2px;
+  background: rgba(255,255,255,0.1);
+}
+.slide-progress span.active { background: var(--electric-blue); }
+.tpl-carousel .slide-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  background: rgba(29,155,240,0.1); border: 1px solid rgba(29,155,240,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+}
+.tpl-carousel .slide-title {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  color: var(--text-primary); line-height: 1.25; letter-spacing: -0.02em;
+}
+.tpl-carousel .slide-body {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.7;
+}
+.tpl-carousel .slide-footer {
+  display: flex; align-items: center; justify-content: space-between;
+}
+.slide-brand {
+  font-family: var(--font-display); font-size: 13px; font-weight: 900;
+  color: var(--electric-blue);
+}
+.slide-arrow {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--electric-blue);
+}
+
+/* ─── TEMPLATE: Quote/Pull Quote ─── */
+.tpl-quote {
+  background: linear-gradient(135deg, #0D1F3C 0%, #0F1535 100%);
+  border: 1px solid rgba(29,155,240,0.18);
+  border-radius: 16px; padding: 36px;
+  aspect-ratio: 1; display: flex; flex-direction: column;
+  justify-content: center; position: relative; overflow: hidden;
+}
+.tpl-quote::before {
+  content: '"';
+  position: absolute; top: -20px; left: 20px;
+  font-family: var(--font-display); font-size: 180px; font-weight: 900;
+  color: rgba(29,155,240,0.06); line-height: 1; pointer-events: none;
+}
+.tpl-quote .q-text {
+  font-family: var(--font-display); font-size: 20px; font-weight: 700;
+  color: var(--text-primary); line-height: 1.4; letter-spacing: -0.01em;
+  position: relative; z-index: 1; margin-bottom: 24px;
+}
+.tpl-quote .q-text em {
+  font-style: normal;
+  background: var(--grad-brand);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.tpl-quote .q-attr {
+  font-size: 13px; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 10px;
+  position: relative; z-index: 1;
+}
+.q-attr-divider { width: 24px; height: 1px; background: rgba(29,155,240,0.4); }
+
+/* ─── TEMPLATE: Stats Row ─── */
+.tpl-stats {
+  background: var(--bg-surface-2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 36px 32px;
+  aspect-ratio: 1.91; display: flex; flex-direction: column;
+  justify-content: space-between; position: relative; overflow: hidden;
+}
+.tpl-stats::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);
+}
+.tpl-stats .stats-title {
+  font-family: var(--font-display); font-size: 15px; font-weight: 700;
+  color: var(--text-primary);
+}
+.stats-row {
+  display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;
+}
+.stat-block { text-align: center; flex: 1; }
+.stat-num {
+  font-family: var(--font-mono); font-size: 36px; font-weight: 600;
+  line-height: 1; margin-bottom: 6px;
+}
+.stat-lbl { font-size: 11px; color: var(--text-secondary); }
+.stat-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.06); }
+
+/* ─── TEMPLATE: Pillar Badge ─── */
+.tpl-pillar {
+  background: var(--bg-base);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 28px;
+  aspect-ratio: 1; position: relative; overflow: hidden;
+}
+.pillar-layer-num {
+  font-family: var(--font-mono); font-size: 80px; font-weight: 600;
+  position: absolute; top: -10px; right: 16px;
+  color: rgba(29,155,240,0.05); line-height: 1; pointer-events: none;
+}
+.pillar-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px; border-radius: 999px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.pillar-title {
+  font-family: var(--font-display); font-size: 22px; font-weight: 800;
+  color: var(--text-primary); line-height: 1.25; margin-bottom: 12px;
+}
+.pillar-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+/* ── DO/DON'T GRID ── */
+.do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.do-col, .dont-col { border-radius: 12px; padding: 24px; }
+.do-col {
+  background: rgba(0,212,170,0.05);
+  border: 1px solid rgba(0,212,170,0.15);
+}
+.dont-col {
+  background: rgba(239,68,68,0.05);
+  border: 1px solid rgba(239,68,68,0.15);
+}
+.dd-header {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.do-col .dd-header   { color: var(--aurora-green); }
+.dont-col .dd-header { color: #F87171; }
+.dd-item {
+  display: flex; gap: 10px; margin-bottom: 12px;
+  font-size: 13px; color: var(--text-secondary); align-items: flex-start;
+}
+.dd-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.do-col .dd-icon   { color: var(--aurora-green); }
+.dont-col .dd-icon { color: #F87171; }
+
+/* ── SPACING DIAGRAM ── */
+.spacing-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.space-item { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.space-bar {
+  background: rgba(29,155,240,0.3); border-radius: 3px;
+  height: 8px;
+}
+.space-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+.space-value { font-size: 11px; color: var(--text-secondary); }
+
+/* ── ANIMATION SPECS ── */
+.anim-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 13px;
+}
+.anim-name { color: var(--text-primary); font-weight: 600; }
+.anim-code { font-family: var(--font-mono); font-size: 11px; color: var(--cyber-cyan); }
+
+/* ── CONTEXT COLOR MAP ── */
+.context-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+.context-card {
+  background: var(--bg-surface-1); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; padding: 16px;
+}
+.context-label {
+  font-family: var(--font-mono); font-size: 10px; font-weight: 600;
+  color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.context-dot-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.context-dot {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; color: var(--text-secondary);
+}
+.cdot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+/* ── PROMPT TEMPLATE BOX ── */
+.prompt-box {
+  background: var(--bg-surface-1);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 12px; padding: 24px;
+  margin-bottom: 16px;
+}
+.prompt-title {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--neon-indigo); letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.prompt-text {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.75;
+  white-space: pre-line;
+}
+.prompt-text .ph {
+  background: rgba(99,102,241,0.12);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 4px; padding: 1px 6px;
+  font-family: var(--font-mono); font-size: 11px; color: #A5B4FC;
+}
+
+/* ── GRID LINES PATTERN ── */
+.grid-pattern {
+  background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ── INLINE CODE ── */
+code {
+  font-family: var(--font-mono); font-size: 12px;
+  background: rgba(255,255,255,0.06); border-radius: 4px;
+  padding: 2px 6px; color: var(--cyber-cyan);
+}
+
+/* ── TABLE OF CONTENTS ── */
+.toc {
+  background: var(--bg-surface-1); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px; padding: 32px; margin-top: 48px;
+}
+.toc-title {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 600;
+  color: var(--electric-blue); letter-spacing: 0.1em; text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.toc-item {
+  font-size: 13px; color: var(--text-secondary);
+  display: flex; align-items: center; gap: 10px; padding: 6px 0;
+}
+.toc-num {
+  font-family: var(--font-mono); font-size: 11px; color: var(--electric-blue);
+  min-width: 24px;
+}
+
+/* ── DIVIDER ── */
+.grad-divider {
+  height: 1px; margin: 64px 0;
+  background: linear-gradient(90deg, transparent, rgba(29,155,240,0.25), transparent);
+}
+
+/* ── HIGHLIGHT BOX ── */
+.highlight-box {
+  background: rgba(29,155,240,0.05);
+  border: 1px solid rgba(29,155,240,0.15);
+  border-radius: 12px; padding: 20px 24px;
+  font-size: 14px; color: var(--text-secondary); line-height: 1.7;
+  margin-bottom: 20px;
+}
+.highlight-box strong { color: var(--electric-blue); }
+
+/* ── LOGO LOCKUP DEMO ── */
+.logo-demo {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-display); font-size: 28px; font-weight: 900;
+  color: var(--electric-blue);
+}
+.logo-demo sup { font-size: 0.6em; color: var(--electric-blue); vertical-align: super; }
+.logo-text { color: var(--text-primary); }
+
+/* ── FOOTER ── */
+.guide-footer {
+  text-align: center; padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--text-muted); letter-spacing: 0.05em;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     COVER
+══════════════════════════════════════════════ -->
+<div class="guide-cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">X5 Digital — Internal Documentation</div>
+    <h1>AI <span class="grad-text">Design</span><br>Style Guide</h1>
+    <p class="cover-sub">
+      Tài liệu tham chiếu đầy đủ để AI tools (Midjourney, Canva AI, Figma AI, GPT-4o, v.v.) 
+      thiết kế visual content đúng 100% brand identity của X5 Digital.
+      Bao gồm color system, typography, templates, prompt formulas, và do/don't rules.
+    </p>
+    <div class="cover-pills">
+      <span class="cover-pill cp-1">Version 1.0</span>
+      <span class="cover-pill cp-2">Brand: Quiet Luxury Tech</span>
+      <span class="cover-pill cp-3">Approved for Production</span>
+      <span class="cover-pill cp-4">LinkedIn + Facebook</span>
+    </div>
+  </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="guide-container">
+<div class="toc">
+  <div class="toc-title">Table of Contents</div>
+  <div class="toc-grid">
+    <div class="toc-item"><span class="toc-num">01</span> Brand Personality</div>
+    <div class="toc-item"><span class="toc-num">02</span> Color System</div>
+    <div class="toc-item"><span class="toc-num">03</span> Typography System</div>
+    <div class="toc-item"><span class="toc-num">04</span> Background & Texture</div>
+    <div class="toc-item"><span class="toc-num">05</span> Logo & Brand Mark</div>
+    <div class="toc-item"><span class="toc-num">06</span> Component Patterns</div>
+    <div class="toc-item"><span class="toc-num">07</span> Post Templates</div>
+    <div class="toc-item"><span class="toc-num">08</span> Context Color Map</div>
+    <div class="toc-item"><span class="toc-num">09</span> Spacing & Layout</div>
+    <div class="toc-item"><span class="toc-num">10</span> Motion & Animation</div>
+    <div class="toc-item"><span class="toc-num">11</span> AI Prompt Formulas</div>
+    <div class="toc-item"><span class="toc-num">12</span> Do's &amp; Don'ts</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     01 — BRAND PERSONALITY
+══════════════════════════════════════════════ -->
+<div class="chapter">
+  <div class="chapter-num">Chapter 01</div>
+  <h2>Brand Personality</h2>
+  <p class="chapter-desc">Hiểu đúng "hồn" của brand trước khi thiết kế bất kỳ thứ gì.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Aesthetic Direction</div>
+  <div class="rule-box">
+    <strong>Tên định hướng: "Quiet Luxury Tech"</strong><br>
+    Visual metaphor: <strong>Một hệ thống AI đang vận hành trong data center lúc 2 giờ sáng</strong> — tối, sắc nét, và phát sáng từ bên trong. Không flashy. Không cheap. Không generic startup.
+    Cảm giác khi nhìn vào: <strong>tin tưởng + impressed + muốn biết thêm</strong>.
+  </div>
+  <div class="rule-box green">
+    <strong>3 tính từ định hình mọi thiết kế:</strong> SHARP (sắc nét, có insight) · CONFIDENT (không xin lỗi, không over-explain) · PRACTICAL (ít decoration thừa, nhiều substance)
+  </div>
+  <div class="rule-box amber">
+    <strong>X5 không phải:</strong> Startup hype với gradient rực rỡ · Agency truyền thống với màu corporate · Outsourcing rẻ với thiết kế generic · Tech company phức tạp khó hiểu
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">3 Nguyên Tắc Bất Biến</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;">
+    <div class="demo-card">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--electric-blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Nguyên tắc 01</div>
+      <div style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:8px;">Layering over Flatness</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.65;">Mọi visual phải có chiều sâu. Background, content, và accent elements sống ở 3 tầng riêng biệt. Không bao giờ flat hoàn toàn.</div>
+    </div>
+    <div class="demo-card">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--aurora-green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Nguyên tắc 02</div>
+      <div style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:8px;">Motion with Purpose</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.65;">Nếu có animation, nó phải kể câu chuyện về AI đang vận hành. Không animate chỉ để đẹp. Mỗi chuyển động phải có ý nghĩa.</div>
+    </div>
+    <div class="demo-card">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--amber-warm);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Nguyên tắc 03</div>
+      <div style="font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--text-primary);margin-bottom:8px;">Contrast is Non-Negotiable</div>
+      <div style="font-size:13px;color:var(--text-secondary);line-height:1.65;">Text trắng trên nền tối phải đạt WCAG AA+ (≥ 4.5:1 ratio cho body text). Không exception. Không compromise visibility để đẹp.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     02 — COLOR SYSTEM
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 02</div>
+  <h2>Color System</h2>
+  <p class="chapter-desc">Hệ thống màu đầy đủ — hex codes, usage rules, và WCAG ratios.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Background Hierarchy</div>
+  <div class="highlight-box">
+    <strong>Quy tắc nền:</strong> Luôn dùng nền tối. Không bao giờ dùng nền trắng hoặc gray sáng cho X5 content. Nền tối là chữ ký nhận diện quan trọng nhất.
+  </div>
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#080D1A;border-bottom:1px solid rgba(255,255,255,0.05)"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">bg-base</div>
+        <div class="swatch-hex">#080D1A</div>
+        <div class="swatch-use">Deep Space — nền chính toàn trang, nền mọi post</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0D1426;border-bottom:1px solid rgba(255,255,255,0.05)"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">bg-surface-1</div>
+        <div class="swatch-hex">#0D1426</div>
+        <div class="swatch-use">Card / Panel layer — nền card, section phụ</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#111B33;border-bottom:1px solid rgba(255,255,255,0.05)"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">bg-surface-2</div>
+        <div class="swatch-hex">#111B33</div>
+        <div class="swatch-use">Elevated surface — hover states, active elements</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1A2444;border-bottom:1px solid rgba(255,255,255,0.05)"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">bg-surface-3</div>
+        <div class="swatch-hex">#1A2444</div>
+        <div class="swatch-use">Highlight surface — featured cards, CTA sections</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Brand Colors (5 Core + 1 Danger)</div>
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#1D9BF0;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#1D9BF0">Electric Blue</div>
+        <div class="swatch-hex">#1D9BF0</div>
+        <div class="swatch-use">PRIMARY — CTAs, links, highlights, brand signature. Màu nhận diện số 1.</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#6366F1;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#6366F1">Neon Indigo</div>
+        <div class="swatch-hex">#6366F1</div>
+        <div class="swatch-use">SECONDARY — gradient pairings, supporting accents, tech elements</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#06B6D4;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#06B6D4">Cyber Cyan</div>
+        <div class="swatch-hex">#06B6D4</div>
+        <div class="swatch-use">DATA / TECH — badges kỹ thuật, format tags, code snippets</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#00D4AA;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#00D4AA">Aurora Green</div>
+        <div class="swatch-hex">#00D4AA</div>
+        <div class="swatch-use">SUCCESS / POSITIVE — metrics, improvements, X5 wins, proof content</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F59E0B;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#F59E0B">Amber Warm</div>
+        <div class="swatch-hex">#F59E0B</div>
+        <div class="swatch-use">WARNING / URGENCY — "slots remaining", cost alerts, call-outs</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#EF4444;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name" style="color:#EF4444">Danger Red</div>
+        <div class="swatch-hex">#EF4444</div>
+        <div class="swatch-use">NEGATIVE — competitor columns, pain points, "before" states. Dùng tiết kiệm.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Text Colors (WCAG Verified)</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">
+    <div class="demo-card" style="display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:18px;font-weight:700;color:#F1F5F9;">text-primary <code>#F1F5F9</code></div>
+      <div style="font-size:11px;color:var(--text-muted);">Ratio 16.2:1 · WCAG AAA · Headlines, CTAs, emphasis</div>
+    </div>
+    <div class="demo-card" style="display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:18px;font-weight:500;color:#94A3B8;">text-secondary <code>#94A3B8</code></div>
+      <div style="font-size:11px;color:var(--text-muted);">Ratio 5.1:1 · WCAG AA · Body copy, descriptions</div>
+    </div>
+    <div class="demo-card" style="display:flex;flex-direction:column;gap:10px;">
+      <div style="font-size:18px;font-weight:400;color:#475569;">text-muted <code>#475569</code></div>
+      <div style="font-size:11px;color:var(--text-muted);">Captions, metadata, timestamps — KHÔNG dùng cho body</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Gradients</div>
+  <div class="grad-grid">
+    <div class="grad-card">
+      <div class="grad-preview" style="background:linear-gradient(135deg, #1D9BF0 0%, #6366F1 50%, #8B5CF6 100%);"></div>
+      <div class="grad-info">
+        <div class="grad-name">grad-brand <span style="color:var(--text-muted);font-weight:400">— Primary</span></div>
+        <div class="grad-value">135deg · #1D9BF0 → #6366F1 → #8B5CF6<br>Dùng cho: gradient text (H1 accent), primary CTA buttons, section highlights</div>
+      </div>
+    </div>
+    <div class="grad-card">
+      <div class="grad-preview" style="background:linear-gradient(135deg, #0D1F3C 0%, #1A1040 100%);"></div>
+      <div class="grad-info">
+        <div class="grad-name">grad-cta-bg <span style="color:var(--text-muted);font-weight:400">— CTA Sections</span></div>
+        <div class="grad-value">135deg · #0D1F3C → #1A1040<br>Dùng cho: CTA section background, cover backgrounds, featured blocks</div>
+      </div>
+    </div>
+    <div class="grad-card">
+      <div class="grad-preview" style="background:radial-gradient(circle at 70% 30%, rgba(29,155,240,0.25), rgba(99,102,241,0.15) 50%, transparent 70%), #080D1A;"></div>
+      <div class="grad-info">
+        <div class="grad-name">Aurora Orb Overlay <span style="color:var(--text-muted);font-weight:400">— Background FX</span></div>
+        <div class="grad-value">Radial gradient circles · opacity 0.10–0.25<br>Dùng cho: nền hero, cover sections — tạo chiều sâu atmospheric</div>
+      </div>
+    </div>
+    <div class="grad-card">
+      <div class="grad-preview" style="background:linear-gradient(90deg, transparent, rgba(29,155,240,0.4), transparent);"></div>
+      <div class="grad-info">
+        <div class="grad-name">grad-divider <span style="color:var(--text-muted);font-weight:400">— Dividers</span></div>
+        <div class="grad-value">90deg · transparent → blue 40% → transparent<br>Dùng cho: đường kẻ phân cách sections, decorative lines</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Glow Effects (Box Shadow)</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;">
+    <div style="background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+      <div style="height:40px;background:rgba(29,155,240,0.1);border-radius:8px;box-shadow:0 0 20px rgba(29,155,240,0.25);"></div>
+      <div><div style="font-family:var(--font-mono);font-size:10px;color:var(--electric-blue);">glow-blue-sm</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;"><code>0 0 20px rgba(29,155,240,0.25)</code></div></div>
+    </div>
+    <div style="background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+      <div style="height:40px;background:rgba(29,155,240,0.12);border-radius:8px;box-shadow:0 0 40px rgba(29,155,240,0.35);"></div>
+      <div><div style="font-family:var(--font-mono);font-size:10px;color:var(--electric-blue);">glow-blue-md</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;"><code>0 0 40px rgba(29,155,240,0.35)</code></div></div>
+    </div>
+    <div style="background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+      <div style="height:40px;background:rgba(0,212,170,0.10);border-radius:8px;box-shadow:0 0 40px rgba(0,212,170,0.30);"></div>
+      <div><div style="font-family:var(--font-mono);font-size:10px;color:var(--aurora-green);">glow-green</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;"><code>0 0 40px rgba(0,212,170,0.30)</code></div></div>
+    </div>
+    <div style="background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:12px;">
+      <div style="height:40px;background:rgba(99,102,241,0.10);border-radius:8px;box-shadow:0 0 60px rgba(99,102,241,0.30);"></div>
+      <div><div style="font-family:var(--font-mono);font-size:10px;color:var(--neon-indigo);">glow-indigo</div><div style="font-size:11px;color:var(--text-muted);margin-top:3px;"><code>0 0 60px rgba(99,102,241,0.30)</code></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     03 — TYPOGRAPHY
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 03</div>
+  <h2>Typography System</h2>
+  <p class="chapter-desc">3 font families — mỗi cái có role riêng. Không bao giờ trộn lẫn vai trò.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Font Families</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+    <div class="demo-card">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--electric-blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">Font 01 — Display</div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:32px;font-weight:900;color:var(--text-primary);line-height:1.1;margin-bottom:12px;">Plus Jakarta Sans</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">Weight: 300 · 400 · 500 · 600 · <strong style="color:var(--text-primary);">700 · 800 · 900</strong></div>
+      <div style="font-size:12px;color:var(--text-muted);">DÙNG CHO: H1, H2, H3, navigation, buttons, bold UI labels, brand name</div>
+    </div>
+    <div class="demo-card">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--aurora-green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">Font 02 — Body</div>
+      <div style="font-family:'Outfit',sans-serif;font-size:32px;font-weight:600;color:var(--text-primary);line-height:1.1;margin-bottom:12px;">Outfit</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">Weight: 300 · 400 · <strong style="color:var(--text-primary);">500 · 600 · 700</strong></div>
+      <div style="font-size:12px;color:var(--text-muted);">DÙNG CHO: Body copy, descriptions, captions, lead paragraphs, subheadings</div>
+    </div>
+    <div class="demo-card">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--cyber-cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">Font 03 — Data / Mono</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:32px;font-weight:600;color:var(--text-primary);line-height:1.1;margin-bottom:12px;">JetBrains Mono</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px;">Weight: <strong style="color:var(--text-primary);">400 · 600</strong></div>
+      <div style="font-size:12px;color:var(--text-muted);">DÙNG CHO: Số liệu (KPIs), giá, badges, tags kỹ thuật, code snippets, timestamps</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Type Scale — Usage Reference</div>
+  <div style="background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:8px 24px;">
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">H1 Hero</div>
+        <div class="type-spec">Plus Jakarta Sans 900 · clamp(44px,6vw,80px) · tracking -0.03em</div>
+      </div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,4vw,56px);font-weight:900;color:var(--text-primary);letter-spacing:-0.03em;line-height:1.1;">Hero Headline</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">H1 Gradient</div>
+        <div class="type-spec">H1 + gradient text clip — accent words only</div>
+      </div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(36px,4vw,56px);font-weight:900;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-0.03em;line-height:1.1;">Gradient Text</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">H2 Section</div>
+        <div class="type-spec">Plus Jakarta Sans 800 · clamp(32px,4vw,48px) · tracking -0.01em</div>
+      </div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(28px,3vw,40px);font-weight:800;color:var(--text-primary);letter-spacing:-0.01em;line-height:1.2;">Section Title</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">H3 Card</div>
+        <div class="type-spec">Plus Jakarta Sans 700 · clamp(20px,2vw,28px) · tracking -0.01em</div>
+      </div>
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(18px,2vw,24px);font-weight:700;color:var(--text-primary);letter-spacing:-0.01em;">Card Title</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">Lead / Intro</div>
+        <div class="type-spec">Outfit 500 · 20px · line-height 1.6</div>
+      </div>
+      <div style="font-family:'Outfit',sans-serif;font-size:20px;font-weight:500;color:var(--text-secondary);line-height:1.6;">Subheadline / intro paragraph text</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">Body Copy</div>
+        <div class="type-spec">Outfit 400 · 16px · line-height 1.75</div>
+      </div>
+      <div style="font-family:'Outfit',sans-serif;font-size:16px;font-weight:400;color:var(--text-secondary);line-height:1.75;">Standard body text for descriptions and paragraphs.</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">Stats / KPI</div>
+        <div class="type-spec">JetBrains Mono 600 · 36–72px · no letter-spacing</div>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:48px;font-weight:600;color:var(--aurora-green);line-height:1;">28%↑</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">Badge / Eyebrow</div>
+        <div class="type-spec">JetBrains Mono 600 · 10–11px · tracking 0.1em · ALL CAPS</div>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;color:var(--electric-blue);letter-spacing:0.1em;text-transform:uppercase;">SECTION LABEL · BADGE TEXT</div>
+    </div>
+    <div class="type-row">
+      <div class="type-meta">
+        <div class="type-label">Caption</div>
+        <div class="type-spec">Outfit 400 · 13–14px · color text-muted</div>
+      </div>
+      <div style="font-family:'Outfit',sans-serif;font-size:14px;color:var(--text-muted);">Caption text, metadata, timestamps, fine print</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     04 — BACKGROUND & TEXTURE
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 04</div>
+  <h2>Background & Texture</h2>
+  <p class="chapter-desc">Làm thế nào để tạo nền có chiều sâu đúng chuẩn X5.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Layered Background System</div>
+  <div class="rule-box">
+    <strong>Công thức nền 3 lớp (từ dưới lên):</strong><br>
+    <strong>Layer 0 (Base):</strong> Solid color <code>#080D1A</code><br>
+    <strong>Layer 1 (Atmosphere):</strong> Aurora orbs — radial gradients blur(80px) opacity 0.10–0.25, animated drift<br>
+    <strong>Layer 2 (Texture):</strong> Grid dot pattern <code>radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)</code> size 24×24px<br>
+    <strong>Layer 3 (Content):</strong> Glassmorphism cards với isolation: isolate
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:20px;">
+    <!-- Variant 1: Standard Dark -->
+    <div style="height:160px;background:#080D1A;border:1px solid rgba(255,255,255,0.06);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;">Variant A</div>
+      <div style="font-size:14px;font-weight:600;color:var(--text-primary);">Standard Dark</div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">#080D1A — text posts, carousels</div>
+    </div>
+    <!-- Variant 2: Aurora Blue -->
+    <div style="height:160px;background:#080D1A;background-image:radial-gradient(circle at 80% 20%, rgba(29,155,240,0.18), transparent 60%);border:1px solid rgba(29,155,240,0.12);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden;position:relative;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;position:relative;z-index:1;">Variant B</div>
+      <div style="font-size:14px;font-weight:600;color:var(--text-primary);position:relative;z-index:1;">Aurora Blue</div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);position:relative;z-index:1;">blue orb top-right — hero, covers</div>
+    </div>
+    <!-- Variant 3: CTA Gradient -->
+    <div style="height:160px;background:linear-gradient(135deg,#0D1F3C,#1A1040);border:1px solid rgba(99,102,241,0.15);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;overflow:hidden;position:relative;">
+      <div style="position:absolute;bottom:-60px;right:-40px;width:180px;height:180px;background:radial-gradient(circle,rgba(0,212,170,0.15),transparent 70%);border-radius:50%;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;position:relative;z-index:1;">Variant C</div>
+      <div style="font-size:14px;font-weight:600;color:var(--text-primary);position:relative;z-index:1;">Deep CTA</div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);position:relative;z-index:1;">#0D1F3C→#1A1040 — metric, quote cards</div>
+    </div>
+    <!-- Variant 4: Grid Pattern -->
+    <div style="height:160px;background:#0D1426;background-image:radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);background-size:24px 24px;border:1px solid rgba(255,255,255,0.06);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;">Variant D</div>
+      <div style="font-size:14px;font-weight:600;color:var(--text-primary);">Grid Texture</div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">dot grid 24px — comparison, data sections</div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Glassmorphism Card Formula</div>
+  <div class="rule-box indigo">
+    <strong>Glass Card CSS Recipe:</strong><br>
+    <code>background: rgba(255,255,255,0.03)</code><br>
+    <code>border: 1px solid rgba(255,255,255,0.08)</code><br>
+    <code>backdrop-filter: blur(20px) saturate(180%)</code><br>
+    <code>box-shadow: 0 0 0 1px rgba(29,155,240,0.10), 0 20px 60px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.06)</code><br>
+    <code>border-radius: 24px</code>
+  </div>
+  <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 0 0 1px rgba(29,155,240,0.10),0 20px 60px rgba(0,0,0,0.40),inset 0 1px 0 rgba(255,255,255,0.06);border-radius:24px;padding:28px;margin-top:16px;">
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Live Glass Card Example</div>
+    <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:20px;font-weight:800;color:var(--text-primary);">This is a glassmorphism card</div>
+    <div style="font-size:14px;color:var(--text-secondary);margin-top:8px;">Used for feature cards, proof blocks, and elevated UI elements.</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     05 — LOGO & BRAND MARK
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 05</div>
+  <h2>Logo & Brand Mark</h2>
+  <p class="chapter-desc">Quy tắc sử dụng logo, watermark, và brand signature trên visual content.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Logo Lockups</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;">
+    <div class="demo-card" style="display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;min-height:120px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:900;color:var(--electric-blue);">X<sup style="font-size:0.6em;vertical-align:super;">5</sup> <span style="color:var(--text-primary);">Digital</span></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">Full Wordmark — dark bg</div>
+    </div>
+    <div class="demo-card" style="display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;min-height:120px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:900;background:var(--grad-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">X<sup style="font-size:0.6em;">5</sup> Digital</div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">Gradient Variant — premium contexts</div>
+    </div>
+    <div class="demo-card" style="display:flex;flex-direction:column;gap:16px;align-items:center;justify-content:center;min-height:120px;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:900;color:var(--electric-blue);opacity:0.5;">X<sup style="font-size:0.6em;vertical-align:super;">5</sup></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">Watermark — bottom corner của mọi post</div>
+    </div>
+  </div>
+  <div class="rule-box" style="margin-top:16px;">
+    <strong>Watermark rules:</strong> Logo luôn xuất hiện ở <strong>bottom-right corner</strong> mọi social post. Font: Plus Jakarta Sans 900. Màu: <code>#1D9BF0</code> opacity 40–60%. Size: nhỏ vừa đủ nhìn thấy, không cạnh tranh với nội dung chính.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     06 — COMPONENT PATTERNS
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 06</div>
+  <h2>Component Patterns</h2>
+  <p class="chapter-desc">Các UI elements tái sử dụng — badge, button, metric display, divider.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Badges & Pills</div>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;padding:24px;background:var(--bg-surface-1);border-radius:12px;border:1px solid rgba(255,255,255,0.06);">
+    <!-- Live Badge -->
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(29,155,240,0.08);border:1px solid rgba(29,155,240,0.25);padding:7px 18px;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--electric-blue);letter-spacing:0.08em;text-transform:uppercase;">
+      <span style="width:6px;height:6px;background:var(--aurora-green);border-radius:50%;box-shadow:0 0 8px rgba(0,212,170,0.8);"></span>
+      LIVE BADGE
+    </div>
+    <!-- Pillar Badge -->
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(239,68,68,0.10);border:1px solid rgba(239,68,68,0.25);padding:6px 14px;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#F87171;letter-spacing:0.06em;text-transform:uppercase;">🔴 PAIN</div>
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(29,155,240,0.10);border:1px solid rgba(29,155,240,0.25);padding:6px 14px;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--electric-blue);letter-spacing:0.06em;text-transform:uppercase;">🔵 EDUCATION</div>
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(0,212,170,0.10);border:1px solid rgba(0,212,170,0.25);padding:6px 14px;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--aurora-green);letter-spacing:0.06em;text-transform:uppercase;">🟢 PROOF</div>
+    <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(99,102,241,0.10);border:1px solid rgba(99,102,241,0.25);padding:6px 14px;border-radius:999px;font-family:var(--font-mono);font-size:11px;font-weight:600;color:#A5B4FC;letter-spacing:0.06em;text-transform:uppercase;">🟣 TEAM</div>
+    <!-- Format Tag -->
+    <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-size:10px;color:var(--cyber-cyan);letter-spacing:0.06em;text-transform:uppercase;">CAROUSEL</div>
+    <div style="background:rgba(6,182,212,0.08);border:1px solid rgba(6,182,212,0.2);padding:4px 10px;border-radius:6px;font-family:var(--font-mono);font-size:10px;color:var(--cyber-cyan);letter-spacing:0.06em;text-transform:uppercase;">TEXT POST</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Buttons</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:28px;background:var(--bg-surface-1);border-radius:12px;border:1px solid rgba(255,255,255,0.06);">
+    <button style="background:linear-gradient(135deg,#1D9BF0,#6366F1);color:white;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;padding:14px 28px;border-radius:10px;border:none;cursor:pointer;box-shadow:0 4px 20px rgba(29,155,240,0.30);">Book Free Audit</button>
+    <button style="background:transparent;color:var(--electric-blue);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:15px;padding:13px 28px;border-radius:10px;border:1px solid rgba(29,155,240,0.4);cursor:pointer;">Learn More →</button>
+    <button style="background:rgba(0,212,170,0.08);color:var(--aurora-green);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:15px;padding:13px 28px;border-radius:10px;border:1px solid rgba(0,212,170,0.25);cursor:pointer;">View Proof</button>
+  </div>
+  <div class="rule-box" style="margin-top:14px;">
+    <strong>Primary CTA:</strong> gradient-brand background · Plus Jakarta Sans 700 · border-radius 10px · box-shadow glow-blue-sm<br>
+    <strong>Secondary:</strong> transparent + blue border · không dùng fill<br>
+    <strong>Success variant:</strong> green tint — dùng khi confirm, positive actions
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Metric Display</div>
+  <div style="display:flex;gap:32px;flex-wrap:wrap;padding:28px;background:var(--bg-surface-1);border-radius:12px;border:1px solid rgba(255,255,255,0.06);">
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">COST SAVED</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:52px;font-weight:600;color:var(--aurora-green);line-height:1;text-shadow:0 0 30px rgba(0,212,170,0.35);">1/6<span style="font-size:22px;opacity:0.7;">th</span></div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">vs US in-house hire</div>
+    </div>
+    <div style="width:1px;background:rgba(255,255,255,0.05);"></div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">MANUAL WORK</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:52px;font-weight:600;color:var(--electric-blue);line-height:1;text-shadow:0 0 30px rgba(29,155,240,0.35);">80%<span style="font-size:22px;opacity:0.7;">↓</span></div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">reduction via automation</div>
+    </div>
+    <div style="width:1px;background:rgba(255,255,255,0.05);"></div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">LTV IMPROVEMENT</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:52px;font-weight:600;color:var(--amber-warm);line-height:1;text-shadow:0 0 30px rgba(245,158,11,0.30);">+28%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">in 9 months, SaaS client</div>
+    </div>
+    <div style="width:1px;background:rgba(255,255,255,0.05);"></div>
+    <div style="text-align:center;">
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;">CAC REDUCTION</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:52px;font-weight:600;color:var(--danger-red);line-height:1;text-shadow:0 0 30px rgba(239,68,68,0.25);">-21%</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:6px;">e-commerce, 90 days</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     07 — POST TEMPLATES (LIVE EXAMPLES)
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 07</div>
+  <h2>Post Templates</h2>
+  <p class="chapter-desc">6 template formats — mỗi cái có live visual example, cấu trúc layout, và khi nào dùng.</p>
+</div>
+
+<div class="highlight-box">
+  <strong>Kích thước chuẩn cho Social Posts:</strong>
+  LinkedIn single image: 1200×1200px (1:1) hoặc 1200×628px (1.91:1) ·
+  Facebook/IG post: 1080×1080px (1:1) ·
+  Carousel slide: 1080×1080px (1:1) ·
+  Story: 1080×1920px (9:16)
+</div>
+
+<div class="templates-grid">
+
+  <!-- TEMPLATE 1: Text Post (1:1) -->
+  <div>
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--electric-blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Template 01 — Text Post (1:1)</div>
+    <div class="tpl-text">
+      <div class="hook">The real cost of hiring a US digital marketing manager isn't $80K.</div>
+      <div class="body-copy">
+        <div style="margin-bottom:6px;">It's $80K + everything nobody tells you about:</div>
+        <div style="margin-bottom:3px;">→ Payroll taxes: +$6–9K</div>
+        <div style="margin-bottom:3px;">→ Health insurance: +$6–10K</div>
+        <div style="margin-bottom:3px;">→ Recruiting cost: +$10–20K</div>
+        <div style="margin-bottom:3px;">→ Ramp-up time: 3–6 months</div>
+        <div style="margin-top:8px;font-weight:600;color:var(--text-primary);">Real cost: $112K–$175K+/year. For one person.</div>
+      </div>
+      <div class="cta-line">→ What number surprised you most?</div>
+      <div class="brand-mark">X⁵</div>
+    </div>
+    <div class="rule-box" style="margin-top:14px;font-size:12px;">
+      <strong>Layout rules:</strong> 1 aurora orb top-right (opacity ≤ 0.12) · Hook: H3 PJS 800 · Body: Outfit 400 13px · CTA line: JetBrains Mono electric-blue · Brand watermark: bottom-right opacity 50%
+    </div>
+  </div>
+
+  <!-- TEMPLATE 2: Metric Card (1:1) -->
+  <div>
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--aurora-green);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Template 02 — Metric Card (1:1)</div>
+    <div class="tpl-metric">
+      <div class="metric-eyebrow">MANUAL HOURS SAVED · MONTHLY</div>
+      <div>
+        <div class="metric-number">96<span class="metric-unit">hrs</span></div>
+        <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-muted);margin-top:4px;">→ From 120 to 24 hrs/month</div>
+      </div>
+      <div>
+        <div class="metric-label">Marketing Agency Client<br><span style="color:var(--text-muted);font-size:14px;font-weight:400;">Automation deployed in 6 weeks</span></div>
+        <div style="font-family:var(--font-display);font-size:13px;font-weight:900;color:var(--electric-blue);opacity:0.5;margin-top:16px;position:relative;z-index:1;">X⁵ Digital</div>
+      </div>
+    </div>
+    <div class="rule-box green" style="margin-top:14px;font-size:12px;">
+      <strong>Layout rules:</strong> Background: grad-cta-bg · Number: JetBrains Mono 600 color = aurora-green (positive) or danger-red (before-state) · glow-green shadow · aurora orb bottom-left
+    </div>
+  </div>
+
+  <!-- TEMPLATE 3: Comparison (1:1) -->
+  <div>
+    <div style="font-family:var(--font-mono);font-size:10px;color:#F87171;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Template 03 — Comparison (1:1)</div>
+    <div class="tpl-compare">
+      <div class="compare-title">Typical Agency vs X5 Digital</div>
+      <div class="compare-cols">
+        <div class="compare-col bad">
+          <div class="compare-col-label">Typical Agency</div>
+          <div class="compare-item"><span class="ci-icon">✗</span>$100K–$300K/year</div>
+          <div class="compare-item"><span class="ci-icon">✗</span>Strategy decks only</div>
+          <div class="compare-item"><span class="ci-icon">✗</span>0% client control</div>
+          <div class="compare-item"><span class="ci-icon">✗</span>Scope fees every pivot</div>
+          <div class="compare-item"><span class="ci-icon">✗</span>Black-box automation</div>
+        </div>
+        <div class="compare-col good">
+          <div class="compare-col-label">X5 Digital</div>
+          <div class="compare-item"><span class="ci-icon">✓</span>$30K–$78K/year</div>
+          <div class="compare-item"><span class="ci-icon">✓</span>100% embedded daily</div>
+          <div class="compare-item"><span class="ci-icon">✓</span>100% via Slack</div>
+          <div class="compare-item"><span class="ci-icon">✓</span>Zero — guaranteed</div>
+          <div class="compare-item"><span class="ci-icon">✓</span>Client owns n8n</div>
+        </div>
+      </div>
+      <div style="font-family:var(--font-display);font-size:12px;font-weight:900;color:var(--electric-blue);opacity:0.4;text-align:right;margin-top:12px;">X⁵ Digital</div>
+    </div>
+    <div class="rule-box red" style="margin-top:14px;font-size:12px;">
+      <strong>Layout rules:</strong> 2-column grid · Bad col: danger-red tint border · Good col: aurora-green tint border · Icons: ✗ red / ✓ green · Background: bg-surface-1 với dot grid pattern
+    </div>
+  </div>
+
+  <!-- TEMPLATE 4: Carousel Slide (1:1) -->
+  <div>
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--cyber-cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Template 04 — Carousel Slide (1:1)</div>
+    <div class="tpl-carousel">
+      <div class="slide-num">
+        <span>03 / 06</span>
+        <div class="slide-progress">
+          <span></span><span></span><span class="active"></span>
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="slide-icon">⚡</div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--electric-blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Layer 2 — MarTech Execution</div>
+        <div class="slide-title">Ads, SEO, Email — executed daily, not quarterly.</div>
+      </div>
+      <div class="slide-body">Real-time optimization across Google Ads, Meta Ads, SEO, and email campaigns. Daily monitoring until KPIs are hit.</div>
+      <div class="slide-footer">
+        <div class="slide-brand">X⁵ Digital</div>
+        <div class="slide-arrow">→</div>
+      </div>
+    </div>
+    <div class="rule-box" style="margin-top:14px;font-size:12px;border-left-color:var(--cyber-cyan);">
+      <strong>Carousel rules:</strong> Slide counter + progress dots top · Icon block: 56×56 rounded-14px · Title: PJS 800 22px · Body: Outfit 400 13px · Footer: brand name + nav arrow · Consistent padding: 36px
+    </div>
+  </div>
+
+  <!-- TEMPLATE 5: Quote Card (1:1) -->
+  <div>
+    <div style="font-family:var(--font-mono);font-size:10px;color:#A5B4FC;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Template 05 — Quote / Pull-Quote (1:1)</div>
+    <div class="tpl-quote">
+      <div class="q-text">
+        "Execution beats strategy. A <em>B-grade strategy executed perfectly</em> beats an A-grade deck sitting in Google Drive."
+      </div>
+      <div class="q-attr">
+        <span style="color:var(--text-primary);font-weight:600;">Trung Nguyen</span>
+        <div class="q-attr-divider"></div>
+        <span>CEO, X5 Digital</span>
+      </div>
+    </div>
+    <div class="rule-box indigo" style="margin-top:14px;font-size:12px;">
+      <strong>Quote rules:</strong> Background: grad-cta-bg · Giant decorative " opacity 6% top-left · Accent word: gradient text · Attribution: name bold white + divider + role secondary · Never use stock photo portraits
+    </div>
+  </div>
+
+  <!-- TEMPLATE 6: Stats Banner (1.91:1) -->
+  <div>
+    <div style="font-family:var(--font-mono);font-size:10px;color:var(--amber-warm);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Template 06 — Stats Banner (1.91:1)</div>
+    <div class="tpl-stats">
+      <div class="stats-title">Why US SMEs Choose X5 Digital</div>
+      <div class="stats-row">
+        <div class="stat-block">
+          <div class="stat-num" style="color:var(--aurora-green);">1/6<span style="font-size:16px;">th</span></div>
+          <div class="stat-lbl">Cost vs US hire</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-block">
+          <div class="stat-num" style="color:var(--electric-blue);">80%</div>
+          <div class="stat-lbl">Less manual work</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-block">
+          <div class="stat-num" style="color:var(--amber-warm);">90</div>
+          <div class="stat-lbl">Days to full system</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-block">
+          <div class="stat-num" style="color:#A5B4FC;">30</div>
+          <div class="stat-lbl">Day risk-free trial</div>
+        </div>
+      </div>
+      <div style="font-family:var(--font-display);font-size:12px;font-weight:900;color:var(--electric-blue);opacity:0.4;text-align:right;">X⁵ Digital</div>
+    </div>
+    <div class="rule-box amber" style="margin-top:14px;font-size:12px;">
+      <strong>Banner rules:</strong> 1.91:1 ratio cho LinkedIn link preview · Stat numbers: JetBrains Mono 600, each in different brand color · Dividers: thin vertical line rgba(255,255,255,0.06) · Top divider line: grad-divider
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════════════════════════════
+     08 — CONTEXT COLOR MAP
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 08</div>
+  <h2>Context Color Map</h2>
+  <p class="chapter-desc">Màu nào dùng cho nội dung nào — quy tắc semantic color.</p>
+</div>
+
+<div class="section">
+  <div class="context-grid">
+    <div class="context-card">
+      <div class="context-label">Pain / Problem content</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#EF4444;"></div> danger-red</div>
+        <div class="context-dot"><div class="cdot" style="background:#F59E0B;"></div> amber</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">Agency failures, hidden costs, wasted budget, before-states</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">Education / How-it-works</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#1D9BF0;"></div> electric-blue</div>
+        <div class="context-dot"><div class="cdot" style="background:#06B6D4;"></div> cyber-cyan</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">Frameworks, system diagrams, how X5 works, AI concepts</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">Proof / Results</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#00D4AA;"></div> aurora-green</div>
+        <div class="context-dot"><div class="cdot" style="background:#1D9BF0;"></div> electric-blue</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">Client results, KPI improvements, after-states, wins</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">Team / Brand / Founders</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#6366F1;"></div> neon-indigo</div>
+        <div class="context-dot"><div class="cdot" style="background:#8B5CF6;"></div> violet</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">Founder introductions, team philosophy, behind-the-scenes</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">Urgency / Scarcity</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#F59E0B;"></div> amber-warm</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">"5 slots remaining", deadlines, time-sensitive CTAs</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">Technical / Data / Code</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#06B6D4;"></div> cyber-cyan</div>
+        <div class="context-dot"><div class="cdot" style="background:#1D9BF0;"></div> electric-blue</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">n8n workflows, code snippets, badges kỹ thuật, API references</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">Positive Metrics (after)</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#00D4AA;"></div> aurora-green</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">LTV up, CAC down, hours saved — all positive outcomes</div>
+    </div>
+    <div class="context-card">
+      <div class="context-label">X5 vs Competitor</div>
+      <div class="context-dot-row">
+        <div class="context-dot"><div class="cdot" style="background:#00D4AA;"></div> X5 column</div>
+        <div class="context-dot"><div class="cdot" style="background:#EF4444;"></div> Bad data</div>
+      </div>
+      <div style="font-size:11px;color:var(--text-muted);margin-top:8px;">X5 = aurora-green tint · Competitor bad values = danger-red opacity 70%</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     09 — SPACING & LAYOUT
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 09</div>
+  <h2>Spacing & Layout</h2>
+  <p class="chapter-desc">8px grid system — tất cả spacing đều là bội số của 8px.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Spacing Scale (8px Grid)</div>
+  <div class="spacing-row">
+    <div class="space-item"><div class="space-bar" style="width:8px;"></div><div class="space-label">xs</div><div class="space-value">8px / 0.5rem</div></div>
+    <div class="space-item"><div class="space-bar" style="width:16px;"></div><div class="space-label">sm</div><div class="space-value">16px / 1rem</div></div>
+    <div class="space-item"><div class="space-bar" style="width:24px;"></div><div class="space-label">md</div><div class="space-value">24px / 1.5rem</div></div>
+    <div class="space-item"><div class="space-bar" style="width:32px;"></div><div class="space-label">lg</div><div class="space-value">32px / 2rem</div></div>
+    <div class="space-item"><div class="space-bar" style="width:48px;"></div><div class="space-label">xl</div><div class="space-value">48px / 3rem</div></div>
+    <div class="space-item"><div class="space-bar" style="width:64px;"></div><div class="space-label">2xl</div><div class="space-value">64px / 4rem</div></div>
+    <div class="space-item"><div class="space-bar" style="width:96px;"></div><div class="space-label">3xl</div><div class="space-value">96px / 6rem</div></div>
+  </div>
+
+  <div class="rule-box" style="margin-top:20px;">
+    <strong>Social Post Padding Rules:</strong><br>
+    Square post (1080×1080): Internal padding <strong>40–48px</strong> trên mọi cạnh<br>
+    Content elements gap: <strong>16–24px</strong><br>
+    Section separation: <strong>32–48px</strong><br>
+    Brand watermark margin from edge: <strong>24–32px</strong>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Border Radius Rules</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-end;padding:24px;background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:12px;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:50px;height:30px;background:var(--electric-blue);border-radius:4px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">4px<br>Tags/Badges</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:60px;height:36px;background:var(--electric-blue);border-radius:8px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">8px<br>Inputs</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:70px;height:40px;background:var(--electric-blue);border-radius:10px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">10px<br>Buttons</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:80px;height:60px;background:var(--electric-blue);border-radius:16px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">16px<br>Large cards</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:90px;height:70px;background:var(--electric-blue);border-radius:24px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">24px<br>Feature cards</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:100px;height:80px;background:var(--electric-blue);border-radius:32px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">32px<br>Hero elements</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+      <div style="width:80px;height:36px;background:var(--electric-blue);border-radius:999px;opacity:0.7;"></div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);">999px<br>Pills/Badges</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     10 — MOTION & ANIMATION
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 10</div>
+  <h2>Motion & Animation</h2>
+  <p class="chapter-desc">Khi nào animate, easing nào dùng, và những gì tuyệt đối không animate.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Animation Specs</div>
+  <div style="background:var(--bg-surface-1);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:8px 24px;">
+    <div class="anim-row">
+      <div class="anim-name">Micro-interaction (hover)</div>
+      <div class="anim-code">150ms cubic-bezier(0.4, 0, 0.2, 1)</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">Card hover (translateY -6px)</div>
+      <div class="anim-code">300ms cubic-bezier(0.4, 0, 0.2, 1)</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">Page transitions</div>
+      <div class="anim-code">500ms cubic-bezier(0.4, 0, 0.2, 1)</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">Spring/bounce effects</div>
+      <div class="anim-code">400ms cubic-bezier(0.34, 1.56, 0.64, 1)</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">Smooth reveal (AOS)</div>
+      <div class="anim-code">600ms cubic-bezier(0.22, 1, 0.36, 1)</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">Aurora orb drift</div>
+      <div class="anim-code">12–15s ease-in-out infinite alternate</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">Badge pulse (green dot)</div>
+      <div class="anim-code">2s ease-in-out infinite — opacity 1→0.6</div>
+    </div>
+    <div class="anim-row">
+      <div class="anim-name">CTA button breathe</div>
+      <div class="anim-code">3s ease-in-out infinite — box-shadow pulse</div>
+    </div>
+    <div class="anim-row" style="border-bottom:none;">
+      <div class="anim-name">Count-up numbers</div>
+      <div class="anim-code">1.5s ease-out — IntersectionObserver trigger</div>
+    </div>
+  </div>
+  <div class="rule-box red" style="margin-top:16px;">
+    <strong>KHÔNG animate:</strong> Số liệu KPI phải đứng yên trong static social images · Background texture không chuyển động trong static posts · Không dùng animated GIF cho content LinkedIn (giảm reach) · Chỉ animate cho video content hoặc web
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     11 — AI PROMPT FORMULAS
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 11</div>
+  <h2>AI Prompt Formulas</h2>
+  <p class="chapter-desc">Copy-paste prompts để AI design tools (Midjourney, DALL-E, Canva AI, Figma AI) tạo ra visual đúng brand.</p>
+</div>
+
+<div class="section">
+  <div class="section-title">Master Style Prompt (dùng cho mọi request)</div>
+  <div class="prompt-box">
+    <div class="prompt-title">Master Style String — Append to every prompt</div>
+    <div class="prompt-text">--style: dark tech luxury, deep navy background #080D1A, electric blue #1D9BF0 accent, aurora green #00D4AA for positive metrics, minimal grid dot pattern texture, glassmorphism cards with subtle blue glow, Plus Jakarta Sans bold typography, JetBrains Mono for numbers, no white backgrounds, no bright gradients, no stock photo people, professional and data-driven aesthetic, "AI running at 2am" mood</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Template-Specific Prompts</div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 01 — Text Post (1:1 Square)</div>
+    <div class="prompt-text">Create a LinkedIn social media post graphic, 1080x1080px. Dark background #080D1A with subtle radial blue glow (rgba 29,155,240 opacity 0.10) in top-right corner. Large bold headline text in white (#F1F5F9) using Plus Jakarta Sans 900 weight: "<span class="ph">[HOOK TEXT]</span>". Body copy in secondary gray (#94A3B8) Outfit font. CTA line in electric blue (#1D9BF0) JetBrains Mono. Small "X⁵ Digital" watermark bottom-right corner in blue opacity 50%. No people, no icons, text-focused, professional fintech aesthetic.
+<span class="ph">--ar 1:1 --style raw --no bright colors, white backgrounds, stock photos</span></div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 02 — Metric/KPI Card (1:1 Square)</div>
+    <div class="prompt-text">Create a data visualization social post, 1080x1080px. Background: deep dark gradient #0D1F3C to #1A1040. Large metric number "<span class="ph">[NUMBER]</span>" in JetBrains Mono 600 weight, color aurora green #00D4AA (or danger red #EF4444 for negative), massive size taking up 40% of card, with subtle green glow effect. Small label above in JetBrains Mono ALL CAPS muted gray: "<span class="ph">[METRIC NAME]</span>". Description text below in Outfit #F1F5F9: "<span class="ph">[CONTEXT]</span>". Green aurora orb bottom-left. "X⁵ Digital" watermark. Clean, minimal, data-center aesthetic.
+<span class="ph">--ar 1:1 --style raw</span></div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 03 — Before/After Comparison (1:1)</div>
+    <div class="prompt-text">Create a two-column comparison infographic, 1080x1080px. Dark background #0D1426 with subtle dot grid pattern. Title at top in Plus Jakarta Sans 800 white. Left column with red tint (rgba 239,68,68,0.06) border (rgba 239,68,68,0.15), label "Before" or competitor name in #F87171, 4-5 bullet points in gray. Right column with green tint (rgba 0,212,170,0.06) border (rgba 0,212,170,0.2), label "X5 Digital" in #00D4AA, matching bullet points improved. Checkmarks ✓ in green, ✗ in red. "X⁵ Digital" watermark bottom-right.
+<span class="ph">--ar 1:1 --style raw --no gradients, decorative elements</span></div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 04 — Carousel Slide (1:1, specific slide)</div>
+    <div class="prompt-text">Create a carousel slide graphic for LinkedIn, 1080x1080px, slide <span class="ph">[N]</span> of <span class="ph">[TOTAL]</span>. Background #0D1426. Top row: slide counter "<span class="ph">[N / TOTAL]</span>" in JetBrains Mono gray, and progress dots (active dot in electric blue #1D9BF0, others rgba white 0.1). Icon block: 56×56px rounded-14px box in rgba(29,155,240,0.1) with border rgba(29,155,240,0.2), containing emoji/icon "<span class="ph">[ICON]</span>". Small eyebrow in JetBrains Mono electric blue ALL CAPS: "<span class="ph">[EYEBROW]</span>". Section title in Plus Jakarta Sans 800 22px white: "<span class="ph">[TITLE]</span>". Body text Outfit 13px gray. Bottom: "X⁵ Digital" brand + arrow →.
+<span class="ph">--ar 1:1 --style raw</span></div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 05 — Quote Card (1:1)</div>
+    <div class="prompt-text">Create a pull-quote social post, 1080x1080px. Background gradient from #0D1F3C to #0F1535. Giant decorative quotation mark " in top-left at 180px size, opacity 6%, color electric blue. Quote text in Plus Jakarta Sans 700 20px white: "<span class="ph">[QUOTE TEXT]</span>", with key phrase in gradient text (blue to purple: #1D9BF0 to #8B5CF6). Attribution below: person name bold white + horizontal line separator (rgba blue 0.4) + role/title in gray. No photo, no avatar, text-only, editorial luxury feel. "X⁵ Digital" watermark.
+<span class="ph">--ar 1:1 --style raw</span></div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 06 — Stats Banner (1.91:1 horizontal)</div>
+    <div class="prompt-text">Create a horizontal LinkedIn post banner, 1200×628px. Background #111B33 with subtle top border gradient (transparent to blue to transparent). Title text left: "<span class="ph">[TITLE]</span>" Plus Jakarta Sans 700 white. 3-4 stat blocks evenly spaced: each has a large JetBrains Mono 600 number in a distinct brand color (<span class="ph">[colors from: aurora-green, electric-blue, amber-warm, neon-indigo]</span>) and small description below in gray. Thin vertical dividers between blocks rgba(255,255,255,0.06). "X⁵ Digital" watermark bottom-right.
+<span class="ph">--ar 1200:628 --style raw</span></div>
+  </div>
+
+  <div class="prompt-box">
+    <div class="prompt-title">Prompt 07 — Workflow/System Diagram</div>
+    <div class="prompt-text">Create a minimal system flow diagram, dark background #080D1A. Nodes as rounded rectangles (16px radius) with glassmorphism effect: rgba(255,255,255,0.03) fill, rgba(29,155,240,0.1) border, subtle blue glow. Node labels in Outfit 14px white. Connecting lines in electric blue #1D9BF0 with small directional arrows, 1px weight. Flow goes left-to-right or top-to-bottom. Final node in aurora green #00D4AA to indicate success state. No decorative elements, data-center technical aesthetic.
+<span class="ph">--style raw --no 3D, shadows, gradients on nodes</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Canva / Figma AI Instruction Block</div>
+  <div class="prompt-box">
+    <div class="prompt-title">For Canva Magic Design / Figma AI</div>
+    <div class="prompt-text">Brand: X5 Digital — AI-powered digital marketing team for US SMEs
+Visual style: Dark tech luxury ("Quiet Luxury Tech"). Aesthetic: AI data center, 2am, glowing systems.
+
+COLOR RULES (strict):
+- Background ONLY: #080D1A, #0D1426, #111B33, #1A2444
+- Primary accent: #1D9BF0 (Electric Blue)
+- Secondary accents: #6366F1 (Indigo), #06B6D4 (Cyan)
+- Positive/success: #00D4AA (Aurora Green)
+- Warning/urgency: #F59E0B (Amber)
+- Negative/before-state: #EF4444 (Red)
+- Text: #F1F5F9 (headlines), #94A3B8 (body)
+- NEVER use white backgrounds, pure black, or bright/neon colors
+
+FONT RULES (strict):
+- Headlines/UI: Plus Jakarta Sans, weight 700–900
+- Body/descriptions: Outfit, weight 400–600
+- Numbers/data/badges: JetBrains Mono, weight 400–600
+- NEVER use: Inter, Roboto, Arial, Helvetica, system fonts
+
+ALWAYS include:
+- "X⁵ Digital" watermark bottom-right, blue #1D9BF0 opacity 50%
+- At least 1 radial gradient glow orb (blue or green, opacity ≤ 0.25)
+- Border on cards: 1px rgba(255,255,255,0.08)
+
+NEVER include:
+- Stock photos of people
+- White or light backgrounds
+- Pure black (#000000) backgrounds
+- Bright/neon colors outside the defined palette
+- Generic geometric decorations (circles, triangles as decoration)</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     12 — DO'S & DON'TS
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div class="chapter">
+  <div class="chapter-num">Chapter 12</div>
+  <h2>Do's & Don'ts</h2>
+  <p class="chapter-desc">Rules cụ thể để tránh visual sai brand identity — đặc biệt quan trọng khi dùng AI tools.</p>
+</div>
+
+<div class="section">
+  <div class="do-dont-grid">
+    <div class="do-col">
+      <div class="dd-header">✓ DO — Luôn làm</div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dùng nền tối (#080D1A, #0D1426) cho mọi visual content</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dùng JetBrains Mono cho tất cả số liệu, giá, và KPIs</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Thêm "X⁵ Digital" watermark ở bottom-right mọi post</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dùng glow effects (box-shadow) cho accent elements</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Maintain 4.5:1+ contrast ratio cho tất cả text</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dùng gradient text (blue→purple) cho accent words trong H1</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Kết hợp đúng màu với context (green = positive, red = negative)</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Padding tối thiểu 40px tất cả các cạnh trong social post</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dùng glassmorphism card recipe cho elevated content</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dùng aurora orb radial gradient để tạo depth cho background</span></div>
+    </div>
+    <div class="dont-col">
+      <div class="dd-header">✗ DON'T — Tuyệt đối không</div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không bao giờ dùng nền trắng hoặc sáng cho X5 content</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không dùng Inter, Roboto, Arial hoặc system fonts</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không dùng stock photos của người lạ / generic người</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không dùng pure black (#000000) làm background</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không dùng neon/fluorescent colors ngoài palette định nghĩa</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không để text body bé hơn 12px trong social posts</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không dùng quá 3 brand colors trong 1 visual cùng lúc</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không dùng decorative shapes (triangles, circles) chỉ để trang trí</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không mix serif fonts với brand fonts (Plus Jakarta / Outfit)</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Không đặt text body màu text-muted (#475569) — chỉ dùng cho captions</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-title">Visual Identity — X5 vs Generic AI Look</div>
+  <div class="do-dont-grid">
+    <div class="do-col">
+      <div class="dd-header">✓ X5 Digital Look</div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Dark navy background với subtle aurora glows</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Sharp typography, tight letter-spacing, heavy weights</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Data-centric: số liệu lớn, JetBrains Mono, KPI-first</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Glow từ bên trong — glowing elements on dark bg</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Minimal decoration, maximum substance</span></div>
+      <div class="dd-item"><span class="dd-icon">✓</span><span>Glassmorphism cards — layered depth</span></div>
+    </div>
+    <div class="dont-col">
+      <div class="dd-header">✗ Generic AI Marketing Look</div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Purple gradient trên nền trắng/light gray</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Rounded bubbly fonts, playful tone</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Stock photo của business people shaking hands</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Icon packs generic với color fill</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Pastel colors, soft shadows, "friendly startup" look</span></div>
+      <div class="dd-item"><span class="dd-icon">✗</span><span>Text trên nền gradient sáng rực</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     QUICK REFERENCE CARD
+══════════════════════════════════════════════ -->
+<div class="grad-divider"></div>
+<div style="background:linear-gradient(135deg,#0D1F3C,#1A1040);border:1px solid rgba(29,155,240,0.2);border-radius:20px;padding:40px;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:-100px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(29,155,240,0.12),transparent 65%);border-radius:50%;pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-100px;left:-60px;width:350px;height:350px;background:radial-gradient(circle,rgba(0,212,170,0.10),transparent 65%);border-radius:50%;pointer-events:none;"></div>
+  <div style="font-family:var(--font-mono);font-size:11px;font-weight:600;color:var(--electric-blue);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:24px;position:relative;z-index:1;">Quick Reference — Copy this to AI tools</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;position:relative;z-index:1;">
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Backgrounds</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:2;">
+        Base: <span style="color:var(--electric-blue)">#080D1A</span><br>
+        Surface-1: <span style="color:var(--electric-blue)">#0D1426</span><br>
+        Surface-2: <span style="color:var(--electric-blue)">#111B33</span><br>
+        CTA bg: <span style="color:var(--electric-blue)">#0D1F3C → #1A1040</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Brand Colors</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:2;">
+        Blue: <span style="color:#1D9BF0">#1D9BF0</span> (primary)<br>
+        Indigo: <span style="color:#6366F1">#6366F1</span> (secondary)<br>
+        Green: <span style="color:#00D4AA">#00D4AA</span> (success)<br>
+        Amber: <span style="color:#F59E0B">#F59E0B</span> (urgency)
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Typography</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:2;">
+        Display: <span style="color:var(--text-primary)">Plus Jakarta Sans 800/900</span><br>
+        Body: <span style="color:var(--text-primary)">Outfit 400/500/600</span><br>
+        Data: <span style="color:var(--text-primary)">JetBrains Mono 400/600</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Text Colors</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:2;">
+        Primary: <span style="color:#F1F5F9">#F1F5F9</span> (AAA 16.2:1)<br>
+        Secondary: <span style="color:#94A3B8">#94A3B8</span> (AA 5.1:1)<br>
+        Muted: <span style="color:#475569">#475569</span> (captions only)
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Border Radius</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:2;">
+        Button: <span style="color:var(--text-primary)">10px</span><br>
+        Card: <span style="color:var(--text-primary)">24px</span><br>
+        Badge/Pill: <span style="color:var(--text-primary)">999px</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:10px;">Key Rules</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text-secondary);line-height:2;">
+        ✓ <span style="color:var(--text-primary)">Always dark background</span><br>
+        ✓ <span style="color:var(--text-primary)">Always watermark X⁵</span><br>
+        ✗ <span style="color:#F87171">No white bg, no stock photos</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end guide-container -->
+
+<!-- FOOTER -->
+<div class="guide-footer">
+  X5 Digital — AI Design Style Guide v1.0 &nbsp;·&nbsp; Approved for Production &nbsp;·&nbsp; hello@x5digital.com
+</div>
+
+</body>
+</html>
