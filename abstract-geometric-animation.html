@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Abstract Geometric Illustration</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #c4bba6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+@keyframes spiralBob {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+@keyframes magnifySwing {
+  0%,100% { transform: rotate(-5deg); }
+  50%      { transform: rotate(5deg); }
+}
+@keyframes vasePulse {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+@keyframes waveAnim {
+  0%,100% { transform: translateX(0); }
+  50%      { transform: translateX(-15px); }
+}
+@keyframes floatA {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-14px) rotate(8deg); }
+}
+@keyframes floatB {
+  0%,100% { transform: translateY(0) rotate(12deg); }
+  50%      { transform: translateY(-18px) rotate(22deg); }
+}
+@keyframes floatC {
+  0%,100% { transform: translateY(0) rotate(-10deg); }
+  40%      { transform: translateY(-10px) rotate(-22deg); }
+  80%      { transform: translateY(6px) rotate(2deg); }
+}
+@keyframes floatD {
+  0%,100% { transform: translateY(0) rotate(40deg); }
+  60%      { transform: translateY(-12px) rotate(25deg); }
+}
+@keyframes floatE {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+@keyframes tubePulse {
+  0%,100% { transform: scaleX(1); }
+  50%      { transform: scaleX(1.012); transform-origin: left; }
+}
+
+.g-spiral  { animation: spiralBob   3.5s ease-in-out infinite; transform-origin: 112px 310px; }
+.g-tube    { animation: tubePulse   4s   ease-in-out infinite; }
+.g-magnify { animation: magnifySwing 5s  ease-in-out infinite; transform-origin: 572px 370px; }
+.g-vase    { animation: vasePulse   3.2s ease-in-out infinite; transform-origin: 460px 520px; }
+.g-wave    { animation: waveAnim    4s   ease-in-out infinite; }
+.fa { animation: floatA 2.9s ease-in-out infinite; }
+.fb { animation: floatB 3.3s ease-in-out infinite 0.5s; }
+.fc { animation: floatC 2.6s ease-in-out infinite 0.9s; }
+.fd { animation: floatD 3.7s ease-in-out infinite 0.3s; }
+.fe { animation: floatE 2.3s ease-in-out infinite 1.2s; }
+.fa2 { animation: floatA 3.6s ease-in-out infinite 0.7s; }
+.fb2 { animation: floatB 2.8s ease-in-out infinite 1.4s; }
+</style>
+</head>
+<body>
+<svg style="width:100%;max-width:960px;display:block;" viewBox="0 0 960 600" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <clipPath id="clipTube">
+    <rect x="34" y="44" width="494" height="68" rx="34"/>
+  </clipPath>
+  <clipPath id="clipMag">
+    <circle cx="558" cy="106" r="48"/>
+  </clipPath>
+  <clipPath id="clipSphere1">
+    <circle cx="74" cy="158" r="27"/>
+  </clipPath>
+</defs>
+
+<!-- Background -->
+<rect width="960" height="600" fill="#c4bba6"/>
+
+<!-- ════════════════ BLUE TUBE ════════════════ -->
+<g class="g-tube">
+  <rect x="34" y="44" width="494" height="68" rx="34" fill="#5aa8d4"/>
+  <!-- inner shadow left cap -->
+  <circle cx="68" cy="78" r="22" fill="#3d8fc0" clip-path="url(#clipTube)"/>
+  <!-- tube highlight -->
+  <path d="M68,58 Q280,52 488,58" fill="none" stroke="#7cc6e8" stroke-width="4" stroke-linecap="round" opacity="0.45"/>
+  <!-- White sphere exiting right end -->
+  <circle cx="498" cy="78" r="34" fill="#f0ede8"/>
+  <!-- black crescent (overlapping circle inside tube clip) -->
+  <circle cx="514" cy="82" r="34" fill="#1c1c1c" clip-path="url(#clipTube)"/>
+</g>
+
+<!-- ════════════════ SPIRAL / SPRING ════════════════ -->
+<g class="g-spiral">
+  <!-- white sphere near top of spiral -->
+  <circle cx="74" cy="158" r="27" fill="#f0ede8"/>
+  <circle cx="84" cy="163" r="27" fill="#1c1c1c" clip-path="url(#clipSphere1)"/>
+  <circle cx="68" cy="153" r="15" fill="#f0ede8"/>
+
+  <!-- back arcs (darker) -->
+  <path d="M 60,196 A 52,20 0 0 1 164,196" fill="none" stroke="#3a85b8" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 60,236 A 52,20 0 0 1 164,236" fill="none" stroke="#3a85b8" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 60,276 A 52,20 0 0 1 164,276" fill="none" stroke="#3a85b8" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 60,316 A 52,20 0 0 1 164,316" fill="none" stroke="#3a85b8" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 60,356 A 52,20 0 0 1 164,356" fill="none" stroke="#3a85b8" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+  <path d="M 60,396 A 52,20 0 0 1 164,396" fill="none" stroke="#3a85b8" stroke-width="13" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- front arcs (brighter) -->
+  <path d="M 164,196 A 52,20 0 0 1 60,236" fill="none" stroke="#5aa8d4" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 164,236 A 52,20 0 0 1 60,276" fill="none" stroke="#5aa8d4" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 164,276 A 52,20 0 0 1 60,316" fill="none" stroke="#5aa8d4" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 164,316 A 52,20 0 0 1 60,356" fill="none" stroke="#5aa8d4" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 164,356 A 52,20 0 0 1 60,396" fill="none" stroke="#5aa8d4" stroke-width="13" stroke-linecap="round"/>
+  <path d="M 164,396 A 52,20 0 0 1 60,436" fill="none" stroke="#5aa8d4" stroke-width="13" stroke-linecap="round"/>
+
+  <!-- small white sphere at bottom end -->
+  <circle cx="60" cy="449" r="14" fill="#f0ede8"/>
+  <circle cx="66" cy="453" r="14" fill="#1c1c1c" opacity="0.75"/>
+  <circle cx="57" cy="446" r="9"  fill="#f0ede8"/>
+</g>
+
+<!-- ════════════════ VASE / FUNNEL (center) ════════════════ -->
+<g class="g-vase">
+  <!-- main body -->
+  <path d="
+    M 370,228
+    C 358,270 340,318 358,360
+    C 368,385 364,435 328,560
+    L 594,560
+    C 558,435 554,385 564,360
+    C 582,318 564,270 552,228
+    Z
+  " fill="#c05038"/>
+  <!-- top bowl rim (ellipse) -->
+  <ellipse cx="461" cy="228" rx="92" ry="20" fill="#da6e48"/>
+  <!-- inner bowl highlight -->
+  <ellipse cx="461" cy="228" rx="74" ry="13" fill="#e87e52" opacity="0.7"/>
+  <!-- thread swirl inside bowl -->
+  <path d="M 428,230 C 445,221 476,224 478,214" fill="none" stroke="#f0a882" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+  <!-- waist shadow -->
+  <ellipse cx="461" cy="348" rx="38" ry="6" fill="#a83a20" opacity="0.5"/>
+</g>
+
+<!-- ════════════════ GOLDEN MAGNIFYING GLASS ════════════════ -->
+<g class="g-magnify">
+  <!-- stem -->
+  <rect x="562" y="152" width="20" height="222" rx="10" fill="#e8a020"/>
+  <!-- foot base -->
+  <ellipse cx="572" cy="374" rx="28" ry="10" fill="#c88810"/>
+  <!-- outer ring -->
+  <circle cx="558" cy="106" r="68" fill="none" stroke="#e8a020" stroke-width="22"/>
+  <!-- inner dark ring edge -->
+  <circle cx="558" cy="106" r="57" fill="none" stroke="#d49018" stroke-width="3" opacity="0.5"/>
+  <!-- White sphere in lens -->
+  <circle cx="543" cy="94" r="44" fill="#f0ede8"/>
+  <!-- crescent on lens sphere -->
+  <circle cx="556" cy="100" r="44" fill="#1c1c1c" clip-path="url(#clipMag)" opacity="0.68"/>
+  <circle cx="538" cy="90" r="28" fill="#f0ede8"/>
+</g>
+
+<!-- ════════════════ WAVE RIBBON (bottom right) ════════════════ -->
+<g class="g-wave">
+  <path d="M295,372 C340,345 390,390 440,360 C490,330 540,380 590,350 C625,330 660,348 700,332 C730,320 760,335 800,320 L800,460 L295,460 Z"
+    fill="#5aa8d4" transform="translate(160,60)"/>
+  <!-- wave highlight line -->
+  <path d="M455,432 C500,405 550,450 600,422 C640,400 680,416 720,402"
+    fill="none" stroke="#7cc6e8" stroke-width="3" stroke-linecap="round" opacity="0.5" transform="translate(160,60)"/>
+</g>
+
+<!-- white sphere on wave (bottom right) -->
+<g class="fe" style="transform-origin: 778px 430px;">
+  <circle cx="778" cy="430" r="28" fill="#f0ede8"/>
+  <circle cx="788" cy="436" r="28" fill="#1c1c1c" opacity="0.65"/>
+  <circle cx="772" cy="424" r="17" fill="#f0ede8"/>
+</g>
+
+<!-- ════════════════ BOTTOM LEFT ELEMENTS ════════════════ -->
+<!-- gold triangle -->
+<polygon points="192,462 296,356 296,462" fill="#e8a020" opacity="0.92"/>
+<!-- empty rectangle -->
+<rect x="308" y="362" width="44" height="88" rx="3" fill="#d0c8b8" opacity="0.55"/>
+<rect x="309" y="363" width="42" height="86" rx="2" fill="none" stroke="#b0a898" stroke-width="2.5"/>
+
+<!-- ════════════════ CONFETTI ════════════════ -->
+<!-- bent red strips (like in original) -->
+<g class="fa" style="transform-origin:398px 148px;">
+  <path d="M387,138 C396,128 410,136 408,150 C406,160 394,162 392,154 C390,144 400,140 404,148"
+    fill="none" stroke="#c05038" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g class="fb" style="transform-origin:524px 156px;">
+  <path d="M513,144 C524,132 538,140 536,155 C534,166 520,168 518,158 C516,148 527,144 531,152"
+    fill="none" stroke="#e8a020" stroke-width="7" stroke-linecap="round"/>
+</g>
+
+<!-- small rectangles -->
+<g class="fc" style="transform-origin:440px 134px;">
+  <rect x="429" y="126" width="22" height="9" rx="2" fill="#c05038" transform="rotate(18,440,130)"/>
+</g>
+<g class="fd" style="transform-origin:350px 220px;">
+  <circle cx="350" cy="220" r="7" fill="#5aa8d4"/>
+</g>
+<g class="fa2" style="transform-origin:596px 175px;">
+  <rect x="584" y="168" width="24" height="9" rx="2" fill="#d0c8b8" transform="rotate(-14,596,172)"/>
+</g>
+<g class="fb2" style="transform-origin:645px 215px;">
+  <rect x="633" y="208" width="24" height="9" rx="2" fill="#d0c8b8" transform="rotate(8,645,212)"/>
+</g>
+<g class="fc" style="transform-origin:538px 195px;">
+  <circle cx="538" cy="195" r="8" fill="#c05038"/>
+</g>
+<g class="fe" style="transform-origin:472px 170px;">
+  <circle cx="472" cy="170" r="5" fill="#e8a020"/>
+</g>
+
+<!-- capsule shapes (right side floating) -->
+<g class="fb" style="transform-origin:694px 222px;">
+  <rect x="666" y="212" width="56" height="20" rx="10" fill="#d0c8b8" opacity="0.85"/>
+  <circle cx="716" cy="222" r="9" fill="#c05038"/>
+</g>
+<g class="fa" style="transform-origin:668px 278px;">
+  <rect x="640" y="268" width="56" height="20" rx="10" fill="#d0c8b8" opacity="0.85"/>
+  <circle cx="690" cy="278" r="9" fill="#e8a020"/>
+</g>
+<g class="fc" style="transform-origin:700px 330px;">
+  <rect x="672" y="320" width="56" height="20" rx="10" fill="#d0c8b8" opacity="0.85"/>
+</g>
+
+<!-- white rect confetti -->
+<g class="fa2" style="transform-origin:368px 172px;">
+  <rect x="356" y="165" width="22" height="9" rx="2" fill="#f0ede8" transform="rotate(-8,368,170)"/>
+</g>
+<!-- blue small dot -->
+<g class="fd" style="transform-origin:304px 238px;">
+  <circle cx="304" cy="238" r="7" fill="#5aa8d4"/>
+</g>
+
+</svg>
+</body>
+</html>
