@@ -170,11 +170,12 @@
     .trust-bar::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:2px;background:linear-gradient(90deg,transparent,var(--electric-blue),transparent);animation:trust-shimmer 4s linear infinite}
     @keyframes trust-shimmer{from{left:-60%}to{left:160%}}
     .trust-title{text-align:left;font-size:var(--text-sm);font-weight:600;color:var(--text-secondary);margin-bottom:var(--space-md)}
-    .trust-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md)}
-    .trust-item{display:flex;align-items:center;gap:var(--space-sm);font-weight:600;color:var(--text-secondary);padding:var(--space-sm);border-radius:var(--radius-md);transition:all var(--transition-normal);opacity:0;transform:translateY(15px)}
+    .trust-logos{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-sm)}
+    .trust-item{display:flex;align-items:center;gap:var(--space-sm);font-weight:600;color:var(--text-secondary);padding:var(--space-sm);border-radius:var(--radius-md);transition:all var(--transition-normal);opacity:0;transform:translateY(15px);min-width:0}
     .trust-item.in{opacity:1;transform:translateY(0)}
     .trust-item:hover{background:var(--bg-surface-2);transform:translateY(-3px);box-shadow:var(--glow-blue-sm)}
-    .trust-icon{display:flex;align-items:center;justify-content:center;width:40px;height:40px;background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));color:white;border-radius:10px;font-size:var(--text-lg);box-shadow:var(--glow-blue-sm);transition:transform var(--transition-spring)}
+    .trust-item span{font-size:var(--text-sm);line-height:1.3;word-break:break-word}
+    .trust-icon{display:flex;align-items:center;justify-content:center;width:40px;height:40px;min-width:40px;min-height:40px;background:linear-gradient(135deg,var(--electric-blue),var(--neon-indigo));color:white;border-radius:10px;font-size:var(--text-lg);box-shadow:var(--glow-blue-sm);transition:transform var(--transition-spring);flex-shrink:0}
     .trust-item:hover .trust-icon{transform:rotate(15deg) scale(1.1)}
 
     /* ═══════════════════════════════════════════════
@@ -343,7 +344,8 @@
         .container,.container-narrow{padding:0 1rem}
         .hero-badge{font-size:.65rem;padding:6px 14px}
         .lead{font-size:var(--text-base)}
-        .trust-logos{grid-template-columns:repeat(2,1fr);gap:var(--space-sm)}
+        .trust-logos{grid-template-columns:1fr;gap:var(--space-xs)}
+        .trust-item span{font-size:var(--text-sm)}
     }
     @media(prefers-reduced-motion:reduce){
         *{animation-duration:.01ms!important;transition-duration:.01ms!important}
