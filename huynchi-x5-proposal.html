@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Huynchi × X5 Digital — Digital Growth Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange:       #E8612A;
+  --orange-dark:  #C44E1A;
+  --orange-light: #F28A5C;
+  --orange-pale:  #FDF0EA;
+  --navy:         #112337;
+  --navy-deep:    #0A1520;
+  --white:        #FFFFFF;
+  --off-white:    #FAF9F7;
+  --warm-stone:   #F2EFE9;
+  --warm-pebble:  #E8E4DC;
+  --text-body:    #3D4450;
+  --text-muted:   #7A8494;
+  --divider:      #E3DED6;
+  --x5-blue:      #1D9BF0;
+  --x5-green:     #00D4AA;
+  --x5-indigo:    #6366F1;
+  --x5-cyan:      #06B6D4;
+  --x5-amber:     #F59E0B;
+  --x5-purple:    #8B5CF6;
+  --x5-surface1:  #0D1426;
+
+  /* Fonts — readable, popular */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { font-size: 17px; }
+body {
+  font-family: var(--font-body);
+  background: var(--navy-deep);
+  color: var(--text-body);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+/* ─── TYPOGRAPHY SCALE ─── */
+h1 { font-family: var(--font-display); font-size: 3rem;   font-weight: 700; line-height: 1.15; }
+h2 { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; line-height: 1.2;  }
+h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; line-height: 1.25; }
+h4 { font-family: var(--font-body);    font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
+p  { font-size: 1rem; font-weight: 400; line-height: 1.75; }
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ─── TAGS ─── */
+.tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.tag-orange  { background: var(--orange-pale); color: var(--orange-dark); border: 1px solid rgba(232,97,42,0.25); }
+.tag-navy    { background: rgba(17,35,55,0.07); color: var(--navy); border: 1px solid rgba(17,35,55,0.15); }
+.tag-stone   { background: var(--warm-stone); color: var(--text-body); border: 1px solid var(--divider); }
+.tag-blue    { background: rgba(29,155,240,0.1); color: #1070b8; border: 1px solid rgba(29,155,240,0.25); }
+.tag-green   { background: rgba(0,212,170,0.1); color: #008a70; border: 1px solid rgba(0,212,170,0.25); }
+.tag-green-d { background: rgba(0,212,170,0.06); color: rgba(0,170,130,0.85); border: 1px dashed rgba(0,212,170,0.25); }
+.tag-amber   { background: rgba(245,158,11,0.1); color: #9a7108; border: 1px solid rgba(245,158,11,0.25); }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
+
+/* ─── CHIPS ─── */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-body);
+  background: var(--warm-stone);
+  border: 1px solid var(--divider);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+/* ─── EYEBROW ─── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.eyebrow span {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* ─── SECTION ─── */
+.section { padding: 64px 80px; }
+.section-light { background: var(--off-white); }
+.section-stone { background: var(--warm-stone); }
+.section-dark  { background: var(--x5-surface1); }
+
+.section-head { margin-bottom: 48px; }
+.section-head h1 { color: var(--navy); margin-bottom: 10px; }
+.section-head h1 em { font-style: italic; color: var(--orange); }
+.section-head p { font-size: 1.05rem; color: var(--text-muted); max-width: 640px; }
+
+.divider { border: none; border-top: 1px solid var(--divider); margin: 36px 0; }
+.divider-dark { border-top-color: rgba(255,255,255,0.07); }
+
+/* ─────────────────────────────
+   COVER
+───────────────────────────── */
+.cover {
+  background: var(--navy-deep);
+  padding: 56px 80px 52px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid rgba(232,97,42,0.15);
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 50% 85% at 85% 50%, rgba(232,97,42,0.08) 0%, transparent 65%);
+  pointer-events: none;
+}
+.cover-ghost {
+  position: absolute; right: 60px; bottom: -20px;
+  font-family: var(--font-display);
+  font-size: 14rem; font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(232,97,42,0.05);
+  pointer-events: none; line-height: 1;
+}
+.cover h1 {
+  font-size: 3.5rem;
+  color: var(--white);
+  margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+.cover h1 em { color: var(--orange); }
+.cover h1 .dim { color: rgba(255,255,255,0.2); }
+.cover-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.9;
+  position: relative; z-index: 1;
+}
+.cover-badges { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; position: relative; z-index: 2; }
+.cbadge {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 6px 16px; border-radius: 4px;
+}
+.cb-hc   { background: rgba(232,97,42,0.14); color: var(--orange-light); border: 1px solid rgba(232,97,42,0.25); }
+.cb-x5   { background: rgba(29,155,240,0.1); color: rgba(29,155,240,0.8); border: 1px solid rgba(29,155,240,0.2); }
+.cb-date { color: rgba(255,255,255,0.9); border: 1px solid rgba(255,255,255,0.25); }
+
+/* ─────────────────────────────
+   ROW 1 — COMPANY OVERVIEW
+───────────────────────────── */
+.stats-bar {
+  display: flex;
+  gap: 1px;
+  background: var(--divider);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.stat {
+  background: var(--white);
+  padding: 20px 28px;
+  text-align: center;
+  min-width: 110px;
+}
+.stat-val {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-val .o { color: var(--orange); }
+.stat-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.overview-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 44px;
+  flex-wrap: wrap;
+}
+.overview-head h1 { color: var(--navy); }
+.overview-head h1 em { font-style: italic; color: var(--orange); }
+.tagline {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.overview-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; }
+
+.block-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.block-label::after { content: ''; flex: 1; height: 1px; background: var(--divider); }
+
+/* ─────────────────────────────
+   ROW 2 — CLIENT NEEDS
+───────────────────────────── */
+.needs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+
+.need-card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 14px;
+  padding: 40px 44px;
+  position: relative;
+  overflow: hidden;
+}
+.need-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 5px;
+  background: var(--orange);
+}
+
+.need-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--orange-dark);
+  background: var(--orange-pale);
+  border: 1px solid rgba(232,97,42,0.25);
+  padding: 5px 14px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.need-card h2 {
+  color: var(--navy);
+  margin-bottom: 8px;
+  font-size: 2rem;
+}
+.need-subtitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: var(--font-body);
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+.need-desc {
+  font-size: 0.975rem;
+  color: var(--text-body);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 24px;
+}
+
+.need-sub-label {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 14px;
+  margin-top: 24px;
+}
+
+/* why / outcome blocks inside application cards */
+.acard-reason {
+  margin-top: 14px;
+  border-top: 1px solid var(--divider);
+  padding-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.reason-block {
+  padding: 12px 14px;
+  border-radius: 6px;
+}
+.reason-block.why    { background: rgba(232,97,42,0.06); border: 1px solid rgba(232,97,42,0.14); }
+.reason-block.result { background: rgba(0,160,90,0.05); border: 1px solid rgba(0,160,90,0.14); }
+.reason-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.reason-block.why    .reason-label { color: var(--orange-dark); }
+.reason-block.result .reason-label { color: #007a50; }
+.reason-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+/* field pills */
+.fpills { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 28px; }
+.fpill {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 5px;
+  background: var(--orange-pale);
+  color: var(--orange-dark);
+  border: 1px solid rgba(232,97,42,0.2);
+}
+
+/* flow steps */
+.flow-steps { display: flex; flex-direction: column; gap: 10px; }
+.flow-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  background: var(--off-white);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+}
+.step-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--orange);
+  background: var(--orange-pale);
+  border: 1px solid rgba(232,97,42,0.2);
+  padding: 3px 9px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step-text {
+  font-size: 0.925rem;
+  font-weight: 400;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+.step-text strong { font-weight: 600; color: var(--navy); }
+
+/* seo goals */
+.seo-goals { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
+.seo-goal {
+  padding: 18px 20px;
+  background: var(--off-white);
+  border: 1px solid var(--divider);
+  border-radius: 8px;
+}
+.seo-goal h4 { font-size: 1rem; color: var(--navy); margin-bottom: 7px; }
+.seo-goal p  { font-size: 0.875rem; color: var(--text-body); line-height: 1.65; }
+
+/* ─────────────────────────────
+   ROW 3 — ANALYSIS & SOLUTION
+───────────────────────────── */
+.context-box {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 12px;
+  padding: 32px 36px;
+  margin-bottom: 40px;
+}
+.context-box h3 {
+  color: var(--navy);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+}
+.context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.context-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 18px;
+  background: var(--off-white);
+  border-left: 4px solid var(--orange);
+  border-radius: 4px;
+}
+.context-arr { color: var(--orange); font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; font-weight: 700; }
+.context-text { font-size: 0.925rem; color: var(--text-body); line-height: 1.65; }
+
+/* solution block */
+.sol-block { margin-bottom: 36px; }
+.sol-block:last-of-type { margin-bottom: 0; }
+
+.sol-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.sol-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 4px;
+  background: var(--orange-pale);
+  color: var(--orange-dark);
+  border: 1px solid rgba(232,97,42,0.25);
+  flex-shrink: 0;
+}
+.sol-block h3 { font-size: 1.7rem; color: var(--navy); }
+.sol-block h3 em { font-style: italic; color: var(--orange); }
+
+.sol-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sol-card {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 24px 26px;
+}
+.sol-card-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(232,97,42,0.6);
+  margin-bottom: 10px;
+}
+.sol-card h4 { font-size: 1.05rem; color: var(--white); margin-bottom: 14px; }
+.sol-item { display: flex; gap: 10px; margin-bottom: 9px; align-items: flex-start; }
+.sol-arr { color: var(--orange-light); flex-shrink: 0; margin-top: 1px; font-weight: 600; font-size: 0.9rem; }
+.sol-text { font-size: 0.875rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+.sol-explain {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sol-explain-item {
+  padding: 10px 13px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  line-height: 1.65;
+}
+.sei-what   { background: rgba(29,155,240,0.08); border: 1px solid rgba(29,155,240,0.18); }
+.sei-why    { background: rgba(232,97,42,0.1);   border: 1px solid rgba(232,97,42,0.18); }
+.sei-result { background: rgba(0,180,100,0.08);  border: 1px solid rgba(0,180,100,0.15); }
+.sei-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sei-what   .sei-label { color: var(--x5-blue); }
+.sei-why    .sei-label { color: var(--orange-light); }
+.sei-result .sei-label { color: #00c87a; }
+.sei-text { color: rgba(255,255,255,0.5); }
+
+.scale-banner {
+  margin-top: 32px;
+  background: rgba(232,97,42,0.07);
+  border: 1px solid rgba(232,97,42,0.18);
+  border-radius: 12px;
+  padding: 22px 28px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.scale-icon { font-size: 1.3rem; flex-shrink: 0; }
+.scale-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+.scale-body  { font-size: 0.925rem; color: var(--text-body); line-height: 1.75; }
+
+/* ─────────────────────────────
+   ROW 4 — LAYERS + APPLICATION
+───────────────────────────── */
+.two-col { display: grid; grid-template-columns: 0.9fr 1.1fr; }
+.col { padding: 56px 52px; }
+.col-dark  { background: var(--x5-surface1); border-right: 1px solid rgba(255,255,255,0.06); }
+.col-light { background: var(--off-white); }
+
+.col-dark h2  { color: var(--white); margin-bottom: 32px; }
+.col-dark h2 em { color: var(--x5-blue); font-style: italic; }
+.col-light h2 { color: var(--navy); margin-bottom: 32px; }
+.col-light h2 em { color: var(--orange); font-style: italic; }
+
+/* layer cards */
+.lcard { border-radius: 10px; padding: 18px 20px; margin-bottom: 10px; border: 1px solid; }
+.lcard-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.lbadge {
+  font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 4px;
+}
+.lstatus {
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px;
+}
+.s-active   { background: rgba(0,212,170,0.14); color: var(--x5-green); }
+.s-lite     { background: rgba(245,158,11,0.14); color: var(--x5-amber); }
+.s-optional { background: rgba(139,92,246,0.12); color: var(--x5-purple); }
+
+.lname { font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+.ldesc { font-size: 0.875rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
+
+.lc1 { background: rgba(6,182,212,0.06); border-color: rgba(6,182,212,0.18); }
+.lc1 .lbadge { background: rgba(6,182,212,0.14); color: #06B6D4; }
+.lc2 { background: rgba(29,155,240,0.06); border-color: rgba(29,155,240,0.18); }
+.lc2 .lbadge { background: rgba(29,155,240,0.14); color: var(--x5-blue); }
+.lc3 { background: rgba(99,102,241,0.05); border-color: rgba(99,102,241,0.15); }
+.lc3 .lbadge { background: rgba(99,102,241,0.12); color: var(--x5-indigo); }
+.lc4 { background: rgba(0,212,170,0.05); border-color: rgba(0,212,170,0.15); }
+.lc4 .lbadge { background: rgba(0,212,170,0.12); color: var(--x5-green); }
+.lc5 { background: rgba(139,92,246,0.04); border-color: rgba(139,92,246,0.12); }
+.lc5 .lbadge { background: rgba(139,92,246,0.12); color: var(--x5-purple); }
+
+.x5-pkg-note {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 10px;
+}
+.x5-pkg-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #1D9BF0; margin-bottom: 8px; }
+.x5-pkg-text  { font-size: 0.925rem; color: rgba(29,155,240,0.85); line-height: 1.7; }
+
+/* application cards */
+.acard {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid var(--divider);
+  padding: 22px 26px;
+  margin-bottom: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.acard::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; }
+.ac1::before { background: linear-gradient(90deg, #06B6D4, rgba(6,182,212,0.1)); }
+.ac2::before { background: linear-gradient(90deg, var(--x5-blue), rgba(29,155,240,0.1)); }
+.ac3::before { background: linear-gradient(90deg, var(--x5-amber), rgba(245,158,11,0.1)); }
+.ac4::before { background: linear-gradient(90deg, var(--orange), rgba(232,97,42,0.1)); }
+.ac5::before { background: linear-gradient(90deg, var(--x5-purple), rgba(139,92,246,0.07)); }
+
+.acard-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 12px; }
+.acard-name { font-size: 1.05rem; font-weight: 700; line-height: 1.25; }
+.ac1 .acard-name { color: #0a8faa; }
+.ac2 .acard-name { color: #1478be; }
+.ac3 .acard-name { color: #9a7108; }
+.ac4 .acard-name { color: var(--orange-dark); }
+.ac5 .acard-name { color: var(--x5-purple); }
+
+.aclabel { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 10px; }
+.aitem { display: flex; gap: 10px; margin-bottom: 7px; align-items: flex-start; }
+.aarr  { flex-shrink: 0; margin-top: 1px; font-weight: 700; font-size: 0.85rem; }
+.ac1 .aarr { color: #06B6D4; }
+.ac2 .aarr { color: var(--x5-blue); }
+.ac3 .aarr { color: var(--x5-amber); }
+.ac4 .aarr { color: var(--orange); }
+.ac5 .aarr { color: var(--x5-purple); }
+.atext { font-size: 0.9rem; color: var(--text-body); line-height: 1.65; }
+
+.sub-note {
+  margin-top: 10px; padding: 9px 14px; border-radius: 5px;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+}
+.note-amber  { background: rgba(245,158,11,0.08); color: #9a7108; border: 1px solid rgba(245,158,11,0.2); }
+.note-purple { background: rgba(139,92,246,0.07); color: #6b42c8; border: 1px dashed rgba(139,92,246,0.25); }
+
+.pkg-banner {
+  margin-top: 24px;
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 28px 32px;
+  border: 1px solid rgba(232,97,42,0.2);
+  position: relative; overflow: hidden;
+}
+.pkg-banner::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 45%; height: 100%;
+  background: radial-gradient(ellipse 90% 80% at 100% 50%, rgba(232,97,42,0.1) 0%, transparent 70%);
+}
+.pkg-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(232,97,42,0.6); margin-bottom: 8px; }
+.pkg-name  { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.pkg-name em { color: var(--orange); font-style: italic; }
+.pkg-desc  { font-size: 0.925rem; color: rgba(255,255,255,0.45); line-height: 1.75; margin-bottom: 16px; }
+
+/* ─── DEMO / EXAMPLE BLOCKS ─── */
+
+/* Shared demo wrapper */
+.demo-block {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--divider);
+}
+.demo-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--warm-pebble);
+  border-bottom: 1px solid var(--divider);
+}
+.demo-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 3px;
+}
+.demo-tag-do   { background: rgba(0,160,80,0.12); color: #006a40; border: 1px solid rgba(0,160,80,0.2); }
+.demo-tag-dont { background: rgba(220,50,50,0.1); color: #b02020; border: 1px solid rgba(220,50,50,0.18); }
+.demo-tag-ex   { background: rgba(29,155,240,0.1); color: #1070b8; border: 1px solid rgba(29,155,240,0.2); }
+.demo-tag-flow { background: rgba(139,92,246,0.1); color: #5b35b0; border: 1px solid rgba(139,92,246,0.2); }
+.demo-header-title { font-size: 0.8rem; font-weight: 600; color: var(--text-body); }
+
+/* Do/Don't side-by-side */
+.do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.do-col, .dont-col { padding: 18px 20px; }
+.do-col   { background: #e8f7ef; border-right: 1px solid var(--divider); }
+.dont-col { background: #fceaea; }
+.do-col-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
+}
+.do-col   .do-col-label { color: #006a40; }
+.dont-col .do-col-label { color: #b02020; }
+
+/* Chat bubbles */
+.chat-wrap { display: flex; flex-direction: column; gap: 8px; }
+.bubble {
+  max-width: 88%;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.bubble-bot {
+  align-self: flex-start;
+  background: var(--warm-stone);
+  border: 1px solid var(--divider);
+  color: #2a2e38;
+  border-radius: 4px 10px 10px 10px;
+}
+.bubble-bot.good {
+  background: #e6f7ee;
+  border-color: #7bcca0;
+  color: #0d3320;
+}
+.bubble-bot.bad {
+  background: #fce8e8;
+  border-color: #e8a0a0;
+  color: #3a0f0f;
+}
+.bubble-user {
+  align-self: flex-end;
+  background: var(--navy);
+  color: rgba(255,255,255,0.85);
+  border-radius: 10px 4px 10px 10px;
+  font-size: 0.82rem;
+}
+.bubble-sender {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.bubble-bot.good .bubble-sender { color: #006a40; }
+.bubble-bot.bad  .bubble-sender { color: #b02020; }
+.bubble-bot      .bubble-sender { color: var(--text-muted); }
+
+/* Funnel flow demo */
+.funnel-flow { padding: 16px 20px; background: var(--off-white); display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
+.funnel-step {
+  display: flex; align-items: center; gap: 0;
+}
+.fstep-box {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 6px;
+  padding: 8px 13px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--navy);
+  text-align: center;
+  white-space: nowrap;
+}
+.fstep-box.highlight {
+  background: var(--orange-pale);
+  border-color: rgba(232,97,42,0.3);
+  color: var(--orange-dark);
+}
+.fstep-arrow {
+  font-size: 0.9rem; color: var(--text-muted);
+  padding: 0 6px; flex-shrink: 0;
+}
+
+/* Before/After example */
+.before-after { display: grid; grid-template-columns: 1fr 1fr; }
+.ba-col { padding: 16px 18px; }
+.ba-col.before { background: #fceaea; border-right: 1px solid var(--divider); }
+.ba-col.after  { background: #e8f7ef; }
+.ba-label {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.ba-col.before .ba-label { color: #8c1a1a; }
+.ba-col.after  .ba-label { color: #005530; }
+.ba-text { font-size: 0.82rem; color: #1a1e28; line-height: 1.7; font-weight: 400; }
+.ba-text strong { color: #0a0e18; font-weight: 700; }
+.ba-text .hl-good { color: #005530; font-weight: 700; }
+.ba-text .hl-bad  { color: #8c1a1a; font-weight: 700; }
+
+/* AI answer simulation */
+.ai-sim { padding: 18px 20px; background: var(--off-white); }
+.ai-query {
+  display: flex; gap: 10px; align-items: flex-start;
+  padding: 10px 14px; background: var(--white);
+  border: 1px solid var(--divider); border-radius: 8px; margin-bottom: 12px;
+}
+.ai-query-icon { font-size: 1rem; flex-shrink: 0; }
+.ai-query-text { font-size: 0.85rem; font-weight: 500; color: var(--navy); font-style: italic; }
+.ai-answer {
+  padding: 14px 16px; border-radius: 8px;
+  font-size: 0.85rem; line-height: 1.75; color: var(--text-body);
+}
+.ai-answer.with-huynchi {
+  background: rgba(0,160,80,0.05); border: 1px solid rgba(0,160,80,0.18);
+}
+.ai-answer.without-huynchi {
+  background: rgba(220,50,50,0.05); border: 1px solid rgba(220,50,50,0.15);
+}
+.ai-cite {
+  display: inline; background: rgba(29,155,240,0.12);
+  color: #1070b8; padding: 1px 6px; border-radius: 3px;
+  font-weight: 600; font-size: 0.8rem;
+}
+.ai-answer-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 8px;
+}
+.with-huynchi .ai-answer-label  { color: #006a40; }
+.without-huynchi .ai-answer-label { color: #b02020; }
+
+/* Keyword table */
+.kw-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.kw-table td {
+  padding: 9px 14px; border-bottom: 1px solid var(--divider);
+  color: #9ca3af; vertical-align: top; line-height: 1.5;
+  font-weight: 400;
+}
+.kw-table th {
+  padding: 8px 14px; text-align: left;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #374151; background: var(--warm-pebble);
+  border-bottom: 1px solid var(--divider);
+}
+.kw-table tr:last-child td { border-bottom: none; }
+.kw-table tr:hover td { background: var(--off-white); }
+.kw-intent {
+  font-size: 0.68rem; font-weight: 700; padding: 2px 7px;
+  border-radius: 3px; white-space: nowrap;
+}
+.intent-high   { background: rgba(232,97,42,0.12); color: var(--orange-dark); }
+.intent-info   { background: rgba(29,155,240,0.1);  color: #1070b8; }
+.intent-local  { background: rgba(0,160,80,0.1);    color: #006a40; }
+
+/* Chat demo in dark card (Application Layer 4) */
+.dark-chat-wrap {
+  background: var(--orange-pale);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px solid rgba(232,97,42,0.2);
+}
+.dark-chat-label {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--orange-dark); margin-bottom: 12px;
+}
+.dchat { display: flex; flex-direction: column; gap: 8px; }
+.dbubble {
+  max-width: 90%; padding: 10px 13px; border-radius: 8px;
+  font-size: 0.82rem; line-height: 1.6;
+}
+.dbubble-bot {
+  align-self: flex-start;
+  background: #ffffff;
+  border: 1px solid rgba(232,97,42,0.25);
+  color: var(--navy);
+  border-radius: 4px 8px 8px 8px;
+}
+.dbubble-user {
+  align-self: flex-end;
+  background: var(--navy);
+  border: 1px solid rgba(17,35,55,0.2);
+  color: #ffffff;
+  border-radius: 8px 4px 8px 8px;
+}
+.dbubble-sender {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 4px;
+}
+.dbubble-bot  .dbubble-sender { color: var(--orange); }
+.dbubble-user .dbubble-sender { color: rgba(255,255,255,0.5); }
+
+/* ─── FOOTER ─── */
+.doc-footer {
+  background: var(--navy-deep);
+  border-top: 1px solid rgba(232,97,42,0.12);
+  padding: 28px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-l { font-size: 0.95rem; font-weight: 400; color: rgba(255,255,255,0.9); }
+.footer-l .hc   { color: var(--orange); font-weight: 600; }
+.footer-l .x5   { color: #1D9BF0; font-weight: 600; }
+.footer-l .meta { color: rgba(255,255,255,0.9); font-weight: 400; }
+.footer-r { font-size: 0.78rem; color: rgba(255,255,255,0.75); text-align: right; line-height: 2; }
+.footer-r .x5-name { color: #1D9BF0; font-weight: 600; }
+
+/* ─── RESPONSIVE ─── */
+@media(max-width: 1100px) {
+  .section { padding: 48px 40px; }
+  .sol-cards { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .col { padding: 48px 40px; }
+}
+@media(max-width: 768px) {
+  .section { padding: 40px 24px; }
+  .cover { padding: 40px 24px; flex-direction: column; gap: 24px; }
+  .needs-grid { grid-template-columns: 1fr; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .context-grid { grid-template-columns: 1fr; }
+  .seo-goals { grid-template-columns: 1fr; }
+  .sol-cards { grid-template-columns: 1fr; }
+  .overview-head { flex-direction: column; }
+  .stats-bar { flex-wrap: wrap; }
+  .doc-footer { padding: 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<header class="cover">
+  <div>
+    <div class="eyebrow"><span>Digital Growth Proposal</span></div>
+    <h1><em>Huynchi</em> <span class="dim">×</span> X5 Digital</h1>
+    <p class="cover-sub">
+      AI Chatbot · SEO for AI Search · SEO for Google Search<br>
+      Strategic Package Recommendation — March 2026
+    </p>
+  </div>
+  <div class="cover-badges">
+    <span class="cbadge cb-hc">Huynchi — Client</span>
+    <span class="cbadge cb-x5">X5 Digital — Partner</span>
+    <span class="cbadge cb-date">March 2026</span>
+  </div>
+  <div class="cover-ghost">HC</div>
+</header>
+
+<!-- ═══ ROW 1 — COMPANY OVERVIEW ═══ -->
+<section class="section section-light">
+
+  <div class="overview-head">
+    <div>
+      <div class="eyebrow"><span>01 — Company Overview</span></div>
+      <h1 style="color:var(--navy)">Huynchi — <em style="color:var(--orange); font-style:italic">Office Design &amp; Build</em></h1>
+      <p class="tagline">"We design and build spaces for meaningful growth." — Est. 2003, Vietnam</p>
+    </div>
+    <div class="stats-bar">
+      <div class="stat"><div class="stat-val">20<span class="o">+</span></div><div class="stat-lbl">Năm kinh nghiệm</div></div>
+      <div class="stat"><div class="stat-val">50<span class="o">+</span></div><div class="stat-lbl">Dự án nổi bật</div></div>
+      <div class="stat"><div class="stat-val">2</div><div class="stat-lbl">Văn phòng VN</div></div>
+      <div class="stat"><div class="stat-val">10<span class="o">–15</span></div><div class="stat-lbl">Projects / năm</div></div>
+    </div>
+  </div>
+
+  <div class="overview-grid">
+    <div>
+      <div class="block-label">Mảng chuyên môn &amp; Quy trình</div>
+      <p style="margin-bottom: 18px; font-size: 0.975rem;">
+        Công ty thiết kế &amp; thi công nội thất thương mại tích hợp. Phục vụ các tổ chức xem không gian như yếu tố thúc đẩy tiềm năng con người. Triết lý: <em>"Space is never neutral. It shapes us."</em>
+      </p>
+      <div class="tag-row" style="margin-bottom: 12px;">
+        <span class="tag tag-orange">Workspace</span>
+        <span class="tag tag-orange">Regulated Space</span>
+        <span class="tag tag-orange">Education</span>
+      </div>
+      <div class="tag-row">
+        <span class="tag tag-navy">Understand &amp; Define</span>
+        <span class="tag tag-navy">Design</span>
+        <span class="tag tag-navy">Deliver</span>
+        <span class="tag tag-navy">Aftercare</span>
+      </div>
+    </div>
+    <div>
+      <div class="block-label">Khách hàng tiêu biểu</div>
+      <div class="chips">
+        <span class="chip">FPT Software</span><span class="chip">Agoda</span>
+        <span class="chip">Baker McKenzie</span><span class="chip">Heineken</span>
+        <span class="chip">XIAOMI</span><span class="chip">Standard Chartered</span>
+        <span class="chip">Allianz</span><span class="chip">Jack Wolfskin</span>
+        <span class="chip">Roche Vietnam</span><span class="chip">Philips</span>
+        <span class="chip">Pfizer</span><span class="chip">De Heus</span>
+        <span class="chip">Dentsu Aegis</span><span class="chip">CMC Corp</span>
+        <span class="chip">Marvell</span><span class="chip">Gelex</span>
+      </div>
+      <p style="margin-top: 14px; font-style: italic; color: var(--text-muted); font-size: 0.925rem;">
+        Đối tác quốc tế: DKO Architecture (Úc) · Project managers từ Hong Kong
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ROW 2 — CLIENT NEEDS ═══ -->
+<section class="section section-stone">
+
+  <div class="section-head">
+    <div class="eyebrow"><span>02 — Client Needs</span></div>
+    <h1 style="color:var(--navy)">Yêu cầu từ <em style="color:var(--orange); font-style:italic">Huynchi</em></h1>
+  </div>
+
+  <div class="needs-grid">
+
+    <!-- Need 01 -->
+    <div class="need-card">
+      <span class="need-badge">Need 01</span>
+      <h2 class="need-card-title" style="color:var(--navy); font-family:var(--font-display); font-size:2.1rem; font-weight:700; margin-bottom:8px;">AI Chatbot</h2>
+      <p class="need-subtitle">Tương tác tự động &amp; thu thập lead báo giá</p>
+      <p class="need-desc">
+        Huynchi cần một AI chatbot tích hợp trên website để tự động trả lời câu hỏi cơ bản, đồng thời dẫn dắt khách qua luồng hội thoại tự nhiên để thu thập thông tin đủ điều kiện nhận báo giá và đặt lịch tư vấn.
+      </p>
+
+      <div class="need-sub-label">Thông tin cần thu thập</div>
+      <div class="fpills">
+        <span class="fpill">Tên liên hệ</span>
+        <span class="fpill">Công ty</span>
+        <span class="fpill">Chức vụ</span>
+        <span class="fpill">Email</span>
+        <span class="fpill">Số điện thoại</span>
+        <span class="fpill">Loại dự án</span>
+        <span class="fpill">Ngân sách dự kiến</span>
+        <span class="fpill">Thời gian hoàn công</span>
+        <span class="fpill">Địa điểm công trình</span>
+      </div>
+
+      <div class="need-sub-label">Luồng hội thoại</div>
+      <div class="flow-steps">
+        <div class="flow-step"><span class="step-num">01</span><div class="step-text"><strong>Chào hỏi &amp; Phân loại:</strong> Workspace / Regulated Space / Education / Chưa chắc</div></div>
+        <div class="flow-step"><span class="step-num">02</span><div class="step-text"><strong>Khám phá nhu cầu:</strong> Mới hoàn toàn, cải tạo hay fit-out? Diện tích ước tính?</div></div>
+        <div class="flow-step"><span class="step-num">03</span><div class="step-text"><strong>Qualify &amp; Thu thập:</strong> Budget, timeline, contact info — từng bước tự nhiên</div></div>
+        <div class="flow-step"><span class="step-num">04</span><div class="step-text"><strong>CTA:</strong> Đề xuất lịch tư vấn 30 phút với Design Consultant</div></div>
+      </div>
+
+      <!-- DEMO 1: Do/Don't conversation -->
+      <div class="demo-block">
+        <div class="demo-header">
+          <span class="demo-tag demo-tag-do">✓ Do</span>
+          <span class="demo-tag demo-tag-dont">✗ Don't</span>
+          <span class="demo-header-title">Chatbot tone — Huynchi-branded vs Generic</span>
+        </div>
+        <div class="do-dont-grid">
+          <div class="do-col">
+            <div class="do-col-label">✓ Huynchi Brand Voice</div>
+            <div class="chat-wrap">
+              <div class="bubble bubble-bot good">
+                <div class="bubble-sender">Huynchi AI</div>
+                Xin chào! Tôi là trợ lý tư vấn không gian của Huynchi. Bạn đang tìm kiếm giải pháp cho loại không gian nào?
+              </div>
+              <div class="bubble bubble-user">Tôi cần thiết kế văn phòng mới</div>
+              <div class="bubble bubble-bot good">
+                <div class="bubble-sender">Huynchi AI</div>
+                Tuyệt vời. Để tư vấn đúng hướng, cho tôi hỏi — đây là văn phòng hoàn toàn mới hay bạn đang cải tạo không gian hiện tại?
+              </div>
+            </div>
+          </div>
+          <div class="dont-col">
+            <div class="do-col-label">✗ Generic Chatbot</div>
+            <div class="chat-wrap">
+              <div class="bubble bubble-bot bad">
+                <div class="bubble-sender">Bot</div>
+                Chào mừng! Vui lòng điền form để được tư vấn. Họ tên? Email? Số điện thoại?
+              </div>
+              <div class="bubble bubble-user">Tôi cần thiết kế văn phòng mới</div>
+              <div class="bubble bubble-bot bad">
+                <div class="bubble-sender">Bot</div>
+                Cảm ơn! Chúng tôi sẽ liên hệ lại trong vòng 24 giờ.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Need 02 -->
+    <div class="need-card">
+      <span class="need-badge">Need 02</span>
+      <h2 style="color:var(--navy); font-family:var(--font-display); font-size:2.1rem; font-weight:700; margin-bottom:8px;">SEO Strategy</h2>
+      <p class="need-subtitle">AI Search Engines &amp; Google Search Results</p>
+      <p class="need-desc">
+        Huynchi cần hiện diện mạnh trên 2 kênh: AI search tools khi người dùng hỏi về thiết kế nội thất văn phòng tại Việt Nam, và Google Search khi khách hàng tìm đơn vị Design &amp; Build uy tín.
+      </p>
+
+      <div class="need-sub-label">2 Mục tiêu SEO</div>
+      <div class="seo-goals">
+        <div class="seo-goal">
+          <h4>🤖 AI Search (GEO)</h4>
+          <p>Xuất hiện trong câu trả lời của ChatGPT, Perplexity, Gemini, Google AI Overview khi hỏi về thiết kế nội thất văn phòng tại Việt Nam.</p>
+        </div>
+        <div class="seo-goal">
+          <h4>🔍 Google Search</h4>
+          <p>Top rankings từ khóa service, local, industry-specific. Song ngữ Việt &amp; English, phủ khách Việt lẫn tập đoàn nước ngoài.</p>
+        </div>
+      </div>
+
+      <div class="need-sub-label">Target Audience</div>
+      <div class="flow-steps">
+        <div class="flow-step"><span class="step-num">A</span><div class="step-text"><strong>C-suite &amp; Facility Managers</strong> của tập đoàn đa quốc gia tại Việt Nam</div></div>
+        <div class="flow-step"><span class="step-num">B</span><div class="step-text"><strong>Doanh nghiệp Việt Nam</strong> đang mở rộng văn phòng hoặc tái thiết kế không gian</div></div>
+        <div class="flow-step"><span class="step-num">C</span><div class="step-text"><strong>Healthcare &amp; Education operators</strong> cần đơn vị chuyên ngành regulated space</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ ROW 3 — ANALYSIS & SOLUTION ═══ -->
+<section class="section section-light">
+
+  <div class="section-head">
+    <div class="eyebrow"><span>03 — Analysis &amp; Solution</span></div>
+    <h1 style="color:var(--navy)">Phân tích &amp; <em style="color:var(--orange); font-style:italic">Giải pháp</em></h1>
+  </div>
+
+  <!-- Context -->
+  <div class="context-box">
+    <h3>⚡ Đặc thù kinh doanh — B2B High-Value, Low Volume</h3>
+    <div class="context-grid">
+      <div class="context-item"><span class="context-arr">→</span><p class="context-text">Chỉ 10–15 dự án/năm → mỗi lead đều quý giá, không được bỏ sót một lead nào</p></div>
+      <div class="context-item"><span class="context-arr">→</span><p class="context-text">Khách hàng C-suite, facility managers tập đoàn lớn → decision cycle dài, tin tưởng là yếu tố quyết định</p></div>
+      <div class="context-item"><span class="context-arr">→</span><p class="context-text">Brand voice tinh tế — chatbot phải phản ánh đúng phong cách Huynchi, không ép bán</p></div>
+      <div class="context-item"><span class="context-arr">→</span><p class="context-text">Portfolio mạnh (Agoda, FPT, Baker McKenzie...) là tài sản SEO &amp; GEO lớn nhất cần khai thác</p></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Sol 01 -->
+  <div class="sol-block">
+    <div class="sol-heading">
+      <span class="sol-pill">Giải pháp 01</span>
+      <h3>AI Chatbot — <em>Conversational Lead Funnel</em></h3>
+    </div>
+    <div class="sol-cards">
+      <div class="sol-card">
+        <div class="sol-card-label">Design Principle</div>
+        <h4>Huynchi Brand Voice</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Tone lắng nghe &amp; tư vấn — không phải bán hàng. Phản ánh đúng "Space is never neutral" philosophy</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Phân loại intent ngay đầu: Workspace / Healthcare / Education / Chưa chắc</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Thu thập thông tin từng bước tự nhiên, không hỏi dồn cùng lúc</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Bộ nguyên tắc thiết kế ngôn ngữ &amp; hành vi của chatbot — đảm bảo AI nói chuyện đúng chất Huynchi, không giống chatbot bán hàng thông thường.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">Khách của Huynchi là C-suite, quen được phục vụ chuyên nghiệp. Một chatbot hỏi đại trà sẽ làm mất uy tín thương hiệu và khách rời đi ngay.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Chatbot trở thành điểm tiếp xúc thương hiệu đầu tiên — tạo ấn tượng chuyên nghiệp, tin tưởng và khuyến khích khách tiếp tục chia sẻ thông tin.</div>
+          </div>
+        </div>
+        <!-- Demo 2: Do/Don't message tone -->
+        <div class="demo-block">
+          <div class="demo-header">
+            <span class="demo-tag demo-tag-do">✓ Do</span>
+            <span class="demo-tag demo-tag-dont">✗ Don't</span>
+            <span class="demo-header-title">Cách chatbot đặt câu hỏi qualify budget</span>
+          </div>
+          <div class="do-dont-grid">
+            <div class="do-col">
+              <div class="do-col-label">✓ Đúng tone Huynchi</div>
+              <div class="chat-wrap">
+                <div class="bubble bubble-bot good">
+                  <div class="bubble-sender">Huynchi AI</div>
+                  Để chúng tôi tư vấn giải pháp phù hợp nhất, bạn có thể chia sẻ ngân sách dự kiến cho dự án này không? Ví dụ: dưới 2 tỷ, 2–5 tỷ, hay trên 5 tỷ?
+                </div>
+              </div>
+            </div>
+            <div class="dont-col">
+              <div class="do-col-label">✗ Tránh cách này</div>
+              <div class="chat-wrap">
+                <div class="bubble bubble-bot bad">
+                  <div class="bubble-sender">Bot</div>
+                  Ngân sách của bạn là bao nhiêu? (Bắt buộc)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-label">Lead Capture Flow</div>
+        <h4>Conversational Funnel</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Intent → Project type → Scope → Budget → Timeline → Location → Contact</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Khi đủ thông tin → đề xuất lịch tư vấn 30 phút với Design Consultant</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">24/7 hoạt động — không bỏ sót lead nào kể cả ngoài giờ làm việc</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Luồng hội thoại được thiết kế từng bước — mỗi câu hỏi mở ra câu tiếp theo một cách tự nhiên, giống như đang nói chuyện với một design consultant thật.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">Không có funnel chuẩn → khách cung cấp thông tin lộn xộn, thiếu, hoặc chỉ để lại email mà không qualify được nhu cầu → sales team tốn thời gian gọi lại làm rõ.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Mỗi lead đến tay sales team đã có đủ 9 trường thông tin — loại dự án, ngân sách, timeline. Sales chỉ cần gọi để xác nhận và đặt lịch, không phải hỏi lại từ đầu.</div>
+          </div>
+        </div>
+        <!-- Demo 3: Funnel flowchart -->
+        <div class="demo-block">
+          <div class="demo-header">
+            <span class="demo-tag demo-tag-flow">▶ Flow Demo</span>
+            <span class="demo-header-title">7 bước hội thoại từ Intent → Booking</span>
+          </div>
+          <div class="funnel-flow">
+            <div class="funnel-step"><div class="fstep-box highlight">Intent</div><span class="fstep-arrow">→</span></div>
+            <div class="funnel-step"><div class="fstep-box">Project Type</div><span class="fstep-arrow">→</span></div>
+            <div class="funnel-step"><div class="fstep-box">Scope &amp; Size</div><span class="fstep-arrow">→</span></div>
+            <div class="funnel-step"><div class="fstep-box">Budget</div><span class="fstep-arrow">→</span></div>
+            <div class="funnel-step"><div class="fstep-box">Timeline</div><span class="fstep-arrow">→</span></div>
+            <div class="funnel-step"><div class="fstep-box">Contact Info</div><span class="fstep-arrow">→</span></div>
+            <div class="funnel-step"><div class="fstep-box highlight">Book 30-min Call</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-label">Automation</div>
+        <h4>n8n Workflow</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Chatbot trigger → tự động ghi vào Google Sheet CRM với đầy đủ 9 trường thông tin</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Auto email notify sales team ngay lập tức khi có lead mới</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Không cần HubSpot — 10–15 deals/năm, Google Sheet là tối ưu nhất</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Hệ thống tự động hóa backend: khi chatbot hoàn tất thu thập thông tin, n8n workflow tức thì lưu data và thông báo đến đúng người — không cần thao tác thủ công.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">Nếu chỉ có chatbot mà không có automation, thông tin lead vẫn bị rơi hoặc phải copy thủ công. Phản hồi chậm > 1 giờ thì tỷ lệ mất deal tăng gấp 3 lần.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Zero thao tác thủ công. Trong vòng 60 giây sau khi khách điền xong, sales team đã nhận email với đầy đủ thông tin và có thể phản hồi ngay.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Sol 02 -->
+  <div class="sol-block">
+    <div class="sol-heading">
+      <span class="sol-pill">Giải pháp 02</span>
+      <h3>SEO for AI — <em>Generative Engine Optimization (GEO)</em></h3>
+    </div>
+    <div class="sol-cards">
+      <div class="sol-card">
+        <div class="sol-card-label">Entity Building</div>
+        <h4>Knowledge Graph</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Google Knowledge Panel cho Huynchi — xác thực, nhất quán trên toàn bộ nền tảng</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Wikidata, Crunchbase, Schema Organization + LocalBusiness đầy đủ</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">AI models nhận diện Huynchi như một authority trong lĩnh vực</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Xây dựng "danh tính số" của Huynchi trên toàn bộ hệ sinh thái — để AI engines như ChatGPT, Gemini hiểu Huynchi là ai, làm gì, ở đâu, đáng tin cậy ở mức nào.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">AI search engines không crawl web thời gian thực — chúng dựa vào các "knowledge sources" đã được index. Nếu Huynchi không có entity rõ ràng, AI sẽ không đề xuất dù website có nội dung tốt.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Huynchi được AI engines nhận diện là thực thể đáng tin cậy trong lĩnh vực thiết kế nội thất văn phòng → nền tảng để được trích dẫn trong câu trả lời AI.</div>
+          </div>
+        </div>
+        <!-- Demo 5: AI answer simulation -->
+        <div class="demo-block">
+          <div class="demo-header">
+            <span class="demo-tag demo-tag-ex">Example</span>
+            <span class="demo-header-title">Khi người dùng hỏi AI về thiết kế văn phòng</span>
+          </div>
+          <div class="ai-sim">
+            <div class="ai-query">
+              <div class="ai-query-icon">🔍</div>
+              <div class="ai-query-text">"Công ty thiết kế nội thất văn phòng uy tín tại Hồ Chí Minh cho tập đoàn đa quốc gia là gì?"</div>
+            </div>
+            <div class="ai-answer with-huynchi">
+              <div class="ai-answer-label">✓ Sau khi triển khai GEO — Huynchi được trích dẫn</div>
+              Các đơn vị Design & Build uy tín tại HCMC phục vụ doanh nghiệp lớn bao gồm <span class="ai-cite">Huynchi</span> — chuyên thiết kế và thi công nội thất thương mại từ 2003, với danh mục khách hàng như FPT Software, Agoda, Baker McKenzie và Heineken Vietnam...
+            </div>
+            <div style="margin-top:10px">
+            <div class="ai-answer without-huynchi">
+              <div class="ai-answer-label">✗ Trước khi triển khai — Huynchi vô hình</div>
+              Có một số công ty thiết kế nội thất văn phòng tại TP.HCM như [đối thủ A], [đối thủ B]... Bạn nên liên hệ trực tiếp để được báo giá.
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-label">Authority Content</div>
+        <h4>E-E-A-T Content</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">"Definitive Guide" content: AI ưu tiên trích dẫn nguồn có E-E-A-T mạnh</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Case study format chuẩn: Client → Challenge → Solution → Outcome</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">FAQ tối ưu answer-extraction: chi phí, quy trình, timeline thi công</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">E-E-A-T = Experience, Expertise, Authoritativeness, Trust. Content được viết theo format mà AI engines ưu tiên trích dẫn: có tác giả thật, số liệu cụ thể, dẫn chứng rõ ràng.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">AI không trích dẫn content chung chung. Nó ưu tiên các nguồn thể hiện chuyên môn thực sự. Huynchi có 50+ dự án thực tế — đây là lợi thế cạnh tranh cần được đưa lên đúng format.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Khi ai đó hỏi ChatGPT "công ty thiết kế nội thất văn phòng uy tín tại Việt Nam", content của Huynchi có khả năng cao được trích dẫn trực tiếp trong câu trả lời.</div>
+          </div>
+        </div>
+        <!-- Demo 4: Before/After case study format -->
+        <div class="demo-block">
+          <div class="demo-header">
+            <span class="demo-tag demo-tag-ex">Before / After</span>
+            <span class="demo-header-title">Case study format — thường vs E-E-A-T chuẩn</span>
+          </div>
+          <div class="before-after">
+            <div class="ba-col before">
+              <div class="ba-label">✗ Format thông thường</div>
+              <p class="ba-text">
+                <span class="hl-bad">Dự án FPT F-Town 3</span><br>
+                Huynchi đã thiết kế văn phòng cho FPT Software. Không gian được thiết kế đẹp, hiện đại, phù hợp với văn hóa công ty. Khách hàng rất hài lòng.
+              </p>
+            </div>
+            <div class="ba-col after">
+              <div class="ba-label">✓ E-E-A-T Format chuẩn</div>
+              <p class="ba-text">
+                <span class="hl-good">Client:</span> FPT Software (F-Town 3, HCMC)<br>
+                <span class="hl-good">Challenge:</span> 2,800m² không gian cần phản ánh tầm nhìn AI excellence, hybrid work-ready<br>
+                <span class="hl-good">Solution:</span> Thiết kế theo chủ đề "Hành trình của nước" — 12 zone chức năng, tích hợp AV & smart office<br>
+                <span class="hl-good">Outcome:</span> Hoàn thành đúng 14 tuần, NPS nội bộ tăng 34% sau 3 tháng sử dụng
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-label">Citation Building</div>
+        <h4>AI Source Trust</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">PR báo chí: CafeF, VnEconomy, Vietnam Investment Review — dự án nổi bật</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Listing trên Clutch, DesignRush, LinkedIn Pulse</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Guest articles từ leadership team về workplace design philosophy</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Chiến lược xây dựng sự hiện diện của Huynchi trên các nguồn thứ cấp uy tín — báo chí, directory, platform chuyên ngành. AI models tin tưởng các nguồn này để cross-verify thông tin.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">AI không chỉ đọc website của bạn — nó tổng hợp từ hàng trăm nguồn. Nếu Huynchi chỉ tồn tại trên website riêng mà không có mention từ bên ngoài, độ tin cậy rất thấp.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Huynchi được nhắc đến từ nhiều nguồn uy tín → AI engines tăng mức độ tin cậy → xuất hiện thường xuyên hơn trong câu trả lời khi người dùng hỏi về thiết kế nội thất văn phòng.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Sol 03 -->
+  <div class="sol-block">
+    <div class="sol-heading">
+      <span class="sol-pill">Giải pháp 03</span>
+      <h3>SEO for Google — <em>Search Result Optimization</em></h3>
+    </div>
+    <div class="sol-cards">
+      <div class="sol-card">
+        <div class="sol-card-label">Technical + On-page</div>
+        <h4>Foundation SEO</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Core Web Vitals audit &amp; fix, GA4 + GSC setup, Schema markup toàn bộ pages</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Landing page riêng: Workspace / Regulated Space / Education</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Mỗi project portfolio = 1 trang SEO (tên client + industry keyword)</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Tối ưu kỹ thuật và nội dung on-page để Google hiểu đúng website Huynchi — tốc độ tải, cấu trúc dữ liệu, và từng trang được map rõ với từ khóa mục tiêu.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">Hiện tại huynchi.com không có landing page riêng theo ngành — khách tìm "thiết kế nội thất bệnh viện" sẽ không thấy trang nào phù hợp. Google không biết Huynchi chuyên về mảng nào.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Mỗi mảng chuyên môn có trang riêng được tối ưu → Google rank đúng trang cho đúng từ khóa → tăng khả năng xuất hiện khi khách tìm đúng dịch vụ Huynchi cung cấp.</div>
+          </div>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-label">Keyword Strategy</div>
+        <h4>Song ngữ Vi / En</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">High-intent: "công ty thiết kế nội thất văn phòng HCMC", "office interior design Vietnam"</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Industry-specific: "thiết kế phòng lab GMP", "hospital interior design Vietnam"</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Blog editorial 2 bài/tháng — khai thác Insights blog sẵn có của Huynchi</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Nghiên cứu và map từ khóa theo 2 ngôn ngữ và 3 nhóm đối tượng — khách hàng Việt Nam, tập đoàn nước ngoài, và khách chuyên ngành healthcare/education.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">Phần lớn khách hàng của Huynchi là tập đoàn nước ngoài — họ tìm kiếm bằng tiếng Anh. Nếu chỉ tối ưu tiếng Việt, Huynchi vô hình với một nửa thị trường mục tiêu.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Phủ đầy đủ cả 2 nhóm khách hàng. Blog Insights sẵn có của Huynchi được tận dụng tối đa — biến thành traffic engine dài hạn thay vì chỉ là content marketing đơn thuần.</div>
+          </div>
+        </div>
+        <!-- Demo 6: Keyword table -->
+        <div class="demo-block">
+          <div class="demo-header">
+            <span class="demo-tag demo-tag-ex">Example</span>
+            <span class="demo-header-title">Sample keyword map — Vi + En, 3 nhóm intent</span>
+          </div>
+          <table class="kw-table">
+            <thead>
+              <tr><th>Từ khóa</th><th>Ngôn ngữ</th><th>Intent</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>công ty thiết kế nội thất văn phòng TPHCM</td><td>VI</td><td><span class="kw-intent intent-high">High Intent</span></td></tr>
+              <tr><td>office interior design company Vietnam</td><td>EN</td><td><span class="kw-intent intent-high">High Intent</span></td></tr>
+              <tr><td>chi phí thiết kế văn phòng 500m2</td><td>VI</td><td><span class="kw-intent intent-info">Informational</span></td></tr>
+              <tr><td>hospital interior design GMP Vietnam</td><td>EN</td><td><span class="kw-intent intent-high">High Intent</span></td></tr>
+              <tr><td>thiết kế văn phòng Hà Nội</td><td>VI</td><td><span class="kw-intent intent-local">Local</span></td></tr>
+              <tr><td>office fit-out company Ho Chi Minh City</td><td>EN</td><td><span class="kw-intent intent-local">Local</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card-label">Local + Link Building</div>
+        <h4>Local Authority</h4>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Google Business Profile: 2 văn phòng HCMC &amp; Hà Nội, consistent NAP</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">Link building từ PR dự án: FPT F-Town 3, Heineken, Agoda...</span></div>
+        <div class="sol-item"><span class="sol-arr">→</span><span class="sol-text">LinkedIn content từ leadership — tác dụng cả SEO lẫn GEO authority</span></div>
+        <div class="sol-explain">
+          <div class="sol-explain-item sei-what">
+            <div class="sei-label">Approach</div>
+            <div class="sei-text">Tối ưu tìm kiếm địa phương (Local SEO) và xây dựng backlinks chất lượng cao từ các nguồn báo chí, partner, và dự án nổi bật — tăng Domain Authority tổng thể.</div>
+          </div>
+          <div class="sol-explain-item sei-why">
+            <div class="sei-label">Challenge</div>
+            <div class="sei-text">Google ưu tiên kết quả local cho từ khóa có địa điểm. Đồng thời, mỗi backlink từ báo chí về dự án FPT hay Agoda vừa tăng SEO vừa là social proof với khách hàng tiềm năng.</div>
+          </div>
+          <div class="sol-explain-item sei-result">
+            <div class="sei-label">Expected Outcome</div>
+            <div class="sei-text">Huynchi xuất hiện trong Google Maps &amp; Local Pack khi khách tìm dịch vụ tại HCMC/Hà Nội. Domain Authority tăng → tất cả trang con được rank tốt hơn theo thời gian.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scale-banner">
+    <div class="scale-icon">⚠️</div>
+    <div>
+      <div class="scale-title">Business Scale Note — Tại sao không cần traffic lớn</div>
+      <p class="scale-body">Với 10–15 dự án/năm, SEO của Huynchi không cần volume traffic cao — mục tiêu là <strong>đúng người, đúng thời điểm</strong>: khi họ đang tích cực tìm kiếm đơn vị Design &amp; Build uy tín. Chỉ cần 2–3 qualified leads/tháng là đã vượt mục tiêu kinh doanh.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ═══ ROW 4 — X5 LAYERS + APPLICATION ═══ -->
+<div class="two-col">
+
+  <!-- X5 Layers -->
+  <div class="col col-dark">
+    <div class="eyebrow" style="margin-bottom:10px"><span style="color:var(--x5-blue)">04 — Framework</span></div>
+    <h2 style="color:var(--white)">X5 Digital <em style="color:var(--x5-blue); font-style:italic">5 Layers</em></h2>
+
+    <div class="lcard lc1">
+      <div class="lcard-top"><span class="lbadge">Layer 1</span><span class="lstatus s-active">Active</span></div>
+      <div class="lname">Foundation &amp; Data</div>
+      <div class="ldesc">Clean tracking, Data integrity, Customer Data Platform. GA4, Search Console, tracking hygiene &amp; compliance.</div>
+    </div>
+    <div class="lcard lc2">
+      <div class="lcard-top"><span class="lbadge">Layer 2</span><span class="lstatus s-active">Active</span></div>
+      <div class="lname">MarTech Execution</div>
+      <div class="ldesc">SEO, Paid Ads, Social Media, Email Marketing — executed daily. Google Ads, Meta Ads, organic content strategy.</div>
+    </div>
+    <div class="lcard lc3">
+      <div class="lcard-top"><span class="lbadge">Layer 3</span><span class="lstatus s-lite">Simplified</span></div>
+      <div class="lname">Revenue Operations</div>
+      <div class="ldesc">Data sync, attribution, Sales-Marketing alignment, pipeline. Thường dùng HubSpot / Salesforce cho enterprise volume lớn.</div>
+    </div>
+    <div class="lcard lc4">
+      <div class="lcard-top"><span class="lbadge">Layer 4</span><span class="lstatus s-active">Active</span></div>
+      <div class="lname">AI Automation &amp; Agent</div>
+      <div class="ldesc">24/7 AI chat agents, n8n workflows, content generation, automated reporting. Vận hành liên tục kể cả ngoài giờ làm việc.</div>
+    </div>
+    <div class="lcard lc5">
+      <div class="lcard-top"><span class="lbadge">Layer 5</span><span class="lstatus s-optional">Optional</span></div>
+      <div class="lname">Revenue Intelligence</div>
+      <div class="ldesc">Predictive LTV, Churn forecasting, ROI mapping, Segmentation. Cần data volume lớn để có ý nghĩa thống kê.</div>
+    </div>
+
+    <div class="x5-pkg-note">
+      <div class="x5-pkg-label">Package Match cho Huynchi</div>
+      <p class="x5-pkg-text">Profile B2B low-volume high-value → <strong>Strategic Package</strong> là phù hợp nhất. Layer 1 + 2 + 4 đầy đủ, Layer 3 thu gọn, Layer 5 thay bằng Dashboard report tùy chọn.</p>
+    </div>
+  </div>
+
+  <!-- Application -->
+  <div class="col col-light">
+    <div class="eyebrow" style="margin-bottom:10px"><span>05 — Application</span></div>
+    <h2 style="color:var(--navy)">Ứng dụng cho <em style="color:var(--orange); font-style:italic">Huynchi</em></h2>
+
+    <!-- L1 -->
+    <div class="acard ac1">
+      <div class="acard-top">
+        <div class="acard-name">Layer 1 — Foundation</div>
+        <span class="tag tag-stone">Active</span>
+      </div>
+      <div class="aclabel">Triển khai cho huynchi.com</div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">GA4 + GSC setup, tracking events: form submit, chatbot, CTA click</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Schema markup: Organization, LocalBusiness (2 VP), Service, FAQPage</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Core Web Vitals audit &amp; fix toàn bộ huynchi.com</span></div>
+      <div class="acard-reason">
+        <div class="reason-block why">
+          <div class="reason-label">⚡ Tại sao cần layer này?</div>
+          <p class="reason-text">Không biết traffic đến từ đâu, không đo được hiệu quả SEO hay chatbot. Google &amp; AI engines không nhận diện được Huynchi là business hợp lệ → mất điểm rank.</p>
+        </div>
+        <div class="reason-block result">
+          <div class="reason-label">✓ Làm xong được gì?</div>
+          <p class="reason-text">Nền tảng data sạch để đưa ra quyết định. Google hiểu đúng Huynchi là ai, ở đâu, làm gì → là điều kiện tiên quyết cho mọi hoạt động SEO phía trên.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- L2 -->
+    <div class="acard ac2">
+      <div class="acard-top">
+        <div class="acard-name">Layer 2 — SEO Execution</div>
+        <span class="tag tag-blue">Core Service</span>
+      </div>
+      <div class="aclabel">SEO for AI (GEO) + SEO for Google</div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">GEO: Entity building, E-E-A-T content, FAQ optimization, citation outreach</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Landing page riêng: Workspace / Regulated Space / Education</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Local SEO: Google Business Profile HCMC &amp; Hà Nội</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Blog editorial: 2 bài/tháng keyword-driven, song ngữ Vi/En</span></div>
+      <div class="acard-reason">
+        <div class="reason-block why">
+          <div class="reason-label">⚡ Tại sao cần layer này?</div>
+          <p class="reason-text">Khi khách tìm "công ty thiết kế nội thất văn phòng HCMC" hoặc hỏi ChatGPT, Huynchi không xuất hiện → lead chạy sang đối thủ. Mất cơ hội với các C-suite chưa biết đến Huynchi.</p>
+        </div>
+        <div class="reason-block result">
+          <div class="reason-label">✓ Làm xong được gì?</div>
+          <p class="reason-text">Huynchi xuất hiện đúng lúc khách hàng đang tìm kiếm — cả trên Google lẫn trong câu trả lời của AI. Organic leads ổn định, không phụ thuộc ads. Xây dựng authority dài hạn.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- L3 -->
+    <div class="acard ac3">
+      <div class="acard-top">
+        <div class="acard-name">Layer 3 — Lead Pipeline</div>
+        <span class="tag tag-amber">Simplified</span>
+      </div>
+      <div class="aclabel">Thay thế CRM phức tạp</div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Google Sheet CRM: mỗi lead = 1 row tự động với 9 trường đầy đủ</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">n8n: chatbot trigger → ghi Sheet → email notify sales team tức thì</span></div>
+      <div class="sub-note note-amber">Không cần HubSpot — 10–15 deals/năm, Google Sheet là tối ưu nhất</div>
+      <div class="acard-reason">
+        <div class="reason-block why">
+          <div class="reason-label">⚡ Tại sao cần layer này?</div>
+          <p class="reason-text">Lead từ chatbot rơi vào khoảng trống — không ai biết, không ai theo dõi. Sales team phản hồi chậm → mất deal vào tay đối thủ phản hồi nhanh hơn.</p>
+        </div>
+        <div class="reason-block result">
+          <div class="reason-label">✓ Làm xong được gì?</div>
+          <p class="reason-text">Mỗi lead được ghi nhận tức thì, sales team nhận thông báo ngay lập tức. Không bỏ sót một cơ hội nào. Pipeline minh bạch, dễ theo dõi.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- L4 -->
+    <div class="acard ac4">
+      <div class="acard-top">
+        <div class="acard-name">Layer 4 — AI Chatbot</div>
+        <span class="tag tag-orange">Core Service</span>
+      </div>
+      <div class="aclabel">AI Agent với Huynchi Brand Voice</div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Train từ knowledge base Huynchi: services, projects, expertise, FAQ</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Funnel: Intent → Project type → Scope → Lead capture → Book consultant</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Tone tinh tế, lắng nghe — phản ánh đúng brand philosophy</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">24/7 — không bỏ sót lead nào kể cả ngoài giờ làm việc</span></div>
+      <!-- Demo 7: Sample chat conversation -->
+      <div class="dark-chat-wrap">
+        <div class="dark-chat-label">▶ Sample Conversation — Huynchi AI Chatbot</div>
+        <div class="dchat">
+          <div class="dbubble dbubble-bot">
+            <div class="dbubble-sender">Huynchi AI</div>
+            Xin chào! Tôi có thể giúp bạn tìm hiểu về không gian phù hợp. Bạn đang tìm giải pháp cho loại dự án nào?
+          </div>
+          <div class="dbubble dbubble-user">
+            <div class="dbubble-sender">Khách</div>
+            Chúng tôi cần thiết kế văn phòng mới khoảng 800m²
+          </div>
+          <div class="dbubble dbubble-bot">
+            <div class="dbubble-sender">Huynchi AI</div>
+            800m² — quy mô đủ để tạo ra một không gian làm việc thực sự có chiều sâu. Đây là văn phòng hoàn toàn mới hay bạn đang cải tạo mặt bằng hiện có?
+          </div>
+          <div class="dbubble dbubble-user">
+            <div class="dbubble-sender">Khách</div>
+            Mặt bằng mới, dự kiến hoàn công trong 4 tháng
+          </div>
+          <div class="dbubble dbubble-bot">
+            <div class="dbubble-sender">Huynchi AI</div>
+            4 tháng là timeline khả thi cho quy mô này. Để tôi kết nối bạn với Design Consultant của Huynchi — một buổi trao đổi 30 phút sẽ giúp định hình rõ hướng thiết kế. Bạn có thể để lại tên và email không?
+          </div>
+        </div>
+      </div>
+      <div class="acard-reason">
+        <div class="reason-block why">
+          <div class="reason-label">⚡ Tại sao cần layer này?</div>
+          <p class="reason-text">Khách vào website ngoài giờ hành chính, không có ai trả lời → rời đi. Với B2B high-value, mất 1 lead = mất 1 dự án tiềm năng hàng tỷ đồng.</p>
+        </div>
+        <div class="reason-block result">
+          <div class="reason-label">✓ Làm xong được gì?</div>
+          <p class="reason-text">Website hoạt động như một sales consultant 24/7. Qualify lead tự động, giảm tải cho team. Mỗi khách đến đúng thời điểm đều được chăm sóc đúng cách.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- L5 -->
+    <div class="acard ac5">
+      <div class="acard-top">
+        <div class="acard-name">Layer 5 — Dashboard Report</div>
+        <span class="tag tag-green-d">Optional</span>
+      </div>
+      <div class="aclabel">Thay thế Intelligence Report</div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Looker Studio: traffic, keyword rankings, chatbot leads, nguồn lead</span></div>
+      <div class="aitem"><span class="aarr">→</span><span class="atext">Kết nối GA4 + Google Sheet + GSC — build 1 lần, tự động cập nhật</span></div>
+      <div class="sub-note note-purple">Optional — upsell khi Huynchi cần báo cáo trực quan định kỳ</div>
+      <div class="acard-reason">
+        <div class="reason-block why">
+          <div class="reason-label">⚡ Tại sao cần layer này?</div>
+          <p class="reason-text">Không có cái nhìn tổng quan về hiệu quả tổng thể. Khó đánh giá ROI của từng kênh, khó thuyết phục internal stakeholders về giá trị của digital investment.</p>
+        </div>
+        <div class="reason-block result">
+          <div class="reason-label">✓ Làm xong được gì?</div>
+          <p class="reason-text">1 dashboard duy nhất hiển thị toàn bộ: traffic → leads → nguồn. Ban lãnh đạo Huynchi nhìn vào là hiểu ngay website đang hoạt động thế nào trong 5 phút.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-banner">
+      <div class="pkg-label">Recommended Package</div>
+      <div class="pkg-name">X5 <em>Strategic</em></div>
+      <p class="pkg-desc">Layer 1 + Layer 2 (SEO full) + Layer 4 (AI Chatbot) là core. Layer 3 đơn giản hóa. Layer 5 Dashboard tùy chọn.</p>
+      <div class="tag-row">
+        <span class="tag tag-stone">Foundation</span>
+        <span class="tag tag-blue">SEO Full</span>
+        <span class="tag tag-orange">AI Chatbot</span>
+        <span class="tag tag-green-d">Dashboard (opt.)</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <div class="footer-l">
+    <span class="hc">Huynchi</span> <span class="meta">×</span> <span class="x5">X5 Digital</span><span class="meta"> — Digital Growth Proposal 2026</span>
+  </div>
+  <div class="footer-r">
+    <div>Prepared by <span class="x5-name">X5 Digital</span> · hello@x5digital.com</div>
+    <div>huynchi.com · HCMC &amp; Hanoi · Est. 2003</div>
+    <div>Confidential — For internal review only</div>
+  </div>
+</footer>
