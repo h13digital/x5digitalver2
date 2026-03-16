@@ -157,8 +157,8 @@
     .score-value.pulse{animation:scorePulse .4s var(--transition-spring)}
     @keyframes scorePulse{0%{transform:scale(1)}50%{transform:scale(1.2)}100%{transform:scale(1)}}
     .score-label{font-size:var(--text-sm);color:var(--text-secondary);font-family:'JetBrains Mono',monospace;transition:color .3s ease;display:block;margin-top:var(--space-xs)}
-    .score-warning{background:rgba(245,158,11,.10);border:1px solid rgba(245,158,11,.40);color:var(--amber-warm);padding:var(--space-md);border-radius:var(--radius-lg);text-align:center;margin-top:var(--space-lg);max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .4s ease,padding .4s ease}
-    .score-warning.show{max-height:100px;opacity:1;animation:warnShake .5s ease}
+    .score-warning{background:rgba(245,158,11,.10);border:1px solid rgba(245,158,11,.40);color:var(--amber-warm);padding:var(--space-md) var(--space-lg);border-radius:var(--radius-lg);text-align:center;margin-top:var(--space-lg);max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,opacity .4s ease,padding .4s ease;line-height:1.6;font-size:var(--text-sm)}
+    .score-warning.show{max-height:150px;opacity:1;animation:warnShake .5s ease}
     @keyframes warnShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(3px)}}
 
     /* ═══════════════════════════════════════════
@@ -373,8 +373,8 @@
                 <span class="score-label" id="scoreLabel">Complete the form to see your score</span>
             </div>
             <div class="score-warning" id="scoreWarning">
-                <i class="fas fa-exclamation-triangle"></i>
-                <strong>Low Qualification Score:</strong> Based on your answers, we may not be the best fit at this stage.
+                <i class="fas fa-exclamation-triangle" style="display:block;margin-bottom:4px"></i>
+                <span><strong>Low Qualification Score:</strong> Based on your answers, we may not be the best fit at this stage.</span>
             </div>
         </div>
     </div>
@@ -633,7 +633,7 @@
             <div class="sr sr-up" style="transition-delay:.3s">
                 <h4 style="color:var(--text-primary);margin-bottom:var(--space-md)">Contact</h4>
                 <div class="footer-links">
-                    <a href="mailto:hello@x5digital.com">hello@x5digital.com</a>
+                    <a href="/cdn-cgi/l/email-protection#f199949d9d9eb189c49598969885909ddf929e9c"><span class="__cf_email__" data-cfemail="1d75787171725d652879747a74697c71337e7270">[email&#160;protected]</span></a>
                     <a href="tel:+15554412773">U.S. Phone: (555) 441-2773</a>
                     <a href="#" aria-label="LinkedIn">LinkedIn</a>
                     <a href="#" aria-label="Twitter / X">Twitter</a>
@@ -646,7 +646,7 @@
     </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* 1. HERO PARTICLE NETWORK */
 (function(){var c=document.getElementById('hero-canvas'),ctx=c.getContext('2d'),pts=[];function resize(){c.width=c.offsetWidth;c.height=c.offsetHeight;}function mkPt(){return{x:Math.random()*c.width,y:Math.random()*c.height,dx:(Math.random()-.5)*.4,dy:(Math.random()-.5)*.4,r:Math.random()*1.6+.5,col:Math.random()>.5?'29,155,240':'99,102,241',o:Math.random()*.35+.1};}function init(){resize();pts=[];for(var i=0;i<55;i++)pts.push(mkPt());}function draw(){ctx.clearRect(0,0,c.width,c.height);for(var i=0;i<pts.length;i++){var p=pts[i];p.x+=p.dx;p.y+=p.dy;if(p.x<0||p.x>c.width)p.dx*=-1;if(p.y<0||p.y>c.height)p.dy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba('+p.col+','+p.o+')';ctx.fill();for(var j=i+1;j<pts.length;j++){var q=pts[j],dx=q.x-p.x,dy=q.y-p.y,d=Math.sqrt(dx*dx+dy*dy);if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle='rgba(29,155,240,'+(.11*(1-d/120))+')';ctx.lineWidth=.5;ctx.stroke();}}}requestAnimationFrame(draw);}window.addEventListener('resize',init);init();draw();})();
 
@@ -865,7 +865,4 @@ document.getElementById('name').addEventListener('input',function(){this.value=t
 document.getElementById('website').addEventListener('blur',function(){if(this.value&&!this.value.startsWith('http'))this.value='https://'+this.value;});
 
 /* 11. SMOOTH SCROLL */
-document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el)window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});});});
-</script>
-</body>
-</html>
+document.querySelectorAll('a[href^="#"]').forEach(function(
