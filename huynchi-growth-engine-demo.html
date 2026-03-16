@@ -412,6 +412,47 @@ hr.dl { border-top-color: var(--divider); }
 .fl-right { font-family: var(--fm); font-size: 0.56rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.18); text-align: right; line-height: 2.2; }
 .fl-right .x5 { color: rgba(29,155,240,0.45); }
 
+/* ── PIPELINE PANELS ── */
+.pipe-panel { display:flex; gap:0; }
+.pipe-panel-left { display:flex; flex-direction:column; align-items:center; padding-right:20px; flex-shrink:0; padding-top:4px; }
+.pipe-step-num { font-family:var(--fd); font-size:1.4rem; font-weight:800; color:var(--orange); line-height:1; width:40px; height:40px; border:2px solid rgba(232,97,42,0.4); border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.pipe-step-line { width:2px; flex:1; background:rgba(232,97,42,0.12); margin-top:10px; }
+.pipe-panel-body { flex:1; padding-bottom:28px; }
+.pipe-step-head { display:flex; gap:14px; align-items:flex-start; margin-bottom:16px; }
+.pipe-step-icon { font-size:1.6rem; flex-shrink:0; margin-top:2px; }
+.pipe-step-title { font-family:var(--fd); font-size:1.25rem; font-weight:800; color:var(--off-white); letter-spacing:-0.02em; margin-bottom:4px; }
+.pipe-step-sub { font-size:0.85rem; color:rgba(255,255,255,0.42); line-height:1.65; }
+.pipe-demo-box { background:rgba(17,35,55,0.6); border:1px solid rgba(255,255,255,0.07); border-radius:10px; padding:16px; overflow:hidden; }
+.pipe-demo-label { font-family:var(--fm); font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:12px; }
+/* Chat sim */
+.pipe-chat-sim { display:flex; flex-direction:column; gap:8px; max-height:280px; overflow-y:auto; padding-right:4px; }
+.pipe-chat-sim::-webkit-scrollbar { width:3px; }
+.pipe-chat-sim::-webkit-scrollbar-thumb { background:rgba(255,255,255,0.1); border-radius:3px; }
+.pcs-bubble { max-width:85%; padding:9px 12px; border-radius:8px; font-size:0.78rem; line-height:1.55; }
+.pcs-bubble.bot { align-self:flex-start; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.8); border-radius:3px 8px 8px 8px; }
+.pcs-bubble.user { align-self:flex-end; background:rgba(232,97,42,0.18); border:1px solid rgba(232,97,42,0.25); color:rgba(255,255,255,0.85); border-radius:8px 3px 8px 8px; }
+.pcs-name { font-family:var(--fm); font-size:0.54rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--orange); margin-bottom:4px; }
+/* Qualify fields */
+.qfield { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:9px 12px; display:flex; gap:9px; align-items:flex-start; }
+.qfield.qf-done { border-color:rgba(0,212,170,0.2); background:rgba(0,212,170,0.05); }
+.qfield.qf-pending { border-color:rgba(255,255,255,0.06); opacity:0.5; }
+.qf-icon { font-size:0.75rem; color:var(--x5-green); flex-shrink:0; margin-top:1px; font-weight:700; }
+.qf-label { font-family:var(--fm); font-size:0.56rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:2px; }
+.qf-val { font-size:0.78rem; color:rgba(255,255,255,0.82); font-weight:500; }
+/* n8n nodes */
+.n8n-node { background:#2a2a45; border:1px solid rgba(255,255,255,0.1); border-radius:7px; padding:8px 11px; text-align:center; min-width:80px; }
+.n8n-node.n8n-trigger { background:#2c1e10; border-color:rgba(232,97,42,0.4); }
+.n8n-node.n8n-active { background:#0d2e22; border-color:rgba(0,212,170,0.4); }
+.n8n-node.n8n-done { background:#0a2218; border-color:rgba(0,212,170,0.25); }
+.n8n-node-icon { font-size:1rem; display:block; margin-bottom:3px; }
+.n8n-node-name { font-family:var(--fm); font-size:0.58rem; font-weight:600; letter-spacing:0.06em; color:rgba(255,255,255,0.8); }
+.n8n-node-sub { font-family:var(--fm); font-size:0.52rem; color:rgba(255,255,255,0.3); margin-top:1px; }
+.n8n-edge { height:2px; width:32px; background:rgba(0,212,170,0.4); flex-shrink:0; position:relative; }
+.n8n-edge::after { content:'▶'; position:absolute; right:-8px; top:50%; transform:translateY(-50%); font-size:0.5rem; color:rgba(0,212,170,0.6); }
+.n8n-edge-active { height:2px; width:22px; background:rgba(0,212,170,0.4); flex-shrink:0; position:relative; }
+.n8n-edge-active::after { content:'▶'; position:absolute; right:-7px; top:50%; transform:translateY(-50%); font-size:0.48rem; color:rgba(0,212,170,0.6); }
+.n8n-edge-short { height:2px; width:14px; background:rgba(0,212,170,0.3); flex-shrink:0; }
+
 /* ── LOOKER STUDIO TILES & CARDS ── */
 .ls-tile {
   background: #fff; border-radius: 6px; padding: 12px 14px;
@@ -849,10 +890,11 @@ hr.dl { border-top-color: var(--divider); }
       <p>Không cần HubSpot. Với 10–15 deals/năm, Google Sheet tự động là tối ưu — đơn giản, minh bạch, không bỏ sót lead nào.</p>
     </div>
 
+    <!-- Mini flow indicator -->
     <div class="flow-row rev d2" id="flow-row">
       <div class="fn"><div class="fbox" id="fb0"><span class="fbox-icon">💬</span><div class="fbox-name">Khách Chat</div><div class="fbox-desc">Website 24/7</div></div></div>
       <div class="farrow" id="fa0"></div>
-      <div class="fn"><div class="fbox" id="fb1"><span class="fbox-icon">🤖</span><div class="fbox-name">AI Qualify</div><div class="fbox-desc">9 trường thông tin</div></div></div>
+      <div class="fn"><div class="fbox" id="fb1"><span class="fbox-icon">🤖</span><div class="fbox-name">AI Qualify</div><div class="fbox-desc">9 trường</div></div></div>
       <div class="farrow" id="fa1"></div>
       <div class="fn"><div class="fbox" id="fb2"><span class="fbox-icon">⚡</span><div class="fbox-name">n8n Trigger</div><div class="fbox-desc">Automation</div></div></div>
       <div class="farrow" id="fa2"></div>
@@ -861,40 +903,316 @@ hr.dl { border-top-color: var(--divider); }
       <div class="fn"><div class="fbox" id="fb4"><span class="fbox-icon">📧</span><div class="fbox-name">Email Notify</div><div class="fbox-desc">Sales team</div></div></div>
     </div>
 
-    <!-- Google Sheet Mockup -->
-    <div class="sheet-wrap rev d3">
-      <div class="sheet-bar">
-        <div class="sdots"><div class="sd sd-r"></div><div class="sd sd-y"></div><div class="sd sd-g"></div></div>
-        <div class="sheet-title">📊 Huynchi · Lead CRM · Google Sheets</div>
+    <!-- ═══ 5 STEP DEMO PANELS ═══ -->
+    <div style="display:flex;flex-direction:column;gap:16px;margin-top:8px;">
+
+      <!-- STEP 1: Khách Chat -->
+      <div class="pipe-panel rev d1">
+        <div class="pipe-panel-left">
+          <div class="pipe-step-num">01</div>
+          <div class="pipe-step-line"></div>
+        </div>
+        <div class="pipe-panel-body">
+          <div class="pipe-step-head">
+            <span class="pipe-step-icon">💬</span>
+            <div>
+              <div class="pipe-step-title">Khách Chat</div>
+              <div class="pipe-step-sub">Khách truy cập huynchi.com lúc 11:47 PM — ngoài giờ làm việc. Chatbot kích hoạt ngay lập tức.</div>
+            </div>
+          </div>
+          <div class="pipe-demo-box">
+            <div class="pipe-demo-label">💬 Demo — Cuộc hội thoại thực tế</div>
+            <div class="pipe-chat-sim">
+              <div class="pcs-bubble bot">
+                <div class="pcs-name">Huynchi AI</div>
+                Xin chào! Tôi là trợ lý tư vấn không gian của Huynchi. Bạn đang tìm giải pháp cho loại dự án nào?
+              </div>
+              <div class="pcs-bubble user">Chúng tôi cần thiết kế văn phòng mới khoảng 800m²</div>
+              <div class="pcs-bubble bot">
+                <div class="pcs-name">Huynchi AI</div>
+                800m² — quy mô đủ để tạo một không gian thực sự có chiều sâu. Đây là mặt bằng mới hay cải tạo?
+              </div>
+              <div class="pcs-bubble user">Mặt bằng mới, dự kiến 4 tháng</div>
+              <div class="pcs-bubble bot">
+                <div class="pcs-name">Huynchi AI</div>
+                4 tháng là timeline khả thi cho quy mô này. Budget đầu tư dự kiến của bạn khoảng bao nhiêu?
+              </div>
+              <div class="pcs-bubble user">Khoảng 2–3 tỷ, linh hoạt</div>
+              <div class="pcs-bubble bot">
+                <div class="pcs-name">Huynchi AI</div>
+                Để kết nối với Design Consultant Huynchi — bạn có thể cho tôi biết tên, công ty và email không?
+              </div>
+              <div class="pcs-bubble user">Nguyễn Văn C — TechCorp Vietnam — c.nguyen@techcorp.vn</div>
+              <div class="pcs-bubble bot">
+                <div class="pcs-name">Huynchi AI</div>
+                ✅ Cảm ơn anh/chị! Thông tin đã được ghi nhận. Một Design Consultant sẽ liên hệ trong 24 giờ.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sheet-sub">File · Edit · View · Insert · Format · Data · Tools · Extensions · Help</div>
-      <div style="overflow-x:auto">
-        <table class="st">
-          <thead>
-            <tr>
-              <th>Timestamp</th><th>Tên liên hệ</th><th>Công ty</th>
-              <th>Loại dự án</th><th>Diện tích</th><th>Budget</th>
-              <th>Timeline</th><th>Email</th><th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="sheet-body">
-            <tr>
-              <td>2026-03-14 09:23</td><td>Nguyễn Văn A</td><td>Tech Corp VN</td>
-              <td>Workspace</td><td>500m²</td><td>Linh hoạt</td>
-              <td>4 tháng</td><td>a.nguyen@tech...</td>
-              <td><span style="color:#34a853;font-weight:600">✓ Called</span></td>
-            </tr>
-            <tr>
-              <td>2026-03-15 14:07</td><td>Trần Thị B</td><td>Pharma Ltd</td>
-              <td>Lab / GMP</td><td>200m²</td><td>Đang XD</td>
-              <td>6 tháng</td><td>b.tran@pharma...</td>
-              <td><span style="color:#fbbc04;font-weight:600">⏳ Pending</span></td>
-            </tr>
-          </tbody>
-        </table>
+
+      <!-- STEP 2: AI Qualify -->
+      <div class="pipe-panel rev d2">
+        <div class="pipe-panel-left">
+          <div class="pipe-step-num">02</div>
+          <div class="pipe-step-line"></div>
+        </div>
+        <div class="pipe-panel-body">
+          <div class="pipe-step-head">
+            <span class="pipe-step-icon">🤖</span>
+            <div>
+              <div class="pipe-step-title">AI Qualify</div>
+              <div class="pipe-step-sub">AI phân tích toàn bộ cuộc hội thoại, tự động trích xuất 9 trường thông tin và tính Lead Score.</div>
+            </div>
+          </div>
+          <div class="pipe-demo-box">
+            <div class="pipe-demo-label">🤖 Demo — AI trích xuất dữ liệu từ hội thoại</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Tên liên hệ</div><div class="qf-val">Nguyễn Văn C</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Công ty</div><div class="qf-val">TechCorp Vietnam</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Email</div><div class="qf-val">c.nguyen@techcorp.vn</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Loại dự án</div><div class="qf-val">Workspace</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Diện tích</div><div class="qf-val">800 m²</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Loại công trình</div><div class="qf-val">Mặt bằng mới</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Timeline</div><div class="qf-val">4 tháng</div></div></div>
+              <div class="qfield qf-done"><span class="qf-icon">✓</span><div><div class="qf-label">Budget dự kiến</div><div class="qf-val">2–3 tỷ VNĐ</div></div></div>
+              <div class="qfield qf-pending"><span class="qf-icon">…</span><div><div class="qf-label">Số điện thoại</div><div class="qf-val" style="color:rgba(255,255,255,0.3);">Chưa thu thập</div></div></div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;background:rgba(0,212,170,0.08);border:1px solid rgba(0,212,170,0.2);border-radius:6px;padding:10px 14px;">
+              <div style="font-family:var(--fm);font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--x5-green);">Lead Score</div>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div style="display:flex;gap:3px;">
+                  <div style="width:24px;height:8px;background:var(--x5-green);border-radius:2px;"></div>
+                  <div style="width:24px;height:8px;background:var(--x5-green);border-radius:2px;"></div>
+                  <div style="width:24px;height:8px;background:var(--x5-green);border-radius:2px;"></div>
+                  <div style="width:24px;height:8px;background:rgba(0,212,170,0.25);border-radius:2px;"></div>
+                </div>
+                <span style="font-family:var(--fd);font-size:1.4rem;font-weight:700;color:var(--x5-green);">8.5<span style="font-size:0.8rem;font-weight:400;color:rgba(255,255,255,0.3);"> / 10</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sheet-ts" id="sheet-ts"></div>
-    </div>
+
+      <!-- STEP 3: n8n Trigger -->
+      <div class="pipe-panel rev d3">
+        <div class="pipe-panel-left">
+          <div class="pipe-step-num">03</div>
+          <div class="pipe-step-line"></div>
+        </div>
+        <div class="pipe-panel-body">
+          <div class="pipe-step-head">
+            <span class="pipe-step-icon">⚡</span>
+            <div>
+              <div class="pipe-step-title">n8n Trigger</div>
+              <div class="pipe-step-sub">Ngay khi lead được qualify, n8n workflow tự động kích hoạt — ghi Sheet và gửi email song song trong &lt;5 giây.</div>
+            </div>
+          </div>
+          <div class="pipe-demo-box">
+            <div class="pipe-demo-label">⚡ Demo — n8n Workflow thực thi</div>
+            <!-- n8n workflow mockup -->
+            <div style="background:#1a1a2e;border-radius:8px;padding:16px 18px;overflow-x:auto;">
+              <div style="font-family:var(--fm);font-size:0.58rem;color:rgba(255,255,255,0.3);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">n8n · Workflow: Huynchi Lead Capture · ● Active</div>
+              <div style="display:flex;align-items:center;gap:0;min-width:600px;">
+                <!-- Node 1 -->
+                <div class="n8n-node n8n-trigger">
+                  <div class="n8n-node-icon">⚡</div>
+                  <div class="n8n-node-name">Webhook</div>
+                  <div class="n8n-node-sub">Chatbot fires</div>
+                </div>
+                <div class="n8n-edge n8n-edge-active"></div>
+                <!-- Node 2 -->
+                <div class="n8n-node n8n-active">
+                  <div class="n8n-node-icon">🔄</div>
+                  <div class="n8n-node-name">Parse JSON</div>
+                  <div class="n8n-node-sub">9 fields</div>
+                </div>
+                <div class="n8n-edge n8n-edge-active"></div>
+                <!-- Node 3 — split -->
+                <div style="display:flex;flex-direction:column;gap:6px;">
+                  <!-- Branch A -->
+                  <div style="display:flex;align-items:center;gap:0;">
+                    <div class="n8n-edge-short n8n-edge-active"></div>
+                    <div class="n8n-node n8n-active" style="min-width:90px;">
+                      <div class="n8n-node-icon">📊</div>
+                      <div class="n8n-node-name">Google Sheet</div>
+                      <div class="n8n-node-sub">Append row</div>
+                    </div>
+                    <div class="n8n-edge-short n8n-edge-active"></div>
+                    <div class="n8n-node n8n-done" style="min-width:80px;">
+                      <div class="n8n-node-icon">✓</div>
+                      <div class="n8n-node-name">Row added</div>
+                      <div class="n8n-node-sub">0.8s</div>
+                    </div>
+                  </div>
+                  <!-- Branch B -->
+                  <div style="display:flex;align-items:center;gap:0;">
+                    <div class="n8n-edge-short n8n-edge-active"></div>
+                    <div class="n8n-node n8n-active" style="min-width:90px;">
+                      <div class="n8n-node-icon">📧</div>
+                      <div class="n8n-node-name">Send Email</div>
+                      <div class="n8n-node-sub">Gmail SMTP</div>
+                    </div>
+                    <div class="n8n-edge-short n8n-edge-active"></div>
+                    <div class="n8n-node n8n-done" style="min-width:80px;">
+                      <div class="n8n-node-icon">✓</div>
+                      <div class="n8n-node-name">Sent</div>
+                      <div class="n8n-node-sub">1.2s</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="margin-top:10px;font-family:var(--fm);font-size:0.6rem;color:var(--x5-green);">✓ Execution completed · Total time: 1.4s · 2 outputs triggered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: Google Sheet -->
+      <div class="pipe-panel rev d4">
+        <div class="pipe-panel-left">
+          <div class="pipe-step-num">04</div>
+          <div class="pipe-step-line"></div>
+        </div>
+        <div class="pipe-panel-body">
+          <div class="pipe-step-head">
+            <span class="pipe-step-icon">📊</span>
+            <div>
+              <div class="pipe-step-title">Google Sheet CRM</div>
+              <div class="pipe-step-sub">Row mới tự động xuất hiện với đầy đủ 9 trường. Sales team mở Sheet sáng ra là thấy ngay tất cả leads từ đêm qua.</div>
+            </div>
+          </div>
+          <div class="pipe-demo-box" style="padding:0;overflow:hidden;">
+            <div class="pipe-demo-label" style="padding:10px 16px;margin-bottom:0;border-bottom:1px solid rgba(255,255,255,0.07);">📊 Demo — Google Sheet tự động cập nhật</div>
+            <div style="background:white;">
+              <div style="background:#1a73e8;padding:8px 14px;display:flex;align-items:center;gap:10px;">
+                <div style="display:flex;gap:5px;"><div style="width:10px;height:10px;border-radius:50%;background:#ea4335;"></div><div style="width:10px;height:10px;border-radius:50%;background:#fbbc04;"></div><div style="width:10px;height:10px;border-radius:50%;background:#34a853;"></div></div>
+                <span style="font-family:var(--fm);font-size:0.65rem;color:rgba(255,255,255,0.85);">📊 Huynchi · Lead CRM · Google Sheets</span>
+              </div>
+              <div style="overflow-x:auto;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.68rem;font-family:var(--fm);">
+                  <thead>
+                    <tr style="background:#f8f9fa;">
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;white-space:nowrap;">Timestamp</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Tên</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Công ty</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Email</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Loại</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">m²</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Budget</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Timeline</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Score</th>
+                      <th style="padding:6px 10px;text-align:left;border:1px solid #e0e0e0;color:#333;">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody id="sheet-body">
+                    <tr>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;white-space:nowrap;">14/03 09:23</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Nguyễn A</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Tech Corp</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">a@tech...</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Workspace</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">500</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Linh hoạt</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">4 tháng</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;"><span style="background:#e8f5e9;color:#2e7d32;padding:1px 5px;border-radius:3px;">9.2</span></td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#34a853;font-weight:600;">✓ Called</td>
+                    </tr>
+                    <tr>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;white-space:nowrap;">15/03 14:07</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Trần B</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Pharma Ltd</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">b@pharma...</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Lab/GMP</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">200</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">Đang XD</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#444;">6 tháng</td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;"><span style="background:#e8f5e9;color:#2e7d32;padding:1px 5px;border-radius:3px;">8.7</span></td>
+                      <td style="padding:5px 10px;border:1px solid #e0e0e0;color:#fbbc04;font-weight:600;">⏳ Pending</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="sheet-ts" id="sheet-ts" style="font-family:var(--fm);font-size:0.6rem;color:#2e7d32;text-align:center;padding:8px;background:#f0faf5;border-top:1px solid #c8e6c9;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5: Email Notify -->
+      <div class="pipe-panel rev d5">
+        <div class="pipe-panel-left">
+          <div class="pipe-step-num">05</div>
+        </div>
+        <div class="pipe-panel-body">
+          <div class="pipe-step-head">
+            <span class="pipe-step-icon">📧</span>
+            <div>
+              <div class="pipe-step-title">Email Notify Sales Team</div>
+              <div class="pipe-step-sub">Sales team nhận email ngay lập tức — đầy đủ thông tin lead, không cần mở Sheet. Phản hồi trong vài phút khi khách đang còn "hot".</div>
+            </div>
+          </div>
+          <div class="pipe-demo-box" style="padding:0;overflow:hidden;">
+            <div class="pipe-demo-label" style="padding:10px 16px;margin-bottom:0;border-bottom:1px solid rgba(255,255,255,0.07);">📧 Demo — Email nhận bởi Sales Team</div>
+            <!-- Email client mockup -->
+            <div style="background:white;">
+              <!-- Email toolbar -->
+              <div style="background:#f1f3f4;padding:8px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #e0e0e0;">
+                <div style="display:flex;gap:5px;"><div style="width:10px;height:10px;border-radius:50%;background:#ea4335;"></div><div style="width:10px;height:10px;border-radius:50%;background:#fbbc04;"></div><div style="width:10px;height:10px;border-radius:50%;background:#34a853;"></div></div>
+                <span style="font-size:0.7rem;color:#5f6368;font-family:var(--fm);">Gmail — sales@huynchi.com</span>
+              </div>
+              <!-- Email header -->
+              <div style="padding:16px 20px;border-bottom:1px solid #f1f3f4;">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:12px;">
+                  <div>
+                    <div style="font-size:1rem;font-weight:700;color:#202124;margin-bottom:4px;">🔔 [Huynchi Lead] Workspace 800m² — TechCorp Vietnam — Score 8.5/10</div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px;">
+                      <span style="font-size:0.7rem;background:#fce8e6;color:#c5221f;padding:2px 7px;border-radius:3px;font-family:var(--fm);">HIGH PRIORITY</span>
+                      <span style="font-size:0.7rem;background:#e8f5e9;color:#1e7e34;padding:2px 7px;border-radius:3px;font-family:var(--fm);">Score 8.5/10</span>
+                      <span style="font-size:0.7rem;background:#e8f0fe;color:#1967d2;padding:2px 7px;border-radius:3px;font-family:var(--fm);">Workspace</span>
+                    </div>
+                  </div>
+                  <div style="font-family:var(--fm);font-size:0.6rem;color:#80868b;white-space:nowrap;">23:47 hôm nay</div>
+                </div>
+                <div style="font-size:0.72rem;color:#5f6368;font-family:var(--fm);">
+                  <span>Từ: <strong style="color:#202124;">Huynchi AI (noreply@huynchi.com)</strong></span> &nbsp;·&nbsp;
+                  <span>Đến: <strong style="color:#202124;">sales@huynchi.com</strong></span>
+                </div>
+              </div>
+              <!-- Email body -->
+              <div style="padding:18px 20px;font-size:0.8rem;color:#202124;line-height:1.8;">
+                <p style="color:#202124;margin-bottom:14px;">Xin chào team Sales,</p>
+                <p style="color:#202124;margin-bottom:14px;">Có <strong>1 lead mới</strong> vừa được thu thập lúc <strong>23:47</strong> qua AI Chatbot trên website. Chi tiết:</p>
+
+                <table style="width:100%;border-collapse:collapse;font-size:0.75rem;margin-bottom:16px;">
+                  <tr style="background:#f8f9fa;"><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;width:35%;">Tên liên hệ</td><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#202124;font-weight:600;">Nguyễn Văn C</td></tr>
+                  <tr><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Công ty</td><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#202124;">TechCorp Vietnam</td></tr>
+                  <tr style="background:#f8f9fa;"><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Email</td><td style="padding:6px 10px;border:1px solid #e0e0e0;"><a style="color:#1a73e8;">c.nguyen@techcorp.vn</a></td></tr>
+                  <tr><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Loại dự án</td><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#202124;">Workspace (mặt bằng mới)</td></tr>
+                  <tr style="background:#f8f9fa;"><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Diện tích</td><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#202124;">800 m²</td></tr>
+                  <tr><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Budget dự kiến</td><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#202124;">2–3 tỷ VNĐ</td></tr>
+                  <tr style="background:#f8f9fa;"><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Timeline</td><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#202124;">4 tháng</td></tr>
+                  <tr><td style="padding:6px 10px;border:1px solid #e0e0e0;color:#5f6368;font-weight:600;">Lead Score</td><td style="padding:6px 10px;border:1px solid #e0e0e0;"><strong style="color:#2e7d32;">8.5 / 10 ★ HIGH PRIORITY</strong></td></tr>
+                </table>
+
+                <div style="background:#fce8e6;border-left:3px solid #ea4335;padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:16px;font-size:0.78rem;color:#c5221f;">
+                  ⚡ <strong>Hành động đề xuất:</strong> Liên hệ trong vòng 2–4 giờ tới để tối đa hoá cơ hội chốt deal. Lead đang "hot".
+                </div>
+
+                <div style="text-align:center;margin-bottom:14px;">
+                  <a href="#" style="background:#E8612A;color:white;padding:9px 22px;border-radius:5px;text-decoration:none;font-weight:700;font-size:0.8rem;display:inline-block;">📊 Xem trong Google Sheet →</a>
+                </div>
+
+                <hr style="border:none;border-top:1px solid #e0e0e0;margin:14px 0;">
+                <p style="font-size:0.7rem;color:#9aa0a6;">Email tự động từ Huynchi AI Chatbot · Powered by X5 Digital · Đừng reply email này</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /5 step panels -->
   </div>
 </section>
 
