@@ -1231,9 +1231,9 @@ hr.dl { border-top-color: var(--divider); }
           <li>Sau qualify → n8n trigger → ghi Sheet → notify sales team</li>
         </ul>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:4px">
-          <span class="tag to">Huynchi Brand Voice</span>
-          <span class="tag tb">Powered by X5 Digital</span>
-          <span class="tag tg">Live Demo ↓</span>
+          <span class="tag to" style="font-weight:800;font-size:0.85rem;">Huynchi Brand Voice</span>
+          <span class="tag tb" style="font-weight:800;font-size:0.85rem;">Powered by X5 Digital</span>
+          <span class="tag tg" style="font-weight:800;font-size:0.85rem;">Live Demo ↓</span>
         </div>
       </div>
 
@@ -1723,32 +1723,57 @@ function addSheetRow() {
 function pad(n) { return String(n).padStart(2, '0'); }
 
 /* ══════════════════════════════════════
-   CHATBOT
+   CHATBOT — LIVE CLAUDE API
 ══════════════════════════════════════ */
-let cs = 0; // chat state
+const HUYNCHI_SYSTEM = `Bạn là AI tư vấn không gian của Huynchi — công ty thiết kế & thi công nội thất thương mại hàng đầu Việt Nam, thành lập năm 2003.
+
+## VỀ HUYNCHI
+- Chuyên: Workspace (văn phòng), Regulated Space (phòng lab, GMP, y tế), Education (trường học, campus)
+- Quy trình: Understand & Define → Design → Deliver → Aftercare
+- Văn phòng: HCMC & Hà Nội
+- Đối tác quốc tế: DKO Architecture (Úc)
+- Khách hàng tiêu biểu: FPT Software, Agoda, Baker McKenzie, Heineken, XIAOMI, Standard Chartered, Allianz, Roche Vietnam, Philips, Pfizer, De Heus, Dentsu Aegis, CMC Corp, Marvell
+
+## TRIẾT LÝ THƯƠNG HIỆU
+"Space is never neutral. It shapes us." — Không gian không bao giờ trung tính. Nó định hình chúng ta.
+Huynchi xem không gian như yếu tố thúc đẩy tiềm năng con người.
+
+## NHIỆM VỤ CỦA BẠN
+Tư vấn và qualify lead theo luồng tự nhiên. Bạn cần thu thập đủ các thông tin sau (không nhất thiết theo thứ tự cứng):
+1. Loại dự án (Workspace / Regulated Space / Education)
+2. Tính chất công trình (mặt bằng mới / cải tạo / fit-out)
+3. Diện tích ước tính (m²)
+4. Budget dự kiến
+5. Timeline hoàn công
+6. Địa điểm (HCMC / Hà Nội / tỉnh khác)
+7. Tên liên hệ
+8. Công ty
+9. Email
+
+## CÁCH NÓI CHUYỆN
+- Tiếng Việt, ngắn gọn, tinh tế — không dài dòng
+- Tone ấm áp, chuyên nghiệp — như một Design Consultant thực thụ
+- KHÔNG hỏi liên tục nhiều câu một lúc — mỗi lần 1 câu
+- Khi khách hỏi về dự án cụ thể (FPT, Agoda...) → chia sẻ ngắn gọn
+- Khi đã có đủ thông tin cơ bản (loại dự án + diện tích + contact) → đề xuất buổi tư vấn 30 phút miễn phí với Design Consultant
+- Luôn nhớ context hội thoại — không hỏi lại thông tin đã biết
+
+## LEAD CAPTURE
+Khi bạn đã có đủ: tên + email + loại dự án → thêm tag JSON cuối tin nhắn (ẩn, không hiển thị cho khách):
+<!--LEAD_CAPTURED:{"name":"...","email":"...","company":"...","project_type":"...","area":"...","budget":"...","timeline":"...","location":"..."}-->
+
+Chỉ thêm tag này một lần duy nhất khi đã thu thập đủ tên + email + loại dự án.`;
+
+let chatHistory = [];
 let chatStarted = false;
+let leadCaptured = false;
+
 const chatArea = document.getElementById('chat-area');
 const sugWrap  = document.getElementById('sug-wrap');
 const chatIn   = document.getElementById('chat-in');
 const chatSend = document.getElementById('chat-send');
 
 function scrollChat() { chatArea.scrollTop = chatArea.scrollHeight; }
-
-function addBotMsg(html) {
-  return new Promise(res => {
-    const tw = document.createElement('div');
-    tw.className = 'typing-wrap';
-    tw.innerHTML = '<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
-    chatArea.appendChild(tw); scrollChat();
-    setTimeout(() => {
-      tw.remove();
-      const b = document.createElement('div');
-      b.className = 'cb cb-bot';
-      b.innerHTML = `<div class="cb-sender">Huynchi AI</div>${html}`;
-      chatArea.appendChild(b); scrollChat(); res();
-    }, 820);
-  });
-}
 
 function addUsrMsg(text) {
   const b = document.createElement('div');
@@ -1757,77 +1782,169 @@ function addUsrMsg(text) {
   chatArea.appendChild(b); scrollChat();
 }
 
+function showTyping() {
+  const tw = document.createElement('div');
+  tw.className = 'typing-wrap'; tw.id = 'typing-ind';
+  tw.innerHTML = '<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
+  chatArea.appendChild(tw); scrollChat();
+  return tw;
+}
+
 function setSugs(arr) {
   sugWrap.innerHTML = '';
   arr.forEach(s => {
     const btn = document.createElement('button');
     btn.className = 'sug-btn'; btn.textContent = s;
-    btn.onclick = () => handleSend(s);
+    btn.onclick = () => sendMessage(s);
     sugWrap.appendChild(btn);
   });
 }
 
-async function handleSend(text) {
-  if (!text.trim()) return;
-  chatIn.value = '';
-  sugWrap.innerHTML = '';
-  addUsrMsg(text);
-  const t = text.toLowerCase();
-
-  if (cs === 0) {
-    if (t.includes('văn phòng') || t.includes('workspace') || t.includes('office') || t.includes('🏢')) {
-      cs = 2;
-      await addBotMsg(`Workspace — mảng cốt lõi của Huynchi. Chúng tôi đã thiết kế cho <strong>FPT Software, Agoda, Baker McKenzie</strong>...<br><br>Đây là mặt bằng mới hoàn toàn hay bạn đang cải tạo không gian hiện tại?`);
-      setSugs(['Mặt bằng mới', 'Cải tạo / Fit-out', 'Chưa chắc']);
-    } else if (t.includes('lab') || t.includes('y tế') || t.includes('bệnh viện') || t.includes('gmp') || t.includes('🏥')) {
-      cs = 2;
-      await addBotMsg(`Regulated Space — phòng lab, GMP, cơ sở y tế đòi hỏi tiêu chuẩn đặc biệt.<br><br>Đây là thế mạnh ít ai có của Huynchi — chúng tôi đã làm với <strong>Roche Vietnam, Pfizer, Philips</strong>. Bạn đang cần loại không gian nào?`);
-      setSugs(['Phòng lab / R&D', 'Bệnh viện / Clinic', 'GMP / Cleanroom']);
-    } else if (t.includes('giáo dục') || t.includes('trường') || t.includes('education') || t.includes('🎓')) {
-      cs = 2;
-      await addBotMsg(`Education — không gian học tập định hình con người. Triết lý Huynchi: <em>"Space is never neutral. It shapes us."</em><br><br>Đây là dự án mới hay cải tạo?`);
-      setSugs(['Campus / Trường mới', 'Cải tạo / Upgrade', 'Trung tâm đào tạo']);
-    } else {
-      await addBotMsg(`Để tư vấn đúng hướng nhất, cho tôi hỏi — bạn đang tìm giải pháp cho loại không gian nào?`);
-      setSugs(['🏢 Văn phòng / Workspace', '🏥 Lab / Y tế / GMP', '🎓 Giáo dục']);
-    }
-  } else if (cs === 2) {
-    cs = 3;
-    await addBotMsg(`Được rồi. Diện tích không gian dự kiến của bạn khoảng bao nhiêu?`);
-    setSugs(['< 200m²', '200–500m²', '500–1,000m²', '> 1,000m²']);
-  } else if (cs === 3) {
-    cs = 4;
-    await addBotMsg(`${text} — quy mô đủ để tạo ra không gian có chiều sâu thực sự.<br><br>Timeline hoàn công và ngân sách đầu tư dự kiến của bạn là?`);
-    setSugs(['< 3 tháng · Linh hoạt', '3–6 tháng · Đang nghiên cứu', '6+ tháng · Cần báo giá chi tiết']);
-  } else if (cs === 4) {
-    cs = 5;
-    await addBotMsg(`Cảm ơn! Để <strong>Design Consultant</strong> của Huynchi gửi báo giá sơ bộ và sắp xếp buổi tư vấn 30 phút — hoàn toàn miễn phí — bạn có thể để lại tên và email?`);
-    setSugs([]);
-  } else if (cs === 5) {
-    cs = 6;
-    await addBotMsg(`✅ <strong>Tuyệt vời!</strong> Thông tin của bạn đã được ghi nhận tự động.<br><br>Một <strong>Design Consultant</strong> sẽ liên hệ trong vòng <strong>24 giờ</strong> để sắp xếp buổi tư vấn không gian đầu tiên.`);
-    setSugs(['Cảm ơn Huynchi!', 'Tôi có thêm câu hỏi']);
-    document.getElementById('lead-cap').classList.add('show');
-  } else {
-    await addBotMsg(`Đội ngũ Huynchi rất mong được đồng hành cùng dự án của bạn! Có điều gì khác tôi có thể hỗ trợ?`);
-    setSugs(['Xem portfolio dự án', 'Quy trình làm việc', 'Liên hệ trực tiếp']);
-  }
+function setInputDisabled(val) {
+  chatIn.disabled = val;
+  chatSend.disabled = val;
+  chatSend.style.opacity = val ? '0.4' : '1';
 }
 
-chatSend.onclick = () => handleSend(chatIn.value);
-chatIn.onkeydown = e => { if (e.key === 'Enter') handleSend(chatIn.value); };
+async function streamBotMsg(userText) {
+  setInputDisabled(true);
+  sugWrap.innerHTML = '';
 
-// Start chatbot when visible
+  // Add to history
+  chatHistory.push({ role: 'user', content: userText });
+
+  const tw = showTyping();
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 400,
+        system: HUYNCHI_SYSTEM,
+        messages: chatHistory
+      })
+    });
+
+    const data = await res.json();
+    tw.remove();
+
+    const rawText = data.content?.[0]?.text || 'Xin lỗi, có lỗi xảy ra. Vui lòng thử lại.';
+
+    // Check for lead capture tag
+    const leadMatch = rawText.match(/<!--LEAD_CAPTURED:(.*?)-->/s);
+    const cleanText = rawText.replace(/<!--LEAD_CAPTURED:.*?-->/s, '').trim();
+
+    // Add bot message with streaming effect
+    const b = document.createElement('div');
+    b.className = 'cb cb-bot';
+    b.innerHTML = `<div class="cb-sender">Huynchi AI</div><span class="bot-text"></span>`;
+    chatArea.appendChild(b);
+    const textSpan = b.querySelector('.bot-text');
+
+    // Typewriter stream
+    await new Promise(resolve => {
+      let i = 0;
+      const chars = cleanText.split('');
+      function tick() {
+        if (i < chars.length) {
+          textSpan.textContent += chars[i++];
+          scrollChat();
+          setTimeout(tick, 16 + Math.random() * 10);
+        } else resolve();
+      }
+      tick();
+    });
+
+    // Add to history
+    chatHistory.push({ role: 'assistant', content: rawText });
+
+    // Handle lead capture
+    if (leadMatch && !leadCaptured) {
+      leadCaptured = true;
+      try {
+        const leadData = JSON.parse(leadMatch[1]);
+        setTimeout(() => {
+          document.getElementById('lead-cap').classList.add('show');
+          // Update lead cap text with actual data
+          document.querySelector('.lc-txt').textContent =
+            `${leadData.name || 'Khách'} · ${leadData.project_type || ''} · Ghi vào Sheet tự động`;
+        }, 600);
+      } catch(e) {
+        document.getElementById('lead-cap').classList.add('show');
+      }
+      setSugs(['Cảm ơn Huynchi! 🙏', 'Tôi có thêm câu hỏi']);
+    } else {
+      // Contextual suggestions based on conversation stage
+      const lower = cleanText.toLowerCase();
+      if (!chatHistory.some(m => m.role === 'user' && m.content.length > 5) ) {
+        setSugs(['🏢 Văn phòng / Workspace', '🏥 Lab / GMP / Y tế', '🎓 Giáo dục']);
+      } else if (lower.includes('diện tích') || lower.includes('m²') || lower.includes('bao nhiêu')) {
+        setSugs(['< 200m²', '200–500m²', '500–1,000m²', '> 1,000m²']);
+      } else if (lower.includes('budget') || lower.includes('ngân sách') || lower.includes('chi phí')) {
+        setSugs(['< 1 tỷ', '1–3 tỷ', '3–5 tỷ', '> 5 tỷ']);
+      } else if (lower.includes('timeline') || lower.includes('hoàn công') || lower.includes('tháng')) {
+        setSugs(['2–3 tháng', '4–6 tháng', '6–12 tháng']);
+      } else if (lower.includes('tên') || lower.includes('email') || lower.includes('liên hệ')) {
+        setSugs([]);
+      } else {
+        setSugs([]);
+      }
+    }
+
+  } catch (err) {
+    tw?.remove();
+    const b = document.createElement('div');
+    b.className = 'cb cb-bot';
+    b.innerHTML = `<div class="cb-sender">Huynchi AI</div>Xin lỗi, có lỗi kết nối. Vui lòng thử lại.`;
+    chatArea.appendChild(b); scrollChat();
+  }
+
+  setInputDisabled(false);
+  chatIn.focus();
+}
+
+function sendMessage(text) {
+  const msg = (text || chatIn.value).trim();
+  if (!msg) return;
+  chatIn.value = '';
+  addUsrMsg(msg);
+  streamBotMsg(msg);
+}
+
+chatSend.onclick = () => sendMessage(chatIn.value);
+chatIn.onkeydown = e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(chatIn.value); } };
+
+// Init chatbot on visible
 new IntersectionObserver(([e]) => {
   if (e.isIntersecting && !chatStarted) {
     chatStarted = true;
-    (async () => {
-      await new Promise(r => setTimeout(r, 400));
-      await addBotMsg(`Xin chào! Tôi là trợ lý tư vấn không gian của <strong>Huynchi</strong>.<br><br>Bạn đang tìm giải pháp cho loại dự án nào?`);
-      setSugs(['🏢 Văn phòng / Workspace', '🏥 Lab / Y tế / GMP', '🎓 Giáo dục']);
-    })();
+    setTimeout(async () => {
+      const tw = showTyping();
+      await new Promise(r => setTimeout(r, 900));
+      tw.remove();
+      const b = document.createElement('div');
+      b.className = 'cb cb-bot';
+      b.innerHTML = `<div class="cb-sender">Huynchi AI</div>`;
+      const sp = document.createElement('span');
+      b.appendChild(sp);
+      chatArea.appendChild(b);
+      const greeting = 'Xin chào! Tôi là trợ lý tư vấn không gian của Huynchi.\n\nBạn đang tìm giải pháp cho loại dự án nào?';
+      let i = 0;
+      await new Promise(resolve => {
+        function tick() {
+          if (i < greeting.length) { sp.textContent += greeting[i++]; scrollChat(); setTimeout(tick, 18); }
+          else resolve();
+        }
+        tick();
+      });
+      chatHistory.push({ role: 'assistant', content: greeting });
+      setSugs(['🏢 Văn phòng / Workspace', '🏥 Lab / GMP / Y tế', '🎓 Giáo dục']);
+    }, 500);
   }
 }, { threshold: .25 }).observe(document.getElementById('layer4'));
+
 
 /* ══════════════════════════════════════
    DASHBOARD
@@ -1962,4 +2079,26 @@ function initDash() {
       labels: weeks,
       datasets: [
         { label: 'L4 · AI Chatbot', data: [0,0,1,1,0,1,1,0,1,1,0,1], backgroundColor: 'rgba(232,97,42,0.75)', borderRadius: 2 },
-        { label: 'L2 · SEO Organic', data: [0,0,0,0,1,0,1,1,1,0,1,1], backgroundColor: 'rgba(29,155,240,0.65)', 
+        { label: 'L2 · SEO Organic', data: [0,0,0,0,1,0,1,1,1,0,1,1], backgroundColor: 'rgba(29,155,240,0.65)', borderRadius: 2 },
+        { label: 'L2 · Google Ads (opt)', data: [1,1,1,1,0,1,0,0,0,1,1,0], backgroundColor: 'rgba(245,158,11,0.65)', borderRadius: 2 }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: { stacked: true, ticks: { font: mono, color: '#9aa0a6' }, grid: { color: gridCol } },
+        y: { stacked: true, ticks: { font: mono, color: '#9aa0a6', stepSize: 1 }, grid: { color: gridCol } }
+      },
+      animation: { duration: 1400, easing: 'easeOutQuart' },
+      plugins: {
+        legend: { labels: { font: { family: 'DM Mono', size: 9 }, color: '#5f6368', boxWidth: 10, boxHeight: 8 } },
+        tooltip: { backgroundColor: 'rgba(32,33,36,0.92)', titleFont: mono, callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw} lead` } }
+      }
+    }
+  });
+}
+
+})();
+</script>
+</body>
+</html>
