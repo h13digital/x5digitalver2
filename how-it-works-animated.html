@@ -1204,4 +1204,8 @@ document.querySelectorAll('.btn-magnetic').forEach(function(wrap){
    14. SMOOTH SCROLL
 ═══════════════════════════════════════════════ */
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  
+      a.addEventListener('click',function(e){e.preventDefault();var id=this.getAttribute('href');if(id==='#')return;var el=document.querySelector(id);if(el)window.scrollTo({top:el.offsetTop-80,behavior:'smooth'});});
+});
+</script>
+</body>
+</html>
