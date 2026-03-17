@@ -217,9 +217,11 @@
     @keyframes demoHeaderScan{0%{left:-100%}100%{left:150%}}
     .demo-header h3{color:var(--text-primary);margin-bottom:var(--space-xs)}
     .demo-header p{color:var(--text-secondary);margin-bottom:0}
-    .demo-video{position:relative;padding-bottom:56.25%;height:0;background:var(--bg-base)}
-    .demo-placeholder{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-secondary);text-align:center;padding:var(--space-xl)}
-    .demo-placeholder i{font-size:var(--text-4xl);margin-bottom:var(--space-md);color:var(--neon-indigo);animation:playPulse 2s ease-in-out infinite}
+    .demo-video{position:relative;padding-bottom:40%;height:0;background:var(--bg-base);min-height:180px}
+    .demo-placeholder{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text-secondary);text-align:center;padding:var(--space-xl);gap:var(--space-sm)}
+    .demo-placeholder i{font-size:var(--text-3xl);color:var(--neon-indigo);animation:playPulse 2s ease-in-out infinite;flex-shrink:0}
+    .demo-placeholder h4{margin-bottom:var(--space-xs);font-size:var(--text-lg)}
+    .demo-placeholder p{margin-bottom:0;font-size:var(--text-sm)}
     @keyframes playPulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 8px rgba(99,102,241,.5))}50%{transform:scale(1.1);filter:drop-shadow(0 0 20px rgba(99,102,241,.8))}}
     .demo-features{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-lg);padding:var(--space-xl);background:var(--bg-surface-1)}
     .demo-feature{text-align:center;padding:var(--space-lg);opacity:0;transform:translateY(15px);transition:opacity .4s ease,transform .4s ease;display:flex;flex-direction:column;align-items:center}
@@ -341,6 +343,9 @@
         .proof-types,.benchmarks-grid,.portfolio-grid,.founders-grid{grid-template-columns:1fr}
         .demo-features,.risk-features{grid-template-columns:1fr}
         .demo-features{padding:var(--space-lg)}
+        .demo-feature{flex-direction:row;text-align:left;gap:var(--space-md);padding:var(--space-md)}
+        .demo-feature i{width:44px;height:44px;min-width:44px;font-size:var(--text-lg);margin-bottom:0}
+        .demo-feature h4{font-size:var(--text-base);margin-bottom:4px}
         .risk-card{padding:var(--space-xl) var(--space-lg);padding-top:3rem}
         .benchmark-result{font-size:var(--text-2xl)}
         .chart-bar{width:30px}
