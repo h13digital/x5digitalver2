@@ -240,11 +240,18 @@
         opacity:0;transform:translateY(30px)}
     .portfolio-card.pc-in{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s var(--transition-spring)}
     .portfolio-card:hover{transform:translateY(-8px)!important;border-color:rgba(29,155,240,.25);box-shadow:var(--glow-blue-sm)}
-    .portfolio-image{height:180px;background:var(--bg-surface-3);display:flex;align-items:center;justify-content:center;color:var(--electric-blue);font-size:var(--text-sm);font-weight:600;position:relative;overflow:hidden;transition:all var(--transition-normal)}
-    .portfolio-image::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(29,155,240,.08),transparent 70%);animation:imgPulse 3s ease-in-out infinite}
+    .portfolio-image{height:190px;background:linear-gradient(160deg,#0D1426 0%,#111B33 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:all var(--transition-normal)}
+    .portfolio-image::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(29,155,240,.06),transparent 70%);animation:imgPulse 3s ease-in-out infinite;pointer-events:none}
     @keyframes imgPulse{0%,100%{opacity:.5}50%{opacity:1}}
-    .portfolio-image i{font-size:var(--text-3xl);position:relative;z-index:1;transition:transform var(--transition-spring)}
-    .portfolio-card:hover .portfolio-image i{transform:scale(1.2) rotate(10deg)}
+    .portfolio-image svg{width:100%;height:100%;position:relative;z-index:1}
+    .portfolio-card:hover .portfolio-image{background:linear-gradient(160deg,#0D1426 0%,#162040 100%)}
+    /* bar animation */
+    .dash-bar{transform-origin:bottom;animation:barRise 1.2s cubic-bezier(.34,1.56,.64,1) both}
+    @keyframes barRise{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+    .dash-line{stroke-dasharray:200;stroke-dashoffset:200;animation:lineDraw 1.5s ease .3s forwards}
+    @keyframes lineDraw{to{stroke-dashoffset:0}}
+    .dash-ring{stroke-dasharray:157;stroke-dashoffset:157;animation:ringFill 1.4s ease .4s forwards}
+    @keyframes ringFill{to{stroke-dashoffset:40}}
     .portfolio-content{padding:var(--space-xl)}
     .portfolio-stats{display:flex;justify-content:space-between;margin-top:var(--space-lg);padding-top:var(--space-lg);border-top:0px solid rgba(255,255,255,.08);position:relative}
     /* border draw on stats */
@@ -586,7 +593,43 @@
         </div>
         <div class="portfolio-grid" id="portfolio-grid">
             <div class="portfolio-card" data-delay="0">
-                <div class="portfolio-image"><i class="fas fa-shopping-cart"></i></div>
+                <div class="portfolio-image">
+                  <svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+                    <!-- bg grid -->
+                    <defs>
+                      <pattern id="grid1" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+                      </pattern>
+                    </defs>
+                    <rect width="320" height="190" fill="url(#grid1)"/>
+                    <!-- header bar -->
+                    <rect x="16" y="14" width="90" height="8" rx="4" fill="rgba(29,155,240,.5)"/>
+                    <rect x="112" y="14" width="50" height="8" rx="4" fill="rgba(255,255,255,.12)"/>
+                    <rect x="240" y="10" width="64" height="16" rx="8" fill="rgba(0,212,170,.2)" stroke="rgba(0,212,170,.5)" stroke-width="1"/>
+                    <text x="272" y="22" text-anchor="middle" font-size="8" font-family="monospace" fill="#00D4AA" font-weight="bold">+42%</text>
+                    <!-- bar chart -->
+                    <rect x="30" y="140" width="22" height="30" rx="3" fill="rgba(255,255,255,.12)" class="dash-bar" style="animation-delay:.1s"/>
+                    <rect x="60" y="120" width="22" height="50" rx="3" fill="rgba(255,255,255,.12)" class="dash-bar" style="animation-delay:.2s"/>
+                    <rect x="90" y="105" width="22" height="65" rx="3" fill="rgba(255,255,255,.12)" class="dash-bar" style="animation-delay:.3s"/>
+                    <rect x="120" y="90" width="22" height="80" rx="3" fill="rgba(29,155,240,.6)" class="dash-bar" style="animation-delay:.4s"/>
+                    <rect x="150" y="70" width="22" height="100" rx="3" fill="rgba(29,155,240,.8)" class="dash-bar" style="animation-delay:.5s"/>
+                    <rect x="180" y="50" width="22" height="120" rx="3" fill="#1D9BF0" class="dash-bar" style="animation-delay:.6s"/>
+                    <!-- after bar highlight -->
+                    <rect x="210" y="35" width="22" height="135" rx="3" fill="#00D4AA" class="dash-bar" style="animation-delay:.7s"/>
+                    <text x="221" y="30" text-anchor="middle" font-size="7" font-family="monospace" fill="#00D4AA">After</text>
+                    <!-- x axis -->
+                    <line x1="20" y1="172" x2="300" y2="172" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+                    <!-- mini KPI cards -->
+                    <rect x="246" y="50" width="60" height="28" rx="6" fill="rgba(0,212,170,.1)" stroke="rgba(0,212,170,.3)" stroke-width="1"/>
+                    <text x="276" y="62" text-anchor="middle" font-size="7" font-family="monospace" fill="rgba(255,255,255,.5)">CONVERSION</text>
+                    <text x="276" y="72" text-anchor="middle" font-size="9" font-family="monospace" fill="#00D4AA" font-weight="bold">5% → 7.1%</text>
+                    <rect x="246" y="85" width="60" height="28" rx="6" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.25)" stroke-width="1"/>
+                    <text x="276" y="97" text-anchor="middle" font-size="7" font-family="monospace" fill="rgba(255,255,255,.5)">CART ABANDON</text>
+                    <text x="276" y="107" text-anchor="middle" font-size="9" font-family="monospace" fill="#EF4444" font-weight="bold">–31%</text>
+                    <!-- label -->
+                    <text x="16" y="185" font-size="7" font-family="monospace" fill="rgba(255,255,255,.25)">E-COMMERCE DASHBOARD · AI RETARGETING</text>
+                  </svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>E-commerce Platform</h3>
                     <p><strong>Challenge:</strong> 5% conversion rate, high cart abandonment</p>
@@ -598,7 +641,47 @@
                 </div>
             </div>
             <div class="portfolio-card" data-delay="150">
-                <div class="portfolio-image"><i class="fas fa-cloud"></i></div>
+                <div class="portfolio-image">
+                  <svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+                    <defs>
+                      <pattern id="grid2" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+                      </pattern>
+                    </defs>
+                    <rect width="320" height="190" fill="url(#grid2)"/>
+                    <!-- header -->
+                    <rect x="16" y="14" width="80" height="8" rx="4" fill="rgba(99,102,241,.6)"/>
+                    <rect x="102" y="14" width="44" height="8" rx="4" fill="rgba(255,255,255,.12)"/>
+                    <rect x="238" y="10" width="66" height="16" rx="8" fill="rgba(99,102,241,.2)" stroke="rgba(99,102,241,.5)" stroke-width="1"/>
+                    <text x="271" y="22" text-anchor="middle" font-size="8" font-family="monospace" fill="#6366F1" font-weight="bold">–58% churn</text>
+                    <!-- churn line going DOWN (good) -->
+                    <polyline points="20,60 60,75 100,90 140,108 180,120 220,130 260,138 300,145" fill="none" stroke="rgba(239,68,68,.3)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                    <!-- after-x5 line going down faster -->
+                    <polyline points="20,60 60,55 100,52 140,48 180,43 220,38 260,35 300,32" fill="none" stroke="#00D4AA" stroke-width="2" class="dash-line"/>
+                    <!-- area fill -->
+                    <polygon points="20,60 60,55 100,52 140,48 180,43 220,38 260,35 300,32 300,170 20,170" fill="url(#areaGrad2)" opacity=".25"/>
+                    <defs>
+                      <linearGradient id="areaGrad2" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#00D4AA" stop-opacity=".4"/>
+                        <stop offset="100%" stop-color="#00D4AA" stop-opacity="0"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- legend -->
+                    <circle cx="26" cy="155" r="3" fill="rgba(239,68,68,.6)"/>
+                    <text x="33" y="158" font-size="7" font-family="monospace" fill="rgba(255,255,255,.4)">Before X5</text>
+                    <circle cx="90" cy="155" r="3" fill="#00D4AA"/>
+                    <text x="97" y="158" font-size="7" font-family="monospace" fill="#00D4AA">After X5</text>
+                    <!-- KPI cards -->
+                    <rect x="216" y="50" width="90" height="26" rx="6" fill="rgba(0,212,170,.1)" stroke="rgba(0,212,170,.3)" stroke-width="1"/>
+                    <text x="261" y="60" text-anchor="middle" font-size="6.5" font-family="monospace" fill="rgba(255,255,255,.4)">CHURN RATE</text>
+                    <text x="261" y="71" text-anchor="middle" font-size="9.5" font-family="monospace" fill="#00D4AA" font-weight="bold">15% → 6.3%</text>
+                    <rect x="216" y="82" width="90" height="26" rx="6" fill="rgba(99,102,241,.1)" stroke="rgba(99,102,241,.3)" stroke-width="1"/>
+                    <text x="261" y="92" text-anchor="middle" font-size="6.5" font-family="monospace" fill="rgba(255,255,255,.4)">ONBOARDING</text>
+                    <text x="261" y="103" text-anchor="middle" font-size="9.5" font-family="monospace" fill="#6366F1" font-weight="bold">80% automated</text>
+                    <line x1="20" y1="170" x2="300" y2="170" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+                    <text x="16" y="185" font-size="7" font-family="monospace" fill="rgba(255,255,255,.25)">SAAS DASHBOARD · CHURN PREDICTION MODEL</text>
+                  </svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>SaaS Startup</h3>
                     <p><strong>Challenge:</strong> 15% monthly churn, manual onboarding</p>
@@ -610,7 +693,47 @@
                 </div>
             </div>
             <div class="portfolio-card" data-delay="300">
-                <div class="portfolio-image"><i class="fas fa-graduation-cap"></i></div>
+                <div class="portfolio-image">
+                  <svg viewBox="0 0 320 190" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+                    <defs>
+                      <pattern id="grid3" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <path d="M20 0H0V20" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="1"/>
+                      </pattern>
+                    </defs>
+                    <rect width="320" height="190" fill="url(#grid3)"/>
+                    <!-- header -->
+                    <rect x="16" y="14" width="78" height="8" rx="4" fill="rgba(139,92,246,.6)"/>
+                    <rect x="100" y="14" width="55" height="8" rx="4" fill="rgba(255,255,255,.12)"/>
+                    <!-- engagement ring -->
+                    <circle cx="95" cy="105" r="50" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="10"/>
+                    <circle cx="95" cy="105" r="50" fill="none" stroke="rgba(139,92,246,.25)" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="0"/>
+                    <circle cx="95" cy="105" r="50" fill="none" stroke="#8B5CF6" stroke-width="10" stroke-linecap="round" class="dash-ring" transform="rotate(-90 95 105)"/>
+                    <!-- inner ring -->
+                    <circle cx="95" cy="105" r="36" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="8"/>
+                    <circle cx="95" cy="105" r="36" fill="none" stroke="#1D9BF0" stroke-width="8" stroke-linecap="round" stroke-dasharray="226" stroke-dashoffset="56" class="dash-ring" transform="rotate(-90 95 105)" style="animation-delay:.2s"/>
+                    <!-- center text -->
+                    <text x="95" y="100" text-anchor="middle" font-size="18" font-family="monospace" fill="#8B5CF6" font-weight="bold">+67%</text>
+                    <text x="95" y="115" text-anchor="middle" font-size="8" font-family="monospace" fill="rgba(255,255,255,.4)">ENGAGEMENT</text>
+                    <!-- ring legend -->
+                    <circle cx="24" cy="162" r="4" fill="none" stroke="#8B5CF6" stroke-width="2"/>
+                    <text x="32" y="166" font-size="7" font-family="monospace" fill="rgba(255,255,255,.4)">Engagement +67%</text>
+                    <circle cx="24" cy="175" r="4" fill="none" stroke="#1D9BF0" stroke-width="2"/>
+                    <text x="32" y="179" font-size="7" font-family="monospace" fill="rgba(255,255,255,.4)">Completion +45%</text>
+                    <!-- hours saved cards -->
+                    <rect x="170" y="40" width="136" height="36" rx="8" fill="rgba(0,212,170,.08)" stroke="rgba(0,212,170,.3)" stroke-width="1"/>
+                    <text x="238" y="53" text-anchor="middle" font-size="7" font-family="monospace" fill="rgba(255,255,255,.4)">HOURS SAVED / MONTH</text>
+                    <text x="238" y="68" text-anchor="middle" font-size="16" font-family="monospace" fill="#00D4AA" font-weight="bold">45h saved</text>
+                    <!-- weekly bars -->
+                    <rect x="172" y="110" width="16" height="35" rx="3" fill="rgba(139,92,246,.3)" class="dash-bar" style="animation-delay:.2s"/>
+                    <rect x="193" y="95" width="16" height="50" rx="3" fill="rgba(139,92,246,.5)" class="dash-bar" style="animation-delay:.3s"/>
+                    <rect x="214" y="78" width="16" height="67" rx="3" fill="rgba(139,92,246,.7)" class="dash-bar" style="animation-delay:.4s"/>
+                    <rect x="235" y="60" width="16" height="85" rx="3" fill="#8B5CF6" class="dash-bar" style="animation-delay:.5s"/>
+                    <rect x="256" y="48" width="16" height="97" rx="3" fill="#8B5CF6" class="dash-bar" style="animation-delay:.6s"/>
+                    <rect x="277" y="38" width="16" height="107" rx="3" fill="#00D4AA" class="dash-bar" style="animation-delay:.7s"/>
+                    <line x1="170" y1="148" x2="306" y2="148" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+                    <text x="16" y="185" font-size="7" font-family="monospace" fill="rgba(255,255,255,.25)">EDTECH DASHBOARD · ENGAGEMENT SCORING</text>
+                  </svg>
+                </div>
                 <div class="portfolio-content">
                     <h3>EdTech Platform</h3>
                     <p><strong>Challenge:</strong> Low student engagement, manual progress tracking</p>
