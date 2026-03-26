@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trainual × X5 Digital — Growth Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;900&family=Kalam:wght@300;400;700&family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#020044;--purple:#6A28EA;--teal:#06D4AE;--blue:#009DE0;--yellow:#FBC94B;--bg:#FFFFFF;--bg-light:#F8F4FF;--bg-lavender:#E5DAFB;--bg-mint:#DCF9F4;--text:#374151;--muted:#6B7280}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+#progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--teal);width:0%;z-index:1001;transition:width .1s linear}
+.x5-nav{background:var(--navy);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.x5-logo{display:flex;align-items:baseline;gap:4px}
+.logo-x5{font-family:'Poppins',sans-serif;font-size:24px;font-weight:900;color:#06D4AE;letter-spacing:-1px}
+.logo-digital{font-family:'Poppins',sans-serif;font-size:18px;font-weight:300;color:rgba(255,255,255,.75);letter-spacing:.05em}
+.x5-credit{font-family:'Poppins',sans-serif;font-size:12px;font-weight:300;color:rgba(255,255,255,.45);letter-spacing:.04em}
+.sec-div{height:1px;background:linear-gradient(90deg,var(--purple),var(--teal),transparent);opacity:.3}
+.sec{max-width:960px;margin:0 auto;padding:80px 32px}
+@media(max-width:768px){.sec{padding:56px 20px}}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.sec-title{font-size:clamp(28px,5vw,42px);font-weight:900;color:var(--navy);letter-spacing:-1px;margin-bottom:8px}
+.sec-title .ow{color:transparent;-webkit-text-stroke:2px var(--purple)}
+.sec-lead{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;max-width:640px;margin-bottom:40px}
+.hero-wrap{max-width:960px;margin:0 auto;padding:80px 32px 48px;position:relative;overflow:hidden}
+.hero-ghost{position:absolute;right:-20px;top:-30px;font-family:'Poppins',sans-serif;font-size:200px;font-weight:900;color:var(--navy);opacity:.04;line-height:1;pointer-events:none;user-select:none}
+@media(max-width:768px){.hero-ghost{display:none}}
+.hero-to{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.hero-name{font-size:clamp(36px,7vw,72px);font-weight:900;color:var(--navy);line-height:1.1;letter-spacing:-2px;margin-bottom:6px}
+.hero-name span{color:var(--purple)}
+.hero-sub{font-size:clamp(14px,2vw,18px);font-weight:300;color:var(--muted);margin-bottom:28px;max-width:540px;line-height:1.6}
+.hero-by{display:inline-block;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.08em;border:1px solid var(--bg-lavender);border-radius:20px;padding:4px 14px}
+.mirror-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:640px){.mirror-grid{grid-template-columns:1fr}}
+.mirror-card{position:relative;background:var(--bg-light);border-left:3px solid var(--teal);border-radius:0 12px 12px 0;padding:28px 28px 28px 24px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.mirror-card:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(2,0,68,.08)}
+.m-ghost{position:absolute;right:12px;bottom:-10px;font-family:'Poppins',sans-serif;font-size:140px;font-weight:900;color:var(--navy);opacity:.04;line-height:1;pointer-events:none;user-select:none}
+@media(max-width:768px){.m-ghost{display:none}}
+.mirror-stat{font-family:'Poppins',sans-serif;font-size:clamp(44px,6vw,72px);font-weight:900;color:var(--navy);letter-spacing:-3px;line-height:1}
+.mirror-stat .acc{color:var(--purple)}
+.m-div{width:48px;height:3px;background:var(--teal);margin:10px 0 12px}
+.m-ctx{font-size:14px;font-weight:400;color:var(--text);line-height:1.7;max-width:280px}
+.m-kalam{font-family:'Kalam',cursive;font-size:16px;font-weight:400;color:var(--purple);margin-top:8px;line-height:1.5}
+.hypo-card{position:relative;background:var(--bg);border:1px solid var(--bg-lavender);border-radius:16px;padding:28px;overflow:hidden;margin-bottom:20px}
+.hypo-ghost{position:absolute;right:24px;top:16px;font-family:'Poppins',sans-serif;font-size:100px;font-weight:900;color:var(--navy);opacity:.04;line-height:1;pointer-events:none;user-select:none}
+@media(max-width:768px){.hypo-ghost{display:none}}
+.hypo-row{display:flex;align-items:flex-start;gap:16px;padding:14px 0}
+.hypo-divider{height:1px;background:var(--bg-lavender)}
+.hypo-num-badge{display:flex;flex-direction:column;align-items:center;gap:4px;flex-shrink:0;width:48px;margin-top:2px}
+.num-circle{width:32px;height:32px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:13px;font-weight:900;flex-shrink:0}
+.nc-blue{border-color:#009DE0;color:#009DE0}
+.nc-amber{border-color:#FBC94B;color:#A07800}
+.nc-purple{border-color:#6A28EA;color:#6A28EA}
+.num-label{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;line-height:1.3}
+.nl-blue{color:#009DE0}
+.nl-amber{color:#A07800}
+.nl-purple{color:#6A28EA}
+.hypo-text{font-family:'Poppins',sans-serif;font-size:15px;font-weight:400;color:var(--text);line-height:1.7;padding-left:8px}
+.hypo-question{font-family:'Kalam',cursive;font-size:17px;font-weight:400;color:var(--purple);line-height:1.65;padding-left:8px}
+.pyramid-wrap{text-align:center;margin:40px 0}
+.pyr-eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.bridge-1-block{text-align:center;padding:40px 0 48px;max-width:600px;margin:0 auto}
+.bridge-eyebrow{font-family:'Poppins',sans-serif;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+.bridge-headline{font-family:'Poppins',sans-serif;font-size:24px;font-weight:700;color:var(--navy);line-height:1.3;letter-spacing:-.5px;margin-bottom:12px}
+.bridge-headline em{font-style:normal;color:var(--purple)}
+.bridge-sub{font-family:'Poppins',sans-serif;font-size:15px;font-weight:300;color:var(--muted);line-height:1.65}
+.bridge-3-block{border-left:3px solid var(--teal);padding:12px 0 12px 20px;margin:32px 0 48px;max-width:520px}
+.bridge-3-text{font-family:'Poppins',sans-serif;font-size:16px;font-weight:500;color:var(--navy);line-height:1.6}
+.bridge-3-text em{font-style:normal;color:var(--purple)}
+.layer-block{margin-bottom:64px;padding-top:32px}
+.layer-header{margin-bottom:32px}
+.layer-pill{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--teal);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:14px}
+.layer-name{font-family:'Poppins',sans-serif;font-size:clamp(32px,7vw,56px);font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1.1;margin-bottom:8px}
+.layer-name .ow{color:transparent;-webkit-text-stroke:2px var(--purple)}
+.layer-tagline{font-size:15px;font-weight:300;color:var(--muted);max-width:520px;line-height:1.65}
+.layer-svg{width:100%;min-height:200px;border-radius:16px;overflow:hidden;margin-bottom:40px;border:1px solid rgba(229,218,251,.5)}
+.vflow{margin-bottom:32px}
+.flow-step{display:flex;gap:20px}
+.flow-left{display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0}
+.flow-dot{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;z-index:1}
+.flow-line{width:2px;flex:1;min-height:32px;margin:4px auto}
+.line-obs{background:linear-gradient(#009DE0,#FBC94B)}
+.line-brk{background:linear-gradient(#FBC94B,#06D4AE)}
+.line-bld{background:linear-gradient(#06D4AE,#6A28EA)}
+.flow-right{flex:1;padding-bottom:32px}
+.flow-ew{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:4px}
+.flow-hl{font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:12px}
+.flow-ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.flow-ul li{font-size:14px;font-weight:400;color:var(--text);line-height:1.6;display:flex;align-items:flex-start;gap:8px}
+.flow-ul li.na{color:var(--muted)}
+.dot-obs{display:inline-block;width:6px;height:6px;border-radius:50%;background:#009DE0;flex-shrink:0;margin-top:8px}
+.dot-brk{display:inline-block;width:6px;height:6px;border-radius:50%;background:#FBC94B;flex-shrink:0;margin-top:8px}
+.dot-na{display:inline-block;width:6px;height:6px;border-radius:50%;background:#CBD5E0;flex-shrink:0;margin-top:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{font-size:12px;font-weight:600;color:#085041;background:var(--bg-mint);padding:5px 12px;border-radius:20px;letter-spacing:.04em}
+.outcome-bar{background:var(--bg-light);border-left:3px solid var(--purple);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:12px}
+.outcome-bar .ob-label{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:4px}
+.outcome-bar .ob-val{font-size:14px;font-weight:600;color:var(--navy);line-height:1.5}
+.flow-kalam{font-family:'Kalam',cursive;font-size:16px;font-weight:400;color:var(--purple);margin-top:10px;line-height:1.5}
+.outcome-full{background:var(--bg-mint);border-radius:10px;padding:16px 24px;display:flex;align-items:center;gap:12px;margin-top:8px;margin-bottom:0}
+.outcome-full span{font-size:14px;font-weight:600;color:var(--navy);line-height:1.5}
+.outcome-full .metric{font-family:'Inconsolata',monospace;font-weight:700;font-size:15px;color:#085041}
+.ba-wrap{margin:48px 0 24px}
+.ba-table{width:100%;border-collapse:collapse;margin:16px 0}
+.ba-table th{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:12px 20px;text-align:left}
+.ba-table th:first-child{color:#9CA3AF;background:#F9FAFB}
+.ba-table th:nth-child(2){color:#9CA3AF;background:#F9FAFB}
+.ba-table th:last-child{color:var(--teal);background:rgba(6,212,174,.08)}
+.ba-table td{font-size:14px;font-weight:400;padding:16px 20px;vertical-align:top;line-height:1.65;border-top:1px solid #F3F4F6}
+.ba-table td:first-child{color:#6B7280;background:#FAFAFA;font-size:13px;font-weight:600;width:120px}
+.ba-table td:nth-child(2){color:#9CA3AF;background:#FAFAFA;font-size:13px}
+.ba-table td:last-child{color:var(--text);background:#FAFFF9}
+.cascade-wrap{margin:40px 0;border-radius:16px;background:var(--bg-light);padding:32px;overflow:hidden}
+.dash-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+@media(max-width:720px){.dash-metrics{grid-template-columns:1fr 1fr}}
+.dash-card{background:var(--bg-light);border-radius:12px;padding:20px 20px 16px;border:1px solid var(--bg-lavender)}
+.d-label{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.d-value{font-family:'Inconsolata',monospace;font-size:32px;font-weight:700;color:var(--navy);line-height:1.1}
+.d-sub{font-size:12px;font-weight:400;color:var(--muted);margin-top:4px}
+.dash-bottom{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:640px){.dash-bottom{grid-template-columns:1fr}}
+.dash-panel{background:var(--bg-light);border-radius:12px;padding:24px;border:1px solid var(--bg-lavender)}
+.panel-title{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.funnel{display:flex;flex-direction:column;gap:8px}
+.funnel-row{display:flex;align-items:center;gap:12px}
+.funnel-label{font-size:13px;font-weight:600;color:var(--navy);width:80px;flex-shrink:0}
+.funnel-bw{flex:1;background:#EEF2FF;border-radius:4px;height:32px;overflow:hidden}
+.funnel-bar{height:100%;border-radius:4px}
+.funnel-pct{font-family:'Inconsolata',monospace;font-size:13px;font-weight:700;width:48px;text-align:right;flex-shrink:0}
+.ch-rows{display:flex;flex-direction:column;gap:12px}
+.ch-row{display:flex;align-items:center;gap:12px}
+.ch-name{font-size:13px;font-weight:600;color:var(--navy);width:90px;flex-shrink:0}
+.ch-track{flex:1;background:#EEF2FF;border-radius:4px;height:28px;overflow:hidden}
+.ch-fill{height:100%;border-radius:4px}
+.ch-val{font-family:'Inconsolata',monospace;font-size:13px;font-weight:700;width:36px;text-align:right;flex-shrink:0;color:var(--navy)}
+.ask-wrap{background:var(--navy);padding:80px 32px;text-align:center;position:relative;overflow:hidden}
+.ask-ghost{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:'Poppins',sans-serif;font-size:300px;font-weight:900;color:#fff;opacity:.03;line-height:1;pointer-events:none;user-select:none}
+@media(max-width:768px){.ask-ghost{display:none}}
+.ask-inner{position:relative;max-width:600px;margin:0 auto}
+.ask-eyebrow{font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+.ask-headline{font-size:clamp(40px,8.75vw,70px);font-weight:900;color:#fff;letter-spacing:-2.5px;line-height:1.05;margin-bottom:8px}
+.ask-kalam{font-family:'Kalam',cursive;font-size:18px;font-weight:400;color:rgba(229,218,251,.9);line-height:1.6;margin-bottom:24px}
+.ask-commit{font-size:15px;font-weight:300;color:rgba(255,255,255,.6);margin-bottom:36px;line-height:1.65}
+.ask-btn{display:inline-block;background:var(--teal);color:var(--navy);font-family:'Poppins',sans-serif;font-size:16px;font-weight:700;padding:16px 40px;border-radius:8px;text-decoration:none;letter-spacing:.04em;transition:transform .2s,box-shadow .2s,background .2s}
+.ask-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(6,212,174,.35);background:#07EFC5}
+.x5-footer{background:var(--bg-light);padding:20px 40px;text-align:center}
+.x5-footer span{font-size:12px;font-weight:300;color:var(--muted)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+
+<nav class="x5-nav">
+  <div class="x5-logo">
+    <span class="logo-x5">X5</span>
+    <span class="logo-digital">Digital</span>
+  </div>
+  <span class="x5-credit">A proposal prepared exclusively for Trainual</span>
+</nav>
+
+<div class="hero-wrap reveal">
+  <div class="hero-ghost">T</div>
+  <div class="hero-to">To: Chris Ronzio, Founder &amp; CEO · Trainual</div>
+  <div class="hero-name">A proposal for<br><span>Trainual</span></div>
+  <div class="hero-sub">We audited trainual.com from the outside — no access, no brief, no invitation. What we found led us to write this. It takes 6 minutes to read. We're asking for 30.</div>
+  <div class="hero-by">From X5 Digital · March 2026</div>
+</div>
+
+<div class="sec-div"></div>
+
+<!-- S1: THE MIRROR -->
+<div class="sec" id="s1">
+  <div class="eyebrow reveal">Section 01</div>
+  <div class="sec-title reveal">The <span class="ow">Mirror</span></div>
+  <p class="sec-lead reveal">Before we get to what could improve — here's what we observed that's genuinely impressive. These are not compliments. They're competitive advantages worth protecting.</p>
+
+  <div class="mirror-grid">
+    <div class="mirror-card reveal">
+      <div class="m-ghost">01</div>
+      <div class="eyebrow">Content Moat · Strength 01</div>
+      <div class="mirror-stat">163<span class="acc">,000</span><span class="acc">+</span></div>
+      <div class="m-div"></div>
+      <div class="m-ctx">Newsletter subscribers — plus The Manual, Organize Chaos podcast, The Business Playbook, and Trainual University. A content moat that takes years to build and is nearly impossible to replicate quickly.</div>
+    </div>
+    <div class="mirror-card reveal" style="transition-delay:.1s">
+      <div class="m-ghost">02</div>
+      <div class="eyebrow">Positioning Clarity · Strength 02</div>
+      <div class="mirror-stat" style="font-size:clamp(26px,4vw,38px);letter-spacing:-1px;line-height:1.2">"The Super<br>Baby"</div>
+      <div class="m-div"></div>
+      <div class="m-ctx">LMS + Knowledge Base in one. Trainual knows exactly what it is — and what it's not. Messaging consistent from Homepage to Pricing to FAQ. That's category clarity most SaaS companies spend years trying to achieve.</div>
+      <div class="m-kalam">"Not Notion. Not TalentLMS. Something better for growing teams."</div>
+    </div>
+    <div class="mirror-card reveal" style="transition-delay:.15s">
+      <div class="m-ghost">03</div>
+      <div class="eyebrow">Social Proof · Strength 03</div>
+      <div class="mirror-stat">4.7<span class="acc">/5</span></div>
+      <div class="m-div"></div>
+      <div class="m-ctx">On 2,000+ verified reviews — real names, real titles, real companies. The ROI Calculator with transparent logic is the kind of social proof that closes deals before sales even picks up the phone.</div>
+    </div>
+    <div class="mirror-card reveal" style="transition-delay:.2s">
+      <div class="m-ghost">04</div>
+      <div class="eyebrow">Sales Intentionality · Strength 04</div>
+      <div class="mirror-stat">10<span class="acc">,000</span><span class="acc">+</span></div>
+      <div class="m-div"></div>
+      <div class="m-ctx">Teams. "Get a Demo" over visible pricing is a deliberate decision — not a gap. 7 modules, 30+ integrations, 4 pricing tiers. A product built to handle the full range from 5 to 500+ person teams.</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-div"></div>
+
+<!-- S2: THE HIDDEN LEAK -->
+<div class="sec" id="s2">
+  <div class="eyebrow reveal">Section 02</div>
+  <div class="sec-title reveal">The Hidden <span class="ow">Leak</span></div>
+  <p class="sec-lead reveal">Three unconfirmed hypotheses — formed from what's observable in public sources. We flag them because if any one of them is accurate, it's a meaningful revenue gap. We can't know without data access. Which is exactly the point.</p>
+
+  <div class="hypo-card reveal">
+    <div class="hypo-ghost">01</div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-blue">01</div><div class="num-label nl-blue">What<br>we see</div></div>
+      <div class="hypo-text">No entity-building, Knowledge Graph signals, or AI Search citation strategy observed in website source code or public content.</div>
+    </div>
+    <div class="hypo-divider"></div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-amber">02</div><div class="num-label nl-amber">Why it<br>matters</div></div>
+      <div class="hypo-text">When an SMB owner asks ChatGPT "best software to document SOPs" in 2026, Trainual may be invisible — losing top-of-funnel before it ever starts.</div>
+    </div>
+    <div class="hypo-divider"></div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-purple">03</div><div class="num-label nl-purple">The<br>question</div></div>
+      <div class="hypo-question">Right now — when someone asks Perplexity "how do I onboard employees faster," does Trainual come up?</div>
+    </div>
+  </div>
+
+  <div class="hypo-card reveal" style="transition-delay:.1s">
+    <div class="hypo-ghost">02</div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-blue">01</div><div class="num-label nl-blue">What<br>we see</div></div>
+      <div class="hypo-text">Newsletter promotes "Join our 163k+ readers" but behavioral segmentation and role-based automation sequences are not visible from any public signal.</div>
+    </div>
+    <div class="hypo-divider"></div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-amber">02</div><div class="num-label nl-amber">Why it<br>matters</div></div>
+      <div class="hypo-text">Segmented email outperforms broadcast by 4–8× in demo booking rate. 163,000 subscribers receiving one message is a $0-CAC channel being used at 10% capacity.</div>
+    </div>
+    <div class="hypo-divider"></div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-purple">03</div><div class="num-label nl-purple">The<br>question</div></div>
+      <div class="hypo-question">Of the 163,000 subscribers — what percentage are business owners getting HR content right now? And what's the demo booking rate from that list?</div>
+    </div>
+  </div>
+
+  <div class="hypo-card reveal" style="transition-delay:.15s">
+    <div class="hypo-ghost">03</div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-blue">01</div><div class="num-label nl-blue">What<br>we see</div></div>
+      <div class="hypo-text">Facebook Pixel, LinkedIn Insight Tag, and Google Ads conversion tracking all confirmed in source code. Campaign structure and spend efficiency: not visible externally.</div>
+    </div>
+    <div class="hypo-divider"></div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-amber">02</div><div class="num-label nl-amber">Why it<br>matters</div></div>
+      <div class="hypo-text">Without use-case landing pages and clean event tracking, it's impossible to know which ad drives demos vs. burns budget. A 2% funnel improvement beats doubling ad spend.</div>
+    </div>
+    <div class="hypo-divider"></div>
+    <div class="hypo-row">
+      <div class="hypo-num-badge"><div class="num-circle nc-purple">03</div><div class="num-label nl-purple">The<br>question</div></div>
+      <div class="hypo-question">Right now — do you know exactly which dollar of ad spend last month produced a closed deal, and which one didn't?</div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-div"></div>
+
+<!-- S3: THE ENGINE -->
+<div class="sec" id="s3">
+  <div class="eyebrow reveal">Section 03</div>
+  <div class="sec-title reveal">The <span class="ow">Engine</span></div>
+  <div class="reveal" style="font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;max-width:640px;margin-bottom:32px">X5 doesn't deploy tactics in isolation. We build a 5-layer system where each layer is the foundation for the one above. Without clean data at L1, the intelligence at L5 has nothing to analyze. This is the difference between "hiring an agency" and building a Growth Operating System.</div>
+
+  <!-- STACKED RECTANGLES -->
+  <div class="pyramid-wrap reveal">
+    <div class="pyr-eyebrow">THE X5 REVENUE SYSTEM — 5 LAYERS</div>
+    <svg viewBox="0 0 600 390" width="100%" style="max-width:600px;display:block;margin:0 auto">
+      <rect x="180" y="10" width="240" height="64" rx="10" fill="#06D4AE"/>
+      <text x="300" y="40" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="white" letter-spacing="1">L5 · REVENUE INTELLIGENCE</text>
+      <text x="300" y="59" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Predict · Decide Ahead</text>
+      <rect x="140" y="80" width="320" height="64" rx="10" fill="#5A28C8"/>
+      <text x="300" y="110" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="white" letter-spacing="1">L4 · AI AUTOMATION &amp; AGENT</text>
+      <text x="300" y="129" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Automate · Scale 24/7</text>
+      <rect x="100" y="150" width="400" height="64" rx="10" fill="#3A1A9A"/>
+      <text x="300" y="180" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="white" letter-spacing="1">L3 · REVENUE OPERATIONS</text>
+      <text x="300" y="199" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Align · No Revenue Lost</text>
+      <rect x="60" y="220" width="480" height="64" rx="10" fill="#1A1060"/>
+      <text x="300" y="250" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="white" letter-spacing="1">L2 · MARTECH EXECUTION</text>
+      <text x="300" y="269" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Reach · Right Person Right Time</text>
+      <rect x="20" y="290" width="560" height="64" rx="10" fill="#020044"/>
+      <text x="300" y="320" text-anchor="middle" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="white" letter-spacing="1">L1 · FOUNDATION &amp; DATA</text>
+      <text x="300" y="339" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Clean Data · Clean Decisions</text>
+    </svg>
+  </div>
+
+  <!-- BRIDGE 1 -->
+  <div class="bridge-1-block reveal">
+    <div class="bridge-eyebrow">Applied to Trainual — Layer by Layer</div>
+    <div class="bridge-headline">Here's what we found in the audit —<br>and <em>what we'd build first.</em></div>
+    <div class="bridge-sub">Each layer is grounded in what's observable from the outside, and honest about what we couldn't see.</div>
+  </div>
+
+  <!-- L1 -->
+  <div class="layer-block reveal" id="l1">
+    <div class="layer-header">
+      <div class="layer-pill">L1 · Foundation</div>
+      <div class="layer-name">Foundation &amp; <span class="ow">Data</span></div>
+      <div class="layer-tagline">Trainual has tracking active — Facebook Pixel, LinkedIn Tag, Google Ads confirmed in source. Whether those pixels are measuring the right things at each funnel step is what this layer answers.</div>
+    </div>
+    <div class="layer-svg">
+      <svg viewBox="0 0 900 240" width="100%" style="display:block;background:#F8F4FF">
+        <text x="32" y="36" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#6A28EA" letter-spacing="2">CONVERSION FUNNEL — WITH CUSTOM GA4 EVENTS</text>
+        <rect x="32" y="52" width="560" height="38" rx="6" fill="#020044"/>
+        <text x="44" y="76" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="white">Website Visitor</text>
+        <text x="600" y="76" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#06D4AE">100%</text>
+        <text x="650" y="76" font-family="Inconsolata,monospace" font-size="12" fill="rgba(255,255,255,0.5)">page_view</text>
+        <rect x="32" y="102" width="350" height="38" rx="6" fill="#3A1A9A"/>
+        <text x="44" y="126" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="white">Pricing Page Visit</text>
+        <text x="390" y="126" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#FBC94B">18%</text>
+        <text x="440" y="126" font-family="Inconsolata,monospace" font-size="12" fill="rgba(255,255,255,0.5)">pricing_page_visited</text>
+        <rect x="32" y="152" width="180" height="38" rx="6" fill="#5A28C8"/>
+        <text x="44" y="176" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="white">Demo Requested</text>
+        <text x="220" y="176" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#06D4AE">3.2%</text>
+        <text x="270" y="176" font-family="Inconsolata,monospace" font-size="12" fill="#9CA3AF">demo_requested</text>
+        <rect x="32" y="202" width="80" height="30" rx="6" fill="#06D4AE"/>
+        <text x="44" y="222" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#020044">Closed</text>
+        <text x="120" y="222" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#06D4AE">0.9%</text>
+        <text x="170" y="222" font-family="Inconsolata,monospace" font-size="12" fill="#9CA3AF">deal_closed_won</text>
+        <rect x="680" y="48" width="200" height="160" rx="8" fill="#020044"/>
+        <text x="692" y="72" font-family="Inconsolata,monospace" font-size="11" fill="#06D4AE">// GA4 custom events</text>
+        <text x="692" y="92" font-family="Inconsolata,monospace" font-size="11" fill="rgba(255,255,255,0.7)">gtag('event',</text>
+        <text x="692" y="108" font-family="Inconsolata,monospace" font-size="11" fill="#FBC94B">  'demo_requested',</text>
+        <text x="692" y="124" font-family="Inconsolata,monospace" font-size="11" fill="rgba(255,255,255,0.7)">  {source: src,</text>
+        <text x="692" y="140" font-family="Inconsolata,monospace" font-size="11" fill="rgba(255,255,255,0.7)">  score: leadScore,</text>
+        <text x="692" y="156" font-family="Inconsolata,monospace" font-size="11" fill="rgba(255,255,255,0.7)">  plan: planViewed</text>
+        <text x="692" y="188" font-family="Inconsolata,monospace" font-size="11" fill="rgba(255,255,255,0.5)">  }</text>
+      </svg>
+    </div>
+    <div class="vflow">
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-dot" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div>
+          <div class="flow-line line-obs"></div>
+        </div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#009DE0">What we observe</div>
+          <div class="flow-hl">Tracking <span style="color:#009DE0">confirmed</span> — depth unknown</div>
+          <ul class="flow-ul">
+            <li><span class="dot-obs"></span>Facebook Pixel confirmed in source code</li>
+            <li><span class="dot-obs"></span>LinkedIn Insight Tag confirmed</li>
+            <li><span class="dot-obs"></span>Google Ads conversion tracking confirmed</li>
+            <li><span class="dot-obs"></span>HubSpot CRM confirmed from source</li>
+            <li class="na"><span class="dot-na"></span>GA4 custom event depth: not verifiable externally</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-dot" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div>
+          <div class="flow-line line-brk"></div>
+        </div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#FBC94B">If broken</div>
+          <div class="flow-hl">Every decision is a <span style="color:#FBC94B">guess</span></div>
+          <ul class="flow-ul">
+            <li><span class="dot-brk"></span>No way to know which channel drove the demo</li>
+            <li><span class="dot-brk"></span>Ad budget optimized toward feeling, not data</li>
+            <li><span class="dot-brk"></span>All layers above L1 become unreliable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-dot" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="flow-line line-bld"></div>
+        </div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#06D4AE">X5 builds</div>
+          <div class="flow-hl"><span style="color:#06D4AE">Rebuild</span> tracking from the ground up</div>
+          <div class="chips"><span class="chip">GA4 Custom Events</span><span class="chip">Funnel Mapping</span><span class="chip">GSC Dashboard</span><span class="chip">Schema.org</span><span class="chip">HubSpot Hygiene</span><span class="chip">Attribution Model</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left">
+          <div class="flow-dot" style="background:#F3F0FF;border:2px solid #6A28EA"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="#6A28EA" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+        </div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#6A28EA">You get</div>
+          <div class="flow-hl">Total <span style="color:#6A28EA">clarity</span> on what drives demos</div>
+          <div class="outcome-bar"><div class="ob-label">Measurable</div><div class="ob-val">Know the exact blog, email, or ad that drove each demo — within 30 days of L1 deployment</div></div>
+          <div class="flow-kalam">"Every marketing dollar is finally accounted for."</div>
+        </div>
+      </div>
+    </div>
+    <div class="outcome-full"><span>📊</span><span>Measurable: <span class="metric">Full funnel attribution by channel</span> — visible within 30 days</span></div>
+  </div>
+
+  <div class="bridge-3-block reveal"><div class="bridge-3-text">With clean attribution in place, the next question is: are we <em>reaching the right people</em>?</div></div>
+
+  <!-- L2 -->
+  <div class="layer-block reveal" id="l2">
+    <div class="layer-header">
+      <div class="layer-pill">L2 · Execution</div>
+      <div class="layer-name">MarTech <span class="ow">Execution</span></div>
+      <div class="layer-tagline">Trainual has 163,000 subscribers and a content engine that's genuinely impressive. The question L2 answers: are those assets being used to reach owners, HR leads, and ops managers differently — or are they all getting the same message?</div>
+    </div>
+    <div class="layer-svg">
+      <svg viewBox="0 0 900 260" width="100%" style="display:block;background:#FAFAFA">
+        <text x="32" y="32" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#6A28EA" letter-spacing="2">SEARCH: "best software to document SOPs"</text>
+        <rect x="32" y="44" width="380" height="68" rx="6" fill="white" stroke="#E5DAFB" stroke-width="1"/>
+        <text x="44" y="64" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#006621">trainual.com/sop-software</text>
+        <text x="44" y="80" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#1A0AFF">Trainual — SOP Software for Growing Teams</text>
+        <text x="44" y="98" font-family="Poppins,sans-serif" font-size="12" font-weight="300" fill="#555">Document, assign and track SOPs for teams of 5–500+.</text>
+        <text x="44" y="114" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#E37400">★★★★★</text>
+        <text x="98" y="114" font-family="Poppins,sans-serif" font-size="11" fill="#555"> 4.7 · 2,000+ reviews</text>
+        <rect x="32" y="120" width="380" height="56" rx="6" fill="white" stroke="#F3F4F6" stroke-width="1"/>
+        <text x="44" y="140" font-family="Poppins,sans-serif" font-size="12" fill="#777">competitor.com/documentation</text>
+        <text x="44" y="158" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#1A0AFF">Generic SOP Tool — Basic Documentation</text>
+        <rect x="32" y="186" width="380" height="64" rx="6" fill="#F0F8FF" stroke="#D6F3FF" stroke-width="1"/>
+        <text x="44" y="204" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#009DE0" letter-spacing="1">AI OVERVIEW (PERPLEXITY)</text>
+        <text x="44" y="222" font-family="Poppins,sans-serif" font-size="12" fill="#374151">"Best SOP tools for SMBs include...</text>
+        <text x="44" y="238" font-family="Poppins,sans-serif" font-size="12" fill="#6A28EA" font-weight="600">Trainual is often cited for...</text>
+        <text x="450" y="32" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#6A28EA" letter-spacing="2">EMAIL SEGMENTATION — 163K LIST</text>
+        <rect x="450" y="44" width="200" height="60" rx="8" fill="#020044"/>
+        <text x="462" y="66" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="white">Owner Segment</text>
+        <text x="462" y="84" font-family="Poppins,sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.65)">"Stop being the bottleneck"</text>
+        <text x="462" y="98" font-family="Poppins,sans-serif" font-size="11" fill="rgba(6,212,174,0.9)">→ CTA: Build your playbook</text>
+        <rect x="450" y="116" width="200" height="60" rx="8" fill="#3A1A9A"/>
+        <text x="462" y="138" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="white">HR Lead Segment</text>
+        <text x="462" y="156" font-family="Poppins,sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.65)">"Onboarding checklist for 25+"</text>
+        <text x="462" y="170" font-family="Poppins,sans-serif" font-size="11" fill="rgba(6,212,174,0.9)">→ CTA: Compliance training</text>
+        <rect x="450" y="188" width="200" height="60" rx="8" fill="#5A28C8"/>
+        <text x="462" y="210" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="white">Ops Manager Segment</text>
+        <text x="462" y="228" font-family="Poppins,sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.65)">"SOP software for scaling ops"</text>
+        <text x="462" y="242" font-family="Poppins,sans-serif" font-size="11" fill="rgba(6,212,174,0.9)">→ CTA: Book demo today</text>
+        <text x="670" y="72" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#FBC94B">Behavioral Trigger:</text>
+        <text x="670" y="90" font-family="Poppins,sans-serif" font-size="12" fill="#374151">Visited Pricing 2× / no demo</text>
+        <rect x="668" y="108" width="210" height="52" rx="6" fill="#FFFBD2" stroke="#FBC94B" stroke-width="1"/>
+        <text x="680" y="130" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044">Re-engagement sequence</text>
+        <text x="680" y="148" font-family="Poppins,sans-serif" font-size="12" font-weight="300" fill="#374151">3 emails · personalized CTA</text>
+      </svg>
+    </div>
+    <div class="vflow">
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="flow-line line-obs"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#009DE0">What we observe</div>
+          <div class="flow-hl"><span style="color:#009DE0">Content</span> engine strong — distribution signals thin</div>
+          <ul class="flow-ul">
+            <li><span class="dot-obs"></span>Blog "The Manual" active with substantial content</li>
+            <li><span class="dot-obs"></span>Newsletter at 163,000+ subscribers</li>
+            <li><span class="dot-obs"></span>Podcast "Organize Chaos" visible and active</li>
+            <li class="na"><span class="dot-na"></span>Email segmentation by role: not observable externally</li>
+            <li class="na"><span class="dot-na"></span>Topical authority cluster structure: not verifiable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="flow-line line-brk"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#FBC94B">If broken</div>
+          <div class="flow-hl"><span style="color:#FBC94B">163,000</span> people receiving one message</div>
+          <ul class="flow-ul">
+            <li><span class="dot-brk"></span>Owners receive HR content. HR leads receive Ops content</li>
+            <li><span class="dot-brk"></span>AI search queries about SOPs return zero Trainual citations</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="flow-line line-bld"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#06D4AE">X5 builds</div>
+          <div class="flow-hl"><span style="color:#06D4AE">Segment</span> and target with precision</div>
+          <div class="chips"><span class="chip">Topical SEO by ICP</span><span class="chip">Use-Case Landing Pages</span><span class="chip">Email Segmentation (Owner/HR/Ops)</span><span class="chip">Behavioral Triggers</span><span class="chip">GEO / AI Search Strategy</span><span class="chip">LinkedIn Thought Leadership</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#F3F0FF;border:2px solid #6A28EA"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="#6A28EA" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#6A28EA">You get</div>
+          <div class="flow-hl">Email becomes a demo-<span style="color:#6A28EA">booking</span> channel</div>
+          <div class="outcome-bar"><div class="ob-label">Measurable</div><div class="ob-val">Email → Demo booking rate 3× baseline · Organic demo requests increase within 60 days</div></div>
+          <div class="flow-kalam">"The 163k list stops being a newsletter and starts being a pipeline."</div>
+        </div>
+      </div>
+    </div>
+    <div class="outcome-full"><span>📊</span><span>Measurable: <span class="metric">Email → Demo rate tracked weekly</span> — target 3× baseline within 60 days</span></div>
+  </div>
+
+  <div class="bridge-3-block reveal"><div class="bridge-3-text">Traffic is one thing. What happens after they book a demo — how they're <em>scored and handed off</em> — is another.</div></div>
+
+  <!-- L3 -->
+  <div class="layer-block reveal" id="l3">
+    <div class="layer-header">
+      <div class="layer-pill">L3 · RevOps</div>
+      <div class="layer-name">Revenue <span class="ow">Operations</span></div>
+      <div class="layer-tagline">Trainual uses HubSpot — confirmed. What's not visible externally: whether there are defined SLAs per pipeline stage, a lead scoring model, or an automated handoff when a demo is booked. This layer closes that gap.</div>
+    </div>
+    <div class="layer-svg">
+      <svg viewBox="0 0 900 200" width="100%" style="display:block;background:#F8F4FF">
+        <text x="32" y="32" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#6A28EA" letter-spacing="2">HUBSPOT PIPELINE — STAGE SLAs + LEAD SCORING</text>
+        <defs><marker id="parr" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#06D4AE" stroke-width="1.5"/></marker></defs>
+        <rect x="24" y="48" width="118" height="80" rx="8" fill="#020044"/>
+        <text x="83" y="84" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">MQL</text>
+        <text x="83" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Score ≥ 40</text>
+        <text x="83" y="120" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#FBC94B">SLA: 2h</text>
+        <path d="M 144 88 L 160 88" stroke="#06D4AE" stroke-width="2" marker-end="url(#parr)"/>
+        <rect x="162" y="48" width="118" height="80" rx="8" fill="#1A1060"/>
+        <text x="221" y="84" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">SQL</text>
+        <text x="221" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Score ≥ 70</text>
+        <text x="221" y="120" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#FBC94B">SLA: 4h</text>
+        <path d="M 282 88 L 298 88" stroke="#06D4AE" stroke-width="2" marker-end="url(#parr)"/>
+        <rect x="300" y="48" width="118" height="80" rx="8" fill="#3A1A9A"/>
+        <text x="359" y="78" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">Demo</text>
+        <text x="359" y="94" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Scheduled</text>
+        <text x="359" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">+Prep Brief</text>
+        <text x="359" y="125" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#FBC94B">SLA: Same day</text>
+        <path d="M 420 88 L 436 88" stroke="#06D4AE" stroke-width="2" marker-end="url(#parr)"/>
+        <rect x="438" y="48" width="118" height="80" rx="8" fill="#5A28C8"/>
+        <text x="497" y="78" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">Demo</text>
+        <text x="497" y="94" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Completed</text>
+        <text x="497" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.65)">Show: 72%</text>
+        <text x="497" y="125" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#06D4AE">↑ target</text>
+        <path d="M 558 88 L 574 88" stroke="#06D4AE" stroke-width="2" marker-end="url(#parr)"/>
+        <rect x="576" y="48" width="118" height="80" rx="8" fill="#06D4AE"/>
+        <text x="635" y="84" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#020044">Closed Won</text>
+        <text x="635" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#020044">Rate: 28%</text>
+        <text x="635" y="120" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#020044">↑ target</text>
+        <text x="730" y="52" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#6A28EA">Lead Score Signals</text>
+        <text x="730" y="72" font-family="Poppins,sans-serif" font-size="12" fill="#374151">Company size · +15</text>
+        <text x="730" y="90" font-family="Poppins,sans-serif" font-size="12" fill="#374151">Job title match · +20</text>
+        <text x="730" y="108" font-family="Poppins,sans-serif" font-size="12" fill="#374151">Pages visited ≥ 4 · +10</text>
+        <text x="730" y="126" font-family="Poppins,sans-serif" font-size="12" fill="#374151">ROI Calculator used · +20</text>
+        <text x="730" y="144" font-family="Poppins,sans-serif" font-size="12" fill="#374151">Pricing page ×2 · +15</text>
+        <text x="730" y="162" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#06D4AE">Total possible: 100</text>
+      </svg>
+    </div>
+    <div class="vflow">
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="flow-line line-obs"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#009DE0">What we observe</div>
+          <div class="flow-hl">HubSpot <span style="color:#009DE0">confirmed</span> — pipeline depth unknown</div>
+          <ul class="flow-ul">
+            <li><span class="dot-obs"></span>HubSpot CRM confirmed in source code</li>
+            <li class="na"><span class="dot-na"></span>Pipeline stage SLAs: not visible externally</li>
+            <li class="na"><span class="dot-na"></span>Lead scoring model: not verifiable</li>
+            <li class="na"><span class="dot-na"></span>No-show rescue sequences: not observable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="flow-line line-brk"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#FBC94B">If broken</div>
+          <div class="flow-hl">Sales calls into demos <span style="color:#FBC94B">cold</span></div>
+          <ul class="flow-ul">
+            <li><span class="dot-brk"></span>No context on what the prospect read before booking</li>
+            <li><span class="dot-brk"></span>No-shows disappear without automated rescue</li>
+            <li><span class="dot-brk"></span>Expansion revenue waits for customers to self-identify</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="flow-line line-bld"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#06D4AE">X5 builds</div>
+          <div class="flow-hl"><span style="color:#06D4AE">Systemize</span> every pipeline stage</div>
+          <div class="chips"><span class="chip">Pipeline SLAs</span><span class="chip">Lead Scoring (6 signals)</span><span class="chip">Multi-Touch Attribution</span><span class="chip">Demo Prep Brief</span><span class="chip">No-Show Rescue (1h+24h)</span><span class="chip">Expansion Triggers</span><span class="chip">Churn Warning</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#F3F0FF;border:2px solid #6A28EA"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="#6A28EA" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#6A28EA">You get</div>
+          <div class="flow-hl">Every demo has a score and a <span style="color:#6A28EA">story</span></div>
+          <div class="outcome-bar"><div class="ob-label">Measurable</div><div class="ob-val">No-show rate reduced 30% · Sales reps receive context brief before every demo</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="outcome-full"><span>📊</span><span>Measurable: <span class="metric">No-show rate –30%</span> · Every closed deal attributed to exact acquisition channel</span></div>
+  </div>
+
+  <div class="bridge-3-block reveal"><div class="bridge-3-text">A well-run pipeline still needs humans. <em>L4 changes that</em> — no lead goes cold because no one was awake to reply.</div></div>
+
+  <!-- L4 -->
+  <div class="layer-block reveal" id="l4">
+    <div class="layer-header">
+      <div class="layer-pill">L4 · Automation</div>
+      <div class="layer-name">AI <span class="ow">Automation</span></div>
+      <div class="layer-tagline">Trainual has no AI chatbot or on-site qualification widget visible on the website. That means the HR Manager in Denver asking "Does Trainual work for 25 people?" at 10pm is talking to no one — until a competitor replies first.</div>
+    </div>
+    <div class="layer-svg">
+      <svg viewBox="0 0 900 240" width="100%" style="display:block;background:#020044">
+        <text x="32" y="32" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#06D4AE" letter-spacing="2">AI CHATBOT — TRAINUAL.COM · 10:47 PM</text>
+        <rect x="480" y="48" width="380" height="44" rx="10" fill="#1A1060"/>
+        <text x="492" y="68" font-family="Poppins,sans-serif" font-size="13" font-weight="400" fill="white">Does Trainual work for a 25-person team?</text>
+        <text x="492" y="84" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.4)">HR Manager · Denver, CO · 10:47 PM</text>
+        <rect x="32" y="104" width="400" height="72" rx="10" fill="#06D4AE"/>
+        <text x="44" y="126" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#020044">Absolutely — Trainual is great for 10–200 teams.</text>
+        <text x="44" y="144" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#020044">What's your main goal right now?</text>
+        <text x="44" y="162" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044" opacity="0.6">[ Onboard faster ]  [ Document SOPs ]  [ HR compliance ]</text>
+        <rect x="680" y="104" width="190" height="88" rx="8" fill="#0E0050"/>
+        <text x="692" y="122" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#06D4AE" letter-spacing="1">LEAD SCORE · LIVE</text>
+        <text x="692" y="152" font-family="Inconsolata,monospace" font-size="28" font-weight="700" fill="white">72</text>
+        <text x="726" y="148" font-family="Poppins,sans-serif" font-size="12" fill="rgba(255,255,255,0.5)">/100</text>
+        <text x="692" y="168" font-family="Poppins,sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">HR Manager · 25-person team</text>
+        <text x="692" y="184" font-family="Poppins,sans-serif" font-size="11" font-weight="600" fill="#FBC94B">→ HubSpot updated</text>
+        <rect x="480" y="196" width="380" height="36" rx="10" fill="#1A1060"/>
+        <text x="492" y="218" font-family="Poppins,sans-serif" font-size="13" fill="white">Onboard faster — hiring 5 people next month.</text>
+        <rect x="32" y="200" width="380" height="36" rx="10" fill="#06D4AE" opacity="0.85"/>
+        <text x="44" y="222" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#020044">I'll send a booking link for a 15-min demo —</text>
+        <text x="44" y="234" font-family="Poppins,sans-serif" font-size="13" font-weight="600" fill="#020044">no pressure, just a fit check.</text>
+      </svg>
+    </div>
+    <div class="vflow">
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="flow-line line-obs"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#009DE0">What we observe</div>
+          <div class="flow-hl">No <span style="color:#009DE0">chatbot</span> visible on website</div>
+          <ul class="flow-ul">
+            <li><span class="dot-obs"></span>No AI chatbot or on-site qualification widget observed</li>
+            <li><span class="dot-obs"></span>No behavioral pop-up or exit-intent sequence visible</li>
+            <li class="na"><span class="dot-na"></span>Backend automation sequences: not observable</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="flow-line line-brk"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#FBC94B">If broken</div>
+          <div class="flow-hl">The <span style="color:#FBC94B">10pm</span> lead goes to whoever replies first</div>
+          <ul class="flow-ul">
+            <li><span class="dot-brk"></span>HR Manager asks at 10:47pm — no response</li>
+            <li><span class="dot-brk"></span>By 9am they've already scheduled with a competitor</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="flow-line line-bld"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#06D4AE">X5 builds</div>
+          <div class="flow-hl"><span style="color:#06D4AE">Automate</span> qualification 24/7</div>
+          <div class="chips"><span class="chip">AI Chatbot (Trainual KB)</span><span class="chip">60-Second Lead Score</span><span class="chip">Template Download → Nurture</span><span class="chip">ROI Calc → Follow-Up</span><span class="chip">No-Show Rescue</span><span class="chip">Inactivity → CS Alert</span><span class="chip">Monday AM Auto-Report</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#F3F0FF;border:2px solid #6A28EA"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="#6A28EA" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#6A28EA">You get</div>
+          <div class="flow-hl">Every lead captured and <span style="color:#6A28EA">routed</span> in 60 seconds</div>
+          <div class="outcome-bar"><div class="ob-label">Measurable</div><div class="ob-val">24/7 lead qualification without added headcount · Sales rep notified within 60 seconds, even at 2am</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="outcome-full"><span>📊</span><span>Measurable: <span class="metric">Zero uncontacted leads after 60 seconds</span> · Monday report delivered automatically</span></div>
+  </div>
+
+  <div class="bridge-3-block reveal"><div class="bridge-3-text">When everything runs automatically, the final layer turns accumulated data into <em>foresight</em>.</div></div>
+
+  <!-- L5 -->
+  <div class="layer-block reveal" id="l5">
+    <div class="layer-header">
+      <div class="layer-pill">L5 · Intelligence</div>
+      <div class="layer-name">Revenue <span class="ow">Intelligence</span></div>
+      <div class="layer-tagline">Trainual has 10,000+ teams generating usage data daily. L5 turns that into foresight: which ICP has the highest LTV, which accounts are approaching churn, and which ad channel is actually producing customers worth keeping.</div>
+    </div>
+
+    <div style="font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);margin-bottom:12px">CHART 01 · AVAILABLE FROM DAY 1</div>
+    <div class="layer-svg" style="border:none">
+      <svg viewBox="0 0 900 240" width="100%" style="display:block;background:#020044;border-radius:16px">
+        <text x="32" y="36" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="white">AD PERFORMANCE DASHBOARD — COST PER DEMO BOOKED</text>
+        <text x="32" y="56" font-family="Poppins,sans-serif" font-size="12" font-weight="300" fill="rgba(255,255,255,0.6)">Available from Day 1 · refreshes with L1 data · cost per qualified demo, not just cost per click</text>
+        <text x="32" y="92" font-family="Poppins,sans-serif" font-size="14" fill="white">Google Ads</text>
+        <rect x="160" y="76" width="490" height="36" rx="6" fill="#06D4AE"/>
+        <text x="658" y="99" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="#06D4AE">$80 / demo</text>
+        <text x="32" y="138" font-family="Poppins,sans-serif" font-size="14" fill="white">LinkedIn</text>
+        <rect x="160" y="122" width="630" height="36" rx="6" fill="#6A28EA"/>
+        <text x="798" y="145" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="#6A28EA">$140 / demo</text>
+        <text x="32" y="184" font-family="Poppins,sans-serif" font-size="14" fill="white">Email</text>
+        <rect x="160" y="168" width="175" height="36" rx="6" fill="#FBC94B"/>
+        <text x="342" y="191" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="#FBC94B">$12 / demo</text>
+        <text x="420" y="191" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#FBC94B">★ highest ROI</text>
+        <text x="32" y="230" font-family="Poppins,sans-serif" font-size="14" fill="white">Organic</text>
+        <rect x="160" y="214" width="140" height="36" rx="6" fill="#009DE0"/>
+        <text x="306" y="237" font-family="Poppins,sans-serif" font-size="14" font-weight="700" fill="#009DE0">$8 / demo</text>
+        <text x="380" y="237" font-family="Poppins,sans-serif" font-size="13" font-weight="700" fill="#FBC94B">★ highest ROI</text>
+        <text x="620" y="222" font-family="Poppins,sans-serif" font-size="12" font-weight="600" fill="#06D4AE">✓ Available when L1 tracking is clean</text>
+        <text x="620" y="238" font-family="Poppins,sans-serif" font-size="11" fill="rgba(255,255,255,0.5)">★ = highest ROI channels to scale</text>
+      </svg>
+    </div>
+
+    <div style="height:1px;background:linear-gradient(90deg,var(--purple),var(--teal),transparent);opacity:.3;margin:32px 0"></div>
+
+    <div style="font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--purple);margin-bottom:12px">CHART 02 · ACTIVATES WHEN L1–L4 MATURE</div>
+    <div class="layer-svg" style="border:none">
+      <svg viewBox="0 0 900 300" width="100%" style="display:block;background:#F8F4FF;border-radius:16px">
+        <text x="32" y="32" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044" letter-spacing="2">PREDICTION DASHBOARD — ACTIVATES WHEN L1–L4 DATA MATURES</text>
+        <rect x="24" y="44" width="440" height="180" rx="10" fill="white" stroke="#E5DAFB" stroke-width="1"/>
+        <text x="36" y="64" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044">MRR FORECAST — NEXT 90 DAYS</text>
+        <rect x="36" y="72" width="416" height="132" rx="4" fill="rgba(106,40,234,0.04)"/>
+        <polyline points="56,190 100,182 148,172 196,160 244,145 292,128 340,108 388,86 436,72" fill="none" stroke="#6A28EA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polygon points="56,190 100,182 148,172 196,160 244,145 292,128 340,108 388,86 436,72 436,194 56,194" fill="rgba(106,40,234,0.06)"/>
+        <circle cx="436" cy="72" r="5" fill="#6A28EA"/>
+        <text x="445" y="69" font-family="Poppins,sans-serif" font-size="16" font-weight="700" fill="#6A28EA">+32%</text>
+        <text x="56" y="215" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">Current</text>
+        <text x="390" y="215" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">+90 days</text>
+        <rect x="480" y="44" width="396" height="80" rx="10" fill="white" stroke="#E5DAFB" stroke-width="1"/>
+        <text x="496" y="68" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044" letter-spacing="1">CHURN RISK</text>
+        <text x="496" y="100" font-family="Poppins,sans-serif" font-size="28" font-weight="900" fill="#E53E3E">12%</text>
+        <text x="548" y="96" font-family="Poppins,sans-serif" font-size="12" fill="#9CA3AF">of ARR at risk (30–60 days)</text>
+        <rect x="496" y="108" width="360" height="8" rx="4" fill="#F3F4F6"/>
+        <rect x="496" y="108" width="43" height="8" rx="4" fill="#E53E3E"/>
+        <rect x="480" y="136" width="396" height="80" rx="10" fill="white" stroke="#E5DAFB" stroke-width="1"/>
+        <text x="496" y="156" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044" letter-spacing="1">LTV BY ICP SEGMENT</text>
+        <rect x="496" y="164" width="110" height="40" rx="6" fill="#F3F0FF"/>
+        <text x="502" y="179" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#6A28EA">OPS MGR</text>
+        <text x="502" y="197" font-family="Inconsolata,monospace" font-size="14" font-weight="700" fill="#6A28EA">$5.8K</text>
+        <rect x="616" y="164" width="110" height="40" rx="6" fill="rgba(6,212,174,0.1)"/>
+        <text x="622" y="179" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#06D4AE">OWNER</text>
+        <text x="622" y="197" font-family="Inconsolata,monospace" font-size="14" font-weight="700" fill="#06D4AE">$4.2K</text>
+        <rect x="736" y="164" width="110" height="40" rx="6" fill="#FFFBD2"/>
+        <text x="742" y="179" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#B38600">HR LEAD</text>
+        <text x="742" y="197" font-family="Inconsolata,monospace" font-size="14" font-weight="700" fill="#B38600">$3.1K</text>
+        <rect x="480" y="228" width="396" height="64" rx="10" fill="white" stroke="#E5DAFB" stroke-width="1"/>
+        <text x="496" y="248" font-family="Poppins,sans-serif" font-size="12" font-weight="700" fill="#020044" letter-spacing="1">ICP EXPANSION SIGNAL</text>
+        <text x="496" y="266" font-family="Poppins,sans-serif" font-size="12" fill="#374151">↑ 14 accounts near seat limit</text>
+        <text x="640" y="266" font-family="Poppins,sans-serif" font-size="12" fill="#374151">⚡ 6 accounts: 30-day churn risk</text>
+        <rect x="496" y="273" width="240" height="14" rx="4" fill="#E9FAF5"/>
+        <text x="500" y="283" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#085041">→ CS intervention recommended</text>
+        <text x="32" y="292" font-family="Kalam,cursive" font-size="14" fill="#6A28EA" font-style="italic">⚡ Activates when L1–L4 data matures · Predictive, not retroactive</text>
+      </svg>
+    </div>
+
+    <div class="vflow" style="margin-top:32px">
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="flow-line line-obs"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#009DE0">What we observe</div>
+          <div class="flow-hl">No external <span style="color:#009DE0">visibility</span> at this layer</div>
+          <ul class="flow-ul">
+            <li class="na"><span class="dot-na"></span>Internal analytics and prediction models: not observable</li>
+            <li class="na"><span class="dot-na"></span>Executive dashboard: not publicly visible</li>
+            <li class="na"><span class="dot-na"></span>This layer is the destination — not the diagnosis</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="flow-line line-brk"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#FBC94B">If broken</div>
+          <div class="flow-hl">Scaling without <span style="color:#FBC94B">LTV data</span></div>
+          <ul class="flow-ul">
+            <li><span class="dot-brk"></span>Budget goes to highest-volume channel, not highest-LTV</li>
+            <li><span class="dot-brk"></span>Churn discovered after cancel, not 30 days before</li>
+          </ul>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="flow-line line-bld"></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#06D4AE">X5 builds</div>
+          <div class="flow-hl"><span style="color:#06D4AE">Predict</span> what happens before it happens</div>
+          <div class="chips"><span class="chip">Predictive LTV by ICP</span><span class="chip">30–60 Day Churn Forecast</span><span class="chip">Channel ROI by LTV</span><span class="chip">Expansion Signal Detection</span><span class="chip">Executive Dashboard (daily)</span></div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-left"><div class="flow-dot" style="background:#F3F0FF;border:2px solid #6A28EA"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="#6A28EA" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="flow-right">
+          <div class="flow-ew" style="color:#6A28EA">You get</div>
+          <div class="flow-hl">Decisions that are <span style="color:#6A28EA">predictive</span>, not reactive</div>
+          <div class="outcome-bar"><div class="ob-label">Measurable</div><div class="ob-val">Know which ICP has highest LTV before spending another ad dollar · Flag churn risk 30 days before cancel</div></div>
+          <div class="flow-kalam">"Decision-making shifts from reactive to predictive."</div>
+        </div>
+      </div>
+    </div>
+    <div class="outcome-full"><span>📊</span><span>Measurable: <span class="metric">Churn flagged 30+ days before cancel</span> · ICP budget based on LTV, not impressions</span></div>
+  </div>
+
+  <!-- BEFORE / AFTER -->
+  <div class="ba-wrap reveal">
+    <div style="font-family:'Poppins',sans-serif;font-size:clamp(40px,8.75vw,70px);font-weight:900;color:var(--navy);letter-spacing:-2.5px;line-height:1.05;margin-bottom:20px">Real Scenarios · <span style="color:transparent;-webkit-text-stroke:2px var(--purple)">Before &amp; After</span></div>
+    <table class="ba-table">
+      <thead>
+        <tr><th>Scenario</th><th>Before X5</th><th>After X5</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10pm Lead</td>
+          <td>HR Manager in Denver asks "Does Trainual work for 25 people?" at 10:47pm. No response. By 9am they've scheduled with a competitor who replied first.</td>
+          <td>AI Chatbot qualifies immediately. Lead scored at 72/100. HubSpot updated. Sales rep notified within 60 seconds with full context. Morning follow-up is warm, not cold.</td>
+        </tr>
+        <tr>
+          <td>Email List 163K</td>
+          <td>All 163,000 subscribers receive the same newsletter. Owner gets HR content. HR Lead gets Ops content. Open rate low. Demo booking from email near zero.</td>
+          <td>Segmented by role and behavior. Owner receives "stop being the bottleneck." Pricing-page visitor ×2 triggers re-engagement sequence with direct demo CTA.</td>
+        </tr>
+        <tr>
+          <td>Paid Ads</td>
+          <td>Ads drive traffic to homepage. No use-case landing pages. Can't tell which campaign drives demos vs. burns budget.</td>
+          <td>Dedicated pages per use case (SOP / Onboarding / HR). Every click tracked to demo booking. Know exactly: $1 in Google Ads = X demos. Cut what doesn't work. Scale what does.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CASCADE FLOW -->
+  <div class="cascade-wrap reveal">
+    <div style="font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-bottom:20px;text-align:center">HOW THE LAYERS CONNECT — DATA FLOWS UP, INTELLIGENCE LOOPS BACK</div>
+    <svg viewBox="0 0 880 200" width="100%" style="display:block;overflow:visible">
+      <defs>
+        <marker id="ca" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="#C4B5FD" stroke-width="1.5"/></marker>
+        <marker id="la" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="none" stroke="rgba(6,212,174,0.5)" stroke-width="1.5"/></marker>
+      </defs>
+      <circle cx="80" cy="100" r="36" fill="#020044"/>
+      <text x="80" y="96" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">L1</text>
+      <text x="80" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.6)">Foundation</text>
+      <circle cx="256" cy="100" r="36" fill="#1A1060"/>
+      <text x="256" y="96" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">L2</text>
+      <text x="256" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.6)">Execution</text>
+      <circle cx="432" cy="100" r="36" fill="#3A1A9A"/>
+      <text x="432" y="96" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">L3</text>
+      <text x="432" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.6)">RevOps</text>
+      <circle cx="608" cy="100" r="36" fill="#5A28C8"/>
+      <text x="608" y="96" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="white">L4</text>
+      <text x="608" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="300" fill="rgba(255,255,255,0.6)">Automation</text>
+      <circle cx="784" cy="100" r="36" fill="#06D4AE"/>
+      <text x="784" y="96" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#020044">L5</text>
+      <text x="784" y="112" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="rgba(2,0,68,0.6)">Intelligence</text>
+      <path d="M 118 100 L 218 100" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/>
+      <text x="168" y="88" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">Clean data enables</text>
+      <text x="168" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">precise targeting</text>
+      <path d="M 294 100 L 394 100" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/>
+      <text x="344" y="88" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">Campaigns feed</text>
+      <text x="344" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">pipeline</text>
+      <path d="M 470 100 L 570 100" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/>
+      <text x="520" y="88" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">Pipeline signals</text>
+      <text x="520" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">trigger automation</text>
+      <path d="M 646 100 L 746 100" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/>
+      <text x="696" y="88" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">Automation data</text>
+      <text x="696" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="#9CA3AF">builds intelligence</text>
+      <path d="M 784 136 Q 784 170 432 170 Q 80 170 80 136" fill="none" stroke="rgba(6,212,174,0.5)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#la)"/>
+      <text x="432" y="185" text-anchor="middle" font-family="Poppins,sans-serif" font-size="11" fill="rgba(6,212,174,0.8)">Intelligence refines the foundation</text>
+    </svg>
+  </div>
+</div>
+
+<div class="sec-div"></div>
+
+<!-- S4: THE DESTINATION -->
+<div class="sec" id="s4">
+  <div class="eyebrow reveal">Section 04</div>
+  <div class="sec-title reveal">The <span class="ow">Destination</span></div>
+  <p class="sec-lead reveal">What the numbers look like when all five layers run together. These are SaaS SMB benchmarks — not Trainual's current internal figures, which we haven't seen yet.</p>
+
+  <div class="dash-metrics">
+    <div class="dash-card reveal">
+      <div class="d-label">Customer Acquisition Cost</div>
+      <div class="d-value" id="m-cac">$620</div>
+      <div class="d-sub">Blended across all channels</div>
+    </div>
+    <div class="dash-card reveal" style="transition-delay:.08s">
+      <div class="d-label">Lifetime Value</div>
+      <div class="d-value" id="m-ltv">$4,200</div>
+      <div class="d-sub">LTV:CAC ratio · <strong style="color:var(--teal)">6.8×</strong></div>
+    </div>
+    <div class="dash-card reveal" style="transition-delay:.12s">
+      <div class="d-label">MRR Growth MoM</div>
+      <div class="d-value">+6.5%</div>
+      <div class="d-sub">Month-over-month · SaaS SMB target</div>
+    </div>
+    <div class="dash-card reveal" style="transition-delay:.16s">
+      <div class="d-label">Email → Demo Rate</div>
+      <div class="d-value" style="color:var(--purple)">4.8%</div>
+      <div class="d-sub">Segmented · behavioral trigger</div>
+    </div>
+  </div>
+
+  <div class="dash-bottom reveal">
+    <div class="dash-panel">
+      <div class="panel-title">Demo Conversion Funnel</div>
+      <div class="funnel">
+        <div class="funnel-row"><div class="funnel-label">Visitor</div><div class="funnel-bw"><div class="funnel-bar" style="width:100%;background:#020044"></div></div><div class="funnel-pct" style="color:#020044">100%</div></div>
+        <div class="funnel-row"><div class="funnel-label">Demo Req.</div><div class="funnel-bw"><div class="funnel-bar" style="width:32%;background:#3A1A9A"></div></div><div class="funnel-pct" style="color:#3A1A9A">3.2%</div></div>
+        <div class="funnel-row"><div class="funnel-label">Show-Up</div><div class="funnel-bw"><div class="funnel-bar" style="width:21%;background:#5A28C8"></div></div><div class="funnel-pct" style="color:#5A28C8">2.1%</div></div>
+        <div class="funnel-row"><div class="funnel-label">Closed Won</div><div class="funnel-bw"><div class="funnel-bar" style="width:9%;background:#06D4AE"></div></div><div class="funnel-pct" style="color:#06D4AE">0.9%</div></div>
+      </div>
+      <div style="margin-top:20px;background:rgba(106,40,234,.08);border-radius:8px;padding:14px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:4px">Demo → Close Rate</div>
+        <div style="font-family:'Inconsolata',monospace;font-size:28px;font-weight:700;color:var(--navy)">28%</div>
+        <div style="font-size:12px;color:var(--muted);margin-top:2px">Benchmark SaaS SMB: 20–35%</div>
+      </div>
+    </div>
+    <div class="dash-panel">
+      <div class="panel-title">Channel Attribution</div>
+      <div class="ch-rows">
+        <div class="ch-row"><div class="ch-name">Organic</div><div class="ch-track"><div class="ch-fill" style="width:38%;background:#020044"></div></div><div class="ch-val">38%</div></div>
+        <div class="ch-row"><div class="ch-name">Email</div><div class="ch-track"><div class="ch-fill" style="width:28%;background:#6A28EA"></div></div><div class="ch-val">28%</div></div>
+        <div class="ch-row"><div class="ch-name">Google Ads</div><div class="ch-track"><div class="ch-fill" style="width:18%;background:#06D4AE"></div></div><div class="ch-val">18%</div></div>
+        <div class="ch-row"><div class="ch-name">LinkedIn</div><div class="ch-track"><div class="ch-fill" style="width:10%;background:#009DE0"></div></div><div class="ch-val">10%</div></div>
+        <div class="ch-row"><div class="ch-name">Direct</div><div class="ch-track"><div class="ch-fill" style="width:6%;background:#FBC94B"></div></div><div class="ch-val">6%</div></div>
+      </div>
+      <div style="margin-top:20px">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">MRR Trend — 6 Months</div>
+        <svg viewBox="0 0 300 60" width="100%" style="display:block">
+          <rect x="0" y="0" width="300" height="60" rx="8" fill="rgba(106,40,234,0.04)"/>
+          <polyline points="10,48 58,44 106,40 154,32 202,22 250,12 292,6" fill="none" stroke="#6A28EA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="10,48 58,44 106,40 154,32 202,22 250,12 292,6 292,56 10,56" fill="rgba(106,40,234,0.06)"/>
+          <circle cx="292" cy="6" r="4" fill="#6A28EA"/>
+          <text x="278" y="20" font-family="Poppins,sans-serif" font-size="11" font-weight="700" fill="#6A28EA">+32%</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sec-div"></div>
+
+<!-- S5: THE ASK -->
+<div class="ask-wrap" id="s5">
+  <div class="ask-ghost">30</div>
+  <div class="ask-inner">
+    <div class="ask-eyebrow reveal">Section 05 · The Ask</div>
+    <div class="ask-headline reveal">30 Minutes.<br>No Pitch. Just Data.</div>
+    <div class="ask-kalam reveal">"Whether we work together or not — you'll leave with a specific, actionable roadmap."</div>
+    <p class="ask-commit reveal">We've spent real time auditing Trainual from the outside. In 30 minutes, we'll walk through exactly what we found — and what we'd prioritize first. No commitment beyond the call.</p>
+    <a href="https://calendly.com/x5digital/30min" class="ask-btn reveal" target="_blank" rel="noopener">Book the 30-Minute Audit →</a>
+    <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,.4);margin-top:24px">No pricing on this call. No pitch deck. Just the data — and a conversation.</p>
+  </div>
+</div>
+
+<div class="x5-footer">
+  <span>Prepared by X5 Digital · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2e464b4242416e561b4a4749475a4f42004d4143">[email&#160;protected]</a> · March 2026 · Confidential — For Trainual review only</span>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+var pb=document.getElementById('progress-bar');
+window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop||document.body.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;pb.style.width=(s/h*100)+'%'});
+var ro=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(function(e){ro.observe(e)});
+function countUp(el,pre,suf,target,dur){var s=0,step=target/dur*16,t=setInterval(function(){s=Math.min(s+step,target);el.textContent=pre+Math.floor(s).toLocaleString()+suf;if(s>=target)clearInterval(t)},16)}
+var mo=new IntersectionObserver(function(e){e.forEach(function(e){if(e.isIntersecting){var id=e.target.id;if(id==='m-cac')countUp(e.target,'$','',620,1200);if(id==='m-ltv')countUp(e.target,'$','',4200,1400);mo.unobserve(e.target)}})},{threshold:.5});
+['m-cac','m-ltv'].forEach(function(id){var el=document.getElementById(id);if(el)mo.observe(el)});
+</script>
+</body>
+</html>
