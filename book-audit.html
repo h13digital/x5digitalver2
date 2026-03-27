@@ -386,7 +386,7 @@
         <div class="form-wrapper sr sr-up" style="transition-delay:.1s" id="formWrapper">
             <div class="form-header">
                 <h1>Complete Your Audit Request</h1>
-                <p>This form qualifies both of us — you confirm we can actually move your numbers, and we confirm this is a fit worth both our time.</p>
+                <p>This form helps us understand your setup so we can make the 30 minutes genuinely useful — no generic pitch, just a clear picture of what's possible for your business.</p>
                 <div class="slots"><strong>Only 5 qualified slots left this week</strong></div>
             </div>
             <div class="form-body">
@@ -400,119 +400,9 @@
                 </div>
 
                 <form id="auditForm">
-                    <!-- Section 1 -->
+                    <!-- Section 1: Contact -->
                     <div class="form-group">
-                        <h3 class="form-section-title" id="sec1"><i class="fas fa-building"></i> Business &amp; Qualification</h3>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="industry">Your Industry <span class="required">*</span></label>
-                            <select id="industry" name="industry" required>
-                                <option value="" disabled selected>Select industry...</option>
-                                <option value="saas">SaaS / Software</option>
-                                <option value="ecommerce">E-commerce / DTC</option>
-                                <option value="b2b-services">B2B Services</option>
-                                <option value="agency">Marketing Agency</option>
-                                <option value="healthcare">Healthcare / Medtech</option>
-                                <option value="fintech">Fintech / Financial Services</option>
-                                <option value="education">Education / EdTech</option>
-                                <option value="other">Other (please specify in notes)</option>
-                                <option value="competitor">I'm a competitor/researcher</option>
-                            </select>
-                            <div class="field-error" id="industryError">Please select your industry</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="revenue">Current Monthly Revenue <span class="required">*</span></label>
-                            <select id="revenue" name="revenue" required>
-                                <option value="" disabled selected>Choose range...</option>
-                                <option value="under-50k">Under $50K/month</option>
-                                <option value="50k-200k">$50K – $200K/month</option>
-                                <option value="200k-500k">$200K – $500K/month</option>
-                                <option value="500k-1M">$500K – $1M/month</option>
-                                <option value="over-1M">Over $1M/month</option>
-                            </select>
-                            <span class="field-hint">Helps us calculate accurate ROI projections</span>
-                            <div class="field-error" id="revenueError">Please select your revenue range</div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="budget">Monthly Budget for Digital Growth <span class="required">*</span></label>
-                            <select id="budget" name="budget" required>
-                                <option value="" disabled selected>Select budget range...</option>
-                                <option value="under-2k">Under $2K (likely not a fit)</option>
-                                <option value="2k-5k">$2K - $5K</option>
-                                <option value="5k-10k">$5K - $10K</option>
-                                <option value="10k-20k">$10K - $20K</option>
-                                <option value="20k-plus">$20K+</option>
-                            </select>
-                            <span class="field-hint">Our packages start at $1,450/month. Budget under $2K won't be a good fit.</span>
-                            <div class="field-error" id="budgetError">Please select your budget range</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="decision_maker">Are you the decision-maker? <span class="required">*</span></label>
-                            <select id="decision_maker" name="decision_maker" required>
-                                <option value="" disabled selected>Select...</option>
-                                <option value="yes-owner">Yes, I'm the founder/owner</option>
-                                <option value="yes-exec">Yes, I'm the CEO/Head of Marketing</option>
-                                <option value="need-approval">I need to get approval</option>
-                                <option value="no">No, I'm just researching</option>
-                            </select>
-                            <div class="field-error" id="decisionMakerError">Please select your decision-maker status</div>
-                        </div>
-                    </div>
-
-                    <!-- Section 2 -->
-                    <div class="form-group mt-xl">
-                        <h3 class="form-section-title" id="sec2"><i class="fas fa-bullseye"></i> Challenges &amp; Goals</h3>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="challenge">Biggest Challenge Right Now <span class="required">*</span></label>
-                            <select id="challenge" name="challenge" required>
-                                <option value="" disabled selected>Select your #1 pain...</option>
-                                <option value="high-churn">High customer churn / low LTV</option>
-                                <option value="low-roas">Low ROAS / high CAC</option>
-                                <option value="manual-work">Team spends too much time on manual tasks</option>
-                                <option value="no-control">No real control over agency/freelancers</option>
-                                <option value="scope-creep">Scope creep &amp; hidden fees</option>
-                                <option value="scaling">Difficulty scaling operations</option>
-                                <option value="data">Poor data visibility &amp; reporting</option>
-                                <option value="other-challenge">Other (please specify below)</option>
-                            </select>
-                            <div class="field-error" id="challengeError">Please select your biggest challenge</div>
-                        </div>
-                        <div class="form-group">
-                            <label for="timeline">When to Start Seeing Results? <span class="required">*</span></label>
-                            <select id="timeline" name="timeline" required>
-                                <option value="" disabled selected>Choose...</option>
-                                <option value="asap">ASAP (next 30 days)</option>
-                                <option value="1-3-months">Within 1–3 months</option>
-                                <option value="3-6-months">3–6 months</option>
-                                <option value="just-research">Just researching for now</option>
-                            </select>
-                            <div class="field-error" id="timelineError">Please select your timeline</div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="concern">Biggest Concern About Vietnam-Based Team <span class="required">*</span></label>
-                        <select id="concern" name="concern" required>
-                            <option value="" disabled selected>Be honest - we appreciate it!</option>
-                            <option value="timezone">Time zone differences</option>
-                            <option value="communication">Communication / English fluency</option>
-                            <option value="quality">Quality of work</option>
-                            <option value="data-security">Data security</option>
-                            <option value="cultural">Cultural differences</option>
-                            <option value="none">No concerns</option>
-                            <option value="just-curious">Just curious about pricing</option>
-                        </select>
-                        <span class="field-hint">We address all these concerns upfront</span>
-                        <div class="field-error" id="concernError">Please select your biggest concern</div>
-                    </div>
-
-                    <!-- Section 3 -->
-                    <div class="form-group mt-xl">
-                        <h3 class="form-section-title" id="sec3"><i class="fas fa-user"></i> Contact Information</h3>
+                        <h3 class="form-section-title" id="sec1"><i class="fas fa-user"></i> Contact Information</h3>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
@@ -523,7 +413,7 @@
                         <div class="form-group">
                             <label for="email">Business Email <span class="required">*</span></label>
                             <input type="email" id="email" name="email" required placeholder="john@yourcompany.com">
-                            <span class="field-hint">We'll send calendar invite to this email</span>
+                            <span class="field-hint">We'll send the calendar invite to this email</span>
                             <div class="field-error" id="emailError">Please enter a valid business email</div>
                         </div>
                     </div>
@@ -537,9 +427,137 @@
                             <input type="url" id="website" name="website" placeholder="https://yourcompany.com">
                         </div>
                     </div>
+
+                    <!-- Section 2: Marketing Setup -->
+                    <div class="form-group mt-xl">
+                        <h3 class="form-section-title" id="sec2"><i class="fas fa-users"></i> Your Current Marketing Setup</h3>
+                    </div>
+                    <div class="form-group">
+                        <label for="marketing_setup">What does your current marketing setup look like? <span class="required">*</span></label>
+                        <select id="marketing_setup" name="marketing_setup" required>
+                            <option value="" disabled selected>Select your situation...</option>
+                            <option value="no-team">We don't have a dedicated marketing team yet</option>
+                            <option value="small-team">We have a small team but need more capacity or skills</option>
+                            <option value="team-underperforming">We have a marketing team but results aren't where they should be</option>
+                            <option value="strong-team">We have a strong team — looking to add specific capabilities</option>
+                        </select>
+                        <span class="field-hint">This helps us understand exactly how X5 would fit into your business</span>
+                        <div class="field-error" id="marketingSetupError">Please select your current setup</div>
+                    </div>
+
+                    <!-- Section 3: Business Qualification -->
+                    <div class="form-group mt-xl">
+                        <h3 class="form-section-title" id="sec3"><i class="fas fa-building"></i> Business &amp; Qualification</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="industry">Your Industry <span class="required">*</span></label>
+                            <select id="industry" name="industry" required>
+                                <option value="" disabled selected>Select industry...</option>
+                                <option value="saas">SaaS / Software</option>
+                                <option value="ecommerce">E-commerce / DTC</option>
+                                <option value="b2b-services">B2B Services / Consulting</option>
+                                <option value="healthcare">Healthcare / Medtech</option>
+                                <option value="fintech">Fintech / Financial Services</option>
+                                <option value="education">Education / EdTech</option>
+                                <option value="real-estate">Real Estate</option>
+                                <option value="retail">Retail</option>
+                                <option value="restaurant">Restaurant / Franchise</option>
+                                <option value="professional-services">Professional Services</option>
+                                <option value="other">Other (please specify in notes)</option>
+                            </select>
+                            <div class="field-error" id="industryError">Please select your industry</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="revenue">Current Monthly Revenue <span class="required">*</span></label>
+                            <select id="revenue" name="revenue" required>
+                                <option value="" disabled selected>Choose range...</option>
+                                <option value="under-50k">Under $50K/month</option>
+                                <option value="50k-200k">$50K – $200K/month</option>
+                                <option value="200k-500k">$200K – $500K/month</option>
+                                <option value="500k-1M">$500K – $1M/month</option>
+                                <option value="over-1M">Over $1M/month</option>
+                            </select>
+                            <span class="field-hint">Helps us calculate accurate growth projections</span>
+                            <div class="field-error" id="revenueError">Please select your revenue range</div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="budget">Monthly Budget for Growth <span class="required">*</span></label>
+                            <select id="budget" name="budget" required>
+                                <option value="" disabled selected>Select budget range...</option>
+                                <option value="under-2k">Under $2K / Still evaluating budget</option>
+                                <option value="2k-4k">$2K – $4K (Launch package range)</option>
+                                <option value="4k-6k">$4K – $6K (Growth / Engine range)</option>
+                                <option value="6k-plus">$6K+ (Full Engine or Custom)</option>
+                            </select>
+                            <span class="field-hint">Our packages start at $1,200/month. We'll recommend the right fit during the audit.</span>
+                            <div class="field-error" id="budgetError">Please select your budget range</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="decision_maker">Are you the decision-maker? <span class="required">*</span></label>
+                            <select id="decision_maker" name="decision_maker" required>
+                                <option value="" disabled selected>Select...</option>
+                                <option value="yes-owner">Yes, I'm the founder/owner</option>
+                                <option value="yes-exec">Yes, I'm the CEO/Head of Marketing</option>
+                                <option value="need-approval">I need to get approval first</option>
+                                <option value="no">No, I'm gathering information</option>
+                            </select>
+                            <div class="field-error" id="decisionMakerError">Please select your decision-maker status</div>
+                        </div>
+                    </div>
+
+                    <!-- Section 4: Challenges & Goals -->
+                    <div class="form-group mt-xl">
+                        <h3 class="form-section-title" id="sec4"><i class="fas fa-bullseye"></i> Challenges &amp; Goals</h3>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="challenge">Biggest Challenge Right Now <span class="required">*</span></label>
+                            <select id="challenge" name="challenge" required>
+                                <option value="" disabled selected>Select your #1 challenge...</option>
+                                <option value="no-data">Can't tell which marketing channel is actually working</option>
+                                <option value="low-roas">Low ROAS / high cost per lead or demo</option>
+                                <option value="pipeline-leaking">Leads coming in but pipeline is messy or leaking</option>
+                                <option value="email-not-converting">Email list not converting — leads going cold</option>
+                                <option value="manual-work">Team spends too much time on manual, repetitive tasks</option>
+                                <option value="bandwidth">Marketing team is stretched thin — not enough bandwidth</option>
+                                <option value="high-churn">High customer churn / low LTV</option>
+                                <option value="scaling">Difficulty scaling — growth has hit a ceiling</option>
+                                <option value="other-challenge">Other (please specify below)</option>
+                            </select>
+                            <div class="field-error" id="challengeError">Please select your biggest challenge</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeline">When Do You Want to Start? <span class="required">*</span></label>
+                            <select id="timeline" name="timeline" required>
+                                <option value="" disabled selected>Choose...</option>
+                                <option value="asap">ASAP — ready to move now</option>
+                                <option value="1-3-months">Within 1–3 months</option>
+                                <option value="3-6-months">3–6 months from now</option>
+                                <option value="just-research">Just researching for now</option>
+                            </select>
+                            <div class="field-error" id="timelineError">Please select your timeline</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="concern">Biggest Concern About Working With a Vietnam-Based Team <span class="required">*</span></label>
+                        <select id="concern" name="concern" required>
+                            <option value="" disabled selected>Be honest — we appreciate it</option>
+                            <option value="timezone">Time zone differences</option>
+                            <option value="communication">Communication / English fluency</option>
+                            <option value="quality">Quality of work</option>
+                            <option value="data-security">Data security &amp; confidentiality</option>
+                            <option value="cultural">Cultural differences</option>
+                            <option value="none">No concerns — I'm ready to move forward</option>
+                        </select>
+                        <span class="field-hint">We address every concern directly in the audit — no surprises</span>
+                        <div class="field-error" id="concernError">Please select your biggest concern</div>
+                    </div>
                     <div class="form-group">
                         <label for="notes">Anything else we should know?</label>
-                        <textarea id="notes" name="notes" rows="4" placeholder="Current tools, team size, specific goals, or anything else..."></textarea>
+                        <textarea id="notes" name="notes" rows="4" placeholder="Current tools, team size, specific goals, channels you're running — anything that helps us prepare..."></textarea>
                     </div>
 
                     <input type="hidden" name="qualification_score" id="qualificationScore" value="0">
@@ -547,8 +565,8 @@
 
                     <!-- Guarantee Box -->
                     <div class="guarantee-box">
-                        <h4>Zero Risk. Your Numbers Either Way.</h4>
-                        <p>We absorb the strategic risk so you can move fast without financial exposure. If the audit doesn't give you a clear ROI picture, you owe us nothing — and you keep everything we map.</p>
+                        <h4>Zero Risk. A Clear Picture Either Way.</h4>
+                        <p>The audit is free and has no obligation. You'll leave with a clear view of where your marketing is leaking revenue, which channels make sense for your ICP, and what a growth engine looks like for your specific setup — whether you work with us or not.</p>
                     </div>
 
                     <!-- Calendly Redirect -->
@@ -641,7 +659,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
+            <p>&copy; 2026 X<sup>5</sup> Digital. All rights reserved. &bull; 30-Day Risk-Free Trial for qualified clients.</p>
         </div>
     </div>
 </footer>
@@ -678,19 +696,28 @@ function calculateScore(){
     var challenge=document.getElementById('challenge').value;
     var timeline=document.getElementById('timeline').value;
     var concern=document.getElementById('concern').value;
+    var marketingSetup=document.getElementById('marketing_setup')?document.getElementById('marketing_setup').value:'';
 
-    // Industry score
-    var industryScores={saas:25,ecommerce:25,'b2b-services':20,agency:15,healthcare:15,fintech:20,education:15,other:10,competitor:0};
+    // Marketing setup score (NEW — 20pts max)
+    var setupScores={'no-team':20,'small-team':20,'team-underperforming':18,'strong-team':12};
+    score+=setupScores[marketingSetup]||0;
+
+    // Industry score (adjusted max to keep total at 100)
+    var industryScores={saas:15,ecommerce:15,'b2b-services':12,healthcare:10,fintech:12,education:10,'real-estate':10,retail:10,restaurant:8,'professional-services':10,other:6};
     score+=industryScores[industry]||0;
+
     // Revenue
-    var revenueScores={'under-50k':5,'50k-200k':15,'200k-500k':20,'500k-1M':25,'over-1M':25};
+    var revenueScores={'under-50k':5,'50k-200k':12,'200k-500k':16,'500k-1M':20,'over-1M':20};
     score+=revenueScores[revenue]||0;
-    // Budget
-    var budgetScores={'under-2k':0,'2k-5k':5,'5k-10k':15,'10k-20k':20,'20k-plus':25};
+
+    // Budget (updated ranges to match new packages)
+    var budgetScores={'under-2k':0,'2k-4k':10,'4k-6k':18,'6k-plus':22};
     score+=budgetScores[budget]||0;
+
     // Decision maker
-    var dmScores={'yes-owner':15,'yes-exec':15,'need-approval':5,no:0};
+    var dmScores={'yes-owner':12,'yes-exec':12,'need-approval':5,no:0};
     score+=dmScores[decisionMaker]||0;
+
     // Timeline
     var timelineScores={asap:10,'1-3-months':8,'3-6-months':4,'just-research':0};
     score+=timelineScores[timeline]||0;
@@ -743,9 +770,12 @@ function updateScoreDisplay(data){
     if(data.percentage>=40){
         var rev=document.getElementById('revenue').value;
         var budget=document.getElementById('budget').value;
+        var setup=document.getElementById('marketing_setup')?document.getElementById('marketing_setup').value:'';
         var revMap={'under-50k':'under $50K','50k-200k':'$50K–$200K','200k-500k':'$200K–$500K','500k-1M':'$500K–$1M','over-1M':'over $1M'};
-        var budMap={'under-2k':'under $2K','2k-5k':'$2K–$5K','5k-10k':'$5K–$10K','10k-20k':'$10K–$20K','20k-plus':'$20K+'};
+        var budMap={'under-2k':'under $2K','2k-4k':'$2K–$4K','4k-6k':'$4K–$6K','6k-plus':'$6K+'};
+        var setupMap={'no-team':'No dedicated marketing team yet','small-team':'Small team, needs more capacity','team-underperforming':'Team exists but underperforming','strong-team':'Strong team, adding capabilities'};
         var txt='';
+        if(setup)txt+='Setup: '+setupMap[setup]+'. ';
         if(rev)txt+='Revenue '+revMap[rev]+'/month. ';
         if(budget)txt+='Budget '+budMap[budget]+'. ';
         txt+='You score <strong>'+Math.round(data.percentage)+'%</strong> qualification — '+data.label+'.';
@@ -786,11 +816,9 @@ function validateField(field){
 }
 
 function checkForDisqualification(f){
-    if(f.id==='industry'&&f.value==='competitor'){showDisqualification("We don't currently provide audits to direct competitors. Feel free to reach out for partnership opportunities.");return true;}
-    if(f.id==='concern'&&f.value==='just-curious'){showDisqualification("Our pricing is transparent on the Packages page. We focus audits on businesses ready to implement within 90 days.");return true;}
-    if(f.id==='timeline'&&f.value==='just-research'){showDisqualification("Thanks for your interest! We currently prioritize businesses ready to move fast. Feel free to reach out again when timing is better.");return true;}
+    if(f.id==='timeline'&&f.value==='just-research'){showDisqualification("Thanks for your interest! We focus our audits on businesses ready to move within 90 days. Feel free to browse our packages in the meantime — or reach out when the timing is right.");return true;}
     var bgt=document.getElementById('budget').value,rev=document.getElementById('revenue').value;
-    if(bgt==='under-2k'&&(rev==='500k-1M'||rev==='over-1M')){showDisqualification("Our system requires minimum $1,450/month investment for proper implementation. We're likely not the right fit for your budget at this stage.");return true;}
+    if(bgt==='under-2k'&&(rev==='500k-1M'||rev==='over-1M')){showDisqualification("It looks like your budget may not align with the scope of work needed for a business at your revenue level. Our packages start at $1,200/month — we're happy to discuss what's realistic during the audit.");return true;}
     return false;
 }
 
