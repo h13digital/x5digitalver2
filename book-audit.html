@@ -454,16 +454,22 @@
                             <label for="industry">Your Industry <span class="required">*</span></label>
                             <select id="industry" name="industry" required>
                                 <option value="" disabled selected>Select industry...</option>
+                                <optgroup label="B2B">
                                 <option value="saas">SaaS / Software</option>
-                                <option value="ecommerce">E-commerce / DTC</option>
                                 <option value="b2b-services">B2B Services / Consulting</option>
-                                <option value="healthcare">Healthcare / Medtech</option>
-                                <option value="fintech">Fintech / Financial Services</option>
-                                <option value="education">Education / EdTech</option>
-                                <option value="real-estate">Real Estate</option>
-                                <option value="retail">Retail</option>
-                                <option value="restaurant">Restaurant / Franchise</option>
-                                <option value="professional-services">Professional Services</option>
+                                <option value="professional-services">Professional Services (Legal, Accounting, Advisory)</option>
+                                <option value="healthcare-b2b">Healthcare / Medtech (B2B)</option>
+                                <option value="fintech-b2b">Fintech / Financial Services (B2B)</option>
+                                <option value="education-b2b">Education / EdTech (B2B)</option>
+                                </optgroup>
+                                <optgroup label="E-commerce">
+                                <option value="ecommerce">E-commerce / DTC</option>
+                                </optgroup>
+                                <optgroup label="B2C Lead Gen">
+                                <option value="healthcare-b2c">Healthcare (Patient Acquisition)</option>
+                                <option value="fintech-b2c">Fintech / Financial Services (Consumer)</option>
+                                <option value="education-b2c">Education / EdTech (B2C / Enrollment)</option>
+                                </optgroup>
                                 <option value="other">Other (please specify in notes)</option>
                             </select>
                             <div class="field-error" id="industryError">Please select your industry</div>
@@ -703,7 +709,7 @@ function calculateScore(){
     score+=setupScores[marketingSetup]||0;
 
     // Industry score (adjusted max to keep total at 100)
-    var industryScores={saas:15,ecommerce:15,'b2b-services':12,healthcare:10,fintech:12,education:10,'real-estate':10,retail:10,restaurant:8,'professional-services':10,other:6};
+    var industryScores={saas:15,ecommerce:15,'b2b-services':12,'professional-services':12,'healthcare-b2b':10,'fintech-b2b':12,'education-b2b':10,'healthcare-b2c':10,'fintech-b2c':10,'education-b2c':10,other:6};
     score+=industryScores[industry]||0;
 
     // Revenue
