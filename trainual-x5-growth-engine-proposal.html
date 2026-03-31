@@ -10,19 +10,22 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
 #pb{position:fixed;top:0;left:0;height:3px;background:var(--teal);width:0%;z-index:1001;transition:width .1s linear}
-.nav{background:var(--navy);padding:14px 40px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
-.logo-x5{font-size:22px;font-weight:900;color:var(--teal);letter-spacing:-1px}.logo-d{font-size:16px;font-weight:300;color:rgba(255,255,255,.7);margin-left:3px}
+.nav{background:var(--navy);padding:14px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.logo-x5{font-size:22px;font-weight:900;color:white;letter-spacing:-1px}
+.logo-d{font-size:16px;font-weight:300;color:rgba(255,255,255,.7);margin-left:4px}
+.logo-cursor{font-size:20px;font-weight:300;color:white;margin:0 2px;animation:blink .9s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
 .nav-tag{font-size:11px;font-weight:300;color:rgba(255,255,255,.4);letter-spacing:.06em}
 .r{opacity:0;transform:translateY(20px);transition:opacity .55s ease,transform .55s ease}.r.in{opacity:1;transform:translateY(0)}
 .r.d1{transition-delay:.08s}.r.d2{transition-delay:.15s}.r.d3{transition-delay:.22s}
 .gdiv{height:1px;background:linear-gradient(90deg,var(--purple),var(--teal),transparent);opacity:.25}
-.sec{max-width:960px;margin:0 auto;padding:80px 32px}
-@media(max-width:768px){.sec{padding:56px 20px}}
+.sec{max-width:1100px;margin:0 auto;padding:80px 24px}
+@media(max-width:768px){.sec{padding:56px 16px}}
 .ey{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
 .st{font-size:clamp(28px,5vw,44px);font-weight:900;color:var(--navy);letter-spacing:-1.5px;line-height:1.1;margin-bottom:8px}
 .ow{color:transparent;-webkit-text-stroke:2px var(--purple)}
-.sl{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;max-width:640px;margin-bottom:40px}
-.hero{max-width:960px;margin:0 auto;padding:80px 32px 52px;position:relative;overflow:hidden}
+.sl{font-size:15px;font-weight:300;color:var(--muted);line-height:1.75;max-width:740px;margin-bottom:40px}
+.hero{max-width:1100px;margin:0 auto;padding:80px 24px 52px;position:relative;overflow:hidden}
 .hero-gh{position:absolute;right:-20px;top:-30px;font-size:200px;font-weight:900;color:var(--navy);opacity:.04;line-height:1;pointer-events:none;user-select:none}
 @media(max-width:768px){.hero-gh{display:none}}
 .hero-to{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
@@ -83,7 +86,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);ove
 .lb{margin-bottom:60px;padding-top:32px}
 .lpill{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:var(--teal);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:6px 16px;border-radius:20px;margin-bottom:14px}
 .lname{font-size:clamp(28px,6vw,52px);font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1.1;margin-bottom:8px}
-.ltag{font-size:15px;font-weight:400;color:#4B5563;max-width:560px;line-height:1.7;margin-bottom:24px}
+.ltag{font-size:15px;font-weight:400;color:#4B5563;max-width:680px;line-height:1.7;margin-bottom:24px}
 .lsvg{width:100%;border-radius:12px;overflow:hidden;margin-bottom:28px;border:1px solid rgba(229,218,251,.5)}
 .vf{margin-bottom:20px}
 .fs{display:flex;gap:20px;margin-bottom:4px}
@@ -92,8 +95,8 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);ove
 .fline{width:2px;flex:1;min-height:28px;margin:4px auto}
 .lo{background:linear-gradient(#009DE0,#FBC94B)}.lb2{background:linear-gradient(#FBC94B,#06D4AE)}.ld{background:linear-gradient(#06D4AE,#6A28EA)}
 .fr{flex:1;padding-bottom:28px}
-.few{font-size:18px;font-weight:700;line-height:1.2;margin-bottom:4px}
-.fhl{font-size:18px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:12px}
+.few{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.2;margin-bottom:6px}
+.fhl{font-size:19px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:12px}
 .ful{list-style:none;display:flex;flex-direction:column;gap:5px}
 .ful li{font-size:13px;color:var(--text);line-height:1.6;display:flex;align-items:flex-start;gap:8px}
 .ful li.na{color:var(--muted)}
@@ -110,7 +113,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);ove
 .of{background:var(--bg-mint);border-radius:10px;padding:12px 18px;display:flex;align-items:center;gap:10px;margin-top:8px}
 .of span{font-size:13px;font-weight:600;color:var(--navy);line-height:1.5}
 .of .mt{font-family:'Inconsolata',monospace;font-weight:700;font-size:13px;color:#085041}
-.bridge{border-left:3px solid var(--teal);padding:12px 0 12px 20px;margin:24px 0 40px;max-width:520px}
+.bridge{border-left:3px solid var(--teal);padding:12px 0 12px 20px;margin:24px 0 40px;max-width:680px}
 .bt{font-size:15px;font-weight:500;color:var(--navy);line-height:1.6}
 .bt em{font-style:normal;color:var(--purple)}
 .mo{margin-bottom:40px}
@@ -127,7 +130,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);ove
 .mgr{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
 @media(max-width:720px){.mgr{grid-template-columns:1fr 1fr}}
 .mcard{background:var(--bg-light);border-radius:12px;padding:18px;border:1px solid var(--bg-lavender)}
-.ml{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
+.ml{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin-bottom:5px}
 .mv{font-family:'Inconsolata',monospace;font-size:28px;font-weight:700;color:var(--navy);line-height:1.1}
 .ms{font-size:11px;color:var(--muted);margin-top:3px}
 .dgr{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -152,9 +155,9 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);ove
 .stab td{padding:12px 16px;border-bottom:1px solid var(--bg-lavender);vertical-align:top;line-height:1.5}
 .stab tr:nth-child(odd) td{background:white}.stab tr:nth-child(even) td{background:var(--bg-light)}
 .lbadge{display:inline-block;background:var(--navy);color:white;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;white-space:nowrap}
-.ask{background:var(--navy);padding:80px 32px;text-align:center;position:relative;overflow:hidden}
+.ask{background:var(--navy);padding:80px 24px;text-align:center;position:relative;overflow:hidden}
 .ask-gh{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:280px;font-weight:900;color:#fff;opacity:.03;line-height:1;pointer-events:none}
-.ask-in{position:relative;max-width:600px;margin:0 auto}
+.ask-in{position:relative;max-width:680px;margin:0 auto}
 .ask-ey{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
 .ask-h{font-size:clamp(38px,8vw,68px);font-weight:900;color:white;letter-spacing:-2.5px;line-height:1.05;margin-bottom:8px}
 .ask-k{font-family:'Kalam',cursive;font-size:17px;color:rgba(229,218,251,.9);line-height:1.6;margin-bottom:18px}
@@ -162,7 +165,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);ove
 .ask-btn{display:inline-block;background:var(--teal);color:var(--navy);font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;padding:15px 40px;border-radius:8px;text-decoration:none;letter-spacing:.04em;transition:transform .2s,box-shadow .2s}
 .ask-btn:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(6,212,174,.35)}
 .ask-fn{font-size:12px;font-weight:300;color:rgba(255,255,255,.3);margin-top:18px}
-.footer{background:var(--bg-light);padding:18px 40px;text-align:center}
+.footer{background:var(--bg-light);padding:18px 24px;text-align:center}
 .footer span{font-size:12px;font-weight:300;color:var(--muted)}
 p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{font-style:italic}
 
@@ -218,48 +221,116 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
 .char-role{color:#6B7280;font-size:13px}
 .char-pain{color:#6A28EA;font-size:12px;font-weight:600;background:#EEEDFE;padding:2px 10px;border-radius:20px;margin-left:auto}
 
-.sec-hl{font-size:17px;font-weight:400;line-height:1.75;color:#374151;max-width:640px;margin-bottom:20px;font-style:italic}
+.sec-hl{font-size:19px;font-weight:500;line-height:1.7;color:#374151;max-width:760px;margin-bottom:20px;font-style:italic}
 .sec-hl em{font-style:normal;font-weight:600;color:var(--navy)}
 
 .pyr-wrap{max-width:100%;margin:0 auto 8px}
-.pyr-ey{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);text-align:center;margin-bottom:20px}
-.pyr-stack{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pyr-ey{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);text-align:center;margin-bottom:20px}
+.pyr-stack{display:flex;flex-direction:column;align-items:center;gap:8px}
 .pyr-row{display:flex;flex-direction:column;align-items:center;transition:all .2s}
-.pyr-block{border-radius:10px;cursor:pointer;transition:opacity .18s,transform .15s;display:flex;align-items:center;gap:14px;padding:0 20px;height:64px;position:relative;user-select:none;width:100%}
+.pyr-block{border-radius:10px;cursor:pointer;transition:opacity .18s,transform .15s;display:flex;align-items:center;gap:18px;padding:0 24px;height:80px;position:relative;user-select:none;width:100%}
 .pyr-block:hover{opacity:.92}
-.pyr-num{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;flex-shrink:0;background:rgba(255,255,255,.15);color:white}
+.pyr-num{width:42px;height:42px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:700;flex-shrink:0;background:rgba(255,255,255,.18);color:white}
 .pyr-texts{flex:1;min-width:0}
-.pyr-lcode{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:2px}
-.pyr-lname{font-size:14px;font-weight:700;color:white;line-height:1.2}
-.pyr-ltag{font-size:10px;color:rgba(255,255,255,.55);font-style:italic;margin-top:1px;line-height:1.4}
-.pyr-chev{width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pyr-lcode{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:3px}
+.pyr-lname{font-size:17px;font-weight:700;color:white;line-height:1.2}
+.pyr-ltag{font-size:12px;color:rgba(255,255,255,.78);font-style:italic;margin-top:3px;line-height:1.4}
+.pyr-chev{width:28px;height:28px;border-radius:6px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pyr-chev svg{transition:transform .25s}
 .pyr-block.pyr-open .pyr-chev svg{transform:rotate(180deg)}
 .pyr-expand{width:100%;max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.25,.8,.25,1)}
 .pyr-expand.pyr-open{max-height:300px}
 .pyr-exp-inner{padding:10px 0 2px}
-.pyr-zone{padding:12px 14px;border-radius:8px;border:1px solid var(--bg-lavender);background:var(--bg-light)}
-.pyr-zlbl{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
-.pyr-zdesc{font-size:12px;color:var(--muted);line-height:1.65;margin-bottom:7px}
+.pyr-zone{padding:16px 18px;border-radius:8px;border:1px solid var(--bg-lavender);background:var(--bg-light)}
+.pyr-zlbl{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.pyr-zdesc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:10px}
 .pyr-tags{display:flex;flex-wrap:wrap;gap:4px}
-.pyr-tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:4px;border:1px solid}
+.pyr-tag{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;border:1px solid}
 .pt-l1{background:rgba(2,0,68,.06);color:#020044;border-color:rgba(2,0,68,.15)}
 .pt-l2{background:rgba(106,40,234,.07);color:var(--purple);border-color:rgba(106,40,234,.2)}
 .pt-l3{background:rgba(0,157,224,.07);color:var(--blue);border-color:rgba(0,157,224,.2)}
 .pt-l4{background:rgba(6,212,174,.1);color:#085041;border-color:rgba(6,212,174,.25)}
 .pt-l5{background:rgba(6,212,174,.08);color:#0F6E56;border-color:rgba(6,212,174,.2)}
-.pyr-dep{font-size:11px;color:var(--muted);text-align:center;margin-top:12px;font-style:italic}
+.pyr-dep{font-size:12px;color:var(--muted);text-align:center;margin-top:16px;font-style:italic}
 
 .mc.d1{border-left-color:var(--purple)}
 .mc.d2{border-left-color:var(--blue)}
 .mc.d3{border-left-color:var(--yellow)}
+
+/* ── CTA Pulse Animation (#9) ── */
+@keyframes ctaPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(6,212,174,0.45)}
+  50%{box-shadow:0 0 0 14px rgba(6,212,174,0)}
+}
+@keyframes ctaGlow{
+  0%,100%{box-shadow:0 4px 24px rgba(6,212,174,0.3)}
+  50%{box-shadow:0 8px 40px rgba(6,212,174,0.65),0 0 60px rgba(6,212,174,0.2)}
+}
+.ask-btn.pulse-active{
+  animation:ctaPulse 2s ease-out infinite, ctaGlow 2s ease-in-out infinite;
+}
+.ask-btn.pulse-active:hover{
+  animation:none;
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(6,212,174,0.55);
+}
+
+/* ── Pyramid block hover improvement ── */
+.pyr-block:hover{opacity:1 !important;filter:brightness(1.08);}
+
+
+
+/* ── #3: S05 Step Tabs ── */
+.step-tab{background:var(--bg-light);color:var(--text)}
+.step-tab.step-active{color:inherit}
+.step-tab:hover:not(.step-active){background:var(--bg-lavender)}
+.step-tab:first-child{border-radius:12px 0 0 12px}
+.step-tab:last-child{border-radius:0 12px 12px 0}
+.step-panel{animation:fadeInUp .3s ease}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+
+/* ── #5: Nav Active Links ── */
+.nav-link{font-family:'Poppins',sans-serif;font-size:11px;font-weight:600;color:rgba(255,255,255,.5);text-decoration:none;padding:5px 10px;border-radius:6px;letter-spacing:.04em;transition:color .2s,background .2s}
+.nav-link:hover{color:white;background:rgba(255,255,255,.08)}
+.nav-link.nav-active{color:var(--teal);}
+.nav-cta{background:rgba(6,212,174,.15);color:var(--teal) !important;border:1px solid rgba(6,212,174,.3)}
+.nav-cta:hover{background:rgba(6,212,174,.25) !important}
+@media(max-width:768px){.nav-links{display:none !important}}
+
+
+/* ── #7: Pyramid Layer Hover Glow ── */
+#pb0:hover{box-shadow:0 0 0 2px rgba(2,0,68,.6),0 6px 24px rgba(2,0,68,.4) !important;filter:brightness(1.1)}
+#pb1:hover{box-shadow:0 0 0 2px rgba(26,16,96,.6),0 6px 24px rgba(26,16,96,.4) !important;filter:brightness(1.1)}
+#pb2:hover{box-shadow:0 0 0 2px rgba(58,26,154,.7),0 6px 24px rgba(106,40,234,.35) !important;filter:brightness(1.1)}
+#pb3:hover{box-shadow:0 0 0 2px rgba(106,40,234,.8),0 8px 28px rgba(106,40,234,.45) !important;filter:brightness(1.12)}
+#pb4:hover{box-shadow:0 0 0 2px rgba(6,212,174,.8),0 8px 28px rgba(6,212,174,.45) !important;filter:brightness(1.12)}
+.pyr-block{transition:opacity .18s,transform .15s,box-shadow .2s,filter .2s !important}
+
+
+/* ── Step Tab Typography ── */
+.step-tab-label-top{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.65;margin-bottom:4px}
+.step-tab-label-main{font-size:14px;font-weight:600;line-height:1.3}
+
 </style>
 </head>
 <body>
 <div id="pb"></div>
 <nav class="nav">
-  <div style="display:flex;align-items:baseline;gap:3px"><span class="logo-x5">X5</span><span class="logo-d">Digital</span></div>
-  <span class="nav-tag">A proposal prepared exclusively for Trainual</span>
+  <div style="display:flex;align-items:center;gap:0">
+    <span class="logo-x5">X<sup style="font-size:13px;font-weight:900;vertical-align:super;line-height:0;color:white">5</sup></span>
+    <span class="logo-d">Digital</span>
+    <span class="logo-cursor">|</span>
+  </div>
+  <div class="nav-links" style="display:flex;gap:4px;align-items:center">
+    <a class="nav-link" href="#s1">The Mirror</a>
+    <a class="nav-link" href="#s2">The Leak</a>
+    <a class="nav-link" href="#s3">Before &amp; After</a>
+    <a class="nav-link" href="#s4">The Engine</a>
+    <a class="nav-link" href="#s5">Journey</a>
+    <a class="nav-link" href="#s6">Destination</a>
+    <a class="nav-link nav-cta" href="#s7">Book Audit →</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -283,7 +354,7 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
     <div class="mc r">
       <div class="mc-gh">01</div>
       <div class="ey">Content Moat · Strength 01</div>
-      <div class="mstat">163<span class="acc">,000+</span></div>
+      <div class="mstat" id="s1-subs">163<span class="acc">,000+</span></div>
       <div class="mdiv"></div>
       <div class="mctx">Newsletter subscribers — plus The Manual blog, Organize Chaos podcast, The Business Playbook, Trainual University, and 400+ compliance courses. A content moat that takes years to build.</div>
       <div class="ev" style="margin-top:14px"><span class="ev-lb">// AUDIT EVIDENCE</span><ul><li>Navigation segmented by ICP: Entrepreneurs / Operations Leaders / HR Leads / Admins</li><li>Delegation Planner: free interactive tool — deliberate BoFu asset, confirmed active</li></ul></div>
@@ -299,7 +370,7 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
     <div class="mc r d2">
       <div class="mc-gh">03</div>
       <div class="ey">Social Proof · Strength 03</div>
-      <div class="mstat">4.7<span class="acc">/5</span></div>
+      <div class="mstat" id="s1-rating">4.7<span class="acc">/5</span></div>
       <div class="mdiv"></div>
       <div class="mctx">On 907 G2 reviews + 502 Capterra — real names, real titles, real companies. ROI Calculator with transparent dollar output is BoFu social proof that closes deals before sales picks up the phone.</div>
       <div class="ev" style="margin-top:14px"><span class="ev-lb">// AUDIT EVIDENCE</span><ul><li>G2 Buyer Intent pixel: g2crowd.com/attribution_tracking/conversions/3076</li><li>ROI Calculator sliders: numberOfManagers, avgTimeInHoursToOnboard, avgManagerSalaryPerHour</li><li>Confetti animation on high output — intentional emotional trigger confirmed in source</li></ul></div>
@@ -1541,46 +1612,59 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
       <path d="M290 88 L398 88" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/><text x="344" y="72" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#9CA3AF">Campaigns feed</text><text x="344" y="83" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#9CA3AF">pipeline</text>
       <path d="M466 88 L574 88" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/><text x="520" y="72" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#9CA3AF">Pipeline signals</text><text x="520" y="83" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#9CA3AF">trigger automation</text>
       <path d="M642 88 L750 88" stroke="#C4B5FD" stroke-width="1.5" marker-end="url(#ca)"/><text x="696" y="72" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#9CA3AF">Automation builds</text><text x="696" y="83" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="#9CA3AF">intelligence</text>
-      <path d="M784 120 Q784 152 432 152 Q80 152 80 120" fill="none" stroke="rgba(6,212,174,0.5)" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#la)"/>
-      <text x="432" y="167" text-anchor="middle" font-family="Poppins,sans-serif" font-size="10" fill="rgba(6,212,174,0.8)">Intelligence refines the foundation</text>
-    </svg>
+</svg>
+    </div>
   </div>
-</div>
-<div class="gdiv"></div>
 
-<!-- S5: THE JOURNEY -->
 <div class="sec" id="s5">
   <div class="ey r">Section 05</div>
   <div class="st r">The <span class="ow">Journey</span></div>
   <p class="sec-hl r">Trainual doesn't need to take anything on faith. <em>Every phase has a specific deliverable — and a specific thing you'll be able to see in your own data by the end of it.</em></p>
   <p class="sl r">90 days. Three phases. Each phase has a clear deliverable set and a specific thing you'll see by the end of it.</p>
   <div class="mo r">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-      <div style="width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--teal);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
-      <div class="mh" style="margin-bottom:0">Month 1 — <em>Fix the foundation before building higher</em></div>
-    </div>
-    <ul class="mi"><li>Server-Side GTM setup + Meta CAPI + LinkedIn CAPI migration</li><li>Tag audit: remove Hotjar + Lucky Orange — consolidate to Clarity</li><li>Intellimize anti-flicker timeout: review + optimize</li><li>Event mapping: 6 B2B SaaS events with full source attribution</li><li>HubSpot CRM hygiene: clean duplicates, standardize lead_source taxonomy</li><li>Pipeline definition: MQL/SQL thresholds, stage SLAs, stuck-deal alerts</li><li>Lead scoring model v1: firmographic + behavioral + title, threshold ≥70</li><li>Google Search Ads launch: bottom-funnel keywords, ICP-split ad copy</li><li>Retargeting setup: 3 intent segments (pricing / ROI calculator / blog)</li></ul>
-    <div class="ys">demo_booked events with full source attribution — for the first time. Data accuracy up ~20–40%. Pipeline stages defined in HubSpot. Page load improves after script consolidation.</div>
+      <div class="step-tabs r" style="display:flex;gap:0;border-radius:12px;overflow:hidden;border:1px solid var(--bg-lavender);margin-bottom:28px">
+    <button class="step-tab step-active" data-step="0" onclick="switchStep(0)" style="flex:1;border:none;cursor:pointer;padding:16px 20px;text-align:left;font-family:'Poppins',sans-serif;transition:background .2s,color .2s" data-bg="var(--navy)" data-col="var(--teal)">
+      <div class="step-tab-label-top">Month 1</div>
+      <div class="step-tab-label-main">Fix the foundation before building higher</div>
+    </button>
+    <button class="step-tab" data-step="1" onclick="switchStep(1)" style="flex:1;border:none;cursor:pointer;padding:16px 20px;text-align:left;font-family:'Poppins',sans-serif;transition:background .2s,color .2s" data-bg="var(--purple)" data-col="white">
+      <div class="step-tab-label-top">Month 2</div>
+      <div class="step-tab-label-main">Build the pipeline and the channels</div>
+    </button>
+    <button class="step-tab" data-step="2" onclick="switchStep(2)" style="flex:1;border:none;cursor:pointer;padding:16px 20px;text-align:left;font-family:'Poppins',sans-serif;transition:background .2s,color .2s" data-bg="var(--teal)" data-col="var(--navy)">
+      <div class="step-tab-label-top">Month 3</div>
+      <div class="step-tab-label-main">Scale from data, not assumption</div>
+    </button>
   </div>
-  <div class="mo r" style="transition-delay:.1s">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-      <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
-      <div class="mh" style="margin-bottom:0">Month 2 — <em>Build the pipeline and the channels</em></div>
+
+  <div class="step-panels">
+    <div class="step-panel r" id="step-panel-0" style="display:block">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--navy);color:var(--teal);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
+        <div class="mh" style="margin-bottom:0">Month 1 — <em>Fix the foundation before building higher</em></div>
+      </div>
+      <ul class="mi"><li>Server-Side GTM setup + Meta CAPI + LinkedIn CAPI migration</li><li>Tag audit: remove Hotjar + Lucky Orange — consolidate to Clarity</li><li>Intellimize anti-flicker timeout: review + optimize</li><li>Event mapping: 6 B2B SaaS events with full source attribution</li><li>HubSpot CRM hygiene: clean duplicates, standardize lead_source taxonomy</li><li>Pipeline definition: MQL/SQL thresholds, stage SLAs, stuck-deal alerts</li><li>Lead scoring model v1: firmographic + behavioral + title, threshold ≥70</li><li>Google Search Ads launch: bottom-funnel keywords, ICP-split ad copy</li><li>Retargeting setup: 3 intent segments (pricing / ROI calculator / blog)</li></ul>
+      <div class="ys">demo_booked events with full source attribution — for the first time. Data accuracy up ~20–40%. Pipeline stages defined in HubSpot. Page load improves after script consolidation.</div>
     </div>
-    <ul class="mi"><li>LinkedIn Ads launch: 3 campaign tiers (ToFu/MoFu/BoFu) by ICP</li><li>Email marketing: segment 163k+ list, 3 nurture paths by funnel stage</li><li>Schema.org GEO optimization on Webflow (SaaS Product, FAQ, Review, Org)</li><li>Demo prep brief automation: n8n → HubSpot → Slack in &lt;5 minutes</li><li>No-show recovery: 3-touchpoint automated sequence (30 min / 18h / 72h)</li><li>Trial-to-paid sequence: Day 1/3/7 onboarding + Day 10/13 re-engagement</li><li>ProfitWell → HubSpot integration: expansion (80% seat) + churn signals live</li><li>AI chatbot: deployed + trained on Trainual content, 24/7 qualification</li><li>Revenue dashboard v1: core metrics live, weekly reporting begins</li></ul>
-    <div class="ys">Show-up rate begins to increase. No-show recovery tracked for the first time. LinkedIn vs. Google comparable on cost-per-demo. Churn early warning active.</div>
-  </div>
-  <div class="mo r" style="transition-delay:.18s">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-      <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:var(--navy);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
-      <div class="mh" style="margin-bottom:0">Month 3 — <em>Scale from data, not assumption</em></div>
+    <div class="step-panel r" id="step-panel-1" style="display:none">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--purple);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
+        <div class="mh" style="margin-bottom:0">Month 2 — <em>Build the pipeline and the channels</em></div>
+      </div>
+      <ul class="mi"><li>LinkedIn Ads launch: 3 campaign tiers (ToFu/MoFu/BoFu) by ICP</li><li>Email marketing: segment 163k+ list, 3 nurture paths by funnel stage</li><li>Schema.org GEO optimization on Webflow (SaaS Product, FAQ, Review, Org)</li><li>Demo prep brief automation: n8n → HubSpot → Slack in &lt;5 minutes</li><li>No-show recovery: 3-touchpoint automated sequence (30 min / 18h / 72h)</li><li>Trial-to-paid sequence: Day 1/3/7 onboarding + Day 10/13 re-engagement</li><li>ProfitWell → HubSpot integration: expansion (80% seat) + churn signals live</li><li>AI chatbot: deployed + trained on Trainual content, 24/7 qualification</li><li>Revenue dashboard v1: core metrics live, weekly reporting begins</li></ul>
+      <div class="ys">Show-up rate begins to increase. No-show recovery tracked for the first time. LinkedIn vs. Google comparable on cost-per-demo. Churn early warning active.</div>
     </div>
-    <ul class="mi"><li>Channel ROI first read: cut or restructure underperforming channels</li><li>Lead scoring model v2: updated from 60 days of real closed-won data</li><li>ICP refinement: top 3 combinations → feed into LinkedIn targeting + content plan</li><li>Content repurposing: podcast → 5 pieces/episode, automated via n8n + Whisper</li><li>n8n behavioral triggers full suite: ROI calc, pricing multi-visit, G2 review, seat capacity</li><li>Expansion revenue sequence: 80% seat → proactive outreach automated</li><li>Heatmap analysis: pricing page + demo form drop-off → specific recommendations</li><li>Revenue dashboard v2: expansion MRR, LTV:CAC ratio, pipeline velocity by source</li></ul>
-    <div class="ys">Budget allocated to channels with 60-day evidence. Pipeline velocity measurable. Expansion MRR tracked separately from new business. Content output increases without adding headcount.</div>
+    <div class="step-panel r" id="step-panel-2" style="display:none">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+        <div style="width:36px;height:36px;border-radius:50%;background:var(--teal);color:var(--navy);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
+        <div class="mh" style="margin-bottom:0">Month 3 — <em>Scale from data, not assumption</em></div>
+      </div>
+      <ul class="mi"><li>Channel ROI first read: cut or restructure underperforming channels</li><li>Lead scoring model v2: updated from 60 days of real closed-won data</li><li>ICP refinement: top 3 combinations → feed into LinkedIn targeting + content plan</li><li>Content repurposing: podcast → 5 pieces/episode, automated via n8n + Whisper</li><li>n8n behavioral triggers full suite: ROI calc, pricing multi-visit, G2 review, seat capacity</li><li>Expansion revenue sequence: 80% seat → proactive outreach automated</li><li>Heatmap analysis: pricing page + demo form drop-off → specific recommendations</li><li>Revenue dashboard v2: expansion MRR, LTV:CAC ratio, pipeline velocity by source</li></ul>
+      <div class="ys">Budget allocated to channels with 60-day evidence. Pipeline velocity measurable. Expansion MRR tracked separately from new business. Content output increases without adding headcount.</div>
+    </div>
   </div>
-  <div class="ltv r" style="transition-delay:.22s">
-    <p><strong>After 90 days — LTV &amp; Churn Modeling</strong></p>
-    <p>Trainual is subscription SaaS — the ideal candidate for LTV &amp; Churn modeling. After 90 days of Layer 1 running cleanly, X5 will have enough cohort data to present real patterns: which cohort has the highest retention, which channel drives customers who stay longest, which accounts are at churn risk in the next 30–60 days, which ICP has the best LTV:CAC ratio to double down on.</p>
+
+ntion, which channel drives customers who stay longest, which accounts are at churn risk in the next 30–60 days, which ICP has the best LTV:CAC ratio to double down on.</p>
     <p>This is when the system shifts from <strong>reporting</strong> to <strong>predicting</strong>. +$1,500–2,000/month. Activated after 90 days — not from day one.</p>
   </div>
 </div>
@@ -1596,8 +1680,8 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
   <div class="mgr">
     <div class="mcard r"><div class="ml">Blended CAC</div><div class="mv" id="m-cac">$620</div><div class="ms">Across all channels</div></div>
     <div class="mcard r d1"><div class="ml">Customer LTV</div><div class="mv" id="m-ltv">$4,200</div><div class="ms">LTV:CAC ratio · <strong style="color:var(--teal)">6.8×</strong></div></div>
-    <div class="mcard r d2"><div class="ml">MRR Growth MoM</div><div class="mv">+6.5%</div><div class="ms">Month-over-month target</div></div>
-    <div class="mcard r d3"><div class="ml">Email → Demo Rate</div><div class="mv" style="color:var(--purple)">4.8%</div><div class="ms">Segmented · behavioral trigger</div></div>
+    <div class="mcard r d2"><div class="ml">MRR Growth MoM</div><div class="mv" id="m-mrr">+6.5%</div><div class="ms">Month-over-month target</div></div>
+    <div class="mcard r d3"><div class="ml">Email → Demo Rate</div><div class="mv" id="m-email" style="color:var(--purple)">4.8%</div><div class="ms">Segmented · behavioral trigger</div></div>
   </div>
   <div class="dgr r" style="transition-delay:.1s">
     <div class="dp">
@@ -1657,7 +1741,7 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
   <div class="ask-gh">30</div>
   <div class="ask-in">
     <div class="ask-ey r">Section 07 · The Ask</div>
-    <p class="sec-hl r" style="margin-top:12px">The audit is already done. The diagnosis is already on the table. <em>All that's left is 30 minutes for Trainual to decide whether the diagnosis is right — before anything else is discussed.</em></p>
+    <p class="sec-hl r" style="margin-top:12px;color:rgba(255,255,255,.75);font-style:italic">The audit is already done. The diagnosis is already on the table. <em style="color:white;font-weight:600">All that's left is 30 minutes for Trainual to decide whether the diagnosis is right — before anything else is discussed.</em></p>
     <div class="ask-h r">30 Minutes.<br>No Pitch. Just Data.</div>
     <div class="ask-k r">"Whether we work together or not — you'll leave knowing your true CAC by channel for the first time."</div>
     <p class="ask-c r">We've spent real time auditing Trainual from the outside. In 30 minutes, we'll walk through exactly what we found — and what we'd prioritize first. We need to look at three things together: HubSpot pipeline data, Google/LinkedIn Ads attribution, and ProfitWell cohort. No commitment beyond the conversation.</p>
@@ -1667,21 +1751,148 @@ p{margin-bottom:12px}.p:last-child{margin-bottom:0}strong{font-weight:600}em{fon
 </div>
 
 <div class="footer">
-  <span>
-  Prepared by X5 Digital · 
-  <a href="https://x5digital.io" target="_blank" rel="noopener noreferrer">[x5digital.io]</a> · 
-  March 2026 · Confidential — For Trainual review only. All observations sourced from external audit of trainual.com — no internal data accessed. Benchmark figures are SaaS SMB industry averages.
-</span>
+  <span>Prepared by X5 Digital · <a href="https://x5digital.io" target="_blank" rel="noopener noreferrer" style="color:#1D4ED8;text-decoration:none;font-weight:600">x5digital.io</a> · March 2026 · Confidential — For Trainual review only. All observations sourced from external audit of trainual.com — no internal data accessed. Benchmark figures are SaaS SMB industry averages.</span>
 </div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── Progress bar ── */
 var pb=document.getElementById('pb');
 window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop||document.body.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;pb.style.width=(s/h*100)+'%'});
+
+/* ── Scroll reveal ── */
 var ro=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting){el.target.classList.add('in');ro.unobserve(el.target);}});},{threshold:0.07});
 document.querySelectorAll('.r').forEach(function(el){ro.observe(el);});
-function countUp(el,pre,suf,target,dur){var s=0,step=target/dur*16,t=setInterval(function(){s=Math.min(s+step,target);el.textContent=pre+Math.floor(s).toLocaleString()+suf;if(s>=target)clearInterval(t)},16)}
-var mo=new IntersectionObserver(function(e){e.forEach(function(el){if(el.isIntersecting){var id=el.target.id;if(id==='m-cac')countUp(el,'$','',620,1200);if(id==='m-ltv')countUp(el,'$','',4200,1400);mo.unobserve(el.target);}});},{threshold:0.5});
-['m-cac','m-ltv'].forEach(function(id){var el=document.getElementById(id);if(el)mo.observe(el);});
+
+/* ── CountUp — integer ── */
+function countUp(el,pre,suf,target,dur){
+  var s=0,step=target/dur*16;
+  var t=setInterval(function(){
+    s=Math.min(s+step,target);
+    el.textContent=pre+Math.floor(s).toLocaleString()+suf;
+    if(s>=target)clearInterval(t);
+  },16);
+}
+
+/* ── CountUp — float (1 decimal) ── */
+function countUpFloat(el,pre,suf,target,dur){
+  var s=0,step=target/dur*16;
+  var t=setInterval(function(){
+    s=Math.min(s+step,target);
+    el.textContent=pre+(Math.floor(s*10)/10).toFixed(1)+suf;
+    if(s>=target)clearInterval(t);
+  },16);
+}
+
+/* ── CountUp — percentage with + prefix ── */
+function countUpPct(el,pre,suf,target,dur){
+  var s=0,step=target/dur*16;
+  var t=setInterval(function(){
+    s=Math.min(s+step,target);
+    el.textContent=pre+(Math.floor(s*10)/10).toFixed(1)+suf;
+    if(s>=target)clearInterval(t);
+  },16);
+}
+
+/* ── Observer for all countUp elements ── */
+var mo=new IntersectionObserver(function(e){
+  e.forEach(function(el){
+    if(el.isIntersecting){
+      var id=el.target.id;
+      /* S06 metrics */
+      if(id==='m-cac')   countUp(el,'$','',620,1200);
+      if(id==='m-ltv')   countUp(el,'$','',4200,1400);
+      if(id==='m-mrr')   countUpPct(el,'+','%',6.5,1000);
+      if(id==='m-email') countUpFloat(el,'','%',4.8,1000);
+      /* S01 stats */
+      if(id==='s1-subs') {
+        var s=0,step=163000/1400*16;
+        var t=setInterval(function(){
+          s=Math.min(s+step,163000);
+          var n=Math.floor(s);
+          el.innerHTML=(n>=1000?Math.floor(n/1000).toLocaleString()+'<span class="acc">,'+String(n%1000).padStart(3,'0')+'+'+'</span>':n.toLocaleString());
+          if(s>=163000)clearInterval(t);
+        },16);
+      }
+      if(id==='s1-rating'){
+        var s=0,step=4.7/800*16;
+        var t=setInterval(function(){
+          s=Math.min(s+step,4.7);
+          el.innerHTML=(Math.floor(s*10)/10).toFixed(1)+'<span class="acc">/5</span>';
+          if(s>=4.7)clearInterval(t);
+        },16);
+      }
+      mo.unobserve(el.target);
+    }
+  });
+},{threshold:0.5});
+
+['m-cac','m-ltv','m-mrr','m-email','s1-subs','s1-rating'].forEach(function(id){
+  var el=document.getElementById(id);
+  if(el)mo.observe(el);
+});
+
+/* ── #9: CTA button pulse animation ── */
+var ctaBtn=document.querySelector('.ask-btn');
+if(ctaBtn){
+  var ctaObs=new IntersectionObserver(function(e){
+    if(e[0].isIntersecting){
+      ctaBtn.classList.add('pulse-active');
+      ctaObs.disconnect();
+    }
+  },{threshold:0.8});
+  ctaObs.observe(ctaBtn);
+}
+
+
+/* #2 accordion removed — show all */
+
+/* ── #3: S05 Step Tabs ── */
+function switchStep(idx){
+  var tabs = document.querySelectorAll('.step-tab');
+  var panels = document.querySelectorAll('.step-panel');
+  tabs.forEach(function(t,i){
+    var active = i === idx;
+    t.classList.toggle('step-active', active);
+    if(active){
+      t.style.background = t.dataset.bg;
+      t.style.color = t.dataset.col;
+    } else {
+      t.style.background = '';
+      t.style.color = '';
+    }
+  });
+  panels.forEach(function(p,i){
+    p.style.display = i === idx ? 'block' : 'none';
+  });
+}
+// Init tab 0 active styling
+(function(){
+  var tabs = document.querySelectorAll('.step-tab');
+  if(tabs.length > 0){
+    tabs[0].style.background = tabs[0].dataset.bg;
+    tabs[0].style.color = tabs[0].dataset.col;
+  }
+})();
+
+/* ── #5: Nav Active Section Highlight ── */
+(function(){
+  var sections = ['s1','s2','s3','s4','s5','s6','s7'];
+  var links = document.querySelectorAll('.nav-link:not(.nav-cta)');
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var id = entry.target.id;
+        links.forEach(function(l){ l.classList.remove('nav-active'); });
+        var idx = sections.indexOf(id);
+        if(idx >= 0 && links[idx]) links[idx].classList.add('nav-active');
+      }
+    });
+  },{threshold:0.15, rootMargin:'-80px 0px -60% 0px'});
+  sections.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) observer.observe(el);
+  });
+})();
 </script>
 </body>
 </html>
