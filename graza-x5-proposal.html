@@ -1,0 +1,2618 @@
+<!-- GRAZA × X5 Digital | Final Proposal | PURCHASE funnel | April 2026 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRAZA × X5 Digital — Growth Proposal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+
+/* ── CSS Variables ── */
+:root {
+  --brand-primary:       #D1E030;
+  --brand-primary-light: #D1E0301F;
+  --brand-primary-dark:  #A8B515;
+  --brand-bg:            #F6E6D9;
+  --brand-bg-alt:        #FFF4EC;
+  --brand-dark:          #3C422E;
+  --brand-text:          #3C422E;
+  --brand-text-muted:    #6B7057;
+  --danger:        #991B1B;
+  --danger-bg:     #FEF2F2;
+  --danger-border: #FECACA;
+  --success:       #166534;
+  --success-bg:    #F0FDF4;
+  --success-border:#BBF7D0;
+  --evidence-bg:   #020044;
+  --evidence-text: rgba(255,255,255,0.72);
+  --hypo-blue:       #009DE0;
+  --hypo-amber:      #FBC94B;
+  --hypo-amber-text: #A07800;
+  --hypo-purple:     #6A28EA;
+  --layer-1: #020044;
+  --layer-2: #1A1060;
+  --layer-3: #3A1A9A;
+  --layer-4: #5A28C8;
+  --layer-5: #06D4AE;
+  --flow-observe: #009DE0;
+  --flow-broken:  #FBC94B;
+  --flow-build:   #06D4AE;
+  --flow-result:  #6A28EA;
+}
+
+/* ── Global Utilities ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  overflow-x: hidden;
+}
+p { margin-bottom: 12px; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+
+.r { opacity: 0; transform: translateY(20px); transition: opacity .55s ease, transform .55s ease; }
+.r.in { opacity: 1; transform: translateY(0); }
+.r.d1 { transition-delay: .08s; }
+.r.d2 { transition-delay: .15s; }
+.r.d3 { transition-delay: .22s; }
+
+.sec { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+@media (max-width: 768px) { .sec { padding: 56px 16px; } }
+
+.gdiv { height: 1px; background: linear-gradient(90deg, var(--brand-primary), var(--brand-dark), transparent); opacity: .25; }
+.ey { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 10px; }
+.st { font-size: clamp(28px, 5vw, 44px); font-weight: 900; color: var(--brand-dark); letter-spacing: -1.5px; line-height: 1.1; margin-bottom: 8px; }
+.ow { color: transparent; -webkit-text-stroke: 2px var(--brand-primary); }
+.sl { font-size: 15px; font-weight: 300; color: var(--brand-text-muted); line-height: 1.75; max-width: 740px; margin-bottom: 40px; }
+.sec-hl { font-size: 19px; font-weight: 500; line-height: 1.7; color: var(--brand-text); max-width: 760px; margin-bottom: 20px; font-style: italic; }
+.sec-hl em { font-style: normal; font-weight: 600; color: var(--brand-dark); }
+
+.ev { background: var(--evidence-bg); border-radius: 8px; padding: 14px 18px; margin: 12px 0 4px; }
+.ev-lb { font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: var(--brand-primary); display: block; margin-bottom: 8px; text-transform: uppercase; }
+.ev ul { list-style: none; padding: 0; }
+.ev li { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--evidence-text); line-height: 1.85; padding-left: 14px; position: relative; }
+.ev li::before { content: "›"; position: absolute; left: 0; color: var(--brand-primary); font-weight: 700; }
+.ev li.dim { color: rgba(255,255,255,0.3); }
+
+.bridge { border-left: 3px solid var(--brand-primary); padding: 12px 0 12px 20px; margin: 24px 0 40px; max-width: 680px; }
+.bt { font-size: 15px; font-weight: 500; color: var(--brand-dark); line-height: 1.6; }
+.bt em { font-style: normal; color: var(--brand-primary); }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chip { font-size: 11px; font-weight: 600; color: var(--brand-primary-dark); background: var(--brand-primary-light); padding: 4px 10px; border-radius: 20px; border: 1px solid var(--brand-primary); }
+.kalam { font-family: 'Kalam', cursive; font-size: 14px; color: var(--brand-primary); margin-top: 8px; line-height: 1.5; }
+
+/* ── Section 1: Progress Bar + Nav + Hero ── */
+#pb { position: fixed; top: 0; left: 0; height: 3px; background: var(--brand-primary); width: 0%; z-index: 1001; transition: width .1s linear; }
+
+.nav { background: var(--brand-dark); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+.logo-x5 { font-size: 22px; font-weight: 900; color: white; letter-spacing: -1px; }
+.logo-d { font-size: 16px; font-weight: 300; color: rgba(255,255,255,.7); margin-left: 4px; }
+.logo-cursor { font-size: 20px; font-weight: 300; color: white; margin: 0 2px; animation: blink .9s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.nav-tag { font-size: 11px; font-weight: 300; color: rgba(255,255,255,.4); letter-spacing: .06em; }
+.nav-links { display: flex; gap: 4px; align-items: center; }
+.nav-link { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.5); text-decoration: none; padding: 5px 10px; border-radius: 6px; letter-spacing: .04em; transition: color .2s, background .2s; }
+.nav-link:hover { color: white; background: rgba(255,255,255,.08); }
+.nav-link.nav-active { color: var(--brand-primary); }
+.nav-cta { background: rgba(255,255,255,.1); color: white !important; border: 1px solid rgba(255,255,255,.25); }
+.nav-cta:hover { background: rgba(255,255,255,.2) !important; }
+@media (max-width: 768px) { .nav-links { display: none !important; } }
+
+.hero { max-width: 1100px; margin: 0 auto; padding: 80px 24px 52px; position: relative; overflow: hidden; }
+.hero-gh { position: absolute; right: -20px; top: -30px; font-size: 200px; font-weight: 900; color: var(--brand-dark); opacity: .04; line-height: 1; pointer-events: none; user-select: none; }
+@media (max-width: 768px) { .hero-gh { display: none; } }
+.hero-to { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--brand-dark); margin-bottom: 14px; }
+.hero-name { font-size: clamp(36px, 7vw, 72px); font-weight: 900; color: var(--brand-primary); line-height: 1.1; letter-spacing: -2px; margin-bottom: 6px; }
+.hero-name span { color: var(--brand-dark); }
+.hero-sub { font-size: clamp(14px, 2vw, 17px); font-weight: 300; color: var(--brand-text-muted); margin-bottom: 28px; max-width: 580px; line-height: 1.65; }
+.hero-b { display: inline-block; font-size: 12px; font-weight: 600; color: var(--brand-text-muted); letter-spacing: .08em; border: 1px solid var(--brand-primary-light); border-radius: 20px; padding: 4px 14px; }
+
+/* ── Section 2: The Mirror ── */
+.mgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 640px) { .mgrid { grid-template-columns: 1fr; } }
+.mc { position: relative; background: var(--brand-bg-alt); border-left: 3px solid var(--brand-primary); border-radius: 0 12px 12px 0; padding: 28px; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.mc:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,.08); }
+.mc.d1 { border-left-color: var(--brand-primary); }
+.mc.d2 { border-left-color: var(--hypo-blue); }
+.mc.d3 { border-left-color: var(--hypo-amber); }
+.mc.full { grid-column: 1 / -1; }
+.mc-gh { position: absolute; right: 10px; top: -20px; font-size: 140px; font-weight: 900; color: var(--brand-dark); opacity: .05; line-height: 1; pointer-events: none; }
+.mstat { font-size: clamp(40px, 6vw, 68px); font-weight: 900; color: var(--brand-dark); letter-spacing: -3px; line-height: 1; }
+.mstat .acc { color: var(--brand-primary); }
+.mdiv { width: 44px; height: 3px; background: var(--brand-primary); margin: 10px 0 12px; }
+.mctx { font-size: 13px; color: var(--brand-text); line-height: 1.65; max-width: 280px; }
+.mkalam { font-family: 'Kalam', cursive; font-size: 14px; color: var(--brand-primary); margin-top: 8px; line-height: 1.5; }
+
+/* ── Section 3: The Hidden Leak ── */
+.hc { background: var(--brand-bg); border: 1px solid var(--brand-primary-light); border-radius: 16px; padding: 28px; overflow: hidden; margin-bottom: 20px; position: relative; }
+.hc-gh { position: absolute; right: 20px; top: 12px; font-size: 96px; font-weight: 900; color: var(--brand-primary); opacity: .06; line-height: 1; pointer-events: none; }
+@media (max-width: 640px) { .hc-gh { display: none; } }
+.hr { display: flex; align-items: flex-start; gap: 16px; padding: 12px 0; }
+.hdiv { height: 1px; background: var(--brand-primary-light); }
+.hbadge { display: flex; flex-direction: column; align-items: center; gap: 4px; flex-shrink: 0; width: 44px; margin-top: 2px; }
+.hcircle { width: 30px; height: 30px; border-radius: 50%; border: 2px solid; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; }
+.hcb { border-color: #009DE0; color: #009DE0; }
+.hca { border-color: #FBC94B; color: #A07800; }
+.hcp { border-color: #6A28EA; color: #6A28EA; }
+.hlb { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-align: center; line-height: 1.3; }
+.hlbl { color: #009DE0; }
+.hlal { color: #A07800; }
+.hlpl { color: #6A28EA; }
+.htxt { font-size: 14px; color: var(--brand-text); line-height: 1.65; flex: 1; }
+.hq { font-size: 15px; font-weight: 600; color: var(--brand-dark); line-height: 1.6; padding: 10px 14px; background: var(--brand-bg-alt); border-radius: 8px; flex: 1; border-left: 3px solid var(--brand-primary); }
+.ut { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 16px; }
+.ut thead tr { background: var(--brand-dark); color: white; }
+.ut th { padding: 10px 16px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+.ut td { padding: 11px 16px; border-bottom: 1px solid var(--brand-primary-light); vertical-align: top; line-height: 1.55; }
+.ut tr:nth-child(even) td { background: #FAFAFA; }
+
+/* ── Section 4: Before & After ── */
+.scenario { margin-bottom: 52px; }
+.sc-num { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: #9CA3AF; margin-bottom: 6px; }
+.sc-tit { font-size: 17px; font-weight: 700; color: var(--brand-dark); margin-bottom: 18px; padding-left: 14px; border-left: 3px solid var(--brand-primary); }
+.char-strip { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 14px; background: var(--brand-bg-alt); border: 1px solid var(--brand-primary-light); border-radius: 8px; padding: 10px 16px; margin-bottom: 16px; font-size: 13px; }
+.char-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--brand-dark); color: var(--brand-primary); font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.char-name { font-weight: 700; color: var(--brand-dark); font-size: 15px; }
+.char-dot { color: var(--brand-primary-light); font-size: 16px; }
+.char-role { color: var(--brand-text-muted); font-size: 13px; }
+.char-pain { color: var(--brand-primary); font-size: 12px; font-weight: 600; background: var(--brand-primary-light); padding: 2px 10px; border-radius: 20px; margin-left: auto; }
+.split-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 12px; }
+@media (max-width: 640px) { .split-ba { grid-template-columns: 1fr; } }
+.ba-col { border-radius: 12px; overflow: hidden; }
+.ba-col-bef { border: 1.5px solid var(--danger-border); }
+.ba-col-aft { border: 1.5px solid var(--success-border); }
+.ba-col-header { padding: 13px 18px 11px; display: flex; align-items: center; gap: 8px; }
+.ba-col-bef .ba-col-header { background: var(--danger-bg); border-bottom: 1px solid var(--danger-border); }
+.ba-col-aft .ba-col-header { background: var(--success-bg); border-bottom: 1px solid var(--success-border); }
+.ba-col-label { font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.ba-col-bef .ba-col-label { color: #DC2626; }
+.ba-col-aft .ba-col-label { color: #16A34A; }
+.ba-col-body { padding: 18px; }
+.ba-col-bef .ba-col-body { background: #FFFAFA; }
+.ba-col-aft .ba-col-body { background: #FAFFFE; }
+.ba-tl { display: flex; flex-direction: column; gap: 0; }
+.ba-tl-item { display: flex; gap: 12px; }
+.ba-tl-left { display: flex; flex-direction: column; align-items: center; width: 32px; flex-shrink: 0; }
+.ba-tl-dot { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; flex-shrink: 0; z-index: 1; }
+.ba-tl-line { width: 2px; flex: 1; min-height: 12px; margin: 2px auto; }
+.ba-col-bef .ba-tl-dot.nd-neutral { background: #F3F4F6; border: 1.5px solid #E5E7EB; }
+.ba-col-bef .ba-tl-dot.nd-bad { background: #FEE2E2; border: 1.5px solid #FECACA; }
+.ba-col-bef .ba-tl-dot.nd-end { background: #DC2626; border: 1.5px solid #DC2626; color: white; font-size: 12px; font-weight: 700; }
+.ba-col-bef .ba-tl-line { background: #FECACA; }
+.ba-col-aft .ba-tl-dot.nd-neutral { background: #F3F4F6; border: 1.5px solid #E5E7EB; }
+.ba-col-aft .ba-tl-dot.nd-good { background: #DCFCE7; border: 1.5px solid #BBF7D0; }
+.ba-col-aft .ba-tl-dot.nd-end { background: #16A34A; border: 1.5px solid #16A34A; color: white; font-size: 12px; font-weight: 700; }
+.ba-col-aft .ba-tl-line { background: #BBF7D0; }
+.ba-tl-right { padding-bottom: 14px; flex: 1; padding-top: 4px; }
+.ba-tl-time { font-size: 10px; font-weight: 700; color: #9CA3AF; letter-spacing: .06em; margin-bottom: 2px; text-transform: uppercase; }
+.ba-tl-title { font-size: 14px; font-weight: 600; line-height: 1.45; }
+.ba-col-bef .ba-tl-title { color: var(--danger); }
+.ba-col-aft .ba-tl-title { color: var(--success); }
+.ba-tl-sub { font-size: 13px; color: #6B7280; line-height: 1.45; font-style: italic; }
+.ba-code { font-family: 'JetBrains Mono', monospace; font-size: 11px; background: var(--brand-primary-light); color: var(--brand-primary); padding: 1px 5px; border-radius: 3px; }
+.ba-col-footer { padding: 11px 18px; display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; }
+.ba-col-bef .ba-col-footer { background: #FEE2E2; color: #DC2626; border-top: 1px solid var(--danger-border); }
+.ba-col-aft .ba-col-footer { background: #DCFCE7; color: #16A34A; border-top: 1px solid var(--success-border); }
+.res-r3 { background: var(--brand-bg-alt); border-left: 3px solid var(--brand-primary); border-radius: 0 10px 10px 0; padding: 13px 18px; display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 8px; }
+.res-r3 .r3-arrow { color: var(--brand-primary); font-weight: 900; font-size: 18px; align-self: center; margin-right: 4px; }
+.res-r3 .r3-ctx { font-size: 13px; color: #6B7280; font-weight: 400; }
+.res-r3 .r3-num { font-size: 22px; font-weight: 900; color: var(--brand-dark); letter-spacing: -0.5px; line-height: 1; }
+.res-r3 .r3-sep { color: var(--brand-primary-light); font-size: 18px; align-self: center; margin: 0 4px; }
+.scsep { border: none; border-top: 1px solid var(--brand-primary-light); margin: 44px 0; }
+
+/* ── Section 5: The Engine + Pyramid ── */
+.pyr-wrap { max-width: 100%; margin: 0 auto 8px; }
+.pyr-ey { font-size: 12px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--brand-primary); text-align: center; margin-bottom: 20px; }
+.pyr-stack { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.pyr-row { display: flex; flex-direction: column; align-items: center; }
+.pyr-block { border-radius: 10px; cursor: pointer; display: flex; align-items: center; gap: 18px; padding: 0 24px; height: 80px; position: relative; user-select: none; width: 100%; transition: opacity .18s, transform .15s, box-shadow .2s, filter .2s; }
+.pyr-block:hover { opacity: 1 !important; filter: brightness(1.08); }
+.pyr-num { width: 42px; height: 42px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; flex-shrink: 0; background: rgba(255,255,255,.18); color: white; }
+.pyr-texts { flex: 1; min-width: 0; }
+.pyr-lcode { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.85); margin-bottom: 3px; }
+.pyr-lname { font-size: 17px; font-weight: 700; color: white; line-height: 1.2; }
+.pyr-ltag { font-size: 12px; color: rgba(255,255,255,.78); font-style: italic; margin-top: 3px; line-height: 1.4; }
+.pyr-chev { width: 28px; height: 28px; border-radius: 6px; background: rgba(255,255,255,.14); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.pyr-chev svg { transition: transform .25s; }
+.pyr-block.pyr-open .pyr-chev svg { transform: rotate(180deg); }
+.pyr-expand { width: 100%; max-height: 0; overflow: hidden; transition: max-height .4s cubic-bezier(.25,.8,.25,1); }
+.pyr-expand.pyr-open { max-height: 300px; }
+.pyr-exp-inner { padding: 10px 0 2px; }
+.pyr-zone { padding: 16px 18px; border-radius: 8px; border: 1px solid var(--brand-primary-light); background: var(--brand-bg-alt); }
+.pyr-zlbl { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--brand-text-muted); margin-bottom: 7px; }
+.pyr-zdesc { font-size: 13px; color: var(--brand-text-muted); line-height: 1.7; margin-bottom: 10px; }
+.pyr-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.pyr-tag { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; border: 1px solid; }
+.pt-l1 { background: rgba(2,0,68,.06); color: #020044; border-color: rgba(2,0,68,.15); }
+.pt-l2 { background: rgba(106,40,234,.07); color: #6A28EA; border-color: rgba(106,40,234,.2); }
+.pt-l3 { background: rgba(0,157,224,.07); color: #009DE0; border-color: rgba(0,157,224,.2); }
+.pt-l4 { background: rgba(6,212,174,.1); color: #085041; border-color: rgba(6,212,174,.25); }
+.pt-l5 { background: rgba(6,212,174,.08); color: #0F6E56; border-color: rgba(6,212,174,.2); }
+.pyr-dep { font-size: 12px; color: var(--brand-text-muted); text-align: center; margin-top: 16px; font-style: italic; }
+.applied-divider { margin: 60px 0 48px; text-align: center; position: relative; }
+.applied-divider::before, .applied-divider::after { content: ''; position: absolute; top: 50%; height: 1px; width: 30%; }
+.applied-divider::before { left: 0; background: linear-gradient(90deg, transparent, rgba(60,66,46,.2)); }
+.applied-divider::after { right: 0; background: linear-gradient(270deg, transparent, rgba(60,66,46,.2)); }
+.applied-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 10px; }
+.applied-title { font-size: 30px; font-weight: 900; color: var(--brand-dark); letter-spacing: -1px; line-height: 1.1; display: flex; align-items: center; justify-content: center; gap: 12px; }
+.applied-counter { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700; color: var(--brand-primary); background: var(--brand-primary-light); border: 1px solid var(--brand-primary); border-radius: 6px; padding: 4px 10px; white-space: nowrap; opacity: 0; transition: opacity .4s; }
+.applied-counter.visible { opacity: 1; }
+#applied-typed { border-right: 2px solid var(--brand-primary); padding-right: 2px; }
+#applied-typed.done { border-right: none; }
+
+/* ── Section 6: 5 Layers Detail ── */
+.lb { margin-bottom: 60px; padding-top: 32px; }
+.lpill { display: inline-flex; align-items: center; gap: 8px; background: var(--brand-dark); color: var(--brand-primary); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 14px; }
+.lname { font-size: clamp(28px, 6vw, 52px); font-weight: 900; color: var(--brand-dark); letter-spacing: -2px; line-height: 1.1; margin-bottom: 8px; }
+.ltag { font-size: 15px; font-weight: 400; color: #4B5563; max-width: 680px; line-height: 1.7; margin-bottom: 24px; }
+.lsvg { width: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 28px; border: 1px solid var(--brand-primary-light); }
+.vf { margin-bottom: 20px; }
+.fs { display: flex; gap: 20px; margin-bottom: 4px; }
+.fl { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+.fd { width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; z-index: 1; }
+.fline { width: 2px; flex: 1; min-height: 28px; margin: 4px auto; }
+.lo { background: linear-gradient(#009DE0, #FBC94B); }
+.lb2 { background: linear-gradient(#FBC94B, #06D4AE); }
+.ld { background: linear-gradient(#06D4AE, #6A28EA); }
+.fr { flex: 1; padding-bottom: 28px; }
+.few { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; line-height: 1.2; margin-bottom: 6px; }
+.fhl { font-size: 19px; font-weight: 700; color: var(--brand-dark); line-height: 1.25; margin-bottom: 12px; }
+.ful { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.ful li { font-size: 13px; color: var(--brand-text); line-height: 1.6; display: flex; align-items: flex-start; gap: 8px; }
+.ful li.na { color: var(--brand-text-muted); }
+.do { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #009DE0; flex-shrink: 0; margin-top: 8px; }
+.db { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #FBC94B; flex-shrink: 0; margin-top: 8px; }
+.dn { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #CBD5E0; flex-shrink: 0; margin-top: 8px; }
+.dg { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #06D4AE; flex-shrink: 0; margin-top: 8px; }
+.ob { background: var(--brand-bg-alt); border-left: 3px solid var(--brand-primary); border-radius: 0 8px 8px 0; padding: 10px 16px; margin-top: 10px; }
+.ob-l { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 3px; }
+.ob-v { font-size: 13px; font-weight: 600; color: var(--brand-dark); line-height: 1.5; }
+.of { background: var(--brand-primary-light); border-radius: 10px; padding: 12px 18px; display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.of span { font-size: 13px; font-weight: 600; color: var(--brand-dark); line-height: 1.5; }
+.of .mt { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 13px; color: var(--brand-primary-dark); }
+
+/* ── Section 7: The Journey ── */
+.step-tabs-wrapper { display: flex; margin-bottom: 32px; border-radius: 12px; overflow: hidden; border: 1px solid var(--brand-primary-light); }
+.step-tab { flex: 1; padding: 16px 20px; cursor: pointer; background: var(--brand-bg-alt); color: var(--brand-text); border: none; text-align: left; transition: background .2s, color .2s; font-family: 'Outfit', sans-serif; }
+.step-tab:hover:not(.step-active) { background: var(--brand-primary-light); }
+.step-tab:first-child { border-radius: 12px 0 0 12px; }
+.step-tab:last-child { border-radius: 0 12px 12px 0; }
+.step-tab-label-top { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; opacity: .65; margin-bottom: 4px; }
+.step-tab-label-main { font-size: 14px; font-weight: 600; line-height: 1.3; }
+.step-panel { display: none; animation: fadeInUp .3s ease; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.mo { margin-bottom: 32px; }
+.mh { font-size: 16px; font-weight: 700; color: var(--brand-dark); border-left: 4px solid var(--brand-primary); padding-left: 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.mh em { font-style: italic; color: var(--brand-text-muted); font-weight: 400; font-size: 14px; }
+.mi { list-style: none; margin-bottom: 10px; }
+.mi li { padding: 6px 0 6px 22px; font-size: 13px; line-height: 1.6; position: relative; border-bottom: 1px solid var(--brand-primary-light); }
+.mi li:last-child { border-bottom: none; }
+.mi li::before { content: "✓"; position: absolute; left: 0; color: var(--brand-primary); font-weight: 900; font-size: 12px; top: 8px; }
+.ys { font-size: 14px; font-weight: 600; color: var(--brand-dark); background: var(--brand-primary-light); border-left: 3px solid var(--brand-primary); border-radius: 0 8px 8px 0; padding: 12px 16px; margin-top: 12px; line-height: 1.6; display: flex; gap: 10px; align-items: flex-start; }
+.ys::before { content: "→"; font-weight: 900; font-style: normal; flex-shrink: 0; }
+.ltv { background: var(--brand-bg-alt); border: 1px dashed var(--brand-primary-light); border-radius: 10px; padding: 20px; margin-top: 28px; }
+.ltv p { font-size: 13px; line-height: 1.7; margin-bottom: 8px; }
+.ltv p:last-child { margin-bottom: 0; }
+.ltv strong { color: var(--brand-dark); }
+
+/* ── Section 8: The Destination ── */
+.mgr { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px; }
+@media (max-width: 720px) { .mgr { grid-template-columns: 1fr 1fr; } }
+.mcard { background: var(--brand-bg-alt); border-radius: 12px; padding: 18px; border: 1px solid var(--brand-primary-light); }
+.ml { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 5px; }
+.mv { font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 700; color: var(--brand-dark); line-height: 1.1; }
+.ms { font-size: 11px; color: var(--brand-text-muted); margin-top: 3px; }
+.dgr { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 32px; }
+@media (max-width: 640px) { .dgr { grid-template-columns: 1fr; } }
+.dp { background: var(--brand-bg-alt); border-radius: 12px; padding: 20px; border: 1px solid var(--brand-primary-light); }
+.pt { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--brand-text-muted); margin-bottom: 12px; }
+.funnel { display: flex; flex-direction: column; gap: 7px; }
+.fr2 { display: flex; align-items: center; gap: 10px; }
+.flb { font-size: 12px; font-weight: 600; color: var(--brand-dark); width: 96px; flex-shrink: 0; }
+.fbw { flex: 1; background: #EEF2FF; border-radius: 4px; height: 26px; overflow: hidden; }
+.fbar { height: 100%; border-radius: 4px; }
+.fpct { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; width: 38px; text-align: right; flex-shrink: 0; }
+.chr { display: flex; flex-direction: column; gap: 9px; }
+.cr { display: flex; align-items: center; gap: 10px; }
+.cn2 { font-size: 12px; font-weight: 600; color: var(--brand-dark); width: 76px; flex-shrink: 0; }
+.ct { flex: 1; background: #EEF2FF; border-radius: 4px; height: 22px; overflow: hidden; }
+.cf { height: 100%; border-radius: 4px; }
+.cv { font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700; width: 34px; text-align: right; flex-shrink: 0; color: var(--brand-dark); }
+.stab { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 28px; }
+.stab thead tr { background: var(--brand-dark); color: white; }
+.stab th { padding: 12px 16px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: .5px; white-space: nowrap; }
+.stab td { padding: 12px 16px; border-bottom: 1px solid var(--brand-primary-light); vertical-align: top; line-height: 1.5; }
+.stab tr:nth-child(odd) td { background: white; }
+.stab tr:nth-child(even) td { background: var(--brand-bg-alt); }
+.lbadge { display: inline-block; background: var(--brand-dark); color: white; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; white-space: nowrap; }
+
+/* ── Section 9: The Ask + Footer ── */
+.ask { background: var(--brand-dark); padding: 80px 24px; text-align: center; position: relative; overflow: hidden; }
+.ask-gh { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 280px; font-weight: 900; color: #fff; opacity: .03; line-height: 1; pointer-events: none; }
+.ask-in { position: relative; max-width: 680px; margin: 0 auto; }
+.ask-ey { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--brand-primary); margin-bottom: 14px; }
+.ask-h { font-size: clamp(38px, 8vw, 68px); font-weight: 900; color: white; letter-spacing: -2.5px; line-height: 1.05; margin-bottom: 8px; }
+.ask-k { font-family: 'Kalam', cursive; font-size: 17px; color: rgba(255,255,255,.85); line-height: 1.6; margin-bottom: 18px; }
+.ask-c { font-size: 14px; font-weight: 300; color: rgba(255,255,255,.55); margin-bottom: 30px; line-height: 1.65; }
+.ask-btn { display: inline-block; background: var(--brand-primary); color: var(--brand-dark); font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; padding: 15px 40px; border-radius: 8px; text-decoration: none; letter-spacing: .04em; transition: transform .2s, box-shadow .2s; }
+.ask-btn:hover { transform: translateY(-3px); }
+.ask-fn { font-size: 12px; font-weight: 300; color: rgba(255,255,255,.3); margin-top: 18px; }
+@keyframes ctaPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.3); } 50% { box-shadow: 0 0 0 14px rgba(255,255,255,0); } }
+@keyframes ctaGlow { 0%, 100% { box-shadow: 0 4px 24px rgba(255,255,255,0.2); } 50% { box-shadow: 0 8px 40px rgba(255,255,255,0.4); } }
+.ask-btn.pulse-active { animation: ctaPulse 2s ease-out infinite, ctaGlow 2s ease-in-out infinite; }
+.ask-btn.pulse-active:hover { animation: none; transform: translateY(-3px); }
+.footer { background: var(--brand-bg-alt); padding: 18px 24px; text-align: center; }
+.footer span { font-size: 12px; font-weight: 300; color: var(--brand-text-muted); }
+
+  </style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="pb"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="display:flex;align-items:center;gap:0">
+    <span class="logo-x5">X<sup style="font-size:13px;font-weight:900;vertical-align:super;line-height:0;color:white">5</sup></span>
+    <span class="logo-d">Digital</span>
+    <span class="logo-cursor">|</span>
+  </div>
+  <span class="nav-tag">A proposal prepared exclusively for GRAZA</span>
+  <div class="nav-links">
+    <a class="nav-link" href="#s1">The Mirror</a>
+    <a class="nav-link" href="#s2">The Leak</a>
+    <a class="nav-link" href="#s3">Before &amp; After</a>
+    <a class="nav-link" href="#s4">The Engine</a>
+    <a class="nav-link" href="#s5">Journey</a>
+    <a class="nav-link" href="#s6">Destination</a>
+    <a class="nav-link nav-cta" href="#s7">Book Audit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-gh">G</div>
+  <!-- CEO_NAME: not confirmed in external audit — fill with actual name before sending -->
+  <div class="hero-to r">To: [CEO_NAME], Founder/CEO · GRAZA</div>
+  <div class="hero-name r d1">A proposal for<br><span>GRAZA</span></div>
+  <div class="hero-sub r d2">We spent 12+ hours auditing graza.co from the outside — source code, tracking stack, review platforms, subscription infrastructure, and intent signals — before sending a single message.</div>
+  <div class="hero-b r d3">From X5 Digital · April 2026</div>
+</div>
+
+<div class="gdiv"></div>
+<!-- END SECTION 1 -->
+
+<!-- S1: THE MIRROR -->
+<div class="sec" id="s1">
+  <div class="ey r">Section 01</div>
+  <div class="st r">The <span class="ow">Mirror</span></div>
+  <p class="sec-hl r">We went through GRAZA's source code, Shopify web pixels, subscription pages, and ambassador infrastructure before writing a single word of this. <em>Here's what we found that most agencies would have missed — or not bothered to look for.</em></p>
+  <p class="sl r">Before we get to what could improve — here's what we observed that's genuinely impressive. These are not compliments. They're competitive advantages worth protecting.</p>
+
+  <div class="mgrid">
+
+    <!-- Card 1: Attribution Stack -->
+    <div class="mc r">
+      <div class="mc-gh">01</div>
+      <div class="ey">Attribution · Strength 01</div>
+      <div class="mstat" id="s1-tools">20<span class="acc">+</span></div>
+      <div class="mdiv"></div>
+      <div class="mctx">Tracking tools confirmed in source code audit — Triple Whale (ver 2.16), Elevar checkout + conversion tracking, Okendo reviews, Hotjar, and more. This is not a beginner stack. You're already investing in measurement.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Attribution Stack</span>
+        <ul>
+          <li>Triple Whale TriplePixelData — confirmed inline (ver 2.16, plat: SHOPIFY)</li>
+          <li>Elevar — confirmed via Shopify Web Pixels (conversion tracking + checkout tracking)</li>
+          <li>Okendo — confirmed (subscriberId: 0d883bfa-7fe3-4872-8bfd-59bb8b4d9477)</li>
+          <li>Hotjar — confirmed inline (ID: 3800413)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 2: Subscription Infrastructure -->
+    <div class="mc d1 r">
+      <div class="mc-gh">02</div>
+      <div class="ey">Subscription · Strength 02</div>
+      <div class="mstat" id="s1-save">21<span class="acc">%</span></div>
+      <div class="mdiv"></div>
+      <div class="mctx">Subscribe &amp; Save badge confirmed on dedicated /pages/subscribe. Stay AI / Retextion active. "Manage Subscription" self-serve portal live. This revenue channel is running — not something that needs to be built from scratch.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Subscription</span>
+        <ul>
+          <li>Stay AI / Retextion — confirmed via Shopify Web Pixels (trackingKey: "getgraza-stayai-web-pixel")</li>
+          <li>supportsSubscriptions: true — confirmed in Apple Pay metadata</li>
+          <li>"Manage Subscription" → /apps/retextion/#/login — confirmed in footer nav</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 3: Brand Identity -->
+    <div class="mc d2 r">
+      <div class="mc-gh">03</div>
+      <div class="ey">Brand · Strength 03</div>
+      <div class="mstat" style="font-size:clamp(22px,3.5vw,34px);letter-spacing:-1px;line-height:1.3">Custom Theme<br>&amp; Product Architecture</div>
+      <div class="mdiv"></div>
+      <div class="mctx">Custom Shopify theme ("baggy – production"), systematic product naming (Drizzle / Sizzle / Frizzle), consistent copywriting. Anti-pretentious EVOO positioning is clear from meta description to every product name. Graza doesn't look like any other olive oil brand.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Brand</span>
+        <ul>
+          <li>Theme: "baggy – production" — custom, not a public theme store template</li>
+          <li>Shopify domain: getgraza.myshopify.com — confirmed</li>
+          <li>Meta description: "affordable enough to be used every day" — confirmed</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 4: Omnichannel -->
+    <div class="mc d3 r">
+      <div class="mc-gh">04</div>
+      <div class="ey">Distribution · Strength 04</div>
+      <div class="mstat" style="font-size:clamp(22px,3.5vw,34px);letter-spacing:-1px;line-height:1.3">CTV + Retail +<br>Wholesale Active</div>
+      <div class="mdiv"></div>
+      <div class="mctx">Tatari and Keynes CTV pixels both confirmed — Connected TV advertising platforms most D2C brands never reach. Store locator and wholesale pages confirmed. Graza is operating at a scale that changes the attribution picture significantly.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Omnichannel</span>
+        <ul>
+          <li>Tatari — confirmed as custom Shopify web pixel (CTV)</li>
+          <li>Keynes Conversion Tracking — confirmed as custom Shopify web pixel</li>
+          <li>Keynes LAL Conversion Tag — confirmed (lookalike audiences)</li>
+          <li>Trade Desk (TTD) Universal Pixel — confirmed inline (advertiser: 9ivdj79)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 5: Ambassador & Affiliate (full width) -->
+    <div class="mc full r">
+      <div class="mc-gh">05</div>
+      <div class="ey">Referral · Strength 05</div>
+      <div class="mstat" style="font-size:clamp(22px,3.5vw,34px);letter-spacing:-1px;line-height:1.3">Ambassador + Affiliate Running in Parallel</div>
+      <div class="mdiv"></div>
+      <div class="mctx">Superfiliate active with its own microsite at partners.graza.co. AWIN affiliate network confirmed with its own integration. Both running simultaneously. Graza has a structured referral pipeline — not entirely dependent on paid acquisition to grow.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Referral Infrastructure</span>
+        <ul>
+          <li>Superfiliate — confirmed inline (superfiliate-cdn.com/storefront.js, shop: getgraza.myshopify.com)</li>
+          <li>Superfiliate microsite — partners.graza.co (accountID: 6832) — confirmed via Shopify Web Pixels Manager</li>
+          <li>AWIN affiliate — confirmed inline (awin-shopify-integration-code.js, aid: 95539)</li>
+          <li>AWIN web pixel — confirmed via Shopify Web Pixels Manager (advertiserId: 95539)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 2 -->
+
+<!-- S2: THE HIDDEN LEAK -->
+<div class="sec" id="s2">
+  <div class="ey r">Section 02</div>
+  <div class="st r">The Hidden <span class="ow">Leak</span></div>
+  <p class="sec-hl r">These are real competitive advantages — and they're exactly what makes the gaps below worth examining. <em>A brand operating at this level of sophistication should be getting cleaner data, sharper attribution, and more revenue from the infrastructure already in place.</em></p>
+  <p class="sl r">5 unconfirmed hypotheses — formed from observable signals only. We flag them because if any one is accurate, it represents a meaningful revenue gap. We cannot know for certain without data access. Which is exactly the point.</p>
+
+  <!-- Hypothesis 1 -->
+  <div class="hc r" style="transition-delay:.07s">
+    <div class="hc-gh">01</div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcb">01</div><div class="hlb hlbl">What<br>we see</div></div>
+      <div class="htxt">Meta Pixel (fbevents.js) fires inline directly. A GTM container is also active — its contents cannot be verified from the outside. Elevar's checkout tracking pixel is a third active path. GA4 measurement ID was not found inline outside the GTM container — it may be firing via GTM or Elevar, but cannot be confirmed externally. There is no visible deduplication logic across these three paths.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hca">02</div><div class="hlb hlal">Why it<br>matters</div></div>
+      <div class="htxt">If a single purchase is counted by all three paths, Meta Ads Manager may be reporting ROAS of 3.8x when the real deduplicated figure is closer to 2.2x. Smart bidding optimizes on what it receives — if the signal is inflated, the algorithm overpays for conversions it already captured. Budget is being scaled on a number that may not reflect reality.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcp">03</div><div class="hlb hlpl">The<br>question</div></div>
+      <div class="hq">How many distinct paths is a purchase event being sent to Meta through? What is the current Event Match Quality score in Meta Events Manager?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Meta Pixel (fbevents.js) — confirmed inline, fires independently of GTM</li>
+        <li>GTM container — confirmed client-side; tags inside container: unverifiable from external audit</li>
+        <li>Elevar — confirmed active with dedicated checkout tracking pixel</li>
+        <li class="dim">Meta CAPI — server-to-server tool; cannot be confirmed or denied from external audit by design</li>
+        <li>Facebook domain verification meta tag — confirmed (content: i0r12tzqusk2tuy5fpmbfchyzv42v1)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hypothesis 2 -->
+  <div class="hc r" style="transition-delay:.12s">
+    <div class="hc-gh">02</div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcb">01</div><div class="hlb hlbl">What<br>we see</div></div>
+      <div class="htxt">Postscript (sdk.postscript.io, shopId: 171619) and Attentive (tenantId: 134553) are both confirmed active on the same page load. These are two separate SMS platforms with independent subscription fees, per-message costs, and flow logic.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hca">02</div><div class="hlb hlal">Why it<br>matters</div></div>
+      <div class="htxt">If both platforms are live with overlapping subscriber segments, some customers are receiving duplicate messages within minutes of each other. Unsubscribe rates spike when that happens. Deliverability scores on both platforms take the hit. And you're paying for both platforms every month.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcp">03</div><div class="hlb hlpl">The<br>question</div></div>
+      <div class="hq">Which platform is currently primary? What flows are live on each? Is there subscriber list overlap — and if so, by how much?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Postscript — confirmed inline (sdk.postscript.io/sdk-script-loader.bundle.js, shopId: 171619)</li>
+        <li>Postscript — confirmed via Shopify Web Pixels Manager (apiClientId: 2328352)</li>
+        <li>Attentive — confirmed via Shopify Web Pixels Manager (tenantId: 134553, apiClientId: 53516632065)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hypothesis 3 -->
+  <div class="hc r" style="transition-delay:.16s">
+    <div class="hc-gh">03</div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcb">01</div><div class="hlb hlbl">What<br>we see</div></div>
+      <div class="htxt">The footer email form is a plain email field with copy: "Friends let friends know about fresh products and content." No visible incentive, discount, or offer. A Klaviyo popup widget is present, but its offer — if any — cannot be confirmed from the outside.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hca">02</div><div class="hlb hlal">Why it<br>matters</div></div>
+      <div class="htxt">Email list quality determines Klaviyo revenue. A list built without a purchase-intent offer tends to accumulate engaged readers who don't convert. Industry benchmark for email-attributed revenue in consumable D2C is 20–30% of total revenue. If Klaviyo is underperforming that, list quality is usually the first place to look.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcp">03</div><div class="hlb hlpl">The<br>question</div></div>
+      <div class="hq">What is the current email list growth rate? What is the click-to-purchase conversion rate from Klaviyo flows — and how does it compare to the 2–4% industry benchmark?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Footer newsletter form — plain email field confirmed, no visible offer in source</li>
+        <li>Klaviyo — confirmed inline (klaviyo.js + multiple Klaviyo script bundles loading)</li>
+        <li>Klaviyo web pixel — confirmed via Shopify Web Pixels Manager (apiClientId: 6779637, alias: "GETGRAZA")</li>
+        <li class="dim">Klaviyo popup offer content — unverifiable from external audit</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hypothesis 4 -->
+  <div class="hc r" style="transition-delay:.20s">
+    <div class="hc-gh">04</div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcb">01</div><div class="hlb hlbl">What<br>we see</div></div>
+      <div class="htxt">Subscription infrastructure is active (Stay AI). Refill cans are a separate SKU — a clear replenishment product. The consumption cycle for a 500ml bottle is roughly 3–4 weeks with regular use. But the post-purchase flow architecture cannot be confirmed from the outside. There is no visible evidence of an automated sequence designed to convert a one-time bottle buyer into a subscriber.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hca">02</div><div class="hlb hlal">Why it<br>matters</div></div>
+      <div class="htxt">With a $18 average CPA and a $21 first purchase, Graza is close to break-even on the first transaction. The entire business case for DTC olive oil depends on repeat purchase and subscription. Every one-time buyer who doesn't receive a replenishment prompt at Day 21 is a subscriber Graza lost without knowing it.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcp">03</div><div class="hlb hlpl">The<br>question</div></div>
+      <div class="hq">What percentage of one-time buyers convert to subscription within 30, 60, and 90 days? Is there an automated trigger at the ~3-week mark when the bottle is likely running low?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Stay AI / Retextion — confirmed active (subscription management)</li>
+        <li>Refill Cans — separate SKU confirmed (/products/duo-refill-can)</li>
+        <li>Klaviyo — confirmed active (email platform for flows)</li>
+        <li class="dim">Post-purchase flow configuration — unverifiable from external audit</li>
+        <li class="dim">Abandoned cart sequence — unverifiable from external audit</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Hypothesis 5 -->
+  <div class="hc r" style="transition-delay:.24s">
+    <div class="hc-gh">05</div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcb">01</div><div class="hlb hlbl">What<br>we see</div></div>
+      <div class="htxt">Tatari and Keynes pixels are both active — these are CTV/linear TV advertising platforms representing significant investment. CTV typically drives branded search and direct traffic rather than direct purchase. There are also custom pixels for Keynes Lookalike audience building.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hca">02</div><div class="hlb hlal">Why it<br>matters</div></div>
+      <div class="htxt">CTV creates demand — it doesn't capture it. The capture happens in email sequences, subscription upsells, and post-purchase flows. If those retention layers aren't operating at full capacity, the CTV spend is generating warm traffic that's landing in a conversion environment that hasn't been optimized to receive it. CPA increases without LTV keeping pace.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge"><div class="hcircle hcp">03</div><div class="hlb hlpl">The<br>question</div></div>
+      <div class="hq">What is the 90-day LTV of a customer acquired via CTV-attributed traffic versus Meta versus organic? Is the CTV spend being justified by data — or by assumption?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Tatari — confirmed as Shopify custom web pixel</li>
+        <li>Keynes Conversion Tracking — confirmed as Shopify custom web pixel</li>
+        <li>Keynes LAL Conversion Tag — confirmed as Shopify custom web pixel</li>
+        <li class="dim">LTV by acquisition channel — unverifiable from external audit</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Unknowns Table -->
+  <p style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--brand-text-muted);margin:32px 0 12px">What X5 Cannot Confirm Without Data Access</p>
+  <table class="ut r">
+    <thead><tr><th>Question</th><th>Tool Required</th></tr></thead>
+    <tbody>
+      <tr><td>Is Meta CAPI implemented? What is the current Event Match Quality score? How much conversion signal is being lost to iOS 14+ and Safari ITP?</td><td>Meta Events Manager (backend access)</td></tr>
+      <tr><td>Which SMS platform — Postscript or Attentive — is currently primary? What flows are live on each? What is the subscriber list overlap?</td><td>Postscript Admin + Attentive Admin</td></tr>
+      <tr><td>What Klaviyo flows currently exist? Is there an abandoned cart sequence? What percentage of total revenue is currently email-attributed?</td><td>Klaviyo account access</td></tr>
+      <tr><td>What is the actual subscription retention rate? At which month does churn peak? What is average subscription LTV versus one-time buyer LTV?</td><td>Stay AI / Retextion dashboard</td></tr>
+      <tr><td>What is True ROAS by channel — after subtracting COGS, shipping, and returns — across Meta, Google, and CTV?</td><td>Shopify analytics + Ad accounts + P&L</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 3 -->
+
+<!-- S3: BEFORE & AFTER -->
+<div class="sec" id="s3">
+  <div class="ey r">Section 03</div>
+  <div class="st r">Before &amp; <span class="ow">After</span></div>
+  <p class="sec-hl r">The five observations above aren't abstract. Each one has a timestamp, a person, and a decision that either cost Graza a customer — or didn't. <em>Three scenarios, built from specific signals in the audit.</em></p>
+  <p class="sl r">Three scenarios built from specific signals in the audit — not generic examples.</p>
+
+  <!-- SCENARIO 1 -->
+  <div class="scenario r">
+    <div class="sc-num">Scenario 01</div>
+    <div class="sc-tit">The Number That Looks Right</div>
+    <div class="char-strip">
+      <div class="char-avatar">A</div>
+      <span class="char-name">Alex</span><span class="char-dot">·</span>
+      <span class="char-role">Head of Marketing · Graza · Remote US</span><span class="char-dot">·</span>
+      <span class="char-pain">Pain: Budget decisions off an inflated ROAS dashboard</span>
+    </div>
+    <div class="split-ba">
+      <div class="ba-col ba-col-bef">
+        <div class="ba-col-header"><div class="ba-col-label">🔴 Before X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-neutral">⏰</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Monday · 9:00 AM</div>
+                <div class="ba-tl-title">Meta Ads Manager opens — ROAS shows 3.8x</div>
+                <div class="ba-tl-sub">Clean enough to justify a budget increase in the Monday leadership standup</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-bad">⚠️</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Simultaneously</div>
+                <div class="ba-tl-title">Three paths, one conversion</div>
+                <div class="ba-tl-sub">Meta Pixel inline + Elevar checkout + GTM container — all firing the same purchase event. Meta counts three signals.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-bad">🌩️</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Real picture</div>
+                <div class="ba-tl-title">True ROAS closer to 2.2x after dedup</div>
+                <div class="ba-tl-sub">After subtracting Drizzle's COGS, shipping, and return rate — margin near zero on the "profitable" campaign</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-end">✗</div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Budget approved</div>
+                <div class="ba-tl-title">Spend scales. Profit doesn't move.</div>
+                <div class="ba-tl-sub">Graza never knew the discrepancy existed.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✗ Profitable campaign — zero margin in reality</div>
+      </div>
+      <div class="ba-col ba-col-aft">
+        <div class="ba-col-header"><div class="ba-col-label">✅ After X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-good">⚡</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Monday · 9:00 AM</div>
+                <div class="ba-tl-title">Looker Studio dashboard — auto-updated overnight</div>
+                <div class="ba-tl-sub"><span class="ba-code">true_roas</span> = (Revenue − COGS − Shipping − Returns) / Ad Spend</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-good">📊</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Per channel</div>
+                <div class="ba-tl-title">Meta 2.4x · Google 1.9x · Email 3.1x</div>
+                <div class="ba-tl-sub">Event deduplication live from Week 3. Meta EMQ: 8.2/10</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-end">✓</div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Decision</div>
+                <div class="ba-tl-title">Budget reallocated: +$5K/month into email</div>
+                <div class="ba-tl-sub">Highest True ROAS channel. Decisions built on profit, not platform-reported volume.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✓ True ROAS visible · Budget moved to highest-margin channel</div>
+      </div>
+    </div>
+    <div class="res-r3">
+      <span class="r3-arrow">→</span>
+      <span class="r3-ctx">Meta Event Match Quality target</span>
+      <span class="r3-num">7.5+</span>
+      <span class="r3-ctx">/10</span>
+      <span class="r3-sep">·</span>
+      <span class="r3-ctx">True ROAS established for the first time</span>
+    </div>
+  </div>
+
+  <hr class="scsep">
+
+  <!-- SCENARIO 2 -->
+  <div class="scenario r" style="transition-delay:.08s">
+    <div class="sc-num">Scenario 02</div>
+    <div class="sc-tit">The Subscriber Who Almost Was</div>
+    <div class="char-strip">
+      <div class="char-avatar">J</div>
+      <span class="char-name">Jamie</span><span class="char-dot">·</span>
+      <span class="char-role">Home cook · Single household · Brooklyn, NY</span><span class="char-dot">·</span>
+      <span class="char-pain">Pain: Bought Drizzle once, loved it, forgot to reorder, switched to a competitor</span>
+    </div>
+    <div class="split-ba">
+      <div class="ba-col ba-col-bef">
+        <div class="ba-col-header"><div class="ba-col-label">🔴 Before X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-neutral">⏰</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Wednesday · 2:00 PM</div>
+                <div class="ba-tl-title">First bottle of Drizzle arrives</div>
+                <div class="ba-tl-sub">Ordered after seeing a TikTok. $18 CPA to acquire.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-neutral">📦</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">3 weeks later</div>
+                <div class="ba-tl-title">Bottle nearly empty. No email from Graza.</div>
+                <div class="ba-tl-sub">No replenishment reminder. No refill offer. No subscription prompt.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-end">✗</div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Google search</div>
+                <div class="ba-tl-title">Searches "olive oil" — sees a competitor ad. Tries it.</div>
+                <div class="ba-tl-sub">Graza never knew Jamie could have been a subscriber.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✗ $18 CPA — never recovered through repeat purchase</div>
+      </div>
+      <div class="ba-col ba-col-aft">
+        <div class="ba-col-header"><div class="ba-col-label">✅ After X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-good">⚡</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Day 1</div>
+                <div class="ba-tl-title"><span class="ba-code">purchase_completed</span> → cross-sell email</div>
+                <div class="ba-tl-sub">"You've got the Drizzle. Here's why every kitchen needs the Sizzle too." Bundle at 10% off.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-good">📧</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Day 21</div>
+                <div class="ba-tl-title"><span class="ba-code">replenishment_trigger</span> fires</div>
+                <div class="ba-tl-sub">"Running low? Refill cans — 21% cheaper, 100% recyclable." Link → subscribe page.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-end">✓</div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Subscribed</div>
+                <div class="ba-tl-title">LTV: $21 one-time → $180+ annual subscriber</div>
+                <div class="ba-tl-sub">$18 CPA recovered in 3 weeks.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✓ One-time buyer → $180+ annual subscriber</div>
+      </div>
+    </div>
+    <div class="res-r3">
+      <span class="r3-arrow">→</span>
+      <span class="r3-ctx">Cart recovery target</span>
+      <span class="r3-num">15–20%</span>
+      <span class="r3-ctx">of abandoned value</span>
+      <span class="r3-sep">·</span>
+      <span class="r3-ctx">One-time buyer → subscriber CVR: measurable baseline for the first time</span>
+    </div>
+  </div>
+
+  <hr class="scsep">
+
+  <!-- SCENARIO 3 -->
+  <div class="scenario r" style="transition-delay:.14s">
+    <div class="sc-num">Scenario 03</div>
+    <div class="sc-tit">The Weekend Campaign That Fired Twice</div>
+    <div class="char-strip">
+      <div class="char-avatar">R</div>
+      <span class="char-name">Ryan</span><span class="char-dot">·</span>
+      <span class="char-role">SMS &amp; Email Manager · Graza · Austin, TX</span><span class="char-dot">·</span>
+      <span class="char-pain">Pain: Campaign performance consistently below benchmark with no clear cause</span>
+    </div>
+    <div class="split-ba">
+      <div class="ba-col ba-col-bef">
+        <div class="ba-col-header"><div class="ba-col-label">🔴 Before X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-neutral">⏰</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Friday · 7:00 PM</div>
+                <div class="ba-tl-title">Weekend promo SMS launches via Postscript</div>
+                <div class="ba-tl-sub">40,000 messages queued and sent.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-bad">⚠️</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Same moment</div>
+                <div class="ba-tl-title">Attentive automated flow triggers for overlapping segment</div>
+                <div class="ba-tl-sub">Some subscribers receive 2 messages in 30 minutes. Unsubscribe rate spikes.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-end">✗</div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">End of month</div>
+                <div class="ba-tl-title">Two platform subscriptions. Two message costs. One result.</div>
+                <div class="ba-tl-sub">Graza never knew it was paying double to achieve worse outcomes.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✗ Duplicate sends · Degraded list · Double cost</div>
+      </div>
+      <div class="ba-col ba-col-aft">
+        <div class="ba-col-header"><div class="ba-col-label">✅ After X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-good">⚡</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Month 1</div>
+                <div class="ba-tl-title"><span class="ba-code">sms_audit</span> complete — one platform</div>
+                <div class="ba-tl-sub">Subscriber list deduplicated. Suppression logic: promo campaigns only fire if no triggered message in past 48h.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-good">📱</div><div class="ba-tl-line"></div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Friday · 7:00 PM</div>
+                <div class="ba-tl-title">40,000 messages. One send. Right audience.</div>
+                <div class="ba-tl-sub">Unsubscribe rate meaningfully lower. Deliverability stable.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left"><div class="ba-tl-dot nd-end">✓</div></div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">6 weeks later</div>
+                <div class="ba-tl-title">Next campaign — rebuilt list, full deliverability</div>
+                <div class="ba-tl-sub">SMS revenue outperforms previous 3 campaigns combined. Ryan presents the numbers. "Why is SMS underperforming?" is no longer asked.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✓ One platform · Clean list · Revenue recovers</div>
+      </div>
+    </div>
+    <div class="res-r3">
+      <span class="r3-arrow">→</span>
+      <span class="r3-ctx">SMS platform cost reduction</span>
+      <span class="r3-num">~40%</span>
+      <span class="r3-ctx">estimate pending audit</span>
+      <span class="r3-sep">·</span>
+      <span class="r3-ctx">Suppression logic active · List health restored</span>
+    </div>
+  </div>
+
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 4 -->
+
+<!-- S4: THE ENGINE -->
+<div class="sec" id="s4">
+  <div class="ey r">Section 04</div>
+  <div class="st r">The <span class="ow">Engine</span></div>
+  <p class="sec-hl r">Jamie was converted. Alex made the right budget call. The Friday campaign fired once. <em>None of that happens with individual tactics — it happens when five layers run as one connected system.</em></p>
+  <p class="sl r">X5 doesn't deploy tactics in isolation. We build a 5-layer system where each layer is the foundation for the one above. Without clean data at Layer 1, the intelligence at Layer 5 has nothing to analyze.</p>
+
+  <!-- Interactive Pyramid -->
+  <div class="pyr-wrap r">
+    <div class="pyr-ey">The X5 Revenue System — 5 Layers of Engineered Growth</div>
+    <div class="pyr-stack">
+      <!-- L5 — narrowest, top, default open -->
+      <div class="pyr-row" style="width:52%">
+        <div class="pyr-block pyr-open" id="pb4" data-pi="4" style="background:#06D4AE">
+          <div class="pyr-num">5</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L5</div>
+            <div class="pyr-lname">Marketing Intelligence</div>
+            <div class="pyr-ltag">Know which channel, product, and customer is actually driving profit.</div>
+          </div>
+          <div class="pyr-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="pyr-expand pyr-open">
+          <div class="pyr-exp-inner"><div class="pyr-zone">
+            <div class="pyr-zlbl">What this layer does</div>
+            <div class="pyr-zdesc">True ROAS by channel, LTV cohort analysis, subscription economics dashboard, and product margin intelligence by SKU.</div>
+            <div class="pyr-tags">
+              <span class="pyr-tag pt-l5">True ROAS Dashboard</span>
+              <span class="pyr-tag pt-l5">LTV by Channel</span>
+              <span class="pyr-tag pt-l5">Subscription Economics</span>
+              <span class="pyr-tag pt-l5">Product Margins</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <!-- L4 -->
+      <div class="pyr-row" style="width:64%">
+        <div class="pyr-block" id="pb3" data-pi="3" style="background:#5A28C8">
+          <div class="pyr-num">4</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L4</div>
+            <div class="pyr-lname">AI Automation &amp; Agent</div>
+            <div class="pyr-ltag">The system runs while your team is focused elsewhere.</div>
+          </div>
+          <div class="pyr-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner"><div class="pyr-zone">
+            <div class="pyr-zlbl">What this layer does</div>
+            <div class="pyr-zdesc">OctaneAI quiz optimization, n8n behavioral triggers, Monday auto-report, and AI content repurposing workflow.</div>
+            <div class="pyr-tags">
+              <span class="pyr-tag pt-l4">OctaneAI Optimization</span>
+              <span class="pyr-tag pt-l4">n8n Triggers</span>
+              <span class="pyr-tag pt-l4">Auto Report</span>
+              <span class="pyr-tag pt-l4">UGC Repurposing</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <!-- L3 -->
+      <div class="pyr-row" style="width:76%">
+        <div class="pyr-block" id="pb2" data-pi="2" style="background:#3A1A9A">
+          <div class="pyr-num">3</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L3</div>
+            <div class="pyr-lname">Revenue Operations</div>
+            <div class="pyr-ltag">No revenue left on the table between first purchase and loyal subscriber.</div>
+          </div>
+          <div class="pyr-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner"><div class="pyr-zone">
+            <div class="pyr-zlbl">What this layer does</div>
+            <div class="pyr-zdesc">Abandoned cart 3-step, post-purchase Day 1→45, RFM 5 segments, subscription churn warning, and refill-to-subscriber migration.</div>
+            <div class="pyr-tags">
+              <span class="pyr-tag pt-l3">Cart Recovery</span>
+              <span class="pyr-tag pt-l3">Post-Purchase Flow</span>
+              <span class="pyr-tag pt-l3">RFM 5 Segments</span>
+              <span class="pyr-tag pt-l3">Churn Warning</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <!-- L2 -->
+      <div class="pyr-row" style="width:88%">
+        <div class="pyr-block" id="pb1" data-pi="1" style="background:#1A1060">
+          <div class="pyr-num">2</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L2</div>
+            <div class="pyr-lname">MarTech Execution</div>
+            <div class="pyr-ltag">Right channel. Right audience. Right destination.</div>
+          </div>
+          <div class="pyr-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner"><div class="pyr-zone">
+            <div class="pyr-zlbl">What this layer does</div>
+            <div class="pyr-zdesc">Meta 3-tier campaign restructure, TikTok UGC activation, email capture offer, Google brand defense, subscribe page dedicated traffic.</div>
+            <div class="pyr-tags">
+              <span class="pyr-tag pt-l2">Meta 3-Tier</span>
+              <span class="pyr-tag pt-l2">TikTok UGC</span>
+              <span class="pyr-tag pt-l2">Email Capture</span>
+              <span class="pyr-tag pt-l2">Google Defense</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+      <!-- L1 — widest, bottom -->
+      <div class="pyr-row" style="width:100%">
+        <div class="pyr-block" id="pb0" data-pi="0" style="background:#020044">
+          <div class="pyr-num">1</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L1</div>
+            <div class="pyr-lname">Foundation &amp; Data</div>
+            <div class="pyr-ltag">Know exactly what's happening before spending another dollar on growth.</div>
+          </div>
+          <div class="pyr-chev"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner"><div class="pyr-zone">
+            <div class="pyr-zlbl">What this layer does</div>
+            <div class="pyr-zdesc">Event deduplication, Meta CAPI, subscription event tagging, GA4 e-commerce audit, and SMS platform consolidation.</div>
+            <div class="pyr-tags">
+              <span class="pyr-tag pt-l1">Event Dedup</span>
+              <span class="pyr-tag pt-l1">Meta CAPI</span>
+              <span class="pyr-tag pt-l1">Sub Event Tagging</span>
+              <span class="pyr-tag pt-l1">SMS Consolidation</span>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pyr-dep">Each layer depends on the one below it. L1 must be right first — without clean data, everything above is noise.</div>
+  </div>
+
+  <!-- Typewriter Divider -->
+  <div class="applied-divider r" id="applied-section">
+    <div class="applied-eyebrow">Section 04 · The Engine</div>
+    <div class="applied-title">
+      <span id="applied-typed"></span>
+      <span class="applied-counter" id="applied-counter">01 → 05</span>
+    </div>
+  </div>
+
+</div>
+<!-- END SECTION 5 -->
+
+<!-- SECTION 6 — 5 LAYERS DETAIL -->
+<div class="sec" id="s5-layers" style="padding-top:0">
+
+  <!-- LAYER 1 -->
+  <div class="lb r" id="l1">
+    <div class="lpill">L1 · Foundation</div>
+    <div class="lname">Foundation &amp; <span class="ow">Data</span></div>
+    <div class="ltag">"Know exactly what's happening before spending another dollar on growth."</div>
+    <p class="sec-hl r" style="margin-bottom:24px">Graza has tracking active across 20+ confirmed tools. Whether those signals are reaching ad platforms accurately — and how much is being lost to iOS/Safari every day — is what this layer answers first. Right now, that answer is invisible.</p>
+
+    <!-- SVG-L1A: Current State Tracking Stack -->
+    <div class="lsvg" id="svg-l1a" data-diagram="l1-current-state" data-bg="light">
+      
+<svg viewBox="0 0 860 360" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="360" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">CURRENT STATE — GRAZA TRACKING STACK TODAY</text>
+  <!-- Section 1A label -->
+  <text x="28" y="56" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">AD PIXELS &amp; ATTRIBUTION · confirmed inline outside GTM</text>
+  <!-- Row 1: Ad pixels (4 boxes) x=28,218,408,598 w=180 h=52 -->
+  <!-- Meta Pixel -->
+  <rect x="28" y="64" width="180" height="52" rx="6" fill="#1877F2"/>
+  <text x="118" y="87" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Meta Pixel</text>
+  <text x="118" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">fbevents.js · inline</text>
+  <!-- Triple Whale -->
+  <rect x="218" y="64" width="180" height="52" rx="6" fill="#3C422E"/>
+  <text x="308" y="87" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Triple Whale</text>
+  <text x="308" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">ver 2.16 · SHOPIFY</text>
+  <!-- Trade Desk -->
+  <rect x="408" y="64" width="180" height="52" rx="6" fill="#3C422E"/>
+  <text x="498" y="87" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Trade Desk (TTD)</text>
+  <text x="498" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">advertiser: 9ivdj79</text>
+  <!-- GTM (dashed — contents unverifiable) -->
+  <rect x="598" y="64" width="234" height="52" rx="6" fill="none" stroke="#6B7057" stroke-dasharray="5,3"/>
+  <text x="715" y="84" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="#6B7057">GTM Container</text>
+  <text x="715" y="100" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">confirmed client-side</text>
+  <text x="715" y="114" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6B7057">tags inside: unverifiable</text>
+  <!-- Row 2 label -->
+  <text x="28" y="138" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">ANALYTICS, EMAIL &amp; SMS · confirmed</text>
+  <!-- Row 2 (4 boxes) -->
+  <!-- Klaviyo -->
+  <rect x="28" y="146" width="180" height="52" rx="6" fill="#F26B3A"/>
+  <text x="118" y="169" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Klaviyo</text>
+  <text x="118" y="186" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">alias: GETGRAZA</text>
+  <!-- Postscript SMS -->
+  <rect x="218" y="146" width="180" height="52" rx="6" fill="#3C422E"/>
+  <text x="308" y="169" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Postscript SMS</text>
+  <text x="308" y="186" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">shopId: 171619</text>
+  <!-- Hotjar -->
+  <rect x="408" y="146" width="180" height="52" rx="6" fill="#FD3A5C"/>
+  <text x="498" y="169" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Hotjar</text>
+  <text x="498" y="186" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">ID: 3800413</text>
+  <!-- AWIN Affiliate (confirmed inline) -->
+  <rect x="598" y="146" width="234" height="52" rx="6" fill="#3C422E"/>
+  <text x="715" y="166" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">AWIN Affiliate</text>
+  <text x="715" y="183" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.65)">aid: 95539 · inline</text>
+  <text x="715" y="197" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">awin-shopify-integration-code.js</text>
+  <!-- Warning bar (includes dual-SMS overlap flag) -->
+  <rect x="28" y="212" width="804" height="50" rx="6" fill="#FEF3C7" stroke="#FBC94B"/>
+  <text x="430" y="229" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#92400E">⚠️  All client-side · Est. 20–40% signals blocked by iOS 14+ / Safari ITP (benchmark) · Meta CAPI status: unverifiable</text>
+  <text x="430" y="243" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#92400E">⚠️  Dual SMS overlap: Postscript (shopId:171619) + Attentive (tenantId:134553) both confirmed active — duplicate sends risk</text>
+  <!-- Section divider -->
+  <line x1="28" y1="262" x2="832" y2="262" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- Signal loss label -->
+  <text x="28" y="282" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">SIGNAL LOSS · iOS 14+ / Safari ITP impact</text>
+  <!-- Signal flow boxes -->
+  <rect x="28" y="290" width="160" height="34" rx="6" fill="#3C422E"/>
+  <text x="108" y="311" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Visitor Fires</text>
+  <text x="216" y="311" text-anchor="middle" font-family="Outfit, sans-serif" font-size="18" fill="#6B7057">→</text>
+  <rect x="240" y="290" width="160" height="34" rx="6" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="320" y="311" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#991B1B">iOS Blocks</text>
+  <text x="428" y="311" text-anchor="middle" font-family="Outfit, sans-serif" font-size="18" fill="#6B7057">→</text>
+  <rect x="452" y="290" width="180" height="34" rx="6" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <text x="542" y="307" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#166534">60–80% reaches</text>
+  <text x="542" y="320" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Meta / Google</text>
+  <rect x="660" y="290" width="172" height="34" rx="6" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="746" y="307" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#991B1B">20–40% lost</text>
+  <text x="746" y="320" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#991B1B">(benchmark)</text>
+  <!-- Section divider 2 -->
+  <line x1="28" y1="338" x2="832" y2="338" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- Shopping funnel label -->
+  <text x="28" y="354" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" letter-spacing="0.5" font-weight="700">SHOPPING FUNNEL — cart abandonment: ~70% · no recovery sequence confirmed</text>
+</svg>
+
+    </div>
+    <!-- SVG-L1B: After L1 Server-Side Architecture -->
+    <div class="lsvg" id="svg-l1b" data-diagram="l1-server-side" data-bg="dark">
+      
+
+<svg viewBox="0 0 860 460" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="l1b-arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6" fill="none" stroke="#D1E030" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="860" height="460" fill="#3C422E" rx="12"/>
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">AFTER LAYER 1 — SERVER-SIDE COMMERCE TRACKING</text>
+  <text x="28" y="56" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">DATA FLOW ARCHITECTURE</text>
+  <rect x="28" y="68" width="130" height="56" rx="8" fill="#0E0050"/>
+  <text x="93" y="91" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Browser</text>
+  <text x="93" y="107" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">Safari / iOS</text>
+  <line x1="158" y1="96" x2="222" y2="96" stroke="#D1E030" stroke-width="2" marker-end="url(#l1b-arr)"/>
+  <rect x="224" y="56" width="140" height="130" rx="8" fill="#D1E030"/>
+  <text x="294" y="116" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="#3C422E">sGTM Server</text>
+  <text x="294" y="132" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">cloud container</text>
+  <line x1="364" y1="84" x2="424" y2="75" stroke="#D1E030" stroke-width="1.5" opacity="0.8" marker-end="url(#l1b-arr)"/>
+  <line x1="364" y1="121" x2="424" y2="121" stroke="#D1E030" stroke-width="1.5" opacity="0.8" marker-end="url(#l1b-arr)"/>
+  <line x1="364" y1="158" x2="424" y2="167" stroke="#D1E030" stroke-width="1.5" opacity="0.8" marker-end="url(#l1b-arr)"/>
+  <rect x="428" y="56" width="160" height="38" rx="6" fill="#1877F2"/>
+  <text x="508" y="72" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Meta CAPI</text>
+  <text x="508" y="86" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Conversions API</text>
+  <rect x="428" y="102" width="160" height="38" rx="6" fill="#34A853"/>
+  <text x="508" y="118" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Google Enhanced</text>
+  <text x="508" y="132" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Conversions</text>
+  <rect x="428" y="148" width="160" height="38" rx="6" fill="#020044"/>
+  <text x="508" y="164" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Subscription Events</text>
+  <text x="508" y="178" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">Stay AI · tagged separately</text>
+  <rect x="28" y="144" width="130" height="40" rx="6" fill="#0E0050"/>
+  <text x="93" y="162" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Shopify</text>
+  <text x="93" y="177" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">webhook</text>
+  <line x1="158" y1="164" x2="222" y2="164" stroke="#D1E030" stroke-width="1.5" opacity="0.5" stroke-dasharray="4,3"/>
+  <rect x="600" y="56" width="232" height="130" rx="6" fill="#D1E030" fill-opacity="0.1" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="716" y="114" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">+20–40% data accuracy</text>
+  <text x="716" y="130" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" opacity="0.8">(benchmark)</text>
+  <line x1="28" y1="204" x2="832" y2="204" stroke="rgba(255,255,255,0.08)"/>
+  <text x="28" y="222" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">6 E-COMMERCE EVENTS — purchase attribution complete</text>
+  <rect x="28" y="230" width="240" height="34" rx="6" fill="#0E0050" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="148" y="244" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D1E030">page_view</text>
+  <text x="148" y="258" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.55)">all page loads</text>
+  <rect x="280" y="230" width="240" height="34" rx="6" fill="#0E0050" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="400" y="244" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D1E030">view_item</text>
+  <text x="400" y="258" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.55)">by SKU: Drizzle/Sizzle/Mayo</text>
+  <rect x="532" y="230" width="240" height="34" rx="6" fill="#0E0050" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="652" y="244" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D1E030">add_to_cart</text>
+  <text x="652" y="258" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.55)">with SKU + price</text>
+  <rect x="28" y="272" width="240" height="34" rx="6" fill="#0E0050" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="148" y="286" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D1E030">begin_checkout</text>
+  <text x="148" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.55)">checkout initiation</text>
+  <rect x="280" y="272" width="240" height="34" rx="6" fill="#0E0050" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="400" y="286" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#D1E030">purchase</text>
+  <text x="400" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.55)">+ subscription_type tag</text>
+  <rect x="532" y="272" width="240" height="34" rx="6" fill="#06D4AE" fill-opacity="0.2" stroke="#06D4AE" stroke-opacity="0.6"/>
+  <text x="652" y="286" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#06D4AE">subscription_started</text>
+  <text x="652" y="300" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.55)">custom · separate from purchase</text>
+  <line x1="28" y1="320" x2="832" y2="320" stroke="rgba(255,255,255,0.08)"/>
+  <text x="28" y="338" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">SERVER-SIDE CODE — Safari ITP cannot intercept</text>
+  <rect x="28" y="346" width="804" height="52" rx="6" fill="#020044"/>
+  <text x="44" y="365" font-family="JetBrains Mono, monospace" font-size="11" fill="#D1E030" opacity="0.7">// Server-side purchase event — deduplication key prevents double-counting</text>
+  <text x="44" y="381" font-family="JetBrains Mono, monospace" font-size="11" fill="rgba(255,255,255,0.6)">gtag('event', 'purchase', &#123; value: order_total, transaction_id: order_id, subscription_type: 'one-time' &#125;);</text>
+  <rect x="28" y="412" width="804" height="8" rx="4" fill="#D1E030" fill-opacity="0.15"/>
+  <rect x="28" y="412" width="500" height="8" rx="4" fill="#D1E030" fill-opacity="0.7"/>
+  <text x="432" y="432" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" font-weight="700">Signal completeness: 60–80% before → 95–100% after L1 (benchmark)</text>
+</svg>
+
+
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="fline lo"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">Three tracking paths — <span style="color:#009DE0">no confirmed deduplication</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>Meta Pixel (fbevents.js) fires inline, independently of GTM</li>
+            <li><span class="do"></span>GTM container confirmed client-side — contents unverifiable externally</li>
+            <li><span class="do"></span>Elevar checkout tracking confirmed as separate active web pixel</li>
+            <li><span class="do"></span>Two SMS platforms simultaneously active: Postscript (shopId: 171619) + Attentive (tenantId: 134553)</li>
+            <li class="na"><span class="dn"></span>Meta CAPI — server-to-server tool; cannot be confirmed or denied from external audit by design</li>
+            <li class="na"><span class="dn"></span>GA4 measurement ID — not found inline outside GTM container; may be firing via GTM or Elevar</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="fline lb2"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Budgets scale on <span style="color:#FBC94B">numbers that don't exist</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Purchase events may be triple-counted → reported ROAS 3.8x may be true ROAS 2.2x</li>
+            <li><span class="db"></span>20–40% conversion signal blocked by iOS 14+ / Safari ITP — smart bidding on incomplete data</li>
+            <li><span class="db"></span>Subscription first order and one-time purchase appear identical — true CPA of subscription acquisition unknown</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="fline ld"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">Single source of truth for <span style="color:#06D4AE">every conversion event</span></div>
+          <div class="chips">
+            <span class="chip">Event Deduplication Audit</span>
+            <span class="chip">Meta CAPI Implementation</span>
+            <span class="chip">Subscription Event Tagging</span>
+            <span class="chip">GA4 E-commerce Audit</span>
+            <span class="chip">SMS Platform Consolidation</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">True ROAS — <span style="color:var(--brand-primary)">for the first time</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">End of Week 2: True ROAS report. Month 1: Meta EMQ score 7.5+/10. After 60 days: 20–40% conversion data recovery. SMS cost ~40% lower after consolidation.</div>
+          </div>
+          <div class="kalam">"Every budget decision from Month 2 onward is built on True ROAS — not the headline number."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge r">
+    <div class="bt">With clean data established at Layer 1, Layer 2 has something real to optimize toward — <em>not inflated signals that send spend in the wrong direction.</em></div>
+  </div>
+
+  <!-- LAYER 2 -->
+  <div class="lb r" id="l2">
+    <div class="lpill">L2 · Channels</div>
+    <div class="lname">MarTech <span class="ow">Execution</span></div>
+    <div class="ltag">"Right channel. Right audience. Right destination."</div>
+
+    <!-- SVG-L2: Channel Architecture -->
+    <div class="lsvg" id="svg-l2" data-diagram="l2-channels" data-bg="light">
+      
+<svg viewBox="0 0 860 360" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="360" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">CHANNEL ARCHITECTURE — CURRENT vs COMMERCE-STRUCTURED</text>
+  <!-- LEFT PANEL: Current channels -->
+  <rect x="28" y="44" width="370" height="24" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="213" y="60" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#6B7057" letter-spacing="0.5">CURRENT — 11 CHANNELS ACTIVE</text>
+  <!-- Channel boxes left panel (3 rows of 3) -->
+  <rect x="28" y="74" width="110" height="38" rx="5" fill="#1877F2"/>
+  <text x="83" y="97" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Meta Ads</text>
+  <rect x="148" y="74" width="110" height="38" rx="5" fill="#34A853"/>
+  <text x="203" y="92" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Google</text>
+  <text x="203" y="107" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="rgba(255,255,255,0.7)">GT-TBZ6CX7</text>
+  <rect x="268" y="74" width="110" height="38" rx="5" fill="#E60023"/>
+  <text x="323" y="97" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Pinterest</text>
+  <rect x="28" y="120" width="110" height="38" rx="5" fill="#3C422E"/>
+  <text x="83" y="138" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Tatari CTV</text>
+  <text x="83" y="152" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">+ Keynes CTV</text>
+  <rect x="148" y="120" width="110" height="38" rx="5" fill="#F26B3A"/>
+  <text x="203" y="143" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Klaviyo</text>
+  <rect x="268" y="120" width="110" height="38" rx="5" fill="#3C422E"/>
+  <text x="323" y="138" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Postscript</text>
+  <text x="323" y="152" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">+ Attentive</text>
+  <rect x="28" y="166" width="110" height="38" rx="5" fill="#3C422E"/>
+  <text x="83" y="189" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">AWIN</text>
+  <rect x="148" y="166" width="110" height="38" rx="5" fill="#3C422E"/>
+  <text x="203" y="189" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Superfiliate</text>
+  <rect x="268" y="166" width="110" height="38" rx="5" fill="#3C422E"/>
+  <text x="323" y="184" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Trade Desk</text>
+  <text x="323" y="198" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">TTD</text>
+  <!-- Conversion gap boxes -->
+  <text x="28" y="226" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">CONVERSION GAPS DETECTED</text>
+  <rect x="28" y="234" width="370" height="26" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="213" y="251" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#991B1B">Cart abandonment: ~70% — no recovery sequence confirmed</text>
+  <rect x="28" y="266" width="370" height="26" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="213" y="283" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#991B1B">Email capture: no offer visible — building fans, not buyers</text>
+  <rect x="28" y="298" width="370" height="26" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="213" y="315" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#991B1B">Post-purchase: no sequence confirmed — CPA unrecovered</text>
+  <!-- Divider -->
+  <line x1="416" y1="44" x2="416" y2="340" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- RIGHT PANEL: After L2 -->
+  <rect x="426" y="44" width="406" height="24" rx="4" fill="#D1E030" fill-opacity="0.12"/>
+  <text x="629" y="60" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#D1E030" letter-spacing="0.5">AFTER L2 — COMMERCE-STRUCTURED CAMPAIGNS</text>
+  <!-- Structured channels -->
+  <!-- Google -->
+  <rect x="426" y="74" width="406" height="38" rx="5" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="446" y="92" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">Google Shopping</text>
+  <text x="446" y="106" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">branded keywords: "graza refill", "olive oil squeeze bottle"</text>
+  <!-- Meta 3-tier -->
+  <rect x="426" y="120" width="406" height="50" rx="5" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="446" y="138" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">Meta — 3-Tier Funnel</text>
+  <text x="446" y="153" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Cold → trial purchase  |  Cold → subscribe &amp; save (21%)  |  Warm → subscribe</text>
+  <!-- TikTok UGC -->
+  <rect x="426" y="178" width="406" height="38" rx="5" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="446" y="196" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">TikTok UGC Activation</text>
+  <text x="446" y="210" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">amplify @getgraza organic top performers — squeeze bottle format</text>
+  <!-- Email -->
+  <rect x="426" y="224" width="406" height="38" rx="5" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="446" y="242" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">Klaviyo — Offer-Gated Capture</text>
+  <text x="446" y="256" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">10% off first order popup  •  5 automated flows: cart / post-purchase / win-back</text>
+  <!-- Subscribe page -->
+  <rect x="426" y="270" width="406" height="38" rx="5" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="446" y="288" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">Subscribe Page — Dedicated Traffic</text>
+  <text x="446" y="302" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">/pages/subscribe "Save up to 21%" → warm audience ad sets (7–30 day visitors)</text>
+  <!-- Result bar -->
+  <rect x="426" y="316" width="406" height="26" rx="5" fill="#D1E030" fill-opacity="0.12" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="629" y="332" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">Email list growth +40–60% with offer · Sub acquisition CPA tracked separately</text>
+</svg>
+
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="fline lo"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">11 channels active — <span style="color:#009DE0">no unified campaign structure confirmed</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>Meta Ads, Google (GT-TBZ6CX7), Pinterest (tagID: 2613198186651) — all confirmed active</li>
+            <li><span class="do"></span>CTV: Tatari + Keynes (conversion + lookalike) — both confirmed</li>
+            <li><span class="do"></span>Klaviyo email + Postscript/Attentive SMS confirmed</li>
+            <li class="na"><span class="dn"></span>Campaign distinction (one-time vs subscription acquisition) — unverifiable externally</li>
+            <li class="na"><span class="dn"></span>Footer email capture offer — not visible in source; plain field only confirmed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="fline lb2"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Spend accumulating in <span style="color:#FBC94B">the wrong buckets</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Warm audiences may be sent to generic product page vs subscribe page (21% savings offer)</li>
+            <li><span class="db"></span>Email list building fans not buyers — no purchase-intent offer visible at capture point</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="fline ld"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">Commerce-structured campaigns — <span style="color:#06D4AE">every tier with purpose</span></div>
+          <div class="chips">
+            <span class="chip">Meta 3-Tier Funnel</span>
+            <span class="chip">TikTok UGC Activation</span>
+            <span class="chip">Email Capture Offer</span>
+            <span class="chip">Subscribe Page Traffic</span>
+            <span class="chip">Google Brand Defense</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Email list growth — <span style="color:var(--brand-primary)">buyers, not fans</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Month 2: Email list growth rate up 40–60% with capture offer vs no offer. Month 3: Subscription acquisition CPA tracked separately — budget optimized by actual LTV per segment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge r">
+    <div class="bt">With acquisition flowing into the right funnels at Layer 2, Layer 3 ensures <em>no revenue leaks between first click and loyal subscriber.</em></div>
+  </div>
+
+  <!-- LAYER 3 -->
+  <div class="lb r" id="l3">
+    <div class="lpill">L3 · Revenue Ops</div>
+    <div class="lname">Revenue <span class="ow">Operations</span></div>
+    <div class="ltag">"No revenue left on the table between first purchase and loyal subscriber."</div>
+    <p class="sec-hl r" style="margin-bottom:24px">Cart abandonment rate, post-purchase sequence coverage, RFM segmentation status — none are visible externally. This layer makes them systematic. A consumable D2C brand without these flows is recovering a fraction of the revenue it's already paid to generate.</p>
+
+    <!-- SVG-L3A: Shopping Funnel + Gaps -->
+    <div class="lsvg" id="svg-l3a" data-diagram="l3-shopping-funnel" data-bg="light">
+      
+<svg viewBox="0 0 860 340" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="340" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">SHOPPING FUNNEL — WHERE GRAZA'S VISITORS DROP OFF TODAY</text>
+  <!-- Funnel bars (horizontal, proportional widths) -->
+  <!-- Visitor 100% -->
+  <rect x="28" y="48" width="804" height="32" rx="5" fill="#020044"/>
+  <text x="44" y="69" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Website Visitor</text>
+  <text x="822" y="69" text-anchor="end" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="white">100%</text>
+  <!-- Product Page ~45% = 0.45 × 804 = 362 -->
+  <rect x="28" y="88" width="362" height="32" rx="5" fill="#1A1060"/>
+  <text x="44" y="109" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="white">Product Page View</text>
+  <text x="400" y="109" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#6B7057">~45%</text>
+  <text x="460" y="109" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-style="italic">(benchmark)</text>
+  <!-- Add to Cart ~8% = 0.08 × 804 = 64 -->
+  <rect x="28" y="128" width="64" height="32" rx="5" fill="#3A1A9A"/>
+  <text x="102" y="149" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#6B7057">~8%</text>
+  <text x="158" y="149" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">Add to Cart</text>
+  <text x="320" y="149" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-style="italic">(benchmark)</text>
+  <!-- Checkout ~5% = 0.05 × 804 = 40 -->
+  <rect x="28" y="168" width="40" height="32" rx="5" fill="#5A28C8"/>
+  <text x="78" y="189" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#6B7057">~5%</text>
+  <text x="130" y="189" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">Checkout Started</text>
+  <!-- Purchase ~2.5% = 0.025 × 804 = 20 -->
+  <rect x="28" y="208" width="20" height="32" rx="5" fill="#06D4AE"/>
+  <text x="58" y="229" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#6B7057">~2.5%</text>
+  <text x="118" y="229" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">Purchase Completed</text>
+  <text x="310" y="229" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-style="italic">D2C food/consumables benchmark</text>
+  <!-- Cart abandonment callout -->
+  <rect x="580" y="208" width="252" height="32" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="706" y="228" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#991B1B">~70% cart abandonment rate</text>
+  <!-- Section divider -->
+  <line x1="28" y1="255" x2="832" y2="255" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- Gap boxes -->
+  <text x="28" y="275" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">GAPS IDENTIFIED — revenue leaking without these systems</text>
+  <!-- 3 gap boxes -->
+  <rect x="28" y="283" width="248" height="36" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="152" y="299" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#991B1B">No cart recovery sequence</text>
+  <text x="152" y="313" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#991B1B">confirmed in external audit</text>
+  <rect x="288" y="283" width="248" height="36" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="412" y="299" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#991B1B">No post-purchase flow confirmed</text>
+  <text x="412" y="313" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#991B1B">$18 CPA not recovered</text>
+  <rect x="548" y="283" width="284" height="36" rx="5" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="690" y="299" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#991B1B">No RFM segmentation confirmed</text>
+  <text x="690" y="313" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#991B1B">subscribers treated same as new buyers</text>
+</svg>
+
+    </div>
+    <!-- SVG-L3B: Recovery + Retention Flows -->
+    <div class="lsvg" id="svg-l3b" data-diagram="l3-recovery-flows" data-bg="dark">
+      
+<svg viewBox="0 0 860 380" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="380" fill="#3C422E" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">REVENUE RECOVERY — AUTOMATED SEQUENCES RUNNING 24/7</text>
+  <!-- Section 1: Cart Recovery -->
+  <text x="28" y="52" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">CART RECOVERY SEQUENCE · 3-touch + SMS</text>
+  <!-- Abandoned cart source -->
+  <rect x="28" y="60" width="100" height="40" rx="6" fill="#0E0050" stroke="#FBC94B" stroke-opacity="0.6"/>
+  <text x="78" y="78" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#FBC94B">Abandoned</text>
+  <text x="78" y="93" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">~70% rate</text>
+  <!-- Arrow -->
+  <text x="140" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="16" fill="#D1E030" opacity="0.6">→</text>
+  <!-- Email 1 -->
+  <rect x="156" y="60" width="185" height="40" rx="6" fill="#0E0050"/>
+  <text x="248" y="75" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Email 1 · T+1h</text>
+  <text x="248" y="89" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Dynamic SKU image · No discount</text>
+  <!-- SMS indicator -->
+  <text x="248" y="104" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#FBC94B">+ SMS if email unopened</text>
+  <!-- Arrow -->
+  <text x="353" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="16" fill="#D1E030" opacity="0.6">→</text>
+  <!-- Email 2 -->
+  <rect x="369" y="60" width="185" height="40" rx="6" fill="#0E0050"/>
+  <text x="461" y="75" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Email 2 · T+24h</text>
+  <text x="461" y="89" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">3 Okendo reviews + free shipping</text>
+  <!-- Arrow -->
+  <text x="566" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="16" fill="#D1E030" opacity="0.6">→</text>
+  <!-- Email 3 -->
+  <rect x="582" y="60" width="185" height="40" rx="6" fill="#0E0050"/>
+  <text x="674" y="75" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Email 3 · T+72h</text>
+  <text x="674" y="89" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">10% off · first-time buyers only</text>
+  <!-- Recovery target -->
+  <rect x="782" y="60" width="50" height="40" rx="6" fill="#D1E030" fill-opacity="0.2" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="807" y="76" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">15–</text>
+  <text x="807" y="91" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">20%</text>
+  <!-- Section divider -->
+  <line x1="28" y1="115" x2="832" y2="115" stroke="rgba(255,255,255,0.08)"/>
+  <!-- Section 2: Post-purchase flow -->
+  <text x="28" y="135" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">POST-PURCHASE FLOW — BOTTLE BUYER TO SUBSCRIBER</text>
+  <!-- Day pills timeline -->
+  <text x="28" y="155" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)">PURCHASE</text>
+  <line x1="80" y1="152" x2="832" y2="152" stroke="rgba(255,255,255,0.12)"/>
+  <!-- Day 1 -->
+  <rect x="28" y="162" width="140" height="48" rx="6" fill="#0E0050"/>
+  <text x="98" y="178" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" font-weight="700">Day 1</text>
+  <text x="98" y="192" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Cross-sell Sizzle</text>
+  <text x="98" y="205" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">Bundle 10% off</text>
+  <!-- Day 7 -->
+  <rect x="180" y="162" width="140" height="48" rx="6" fill="#0E0050"/>
+  <text x="250" y="178" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" font-weight="700">Day 7</text>
+  <text x="250" y="192" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Review Request</text>
+  <text x="250" y="205" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">Okendo · auto-trigger</text>
+  <!-- Day 21 -->
+  <rect x="332" y="162" width="140" height="48" rx="6" fill="#1A1060"/>
+  <text x="402" y="178" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" font-weight="700">Day 21</text>
+  <text x="402" y="192" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Replenishment</text>
+  <text x="402" y="205" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">"Refill — 21% cheaper"</text>
+  <!-- Day 30 -->
+  <rect x="484" y="162" width="140" height="48" rx="6" fill="#0E0050"/>
+  <text x="554" y="178" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#FBC94B" font-weight="700">Day 30</text>
+  <text x="554" y="192" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Win-back</text>
+  <text x="554" y="205" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">At Risk New · free shipping</text>
+  <!-- Day 45 -->
+  <rect x="636" y="162" width="140" height="48" rx="6" fill="#0E0050"/>
+  <text x="706" y="178" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" font-weight="700">Day 45</text>
+  <text x="706" y="192" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Referral Ask</text>
+  <text x="706" y="205" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.55)">4–5 star → $10 credit</text>
+  <!-- Result arrow -->
+  <rect x="784" y="162" width="48" height="48" rx="6" fill="#06D4AE" fill-opacity="0.2" stroke="#06D4AE" stroke-opacity="0.5"/>
+  <text x="808" y="183" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#06D4AE">$180</text>
+  <text x="808" y="197" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#06D4AE">LTV</text>
+  <!-- Section divider -->
+  <line x1="28" y1="224" x2="832" y2="224" stroke="rgba(255,255,255,0.08)"/>
+  <!-- RFM Section -->
+  <text x="28" y="244" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">RFM SEGMENTATION — 5 SEGMENTS WITH DISTINCT ACTIONS</text>
+  <!-- 5 RFM segments -->
+  <rect x="28" y="252" width="144" height="38" rx="5" fill="#06D4AE" fill-opacity="0.15" stroke="#06D4AE" stroke-opacity="0.4"/>
+  <text x="100" y="267" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#06D4AE">Champions</text>
+  <text x="100" y="282" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">VIP + early access</text>
+  <rect x="184" y="252" width="144" height="38" rx="5" fill="#0E0050"/>
+  <text x="256" y="267" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Loyal</text>
+  <text x="256" y="282" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Convert to subscribe</text>
+  <rect x="340" y="252" width="144" height="38" rx="5" fill="#0E0050" stroke="#FBC94B" stroke-opacity="0.5"/>
+  <text x="412" y="267" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#FBC94B">At Risk</text>
+  <text x="412" y="282" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Pause not cancel</text>
+  <rect x="496" y="252" width="144" height="38" rx="5" fill="#0E0050"/>
+  <text x="568" y="267" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Hibernating</text>
+  <text x="568" y="282" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">New product angle</text>
+  <rect x="652" y="252" width="180" height="38" rx="5" fill="#0E0050"/>
+  <text x="742" y="267" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">New Customers</text>
+  <text x="742" y="282" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Accelerated nurture</text>
+  <!-- Churn warning -->
+  <rect x="28" y="302" width="804" height="32" rx="6" fill="#D1E030" fill-opacity="0.1" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="430" y="315" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">CHURN EARLY WARNING</text>
+  <text x="430" y="328" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" opacity="0.8">Skip 2+ orders OR interval &gt;150% above average → win-back fires within 2h · before cancellation</text>
+  <!-- Loyalty trigger -->
+  <rect x="28" y="346" width="804" height="26" rx="5" fill="#3C422E" fill-opacity="0.6" stroke="#D1E030" stroke-opacity="0.2"/>
+  <text x="430" y="363" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="rgba(255,255,255,0.7)">3rd purchase completed → auto Champions segment → VIP welcome + early product access</text>
+</svg>
+
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="fline lo"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">Infrastructure exists — <span style="color:#009DE0">flows cannot be confirmed</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>Klaviyo confirmed active (email platform)</li>
+            <li><span class="do"></span>Stay AI / Retextion confirmed (subscription management)</li>
+            <li><span class="do"></span>Okendo confirmed (review platform — for D+7 review request)</li>
+            <li><span class="do"></span>Natural replenishment cycle: 4–8 weeks for 500ml bottle</li>
+            <li class="na"><span class="dn"></span>Abandoned cart flow configuration — unverifiable from external audit</li>
+            <li class="na"><span class="dn"></span>Post-purchase sequence — unverifiable from external audit</li>
+            <li class="na"><span class="dn"></span>RFM segmentation status — unverifiable from external audit</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="fline lb2"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">~70% of carts abandoned — <span style="color:#FBC94B">none recovered</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>$18 CPA never recovered — one-time buyers leaving at the highest-intent moment</li>
+            <li><span class="db"></span>Subscribers churning without a win-back sequence triggering before cancellation</li>
+            <li><span class="db"></span>Refill can buyers not converted to subscription — high-LTV segment untouched</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="fline ld"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">From first bottle to loyal subscriber — <span style="color:#06D4AE">automated end-to-end</span></div>
+          <div class="chips">
+            <span class="chip">Cart Recovery T+1h/24h/72h + SMS</span>
+            <span class="chip">Post-Purchase D1→D45</span>
+            <span class="chip">RFM 5 Segments</span>
+            <span class="chip">Churn Early Warning</span>
+            <span class="chip">Refill→Subscribe Migration</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">15–20% cart recovery — <span style="color:var(--brand-primary)">email contributing 20–25% of revenue</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Month 2: Cart recovery rate baseline (target: 15–20% of abandoned value). Email/SMS contributing 20–25% of total revenue. Month 3: Subscription churn rate has measurement baseline. One-time → subscriber CVR tracked at 30/60/90-day intervals.</div>
+          </div>
+          <div class="kalam">"LTV from $21 one-time to $180+ annual subscriber — in 3 weeks."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge r">
+    <div class="bt">Layer 3 captures the revenue. Layer 4 makes sure the right system fires at the right moment — <em>without anyone on the team having to do it manually.</em></div>
+  </div>
+
+  <!-- LAYER 4 -->
+  <div class="lb r" id="l4">
+    <div class="lpill">L4 · Automation</div>
+    <div class="lname">AI Automation <span class="ow">&amp; Agent</span></div>
+    <div class="ltag">"The system runs while your team is focused elsewhere."</div>
+
+    <!-- SVG-L4A: OctaneAI Product Assistant -->
+    <div class="lsvg" id="svg-l4a" data-diagram="l4-chatbot" data-bg="light">
+      
+<svg viewBox="0 0 860 660" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="660" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">AI PRODUCT ASSISTANT — OCTANEAI QUIZ (botID: go1hr7b5n8a6ra1i)</text>
+  <!-- LEFT PANEL: Phone frame -->
+  <!-- Phone outer frame -->
+  <rect x="44" y="48" width="228" height="544" rx="28" fill="#3C422E"/>
+  <!-- Screen inner -->
+  <rect x="56" y="70" width="204" height="508" rx="10" fill="#F9FAFB"/>
+  <!-- Status bar -->
+  <rect x="56" y="70" width="204" height="28" rx="10" fill="#E5E7EB"/>
+  <text x="158" y="88" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">OctaneAI · graza.co</text>
+  <!-- Chat messages -->
+  <!-- Bot: Welcome -->
+  <rect x="64" y="106" width="160" height="34" rx="8" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="144" y="118" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#3C422E">What do you use</text>
+  <text x="144" y="132" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#3C422E">olive oil for most?</text>
+  <!-- User: response -->
+  <rect x="92" y="148" width="168" height="26" rx="8" fill="#3C422E"/>
+  <text x="176" y="165" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="white">Finishing dishes — pasta, salads</text>
+  <!-- Bot: recommendation -->
+  <rect x="64" y="182" width="184" height="58" rx="8" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="156" y="196" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#3C422E">You want Drizzle — it's a</text>
+  <text x="156" y="210" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">finishing oil, not for heat.</text>
+  <text x="156" y="225" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">★4.9 · 2,400+ reviews · $21</text>
+  <!-- CTA pills -->
+  <rect x="64" y="248" width="88" height="22" rx="11" fill="#D1E030" fill-opacity="0.2" stroke="#D1E030"/>
+  <text x="108" y="262" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#3C422E">Add to cart</text>
+  <rect x="162" y="248" width="88" height="22" rx="11" fill="none" stroke="#3C422E" stroke-opacity="0.3"/>
+  <text x="206" y="262" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">See Sizzle</text>
+  <!-- Bot: upsell -->
+  <rect x="64" y="278" width="184" height="44" rx="8" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="156" y="293" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#3C422E">One more — if you also cook on</text>
+  <text x="156" y="307" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">heat, Sizzle is the partner.</text>
+  <text x="156" y="321" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">The Duo: $38 · save ~10%</text>
+  <!-- CTA pills row 2 -->
+  <rect x="64" y="330" width="108" height="22" rx="11" fill="#3C422E"/>
+  <text x="118" y="344" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="white">Get The Duo</text>
+  <rect x="182" y="330" width="68" height="22" rx="11" fill="none" stroke="#3C422E" stroke-opacity="0.3"/>
+  <text x="216" y="344" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Just Drizzle</text>
+  <!-- Persona tag -->
+  <rect x="64" y="362" width="184" height="34" rx="6" fill="#E5E7EB"/>
+  <text x="156" y="376" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Jamie · Home cook · Brooklyn NY</text>
+  <text x="156" y="390" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-style="italic">"What's the difference?"</text>
+  <!-- Input bar -->
+  <rect x="64" y="404" width="184" height="28" rx="14" fill="#E5E7EB"/>
+  <text x="144" y="422" font-family="Outfit, sans-serif" font-size="10" fill="#9CA3AF">Type a message...</text>
+  <!-- Routing options below -->
+  <text x="158" y="450" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-weight="700">QUIZ ROUTING</text>
+  <rect x="64" y="458" width="184" height="18" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="158" y="471" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Finishing → Drizzle · Cooking → Sizzle</text>
+  <rect x="64" y="480" width="184" height="18" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="158" y="493" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Both → The Duo bundle</text>
+  <rect x="64" y="502" width="184" height="18" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="158" y="515" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Condiments → Mayo cross-sell</text>
+  <rect x="64" y="524" width="184" height="18" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="158" y="537" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Gift → The Trio / Gift card</text>
+  <!-- RIGHT PANEL: Background actions -->
+  <line x1="292" y1="48" x2="292" y2="604" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <text x="296" y="44" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">BACKGROUND ACTIONS — fire automatically</text>
+  <!-- Action boxes -->
+  <rect x="300" y="56" width="532" height="48" rx="6" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="320" y="74" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">① Product affinity score updated</text>
+  <text x="320" y="90" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">"Finishing oil — high intent" tag applied to Jamie's profile</text>
+  <rect x="300" y="114" width="532" height="48" rx="6" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="320" y="132" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">② Cart pre-filled with recommended item</text>
+  <text x="320" y="148" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Drizzle (1 bottle, $21) queued — one-tap checkout available</text>
+  <rect x="300" y="172" width="532" height="48" rx="6" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="320" y="190" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">③ Retargeting audience tagged</text>
+  <text x="320" y="206" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">"High-intent · Finishing Oil" → Meta custom audience populated</text>
+  <!-- No purchase path -->
+  <rect x="300" y="234" width="532" height="92" rx="6" fill="#FEF3C7" stroke="#FBC94B"/>
+  <text x="320" y="252" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#92400E">If no purchase within 1 hour:</text>
+  <rect x="316" y="260" width="500" height="26" rx="4" fill="#FEF2F2" stroke="#FECACA"/>
+  <text x="320" y="276" font-family="Outfit, sans-serif" font-size="11" fill="#991B1B">→ cart_abandoned trigger fires</text>
+  <text x="316" y="298" font-family="Outfit, sans-serif" font-size="10" fill="#92400E">Email 1 at T+1h: "Still thinking about Drizzle?" · SMS if email unopened</text>
+  <text x="316" y="316" font-family="Outfit, sans-serif" font-size="10" fill="#92400E">Email 2 at T+24h: Okendo reviews + free shipping · Email 3 at T+72h: 10% off</text>
+  <!-- Purchase path -->
+  <rect x="300" y="336" width="532" height="92" rx="6" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <text x="320" y="354" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#166534">If purchase completed:</text>
+  <rect x="316" y="362" width="500" height="26" rx="4" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <text x="320" y="378" font-family="Outfit, sans-serif" font-size="11" fill="#166534">→ purchase_completed trigger fires</text>
+  <text x="316" y="398" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Day 7: Okendo review request · Day 21: Replenishment trigger</text>
+  <text x="316" y="416" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Day 45 (4–5 stars): Referral ask — $10 credit for a friend</text>
+  <!-- Content repurposing -->
+  <rect x="300" y="440" width="532" height="60" rx="6" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="320" y="458" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">AI Content Repurposing — @getgraza UGC → 5 assets</text>
+  <text x="320" y="474" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">1 Instagram UGC → email subject line + SMS copy + Pinterest + social proof + product page</text>
+  <text x="320" y="488" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Tool: n8n + AI generation + Klaviyo import · Zero manual intervention</text>
+  <!-- Bottom bar -->
+  <rect x="28" y="600" width="804" height="32" rx="6" fill="#D1E030" fill-opacity="0.1" stroke="#D1E030" stroke-opacity="0.25"/>
+  <text x="430" y="618" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">No purchase → cart recovery sequence · Subscribe page viewer (×2) → Meta retargeting trigger</text>
+</svg>
+
+    </div>
+    <!-- SVG-L4B: 5 Behavioral Triggers -->
+    <div class="lsvg" id="svg-l4b" data-diagram="l4-triggers" data-bg="dark">
+      
+<svg viewBox="0 0 860 340" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="340" fill="#3C422E" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">BEHAVIORAL TRIGGERS — 5 AUTOMATED E-COMMERCE WORKFLOWS</text>
+  <!-- Column headers -->
+  <text x="156" y="52" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">EVENT</text>
+  <text x="472" y="52" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">AUTOMATED ACTION</text>
+  <text x="730" y="52" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">TIMING</text>
+  <!-- Row 1: cart_abandoned -->
+  <rect x="28" y="60" width="256" height="36" rx="6" fill="#0E0050"/>
+  <text x="156" y="75" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#FBC94B">cart_abandoned</text>
+  <text x="156" y="89" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">~70% of sessions</text>
+  <text x="318" y="81" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="#D1E030" opacity="0.5">→</text>
+  <rect x="332" y="60" width="280" height="36" rx="6" fill="#0E0050"/>
+  <text x="472" y="75" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">3-email sequence + SMS</text>
+  <text x="472" y="89" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">dynamic SKU image → Okendo reviews → 10% off</text>
+  <rect x="628" y="60" width="204" height="36" rx="6" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="730" y="75" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">T+1h / T+24h / T+72h</text>
+  <text x="730" y="89" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" opacity="0.7">+ SMS T+1h if unopened</text>
+  <!-- Row 2: subscribe_page_viewed -->
+  <rect x="28" y="104" width="256" height="36" rx="6" fill="#0E0050"/>
+  <text x="156" y="119" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#FBC94B">subscribe_page_viewed ×2</text>
+  <text x="156" y="133" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">no conversion</text>
+  <text x="318" y="125" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="#D1E030" opacity="0.5">→</text>
+  <rect x="332" y="104" width="280" height="36" rx="6" fill="#0E0050"/>
+  <text x="472" y="119" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Meta retargeting + Klaviyo email</text>
+  <text x="472" y="133" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">"Save 21% on every order — subscribe today"</text>
+  <rect x="628" y="104" width="204" height="36" rx="6" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="730" y="125" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">&lt; 2 hours</text>
+  <!-- Row 3: subscription_skip -->
+  <rect x="28" y="148" width="256" height="36" rx="6" fill="#0E0050" stroke="#FBC94B" stroke-opacity="0.5"/>
+  <text x="156" y="163" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#FBC94B">subscription_skip ×2</text>
+  <text x="156" y="177" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">Stay AI signal</text>
+  <text x="318" y="169" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="#D1E030" opacity="0.5">→</text>
+  <rect x="332" y="148" width="280" height="36" rx="6" fill="#0E0050"/>
+  <text x="472" y="163" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Win-back SMS + Klaviyo email</text>
+  <text x="472" y="177" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">"Adjust delivery frequency?" bimonthly option</text>
+  <rect x="628" y="148" width="204" height="36" rx="6" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="730" y="169" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">&lt; 2 hours</text>
+  <!-- Row 4: purchase_completed -->
+  <rect x="28" y="192" width="256" height="36" rx="6" fill="#0E0050"/>
+  <text x="156" y="207" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#06D4AE">purchase_completed</text>
+  <text x="156" y="221" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">any order</text>
+  <text x="318" y="213" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="#D1E030" opacity="0.5">→</text>
+  <rect x="332" y="192" width="280" height="36" rx="6" fill="#0E0050"/>
+  <text x="472" y="207" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">Okendo review request + Sizzle cross-sell</text>
+  <text x="472" y="221" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">auto-trigger after confirmed delivery</text>
+  <rect x="628" y="192" width="204" height="36" rx="6" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="730" y="213" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">T+24 hours</text>
+  <!-- Row 5: no_reorder -->
+  <rect x="28" y="236" width="256" height="36" rx="6" fill="#0E0050"/>
+  <text x="156" y="251" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#FBC94B">no_reorder_30_days</text>
+  <text x="156" y="265" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.6)">new customer · first purchase</text>
+  <text x="318" y="257" text-anchor="middle" font-family="Outfit, sans-serif" font-size="14" fill="#D1E030" opacity="0.5">→</text>
+  <rect x="332" y="236" width="280" height="36" rx="6" fill="#0E0050"/>
+  <text x="472" y="251" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="rgba(255,255,255,0.8)">At Risk New sequence</text>
+  <text x="472" y="265" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.5)">free shipping on second order</text>
+  <rect x="628" y="236" width="204" height="36" rx="6" fill="#D1E030" fill-opacity="0.15" stroke="#D1E030" stroke-opacity="0.4"/>
+  <text x="730" y="257" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">Day 30</text>
+  <!-- Result bar -->
+  <rect x="28" y="284" width="804" height="36" rx="6" fill="#D1E030" fill-opacity="0.1" stroke="#D1E030" stroke-opacity="0.25"/>
+  <text x="430" y="299" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030">Monday 7AM auto-report: Triple Whale + Stay AI + Klaviyo + Okendo → Looker Studio</text>
+  <text x="430" y="314" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" opacity="0.75">Zero manual data pull · Leadership sees the full picture in one dashboard</text>
+</svg>
+
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="fline lo"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">OctaneAI active — <span style="color:#009DE0">quiz optimization unverifiable</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>OctaneAI confirmed (botID: go1hr7b5n8a6ra1i) — quiz and chatbot tool active</li>
+            <li><span class="do"></span>Triple Whale + Stay AI + Klaviyo + Okendo — reporting sources confirmed</li>
+            <li class="na"><span class="dn"></span>n8n — server-side automation tool, no browser footprint by design; not detected externally</li>
+            <li class="na"><span class="dn"></span>OctaneAI quiz flow current state — unverifiable from external audit</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="fline lb2"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Quiz routing misses <span style="color:#FBC94B">expanded product line</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Quiz may not route to Mayo, Chips — new categories invisible in discovery flow</li>
+            <li><span class="db"></span>Churn signals missed until subscriber has already cancelled</li>
+            <li><span class="db"></span>Manual data pull consuming team bandwidth across 6+ platforms every Monday</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="fline ld"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">6 automated triggers — <span style="color:#06D4AE">zero manual intervention</span></div>
+          <div class="chips">
+            <span class="chip">OctaneAI Quiz Optimization</span>
+            <span class="chip">n8n Behavioral Triggers</span>
+            <span class="chip">Monday Auto-Report</span>
+            <span class="chip">AI Content Repurposing</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Zero manual churn intervention — <span style="color:var(--brand-primary)">Monday report from Week 5</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Month 2: System detects and triggers churn win-back without manual intervention. Monday report runs automatically from Week 5. Month 3: CS ticket volume decreasing as proactive win-back catches issues before escalation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bridge r">
+    <div class="bt">Layer 4 handles the execution. Layer 5 answers the strategic question: <em>where should the money actually go?</em></div>
+  </div>
+
+  <!-- LAYER 5 -->
+  <div class="lb r" id="l5">
+    <div class="lpill">L5 · Intelligence</div>
+    <div class="lname">Marketing <span class="ow">Intelligence</span></div>
+    <div class="ltag">"Know which channel, which product, and which customer is actually driving profit."</div>
+
+    <!-- svg-l5a: Revenue Intelligence Dashboard (MANDATORY) -->
+    <div class="lsvg" id="svg-l5a" data-diagram="svg-l5a" data-bg="light" style="margin:32px 0">
+      
+<svg viewBox="0 0 860 380" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="380" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">REVENUE INTELLIGENCE — WHAT YOU SEE AFTER 90 DAYS</text>
+  <!-- 4 KPI cards -->
+  <!-- Card 1: True ROAS -->
+  <rect x="28" y="44" width="184" height="72" rx="8" fill="#FFF4EC" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="44" y="64" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#D1E030" letter-spacing="1">TRUE ROAS</text>
+  <text x="44" y="94" font-family="JetBrains Mono, monospace" font-size="28" font-weight="700" fill="#3C422E">X.Xx</text>
+  <text x="44" y="109" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">(Revenue−COGS−Ship−Returns)/Spend</text>
+  <!-- Card 2: AOV -->
+  <rect x="224" y="44" width="184" height="72" rx="8" fill="#FFF4EC" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="240" y="64" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#D1E030" letter-spacing="1">AVG ORDER VALUE</text>
+  <text x="240" y="94" font-family="JetBrains Mono, monospace" font-size="28" font-weight="700" fill="#3C422E">$21–$119</text>
+  <text x="240" y="109" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">single bottle → 6-pack bundle</text>
+  <!-- Card 3: Repeat Purchase Rate -->
+  <rect x="420" y="44" width="184" height="72" rx="8" fill="#FFF4EC" stroke="#D1E030" stroke-opacity="0.3"/>
+  <text x="436" y="64" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#D1E030" letter-spacing="1">REPEAT PURCHASE RATE</text>
+  <text x="436" y="94" font-family="JetBrains Mono, monospace" font-size="28" font-weight="700" fill="#3C422E">35%</text>
+  <text x="436" y="109" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">target · 90-day window</text>
+  <!-- Card 4: Email Revenue -->
+  <rect x="616" y="44" width="216" height="72" rx="8" fill="#FFF4EC" stroke="#D1E030" stroke-opacity="0.5"/>
+  <text x="632" y="64" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#D1E030" letter-spacing="1">EMAIL REVENUE %</text>
+  <text x="632" y="94" font-family="JetBrains Mono, monospace" font-size="28" font-weight="700" fill="#D1E030">20–25%</text>
+  <text x="632" y="109" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">of total monthly revenue</text>
+  <!-- Section divider -->
+  <line x1="28" y1="132" x2="832" y2="132" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- LEFT: Shopping funnel -->
+  <text x="28" y="152" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">SHOPPING FUNNEL · conversion rates</text>
+  <!-- Funnel bars (left panel, width ~380) -->
+  <!-- Visitor 100% -->
+  <rect x="28" y="160" width="380" height="22" rx="4" fill="#020044"/>
+  <text x="44" y="175" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Visitor</text>
+  <text x="397" y="175" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="white">100%</text>
+  <!-- Product ~45% = 171 -->
+  <rect x="28" y="188" width="171" height="22" rx="4" fill="#1A1060"/>
+  <text x="44" y="203" font-family="Outfit, sans-serif" font-size="11" fill="white">Product Page</text>
+  <text x="210" y="203" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">~45%</text>
+  <!-- Cart ~8% = 30 -->
+  <rect x="28" y="216" width="30" height="22" rx="4" fill="#3A1A9A"/>
+  <text x="68" y="231" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">~8%</text>
+  <text x="118" y="231" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">Add to Cart</text>
+  <!-- Checkout ~5% = 19 -->
+  <rect x="28" y="244" width="19" height="22" rx="4" fill="#5A28C8"/>
+  <text x="57" y="259" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">~5%</text>
+  <text x="107" y="259" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">Checkout</text>
+  <!-- Purchase ~2.5% = 9 -->
+  <rect x="28" y="272" width="9" height="22" rx="4" fill="#06D4AE"/>
+  <text x="47" y="287" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">2.5%</text>
+  <text x="97" y="287" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">Purchase</text>
+  <!-- Subscription economics -->
+  <rect x="28" y="306" width="380" height="36" rx="6" fill="#3C422E" fill-opacity="0.06" stroke="#3C422E" stroke-opacity="0.15"/>
+  <text x="44" y="322" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#3C422E">Subscription Economics</text>
+  <text x="44" y="336" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">MRR · Cohort churn rate · Skip rate by SKU · One-time → Sub CVR (30/60/90d)</text>
+  <!-- Divider between panels -->
+  <line x1="424" y1="132" x2="424" y2="360" stroke="#D1E030" stroke-width="0.5" opacity="0.2"/>
+  <!-- RIGHT: Channel attribution -->
+  <text x="436" y="152" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">CHANNEL ATTRIBUTION · revenue %</text>
+  <!-- Channel bars (right panel) -->
+  <!-- Meta ~35% = 0.35*388 = 136 -->
+  <rect x="436" y="160" width="136" height="22" rx="4" fill="#3C422E"/>
+  <text x="452" y="175" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Meta Ads</text>
+  <text x="582" y="175" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">35%</text>
+  <!-- Email ~25% = 97 -->
+  <rect x="436" y="188" width="97" height="22" rx="4" fill="#D1E030"/>
+  <text x="452" y="203" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#3C422E">Email (Klaviyo)</text>
+  <text x="543" y="203" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">25%</text>
+  <!-- Google ~20% = 78 -->
+  <rect x="436" y="216" width="78" height="22" rx="4" fill="#34A853"/>
+  <text x="452" y="231" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Google</text>
+  <text x="524" y="231" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">20%</text>
+  <!-- SMS ~8% = 31 -->
+  <rect x="436" y="244" width="31" height="22" rx="4" fill="#3C422E" fill-opacity="0.6"/>
+  <text x="477" y="259" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">8%</text>
+  <text x="527" y="259" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">SMS (consolidated)</text>
+  <!-- Organic ~7% = 27 -->
+  <rect x="436" y="272" width="27" height="22" rx="4" fill="#3C422E" fill-opacity="0.4"/>
+  <text x="473" y="287" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#6B7057">7%</text>
+  <text x="523" y="287" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">Organic / Direct</text>
+  <!-- CTV ~3% + Affiliate ~2% -->
+  <rect x="436" y="300" width="200" height="22" rx="4" fill="#3C422E" fill-opacity="0.15"/>
+  <text x="452" y="315" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">CTV-attributed ~3% · Affiliate ~2%</text>
+  <!-- 90-day reporting cadence -->
+  <text x="436" y="350" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">90-DAY REPORTING CADENCE</text>
+  <rect x="436" y="356" width="116" height="14" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="494" y="366" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Weekly ROAS</text>
+  <rect x="558" y="356" width="116" height="14" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="616" y="366" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Monthly Cohort</text>
+  <rect x="680" y="356" width="152" height="14" rx="4" fill="#3C422E" fill-opacity="0.08"/>
+  <text x="756" y="366" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#3C422E">Quarterly Margins</text>
+</svg>
+
+    </div>
+
+    <!-- svg-l5c: Product & Category Intelligence (TRIGGER L5C = YES) -->
+    <div class="lsvg" id="svg-l5c" data-diagram="svg-l5c" data-bg="light" style="margin:32px 0">
+      
+<svg viewBox="0 0 860 320" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="320" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">PRODUCT INTELLIGENCE — CATEGORY PERFORMANCE &amp; AUTOMATION</text>
+  <!-- Section 1: Category bars -->
+  <text x="28" y="52" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">REVENUE BY PRODUCT CATEGORY · illustrative — actual data available post-90 days</text>
+  <!-- Olive Oil Singles ~45% = 0.45*804=362 -->
+  <rect x="28" y="60" width="362" height="26" rx="4" fill="#020044"/>
+  <text x="44" y="77" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Olive Oil Singles (Drizzle + Sizzle + Frizzle)</text>
+  <text x="400" y="77" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#3C422E">~45%</text>
+  <!-- Subscription/Refill ~30% = 0.30*804=241 -->
+  <rect x="28" y="92" width="241" height="26" rx="4" fill="#06D4AE"/>
+  <text x="44" y="109" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#020044">Subscription + Refill Cans ✦ Best Margin</text>
+  <text x="280" y="109" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#3C422E">~30%</text>
+  <!-- Bundles ~15% = 0.15*804=120 -->
+  <rect x="28" y="124" width="120" height="26" rx="4" fill="#1A1060"/>
+  <text x="44" y="141" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Bundles (Duo, Trio)</text>
+  <text x="158" y="141" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#3C422E">~15%</text>
+  <!-- Condiments ~7% = 56 -->
+  <rect x="28" y="156" width="56" height="26" rx="4" fill="#3A1A9A"/>
+  <text x="94" y="173" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#3C422E">~7%</text>
+  <text x="148" y="173" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">Condiments (Mayo) · expanding</text>
+  <!-- Chips ~3% = 24 -->
+  <rect x="28" y="188" width="24" height="26" rx="4" fill="#5A28C8"/>
+  <text x="62" y="205" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#3C422E">~3%</text>
+  <text x="116" y="205" font-family="Outfit, sans-serif" font-size="11" fill="#3C422E">Snacks (Chips) · early stage</text>
+  <!-- Section divider -->
+  <line x1="28" y1="224" x2="832" y2="224" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- Section 2: Stock matrix 2×2 -->
+  <text x="28" y="244" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" letter-spacing="0.5">STOCK PERFORMANCE MATRIX &amp; CATEGORY AUTOMATION TRIGGERS</text>
+  <!-- 2×2 grid: top-left, top-right, bottom-left, bottom-right -->
+  <!-- Top-left: Top Sellers -->
+  <rect x="28" y="252" width="186" height="48" rx="6" fill="#F0FDF4" stroke="#06D4AE" stroke-width="1.5"/>
+  <text x="121" y="268" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#166534">Top Sellers</text>
+  <text x="121" y="283" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Drizzle · Refill Cans</text>
+  <text x="121" y="296" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Protect + promote</text>
+  <!-- Top-right: Slow Movers -->
+  <rect x="226" y="252" width="186" height="48" rx="6" fill="#FEF3C7" stroke="#FBC94B" stroke-width="1.5"/>
+  <text x="319" y="268" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#92400E">Slow Movers</text>
+  <text x="319" y="283" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#92400E">Gift bundles · Chips</text>
+  <text x="319" y="296" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#92400E">→ Trigger: email to fans</text>
+  <!-- Automation triggers (right 2/3 of bottom) -->
+  <rect x="424" y="252" width="408" height="20" rx="4" fill="#0E0050"/>
+  <text x="444" y="266" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#FBC94B">Inventory Alert:</text>
+  <text x="556" y="266" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">SKU below threshold → restock alert + pre-order email &lt; 24h</text>
+  <rect x="424" y="278" width="408" height="20" rx="4" fill="#0E0050"/>
+  <text x="444" y="292" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#FBC94B">Slow Mover:</text>
+  <text x="534" y="292" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">14 days no sale → discount trigger → clearance email sequence</text>
+</svg>
+
+    </div>
+
+    <!-- svg-l5b: Digital Marketing Performance Dashboard (MANDATORY) -->
+    <div class="lsvg" id="svg-l5b" data-diagram="svg-l5b" data-bg="light" style="margin:32px 0">
+      
+<svg viewBox="0 0 860 340" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <rect width="860" height="340" fill="#FFF4EC" rx="12"/>
+  <!-- Eyebrow -->
+  <text x="28" y="32" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="1.5">DIGITAL MARKETING PERFORMANCE — PRIMARY KPI: TRUE ROAS</text>
+  <!-- Table note -->
+  <text x="832" y="32" text-anchor="end" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-style="italic">True ROAS = (Revenue−COGS−Ship−Returns) / Ad Spend</text>
+  <!-- Table header -->
+  <rect x="28" y="42" width="804" height="30" rx="6" fill="#3C422E"/>
+  <text x="120" y="62" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="0.5">CHANNEL</text>
+  <text x="310" y="62" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="0.5">SPEND</text>
+  <text x="460" y="62" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#D1E030" letter-spacing="0.5">TRUE ROAS ★</text>
+  <text x="620" y="62" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="0.5">PURCHASE CVR</text>
+  <text x="780" y="62" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white" letter-spacing="0.5">TREND</text>
+  <!-- Row 1: Email (best ROAS) -->
+  <rect x="28" y="78" width="804" height="30" rx="0" fill="#D1E030" fill-opacity="0.08"/>
+  <rect x="28" y="78" width="4" height="30" fill="#06D4AE"/>
+  <text x="120" y="98" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" font-weight="700" fill="#3C422E">Email (Klaviyo)</text>
+  <text x="310" y="98" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7057">attribution</text>
+  <text x="460" y="98" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#06D4AE">HIGHEST ↑</text>
+  <text x="620" y="98" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#3C422E">~4.2%</text>
+  <text x="780" y="98" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#166534">↑ improving</text>
+  <!-- Row 2: Meta -->
+  <rect x="28" y="114" width="804" height="30" rx="0" fill="#FFF4EC"/>
+  <text x="120" y="134" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">Meta Ads</text>
+  <text x="310" y="134" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7057">confirmed pixel</text>
+  <text x="460" y="134" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#3C422E">X.Xx*</text>
+  <text x="620" y="134" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#3C422E">~2.5%</text>
+  <text x="780" y="134" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#FBC94B">⚠ after dedup</text>
+  <!-- Row 3: Google -->
+  <rect x="28" y="150" width="804" height="30" rx="0" fill="#FFF4EC" fill-opacity="0.5"/>
+  <text x="120" y="170" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">Google Shopping</text>
+  <text x="310" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7057">GT-TBZ6CX7</text>
+  <text x="460" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#3C422E">X.Xx*</text>
+  <text x="620" y="170" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#3C422E">~3.1%</text>
+  <text x="780" y="170" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#6B7057">→ stable</text>
+  <!-- Row 4: CTV -->
+  <rect x="28" y="186" width="804" height="30" rx="0" fill="#FFF4EC"/>
+  <text x="120" y="206" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">CTV (Tatari + Keynes)</text>
+  <text x="310" y="206" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7057">custom pixels</text>
+  <text x="460" y="206" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#6B7057" font-style="italic">branded search lift*</text>
+  <text x="620" y="206" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#6B7057">indirect</text>
+  <text x="780" y="206" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#6B7057">→ LTV cohort</text>
+  <!-- Row 5: SMS -->
+  <rect x="28" y="222" width="804" height="30" rx="0" fill="#FFF4EC" fill-opacity="0.5"/>
+  <text x="120" y="242" text-anchor="middle" font-family="Outfit, sans-serif" font-size="12" fill="#3C422E">SMS (consolidated)</text>
+  <text x="310" y="242" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6B7057">1 platform post-audit</text>
+  <text x="460" y="242" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" font-weight="700" fill="#3C422E">X.Xx*</text>
+  <text x="620" y="242" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#3C422E">~3.8%</text>
+  <text x="780" y="242" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" fill="#166534">↑ post-dedup</text>
+  <!-- Table note -->
+  <text x="28" y="262" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057" font-style="italic">* X.Xx = True ROAS calculated from actual data after Layer 1 deduplication — available from Month 2</text>
+  <!-- Section divider -->
+  <line x1="28" y1="272" x2="832" y2="272" stroke="#D1E030" stroke-width="0.5" opacity="0.3"/>
+  <!-- 3 highlights -->
+  <text x="28" y="290" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" letter-spacing="0.5" font-weight="700">KEY INSIGHTS</text>
+  <rect x="28" y="298" width="244" height="30" rx="6" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <text x="150" y="312" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#166534">Best True ROAS</text>
+  <text x="150" y="325" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Email — highest net margin channel</text>
+  <rect x="284" y="298" width="244" height="30" rx="6" fill="#F0FDF4" stroke="#BBF7D0"/>
+  <text x="406" y="312" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#166534">Highest Purchase CVR</text>
+  <text x="406" y="325" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#166534">Email post-purchase flows (warm)</text>
+  <rect x="540" y="298" width="292" height="30" rx="6" fill="#FEF3C7" stroke="#FBC94B"/>
+  <text x="686" y="312" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" font-weight="700" fill="#92400E">Biggest Opportunity</text>
+  <text x="686" y="325" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#92400E">Meta — event dedup may reveal +40% ROAS</text>
+</svg>
+
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#EEF6FF;border:2px solid #009DE0"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg></div><div class="fline lo"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">CTV spend active — <span style="color:#009DE0">LTV by channel invisible</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>Triple Whale confirmed (MTA attribution tool)</li>
+            <li><span class="do"></span>Tatari + Keynes CTV pixels confirmed — significant investment</li>
+            <li><span class="do"></span>AWIN + Superfiliate affiliate channels confirmed</li>
+            <li class="na"><span class="dn"></span>True ROAS by channel (net of COGS + returns) — unverifiable from external audit</li>
+            <li class="na"><span class="dn"></span>LTV by acquisition channel — unverifiable from external audit</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg></div><div class="fline lb2"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">CTV spend justified by <span style="color:#FBC94B">assumption, not data</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Budget allocated to volume metrics — not net profit per channel</li>
+            <li><span class="db"></span>CTV spend unjustified without LTV-by-channel cohort analysis</li>
+            <li><span class="db"></span>Bestseller ≠ margin champion — without SKU-level margin data, promotion priority is wrong</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg></div><div class="fline ld"></div></div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">True ROAS dashboard — <span style="color:#06D4AE">profit, not volume</span></div>
+          <div class="chips">
+            <span class="chip">True ROAS Dashboard</span>
+            <span class="chip">LTV by Channel Cohort</span>
+            <span class="chip">Subscription Economics</span>
+            <span class="chip">Product Margin Intelligence</span>
+            <span class="chip">Inventory-to-Ad Budget Link</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl"><div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)"><svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Budget by profit — <span style="color:var(--brand-primary)">top 20% subscribers identified</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Month 3: True ROAS dashboard live with 90 days of historical data. Budget reallocation by LTV-per-channel data. CTV spend justified by data. Top 20% of subscribers generating 80% of subscription revenue — identified and treated as Champions.</div>
+          </div>
+          <div class="kalam">"Layer 5 predicts which subscribers will churn next month — but only once Layer 1 has 90 days of clean cohort data."</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SVG-CASCADE: 5-Layer Cascade Flow -->
+    <div id="svg-cascade" data-diagram="cascade-flow" data-bg="light"
+         style="background:var(--brand-bg-alt);border-radius:14px;padding:24px 28px;margin-top:8px;overflow:hidden;border:1px solid var(--brand-primary-light)">
+<svg viewBox="0 0 860 180" width="100%" style="display:block" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="casc-arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0 0 L6 3 L0 6" fill="none" stroke="#D1E030" stroke-width="1.5"/>
+    </marker>
+    <marker id="casc-loop" markerWidth="6" markerHeight="6" refX="1" refY="3" orient="auto">
+      <path d="M6 0 L0 3 L6 6" fill="none" stroke="#D1E030" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="860" height="180" fill="#FFF4EC" rx="12"/>
+  <!-- Feedback arc label -->
+  <text x="430" y="16" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#D1E030" opacity="0.75">Intelligence loops back — informs budget &amp; channel allocation</text>
+  <!-- Feedback arc -->
+  <path d="M 784 52 Q 430 12 80 52" fill="none" stroke="#D1E030" stroke-width="1.5" opacity="0.4" stroke-dasharray="5,3" marker-start="url(#casc-loop)"/>
+  <!-- Forward arrows -->
+  <line x1="116" y1="88" x2="220" y2="88" stroke="#D1E030" stroke-width="2" opacity="0.65" marker-end="url(#casc-arr)"/>
+  <line x1="292" y1="88" x2="396" y2="88" stroke="#D1E030" stroke-width="2" opacity="0.65" marker-end="url(#casc-arr)"/>
+  <line x1="468" y1="88" x2="572" y2="88" stroke="#D1E030" stroke-width="2" opacity="0.65" marker-end="url(#casc-arr)"/>
+  <line x1="644" y1="88" x2="748" y2="88" stroke="#D1E030" stroke-width="2" opacity="0.65" marker-end="url(#casc-arr)"/>
+  <!-- Circles -->
+  <circle cx="80" cy="88" r="34" fill="#020044"/>
+  <text x="80" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">L1</text>
+  <text x="80" y="96" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Data</text>
+  <circle cx="256" cy="88" r="34" fill="#1A1060"/>
+  <text x="256" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">L2</text>
+  <text x="256" y="96" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Channels</text>
+  <circle cx="432" cy="88" r="34" fill="#3A1A9A"/>
+  <text x="432" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">L3</text>
+  <text x="432" y="96" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Revenue</text>
+  <circle cx="608" cy="88" r="34" fill="#5A28C8"/>
+  <text x="608" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">L4</text>
+  <text x="608" y="96" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="white">Automation</text>
+  <circle cx="784" cy="88" r="34" fill="#06D4AE"/>
+  <text x="784" y="83" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#020044">L5</text>
+  <text x="784" y="96" text-anchor="middle" font-family="Outfit, sans-serif" font-size="11" font-weight="700" fill="#020044">Intelligence</text>
+  <!-- Connection labels -->
+  <text x="168" y="136" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Clean data enables</text>
+  <text x="168" y="149" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">ROAS optimization</text>
+  <text x="344" y="136" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Demand enables</text>
+  <text x="344" y="149" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">cart recovery</text>
+  <text x="520" y="136" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Recovery enables</text>
+  <text x="520" y="149" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">retention</text>
+  <text x="696" y="136" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">Retention enables</text>
+  <text x="696" y="149" text-anchor="middle" font-family="Outfit, sans-serif" font-size="10" fill="#6B7057">intelligence</text>
+</svg>
+</div>
+
+  </div>
+
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 6 -->
+
+<!-- S5: THE JOURNEY -->
+<div class="sec" id="s5">
+  <div class="ey r">Section 05</div>
+  <div class="st r">The <span class="ow">Journey</span></div>
+  <p class="sl r">90 days. Three phases. Each phase has a clear deliverable set and a specific thing you'll see by the end of it.</p>
+
+  <div class="step-tabs-wrapper r">
+    <button class="step-tab step-active" data-bg="var(--brand-dark)" data-col="white" onclick="switchStep(0)">
+      <div class="step-tab-label-top">Month 01</div>
+      <div class="step-tab-label-main">Clean House</div>
+    </button>
+    <button class="step-tab" data-bg="var(--brand-primary)" data-col="white" onclick="switchStep(1)">
+      <div class="step-tab-label-top">Month 02</div>
+      <div class="step-tab-label-main">Build the Engine</div>
+    </button>
+    <button class="step-tab" data-bg="var(--brand-primary-dark)" data-col="white" onclick="switchStep(2)">
+      <div class="step-tab-label-top">Month 03</div>
+      <div class="step-tab-label-main">Scale What Works</div>
+    </button>
+  </div>
+
+  <!-- Panel 1 -->
+  <div class="step-panel r" style="display:block">
+    <div class="mo">
+      <div class="mh">Month 1 — <em>Clean House</em></div>
+      <ul class="mi">
+        <li>Event deduplication audit — identify True ROAS vs inflated ROAS</li>
+        <li>Meta CAPI implementation (if not already live) — server-to-server purchase signal</li>
+        <li>SMS platform audit: Postscript vs Attentive — consolidation roadmap delivered</li>
+        <li>Subscription purchase event tagging — subscription first order tracked separately from one-time</li>
+        <li>Klaviyo abandoned cart sequence: 3-email flow (T+1h → T+24h → T+72h) + SMS trigger</li>
+        <li>Email capture offer implementation — A/B test offer-gated popup vs plain form</li>
+      </ul>
+      <div class="ys">True ROAS report for the first time — showing what Meta is actually delivering after deduplication. Abandoned cart sequence live and recovering revenue from day one of go-live. Email list growth rate measurably higher with an offer-gated capture.</div>
+    </div>
+  </div>
+
+  <!-- Panel 2 -->
+  <div class="step-panel r">
+    <div class="mo">
+      <div class="mh">Month 2 — <em>Build the Engine</em></div>
+      <ul class="mi">
+        <li>Full post-purchase flow: Day 1 cross-sell → Day 7 review request → Day 21 replenishment → Day 30 win-back → Day 45 referral ask</li>
+        <li>RFM segmentation — 5 tiers deployed in Klaviyo, auto-assigned based on purchase behavior</li>
+        <li>Subscription churn early warning: skip-order detection + proactive win-back sequence</li>
+        <li>OctaneAI quiz audit and optimization — expanded to cover Mayo and Chips product lines</li>
+        <li>n8n automation triggers live: review alert, churn signal, restock notification, subscribe-page retargeting</li>
+        <li>Looker Studio dashboard: True ROAS + email revenue + subscription metrics</li>
+      </ul>
+      <div class="ys">Email and SMS contributing a measurable percentage of total revenue with per-flow tracking for the first time. Subscription churn rate has a baseline measurement. RFM segments populated — Champions and At Risk customers identified.</div>
+    </div>
+  </div>
+
+  <!-- Panel 3 -->
+  <div class="step-panel r">
+    <div class="mo">
+      <div class="mh">Month 3 — <em>Scale What Works</em></div>
+      <ul class="mi">
+        <li>Meta campaign restructure: 3-tier funnel (cold one-time / cold subscription / warm retargeting)</li>
+        <li>TikTok Ads activation with UGC format from organic top performers</li>
+        <li>Customer cohort analysis: LTV by acquisition channel — Meta vs CTV vs ambassador</li>
+        <li>Product margin intelligence: true margin by SKU, informing email promotion priority</li>
+        <li>AI content repurposing workflow: UGC → email / SMS / Pinterest variations</li>
+        <li>Full Monday automated report: zero manual data pull from any platform</li>
+      </ul>
+      <div class="ys">Cart recovery rate baseline versus 15–20% target. Email revenue contribution percentage tracked and visible. One-time buyer → subscription conversion rate measured at 30/60/90-day intervals. Budget allocation supported by 90-day cohort data — not intuition.</div>
+    </div>
+  </div>
+
+  <!-- LTV Add-on -->
+  <div class="ltv r">
+    <p><strong>After 90 Days — LTV &amp; Churn Intelligence Layer</strong></p>
+    <p>Graza is an ideal candidate: consumable product, active subscription model, expanding product line. After 90 days of clean data from the Engine, X5 has enough to activate predictive intelligence: CLV prediction by cohort, churn probability score per subscriber (identify who will cancel 30 days before they do), replenishment timing prediction based on actual purchase frequency patterns, and product affinity cross-sell model (Drizzle → Mayo → Chips: which path has the highest cross-category LTV?).</p>
+    <p>This layer turns Graza's subscription business from <strong>automated</strong> to <strong>intelligent</strong>.</p>
+  </div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 7 -->
+
+<!-- S6: THE DESTINATION -->
+<div class="sec" id="s6">
+  <div class="ey r">Section 06</div>
+  <div class="st r">The <span class="ow">Destination</span></div>
+  <p class="sl r">What the numbers look like when all five layers run together. These are D2C consumables benchmarks — not GRAZA's current internal figures, which we haven't seen yet.</p>
+
+  <!-- 4 Metric Cards -->
+  <div class="mgr">
+    <div class="mcard r">
+      <div class="ml">Cart Recovery Rate</div>
+      <div class="mv" id="m-cac">17%</div>
+      <div class="ms">Of abandoned cart value</div>
+    </div>
+    <div class="mcard r d1">
+      <div class="ml">Subscriber LTV</div>
+      <div class="mv" id="m-ltv">$180</div>
+      <div class="ms">Annual · vs $21 one-time</div>
+    </div>
+    <div class="mcard r d2">
+      <div class="ml">Email Revenue</div>
+      <div class="mv" id="m-mrr">22%</div>
+      <div class="ms">Of total monthly revenue</div>
+    </div>
+    <div class="mcard r d3">
+      <div class="ml">Repeat Purchase Rate</div>
+      <div class="mv" id="m-email" style="color:var(--brand-primary)">35%</div>
+      <div class="ms">90-day window · target</div>
+    </div>
+  </div>
+
+  <!-- Dashboard Panels -->
+  <div class="dgr r" style="transition-delay:.1s">
+    <div class="dp">
+      <div class="pt">Shopping Conversion Funnel</div>
+      <div class="funnel">
+        <div class="fr2">
+          <div class="flb">Visitor</div>
+          <div class="fbw"><div class="fbar" style="width:100%;background:var(--brand-dark)"></div></div>
+          <div class="fpct" style="color:var(--brand-dark)">100%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Product Page</div>
+          <div class="fbw"><div class="fbar" style="width:45%;background:#3A1A9A"></div></div>
+          <div class="fpct" style="color:#3A1A9A">~45%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Add to Cart</div>
+          <div class="fbw"><div class="fbar" style="width:8%;background:#5A28C8"></div></div>
+          <div class="fpct" style="color:#5A28C8">~8%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Checkout</div>
+          <div class="fbw"><div class="fbar" style="width:5%;background:var(--brand-primary-dark)"></div></div>
+          <div class="fpct" style="color:var(--brand-primary-dark)">~5%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Purchase</div>
+          <div class="fbw"><div class="fbar" style="width:2.5%;background:var(--brand-primary)"></div></div>
+          <div class="fpct" style="color:var(--brand-primary)">2.5%</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dp">
+      <div class="pt">Channel Attribution — Revenue</div>
+      <div class="chr">
+        <div class="cr"><div class="cn2">Meta Ads</div><div class="ct"><div class="cf" style="width:35%;background:var(--brand-dark)"></div></div><div class="cv">35%</div></div>
+        <div class="cr"><div class="cn2">Email</div><div class="ct"><div class="cf" style="width:25%;background:var(--brand-primary)"></div></div><div class="cv">25%</div></div>
+        <div class="cr"><div class="cn2">Google</div><div class="ct"><div class="cf" style="width:20%;background:#06D4AE"></div></div><div class="cv">20%</div></div>
+        <div class="cr"><div class="cn2">SMS</div><div class="ct"><div class="cf" style="width:8%;background:#009DE0"></div></div><div class="cv">8%</div></div>
+        <div class="cr"><div class="cn2">Organic</div><div class="ct"><div class="cf" style="width:7%;background:#6A28EA"></div></div><div class="cv">7%</div></div>
+        <div class="cr"><div class="cn2">CTV (*)</div><div class="ct"><div class="cf" style="width:3%;background:#FBC94B"></div></div><div class="cv">3%</div></div>
+      </div>
+      <div style="margin-top:16px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-text-muted);margin-bottom:8px">Subscription MRR — 6 Months Post-Launch</div>
+        <svg viewBox="0 0 300 54" width="100%" style="display:block">
+          <rect x="0" y="0" width="300" height="54" rx="8" fill="var(--brand-primary-light)"/>
+          <polyline points="10,44 58,40 106,34 154,26 202,18 250,10 290,5" fill="none" stroke="var(--brand-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="10,44 58,40 106,34 154,26 202,18 250,10 290,5 290,50 10,50" fill="var(--brand-primary-light)"/>
+          <circle cx="290" cy="5" r="4" fill="var(--brand-primary)"/>
+          <text x="268" y="19" font-family="Outfit" font-size="11" font-weight="700" fill="var(--brand-primary)">+32%</text>
+        </svg>
+        <div style="font-size:10px;color:var(--brand-text-muted);margin-top:4px">(*) CTV measured via branded search lift + LTV cohort — requires Triple Whale config</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <p class="ey r" style="margin-top:36px">90-Day Summary</p>
+  <div style="overflow-x:auto" class="r">
+    <table class="stab">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Question It Answers</th>
+          <th>X5 Delivers</th>
+          <th>You See After 90 Days</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lbadge">L1</span></td>
+          <td>What is our actual ROAS after deduplication? How much signal are we losing to iOS 14+?</td>
+          <td><strong>Event deduplication, Meta CAPI, subscription event tagging, SMS platform consolidation</strong></td>
+          <td>True ROAS for the first time. Meta Event Match Quality 7.5+/10. 20–40% conversion data recovery. SMS platform cost ~40% lower.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L2</span></td>
+          <td>Are we sending the right traffic to the right destination? Is our email list built for buyers or fans?</td>
+          <td><strong>Meta 3-tier campaign structure, TikTok UGC activation, email capture offer, Google brand defense</strong></td>
+          <td>Email list growth rate +40–60%. Subscription acquisition CPA tracked separately. Campaign performance visible per funnel stage.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L3</span></td>
+          <td>Where is revenue leaking between first purchase and loyal subscriber?</td>
+          <td><strong>Abandoned cart 3-step + SMS, post-purchase Day 1 to Day 45, RFM 5 segments, subscription churn early warning</strong></td>
+          <td>Cart recovery rate target 15–20%. Email/SMS contribution 20–25% of revenue. Subscription churn rate with measurement baseline.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L4</span></td>
+          <td>What is the team doing manually that should be running automatically?</td>
+          <td><strong>n8n behavioral triggers, OctaneAI quiz optimization, Monday auto-report, AI content repurposing workflow</strong></td>
+          <td>Zero manual intervention on churn signals. Monday report automated from Week 5. CS ticket volume decreasing.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L5</span></td>
+          <td>Is CTV spend justified by data? Which channel produces the highest LTV? Which product drives the most margin?</td>
+          <td><strong>True ROAS dashboard, LTV-by-channel cohort analysis, subscription economics dashboard, product margin intelligence by SKU</strong></td>
+          <td>Budget allocation by profit, not volume. Top 20% subscribers generating 80% of subscription revenue — identified and treated accordingly.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 8 -->
+
+<!-- S7: THE ASK -->
+<div class="ask" id="s7">
+  <div class="ask-gh">30</div>
+  <div class="ask-in">
+    <div class="ask-ey r">Section 07 · The Ask</div>
+    <div class="ask-h r">30 Minutes.<br>No Pitch. Just Data.</div>
+    <div class="ask-k r">"Whether we work together or not — you'll leave knowing your True ROAS for the first time."</div>
+    <p class="ask-c r">The audit is already done. The diagnosis is already on the table. All that's left is 30 minutes for GRAZA to decide whether the diagnosis is right — before anything else is discussed. In 30 minutes, we'll look at three things together: the actual event duplication rate across your Meta Pixel, GTM container, and Elevar layer; what your current Klaviyo flow coverage looks like against the full post-purchase journey; and where in the subscription lifecycle your churn is concentrated.</p>
+    <a href="mailto:hello@x5digital.com" class="ask-btn r d1">Book the 30-Minute Audit →</a>
+    <p class="ask-fn r d2">No pricing on this call. No pitch deck. Just the data — and a conversation about what it means.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Prepared by X5 Digital · hello@x5digital.com · April 2026 · Confidential — For GRAZA review only. All observations sourced from external audit of graza.co — no internal data accessed. Benchmark figures are industry averages for D2C consumables and food/beverage brands.</span>
+</div>
+<!-- END SECTION 9 -->
+
+<script>
+/* ── #1: Progress Bar ── */
+var pb = document.getElementById('pb');
+window.addEventListener('scroll', function() {
+  var s = document.documentElement.scrollTop || document.body.scrollTop;
+  var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  pb.style.width = (s / h * 100) + '%';
+});
+
+/* ── #2: Scroll Reveal ── */
+var ro = new IntersectionObserver(function(e) {
+  e.forEach(function(el) {
+    if (el.isIntersecting) { el.target.classList.add('in'); ro.unobserve(el.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.r').forEach(function(el) { ro.observe(el); });
+
+/* ── #3: Count-Up Animation ── */
+function countUp(el, pre, suf, target, dur) {
+  var s = 0, step = target / dur * 16;
+  var t = setInterval(function() {
+    s = Math.min(s + step, target);
+    el.textContent = pre + Math.floor(s).toLocaleString() + suf;
+    if (s >= target) clearInterval(t);
+  }, 16);
+}
+var mo = new IntersectionObserver(function(e) {
+  e.forEach(function(el) {
+    if (el.isIntersecting) {
+      var id = el.target.id;
+      var configs = {
+        'm-cac':    ['', '%', 17,  1200],
+        'm-ltv':    ['$', '', 180, 1400],
+        'm-mrr':    ['', '%', 22,  900],
+        'm-email':  ['', '%', 35,  800],
+        's1-tools': ['', '+', 20,  1000],
+        's1-save':  ['', '%', 21,  700]
+      };
+      if (configs[id]) {
+        var c = configs[id];
+        countUp(el, c[0], c[1], c[2], c[3]);
+      }
+      mo.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.5 });
+['m-cac','m-ltv','m-mrr','m-email','s1-tools','s1-save'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) mo.observe(el);
+});
+
+/* ── #4: CTA Button Pulse ── */
+var ctaBtn = document.querySelector('.ask-btn');
+if (ctaBtn) {
+  var ctaObs = new IntersectionObserver(function(e) {
+    if (e[0].isIntersecting) { ctaBtn.classList.add('pulse-active'); ctaObs.disconnect(); }
+  }, { threshold: 0.8 });
+  ctaObs.observe(ctaBtn);
+}
+
+/* ── #5: Nav Active Section Highlight ── */
+(function() {
+  var sections = ['s1','s2','s3','s4','s5','s6','s7'];
+  var links = document.querySelectorAll('.nav-link:not(.nav-cta)');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        links.forEach(function(l) { l.classList.remove('nav-active'); });
+        var idx = sections.indexOf(id);
+        if (idx >= 0 && links[idx]) links[idx].classList.add('nav-active');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+
+/* ── #6: Interactive Pyramid ── */
+document.querySelectorAll('.pyr-block').forEach(function(block) {
+  block.addEventListener('click', function() {
+    var row = block.parentElement;
+    var expand = row.querySelector('.pyr-expand');
+    var isOpen = expand && expand.classList.contains('pyr-open');
+    document.querySelectorAll('.pyr-expand').forEach(function(e) { e.classList.remove('pyr-open'); });
+    document.querySelectorAll('.pyr-block').forEach(function(b) { b.classList.remove('pyr-open'); });
+    if (!isOpen && expand) {
+      expand.classList.add('pyr-open');
+      block.classList.add('pyr-open');
+    }
+  });
+});
+
+/* ── #7: Typewriter — Applied to GRAZA ── */
+(function() {
+  var el = document.getElementById('applied-typed');
+  var counter = document.getElementById('applied-counter');
+  var section = document.getElementById('applied-section');
+  if (!el || !section) return;
+  var text = 'Applied to GRAZA — Layer by Layer';
+  var i = 0, started = false;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text[i]; i++;
+      setTimeout(type, i < 9 ? 60 : i < 20 ? 45 : 35);
+    } else {
+      el.classList.add('done');
+      if (counter) counter.classList.add('visible');
+    }
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !started) {
+      started = true; setTimeout(type, 300); obs.disconnect();
+    }
+  }, { threshold: 0.6 });
+  obs.observe(section);
+})();
+
+/* ── #8: Step Tabs ── */
+function switchStep(idx) {
+  var tabs = document.querySelectorAll('.step-tab');
+  var panels = document.querySelectorAll('.step-panel');
+  tabs.forEach(function(t, i) {
+    var active = i === idx;
+    t.classList.toggle('step-active', active);
+    t.style.background = active ? t.dataset.bg : '';
+    t.style.color = active ? t.dataset.col : '';
+  });
+  panels.forEach(function(p, i) {
+    p.style.display = i === idx ? 'block' : 'none';
+  });
+}
+(function() {
+  var tabs = document.querySelectorAll('.step-tab');
+  if (tabs.length > 0) {
+    tabs[0].style.background = tabs[0].dataset.bg;
+    tabs[0].style.color = tabs[0].dataset.col;
+  }
+})();
+</script>
+
+</body>
+</html>
