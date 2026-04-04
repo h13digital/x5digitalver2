@@ -1,0 +1,2880 @@
+<!-- WeCopy Fintech INC × X5 Digital | HTML Skeleton | Step 2A Output | April 2026 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WeCopy Fintech INC × X5 Digital — Growth Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;600&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+
+/* ── CSS Variables ── */
+:root {
+  --brand-primary:       #446084;
+  --brand-primary-light: rgba(68,96,132,0.12);
+  --brand-primary-dark:  #2E4260;
+  --brand-bg:            #FFFFFF;
+  --brand-bg-alt:        #F1F1F1;
+  --brand-dark:          #0D1B2E;
+  --brand-text:          #1D2939;
+  --brand-text-muted:    #667085;
+  --danger:       #991B1B;
+  --danger-bg:    #FEF2F2;
+  --danger-border:#FECACA;
+  --success:      #166534;
+  --success-bg:   #F0FDF4;
+  --success-border:#BBF7D0;
+  --evidence-bg:  #020044;
+  --evidence-text: rgba(255,255,255,0.72);
+  --hypo-blue:    #009DE0;
+  --hypo-amber:   #FBC94B;
+  --hypo-amber-text: #A07800;
+  --hypo-purple:  #6A28EA;
+  --layer-1: #020044;
+  --layer-2: #1A1060;
+  --layer-3: #3A1A9A;
+  --layer-4: #5A28C8;
+  --layer-5: #06D4AE;
+  --flow-observe: #009DE0;
+  --flow-broken:  #FBC94B;
+  --flow-build:   #06D4AE;
+  --flow-result:  #6A28EA;
+}
+
+/* ── Global Utilities ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  overflow-x: hidden;
+}
+p { margin-bottom: 12px; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; }
+em { font-style: italic; }
+.r { opacity:0; transform:translateY(20px); transition:opacity .55s ease,transform .55s ease; }
+.r.in { opacity:1; transform:translateY(0); }
+.r.d1 { transition-delay:.08s; }
+.r.d2 { transition-delay:.15s; }
+.r.d3 { transition-delay:.22s; }
+.sec { max-width:1100px; margin:0 auto; padding:80px 24px; }
+@media(max-width:768px){.sec{padding:56px 16px;}}
+.gdiv { height:1px; background:linear-gradient(90deg,var(--brand-primary),var(--brand-dark),transparent); opacity:.25; }
+.ey { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-primary); margin-bottom:10px; }
+.st { font-size:clamp(28px,5vw,44px); font-weight:900; color:var(--brand-dark); letter-spacing:-1.5px; line-height:1.1; margin-bottom:8px; }
+.ow { color:transparent; -webkit-text-stroke:2px var(--brand-primary); }
+.sl { font-size:15px; font-weight:300; color:var(--brand-text-muted); line-height:1.75; max-width:740px; margin-bottom:40px; }
+.sec-hl { font-size:19px; font-weight:500; line-height:1.7; color:var(--brand-text); max-width:760px; margin-bottom:20px; font-style:italic; }
+.sec-hl em { font-style:normal; font-weight:600; color:var(--brand-dark); }
+.ev { background:var(--evidence-bg); border-radius:8px; padding:14px 18px; margin:12px 0 4px; }
+.ev-lb { font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:700; letter-spacing:1.5px; color:var(--brand-primary); display:block; margin-bottom:8px; text-transform:uppercase; }
+.ev ul { list-style:none; padding:0; }
+.ev li { font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--evidence-text); line-height:1.85; padding-left:14px; position:relative; }
+.ev li::before { content:"›"; position:absolute; left:0; color:var(--brand-primary); font-weight:700; }
+.ev li.dim { color:rgba(255,255,255,0.3); }
+.bridge { border-left:3px solid var(--brand-primary); padding:12px 0 12px 20px; margin:24px 0 40px; max-width:680px; }
+.bt { font-size:15px; font-weight:500; color:var(--brand-dark); line-height:1.6; }
+.bt em { font-style:normal; color:var(--brand-primary); }
+.chips { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.chip { font-size:11px; font-weight:600; color:var(--brand-primary-dark); background:var(--brand-primary-light); padding:4px 10px; border-radius:20px; border:1px solid var(--brand-primary); }
+.kalam { font-family:'Kalam',cursive; font-size:14px; color:var(--brand-primary); margin-top:8px; line-height:1.5; }
+
+/* ── Section 1 — Progress Bar + Nav + Hero ── */
+#pb { position:fixed; top:0; left:0; height:3px; background:var(--brand-primary); width:0%; z-index:1001; transition:width .1s linear; }
+.nav { background:var(--brand-dark); padding:14px 24px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+.logo-x5 { font-size:22px; font-weight:900; color:white; letter-spacing:-1px; }
+.logo-d { font-size:16px; font-weight:300; color:rgba(255,255,255,.7); margin-left:4px; }
+.logo-cursor { font-size:20px; font-weight:300; color:white; margin:0 2px; animation:blink .9s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.nav-tag { font-size:11px; font-weight:300; color:rgba(255,255,255,.4); letter-spacing:.06em; }
+.nav-links { display:flex; gap:4px; align-items:center; }
+.nav-link { font-size:11px; font-weight:600; color:rgba(255,255,255,.5); text-decoration:none; padding:5px 10px; border-radius:6px; letter-spacing:.04em; transition:color .2s,background .2s; }
+.nav-link:hover { color:white; background:rgba(255,255,255,.08); }
+.nav-link.nav-active { color:var(--brand-primary); }
+.nav-cta { background:rgba(255,255,255,.1); color:white!important; border:1px solid rgba(255,255,255,.25); }
+.nav-cta:hover { background:rgba(255,255,255,.2)!important; }
+@media(max-width:768px){.nav-links{display:none!important;}}
+.hero { max-width:1100px; margin:0 auto; padding:80px 24px 52px; position:relative; overflow:hidden; }
+.hero-gh { position:absolute; right:-20px; top:-30px; font-size:200px; font-weight:900; color:var(--brand-dark); opacity:.04; line-height:1; pointer-events:none; user-select:none; }
+@media(max-width:768px){.hero-gh{display:none;}}
+.hero-to { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-primary); margin-bottom:14px; }
+.hero-name { font-size:clamp(36px,7vw,72px); font-weight:900; color:var(--brand-dark); line-height:1.1; letter-spacing:-2px; margin-bottom:6px; }
+.hero-name span { color:var(--brand-primary); }
+.hero-sub { font-size:clamp(14px,2vw,17px); font-weight:300; color:var(--brand-text-muted); margin-bottom:28px; max-width:580px; line-height:1.65; }
+.hero-b { display:inline-block; font-size:12px; font-weight:600; color:var(--brand-text-muted); letter-spacing:.08em; border:1px solid var(--brand-primary-light); border-radius:20px; padding:4px 14px; }
+
+/* ── Section 2 — The Mirror ── */
+.mgrid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+@media(max-width:640px){.mgrid{grid-template-columns:1fr;}}
+.mc { position:relative; background:var(--brand-bg-alt); border-left:3px solid var(--brand-primary); border-radius:0 12px 12px 0; padding:28px; overflow:hidden; transition:transform .2s,box-shadow .2s; }
+.mc:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,0,0,.08); }
+.mc.d1 { border-left-color:var(--brand-primary); }
+.mc.d2 { border-left-color:var(--hypo-blue); }
+.mc.d3 { border-left-color:var(--hypo-amber); }
+.mc-gh { position:absolute; right:10px; top:-20px; font-size:140px; font-weight:900; color:var(--brand-dark); opacity:.05; line-height:1; pointer-events:none; }
+.mstat { font-size:clamp(40px,6vw,68px); font-weight:900; color:var(--brand-dark); letter-spacing:-3px; line-height:1; }
+.mstat .acc { color:var(--brand-primary); }
+.mdiv { width:44px; height:3px; background:var(--brand-primary); margin:10px 0 12px; }
+.mctx { font-size:13px; color:var(--brand-text); line-height:1.65; max-width:280px; }
+
+/* ── Section 3 — The Hidden Leak ── */
+.hc { background:var(--brand-bg); border:1px solid var(--brand-primary-light); border-radius:16px; padding:28px; overflow:hidden; margin-bottom:20px; position:relative; }
+.hc-gh { position:absolute; right:20px; top:12px; font-size:96px; font-weight:900; color:var(--brand-primary); opacity:.06; line-height:1; pointer-events:none; }
+@media(max-width:640px){.hc-gh{display:none;}}
+.hr { display:flex; align-items:flex-start; gap:16px; padding:12px 0; }
+.hdiv { height:1px; background:var(--brand-primary-light); }
+.hbadge { display:flex; flex-direction:column; align-items:center; gap:4px; flex-shrink:0; width:44px; margin-top:2px; }
+.hcircle { width:30px; height:30px; border-radius:50%; border:2px solid; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:900; }
+.hcb { border-color:#009DE0; color:#009DE0; }
+.hca { border-color:#FBC94B; color:#A07800; }
+.hcp { border-color:#6A28EA; color:#6A28EA; }
+.hlb { font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; text-align:center; line-height:1.3; }
+.hlbl { color:#009DE0; }
+.hlal { color:#A07800; }
+.hlpl { color:#6A28EA; }
+.htxt { font-size:14px; color:var(--brand-text); line-height:1.65; flex:1; }
+.hq { font-size:15px; font-weight:600; color:var(--brand-dark); line-height:1.6; padding:10px 14px; background:var(--brand-bg-alt); border-radius:8px; flex:1; border-left:3px solid var(--brand-primary); }
+.ut { width:100%; border-collapse:collapse; font-size:13px; margin-top:16px; }
+.ut thead tr { background:var(--brand-dark); color:white; }
+.ut th { padding:10px 16px; text-align:left; font-size:11px; font-weight:700; letter-spacing:.8px; text-transform:uppercase; }
+.ut td { padding:11px 16px; border-bottom:1px solid var(--brand-primary-light); vertical-align:top; line-height:1.55; }
+.ut tr:nth-child(even) td { background:#FAFAFA; }
+
+/* ── Section 4 — Before & After ── */
+.scenario { margin-bottom:52px; }
+.sc-num { font-size:11px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:#9CA3AF; margin-bottom:6px; }
+.sc-tit { font-size:17px; font-weight:700; color:var(--brand-dark); margin-bottom:18px; padding-left:14px; border-left:3px solid var(--brand-primary); }
+.char-strip { display:flex; align-items:center; flex-wrap:wrap; gap:6px 14px; background:var(--brand-bg-alt); border:1px solid var(--brand-primary-light); border-radius:8px; padding:10px 16px; margin-bottom:16px; font-size:13px; }
+.char-avatar { width:30px; height:30px; border-radius:50%; background:var(--brand-dark); color:var(--brand-primary); font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.char-name { font-weight:700; color:var(--brand-dark); font-size:15px; }
+.char-dot { color:var(--brand-primary-light); font-size:16px; }
+.char-role { color:var(--brand-text-muted); font-size:13px; }
+.char-pain { color:var(--brand-primary); font-size:12px; font-weight:600; background:var(--brand-primary-light); padding:2px 10px; border-radius:20px; margin-left:auto; }
+.split-ba { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:12px; }
+@media(max-width:640px){.split-ba{grid-template-columns:1fr;}}
+.ba-col { border-radius:12px; overflow:hidden; }
+.ba-col-bef { border:1.5px solid var(--danger-border); }
+.ba-col-aft { border:1.5px solid var(--success-border); }
+.ba-col-header { padding:13px 18px 11px; display:flex; align-items:center; gap:8px; }
+.ba-col-bef .ba-col-header { background:var(--danger-bg); border-bottom:1px solid var(--danger-border); }
+.ba-col-aft .ba-col-header { background:var(--success-bg); border-bottom:1px solid var(--success-border); }
+.ba-col-label { font-size:11px; font-weight:700; letter-spacing:1.2px; text-transform:uppercase; }
+.ba-col-bef .ba-col-label { color:#DC2626; }
+.ba-col-aft .ba-col-label { color:#16A34A; }
+.ba-col-body { padding:18px; }
+.ba-col-bef .ba-col-body { background:#FFFAFA; }
+.ba-col-aft .ba-col-body { background:#FAFFFE; }
+.ba-tl { display:flex; flex-direction:column; gap:0; }
+.ba-tl-item { display:flex; gap:12px; }
+.ba-tl-left { display:flex; flex-direction:column; align-items:center; width:32px; flex-shrink:0; }
+.ba-tl-dot { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; flex-shrink:0; z-index:1; }
+.ba-tl-line { width:2px; flex:1; min-height:12px; margin:2px auto; }
+.ba-col-bef .ba-tl-dot.nd-neutral { background:#F3F4F6; border:1.5px solid #E5E7EB; }
+.ba-col-bef .ba-tl-dot.nd-bad { background:#FEE2E2; border:1.5px solid #FECACA; }
+.ba-col-bef .ba-tl-dot.nd-end { background:#DC2626; border:1.5px solid #DC2626; color:white; font-size:12px; font-weight:700; }
+.ba-col-bef .ba-tl-line { background:#FECACA; }
+.ba-col-aft .ba-tl-dot.nd-neutral { background:#F3F4F6; border:1.5px solid #E5E7EB; }
+.ba-col-aft .ba-tl-dot.nd-good { background:#DCFCE7; border:1.5px solid #BBF7D0; }
+.ba-col-aft .ba-tl-dot.nd-end { background:#16A34A; border:1.5px solid #16A34A; color:white; font-size:12px; font-weight:700; }
+.ba-col-aft .ba-tl-line { background:#BBF7D0; }
+.ba-tl-right { padding-bottom:14px; flex:1; padding-top:4px; }
+.ba-tl-time { font-size:10px; font-weight:700; color:#9CA3AF; letter-spacing:.06em; margin-bottom:2px; text-transform:uppercase; }
+.ba-tl-title { font-size:14px; font-weight:600; line-height:1.45; }
+.ba-col-bef .ba-tl-title { color:var(--danger); }
+.ba-col-aft .ba-tl-title { color:var(--success); }
+.ba-tl-sub { font-size:13px; color:#6B7280; line-height:1.45; font-style:italic; }
+.ba-code { font-family:'JetBrains Mono',monospace; font-size:11px; background:var(--brand-primary-light); color:var(--brand-primary); padding:1px 5px; border-radius:3px; }
+.ba-col-footer { padding:11px 18px; display:flex; align-items:center; gap:8px; font-size:12px; font-weight:700; }
+.ba-col-bef .ba-col-footer { background:#FEE2E2; color:#DC2626; border-top:1px solid var(--danger-border); }
+.ba-col-aft .ba-col-footer { background:#DCFCE7; color:#16A34A; border-top:1px solid var(--success-border); }
+.res-r3 { background:var(--brand-bg-alt); border-left:3px solid var(--brand-primary); border-radius:0 10px 10px 0; padding:13px 18px; display:flex; align-items:baseline; flex-wrap:wrap; gap:5px 8px; }
+.res-r3 .r3-arrow { color:var(--brand-primary); font-weight:900; font-size:18px; align-self:center; margin-right:4px; }
+.res-r3 .r3-ctx { font-size:13px; color:#6B7280; font-weight:400; }
+.res-r3 .r3-num { font-size:22px; font-weight:900; color:var(--brand-dark); letter-spacing:-0.5px; line-height:1; }
+.res-r3 .r3-sep { color:var(--brand-primary-light); font-size:18px; align-self:center; margin:0 4px; }
+.scsep { border:none; border-top:1px solid var(--brand-primary-light); margin:44px 0; }
+
+/* ── Section 5 — The Engine + Pyramid ── */
+.pyr-wrap { max-width:100%; margin:0 auto 8px; }
+.pyr-ey { font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-primary); text-align:center; margin-bottom:20px; }
+.pyr-stack { display:flex; flex-direction:column; align-items:center; gap:8px; }
+.pyr-row { display:flex; flex-direction:column; align-items:center; }
+.pyr-block { border-radius:10px; cursor:pointer; display:flex; align-items:center; gap:18px; padding:0 24px; height:80px; position:relative; user-select:none; width:100%; transition:opacity .18s,transform .15s,box-shadow .2s,filter .2s; }
+.pyr-block:hover { opacity:1!important; filter:brightness(1.08); }
+.pyr-num { width:42px; height:42px; border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:700; flex-shrink:0; background:rgba(255,255,255,.18); color:white; }
+.pyr-texts { flex:1; min-width:0; }
+.pyr-lcode { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-bottom:3px; }
+.pyr-lname { font-size:17px; font-weight:700; color:white; line-height:1.2; }
+.pyr-ltag { font-size:12px; color:rgba(255,255,255,.78); font-style:italic; margin-top:3px; line-height:1.4; }
+.pyr-chev { width:28px; height:28px; border-radius:6px; background:rgba(255,255,255,.14); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.pyr-chev svg { transition:transform .25s; }
+.pyr-block.pyr-open .pyr-chev svg { transform:rotate(180deg); }
+.pyr-expand { width:100%; max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.25,.8,.25,1); }
+.pyr-expand.pyr-open { max-height:300px; }
+.pyr-exp-inner { padding:10px 0 2px; }
+.pyr-zone { padding:16px 18px; border-radius:8px; border:1px solid var(--brand-primary-light); background:var(--brand-bg-alt); }
+.pyr-zlbl { font-size:10px; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-text-muted); margin-bottom:7px; }
+.pyr-zdesc { font-size:13px; color:var(--brand-text-muted); line-height:1.7; margin-bottom:10px; }
+.pyr-tags { display:flex; flex-wrap:wrap; gap:4px; }
+.pyr-tag { font-size:11px; font-weight:600; padding:4px 10px; border-radius:4px; border:1px solid; }
+.pt-l1 { background:rgba(2,0,68,.06); color:#020044; border-color:rgba(2,0,68,.15); }
+.pt-l2 { background:rgba(106,40,234,.07); color:#6A28EA; border-color:rgba(106,40,234,.2); }
+.pt-l3 { background:rgba(0,157,224,.07); color:#009DE0; border-color:rgba(0,157,224,.2); }
+.pt-l4 { background:rgba(6,212,174,.1); color:#085041; border-color:rgba(6,212,174,.25); }
+.pt-l5 { background:rgba(6,212,174,.08); color:#0F6E56; border-color:rgba(6,212,174,.2); }
+.pyr-dep { font-size:12px; color:var(--brand-text-muted); text-align:center; margin-top:16px; font-style:italic; }
+.applied-divider { margin:60px 0 48px; text-align:center; position:relative; }
+.applied-divider::before,.applied-divider::after { content:''; position:absolute; top:50%; height:1px; width:30%; }
+.applied-divider::before { left:0; background:linear-gradient(90deg,transparent,rgba(255,255,255,.2)); }
+.applied-divider::after { right:0; background:linear-gradient(270deg,transparent,rgba(255,255,255,.2)); }
+.applied-eyebrow { font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--brand-primary); margin-bottom:10px; }
+.applied-title { font-size:30px; font-weight:900; color:var(--brand-dark); letter-spacing:-1px; line-height:1.1; display:flex; align-items:center; justify-content:center; gap:12px; }
+.applied-counter { font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:700; color:var(--brand-primary); background:var(--brand-primary-light); border:1px solid var(--brand-primary); border-radius:6px; padding:4px 10px; white-space:nowrap; opacity:0; transition:opacity .4s; }
+.applied-counter.visible { opacity:1; }
+#applied-typed { border-right:2px solid var(--brand-primary); padding-right:2px; }
+#applied-typed.done { border-right:none; }
+
+/* ── Section 6 — 5 Layers Detail ── */
+.lb { margin-bottom:60px; padding-top:32px; }
+.lpill { display:inline-flex; align-items:center; gap:8px; background:var(--brand-dark); color:var(--brand-primary); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:6px 16px; border-radius:20px; margin-bottom:14px; }
+.lname { font-size:clamp(28px,6vw,52px); font-weight:900; color:var(--brand-dark); letter-spacing:-2px; line-height:1.1; margin-bottom:8px; }
+.ltag { font-size:15px; font-weight:400; color:#4B5563; max-width:680px; line-height:1.7; margin-bottom:24px; }
+.lsvg { width:100%; border-radius:12px; overflow:hidden; margin-bottom:28px; border:1px solid var(--brand-primary-light); }
+.vf { margin-bottom:20px; }
+.fs { display:flex; gap:20px; margin-bottom:4px; }
+.fl { display:flex; flex-direction:column; align-items:center; width:40px; flex-shrink:0; }
+.fd { width:38px; height:38px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; z-index:1; }
+.fline { width:2px; flex:1; min-height:28px; margin:4px auto; }
+.lo { background:linear-gradient(#009DE0,#FBC94B); }
+.lb2 { background:linear-gradient(#FBC94B,#06D4AE); }
+.ld { background:linear-gradient(#06D4AE,#6A28EA); }
+.fr { flex:1; padding-bottom:28px; }
+.few { font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; line-height:1.2; margin-bottom:6px; }
+.fhl { font-size:19px; font-weight:700; color:var(--brand-dark); line-height:1.25; margin-bottom:12px; }
+.ful { list-style:none; display:flex; flex-direction:column; gap:5px; }
+.ful li { font-size:13px; color:var(--brand-text); line-height:1.6; display:flex; align-items:flex-start; gap:8px; }
+.ful li.na { color:var(--brand-text-muted); }
+.do { display:inline-block; width:6px; height:6px; border-radius:50%; background:#009DE0; flex-shrink:0; margin-top:8px; }
+.db { display:inline-block; width:6px; height:6px; border-radius:50%; background:#FBC94B; flex-shrink:0; margin-top:8px; }
+.dn { display:inline-block; width:6px; height:6px; border-radius:50%; background:#CBD5E0; flex-shrink:0; margin-top:8px; }
+.dg { display:inline-block; width:6px; height:6px; border-radius:50%; background:#06D4AE; flex-shrink:0; margin-top:8px; }
+.ob { background:var(--brand-bg-alt); border-left:3px solid var(--brand-primary); border-radius:0 8px 8px 0; padding:10px 16px; margin-top:10px; }
+.ob-l { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--brand-primary); margin-bottom:3px; }
+.ob-v { font-size:13px; font-weight:600; color:var(--brand-dark); line-height:1.5; }
+.of { background:var(--brand-primary-light); border-radius:10px; padding:12px 18px; display:flex; align-items:center; gap:10px; margin-top:8px; }
+.of span { font-size:13px; font-weight:600; color:var(--brand-dark); line-height:1.5; }
+.of .mt { font-family:'JetBrains Mono',monospace; font-weight:700; font-size:13px; color:var(--brand-primary-dark); }
+
+/* ── Section 7 — The Journey ── */
+.step-tabs-wrapper { display:flex; margin-bottom:32px; border-radius:12px; overflow:hidden; border:1px solid var(--brand-primary-light); }
+.step-tab { flex:1; padding:16px 20px; cursor:pointer; background:var(--brand-bg-alt); color:var(--brand-text); border:none; text-align:left; transition:background .2s,color .2s; }
+.step-tab:hover:not(.step-active) { background:var(--brand-primary-light); }
+.step-tab:first-child { border-radius:12px 0 0 12px; }
+.step-tab:last-child { border-radius:0 12px 12px 0; }
+.step-tab-label-top { font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; opacity:.65; margin-bottom:4px; }
+.step-tab-label-main { font-size:14px; font-weight:600; line-height:1.3; }
+.step-panel { display:none; animation:fadeInUp .3s ease; }
+@keyframes fadeInUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.mo { margin-bottom:32px; }
+.mh { font-size:16px; font-weight:700; color:var(--brand-dark); border-left:4px solid var(--brand-primary); padding-left:14px; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.mh em { font-style:italic; color:var(--brand-text-muted); font-weight:400; font-size:14px; }
+.mi { list-style:none; margin-bottom:10px; }
+.mi li { padding:6px 0 6px 22px; font-size:13px; line-height:1.6; position:relative; border-bottom:1px solid var(--brand-primary-light); }
+.mi li:last-child { border-bottom:none; }
+.mi li::before { content:"✓"; position:absolute; left:0; color:var(--brand-primary); font-weight:900; font-size:12px; top:8px; }
+.ys { font-size:14px; font-weight:600; color:var(--brand-dark); background:var(--brand-primary-light); border-left:3px solid var(--brand-primary); border-radius:0 8px 8px 0; padding:12px 16px; margin-top:12px; line-height:1.6; display:flex; gap:10px; align-items:flex-start; }
+.ys::before { content:"→"; font-weight:900; font-style:normal; flex-shrink:0; }
+.ltv { background:var(--brand-bg-alt); border:1px dashed var(--brand-primary-light); border-radius:10px; padding:20px; margin-top:28px; }
+.ltv p { font-size:13px; line-height:1.7; margin-bottom:8px; }
+.ltv p:last-child { margin-bottom:0; }
+.ltv strong { color:var(--brand-dark); }
+
+/* ── Section 8 — The Destination ── */
+.mgr { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:24px; }
+@media(max-width:720px){.mgr{grid-template-columns:1fr 1fr;}}
+.mcard { background:var(--brand-bg-alt); border-radius:12px; padding:18px; border:1px solid var(--brand-primary-light); }
+.ml { font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--brand-primary); margin-bottom:5px; }
+.mv { font-family:'JetBrains Mono',monospace; font-size:28px; font-weight:700; color:var(--brand-dark); line-height:1.1; }
+.ms { font-size:11px; color:var(--brand-text-muted); margin-top:3px; }
+.dgr { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:32px; }
+@media(max-width:640px){.dgr{grid-template-columns:1fr;}}
+.dp { background:var(--brand-bg-alt); border-radius:12px; padding:20px; border:1px solid var(--brand-primary-light); }
+.pt { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--brand-text-muted); margin-bottom:12px; }
+.funnel { display:flex; flex-direction:column; gap:7px; }
+.fr2 { display:flex; align-items:center; gap:10px; }
+.flb { font-size:12px; font-weight:600; color:var(--brand-dark); width:76px; flex-shrink:0; }
+.fbw { flex:1; background:#EEF2FF; border-radius:4px; height:26px; overflow:hidden; }
+.fbar { height:100%; border-radius:4px; }
+.fpct { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; width:38px; text-align:right; flex-shrink:0; }
+.chr { display:flex; flex-direction:column; gap:9px; }
+.cr { display:flex; align-items:center; gap:10px; }
+.cn2 { font-size:12px; font-weight:600; color:var(--brand-dark); width:76px; flex-shrink:0; }
+.ct { flex:1; background:#EEF2FF; border-radius:4px; height:22px; overflow:hidden; }
+.cf { height:100%; border-radius:4px; }
+.cv { font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; width:34px; text-align:right; flex-shrink:0; color:var(--brand-dark); }
+.stab { width:100%; border-collapse:collapse; font-size:13px; margin-top:28px; }
+.stab thead tr { background:var(--brand-dark); color:white; }
+.stab th { padding:12px 16px; text-align:left; font-size:11px; font-weight:600; letter-spacing:.5px; white-space:nowrap; }
+.stab td { padding:12px 16px; border-bottom:1px solid var(--brand-primary-light); vertical-align:top; line-height:1.5; }
+.stab tr:nth-child(odd) td { background:white; }
+.stab tr:nth-child(even) td { background:var(--brand-bg-alt); }
+.lbadge { display:inline-block; background:var(--brand-dark); color:white; font-size:10px; font-weight:700; padding:2px 8px; border-radius:10px; white-space:nowrap; }
+
+/* ── Section 9 — The Ask + Footer ── */
+.ask { background:var(--brand-dark); padding:80px 24px; text-align:center; position:relative; overflow:hidden; }
+.ask-gh { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:280px; font-weight:900; color:#fff; opacity:.03; line-height:1; pointer-events:none; }
+.ask-in { position:relative; max-width:680px; margin:0 auto; }
+.ask-ey { font-size:11px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--brand-primary); margin-bottom:14px; }
+.ask-h { font-size:clamp(38px,8vw,68px); font-weight:900; color:white; letter-spacing:-2.5px; line-height:1.05; margin-bottom:8px; }
+.ask-k { font-family:'Kalam',cursive; font-size:17px; color:rgba(255,255,255,.85); line-height:1.6; margin-bottom:18px; }
+.ask-c { font-size:14px; font-weight:300; color:rgba(255,255,255,.55); margin-bottom:30px; line-height:1.65; }
+.ask-btn { display:inline-block; background:var(--brand-primary); color:white; font-family:'Outfit',sans-serif; font-size:15px; font-weight:700; padding:15px 40px; border-radius:8px; text-decoration:none; letter-spacing:.04em; transition:transform .2s,box-shadow .2s; }
+.ask-btn:hover { transform:translateY(-3px); }
+.ask-fn { font-size:12px; font-weight:300; color:rgba(255,255,255,.3); margin-top:18px; }
+@keyframes ctaPulse { 0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,0.3)} 50%{box-shadow:0 0 0 14px rgba(255,255,255,0)} }
+@keyframes ctaGlow { 0%,100%{box-shadow:0 4px 24px rgba(255,255,255,0.2)} 50%{box-shadow:0 8px 40px rgba(255,255,255,0.4)} }
+.ask-btn.pulse-active { animation:ctaPulse 2s ease-out infinite,ctaGlow 2s ease-in-out infinite; }
+.ask-btn.pulse-active:hover { animation:none; transform:translateY(-3px); }
+.footer { background:var(--brand-bg-alt); padding:18px 24px; text-align:center; }
+.footer span { font-size:12px; font-weight:300; color:var(--brand-text-muted); }
+
+</style>
+</head>
+<body>
+
+<!-- PROGRESS BAR -->
+<div id="pb"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="display:flex;align-items:center;gap:0">
+    <span class="logo-x5">X<sup style="font-size:13px;font-weight:900;vertical-align:super;line-height:0;color:white">5</sup></span>
+    <span class="logo-d">Digital</span>
+    <span class="logo-cursor">|</span>
+  </div>
+  <span class="nav-tag">A proposal prepared exclusively for WeCopy Fintech INC</span>
+  <div class="nav-links">
+    <a class="nav-link" href="#s1">The Mirror</a>
+    <a class="nav-link" href="#s2">The Leak</a>
+    <a class="nav-link" href="#s3">Before &amp; After</a>
+    <a class="nav-link" href="#s4">The Engine</a>
+    <a class="nav-link" href="#s5">Journey</a>
+    <a class="nav-link" href="#s6">Destination</a>
+    <a class="nav-link nav-cta" href="#s7">Book Audit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-gh">W</div>
+  <div class="hero-to r">To: [CEO_NAME], Founder · WeCopy Fintech INC</div>
+  <div class="hero-name r d1">A proposal for<br><span>WeCopy Fintech INC</span></div>
+  <div class="hero-sub r d2">We spent several hours auditing wecopyfintech.com from the outside — source code, tracking stack, conversion funnel, and positioning signals — before sending a single message. This proposal was not requested. We're sending it because what we found was specific enough to be worth a conversation.</div>
+  <div class="hero-b r d3">From X5 Digital · April 2026</div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 1 -->
+
+<!-- S1: THE MIRROR -->
+<div class="sec" id="s1">
+  <div class="ey r">Section 01</div>
+  <div class="st r">The <span class="ow">Mirror</span></div>
+  <p class="sec-hl r">We went through WeCopy Fintech's source code, service pages, portfolio sections, and contact form submission flow before writing a single word of this. Here's what we found that most agencies would have missed — or not bothered to look for.</p>
+  <p class="sl r">Before we get to what could improve — here's what we observed that's genuinely strong. These are not compliments. They're competitive advantages worth protecting.</p>
+
+  <div class="mgrid">
+
+    <!-- Card 1: BC Registration -->
+    <div class="mc r">
+      <div class="mc-gh">01</div>
+      <div class="ey">Trust Signal · Strength 01</div>
+      <div class="mstat" style="font-size:clamp(22px,3.5vw,34px);letter-spacing:-1px;line-height:1.3">BC1333534</div>
+      <div class="mdiv"></div>
+      <div class="mctx">BC Registration Number BC1333534 appears in your header, contact page, and footer. For an IT outsourcing company competing across Canada and the US, a visible registration number communicates institutional legitimacy before a prospect reads a word of copy. Most firms bury this or omit it entirely.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE</span>
+        <ul>
+          <li>BC Registration Number BC1333534 — confirmed in site header (as navigation button), contact page, and footer across all 4 pages audited</li>
+          <li>Address: 744 W Hastings St #420, Vancouver, BC V6C 1A5 — confirmed</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 2: Portfolio -->
+    <div class="mc r d1">
+      <div class="mc-gh">02</div>
+      <div class="ey">Portfolio Depth · Strength 02</div>
+      <div class="mstat"><span id="s1-projects">5</span><span class="acc"> projects</span></div>
+      <div class="mdiv"></div>
+      <div class="mctx">Five projects are described with genuine operational specificity: automated client distribution for sales teams, CRM mobile access enabling cross-department remote work, KPI tracking configurable by individual employee, and a database security audit. This is not stock IT agency copy — it reflects firsthand knowledge of CRM logic and sales process design.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Portfolio carousel</span>
+        <ul>
+          <li>5 project entries confirmed: Manage Sales Software, CRM Mobile, CRM Sale, Manage KPIs Software, Database Checkup</li>
+          <li>Project descriptions contain operational-specific language (e.g., "Track conversion rates by each stage of the sales funnel")</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 3: Service scope -->
+    <div class="mc r d2">
+      <div class="mc-gh">03</div>
+      <div class="ey">Scope Discipline · Strength 03</div>
+      <div class="mstat"><span id="s1-services">4</span><span class="acc"> services</span></div>
+      <div class="mdiv"></div>
+      <div class="mctx">UI/UX Design, Web Development, Mobile Development, IT Outsourcing — and nothing else. No inflated capability claims. No misalignment between the brand name and the actual scope of work. In a market where agencies claim to do everything, focused scope discipline reads as professional confidence to enterprise buyers.</div>
+      <div class="ev" style="margin-top:14px">
+        <span class="ev-lb">// AUDIT EVIDENCE — Service page</span>
+        <ul>
+          <li>4 distinct service categories confirmed across homepage carousel, service page grid, and contact form subject dropdown</li>
+          <li>Contact form dropdown: Web Development, UI Design, CMS Development, Theme Development, WordPress Development</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 2 -->
+
+<!-- S2: THE HIDDEN LEAK -->
+<div class="sec" id="s2">
+  <div class="ey r">Section 02</div>
+  <div class="st r">The Hidden <span class="ow">Leak</span></div>
+  <p class="sec-hl r"><em>Which makes what we found next worth flagging</em> — because the infrastructure to protect and scale those advantages doesn't yet exist.</p>
+  <p class="sl r">4 unconfirmed observations — formed from observable signals only. We flag them because if any one is accurate, it represents a meaningful revenue gap. We can't confirm them without data access. Which is exactly the reason for the 30-minute call.</p>
+
+  <!-- H1: Zero Tracking -->
+  <div class="hc r" style="transition-delay:.07s">
+    <div class="hc-gh">01</div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcb">01</div>
+        <div class="hlb hlbl">What<br>we see</div>
+      </div>
+      <div class="htxt">No Google Analytics measurement ID, no Meta Pixel, and no LinkedIn Insight Tag appear anywhere in the site's source code. <strong>No Google Tag Manager container was detected</strong> — making this a direct absence, not a container-masked one. The contact form (Contact Form 7, ID 23) submits to a WordPress REST endpoint with no conversion event configured. Cloudflare email obfuscation is present but is a security layer, not a marketing tool.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hca">02</div>
+        <div class="hlb hlal">Why it<br>matters</div>
+      </div>
+      <div class="htxt">Every consultation request, every referral click, every page visit is currently invisible. You have no data on which pages convert, which sources send qualified traffic, or whether any source sends traffic at all. Without this, channel decisions are guesses — not strategy.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcp">03</div>
+        <div class="hlb hlpl">The<br>question</div>
+      </div>
+      <div class="hq">Is any tracking currently running — even a basic GA4 property — that isn't visible from the outside? If not, how are inbound consultation requests currently being attributed to any source?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>No Google Tag Manager container detected (direct absence — not GTM-masked)</li>
+        <li>No GA4 measurement ID found inline</li>
+        <li>No Meta Pixel (fbq) found inline</li>
+        <li>No LinkedIn Insight Tag (snap.licdn.com) found inline</li>
+        <li>Contact Form 7 — ID 23 — REST endpoint: wecopyfintech.com/wp-json/contact-form-7/v1 — no CRM integration endpoint</li>
+        <li>Cloudflare email protection: /cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js</li>
+        <li class="dim">Server-side tracking (Meta CAPI, LinkedIn CAPI, sGTM): cannot confirm or deny — no client-side signal by design</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- H2: Referral Only -->
+  <div class="hc r" style="transition-delay:.12s">
+    <div class="hc-gh">02</div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcb">01</div>
+        <div class="hlb hlbl">What<br>we see</div>
+      </div>
+      <div class="htxt">All four pages carry a <code style="background:var(--brand-primary-light);color:var(--brand-primary);padding:1px 5px;border-radius:3px;font-size:12px">noindex, nofollow</code> meta directive — the site is either still in active development or this tag has persisted into a live site. All social media icon links point to <code style="background:var(--brand-primary-light);color:var(--brand-primary);padding:1px 5px;border-radius:3px;font-size:12px">#</code>. The newsletter form's action attribute points to <code style="background:var(--brand-primary-light);color:var(--brand-primary);padding:1px 5px;border-radius:3px;font-size:12px">#</code>. No paid advertising pixels are present inline.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hca">02</div>
+        <div class="hlb hlal">Why it<br>matters</div>
+      </div>
+      <div class="htxt">The site cannot appear in Google search results in its current state. No SEO investment will produce returns. No retargeting can run. The only inbound path is a prospect who already knows the URL — almost certainly through a direct referral from the founder's personal network.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcp">03</div>
+        <div class="hlb hlpl">The<br>question</div>
+      </div>
+      <div class="hq">Are all current consultation requests coming through direct word-of-mouth from your personal network? If so, what happens when that network reaches saturation?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>&lt;meta name="robots" content="noindex, nofollow"&gt; — confirmed on all 4 pages audited</li>
+        <li>Social media links — Facebook, Twitter, Instagram, Behance, YouTube — all href="#" confirmed</li>
+        <li>Newsletter form — action="https://wecopyfintech.com/#" — non-functional</li>
+        <li>No paid ad pixels detected inline (no fbq, no gtag ads, no LinkedIn partner ID)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- H3: Founder Bottleneck -->
+  <div class="hc r" style="transition-delay:.16s">
+    <div class="hc-gh">03</div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcb">01</div>
+        <div class="hlb hlbl">What<br>we see</div>
+      </div>
+      <div class="htxt">The team/About section is commented out entirely in the source code. The phone number is commented out. The sole contact path is a basic Contact Form 7 form that routes to a WordPress inbox with no automation. Stated work hours: 8am–6pm, Monday–Friday.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hca">02</div>
+        <div class="hlb hlal">Why it<br>matters</div>
+      </div>
+      <div class="htxt">A form submitted at 6 PM on Friday sits unread until Monday morning — a 62-hour gap. In IT services, prospects typically contact 2–3 vendors simultaneously. The firm that responds first — with context and a next step — wins the calendar slot.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcp">03</div>
+        <div class="hlb hlpl">The<br>question</div>
+      </div>
+      <div class="hq">Is the founder currently the single person handling inbound inquiries, qualifying prospects, writing proposals, and delivering client work at the same time?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Team section (&lt;div class="author-name"&gt;Adam Smith&lt;/div&gt;) — confirmed commented out in page source</li>
+        <li>Phone number +17789943886 — confirmed commented out in About page source</li>
+        <li>Contact Form 7 ID 23 — only inbound mechanism — no scheduling widget detected (no Calendly, Acuity)</li>
+        <li>Stated work hours: 8:00am–6:00pm Mon–Fri confirmed in contact page</li>
+        <li class="dim">Tax number 765924709 / account 765924709RP0001 — found in commented-out footer HTML</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- H4: Portfolio Credibility -->
+  <div class="hc r" style="transition-delay:.20s">
+    <div class="hc-gh">04</div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcb">01</div>
+        <div class="hlb hlbl">What<br>we see</div>
+      </div>
+      <div class="htxt">Five genuinely specific projects exist in the portfolio. However, all testimonials use stock photo avatars, carry job titles like "IT Customer" and "Design Customer," and contain no company names or measurable outcomes. The brand logo carousel contains generic placeholder image files (br-8-1.png through br-8-5.png).</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hca">02</div>
+        <div class="hlb hlal">Why it<br>matters</div>
+      </div>
+      <div class="htxt">When a referral sends a prospect to the site to validate the recommendation, stock testimonials undermine the referral's credibility — not yours. The prospect finds no proof that the work described in the portfolio actually happened for a real business. They search elsewhere.</div>
+    </div>
+    <div class="hdiv"></div>
+    <div class="hr">
+      <div class="hbadge">
+        <div class="hcircle hcp">03</div>
+        <div class="hlb hlpl">The<br>question</div>
+      </div>
+      <div class="hq">Do the five real portfolio projects have actual clients willing to provide a named testimonial or allow a case study with specific outcomes to be published?</div>
+    </div>
+    <div class="ev" style="margin-top:8px">
+      <span class="ev-lb">// AUDIT EVIDENCE</span>
+      <ul>
+        <li>Testimonial section — 4 entries — all use generic stock photo filenames (auth-4-1.jpg, auth-4-2.jpg, auth-4-3.jpg, auth-6-22.jpg)</li>
+        <li>Testimonial job titles: "IT Customer," "Design Customer," "UI Specialist," "SEO Customer" — no company names</li>
+        <li>Brand logo carousel — confirmed generic placeholder files: br-8-1.png through br-8-5.png</li>
+        <li>Placeholder text found in contact form: "We're Ready To Help You hahaha" — site may still be in active development</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Unknowns Table -->
+  <p style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--brand-text-muted);margin:32px 0 12px">What X5 Cannot Confirm Without Data Access</p>
+  <table class="ut r">
+    <thead><tr><th>Question</th><th>How to Confirm</th></tr></thead>
+    <tbody>
+      <tr><td>Where are current leads coming from? Which past clients are generating referrals, and to whom?</td><td>Discovery call — direct conversation</td></tr>
+      <tr><td>Is there any CRM, pipeline tool, or tracking system in use that isn't visible externally (HubSpot, Notion, spreadsheet)?</td><td>Discovery call + optional screen share</td></tr>
+      <tr><td>How many active clients and completed engagements? What is the average engagement size and billing model?</td><td>Discovery call — financial context</td></tr>
+      <tr><td>What does the current process look like from first contact to signed engagement — and where does it most commonly stall?</td><td>Discovery call — sales process walkthrough</td></tr>
+      <tr><td>Is "Fintech" in the company name an active niche focus or aspirational positioning — and who is the actual target client by industry and company size?</td><td>Discovery call — positioning intent</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 3 -->
+
+<!-- S3: BEFORE & AFTER -->
+<div class="sec" id="s3">
+  <div class="ey r">Section 03</div>
+  <div class="st r">Before &amp; <span class="ow">After</span></div>
+  <p class="sec-hl r">The four observations above aren't abstract. Each one has a face, a timestamp, and a moment where a consultation was either captured — or wasn't. <em>Three scenarios built directly from signals in the audit.</em></p>
+  <p class="sl r">Three scenarios built from specific signals in the audit — not generic examples.</p>
+
+  <!-- SCENARIO 1 -->
+  <div class="scenario r">
+    <div class="sc-num">Scenario 01</div>
+    <div class="sc-tit">The Referral That Validated Nothing</div>
+    <div class="char-strip">
+      <div class="char-avatar">M</div>
+      <span class="char-name">Marcus Chen</span>
+      <span class="char-dot">·</span>
+      <span class="char-role">Operations Director · 40-person logistics company · Toronto</span>
+      <span class="char-dot">·</span>
+      <span class="char-pain">Pain: Custom CRM for distributed sales team</span>
+    </div>
+    <div class="split-ba">
+      <div class="ba-col ba-col-bef">
+        <div class="ba-col-header"><div class="ba-col-label">🔴 Before X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-neutral">⏰</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Thursday · 2:30 PM</div>
+                <div class="ba-tl-title">Referral received — site visited</div>
+                <div class="ba-tl-sub">"These guys built our CRM — really solid work, check them out."</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-bad">🌩️</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">2:31 PM</div>
+                <div class="ba-tl-title">Generic hero. Stock testimonials. No team listed.</div>
+                <div class="ba-tl-sub">90 seconds on site. "Mark Polo, Design Customer." Brand logo section is blank.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-bad">⚠️</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">2:33 PM</div>
+                <div class="ba-tl-title">Searches "custom CRM development Toronto"</div>
+                <div class="ba-tl-sub">Three other firms appear with named case studies and company logos.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-end">✗</div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Same afternoon</div>
+                <div class="ba-tl-title">Discovery call booked — with a competitor</div>
+                <div class="ba-tl-sub">WeCopy Fintech never knew Marcus visited.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✗ Warm referral converted to zero. WeCopy Fintech had no visibility.</div>
+      </div>
+      <div class="ba-col ba-col-aft">
+        <div class="ba-col-header"><div class="ba-col-label">✅ After X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-neutral">⏰</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Thursday · 2:30 PM</div>
+                <div class="ba-tl-title">Marcus opens site — named case study leads homepage</div>
+                <div class="ba-tl-sub">"How We Built a Sales CRM That Reduced Client Loss by 34% for a Logistics SMB."</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-good">⚡</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">2:32 PM</div>
+                <div class="ba-tl-title"><span class="ba-code">consultation_requested</span> fires</div>
+                <div class="ba-tl-sub">Branded confirmation email + Calendly link within 4 minutes.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-good">📧</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">2:34 PM</div>
+                <div class="ba-tl-title">n8n fires Slack alert to founder with Marcus's context</div>
+                <div class="ba-tl-sub">Company size, portfolio project viewed, referral source — all pre-loaded.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-end">✓</div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Same session</div>
+                <div class="ba-tl-title">Consultation booked within the same browser session</div>
+                <div class="ba-tl-sub">Referral converts to pipeline — before Marcus leaves the page.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✓ Warm referral captured. Founder briefed before picking up the phone.</div>
+      </div>
+    </div>
+    <div class="res-r3">
+      <span class="r3-arrow">→</span>
+      <span class="r3-ctx">Referred close rate</span>
+      <span class="r3-num">~45%</span>
+      <span class="r3-ctx">vs ~18% cold</span>
+      <span class="r3-sep">·</span>
+      <span class="r3-ctx">Consultation booked in</span>
+      <span class="r3-num">&lt;5 min</span>
+    </div>
+  </div>
+
+  <hr class="scsep">
+
+  <!-- SCENARIO 2 -->
+  <div class="scenario r" style="transition-delay:.08s">
+    <div class="sc-num">Scenario 02</div>
+    <div class="sc-tit">The Proposal That Arrived After the Decision</div>
+    <div class="char-strip">
+      <div class="char-avatar">P</div>
+      <span class="char-name">Priya Nair</span>
+      <span class="char-dot">·</span>
+      <span class="char-role">Founder · 15-person accounting practice · Vancouver</span>
+      <span class="char-dot">·</span>
+      <span class="char-pain">Pain: Mobile app for client document collection</span>
+    </div>
+    <div class="split-ba">
+      <div class="ba-col ba-col-bef">
+        <div class="ba-col-header"><div class="ba-col-label">🔴 Before X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-neutral">⏰</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Monday · 11:00 AM</div>
+                <div class="ba-tl-title">Priya submits consultation form</div>
+                <div class="ba-tl-sub">Also contacting a second vendor simultaneously.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-bad">⚠️</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Tuesday · 3:00 PM</div>
+                <div class="ba-tl-title">Response sent — 28 hours later</div>
+                <div class="ba-tl-sub">Founder was in delivery on an existing project.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-bad">🌩️</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Following Monday</div>
+                <div class="ba-tl-title">Proposal arrives — 6 days after consultation</div>
+                <div class="ba-tl-sub">Founder drafted Sunday. Priya had already decided.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-end">✗</div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Previous Friday</div>
+                <div class="ba-tl-title">Priya had signed with the other firm</div>
+                <div class="ba-tl-sub">A $18,000 mobile development engagement lost — not because of capability, but because of response time and proposal speed. WeCopy Fintech never knew the decision had already been made.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✗ $18,000 engagement lost. WeCopy Fintech never knew.</div>
+      </div>
+      <div class="ba-col ba-col-aft">
+        <div class="ba-col-header"><div class="ba-col-label">✅ After X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-neutral">⏰</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Monday · 11:00 AM</div>
+                <div class="ba-tl-title">Priya submits the form</div>
+                <div class="ba-tl-sub">Same situation — comparing two vendors.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-good">⚡</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">11:03 AM</div>
+                <div class="ba-tl-title"><span class="ba-code">consultation_requested</span> — auto-confirm within 3 min</div>
+                <div class="ba-tl-sub">Branded confirmation + Calendly link. Tuesday 10 AM booked that afternoon.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-good">📧</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Tuesday · 10:00 AM</div>
+                <div class="ba-tl-title">Consultation — founder pre-briefed by n8n</div>
+                <div class="ba-tl-sub">Pages visited, time on mobile dev section, source: LinkedIn ad — all pre-loaded.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-end">✓</div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Thursday · 10:00 AM</div>
+                <div class="ba-tl-title">AI-assisted proposal in Priya's inbox — 48 hours later</div>
+                <div class="ba-tl-sub">Founder customization time: 25 minutes. Priya is still evaluating.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✓ Proposal delivered in 48 hours. WeCopy Fintech leads the conversation.</div>
+      </div>
+    </div>
+    <div class="res-r3">
+      <span class="r3-arrow">→</span>
+      <span class="r3-ctx">Proposal timeline</span>
+      <span class="r3-num">6+ days → 48h</span>
+      <span class="r3-sep">·</span>
+      <span class="r3-ctx">First response</span>
+      <span class="r3-num">28h → &lt;3 min</span>
+    </div>
+  </div>
+
+  <hr class="scsep">
+
+  <!-- SCENARIO 3 -->
+  <div class="scenario r" style="transition-delay:.14s">
+    <div class="sc-num">Scenario 03</div>
+    <div class="sc-tit">The Expansion That Went to a Competitor</div>
+    <div class="char-strip">
+      <div class="char-avatar">C</div>
+      <span class="char-name">Manufacturing CTO</span>
+      <span class="char-dot">·</span>
+      <span class="char-role">Past WeCopy Fintech client · Grew from 25 to 60 employees in 14 months</span>
+      <span class="char-dot">·</span>
+      <span class="char-pain">Pain: Phase 2 expansion of internal KPI dashboard</span>
+    </div>
+    <div class="split-ba">
+      <div class="ba-col ba-col-bef">
+        <div class="ba-col-header"><div class="ba-col-label">🔴 Before X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-neutral">⏰</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">September — 14 months post-project</div>
+                <div class="ba-tl-title">Company doubled in size — Phase 2 needed</div>
+                <div class="ba-tl-sub">Three new departments need integration. CTO planning vendor evaluation.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-bad">⚠️</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Same month</div>
+                <div class="ba-tl-title">No outreach system in place</div>
+                <div class="ba-tl-sub">No check-in sequence, no retention email, no flag for account growth.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-end">✗</div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">September</div>
+                <div class="ba-tl-title">CTO posts on LinkedIn asking for IT recommendations</div>
+                <div class="ba-tl-sub">A $22,000 Phase 2 expansion goes to a competitor. WeCopy Fintech never knew Phase 2 was on the table.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✗ $22,000 expansion lost. Original client, warmest possible lead — never re-engaged.</div>
+      </div>
+      <div class="ba-col ba-col-aft">
+        <div class="ba-col-header"><div class="ba-col-label">✅ After X5</div></div>
+        <div class="ba-col-body">
+          <div class="ba-tl">
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-good">⚡</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Month 12 post-project</div>
+                <div class="ba-tl-title"><span class="ba-code">client_12month_anniversary</span> trigger fires</div>
+                <div class="ba-tl-sub">Value email: "What your KPI system has likely saved in manual reporting — and what teams at the 50–100 employee stage typically add next."</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-good">📧</div>
+                <div class="ba-tl-line"></div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">Two weeks later</div>
+                <div class="ba-tl-title">AI-written article sent under founder's name</div>
+                <div class="ba-tl-sub">"Scaling Internal Dashboards for Growing Operations Teams" — approved, not written, by founder.</div>
+              </div>
+            </div>
+            <div class="ba-tl-item">
+              <div class="ba-tl-left">
+                <div class="ba-tl-dot nd-end">✓</div>
+              </div>
+              <div class="ba-tl-right">
+                <div class="ba-tl-time">September</div>
+                <div class="ba-tl-title">CTO replies asking about Phase 2 scope</div>
+                <div class="ba-tl-sub">Expansion revenue captured. No cold outreach required.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-col-footer">✓ $22,000 expansion retained. Zero manual follow-up by founder.</div>
+      </div>
+    </div>
+    <div class="res-r3">
+      <span class="r3-arrow">→</span>
+      <span class="r3-ctx">Expansion captured via retention sequence</span>
+      <span class="r3-num">$22,000</span>
+      <span class="r3-ctx">without cold outreach</span>
+    </div>
+  </div>
+
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 4 -->
+
+<!-- S4: THE ENGINE + LAYERS -->
+<div class="sec" id="s4">
+  <div class="ey r">Section 04</div>
+  <div class="st r">The <span class="ow">Engine</span></div>
+  <p class="sec-hl r">Marcus was captured. Priya was recovered. The manufacturing CTO was retained. <em>None of that happens with individual tactics — it happens when five layers run as one connected system.</em></p>
+  <p class="sl r">X5 doesn't deploy tactics in isolation. We build a 5-layer system where each layer is the prerequisite for the one above. Without clean data at Layer 1, the intelligence at Layer 5 has nothing to analyze.</p>
+
+  <!-- Interactive Pyramid -->
+  <div class="pyr-wrap r">
+    <div class="pyr-ey">The X5 Revenue System — 5 Layers of Engineered Growth</div>
+    <div class="pyr-stack">
+
+      <!-- L5 — top, narrowest -->
+      <div class="pyr-row" style="width:52%">
+        <div class="pyr-block pyr-open" id="pb4" style="background:#06D4AE">
+          <div class="pyr-num">5</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L5</div>
+            <div class="pyr-lname">Marketing Intelligence</div>
+            <div class="pyr-ltag">"Five minutes every Monday morning. Full picture of pipeline, channel, and client health."</div>
+          </div>
+          <div class="pyr-chev">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="pyr-expand pyr-open">
+          <div class="pyr-exp-inner">
+            <div class="pyr-zone">
+              <div class="pyr-zlbl">What this layer does</div>
+              <div class="pyr-zdesc">Converts 90 days of data into weekly intelligence — pipeline health, channel ROI, referral attribution, and expansion signals — delivered automatically every Monday morning.</div>
+              <div class="pyr-tags">
+                <span class="pyr-tag pt-l5">Looker Studio dashboard</span>
+                <span class="pyr-tag pt-l5">60-day channel ROI</span>
+                <span class="pyr-tag pt-l5">Referral intelligence</span>
+                <span class="pyr-tag pt-l5">Retention intelligence</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- L4 -->
+      <div class="pyr-row" style="width:64%">
+        <div class="pyr-block" id="pb3" style="background:#5A28C8">
+          <div class="pyr-num">4</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L4</div>
+            <div class="pyr-lname">AI Automation &amp; Agent</div>
+            <div class="pyr-ltag">"The best response to a Friday evening form is one that happens at 9:47 PM — automatically."</div>
+          </div>
+          <div class="pyr-chev">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner">
+            <div class="pyr-zone">
+              <div class="pyr-zlbl">What this layer does</div>
+              <div class="pyr-zdesc">Seven n8n workflows + AI chatbot handle the full consultation lifecycle — from the moment a form is submitted to testimonial collection 30 days after project completion.</div>
+              <div class="pyr-tags">
+                <span class="pyr-tag pt-l4">AI Chatbot 24/7</span>
+                <span class="pyr-tag pt-l4">7 n8n workflows</span>
+                <span class="pyr-tag pt-l4">AI content repurposing</span>
+                <span class="pyr-tag pt-l4">Testimonial collection</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- L3 -->
+      <div class="pyr-row" style="width:76%">
+        <div class="pyr-block" id="pb2" style="background:#3A1A9A">
+          <div class="pyr-num">3</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L3</div>
+            <div class="pyr-lname">Revenue Operations</div>
+            <div class="pyr-ltag">"The referral network is the entire acquisition engine — and it currently runs on memory."</div>
+          </div>
+          <div class="pyr-chev">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner">
+            <div class="pyr-zone">
+              <div class="pyr-zlbl">What this layer does</div>
+              <div class="pyr-zdesc">Six revenue operations systems: consultation pipeline (5 stages), auto-response in under 3 minutes, 48-hour proposal workflow, no-show recovery, lead scoring, and 12-month client retention nurture.</div>
+              <div class="pyr-tags">
+                <span class="pyr-tag pt-l3">5-stage pipeline</span>
+                <span class="pyr-tag pt-l3">&lt;3min response</span>
+                <span class="pyr-tag pt-l3">48h proposal</span>
+                <span class="pyr-tag pt-l3">Lead scoring 50pt MQL</span>
+                <span class="pyr-tag pt-l3">Referral tracking</span>
+                <span class="pyr-tag pt-l3">12-month nurture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- L2 -->
+      <div class="pyr-row" style="width:88%">
+        <div class="pyr-block" id="pb1" style="background:#1A1060">
+          <div class="pyr-num">2</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L2</div>
+            <div class="pyr-lname">Channel Acquisition</div>
+            <div class="pyr-ltag">"Referral scales to the size of one person's network — and no further."</div>
+          </div>
+          <div class="pyr-chev">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner">
+            <div class="pyr-zone">
+              <div class="pyr-zlbl">What this layer does</div>
+              <div class="pyr-zdesc">Three structured channels — Google Search Ads (high-intent queries), LinkedIn Ads (3 audience tiers), and SEO content clusters — with full UTM attribution framework across all sources.</div>
+              <div class="pyr-tags">
+                <span class="pyr-tag pt-l2">Google Search Ads</span>
+                <span class="pyr-tag pt-l2">LinkedIn Ads (3 tiers)</span>
+                <span class="pyr-tag pt-l2">SEO clusters</span>
+                <span class="pyr-tag pt-l2">Email (3 segments)</span>
+                <span class="pyr-tag pt-l2">UTM attribution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- L1 — widest, bottom -->
+      <div class="pyr-row" style="width:100%">
+        <div class="pyr-block" id="pb0" style="background:#020044">
+          <div class="pyr-num">1</div>
+          <div class="pyr-texts">
+            <div class="pyr-lcode">L1</div>
+            <div class="pyr-lname">Foundation &amp; Data</div>
+            <div class="pyr-ltag">"You can't optimize what you can't see."</div>
+          </div>
+          <div class="pyr-chev">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </div>
+        <div class="pyr-expand">
+          <div class="pyr-exp-inner">
+            <div class="pyr-zone">
+              <div class="pyr-zlbl">What this layer does</div>
+              <div class="pyr-zdesc">Removes the noindex/nofollow block, installs GA4 + server-side GTM, maps all 6 consultation events, and configures LinkedIn CAPI — building the data foundation from which every other layer operates.</div>
+              <div class="pyr-tags">
+                <span class="pyr-tag pt-l1">noindex removal</span>
+                <span class="pyr-tag pt-l1">GA4 + sGTM</span>
+                <span class="pyr-tag pt-l1">LinkedIn CAPI</span>
+                <span class="pyr-tag pt-l1">CF7 event mapping</span>
+                <span class="pyr-tag pt-l1">Search Console</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="pyr-dep">Each layer depends on the one below it. L1 must be right first — without clean data, everything above is noise.</div>
+  </div>
+
+  <!-- Typewriter Divider -->
+  <div class="applied-divider r" id="applied-section">
+    <div class="applied-eyebrow">Section 04 · The Engine</div>
+    <div class="applied-title">
+      <span id="applied-typed"></span>
+      <span class="applied-counter" id="applied-counter">01 → 05</span>
+    </div>
+  </div>
+
+</div>
+<!-- END SECTION 5 ENGINE -->
+
+<!-- LAYER DETAILS: L1–L5 (inside s4 scope, own container) -->
+<div style="max-width:1100px;margin:0 auto;padding:0 24px 80px">
+
+  <!-- LAYER 1 -->
+  <div class="lb r" id="l1">
+    <div class="lpill">L1 · Foundation</div>
+    <div class="lname">Foundation &amp; <span class="ow">Data</span></div>
+    <div class="ltag">"You can't optimize what you can't see."</div>
+    <p class="sec-hl r">Every page on wecopyfintech.com currently carries a noindex, nofollow meta directive — and zero analytics infrastructure exists. The contact form (Contact Form 7, ID 23) submits with no conversion event firing. This layer resolves both before anything else is built — because without clean data, every investment above this is optimizing blind.</p>
+
+    <!-- SVG-L1A: Current State Tracking Stack -->
+    <div class="lsvg" id="svg-l1a" data-diagram="l1-current-state" data-bg="light">
+      <!-- svg-l1a | 860×360 | light -->
+<svg viewBox="0 0 860 360" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<text x="28" y="20" font-size="10" font-weight="700" letter-spacing="1.5" fill="#667085">CURRENT STATE — WeCopy Fintech Tracking Stack Today</text>
+<!-- ROW 1: Ad / Analytics Pixels — all MISSING -->
+<!-- Box 1: GTM -->
+<rect x="28"  y="30" width="258" height="70" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="44"  y="49" font-size="11" font-weight="700" fill="#991B1B">❌ NO GTM CONTAINER</text>
+<text x="44"  y="63" font-size="9"  fill="#667085">Google Tag Manager</text>
+<text x="44"  y="76" font-size="9"  fill="#667085">Direct absence — not container-masked</text>
+<text x="44"  y="91" font-size="9"  fill="#FECACA">audit: no gtm.js script detected inline</text>
+<!-- Box 2: GA4 -->
+<rect x="298" y="30" width="258" height="70" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="314" y="49" font-size="11" font-weight="700" fill="#991B1B">❌ NO GA4</text>
+<text x="314" y="63" font-size="9"  fill="#667085">Google Analytics 4</text>
+<text x="314" y="76" font-size="9"  fill="#667085">No measurement ID found inline</text>
+<text x="314" y="91" font-size="9"  fill="#FECACA">no GTM present to mask it</text>
+<!-- Box 3: Paid pixels -->
+<rect x="568" y="30" width="264" height="70" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="584" y="49" font-size="11" font-weight="700" fill="#991B1B">❌ NO PAID PIXELS</text>
+<text x="584" y="63" font-size="9"  fill="#667085">Google Ads · Meta · LinkedIn</text>
+<text x="584" y="76" font-size="9"  fill="#667085">fbq() · gtag · snap.licdn.com</text>
+<text x="584" y="91" font-size="9"  fill="#FECACA">all absent — direct absence confirmed</text>
+<!-- ROW 2: What IS found (mixed) -->
+<!-- Box 4: CF7 — amber (present but silent) -->
+<rect x="28"  y="108" width="258" height="70" rx="6" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+<text x="44"  y="127" font-size="11" font-weight="700" fill="#92400E">⚠️ Contact Form 7</text>
+<text x="44"  y="141" font-size="9"  fill="#667085">ID: 23 · no event tracking</text>
+<text x="44"  y="155" font-size="9"  fill="#667085">REST: wp-json/contact-form-7/v1</text>
+<text x="44"  y="169" font-size="9"  fill="#FCD34D">form submits — no conversion event fires</text>
+<!-- Box 5: Cloudflare — amber -->
+<rect x="298" y="108" width="258" height="70" rx="6" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+<text x="314" y="127" font-size="11" font-weight="700" fill="#92400E">⚠️ Cloudflare</text>
+<text x="314" y="141" font-size="9"  fill="#667085">cdn-cgi/5c5dd728/.../email-decode.min.js</text>
+<text x="314" y="155" font-size="9"  fill="#667085">Email obfuscation only</text>
+<text x="314" y="169" font-size="9"  fill="#FCD34D">security layer — not a marketing tool</text>
+<!-- Box 6: Session tools — red -->
+<rect x="568" y="108" width="264" height="70" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="584" y="127" font-size="11" font-weight="700" fill="#991B1B">❌ NO SESSION TOOLS</text>
+<text x="584" y="141" font-size="9"  fill="#667085">Hotjar · Microsoft Clarity · FullStory</text>
+<text x="584" y="155" font-size="9"  fill="#667085">None detected in source code</text>
+<text x="584" y="169" font-size="9"  fill="#FECACA">0 behavioural data captured</text>
+
+<!-- Warning bar -->
+<rect x="28" y="186" width="804" height="26" rx="4" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+<text x="430" y="202" text-anchor="middle" font-size="10" font-weight="600" fill="#92400E">~0% of sessions generate any analytics data · Every consultation request arrives with zero source context</text>
+
+<!-- Section 2 — Signal loss flow -->
+<text x="28" y="228" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">SIGNAL CAPTURE TODAY</text>
+<rect x="28"  y="234" width="130" height="30" rx="6" fill="#0D1B2E"/>
+<text x="93"  y="253" text-anchor="middle" font-size="10" font-weight="700" fill="white">100 visitors</text>
+<line x1="160" y1="249" x2="260" y2="249" stroke="#FECACA" stroke-width="1.5"/>
+<text x="210" y="244" text-anchor="middle" font-size="9" fill="#991B1B">0% tracked</text>
+<rect x="262" y="234" width="200" height="30" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="362" y="248" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">~0% data captured</text>
+<text x="362" y="259" text-anchor="middle" font-size="9"  fill="#667085">no analytics installed</text>
+<text x="480" y="248" font-size="10" fill="#667085">→ Every form submit: source unknown</text>
+<text x="480" y="261" font-size="9"  fill="#667085" font-style="italic">(benchmark: client-side tools capture 60–80% · here: 0%)</text>
+
+<!-- Section 3 — Mini conversion funnel -->
+<text x="28" y="285" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">ESTIMATED FUNNEL — NONE OF THESE EVENTS CURRENTLY FIRE</text>
+<!-- Bar 1: Visitor 100% -->
+<text x="28"  y="302" font-size="9" fill="#0D1B2E">Visitor</text>
+<rect x="120" y="291" width="500" height="12" rx="2" fill="#020044"/>
+<text x="628" y="302" font-size="9" fill="#667085">100%</text>
+<!-- Bar 2: Service page 35% -->
+<text x="28"  y="318" font-size="9" fill="#0D1B2E">Service page</text>
+<rect x="120" y="307" width="175" height="12" rx="2" fill="#3A1A9A"/>
+<text x="303" y="318" font-size="9" fill="#667085">~35% (benchmark) · source unknown — not attributed</text>
+<!-- Bar 3: Portfolio 20% -->
+<text x="28"  y="334" font-size="9" fill="#0D1B2E">Portfolio</text>
+<rect x="120" y="323" width="100" height="12" rx="2" fill="#5A28C8"/>
+<text x="228" y="334" font-size="9" fill="#667085">~20% (benchmark)</text>
+<!-- Bar 4: Consultation requested 4% -->
+<text x="28"  y="350" font-size="9" fill="#0D1B2E">Consult req.</text>
+<rect x="120" y="339" width="20"  height="12" rx="2" fill="#06D4AE"/>
+<text x="148" y="350" font-size="9" fill="#667085">~4% (benchmark) · channel source: 0% tracked · L1 fix makes this attributable</text>
+</svg>
+    </div>
+    <!-- SVG-L1B: After L1 Server-Side Architecture -->
+    <div class="lsvg" id="svg-l1b" data-diagram="l1-server-side" data-bg="dark">
+      <!-- svg-l1b | 860×412 | dark -->
+<svg viewBox="0 0 860 412" width="100%" style="display:block;background:#0A0A2E" font-family="Outfit,sans-serif">
+<defs>
+  <marker id="l1b-arr" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto">
+    <polygon points="0,0 8,3.5 0,7" fill="#446084"/>
+  </marker>
+</defs>
+<text x="28" y="22" font-size="10" font-weight="700" letter-spacing="1.5" fill="#446084">AFTER LAYER 1 — Server-Side Architecture</text>
+
+<!-- Section 1: Architecture flow -->
+<!-- Browser -->
+<rect x="28"  y="34" width="100" height="52" rx="8" fill="#020044" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+<text x="78"  y="56" text-anchor="middle" font-size="10" font-weight="700" fill="white">Browser</text>
+<text x="78"  y="70" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Visitor / Prospect</text>
+<text x="78"  y="82" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.65)">wecopyfintech.com</text>
+<!-- Arrow -->
+<line x1="130" y1="60" x2="190" y2="60" stroke="#446084" stroke-width="1.5" marker-end="url(#l1b-arr)"/>
+<text x="160" y="55" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.65)">encrypted</text>
+<!-- sGTM -->
+<rect x="192" y="28" width="158" height="64" rx="8" fill="#446084" opacity="0.2" stroke="#446084" stroke-width="1.5"/>
+<text x="271" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="white">sGTM</text>
+<text x="271" y="62" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.8)">Server Container</text>
+<text x="271" y="75" text-anchor="middle" font-size="9"  fill="#446084">Google Cloud / Stape.io</text>
+<text x="271" y="87" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.65)">iOS/Safari blocks bypassed</text>
+<!-- Splitting arrows from sGTM to 3 platforms -->
+<!-- to GA4 -->
+<line x1="352" y1="46" x2="442" y2="40" stroke="#446084" stroke-width="1.5" marker-end="url(#l1b-arr)"/>
+<!-- to LinkedIn -->
+<line x1="352" y1="60" x2="442" y2="62" stroke="#446084" stroke-width="1.5" marker-end="url(#l1b-arr)"/>
+<!-- to Google Ads -->
+<line x1="352" y1="74" x2="442" y2="84" stroke="#446084" stroke-width="1.5" marker-end="url(#l1b-arr)"/>
+<!-- GA4 -->
+<rect x="444" y="26" width="148" height="30" rx="6" fill="#020044" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+<text x="462" y="38" font-size="10" font-weight="700" fill="white">GA4</text>
+<text x="462" y="50" font-size="9"  fill="rgba(255,255,255,0.6)">Analytics · server-side</text>
+<!-- LinkedIn CAPI -->
+<rect x="444" y="62" width="148" height="30" rx="6" fill="#020044" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+<text x="462" y="74" font-size="10" font-weight="700" fill="white">LinkedIn CAPI</text>
+<text x="462" y="86" font-size="9"  fill="rgba(255,255,255,0.6)">Campaign attribution</text>
+<!-- Google Ads CAPI -->
+<rect x="444" y="98" width="148" height="30" rx="6" fill="#020044" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+<text x="462" y="110" font-size="10" font-weight="700" fill="white">Google Ads CAPI</text>
+<text x="462" y="122" font-size="9"  fill="rgba(255,255,255,0.6)">Search attribution</text>
+<!-- Result stat -->
+<rect x="612" y="34" width="220" height="52" rx="8" fill="#446084" opacity="0.12" stroke="#446084" stroke-width="1"/>
+<text x="722" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="#446084">+20–40%</text>
+<text x="722" y="71" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.7)">data accuracy (benchmark)</text>
+<text x="722" y="83" text-anchor="middle" font-size="9"  fill="#446084">CAC by channel calculable</text>
+
+<!-- Section 2: 6 Event chips (2 rows of 3) -->
+<text x="28" y="150" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">6 BUSINESS-MEANINGFUL EVENTS — each with full source attribution</text>
+<!-- Row 1 -->
+<rect x="28"  y="158" width="256" height="38" rx="6" fill="#0E0050" stroke="#446084" stroke-width="0.5"/>
+<text x="40"  y="173" font-family="JetBrains Mono,monospace" font-size="11" font-weight="700" fill="#446084">page_view</text>
+<text x="40"  y="188" font-size="9"  fill="rgba(255,255,255,0.55)">All pages · session source/medium</text>
+<rect x="298" y="158" width="256" height="38" rx="6" fill="#0E0050" stroke="#446084" stroke-width="0.5"/>
+<text x="310" y="173" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#446084">service_page_viewed</text>
+<text x="310" y="188" font-size="9"  fill="rgba(255,255,255,0.55)">/service · scroll ≥70%</text>
+<rect x="568" y="158" width="264" height="38" rx="6" fill="#0E0050" stroke="#446084" stroke-width="0.5"/>
+<text x="580" y="173" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#446084">project_portfolio_clicked</text>
+<text x="580" y="188" font-size="9"  fill="rgba(255,255,255,0.55)">Portfolio project card interaction</text>
+<!-- Row 2 (chip 4 = PRIMARY, teal border) -->
+<rect x="28"  y="202" width="256" height="38" rx="6" fill="#0E0050" stroke="#06D4AE" stroke-width="1.5"/>
+<text x="40"  y="217" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#06D4AE">consultation_requested</text>
+<text x="40"  y="232" font-size="9"  fill="rgba(255,255,255,0.55)">CF7 ID 23 submit ← PRIMARY CONVERSION</text>
+<rect x="298" y="202" width="256" height="38" rx="6" fill="#0E0050" stroke="#446084" stroke-width="0.5"/>
+<text x="310" y="217" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#446084">consultation_booked</text>
+<text x="310" y="232" font-size="9"  fill="rgba(255,255,255,0.55)">Calendly confirmation page load</text>
+<rect x="568" y="202" width="264" height="38" rx="6" fill="#0E0050" stroke="#446084" stroke-width="0.5"/>
+<text x="580" y="217" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#446084">engagement_signed</text>
+<text x="580" y="232" font-size="9"  fill="rgba(255,255,255,0.55)">CRM stage change → webhook</text>
+
+<!-- Section 3: Code snippet -->
+<text x="28" y="258" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">SERVER-SIDE EVENT — consultation_requested</text>
+<rect x="28" y="264" width="804" height="96" rx="8" fill="#0E0050"/>
+<text x="44" y="283" font-family="JetBrains Mono,monospace" font-size="10" fill="#446084">// Server-side — browser cannot intercept · Fires server-side via Stape.io</text>
+<text x="44" y="299" font-family="JetBrains Mono,monospace" font-size="10" fill="#FBC94B">gtag</text><text x="84" y="299" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.7)">('event', </text><text x="197" y="299" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE">'consultation_requested'</text><text x="380" y="299" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.7)">, {</text>
+<text x="60"  y="313" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.5)">source: </text><text x="130" y="313" font-family="JetBrains Mono,monospace" font-size="10" fill="#FBC94B">utm_source</text><text x="230" y="313" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.4)">,  // "linkedin_ad" | "google_search" | "referral"</text>
+<text x="60"  y="327" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.5)">referral_client: </text><text x="200" y="327" font-family="JetBrains Mono,monospace" font-size="10" fill="#FBC94B">referred_by_field</text><text x="342" y="327" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.4)">,  // from CF7 custom field</text>
+<text x="60"  y="341" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.5)">lead_score: </text><text x="180" y="341" font-family="JetBrains Mono,monospace" font-size="10" fill="#FBC94B">40</text><text x="206" y="341" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.4)">,  // form submit = +40pts toward 50pt MQL threshold</text>
+<text x="60"  y="355" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.5)">service_interest: </text><text x="210" y="355" font-family="JetBrains Mono,monospace" font-size="10" fill="#FBC94B">form_subject</text>
+<text x="44"  y="355" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.7)">});</text>
+
+<!-- Section 4: Result bar -->
+<rect x="28" y="372" width="804" height="30" rx="6" fill="#446084" opacity="0.12" stroke="#446084" stroke-width="1"/>
+<text x="430" y="384" text-anchor="middle" font-size="11" font-weight="700" fill="#446084">Current: ~0% of events captured</text>
+<text x="430" y="396" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.6)">After L1: 100% captured from Day 1 · Attribution by channel calculable for the first time</text>
+</svg>
+    </div>
+
+    <div class="vf">
+      <!-- Step 1 -->
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#EEF6FF;border:2px solid #009DE0">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg>
+          </div>
+          <div class="fline lo"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">Zero signals are being <span style="color:#009DE0">captured</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>noindex, nofollow confirmed on all 4 pages — site invisible to Google</li>
+            <li><span class="do"></span>No Google Tag Manager container detected (direct absence, not GTM-masked)</li>
+            <li><span class="do"></span>Contact Form 7 ID 23 — no conversion event configured, no CRM endpoint</li>
+            <li><span class="do"></span>No GA4, Meta Pixel, or LinkedIn Insight Tag found inline</li>
+            <li class="na"><span class="dn"></span>Server-side tracking: cannot confirm or deny externally — no client-side signal by design</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Step 2 -->
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg>
+          </div>
+          <div class="fline lb2"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Decisions get made <span style="color:#FBC94B">without data</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Every consultation request arrives with zero attribution context — source channel invisible</li>
+            <li><span class="db"></span>Ad spend cannot be optimized — no conversion signal reaching any platform</li>
+            <li><span class="db"></span>Referral source is invisible — the channel generating all revenue has no tracking</li>
+          </ul>
+        </div>
+      </div>
+      <!-- Step 3 -->
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="fline ld"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">Server-side foundation from <span style="color:#06D4AE">Day 1</span></div>
+          <div class="chips">
+            <span class="chip">noindex/nofollow removal</span>
+            <span class="chip">GA4 + sGTM (server-side)</span>
+            <span class="chip">CF7 conversion event mapping</span>
+            <span class="chip">LinkedIn Insight Tag + CAPI</span>
+            <span class="chip">Google Search Console</span>
+            <span class="chip">CRM event integration</span>
+          </div>
+        </div>
+      </div>
+      <!-- Step 4 -->
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Every consultation arrives with <span style="color:var(--brand-primary)">full source context</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Attribution live from Day 1. noindex removed — site indexable. 100% event capture vs ~0% currently. First organic impressions appear in Search Console within weeks. (benchmark)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge r">
+      <div class="bt">With the data layer in place, the next question becomes: <em>where do new consultations come from beyond the existing referral network?</em> That's Layer 2.</div>
+    </div>
+  </div>
+
+  <!-- LAYER 2 -->
+  <div class="lb r" id="l2">
+    <div class="lpill">L2 · Channels</div>
+    <div class="lname">Channel <span class="ow">Acquisition</span></div>
+    <div class="ltag">"Referral scales to the size of one person's network — and no further."</div>
+
+    <!-- SVG-L2: Channel Architecture -->
+    <div class="lsvg" id="svg-l2" data-diagram="l2-channels" data-bg="light">
+      <!-- svg-l2 | 860×360 | light -->
+<svg viewBox="0 0 860 360" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<!-- Panel headers -->
+<rect x="28"  y="24" width="393" height="26" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="224" y="41" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">CURRENT: 0 CHANNELS · 0 ATTRIBUTION</text>
+<rect x="435" y="24" width="397" height="26" rx="4" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+<text x="633" y="41" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">AFTER L2: INTENT-STRUCTURED CHANNELS</text>
+<!-- Vertical divider -->
+<line x1="424" y1="20" x2="424" y2="340" stroke="#E9EDF2" stroke-width="1" stroke-dasharray="4,3"/>
+
+<!-- LEFT PANEL — 6 channel boxes (3 rows, 2 cols) -->
+<!-- Row 1 -->
+<rect x="28"  y="58" width="183" height="38" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="40"  y="73" font-size="10" font-weight="700" fill="#991B1B">❌ Google Search</text>
+<text x="40"  y="87" font-size="9"  fill="#667085">noindex/nofollow — zero impressions</text>
+<rect x="222" y="58" width="183" height="38" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="234" y="73" font-size="10" font-weight="700" fill="#991B1B">❌ LinkedIn Ads</text>
+<text x="234" y="87" font-size="9"  fill="#667085">No LinkedIn Partner ID detected</text>
+<!-- Row 2 -->
+<rect x="28"  y="102" width="183" height="38" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="40"  y="117" font-size="10" font-weight="700" fill="#991B1B">❌ Meta Ads</text>
+<text x="40"  y="131" font-size="9"  fill="#667085">No Meta Pixel (fbq) detected inline</text>
+<rect x="222" y="102" width="183" height="38" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="234" y="117" font-size="10" font-weight="700" fill="#991B1B">❌ Organic SEO</text>
+<text x="234" y="131" font-size="9"  fill="#667085">noindex/nofollow — zero ranking</text>
+<!-- Row 3 -->
+<rect x="28"  y="146" width="183" height="38" rx="4" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+<text x="40"  y="161" font-size="10" font-weight="700" fill="#92400E">⚠️ Email</text>
+<text x="40"  y="175" font-size="9"  fill="#667085">Newsletter form action="#" — broken</text>
+<rect x="222" y="146" width="183" height="38" rx="4" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="234" y="161" font-size="10" font-weight="700" fill="#991B1B">❌ Social Media</text>
+<text x="234" y="175" font-size="9"  fill="#667085">FB/TW/IG/Behance/YT — all href="#"</text>
+
+<!-- 3 warning annotations -->
+<text x="28"  y="197" font-size="9" fill="#991B1B">▶ noindex/nofollow on all 4 pages — site invisible to Google</text>
+<text x="28"  y="210" font-size="9" fill="#667085">▶ No Schema.org structured data — no service / local schema</text>
+<text x="28"  y="223" font-size="9" fill="#667085">▶ Zero attribution framework — referral source untrackable</text>
+
+<!-- RIGHT PANEL — After L2 channels -->
+<!-- Google Search -->
+<rect x="435" y="58" width="391" height="56" rx="6" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="435" y="58" width="4"   height="56" rx="2" fill="#020044"/>
+<text x="447" y="73"  font-size="10" font-weight="700" fill="#0D1B2E">Google Search — Bottom Funnel</text>
+<text x="447" y="87"  font-size="9"  fill="#667085">"custom CRM development Canada"  ·  "mobile app dev small business"</text>
+<text x="447" y="101" font-size="9"  fill="#667085">"IT outsourcing services Vancouver"  · Landing page per service · Book a Free Consultation</text>
+<!-- LinkedIn -->
+<rect x="435" y="120" width="391" height="56" rx="6" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="435" y="120" width="4"   height="56" rx="2" fill="#1A1060"/>
+<text x="447" y="135" font-size="10" font-weight="700" fill="#0D1B2E">LinkedIn Ads — 3 Intent Tiers</text>
+<text x="447" y="149" font-size="9"  fill="#667085">ToFu: Founders/Ops Directors/CTO · 10–200 employees · CA+US (lookalike)</text>
+<text x="447" y="163" font-size="9"  fill="#667085">MoFu: Service page + portfolio viewers retargeted · BoFu: Form abandoners → Calendly CTA</text>
+<!-- SEO -->
+<rect x="435" y="182" width="391" height="56" rx="6" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="435" y="182" width="4"   height="56" rx="2" fill="#3A1A9A"/>
+<text x="447" y="197" font-size="10" font-weight="700" fill="#0D1B2E">SEO — Topical Authority Clusters</text>
+<text x="447" y="211" font-size="9"  fill="#667085">"custom CRM for growing teams"  ·  "sales management software development"</text>
+<text x="447" y="225" font-size="9"  fill="#667085">"IT outsourcing vs in-house"  ·  Schema: LocalBusiness + Service + FAQPage</text>
+<!-- Email -->
+<rect x="435" y="244" width="391" height="44" rx="6" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="435" y="244" width="4"   height="44" rx="2" fill="#446084"/>
+<text x="447" y="259" font-size="10" font-weight="700" fill="#0D1B2E">Email — 3 Segments</text>
+<text x="447" y="273" font-size="9"  fill="#667085">Consult nurture (3 emails/10 days) · Client retention (monthly) · Referral network newsletter</text>
+
+<!-- Bottom result bar -->
+<rect x="28" y="302" width="804" height="26" rx="4" fill="#0D1B2E"/>
+<text x="430" y="318" text-anchor="middle" font-size="10" font-weight="700" fill="white">Target Month 3 (benchmark): Referral ~50% · Google Search ~25% · LinkedIn ~15% · Organic ~10%</text>
+
+<text x="28" y="346" font-size="9" fill="#667085" font-style="italic">All percentages are benchmarks — target Month 3 channel mix. Actual figures calculable from Day 60 once L1 attribution live.</text>
+</svg>
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#EEF6FF;border:2px solid #009DE0">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg>
+          </div>
+          <div class="fline lo"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">Zero acquisition channels <span style="color:#009DE0">active</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>All social icons link to # — no active social accounts connected</li>
+            <li><span class="do"></span>noindex/nofollow blocks all organic search — zero impressions possible</li>
+            <li><span class="do"></span>No paid ad pixels detected inline (no fbq, no gtag ads, no LinkedIn partner ID)</li>
+            <li><span class="do"></span>Newsletter form action="#" — non-functional</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg>
+          </div>
+          <div class="fline lb2"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Growth hits a <span style="color:#FBC94B">hard ceiling</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Growth capped by the size of one person's personal network</li>
+            <li><span class="db"></span>No mechanism to reach qualified buyers outside existing relationships</li>
+            <li><span class="db"></span>When referral network is saturated, no second channel exists to activate</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="fline ld"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">Three channels structured for <span style="color:#06D4AE">IT services buyers</span></div>
+          <div class="chips">
+            <span class="chip">Google Search Ads</span>
+            <span class="chip">LinkedIn Ads (3 tiers)</span>
+            <span class="chip">SEO content clusters</span>
+            <span class="chip">Email (3 segments)</span>
+            <span class="chip">Referral network newsletter</span>
+            <span class="chip">UTM attribution framework</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Consultations arrive from <span style="color:var(--brand-primary)">outside the existing network</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">First consultations from Google Search and LinkedIn by Month 2. Channel ROI comparison at Day 60 — budget follows data, not instinct. Referral network systematically nurtured via email.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge r">
+      <div class="bt">Traffic and channel reach mean nothing without a system to capture, qualify, and advance those prospects. <em>Layer 3 builds that system.</em></div>
+    </div>
+  </div>
+
+  <!-- LAYER 3 -->
+  <div class="lb r" id="l3">
+    <div class="lpill">L3 · Revenue Ops</div>
+    <div class="lname">Revenue <span class="ow">Operations</span></div>
+    <div class="ltag">"The referral network is the entire acquisition engine — and it currently runs on memory."</div>
+    <p class="sec-hl r">From the outside, there is no detectable CRM, no pipeline tool, and no proposal framework. The contact form routes to a WordPress inbox. No-show recovery, referral attribution, and proposal timing are all invisible — this layer makes them systematic and measurable for the first time.</p>
+
+    <!-- SVG-L3A: Current Pipeline Gaps -->
+    <div class="lsvg" id="svg-l3a" data-diagram="l3-gaps" data-bg="light">
+      <!-- svg-l3a | 860×240 | light -->
+<svg viewBox="0 0 860 240" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<text x="28" y="20" font-size="10" font-weight="700" letter-spacing="1.5" fill="#667085">WHAT WE CANNOT CONFIRM — Revenue Operations Today</text>
+<!-- 4 gap boxes: x=28,231,434,637 each w=193 -->
+<!-- Box 1 -->
+<rect x="28"  y="30" width="193" height="96" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="40"  y="49" font-size="10" font-weight="700" fill="#991B1B">❌ Show-Up Rate</text>
+<text x="40"  y="64" font-size="9"  fill="#0D1B2E">Consultation attendance</text>
+<text x="40"  y="78" font-size="9"  fill="#667085">not trackable externally</text>
+<text x="40"  y="92" font-size="9"  fill="#667085">No Calendly, Acuity, or</text>
+<text x="40"  y="104" font-size="9" fill="#667085">scheduling widget detected</text>
+<text x="40"  y="118" font-size="9" fill="#FECACA">audit: no scheduling script found</text>
+<!-- Box 2 -->
+<rect x="231" y="30" width="193" height="96" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="243" y="49" font-size="10" font-weight="700" fill="#991B1B">❌ Pipeline SLAs</text>
+<text x="243" y="64" font-size="9"  fill="#0D1B2E">Stage-by-stage SLAs</text>
+<text x="243" y="78" font-size="9"  fill="#667085">not verifiable externally</text>
+<text x="243" y="92" font-size="9"  fill="#667085">CF7 routes to WordPress</text>
+<text x="243" y="104" font-size="9" fill="#667085">inbox — no stage tracking</text>
+<text x="243" y="118" font-size="9" fill="#FECACA">audit: no CRM endpoint found</text>
+<!-- Box 3 -->
+<rect x="434" y="30" width="193" height="96" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="446" y="49" font-size="10" font-weight="700" fill="#991B1B">❌ Lead Scoring</text>
+<text x="446" y="64" font-size="9"  fill="#0D1B2E">No evidence of scoring</text>
+<text x="446" y="78" font-size="9"  fill="#667085">system externally</text>
+<text x="446" y="92" font-size="9"  fill="#667085">No HubSpot portal ID</text>
+<text x="446" y="104" font-size="9" fill="#667085">No scoring script detected</text>
+<text x="446" y="118" font-size="9" fill="#FECACA">audit: no CRM signals found</text>
+<!-- Box 4 -->
+<rect x="637" y="30" width="195" height="96" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+<text x="649" y="49" font-size="10" font-weight="700" fill="#991B1B">❌ Referral Attribution</text>
+<text x="649" y="64" font-size="9"  fill="#0D1B2E">Currently: 0% tracked</text>
+<text x="649" y="78" font-size="9"  fill="#667085">No UTM framework</text>
+<text x="649" y="92" font-size="9"  fill="#667085">No 'Referred by' field in</text>
+<text x="649" y="104" font-size="9" fill="#667085">CF7 form detected</text>
+<text x="649" y="118" font-size="9" fill="#FECACA">audit: no attribution framework</text>
+
+<!-- Bottom warning bars -->
+<rect x="28" y="136" width="804" height="34" rx="4" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+<text x="40"  y="151" font-size="10" font-weight="700" fill="#92400E">No-show recovery sequence</text>
+<text x="240" y="151" font-size="10" fill="#0D1B2E">not detected — CF7 has no automation configured</text>
+<text x="40"  y="165" font-size="9"  fill="#667085">Audit source: Contact Form 7 ID 23 · endpoint: wecopyfintech.com/wp-json/contact-form-7/v1</text>
+
+<rect x="28" y="178" width="804" height="34" rx="4" fill="#FFFBEB" stroke="#FCD34D" stroke-width="1"/>
+<text x="40"  y="193" font-size="10" font-weight="700" fill="#92400E">CRM / n8n endpoints</text>
+<text x="200" y="193" font-size="10" fill="#0D1B2E">not found in source code — form submits to WordPress inbox only</text>
+<text x="40"  y="207" font-size="9"  fill="#667085">Phone +17789943886 commented out · Work hours: 8am–6pm Mon–Fri only · 62-hour weekend gap</text>
+
+<text x="28" y="232" font-size="9" fill="#667085" font-style="italic">X5 Revenue Ops layer (L3) builds all four systems — pipeline, scoring, attribution, and no-show recovery — in Month 1 and Month 2.</text>
+</svg>
+    </div>
+    <!-- SVG-L3B: Pipeline + Lead Scoring -->
+    <div class="lsvg" id="svg-l3b" data-diagram="l3-pipeline" data-bg="dark">
+      <!-- svg-l3b | 860×500 | dark -->
+<svg viewBox="0 0 860 500" width="100%" style="display:block;background:#0A0A2E" font-family="Outfit,sans-serif">
+<defs>
+  <marker id="l3b-arr" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto">
+    <polygon points="0,0 8,3.5 0,7" fill="#446084" opacity="0.7"/>
+  </marker>
+</defs>
+<text x="28" y="22" font-size="10" font-weight="700" letter-spacing="1.5" fill="#446084">REVENUE PIPELINE — Stages, SLAs &amp; Lead Scoring</text>
+
+<!-- Section 1: 6 pipeline stages — each w=126, gap=8 -->
+<!-- Stage 1: Prospect (#020044) -->
+<rect x="28"  y="32" width="126" height="88" rx="6" fill="#020044" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<text x="91"  y="52" text-anchor="middle" font-size="11" font-weight="700" fill="white">Prospect</text>
+<text x="91"  y="67" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Form OR chatbot</text>
+<text x="91"  y="80" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Score: 40pts min</text>
+<text x="91"  y="93" text-anchor="middle" font-size="9"  font-weight="700" fill="#FBC94B">&lt;3 min auto-ack</text>
+<text x="91"  y="112" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.4)">n8n Slack + email</text>
+<!-- Arrow 1→2 -->
+<line x1="156" y1="76" x2="166" y2="76" stroke="#446084" stroke-width="1.5" opacity="0.7" marker-end="url(#l3b-arr)"/>
+<!-- Stage 2: Consultation Booked (#1A1060) -->
+<rect x="168" y="32" width="126" height="88" rx="6" fill="#1A1060" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<text x="231" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="white">Consult Booked</text>
+<text x="231" y="67" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Calendly confirm</text>
+<text x="231" y="80" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Score: 70pts</text>
+<text x="231" y="93" text-anchor="middle" font-size="9"  font-weight="700" fill="#FBC94B">Pre-brief &lt;1h</text>
+<text x="231" y="112" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.4)">n8n → founder</text>
+<!-- Arrow 2→3 -->
+<line x1="296" y1="76" x2="306" y2="76" stroke="#446084" stroke-width="1.5" opacity="0.7" marker-end="url(#l3b-arr)"/>
+<!-- Stage 3: Consultation Completed (#3A1A9A) -->
+<rect x="308" y="32" width="126" height="88" rx="6" fill="#3A1A9A" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<text x="371" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="white">Consult Done</text>
+<text x="371" y="67" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Founder marks done</text>
+<text x="371" y="80" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Score: 90pts</text>
+<text x="371" y="93" text-anchor="middle" font-size="9"  font-weight="700" fill="#FBC94B">AI draft &lt;24h</text>
+<text x="371" y="112" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.4)">20–30 min review</text>
+<!-- Arrow 3→4 -->
+<line x1="436" y1="76" x2="446" y2="76" stroke="#446084" stroke-width="1.5" opacity="0.7" marker-end="url(#l3b-arr)"/>
+<!-- Stage 4: Proposal Sent (#5A28C8) -->
+<rect x="448" y="32" width="126" height="88" rx="6" fill="#5A28C8" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+<text x="511" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="white">Proposal Sent</text>
+<text x="511" y="67" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Email confirmed</text>
+<text x="511" y="80" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Within 48h of call</text>
+<text x="511" y="93" text-anchor="middle" font-size="9"  font-weight="700" fill="#FBC94B">Day 5 follow-up</text>
+<text x="511" y="112" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.4)">case study attach</text>
+<!-- Arrow 4→5 -->
+<line x1="576" y1="76" x2="586" y2="76" stroke="#446084" stroke-width="1.5" opacity="0.7" marker-end="url(#l3b-arr)"/>
+<!-- Stage 5: Engagement Signed (#7A3EE8 approx) -->
+<rect x="588" y="32" width="126" height="88" rx="6" fill="#6C32D4" stroke="#6C32D4" stroke-width="1"/>
+<text x="651" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="white">Signed</text>
+<text x="651" y="67" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Contract signed</text>
+<text x="651" y="80" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">≥30% target rate</text>
+<text x="651" y="93" text-anchor="middle" font-size="9"  font-weight="700" fill="#FBC94B">Day 1/7/30 sequence</text>
+<text x="651" y="112" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.4)">(benchmark)</text>
+<!-- Arrow 5→6 -->
+<line x1="716" y1="76" x2="726" y2="76" stroke="#446084" stroke-width="1.5" opacity="0.7" marker-end="url(#l3b-arr)"/>
+<!-- Stage 6: Active Client (#06D4AE) -->
+<rect x="728" y="32" width="104" height="88" rx="6" fill="#06D4AE" stroke="rgba(6,212,174,0.3)" stroke-width="1"/>
+<text x="780" y="52" text-anchor="middle" font-size="10" font-weight="700" fill="#0D1B2E">Active Client</text>
+<text x="780" y="67" text-anchor="middle" font-size="9"  fill="rgba(0,20,40,0.7)">Project kick-off</text>
+<text x="780" y="80" text-anchor="middle" font-size="9"  fill="rgba(0,20,40,0.7)">12-month nurture</text>
+<text x="780" y="95" text-anchor="middle" font-size="9"  font-weight="700" fill="#0D1B2E">Growth phase</text>
+
+<!-- Alert bar -->
+<rect x="28" y="128" width="804" height="24" rx="4" fill="#0E0050" stroke="#FBC94B" stroke-width="0.5" opacity="0.8"/>
+<text x="430" y="143" text-anchor="middle" font-size="9" fill="#FBC94B">Deal stuck &gt;7 days at any stage → auto-flag Slack alert to founder · n8n monitors pipeline hourly</text>
+
+<!-- Section 2: Lead Scoring (3 columns) -->
+<text x="28" y="170" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">LEAD SCORING MODEL — 7 SIGNALS · MQL THRESHOLD: 50 POINTS</text>
+<!-- Column 1: Behavioural -->
+<rect x="28"  y="178" width="254" height="130" rx="6" fill="#0E0050"/>
+<text x="155" y="196" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">BEHAVIOURAL</text>
+<text x="40"  y="213" font-size="10" fill="rgba(255,255,255,0.7)">Service page viewed</text>
+<text x="276" y="213" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+15pts</text>
+<text x="40"  y="229" font-size="10" fill="rgba(255,255,255,0.7)">Portfolio project clicked</text>
+<text x="276" y="229" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+20pts</text>
+<text x="40"  y="245" font-size="10" fill="rgba(255,255,255,0.7)">≥3 pages in session</text>
+<text x="276" y="245" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+10pts</text>
+<text x="40"  y="261" font-size="10" fill="rgba(255,255,255,0.7)">Repeat visit in 7 days</text>
+<text x="276" y="261" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+15pts</text>
+<rect x="28"  y="272" width="254" height="18" rx="3" fill="#020044"/>
+<text x="155" y="284" text-anchor="middle" font-size="9" fill="#446084">Max: 60pts behavioural</text>
+<!-- Column 2: Conversion -->
+<rect x="298" y="178" width="254" height="130" rx="6" fill="#0E0050"/>
+<text x="425" y="196" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">CONVERSION</text>
+<text x="310" y="213" font-size="10" fill="rgba(255,255,255,0.7)">Contact form submitted</text>
+<text x="546" y="213" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+40pts</text>
+<text x="310" y="229" font-size="10" fill="rgba(255,255,255,0.7)">Consultation booked</text>
+<text x="546" y="229" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+50pts</text>
+<text x="310" y="245" font-size="9"  fill="rgba(255,255,255,0.4)" font-style="italic">Highest single-action signal</text>
+<rect x="298" y="272" width="254" height="18" rx="3" fill="#020044"/>
+<text x="425" y="284" text-anchor="middle" font-size="9" fill="#446084">Max: 90pts conversion</text>
+<!-- Column 3: Source/Relationship -->
+<rect x="568" y="178" width="264" height="130" rx="6" fill="#0E0050"/>
+<text x="700" y="196" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">SOURCE / RELATIONSHIP</text>
+<text x="580" y="213" font-size="10" fill="rgba(255,255,255,0.7)">Referred by existing client</text>
+<text x="826" y="213" text-anchor="end" font-size="11" font-weight="700" fill="#FBC94B">+30pts</text>
+<text x="580" y="229" font-size="9"  fill="rgba(255,255,255,0.4)" font-style="italic">Highest-trust acquisition signal</text>
+<rect x="568" y="272" width="264" height="18" rx="3" fill="#020044"/>
+<text x="700" y="284" text-anchor="middle" font-size="9" fill="#446084">Max: 30pts source</text>
+
+<!-- Score bar -->
+<rect x="28"  y="306" width="804" height="24" rx="4" fill="#446084" opacity="0.1" stroke="#446084" stroke-width="0.5"/>
+<rect x="28"  y="306" width="155" height="24" rx="4" fill="#020044" opacity="0.8"/>
+<text x="28"  y="321" font-size="9" fill="rgba(255,255,255,0.5)" dx="8">0</text>
+<line x1="183" y1="306" x2="183" y2="330" stroke="#FBC94B" stroke-width="1.5"/>
+<text x="185" y="320" font-size="9" fill="#FBC94B" font-weight="700">50pts: MQL ⚡</text>
+<line x1="340" y1="306" x2="340" y2="330" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+<text x="342" y="320" font-size="9" fill="rgba(255,255,255,0.5)">70: Booked</text>
+<line x1="495" y1="306" x2="495" y2="330" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+<text x="497" y="320" font-size="9" fill="rgba(255,255,255,0.5)">90: Proposal</text>
+<text x="826" y="321" text-anchor="end" font-size="9" fill="rgba(255,255,255,0.5)">130</text>
+<!-- Score example chip -->
+<rect x="28" y="336" width="804" height="22" rx="4" fill="#0E0050" stroke="#446084" stroke-width="0.5"/>
+<text x="40"  y="350" font-size="9" fill="#446084">Score example: </text>
+<text x="138" y="350" font-family="JetBrains Mono,monospace" font-size="9" fill="#FBC94B">Marcus Chen · Operations Director · portfolio clicked (+20) + form (+40) + referred (+30) = 90pts → MQL ⚡</text>
+
+<!-- Section 3: No-Show Recovery + Proposal Sequence -->
+<text x="28" y="376" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">NO-SHOW RECOVERY · 20–30% RECOVERED (BENCHMARK)</text>
+<!-- 3 timing pills -->
+<rect x="28"  y="384" width="176" height="34" rx="6" fill="#020044" stroke="#3A1A9A" stroke-width="1"/>
+<text x="116" y="398" text-anchor="middle" font-size="10" font-weight="700" fill="#FBC94B">T1: +2h</text>
+<text x="116" y="412" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Reschedule + Calendly</text>
+<rect x="218" y="384" width="176" height="34" rx="6" fill="#1A1060" stroke="#3A1A9A" stroke-width="1"/>
+<text x="306" y="398" text-anchor="middle" font-size="10" font-weight="700" fill="#FBC94B">T2: +24h</text>
+<text x="306" y="412" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">'Happy to reschedule'</text>
+<rect x="408" y="384" width="176" height="34" rx="6" fill="#3A1A9A" stroke="#446084" stroke-width="1"/>
+<text x="496" y="398" text-anchor="middle" font-size="10" font-weight="700" fill="#FBC94B">T3: +72h</text>
+<text x="496" y="412" text-anchor="middle" font-size="9"  fill="rgba(255,255,255,0.6)">Value email + case study</text>
+<!-- Post-consultation sequence -->
+<text x="620" y="393" font-size="9" fill="#446084" font-weight="700">POST-CONSULTATION:</text>
+<text x="620" y="407" font-size="9" fill="rgba(255,255,255,0.6)">Day 0: AI proposal draft (24h) · Day 5: Follow-up if no reply</text>
+<text x="620" y="419" font-size="9" fill="rgba(255,255,255,0.6)">Day 7: Case study · Day 14: Final check-in call offer</text>
+
+<text x="28" y="456" font-size="9" fill="rgba(255,255,255,0.4)" font-style="italic">All SLAs enforced automatically via n8n workflows — founder involvement only required at: Consultation (attend) · Proposal draft review (20–30 min) · Signing call.</text>
+</svg>
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#EEF6FF;border:2px solid #009DE0">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg>
+          </div>
+          <div class="fline lo"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">No pipeline, no proposal system, <span style="color:#009DE0">no referral tracking</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>CF7 ID 23 routes to inbox — no CRM endpoint, no auto-reply configured</li>
+            <li><span class="do"></span>Phone number commented out in source — email is the only contact path</li>
+            <li><span class="do"></span>Work hours: 8am–6pm Mon–Fri — 62-hour gap on weekends</li>
+            <li><span class="do"></span>No Calendly, Acuity, or scheduling widget detected</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg>
+          </div>
+          <div class="fline lb2"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Warm leads go cold <span style="color:#FBC94B">in the gap</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>A form submitted Friday evening sits unread until Monday morning</li>
+            <li><span class="db"></span>Prospects contact 2–3 vendors simultaneously — first to respond wins the calendar</li>
+            <li><span class="db"></span>Referral source is invisible — cannot nurture the channel generating all revenue</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="fline ld"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">Six revenue operations systems <span style="color:#06D4AE">working in sequence</span></div>
+          <div class="chips">
+            <span class="chip">Consultation pipeline (5 stages)</span>
+            <span class="chip">Auto-response &lt;3 min</span>
+            <span class="chip">48-hour proposal system</span>
+            <span class="chip">No-show recovery (+2h/+24h/+72h)</span>
+            <span class="chip">Lead scoring (50pt MQL)</span>
+            <span class="chip">Referral source tracking</span>
+            <span class="chip">12-month retention nurture</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Every consultation acknowledged, every proposal <span style="color:var(--brand-primary)">delivered on time</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Response time: under 3 minutes (automated). Proposals in 48 hours. Referral attribution visible for the first time. 12-month retention nurture running for all past clients from Month 2.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge r">
+      <div class="bt">Even with a pipeline running, two constraints remain: time and the limit of working hours. <em>Layer 4 resolves both without adding headcount.</em></div>
+    </div>
+  </div>
+
+  <!-- LAYER 4 -->
+  <div class="lb r" id="l4">
+    <div class="lpill">L4 · Automation</div>
+    <div class="lname">AI Automation <span class="ow">&amp; Agent</span></div>
+    <div class="ltag">"The best response to a Friday evening form is one that happens at 9:47 PM — automatically."</div>
+
+    <!-- SVG-L4A: AI Chatbot -->
+    <div class="lsvg" id="svg-l4a" data-diagram="l4-chatbot" data-bg="light">
+      <!-- svg-l4a | 860×640 | light -->
+<svg viewBox="0 0 860 640" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<text x="28" y="20" font-size="10" font-weight="700" letter-spacing="1.5" fill="#667085">AI QUALIFICATION CHATBOT — 24/7 Consultation Routing</text>
+
+<!-- LEFT PANEL: Phone frame -->
+<rect x="28"  y="28"  width="272" height="598" rx="22" fill="#0A0A2E"/>
+<!-- Phone screen -->
+<rect x="40"  y="90"  width="248" height="488" rx="4" fill="#F9FAFB"/>
+<!-- Chat header -->
+<rect x="40"  y="90"  width="248" height="48"  rx="4" fill="#0D1B2E"/>
+<circle cx="62" cy="114" r="14" fill="#446084"/>
+<text x="62" y="118" text-anchor="middle" font-size="10" font-weight="700" fill="white">W</text>
+<text x="84"  y="109" font-size="10" font-weight="700" fill="white">WeCopy Fintech</text>
+<text x="84"  y="123" font-size="9"  fill="#06D4AE">● AI Assistant · Online 24/7</text>
+
+<!-- Chat bubbles -->
+<!-- Bot greeting -->
+<rect x="48"  y="148" width="180" height="36" rx="8" fill="#E9EDF2"/>
+<text x="56"  y="163" font-size="9" fill="#0D1B2E">Hi! Can I help you find the right</text>
+<text x="56"  y="177" font-size="9" fill="#0D1B2E">service for your team?</text>
+<!-- User bubble 1 -->
+<rect x="96"  y="192" width="184" height="28" rx="8" fill="#0D1B2E"/>
+<text x="106" y="210" font-size="9" fill="white">Need a custom KPI dashboard</text>
+<!-- Bot Q1 -->
+<rect x="48"  y="228" width="196" height="36" rx="8" fill="#E9EDF2"/>
+<text x="56"  y="243" font-size="9" fill="#0D1B2E">How many departments need</text>
+<text x="56"  y="257" font-size="9" fill="#0D1B2E">visibility into the dashboard?</text>
+<!-- User bubble 2 -->
+<rect x="108" y="272" width="172" height="28" rx="8" fill="#0D1B2E"/>
+<text x="118" y="290" font-size="9" fill="white">4 — production, sales, HR, logistics</text>
+<!-- Bot Q2 -->
+<rect x="48"  y="308" width="204" height="28" rx="8" fill="#E9EDF2"/>
+<text x="56"  y="326" font-size="9" fill="#0D1B2E">Mobile access needed, or desktop-only?</text>
+<!-- User bubble 3 -->
+<rect x="120" y="344" width="160" height="28" rx="8" fill="#0D1B2E"/>
+<text x="130" y="362" font-size="9" fill="white">Mobile — team is often in the field</text>
+<!-- Bot Q3 -->
+<rect x="48"  y="380" width="196" height="28" rx="8" fill="#E9EDF2"/>
+<text x="56"  y="398" font-size="9" fill="#0D1B2E">Target timeline for going live?</text>
+<!-- User bubble 4 -->
+<rect x="128" y="416" width="152" height="28" rx="8" fill="#0D1B2E"/>
+<text x="138" y="434" font-size="9" fill="white">Within 3 months ideally</text>
+<!-- Bot: perfect fit + CTA -->
+<rect x="48"  y="452" width="224" height="52" rx="8" fill="#E9EDF2"/>
+<text x="56"  y="467" font-size="9" fill="#0D1B2E">Perfect fit — we built a similar KPI</text>
+<text x="56"  y="481" font-size="9" fill="#0D1B2E">system for a manufacturing team.</text>
+<text x="56"  y="495" font-size="9" fill="#0D1B2E">Book a 30-min consultation slot:</text>
+<!-- Calendly button -->
+<rect x="56"  y="510" width="200" height="26" rx="13" fill="#446084"/>
+<text x="156" y="527" text-anchor="middle" font-size="10" font-weight="700" fill="white">📅 Book 30-min consultation</text>
+<!-- Confirmation -->
+<rect x="48"  y="542" width="232" height="28" rx="8" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+<text x="56"  y="560" font-size="9" fill="#166534" font-weight="700">✓ Consultation confirmed — Tue 10 AM</text>
+
+<!-- Timestamp badge -->
+<rect x="48"  y="576" width="232" height="36" rx="6" fill="#020044"/>
+<text x="164" y="591" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.7)">10:47 PM · Saturday · Vancouver, BC</text>
+<text x="164" y="606" text-anchor="middle" font-size="9" fill="#446084">Ops Director · 30-person manufacturing</text>
+
+<!-- RIGHT PANEL: Background actions -->
+<text x="316" y="38" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">BACKGROUND ACTIONS — FIRING SIMULTANEOUSLY</text>
+
+<!-- Box 1: CRM record -->
+<rect x="316" y="48"  width="520" height="118" rx="8" fill="#0D1B2E"/>
+<rect x="316" y="48"  width="4"   height="118" rx="2" fill="#020044"/>
+<text x="330" y="68"  font-size="10" font-weight="700" fill="white">① CRM Record Created</text>
+<text x="330" y="83"  font-size="9"  fill="rgba(255,255,255,0.7)">Company: Manufacturing · 30 employees</text>
+<text x="330" y="97"  font-size="9"  fill="rgba(255,255,255,0.7)">Service interest: KPI Dashboard — Custom Development</text>
+<text x="330" y="111" font-size="9"  fill="rgba(255,255,255,0.7)">Source: After-hours organic / chatbot</text>
+<text x="330" y="125" font-size="9"  fill="rgba(255,255,255,0.7)">Stage: Prospect → Consultation Booked</text>
+<text x="330" y="139" font-size="9"  fill="rgba(255,255,255,0.7)">Consultation: Tuesday 10:00 AM · 30 mins</text>
+<text x="330" y="153" font-size="9"  fill="rgba(255,255,255,0.7)">Time on site: 4m 12s · Portfolio KPI project viewed</text>
+
+<!-- Box 2: Lead score -->
+<rect x="316" y="174" width="520" height="100" rx="8" fill="#0D1B2E" stroke="#06D4AE" stroke-width="1"/>
+<rect x="316" y="174" width="4"   height="100" rx="2" fill="#06D4AE"/>
+<text x="330" y="194" font-size="10" font-weight="700" fill="#06D4AE">② Lead Score: 75pts → MQL ⚡</text>
+<text x="330" y="212" font-size="9"  fill="rgba(255,255,255,0.7)">Service page viewed ········ +15pts</text>
+<text x="330" y="228" font-size="9"  fill="rgba(255,255,255,0.7)">Portfolio project clicked ··· +20pts</text>
+<text x="330" y="244" font-size="9"  fill="rgba(255,255,255,0.7)">Chat form submitted ········ +40pts</text>
+<text x="330" y="262" font-size="9"  fill="#06D4AE" font-weight="700">Total: 75pts — above 50pt MQL threshold → priority route</text>
+
+<!-- Box 3: Slack alert -->
+<rect x="316" y="282" width="520" height="110" rx="8" fill="#0D1B2E" stroke="#FBC94B" stroke-width="0.5"/>
+<rect x="316" y="282" width="4"   height="110" rx="2" fill="#FBC94B"/>
+<text x="330" y="302" font-size="10" font-weight="700" fill="#FBC94B">③ Founder Slack Alert</text>
+<text x="330" y="317" font-size="9"  fill="rgba(255,255,255,0.7)">🔔 New MQL · 75pts · Saturday 10:47 PM</text>
+<text x="330" y="332" font-size="9"  fill="rgba(255,255,255,0.7)">Company: 30-person manufacturing company</text>
+<text x="330" y="347" font-size="9"  fill="rgba(255,255,255,0.7)">Use case: KPI dashboard · 4 departments · mobile · 3-month timeline</text>
+<text x="330" y="362" font-size="9"  fill="rgba(255,255,255,0.7)">Consultation: Tuesday 10:00 AM</text>
+<text x="330" y="377" font-size="9"  fill="#FBC94B">"Pre-brief will be in your inbox 1 hour before the call."</text>
+
+<!-- Box 4: Pre-brief -->
+<rect x="316" y="400" width="520" height="100" rx="8" fill="#0D1B2E" stroke="#06D4AE" stroke-width="0.5"/>
+<rect x="316" y="400" width="4"   height="100" rx="2" fill="#3A1A9A"/>
+<text x="330" y="420" font-size="10" font-weight="700" fill="white">④ Pre-Brief Auto-Generated</text>
+<text x="330" y="436" font-size="9"  fill="rgba(255,255,255,0.7)">Pages visited: KPI Software project · IT Outsourcing service page</text>
+<text x="330" y="452" font-size="9"  fill="rgba(255,255,255,0.7)">Qualification: 4 departments · mobile · 3-month timeline</text>
+<text x="330" y="468" font-size="9"  fill="rgba(255,255,255,0.7)">Lead score: 75pts · Source: after-hours organic</text>
+<text x="330" y="484" font-size="9"  fill="rgba(255,255,255,0.7)">Referral: none detected · direct organic search</text>
+<text x="330" y="496" font-size="9"  fill="#446084">Founder review time: 0 minutes · Auto-generated from CRM signals</text>
+
+<!-- Bottom qualification logic -->
+<rect x="316" y="510" width="520" height="52" rx="6" fill="#E9EDF2" stroke="#E9EDF2" stroke-width="1"/>
+<text x="328" y="526" font-size="9" font-weight="700" fill="#0D1B2E">Qualification logic:</text>
+<text x="328" y="541" font-size="9" fill="#667085">≥10 employees + clear software need → Calendly direct booking (this case)</text>
+<text x="328" y="555" font-size="9" fill="#667085">No clear use case / &lt;10 employees → nurture sequence · Enterprise 100+ → 'Talk to team'</text>
+</svg>
+    </div>
+    <!-- SVG-L4B: Behavioral Triggers -->
+    <div class="lsvg" id="svg-l4b" data-diagram="l4-triggers" data-bg="dark">
+      <!-- svg-l4b | 860×340 | dark -->
+<svg viewBox="0 0 860 340" width="100%" style="display:block;background:#0A0A2E" font-family="Outfit,sans-serif">
+<text x="28" y="22" font-size="10" font-weight="700" letter-spacing="1.5" fill="#446084">5 BEHAVIORAL TRIGGERS — Automated n8n Workflows</text>
+<!-- Column headers -->
+<text x="40"  y="40" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="1">EVENT</text>
+<text x="260" y="40" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="1">AUTOMATED ACTION</text>
+<text x="714" y="40" font-size="9" fill="rgba(255,255,255,0.5)" letter-spacing="1">TIMING</text>
+
+<!-- Row 1: consultation_requested -->
+<rect x="28"  y="48" width="210" height="44" rx="5" fill="#020044" stroke="#446084" stroke-width="0.5"/>
+<text x="40"  y="66" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#06D4AE">consultation_requested</text>
+<text x="40"  y="82" font-size="9"  fill="rgba(255,255,255,0.4)">CF7 ID 23 submit · fires sGTM</text>
+<rect x="248" y="48" width="440" height="44" rx="5" fill="#020044" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+<text x="260" y="65" font-size="10" fill="rgba(255,255,255,0.8)">Slack alert to founder + confirmation email to prospect</text>
+<text x="260" y="81" font-size="9"  fill="rgba(255,255,255,0.5)">CRM record created · lead score assigned (form submit = +40pts)</text>
+<rect x="698" y="48" width="134" height="44" rx="5" fill="#446084" opacity="0.15" stroke="#446084" stroke-width="0.5"/>
+<text x="765" y="70" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">&lt;3 min</text>
+
+<!-- Row 2: consultation_booked -->
+<rect x="28"  y="100" width="210" height="44" rx="5" fill="#020044" stroke="#446084" stroke-width="0.5"/>
+<text x="40"  y="118" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#06D4AE">consultation_booked</text>
+<text x="40"  y="134" font-size="9"  fill="rgba(255,255,255,0.4)">Calendly confirmation fired</text>
+<rect x="248" y="100" width="440" height="44" rx="5" fill="#020044" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+<text x="260" y="117" font-size="10" fill="rgba(255,255,255,0.8)">Pre-consultation brief auto-sent to founder</text>
+<text x="260" y="133" font-size="9"  fill="rgba(255,255,255,0.5)">Pages visited · time on site · service interest · referral source · lead score</text>
+<rect x="698" y="100" width="134" height="44" rx="5" fill="#446084" opacity="0.15" stroke="#446084" stroke-width="0.5"/>
+<text x="765" y="122" text-anchor="middle" font-size="10" font-weight="700" fill="#06D4AE">&lt;1h before</text>
+<text x="765" y="136" text-anchor="middle" font-size="9"  fill="#446084">call</text>
+
+<!-- Row 3: consultation_no_show (amber highlight — most complex) -->
+<rect x="28"  y="152" width="210" height="44" rx="5" fill="#020044" stroke="#FBC94B" stroke-width="1"/>
+<text x="40"  y="170" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#FBC94B">consultation_no_show</text>
+<text x="40"  y="186" font-size="9"  fill="rgba(255,255,255,0.4)">3-touchpoint recovery</text>
+<rect x="248" y="152" width="440" height="44" rx="5" fill="#0E0050" stroke="#FBC94B" stroke-width="0.5"/>
+<text x="260" y="169" font-size="10" fill="rgba(255,255,255,0.85)">Reschedule +2h · Follow-up +24h · Case study +72h</text>
+<text x="260" y="185" font-size="9"  fill="#FBC94B">Recovers 20–30% of missed consultations (benchmark)</text>
+<rect x="698" y="152" width="134" height="44" rx="5" fill="#FFFBEB" stroke="#FBC94B" stroke-width="1" opacity="0.9"/>
+<text x="765" y="170" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">+2h / +24h</text>
+<text x="765" y="184" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">/ +72h</text>
+
+<!-- Row 4: proposal_sent_no_reply_5days -->
+<rect x="28"  y="204" width="210" height="44" rx="5" fill="#020044" stroke="#446084" stroke-width="0.5"/>
+<text x="40"  y="219" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#06D4AE">proposal_sent_</text>
+<text x="40"  y="231" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#06D4AE">no_reply_5days</text>
+<text x="40"  y="241" font-size="9"  fill="rgba(255,255,255,0.4)">n8n proposal stage check</text>
+<rect x="248" y="204" width="440" height="44" rx="5" fill="#020044" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+<text x="260" y="221" font-size="10" fill="rgba(255,255,255,0.8)">Follow-up email with most relevant portfolio case study</text>
+<text x="260" y="237" font-size="9"  fill="rgba(255,255,255,0.5)">Case study matched to prospect's industry from CRM record</text>
+<rect x="698" y="204" width="134" height="44" rx="5" fill="#446084" opacity="0.15" stroke="#446084" stroke-width="0.5"/>
+<text x="765" y="230" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">Day 5</text>
+
+<!-- Row 5: project_completed -->
+<rect x="28"  y="256" width="210" height="44" rx="5" fill="#020044" stroke="#446084" stroke-width="0.5"/>
+<text x="40"  y="274" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" fill="#06D4AE">project_completed</text>
+<text x="40"  y="290" font-size="9"  fill="rgba(255,255,255,0.4)">CRM stage → Active complete</text>
+<rect x="248" y="256" width="440" height="44" rx="5" fill="#020044" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/>
+<text x="260" y="273" font-size="10" fill="rgba(255,255,255,0.8)">Testimonial request email (+7 days)</text>
+<text x="260" y="289" font-size="9"  fill="rgba(255,255,255,0.5)">Referral ask + case study permission (+30 days) — under founder's name</text>
+<rect x="698" y="256" width="134" height="44" rx="5" fill="#446084" opacity="0.15" stroke="#446084" stroke-width="0.5"/>
+<text x="765" y="274" text-anchor="middle" font-size="10" font-weight="700" fill="#06D4AE">+7d</text>
+<text x="765" y="288" text-anchor="middle" font-size="10" font-weight="700" fill="#446084">+30d</text>
+
+<!-- Bottom caption -->
+<rect x="28" y="308" width="804" height="22" rx="4" fill="#0E0050"/>
+<text x="40"  y="322" font-size="9" fill="#446084">7 total n8n workflows in Month 2 · These 5 cover the full consultation lifecycle</text>
+<text x="612" y="322" font-size="9" fill="rgba(255,255,255,0.4)">+ engagement_signed · + client_12month_anniversary</text>
+</svg>
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#EEF6FF;border:2px solid #009DE0">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg>
+          </div>
+          <div class="fline lo"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">No automation — every function runs through <span style="color:#009DE0">one person</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>No chatbot or live chat script detected in source code</li>
+            <li><span class="do"></span>No after-hours contact mechanism — work hours 8am–6pm Mon–Fri only</li>
+            <li><span class="do"></span>No published case studies linked or referenced on the site</li>
+            <li><span class="do"></span>Testimonials use stock photo assets — no testimonial collection system</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg>
+          </div>
+          <div class="fline lb2"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Delivery and sales <span style="color:#FBC94B">compete for the same hours</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>When active on delivery, inbound response slows — prospects go elsewhere</li>
+            <li><span class="db"></span>After-hours consultations missed entirely — site has no qualification mechanism</li>
+            <li><span class="db"></span>Proposal writing takes 2–3 hours of manual effort per engagement</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="fline ld"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">7 n8n workflows + AI chatbot <span style="color:#06D4AE">running 24/7</span></div>
+          <div class="chips">
+            <span class="chip">AI chatbot (24/7 on-site)</span>
+            <span class="chip">consultation_requested → &lt;3 min</span>
+            <span class="chip">consultation_booked brief</span>
+            <span class="chip">consultation_no_show recovery</span>
+            <span class="chip">proposal follow-up Day 5</span>
+            <span class="chip">project_completed testimonial</span>
+            <span class="chip">AI content repurposing</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Inbound handled automatically <span style="color:var(--brand-primary)">around the clock</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Under 5 minutes response time, 24/7. 3–5 named testimonials published within 90 days. 5 portfolio projects as published case studies within 60 days. Founder saves 5–8 hours per week on manual tasks.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge r">
+      <div class="bt">Layer 4 fires the right actions. <em>Layer 5 tells you whether those actions are working — and where to press harder.</em></div>
+    </div>
+  </div>
+
+  <!-- LAYER 5 -->
+  <div class="lb r" id="l5">
+    <div class="lpill">L5 · Intelligence</div>
+    <div class="lname">Marketing <span class="ow">Intelligence</span></div>
+    <div class="ltag">"Five minutes every Monday morning. Full picture of pipeline, channel, and client health."</div>
+
+    <!-- SVG-L5A: Revenue Intelligence Dashboard (MANDATORY) -->
+    <div class="lsvg" id="svg-l5a" data-diagram="svg-l5a" data-bg="light" style="margin:32px 0">
+      <!-- svg-l5a | 860×380 | light -->
+<svg viewBox="0 0 860 380" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<!-- Section 1 — 4 KPI cards -->
+<text x="28" y="22" font-size="10" font-weight="700" letter-spacing="1.5" fill="#667085">REVENUE INTELLIGENCE — WHAT YOU SEE AFTER 90 DAYS</text>
+<!-- Card 1 -->
+<rect x="28"  y="34" width="188" height="66" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="28"  y="34" width="4"   height="66" rx="2" fill="#020044"/>
+<text x="40"  y="52" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">CONSULTATIONS BOOKED</text>
+<text x="40"  y="72" font-size="16" font-weight="700" fill="#0D1B2E">By Channel</text>
+<text x="40"  y="88" font-size="10" fill="#667085">Live from Day 1 · source-attributed</text>
+<!-- Card 2 -->
+<rect x="226" y="34" width="188" height="66" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="226" y="34" width="4"   height="66" rx="2" fill="#1A1060"/>
+<text x="238" y="52" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">PROPOSAL → ENGAGEMENT</text>
+<text x="238" y="72" font-size="16" font-weight="700" fill="#0D1B2E">Target ≥30%</text>
+<text x="238" y="88" font-size="10" fill="#667085">Baseline unknown · from Month 1 (benchmark)</text>
+<!-- Card 3 -->
+<rect x="424" y="34" width="188" height="66" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="424" y="34" width="4"   height="66" rx="2" fill="#3A1A9A"/>
+<text x="436" y="52" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">RESPONSE TIME</text>
+<text x="436" y="70" font-size="14" font-weight="700" fill="#0D1B2E">&lt;3 min auto · &lt;4h human</text>
+<text x="436" y="88" font-size="10" fill="#991B1B">Current: ~28h · from audit (work hrs 8am–6pm M–F)</text>
+<!-- Card 4 -->
+<rect x="622" y="34" width="188" height="66" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="622" y="34" width="4"   height="66" rx="2" fill="#06D4AE"/>
+<text x="634" y="52" font-size="10" font-weight="700" letter-spacing="1" fill="#446084">REFERRAL ATTRIBUTION</text>
+<text x="634" y="72" font-size="16" font-weight="700" fill="#0D1B2E">100% by Month 2</text>
+<text x="634" y="88" font-size="10" fill="#991B1B">Current: 0% tracked · no UTM framework</text>
+
+<!-- Divider -->
+<line x1="28" y1="114" x2="832" y2="114" stroke="#E9EDF2" stroke-width="1"/>
+
+<!-- Section 2 — Funnel (left) + Attribution (right) -->
+<!-- LEFT: Consultation funnel -->
+<text x="28"  y="132" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">CONSULTATION CONVERSION FUNNEL</text>
+<!-- funnel bars -->
+<rect x="28" y="140" width="380" height="12" rx="2" fill="#020044"/>
+<text x="416" y="151" font-size="10" fill="#0D1B2E">Visitor · 100%</text>
+<rect x="28" y="160" width="133" height="12" rx="2" fill="#1A1060"/>
+<text x="169" y="171" font-size="10" fill="#0D1B2E">Svc page · 35% (benchmark)</text>
+<rect x="28" y="180" width="15"  height="12" rx="2" fill="#3A1A9A"/>
+<text x="52"  y="191" font-size="10" fill="#0D1B2E">Consult req · 4% (benchmark)</text>
+<rect x="28" y="200" width="11"  height="12" rx="2" fill="#5A28C8"/>
+<text x="47"  y="211" font-size="10" fill="#0D1B2E">Booked · 3% (benchmark)</text>
+<rect x="28" y="220" width="3"   height="12" rx="2" fill="#06D4AE"/>
+<text x="40"  y="231" font-size="10" fill="#0D1B2E">Signed · 0.8% (benchmark)</text>
+
+<!-- RIGHT: Channel Attribution -->
+<text x="460" y="132" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">CHANNEL ATTRIBUTION — TARGET MONTH 3 (BENCHMARK)</text>
+<!-- Referral -->
+<text x="460" y="155" font-size="10" font-weight="600" fill="#0D1B2E">Referral</text>
+<rect x="530" y="144" width="200" height="14" rx="2" fill="#E9EDF2"/>
+<rect x="530" y="144" width="200" height="14" rx="2" fill="#020044"/>
+<text x="738" y="155" font-size="10" font-weight="700" fill="#0D1B2E">50%</text>
+<!-- Google Search -->
+<text x="460" y="177" font-size="10" font-weight="600" fill="#0D1B2E">Google</text>
+<rect x="530" y="166" width="200" height="14" rx="2" fill="#E9EDF2"/>
+<rect x="530" y="166" width="100" height="14" rx="2" fill="#446084"/>
+<text x="638" y="177" font-size="10" font-weight="700" fill="white">25%</text>
+<!-- LinkedIn -->
+<text x="460" y="199" font-size="10" font-weight="600" fill="#0D1B2E">LinkedIn</text>
+<rect x="530" y="188" width="200" height="14" rx="2" fill="#E9EDF2"/>
+<rect x="530" y="188" width="60"  height="14" rx="2" fill="#1A1060"/>
+<text x="598" y="199" font-size="10" font-weight="700" fill="white">15%</text>
+<!-- Organic -->
+<text x="460" y="221" font-size="10" font-weight="600" fill="#0D1B2E">Organic</text>
+<rect x="530" y="210" width="200" height="14" rx="2" fill="#E9EDF2"/>
+<rect x="530" y="210" width="40"  height="14" rx="2" fill="#3A1A9A"/>
+<text x="578" y="221" font-size="10" font-weight="700" fill="white">10%</text>
+<text x="460" y="240" font-size="9" fill="#667085" font-style="italic">All % = benchmark — target Month 3. Currently: referral only, 0% attributed.</text>
+
+<!-- Divider -->
+<line x1="28" y1="260" x2="832" y2="260" stroke="#E9EDF2" stroke-width="1"/>
+
+<!-- Section 3 — 90-Day Reporting Cadence -->
+<text x="28"  y="278" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">90-DAY REPORTING CADENCE</text>
+<!-- Weekly -->
+<rect x="28"  y="288" width="250" height="76" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<text x="44"  y="307" font-size="11" font-weight="700" fill="#0D1B2E">Weekly</text>
+<text x="44"  y="323" font-size="10" fill="#667085">Consultations booked × channel</text>
+<text x="44"  y="338" font-size="10" fill="#667085">Proposals pending · Pipeline value</text>
+<text x="44"  y="353" font-size="10" fill="#446084" font-weight="600">Monday 8 AM · auto-delivered</text>
+<!-- Monthly -->
+<rect x="292" y="288" width="250" height="76" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<text x="308" y="307" font-size="11" font-weight="700" fill="#0D1B2E">Monthly</text>
+<text x="308" y="323" font-size="10" fill="#667085">Channel ROI analysis</text>
+<text x="308" y="338" font-size="10" fill="#667085">Referral source ranking</text>
+<text x="308" y="353" font-size="10" fill="#667085">ICP profile from closed engagements</text>
+<!-- Quarterly -->
+<rect x="556" y="288" width="274" height="76" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<text x="572" y="307" font-size="11" font-weight="700" fill="#0D1B2E">Quarterly</text>
+<text x="572" y="323" font-size="10" fill="#667085">Expansion opportunity report</text>
+<text x="572" y="338" font-size="10" fill="#667085">Past clients at 12-month mark</text>
+<text x="572" y="353" font-size="10" fill="#667085">Budget reallocation recommendation</text>
+</svg>
+    </div>
+    <!-- SVG-L5C: CLV & Retention Intelligence (TRIGGER L5C = YES) -->
+    <div class="lsvg" id="svg-l5c" data-diagram="svg-l5c" data-bg="light" style="margin:32px 0">
+      <!-- svg-l5c | 860×320 | light -->
+<svg viewBox="0 0 860 320" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<!-- Section 1 — LTV by Segment -->
+<text x="28" y="20" font-size="10" font-weight="700" letter-spacing="1.5" fill="#446084">LTV BY SERVICE SEGMENT — Which client types are worth acquiring most (benchmark)</text>
+<!-- CRM Development — $32k, 100% -->
+<text x="28"  y="44" font-size="10" font-weight="600" fill="#0D1B2E">CRM Development</text>
+<rect x="200" y="32" width="480" height="18" rx="2" fill="#06D4AE" opacity="0.85"/>
+<text x="688" y="45" font-size="11" font-weight="700" fill="#0D1B2E">$32,000</text>
+<text x="780" y="45" font-size="9"  fill="#667085" font-style="italic">highest LTV</text>
+<!-- IT Outsourcing — $24k, 75% -->
+<text x="28"  y="68" font-size="10" font-weight="600" fill="#0D1B2E">IT Outsourcing</text>
+<rect x="200" y="56" width="360" height="18" rx="2" fill="#5A28C8" opacity="0.7"/>
+<text x="568" y="69" font-size="11" font-weight="700" fill="#0D1B2E">$24,000</text>
+<!-- Mobile App — $18k, 56% -->
+<text x="28"  y="92" font-size="10" font-weight="600" fill="#0D1B2E">Mobile App Dev</text>
+<rect x="200" y="80" width="270" height="18" rx="2" fill="#3A1A9A" opacity="0.7"/>
+<text x="478" y="93" font-size="11" font-weight="700" fill="#0D1B2E">$18,000</text>
+<text x="570" y="93" font-size="9"  fill="#667085">Phase 2 additions typical at 12 months</text>
+<!-- Web Development — $12k, 37% -->
+<text x="28"  y="116" font-size="10" font-weight="600" fill="#0D1B2E">Web Development</text>
+<rect x="200" y="104" width="178" height="18" rx="2" fill="#1A1060" opacity="0.7"/>
+<text x="386" y="117" font-size="11" font-weight="700" fill="#0D1B2E">$12,000</text>
+<!-- Gap annotation box -->
+<rect x="28" y="130" width="804" height="28" rx="6" fill="#E9EDF2" stroke="#446084" stroke-width="0.5" opacity="0.7"/>
+<text x="40" y="144" font-size="10" fill="#446084" font-weight="600">CRM clients = highest LTV segment · X5 identifies highest-LTV ICP for budget allocation after 90 days</text>
+<text x="40" y="154" font-size="9"  fill="#667085">(benchmark — actual mix confirmed from CRM data in audit call)</text>
+
+<!-- Divider -->
+<line x1="28" y1="170" x2="832" y2="170" stroke="#E9EDF2" stroke-width="1"/>
+
+<!-- Section 2 — Cohort Retention Curve -->
+<text x="28"  y="186" font-size="10" font-weight="700" letter-spacing="1" fill="#667085">CLIENT RETENTION — Repeat Engagement by Month (benchmark · IT professional services without structured nurture)</text>
+<!-- 5 bars: M0=100%, M1=78%, M3=62%, M6=48%, M12=35% -->
+<!-- Bar width=96, gap=12, start x=28 -->
+<!-- Heights: M0=36, M1=max(28,36*0.78)=28, M3=28, M6=28, M12=28 — all min 28 -->
+<!-- Base y=248, bars hang up from there -->
+<!-- M0: h=36, top=212 -->
+<rect x="50"  y="212" width="96" height="36" rx="2" fill="#020044"/>
+<text x="98"  y="207" text-anchor="middle" font-size="10" font-weight="700" fill="#0D1B2E">100%</text>
+<text x="98"  y="256" text-anchor="middle" font-size="9"  fill="#667085">Month 0</text>
+<!-- M1: h=28, top=220 -->
+<rect x="170" y="220" width="96" height="28" rx="2" fill="#1A1060"/>
+<text x="218" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#0D1B2E">78%</text>
+<text x="218" y="256" text-anchor="middle" font-size="9"  fill="#667085">Month 1</text>
+<text x="218" y="210" text-anchor="middle" font-size="9"  fill="#991B1B">–22pp</text>
+<!-- M3: h=28 -->
+<rect x="290" y="220" width="96" height="28" rx="2" fill="#3A1A9A"/>
+<text x="338" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#0D1B2E">62%</text>
+<text x="338" y="256" text-anchor="middle" font-size="9"  fill="#667085">Month 3</text>
+<text x="338" y="210" text-anchor="middle" font-size="9"  fill="#991B1B">–16pp</text>
+<!-- M6: h=28 -->
+<rect x="410" y="220" width="96" height="28" rx="2" fill="#5A28C8"/>
+<text x="458" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#0D1B2E">48%</text>
+<text x="458" y="256" text-anchor="middle" font-size="9"  fill="#667085">Month 6</text>
+<!-- M12: h=28 -->
+<rect x="530" y="220" width="96" height="28" rx="2" fill="#06D4AE"/>
+<text x="578" y="215" text-anchor="middle" font-size="10" font-weight="700" fill="#0D1B2E">35%</text>
+<text x="578" y="256" text-anchor="middle" font-size="9"  fill="#667085">Month 12</text>
+<!-- Drop annotations -->
+<text x="648" y="222" font-size="9" fill="#667085" font-style="italic">Clients go quiet after delivery</text>
+<text x="648" y="234" font-size="9" fill="#667085" font-style="italic">— no check-in system (M0→M1)</text>
+<text x="648" y="248" font-size="9" fill="#667085" font-style="italic">Phase 2 evaluations begin —</text>
+<text x="648" y="260" font-size="9" fill="#667085" font-style="italic">WeCopy not in conversation (M3→M6)</text>
+<!-- Annotation bar -->
+<text x="50"  y="272" font-size="9" fill="#667085" font-style="italic">X5 L1 data + CRM retention sequences → track actual vs benchmark · Currently: no retention tracking confirmed externally</text>
+
+<!-- Divider -->
+<line x1="28" y1="282" x2="832" y2="282" stroke="#E9EDF2" stroke-width="1"/>
+
+<!-- Section 3 — Expansion + Churn Warning -->
+<!-- Box A: Expansion Signal -->
+<rect x="28"  y="290" width="390" height="22" rx="6" fill="#E9EDF2" stroke="#446084" stroke-width="1"/>
+<text x="40"  y="303" font-size="10" font-weight="700" fill="#446084">Expansion Signal  </text>
+<text x="160" y="303" font-size="10" fill="#0D1B2E">12-month anniversary trigger → expansion email → founder reviews → Phase 2 captured</text>
+<text x="660" y="303" font-size="9"  fill="#991B1B">Ref: Scenario 3 · $22,000</text>
+<!-- Box B: Churn Warning -->
+<rect x="432" y="290" width="400" height="22" rx="6" fill="#FFFBEB" stroke="#FBC94B" stroke-width="1"/>
+<text x="444" y="303" font-size="10" font-weight="700" fill="#92400E">Churn Warning  </text>
+<text x="552" y="303" font-size="10" fill="#0D1B2E">No contact &gt;90 days → retention touchpoint alert → re-engagement sequence</text>
+</svg>
+    </div>
+    <!-- SVG-L5B: Digital Marketing Performance Dashboard (MANDATORY) -->
+    <div class="lsvg" id="svg-l5b" data-diagram="svg-l5b" data-bg="light" style="margin:32px 0">
+      <!-- svg-l5b | 860×340 | light -->
+<svg viewBox="0 0 860 340" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<text x="28" y="20" font-size="10" font-weight="700" letter-spacing="1.5" fill="#667085">DIGITAL MARKETING PERFORMANCE — Channel-by-Channel (all CPL/CVR = benchmark · actual from Day 60 once L1 live)</text>
+<!-- Table header -->
+<rect x="28" y="28" width="804" height="28" rx="4" fill="#0D1B2E"/>
+<text x="48"  y="46" font-size="10" font-weight="700" fill="white">Channel</text>
+<text x="220" y="46" font-size="10" font-weight="700" fill="white">Budget / Reach</text>
+<text x="370" y="46" font-size="10" font-weight="700" fill="white">CPL (benchmark)</text>
+<text x="530" y="46" font-size="10" font-weight="700" fill="white">CVR to Consultation</text>
+<text x="710" y="46" font-size="10" font-weight="700" fill="white">Status</text>
+<!-- Row 1 — Referral (highlighted amber) -->
+<rect x="28" y="56" width="804" height="34" rx="2" fill="#FFFBEB" stroke="#FBC94B" stroke-width="0.5"/>
+<text x="48"  y="70" font-size="10" font-weight="700" fill="#92400E">Referral (current)</text>
+<text x="48"  y="82" font-size="9"  fill="#667085">Founder's network — hard ceiling</text>
+<text x="220" y="73" font-size="10" fill="#0D1B2E">$0 spend</text>
+<text x="370" y="73" font-size="10" fill="#0D1B2E">~$0–10</text>
+<text x="530" y="70" font-size="10" font-weight="700" fill="#0D1B2E">~35–45%</text>
+<text x="530" y="82" font-size="9"  fill="#667085">Highest CVR — network-limited</text>
+<text x="710" y="73" font-size="9"  fill="#92400E">→ capacity-limited</text>
+<!-- Row 2 — Google Search -->
+<rect x="28" y="90" width="804" height="34" rx="2" fill="white"/>
+<text x="48"  y="107" font-size="10" font-weight="600" fill="#0D1B2E">Google Search</text>
+<text x="220" y="107" font-size="10" fill="#667085">TBD · Month 2</text>
+<text x="370" y="107" font-size="10" fill="#0D1B2E">~$85–120</text>
+<text x="530" y="107" font-size="10" fill="#0D1B2E">~4–6%</text>
+<text x="710" y="107" font-size="10" fill="#166534">↑ Launches Month 2</text>
+<!-- Row 3 — LinkedIn -->
+<rect x="28" y="124" width="804" height="34" rx="2" fill="#F8F9FF"/>
+<text x="48"  y="141" font-size="10" font-weight="600" fill="#0D1B2E">LinkedIn Ads</text>
+<text x="220" y="141" font-size="10" fill="#667085">TBD · Month 2</text>
+<text x="370" y="141" font-size="10" fill="#0D1B2E">~$150–250</text>
+<text x="530" y="141" font-size="10" fill="#0D1B2E">~2–3%</text>
+<text x="710" y="141" font-size="10" fill="#166534">↑ Launches Month 2</text>
+<!-- Row 4 — Organic SEO -->
+<rect x="28" y="158" width="804" height="34" rx="2" fill="white"/>
+<text x="48"  y="175" font-size="10" font-weight="600" fill="#0D1B2E">Organic SEO</text>
+<text x="220" y="175" font-size="10" fill="#667085">$0 ad spend</text>
+<text x="370" y="175" font-size="10" fill="#0D1B2E">~$35–60</text>
+<text x="530" y="175" font-size="10" fill="#0D1B2E">~4–7%</text>
+<text x="710" y="175" font-size="9"  fill="#667085">→ long-term build</text>
+<!-- Row 5 — Email -->
+<rect x="28" y="192" width="804" height="34" rx="2" fill="#F8F9FF"/>
+<text x="48"  y="209" font-size="10" font-weight="600" fill="#0D1B2E">Email — Nurture</text>
+<text x="220" y="209" font-size="10" fill="#667085">$0 ad spend</text>
+<text x="370" y="209" font-size="10" fill="#0D1B2E">~$15–30</text>
+<text x="530" y="209" font-size="10" fill="#0D1B2E">~8–15%</text>
+<text x="710" y="209" font-size="10" fill="#166534">↑ Launches Month 2</text>
+<!-- Note row -->
+<rect x="28" y="226" width="804" height="28" rx="2" fill="#E9EDF2"/>
+<text x="40"  y="243" font-size="9" fill="#667085" font-style="italic">All CPL and CVR values are benchmarks — actual figures calculable from Day 60 once L1 attribution is live. Referral CVR calculated once UTM + 'Referred by' field active.</text>
+
+<!-- Section 2 — 3 Highlight Metrics -->
+<line x1="28" y1="264" x2="832" y2="264" stroke="#E9EDF2" stroke-width="1"/>
+<!-- Metric 1 — Best channel -->
+<rect x="28"  y="272" width="250" height="58" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="28"  y="272" width="4"   height="58" rx="2" fill="#06D4AE"/>
+<text x="40"  y="289" font-size="10" font-weight="700" fill="#0D1B2E">Best Current Channel</text>
+<text x="40"  y="305" font-size="11" font-weight="700" fill="#06D4AE">Referral — ~35–45% CVR</text>
+<text x="40"  y="320" font-size="9"  fill="#667085">Hard-capped by one person's network</text>
+<!-- Metric 2 — Lowest CPL -->
+<rect x="292" y="272" width="250" height="58" rx="8" fill="white" stroke="#E9EDF2" stroke-width="1"/>
+<rect x="292" y="272" width="4"   height="58" rx="2" fill="#446084"/>
+<text x="304" y="289" font-size="10" font-weight="700" fill="#0D1B2E">Lowest CPL Channel</text>
+<text x="304" y="305" font-size="11" font-weight="700" fill="#446084">Email · &lt;$30/consultation</text>
+<text x="304" y="320" font-size="9"  fill="#667085">X5 activates Month 2 — referral newsletter</text>
+<!-- Metric 3 — Biggest gap -->
+<rect x="556" y="272" width="276" height="58" rx="8" fill="white" stroke="#FECACA" stroke-width="1"/>
+<rect x="556" y="272" width="4"   height="58" rx="2" fill="#991B1B"/>
+<text x="568" y="289" font-size="10" font-weight="700" fill="#0D1B2E">Biggest Gap</text>
+<text x="568" y="305" font-size="10" font-weight="700" fill="#991B1B">Zero attribution across all channels</text>
+<text x="568" y="320" font-size="9"  fill="#667085">Cannot confirm benchmarks without L1 live</text>
+</svg>
+    </div>
+
+    <div class="vf">
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#EEF6FF;border:2px solid #009DE0">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><circle cx="9" cy="9" r="6.5" stroke="#009DE0" stroke-width="1.5"/><circle cx="9" cy="9" r="2.5" fill="#009DE0"/></svg>
+          </div>
+          <div class="fline lo"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#009DE0">What we observe</div>
+          <div class="fhl">Zero visibility into <span style="color:#009DE0">what is working</span></div>
+          <ul class="ful">
+            <li><span class="do"></span>No analytics tool detected inline — zero data accumulation in current state</li>
+            <li><span class="do"></span>No CRM integration detected — no pipeline data being captured</li>
+            <li><span class="do"></span>No attribution framework — no UTM parameters, no source tracking</li>
+            <li><span class="do"></span>No dashboard or reporting tool detected</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#FFF8ED;border:2px solid #FBC94B">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 4v6M9 12.5v.5" stroke="#FBC94B" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="#FBC94B" stroke-width="1.5"/></svg>
+          </div>
+          <div class="fline lb2"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#FBC94B">If broken</div>
+          <div class="fhl">Effort allocated <span style="color:#FBC94B">without evidence</span></div>
+          <ul class="ful">
+            <li><span class="db"></span>Cannot determine which service generates the most consultations</li>
+            <li><span class="db"></span>Cannot determine which channel produces highest-value engagements</li>
+            <li><span class="db"></span>Cannot identify which past clients are most likely to refer again — or cooling</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:#E9FAF5;border:2px solid #06D4AE">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><rect x="3" y="3" width="12" height="12" rx="2" stroke="#06D4AE" stroke-width="1.5" fill="none"/><path d="M6 9l2 2 4-4" stroke="#06D4AE" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="fline ld"></div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:#06D4AE">X5 builds</div>
+          <div class="fhl">Full revenue intelligence in <span style="color:#06D4AE">5 minutes per week</span></div>
+          <div class="chips">
+            <span class="chip">Looker Studio dashboard (daily)</span>
+            <span class="chip">60-day channel ROI analysis</span>
+            <span class="chip">ICP refinement from real data</span>
+            <span class="chip">Referral intelligence</span>
+            <span class="chip">Client retention intelligence</span>
+            <span class="chip">Weekly auto-report Monday AM</span>
+          </div>
+        </div>
+      </div>
+      <div class="fs">
+        <div class="fl">
+          <div class="fd" style="background:var(--brand-primary-light);border:2px solid var(--brand-primary)">
+            <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M9 3v12M3 9h12" stroke="var(--brand-primary)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="fr">
+          <div class="few" style="color:var(--brand-primary)">You get</div>
+          <div class="fhl">Budget decisions backed by data — <span style="color:var(--brand-primary)">not intuition</span></div>
+          <div class="ob">
+            <div class="ob-l">Measurable</div>
+            <div class="ob-v">Full pipeline view in 5 minutes every Monday. Channel ROI comparison at Day 60 — budget reallocated based on evidence. Expansion revenue predicted, not discovered accidentally after the fact.</div>
+          </div>
+          <div class="kalam">"Layer 5 predicts which past clients are approaching Phase 2 expansion — but only once Layer 1 has accumulated 90 days of clean data. There is no shortcut."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SVG-CASCADE: 5-Layer System Flow -->
+  <div id="svg-cascade" data-diagram="cascade-flow" data-bg="light" style="background:var(--brand-bg-alt);border-radius:14px;padding:24px 28px;margin-top:8px;overflow:hidden"><!-- svg-cascade | 860x175 | light -->
+<svg viewBox="0 0 860 175" width="100%" style="display:block;background:#F8F9FF" font-family="Outfit,sans-serif">
+<defs><marker id="cas-arr" markerWidth="8" markerHeight="7" refX="6" refY="3.5" orient="auto"><polygon points="0,0 8,3.5 0,7" fill="#446084" opacity="0.6"/></marker></defs>
+<text x="430" y="18" text-anchor="middle" font-size="10" font-weight="700" letter-spacing="1.5" fill="#667085">THE 5-LAYER SYSTEM — EACH LAYER ENABLES THE NEXT</text>
+<path d="M704,54 Q392,10 80,54" fill="none" stroke="#446084" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.4"/>
+<polygon points="74,50 81,57 88,50" fill="#446084" opacity="0.4"/>
+<text x="392" y="9" text-anchor="middle" font-size="9" fill="#446084" opacity="0.65" font-style="italic">L5 insights improve L1 targeting</text>
+<circle cx="80" cy="88" r="34" fill="#020044"/><circle cx="236" cy="88" r="34" fill="#1A1060"/><circle cx="392" cy="88" r="34" fill="#3A1A9A"/><circle cx="548" cy="88" r="34" fill="#5A28C8"/><circle cx="704" cy="88" r="34" fill="#06D4AE"/>
+<text x="80" y="82" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">L1</text><text x="80" y="97" text-anchor="middle" font-size="10" font-weight="700" fill="white">Data</text>
+<text x="236" y="82" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">L2</text><text x="236" y="97" text-anchor="middle" font-size="9" font-weight="700" fill="white">Channels</text>
+<text x="392" y="82" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">L3</text><text x="392" y="97" text-anchor="middle" font-size="9" font-weight="700" fill="white">Rev Ops</text>
+<text x="548" y="82" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">L4</text><text x="548" y="97" text-anchor="middle" font-size="9" font-weight="700" fill="white">Automate</text>
+<text x="704" y="82" text-anchor="middle" font-size="10" fill="rgba(0,20,40,0.7)">L5</text><text x="704" y="97" text-anchor="middle" font-size="9" font-weight="700" fill="#0D1B2E">Insight</text>
+<line x1="116" y1="88" x2="198" y2="88" stroke="#446084" stroke-width="1.5" opacity="0.55" marker-end="url(#cas-arr)"/>
+<line x1="272" y1="88" x2="354" y2="88" stroke="#446084" stroke-width="1.5" opacity="0.55" marker-end="url(#cas-arr)"/>
+<line x1="428" y1="88" x2="510" y2="88" stroke="#446084" stroke-width="1.5" opacity="0.55" marker-end="url(#cas-arr)"/>
+<line x1="584" y1="88" x2="666" y2="88" stroke="#446084" stroke-width="1.5" opacity="0.55" marker-end="url(#cas-arr)"/>
+<text x="158" y="105" text-anchor="middle" font-size="9" fill="#667085">Clean data enables targeting</text>
+<text x="313" y="105" text-anchor="middle" font-size="9" fill="#667085">enables pipeline</text>
+<text x="469" y="105" text-anchor="middle" font-size="9" fill="#667085">enables automation</text>
+<text x="625" y="105" text-anchor="middle" font-size="9" fill="#667085">enables intelligence</text>
+<text x="80" y="132" text-anchor="middle" font-size="9" fill="#667085">Foundation &amp; Data</text>
+<text x="236" y="132" text-anchor="middle" font-size="9" fill="#667085">Channel Acquisition</text>
+<text x="392" y="132" text-anchor="middle" font-size="9" fill="#667085">Revenue Operations</text>
+<text x="548" y="132" text-anchor="middle" font-size="9" fill="#667085">AI Automation</text>
+<text x="704" y="132" text-anchor="middle" font-size="9" fill="#667085">Marketing Intelligence</text>
+<text x="430" y="158" text-anchor="middle" font-size="9" fill="#667085" font-style="italic">Layer 5 predicts Phase 2 expansions — only once Layer 1 has 90 days of clean data. No shortcut.</text>
+</svg></div>
+
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 6 -->
+
+<!-- S5: THE JOURNEY -->
+<div class="sec" id="s5">
+  <div class="ey r">Section 05</div>
+  <div class="st r">The <span class="ow">Journey</span></div>
+  <p class="sl r">90 days. Three phases. Each phase has a clear deliverable set and a specific thing you'll see by the end of it.</p>
+
+  <!-- Step Tabs -->
+  <div class="step-tabs-wrapper r">
+    <button class="step-tab step-active" data-bg="var(--brand-dark)" data-col="white" onclick="switchStep(0)">
+      <div class="step-tab-label-top">Month 01</div>
+      <div class="step-tab-label-main">Fix the Foundation</div>
+    </button>
+    <button class="step-tab" data-bg="var(--brand-primary)" data-col="white" onclick="switchStep(1)">
+      <div class="step-tab-label-top">Month 02</div>
+      <div class="step-tab-label-main">Open New Channels</div>
+    </button>
+    <button class="step-tab" data-bg="var(--brand-primary-dark)" data-col="white" onclick="switchStep(2)">
+      <div class="step-tab-label-top">Month 03</div>
+      <div class="step-tab-label-main">Optimize &amp; Scale</div>
+    </button>
+  </div>
+
+  <!-- Panel 1 -->
+  <div class="step-panel r" style="display:block">
+    <div class="mo">
+      <div class="mh">Month 1 — <em>Fix the Foundation</em></div>
+      <ul class="mi">
+        <li>Remove noindex/nofollow across all pages — site becomes indexable by Google</li>
+        <li>GA4 + server-side GTM installed and verified</li>
+        <li>Contact Form 7 conversion tracking live — consultation_requested event firing</li>
+        <li>LinkedIn Insight Tag + LinkedIn CAPI configured</li>
+        <li>Google Search Console connected — baseline keyword and indexing report</li>
+        <li>CRM pipeline stages built: Prospect → Consultation Booked → Completed → Proposal Sent → Engagement Signed</li>
+        <li>n8n: form-to-Slack notification + auto-reply within 3 minutes</li>
+        <li>Consultation booking automation live (Calendly or equivalent integration)</li>
+      </ul>
+      <div class="ys">First organic search impressions appear in Search Console. Every consultation request acknowledged within 3 minutes regardless of time of day. Pipeline visible for the first time. Attribution data begins accumulating from Day 1.</div>
+    </div>
+  </div>
+
+  <!-- Panel 2 -->
+  <div class="step-panel r">
+    <div class="mo">
+      <div class="mh">Month 2 — <em>Open New Channels</em></div>
+      <ul class="mi">
+        <li>Google Search campaigns live — 3 ad groups by service type (CRM, mobile, outsourcing)</li>
+        <li>LinkedIn Ads live — targeting Founders and Operations Directors at 10–200 person companies in Canada and the US</li>
+        <li>SEO: 4 topical authority articles published using ICP pain point language from portfolio</li>
+        <li>Speed-to-contact system fully operational: automated first touch &lt;3 minutes, human SLA 2–4 hours</li>
+        <li>48-hour proposal workflow with AI draft template active</li>
+        <li>Referral source tracking field activated in CRM — attribution begins</li>
+        <li>12-month retention sequence built and deployed for all past clients</li>
+        <li>AI chatbot trained on service and portfolio content — live on site</li>
+      </ul>
+      <div class="ys">First consultations arriving from Google Search and LinkedIn — outside the existing referral network. Referral attribution data visible in CRM for the first time. Proposals delivered in 48 hours consistently. Past clients receiving first retention outreach.</div>
+    </div>
+  </div>
+
+  <!-- Panel 3 -->
+  <div class="step-panel r">
+    <div class="mo">
+      <div class="mh">Month 3 — <em>Optimize &amp; Scale</em></div>
+      <ul class="mi">
+        <li>Channel ROI analysis complete — budget reallocated to highest-performing channel based on 60-day data</li>
+        <li>3–5 real, named testimonials collected and published — replacing placeholder entries</li>
+        <li>5 portfolio projects published as case studies with specific outcomes</li>
+        <li>ICP refinement complete — LinkedIn and Google targeting adjusted from 60-day data</li>
+        <li>Marketing Intelligence Dashboard live — weekly automated brief delivered Monday AM</li>
+        <li>Seasonal and expansion trigger sequences built and scheduled</li>
+        <li>Quarterly roadmap presented with 90 days of data as the foundation</li>
+      </ul>
+      <div class="ys">Full pipeline visibility with channel attribution. Predictable consultation volume from three active acquisition channels. First expansion revenue from past client retention outreach. Every budget decision backed by real data.</div>
+    </div>
+  </div>
+
+  <!-- LTV Add-on -->
+  <div class="ltv r">
+    <p><strong>After 90 Days — Client Retention Intelligence</strong></p>
+    <p>Once 90 days of clean engagement data has accumulated in the system, a predictive layer becomes available: which past clients have the highest probability of Phase 2 expansion, which referral sources produce the highest-LTV engagements, and which client relationships are cooling before they go quiet.</p>
+    <p>This is not a tool that can be deployed on Day 1 — it requires 90 days of real data to produce meaningful signals. It is presented at the 90-day review as an option, not assumed from the start. This is when the system shifts from <strong>reporting</strong> to <strong>predicting</strong>.</p>
+  </div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 7 -->
+
+<!-- S6: THE DESTINATION -->
+<div class="sec" id="s6">
+  <div class="ey r">Section 06</div>
+  <div class="st r">The <span class="ow">Destination</span></div>
+  <p class="sl r">What the numbers look like when all five layers run together. These are B2B professional services benchmarks — not WeCopy Fintech's current internal figures, which we haven't seen yet.</p>
+
+  <!-- 4 Metric Cards -->
+  <div class="mgr">
+    <div class="mcard r">
+      <div class="ml">Referred Close Rate</div>
+      <div class="mv" id="m-cac">45%</div>
+      <div class="ms">vs ~18% cold (benchmark)</div>
+    </div>
+    <div class="mcard r d1">
+      <div class="ml">Proposal → Engagement</div>
+      <div class="mv" id="m-ltv">≥30%</div>
+      <div class="ms">Target rate · benchmark</div>
+    </div>
+    <div class="mcard r d2">
+      <div class="ml">Automated Response Time</div>
+      <div class="mv" id="m-mrr">&lt;3 min</div>
+      <div class="ms">Current: ~28 hours · from audit</div>
+    </div>
+    <div class="mcard r d3">
+      <div class="ml">Attribution Coverage</div>
+      <div class="mv" id="m-email" style="color:var(--brand-primary)">100%</div>
+      <div class="ms">By Month 2 · currently 0%</div>
+    </div>
+  </div>
+
+  <!-- Dashboard Panels -->
+  <div class="dgr r" style="transition-delay:.1s">
+    <div class="dp">
+      <div class="pt">Consultation Conversion Funnel (benchmark)</div>
+      <div class="funnel">
+        <div class="fr2">
+          <div class="flb">Visitor</div>
+          <div class="fbw"><div class="fbar" style="width:100%;background:var(--brand-dark)"></div></div>
+          <div class="fpct" style="color:var(--brand-dark)">100%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Consult Req.</div>
+          <div class="fbw"><div class="fbar" style="width:40%;background:#3A1A9A"></div></div>
+          <div class="fpct" style="color:#3A1A9A">4%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Booked</div>
+          <div class="fbw"><div class="fbar" style="width:30%;background:#5A28C8"></div></div>
+          <div class="fpct" style="color:#5A28C8">3%</div>
+        </div>
+        <div class="fr2">
+          <div class="flb">Signed</div>
+          <div class="fbw"><div class="fbar" style="width:8%;background:var(--brand-primary)"></div></div>
+          <div class="fpct" style="color:var(--brand-primary)">0.8%</div>
+        </div>
+      </div>
+    </div>
+    <div class="dp">
+      <div class="pt">Channel Attribution — Consultation Booked (target Month 3)</div>
+      <div class="chr">
+        <div class="cr"><div class="cn2">Referral</div><div class="ct"><div class="cf" style="width:50%;background:var(--brand-dark)"></div></div><div class="cv">50%</div></div>
+        <div class="cr"><div class="cn2">Google</div><div class="ct"><div class="cf" style="width:25%;background:var(--brand-primary)"></div></div><div class="cv">25%</div></div>
+        <div class="cr"><div class="cn2">LinkedIn</div><div class="ct"><div class="cf" style="width:15%;background:#06D4AE"></div></div><div class="cv">15%</div></div>
+        <div class="cr"><div class="cn2">Organic</div><div class="ct"><div class="cf" style="width:10%;background:#009DE0"></div></div><div class="cv">10%</div></div>
+      </div>
+      <div style="margin-top:16px">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-text-muted);margin-bottom:8px">Engagement Revenue Trend — 6 Months Post-Launch (benchmark)</div>
+        <svg viewBox="0 0 300 54" width="100%" style="display:block">
+          <rect x="0" y="0" width="300" height="54" rx="8" fill="var(--brand-primary-light)"/>
+          <polyline points="10,44 58,40 106,34 154,26 202,18 250,10 290,5" fill="none" stroke="var(--brand-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="10,44 58,40 106,34 154,26 202,18 250,10 290,5 290,50 10,50" fill="var(--brand-primary-light)"/>
+          <circle cx="290" cy="5" r="4" fill="var(--brand-primary)"/>
+          <text x="264" y="19" font-family="Outfit" font-size="11" font-weight="700" fill="var(--brand-primary)">+32%</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary Table -->
+  <p class="ey r" style="margin-top:36px">90-Day Summary</p>
+  <div style="overflow-x:auto" class="r">
+    <table class="stab">
+      <thead>
+        <tr>
+          <th>Layer</th>
+          <th>Question It Answers</th>
+          <th>X5 Delivers</th>
+          <th>You See After 90 Days</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="lbadge">L1</span></td>
+          <td>Why does every consultation arrive without context? Where is traffic coming from?</td>
+          <td><strong>sGTM + GA4 + CF7 conversion events + LinkedIn CAPI + Search Console + noindex removal</strong></td>
+          <td>First organic impressions. Every consultation carries full source attribution. Data foundation live from Day 1.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L2</span></td>
+          <td>What happens when the referral network is fully tapped?</td>
+          <td><strong>Google Search Ads + LinkedIn Ads + SEO content clusters + email nurture + UTM attribution framework</strong></td>
+          <td>Consultations arriving from Google Search and LinkedIn — outside existing network. First channel ROI comparison at Day 60.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L3</span></td>
+          <td>Why do warm leads go cold? Why are past clients not coming back?</td>
+          <td><strong>CRM pipeline (5 stages) + 3-min automated response + 48-hour proposal workflow + referral tracking + 12-month retention sequences</strong></td>
+          <td>Response time under 3 minutes. Proposals in 48 hours. Referral attribution visible. Client retention running for all past clients.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L4</span></td>
+          <td>How does the founder handle inbound, delivery, and sales simultaneously?</td>
+          <td><strong>AI chatbot + 7 n8n workflows + AI content repurposing + testimonial collection + Monday performance brief</strong></td>
+          <td>3–5 named testimonials live. 5 case studies published. After-hours consultations captured. Founder saves 5–8 hours/week.</td>
+        </tr>
+        <tr>
+          <td><span class="lbadge">L5</span></td>
+          <td>Which channel, which service, which client segment is actually producing results?</td>
+          <td><strong>Looker Studio dashboard + 60-day channel ROI analysis + ICP refinement report + referral intelligence + weekly auto-report</strong></td>
+          <td>Full pipeline view in 5 minutes per week. Budget decisions backed by 90 days of data. Expansion revenue predicted, not discovered accidentally.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="gdiv"></div>
+<!-- END SECTION 8 -->
+
+<!-- S7: THE ASK -->
+<div class="ask" id="s7">
+  <div class="ask-gh">30</div>
+  <div class="ask-in">
+    <div class="ask-ey r">Section 07 · The Ask</div>
+    <div class="ask-h r">30 Minutes.<br>No Pitch. Just Data.</div>
+    <div class="ask-k r">"Whether we work together or not — you'll leave that call knowing your true acquisition source for the first time, and with a clear view of the one bottleneck that's costing the most revenue right now."</div>
+    <p class="ask-c r">The audit is already done. The diagnosis is already on the table. All that's left is 30 minutes for WeCopy Fintech to decide whether the diagnosis is right — before anything else is discussed.<br><br>
+    In 30 minutes, we'll look at three things together: where your current consultations are actually coming from, what your sales process looks like from first contact to signed engagement, and which of the five portfolio projects has the strongest case study potential. Whether we work together or not — you'll leave knowing your true acquisition source for the first time.</p>
+    <a href="/cdn-cgi/l/email-protection#91f9f4fdfdfed1e9a4f5f8f6f8e5f0fdbff2fefc" class="ask-btn r d1">Book the 30-Minute Audit →</a>
+    <p class="ask-fn r d2">No pricing on this call. No pitch deck. Just the data — and a conversation about what it means.</p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>Prepared by X5 Digital · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ae2efe6e6e5caf2bfeee3ede3feebe6a4e9e5e7">[email&#160;protected]</a> · April 2026 · Confidential — For WeCopy Fintech INC review only. All observations sourced from external audit of wecopyfintech.com — no internal data accessed. Benchmark figures are industry averages for B2B IT professional services firms.</span>
+</div>
+<!-- END SECTION 9 -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ── #1: Progress Bar ── */
+var pb = document.getElementById('pb');
+window.addEventListener('scroll', function() {
+  var s = document.documentElement.scrollTop || document.body.scrollTop;
+  var h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  pb.style.width = (s / h * 100) + '%';
+});
+
+/* ── #2: Scroll Reveal ── */
+var ro = new IntersectionObserver(function(e) {
+  e.forEach(function(el) {
+    if (el.isIntersecting) { el.target.classList.add('in'); ro.unobserve(el.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.r').forEach(function(el) { ro.observe(el); });
+
+/* ── #3: Count-Up Animation ── */
+function countUp(el, pre, suf, target, dur) {
+  var s = 0, step = target / dur * 16;
+  var t = setInterval(function() {
+    s = Math.min(s + step, target);
+    el.textContent = pre + Math.floor(s).toLocaleString() + suf;
+    if (s >= target) clearInterval(t);
+  }, 16);
+}
+var mo = new IntersectionObserver(function(e) {
+  e.forEach(function(el) {
+    if (el.isIntersecting) {
+      var id = el.target.id;
+      var configs = {
+        'm-cac':      ['', '%', 45,  1200],
+        'm-ltv':      ['≥', '%', 30, 1000],
+        'm-email':    ['', '%', 100, 800],
+        's1-projects':['', '', 5,   600],
+        's1-services':['', '', 4,   500]
+      };
+      if (configs[id]) {
+        var c = configs[id];
+        countUp(el, c[0], c[1], c[2], c[3]);
+      }
+      mo.unobserve(el.target);
+    }
+  });
+}, { threshold: 0.5 });
+['m-cac','m-ltv','m-email','s1-projects','s1-services'].forEach(function(id) {
+  var el = document.getElementById(id);
+  if (el) mo.observe(el);
+});
+
+/* ── #4: CTA Button Pulse ── */
+var ctaBtn = document.querySelector('.ask-btn');
+if (ctaBtn) {
+  var ctaObs = new IntersectionObserver(function(e) {
+    if (e[0].isIntersecting) { ctaBtn.classList.add('pulse-active'); ctaObs.disconnect(); }
+  }, { threshold: 0.8 });
+  ctaObs.observe(ctaBtn);
+}
+
+/* ── #5: Nav Active Section Highlight ── */
+(function() {
+  var sections = ['s1','s2','s3','s4','s5','s6','s7'];
+  var links = document.querySelectorAll('.nav-link:not(.nav-cta)');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var id = entry.target.id;
+        links.forEach(function(l) { l.classList.remove('nav-active'); });
+        var idx = sections.indexOf(id);
+        if (idx >= 0 && links[idx]) links[idx].classList.add('nav-active');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+})();
+
+/* ── #6: Interactive Pyramid ── */
+document.querySelectorAll('.pyr-block').forEach(function(block) {
+  block.addEventListener('click', function() {
+    var row = block.parentElement;
+    var expand = row.querySelector('.pyr-expand');
+    var isOpen = expand && expand.classList.contains('pyr-open');
+    document.querySelectorAll('.pyr-expand').forEach(function(e) { e.classList.remove('pyr-open'); });
+    document.querySelectorAll('.pyr-block').forEach(function(b) { b.classList.remove('pyr-open'); });
+    if (!isOpen && expand) {
+      expand.classList.add('pyr-open');
+      block.classList.add('pyr-open');
+    }
+  });
+});
+
+/* ── #7: Typewriter — Applied to WeCopy Fintech INC ── */
+(function() {
+  var el = document.getElementById('applied-typed');
+  var counter = document.getElementById('applied-counter');
+  var section = document.getElementById('applied-section');
+  if (!el || !section) return;
+  var text = 'Applied to WeCopy Fintech INC — Layer by Layer';
+  var i = 0, started = false;
+  function type() {
+    if (i < text.length) {
+      el.textContent += text[i]; i++;
+      setTimeout(type, i < 9 ? 60 : i < 20 ? 45 : 35);
+    } else {
+      el.classList.add('done');
+      if (counter) counter.classList.add('visible');
+    }
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !started) {
+      started = true; setTimeout(type, 300); obs.disconnect();
+    }
+  }, { threshold: 0.6 });
+  obs.observe(section);
+})();
+
+/* ── #8: Step Tabs ── */
+function switchStep(idx) {
+  var tabs = document.querySelectorAll('.step-tab');
+  var panels = document.querySelectorAll('.step-panel');
+  tabs.forEach(function(t, i) {
+    var active = i === idx;
+    t.classList.toggle('step-active', active);
+    t.style.background = active ? t.dataset.bg : '';
+    t.style.color = active ? t.dataset.col : '';
+  });
+  panels.forEach(function(p, i) {
+    p.style.display = i === idx ? 'block' : 'none';
+  });
+}
+(function() {
+  var tabs = document.querySelectorAll('.step-tab');
+  if (tabs.length > 0) {
+    tabs[0].style.background = tabs[0].dataset.bg;
+    tabs[0].style.color = tabs[0].dataset.col;
+  }
+})();
+</script>
+</body>
+</html>
