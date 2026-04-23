@@ -6,7 +6,7 @@
   <title>MINISWAP × X5 Digital — Growth Proposal</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;900&family=IM+Fell+DW+Pica+SC&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* ═══════════════════════════════════════════════════════════
        GLOBAL CSS VARIABLES — Miniswap brand-driven
@@ -204,6 +204,12 @@
       border: 1px solid var(--brand-primary);
     }
 
+    /* IM Fell DW Pica SC — Category names */
+    .cat-name {
+      font-family: 'IM Fell DW Pica SC', serif;
+      font-style: normal;
+    }
+
     /* Kalam Annotation */
     .kalam {
       font-family: 'Kalam', cursive;
@@ -296,10 +302,10 @@
     .hero-name {
       font-family: 'DM Sans', sans-serif;
       font-size: clamp(36px, 7vw, 72px);
-      font-weight: 900; color: var(--brand-dark);
+      font-weight: 900; color: var(--brand-primary);
       line-height: 1.1; letter-spacing: -2px; margin-bottom: 6px;
     }
-    .hero-name span { color: var(--brand-primary); }
+    .hero-name span { color: var(--brand-dark); font-family: 'IM Fell DW Pica SC', serif; }
     .hero-sub {
       font-size: clamp(14px, 2vw, 17px);
       font-weight: 300; color: var(--brand-text-muted);
@@ -1130,7 +1136,7 @@
       <div class="ey">Vertical Focus · Strength 01</div>
       <div class="mstat small">A vertical that's deep, <span class="acc">not wide</span></div>
       <div class="mdiv"></div>
-      <div class="mctx">Nine category pages mapped cleanly across the entire Games Workshop ecosystem — Warhammer 40k, Age of Sigmar, Horus Heresy, Old World, Fantasy Battle, Blood Bowl, Necromunda, Kill Team, Lord of the Rings. That narrowness is a moat: sharper SEO surface area, tighter community resonance, and messaging that means something to the audience who will actually convert.</div>
+      <div class="mctx">Nine category pages mapped cleanly across the entire Games Workshop ecosystem — <span class="cat-name">Warhammer 40k</span>, <span class="cat-name">Age of Sigmar</span>, <span class="cat-name">Horus Heresy</span>, <span class="cat-name">Old World</span>, <span class="cat-name">Fantasy Battle</span>, <span class="cat-name">Blood Bowl</span>, <span class="cat-name">Necromunda</span>, <span class="cat-name">Kill Team</span>, <span class="cat-name">Lord of the Rings</span>. That narrowness is a moat: sharper SEO surface area, tighter community resonance, and messaging that means something to the audience who will actually convert.</div>
       <div class="mctx" style="font-style:italic;color:var(--brand-primary);font-size:13px">eBay can't do this. Whatnot doesn't try.</div>
       <div class="ev" style="margin-top:14px">
         <span class="ev-lb">// AUDIT EVIDENCE</span>
