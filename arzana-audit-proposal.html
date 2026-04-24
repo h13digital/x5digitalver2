@@ -1583,11 +1583,211 @@ em { font-style: italic; }
 
     <!-- SVG-L1A: Current State Tracking Stack -->
     <div class="lsvg" id="svg-l1a" data-diagram="l1-current-state" data-bg="light">
-      <div style="height:200px;background:#F8F4FF;display:flex;align-items:center;justify-content:center;border-radius:12px;color:#9CA3AF;font-size:13px;font-style:italic">L1A diagram will be injected in Step 2B</div>
+      <!-- svg-l1a | 860×360 | light -->
+<svg viewBox="0 0 860 360" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <!-- bg -->
+  <rect width="860" height="360" fill="#FBF7EF"/>
+  <!-- eyebrow -->
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">CURRENT STATE &#xB7; What ARZANA&#x27;s tracking stack looks like today</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- ROW 1: Measurement tools label -->
+  <text x="28" y="50" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">MEASUREMENT &amp; AD PIXELS</text>
+
+  <!-- GA4 box (CONFIRMED) — teal accent -->
+  <rect x="28" y="58" width="220" height="58" rx="6" fill="white" stroke="#06D4AE" stroke-width="2"/>
+  <rect x="28" y="58" width="5" height="58" rx="3" fill="#06D4AE"/>
+  <text x="42" y="78" font-size="11" font-weight="700" fill="#1E1B17">GA4</text>
+  <text x="42" y="92" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#8B8276">G-MZS0CGL6HN</text>
+  <text x="42" y="106" font-size="9" fill="#06D4AE" font-weight="700">&#x2713; inline &#xB7; no GTM container</text>
+
+  <!-- Warning box: no ad pixels -->
+  <rect x="260" y="58" width="572" height="58" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="275" y="78" font-size="11" font-weight="700" fill="#991B1B">No Meta Pixel detected</text>
+  <text x="275" y="93" font-size="10" fill="#991B1B" opacity="0.85">No LinkedIn Insight Tag &#xB7; No Google Ads tag &#xB7; No GTM container</text>
+  <text x="275" y="107" font-size="9.5" fill="#8B8276" font-style="italic">Defensible finding: no GTM container present to hide these tags</text>
+
+  <!-- ROW 2: Session/Intent/Form tools label -->
+  <text x="28" y="135" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">SESSION &#xB7; INTENT &#xB7; FORM &#xB7; CONVERSION</text>
+
+  <!-- Warmly -->
+  <rect x="28" y="143" width="155" height="52" rx="6" fill="white" stroke="#1E1B17" stroke-width="1" opacity="0.9"/>
+  <text x="40" y="163" font-size="11" font-weight="700" fill="#1E1B17">Warmly</text>
+  <text x="40" y="177" font-size="9" fill="#8B8276">Anonymous IP intent</text>
+  <text x="40" y="188" font-size="9" fill="#06D4AE" font-weight="700">&#x2713; confirmed</text>
+
+  <!-- Vercel Analytics -->
+  <rect x="193" y="143" width="155" height="52" rx="6" fill="white" stroke="#1E1B17" stroke-width="1" opacity="0.9"/>
+  <text x="205" y="163" font-size="11" font-weight="700" fill="#1E1B17">Vercel Analytics</text>
+  <text x="205" y="177" font-size="9" fill="#8B8276">Next.js built-in</text>
+  <text x="205" y="188" font-size="9" fill="#06D4AE" font-weight="700">&#x2713; confirmed</text>
+
+  <!-- Tally -->
+  <rect x="358" y="143" width="155" height="52" rx="6" fill="white" stroke="#1E1B17" stroke-width="1" opacity="0.9"/>
+  <text x="370" y="163" font-size="11" font-weight="700" fill="#1E1B17">Tally form</text>
+  <text x="370" y="177" font-size="9" fill="#8B8276">form.arzana.com/hub</text>
+  <text x="370" y="188" font-size="9" fill="#06D4AE" font-weight="700">&#x2713; 9 fields confirmed</text>
+
+  <!-- Calendly -->
+  <rect x="523" y="143" width="155" height="52" rx="6" fill="white" stroke="#1E1B17" stroke-width="1" opacity="0.9"/>
+  <text x="535" y="163" font-size="11" font-weight="700" fill="#1E1B17">Calendly</text>
+  <text x="535" y="177" font-size="9" fill="#8B8276">william-arzana/30min</text>
+  <text x="535" y="188" font-size="9" fill="#8B8276" font-style="italic">external domain</text>
+
+  <!-- li_sync_frame (dim) -->
+  <rect x="688" y="143" width="144" height="52" rx="6" fill="white" stroke="#8B8276" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="700" y="163" font-size="10" font-weight="700" fill="#8B8276">li_sync_frame</text>
+  <text x="700" y="176" font-size="8.5" fill="#8B8276" font-style="italic">likely Warmly partner</text>
+  <text x="700" y="188" font-size="8.5" fill="#8B8276" font-style="italic">not ARZANA LinkedIn</text>
+
+  <!-- Warning bar: all client-side -->
+  <rect x="28" y="205" width="804" height="30" rx="5" fill="#FEF3C7" stroke="#FBC94B" stroke-width="1.5"/>
+  <text x="430" y="224" text-anchor="middle" font-size="11" font-weight="700" fill="#92400E">All client-side &#xB7; 30&#x2013;50% of signals blocked by iOS 14+ Safari ITP + ad blockers (benchmark)</text>
+
+  <!-- Section 2: Signal loss -->
+  <text x="28" y="256" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">SIGNAL LOSS FLOW (BENCHMARK)</text>
+  <!-- Visitor fires box -->
+  <rect x="28" y="264" width="200" height="36" rx="5" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+  <text x="128" y="285" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">Visitor fires event</text>
+  <!-- Blocker box -->
+  <rect x="262" y="264" width="250" height="36" rx="5" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="387" y="279" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">iOS 14+ Safari ITP</text>
+  <text x="387" y="293" text-anchor="middle" font-size="9.5" fill="#991B1B">Ad blockers &#xB7; Corporate firewalls</text>
+  <!-- Arrows -->
+  <line x1="228" y1="282" x2="260" y2="282" stroke="#8B8276" stroke-width="1.5" marker-end="url(#l1a-arr)"/>
+  <line x1="512" y1="282" x2="544" y2="282" stroke="#8B8276" stroke-width="1.5" marker-end="url(#l1a-arr)"/>
+  <defs><marker id="l1a-arr" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 Z" fill="#8B8276"/></marker></defs>
+  <!-- Reaches platform box -->
+  <rect x="546" y="264" width="286" height="36" rx="5" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1.5"/>
+  <text x="689" y="279" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">&#x7e;50&#x2013;70% reaches platform</text>
+  <text x="689" y="293" text-anchor="middle" font-size="9.5" fill="#991B1B">&#x7e;30&#x2013;50% lost (benchmark)</text>
+
+  <!-- Sub-annotation -->
+  <text x="28" y="315" font-size="9.5" fill="#8B8276" font-style="italic">LinkedIn Insight Tag would be &#x7e;entirely blocked for manufacturing executives on corporate iPhones (benchmark)</text>
+
+  <!-- Section 3: Mini funnel -->
+  <text x="28" y="333" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">CONVERSION FUNNEL &#x2014; B2B SaaS demo-only benchmark</text>
+  <!-- Visitor 100% -->
+  <rect x="28" y="341" width="350" height="12" rx="2" fill="#020044"/>
+  <text x="382" y="352" font-size="9" fill="#1E1B17">Visitor 100%</text>
+  <!-- Demo Requested 1-2% — visual bar ~60px -->
+  <rect x="28" y="356" width="60" height="10" rx="2" fill="#3A1A9A"/>
+  <text x="382" y="366" font-size="9" fill="#1E1B17">Demo Requested &#x7e;1&#x2013;2% (benchmark)</text>
+</svg>
     </div>
     <!-- SVG-L1B: After L1 Server-Side Architecture -->
     <div class="lsvg" id="svg-l1b" data-diagram="l1-server-side" data-bg="dark">
-      <div style="height:200px;background:#020044;display:flex;align-items:center;justify-content:center;border-radius:12px;color:rgba(255,255,255,.3);font-size:13px;font-style:italic">L1B diagram will be injected in Step 2B</div>
+      <!-- svg-l1b | 860×412 | dark -->
+<svg viewBox="0 0 860 412" width="100%" style="display:block;background:#1E1B17" font-family="Outfit,sans-serif">
+  <defs>
+    <marker id="l1b-arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="white" opacity="0.5"/>
+    </marker>
+    <marker id="l1b-arr-t" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="#06D4AE"/>
+    </marker>
+  </defs>
+  <!-- bg -->
+  <rect width="860" height="412" fill="#1E1B17"/>
+  <!-- eyebrow -->
+  <text x="28" y="22" font-size="11" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">AFTER LAYER 1 &#xB7; Server-Side Architecture</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="white" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- SECTION 1: Architecture flow -->
+  <!-- Browser box -->
+  <rect x="28" y="44" width="148" height="56" rx="8" fill="#0E0050" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="102" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="white">Browser</text>
+  <text x="102" y="83" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">arzana.com</text>
+  <text x="102" y="95" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.4)">visitor fires event</text>
+
+  <!-- GTM client-side -->
+  <rect x="200" y="44" width="130" height="56" rx="8" fill="#0E0050" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="265" y="68" text-anchor="middle" font-size="11" font-weight="700" fill="white">GTM</text>
+  <text x="265" y="83" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">client-side</text>
+
+  <!-- Arrow Browser → GTM -->
+  <line x1="176" y1="72" x2="198" y2="72" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" marker-end="url(#l1b-arr)"/>
+
+  <!-- sGTM (key element) -->
+  <rect x="356" y="36" width="172" height="72" rx="8" fill="#020044" stroke="#06D4AE" stroke-width="2"/>
+  <text x="442" y="62" text-anchor="middle" font-size="12" font-weight="700" fill="#06D4AE">sGTM</text>
+  <text x="442" y="78" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.7)">metrics.arzana.com</text>
+  <text x="442" y="93" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.5)">Stape.io</text>
+
+  <!-- Arrow GTM → sGTM -->
+  <line x1="330" y1="72" x2="354" y2="72" stroke="#06D4AE" stroke-width="1.5" marker-end="url(#l1b-arr-t)"/>
+
+  <!-- Destinations: LinkedIn CAPI, Google EC, GA4 MP -->
+  <rect x="556" y="28" width="160" height="32" rx="6" fill="#0E0050" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="636" y="48" text-anchor="middle" font-size="11" font-weight="700" fill="white">LinkedIn CAPI</text>
+
+  <rect x="556" y="68" width="160" height="32" rx="6" fill="#0E0050" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="636" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="white">Google Enhanced Conv.</text>
+
+  <rect x="556" y="108" width="160" height="32" rx="6" fill="#0E0050" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="636" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="white">GA4 Measurement Protocol</text>
+
+  <!-- Arrows sGTM → destinations -->
+  <line x1="528" y1="60" x2="554" y2="44" stroke="#06D4AE" stroke-width="1.5" marker-end="url(#l1b-arr-t)"/>
+  <line x1="528" y1="72" x2="554" y2="84" stroke="#06D4AE" stroke-width="1.5" marker-end="url(#l1b-arr-t)"/>
+  <line x1="528" y1="84" x2="554" y2="124" stroke="#06D4AE" stroke-width="1.5" marker-end="url(#l1b-arr-t)"/>
+
+  <!-- Side note: Calendly webhook -->
+  <rect x="28" y="116" width="148" height="40" rx="6" fill="#0E0050" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="102" y="132" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.6)">Calendly webhook</text>
+  <text x="102" y="148" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.4)">server-to-server</text>
+  <line x1="176" y1="136" x2="356" y2="86" stroke="#06D4AE" stroke-width="1" opacity="0.5" stroke-dasharray="4,2" marker-end="url(#l1b-arr-t)"/>
+
+  <!-- Meta CAPI skipped note -->
+  <text x="728" y="28" font-size="9.5" fill="rgba(255,255,255,0.35)" font-style="italic">Meta CAPI skipped</text>
+  <text x="728" y="40" font-size="9.5" fill="rgba(255,255,255,0.35)" font-style="italic">ICP doesn&#x27;t lean on Meta</text>
+
+  <line x1="28" x2="832" y1="162" y2="162" stroke="white" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- SECTION 2: 6 B2B event chips -->
+  <text x="28" y="180" font-size="10" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">6 BUSINESS-MEANINGFUL EVENTS &#x2014; each with full source attribution</text>
+
+  <!-- Chips row 1 -->
+  <rect x="28" y="188" width="190" height="26" rx="5" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="123" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE" font-weight="600">demo_form_started</text>
+
+  <rect x="228" y="188" width="165" height="26" rx="5" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="311" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE" font-weight="600">demo_booked</text>
+
+  <rect x="403" y="188" width="178" height="26" rx="5" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="492" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE" font-weight="600">demo_completed</text>
+
+  <rect x="591" y="188" width="165" height="26" rx="5" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="674" y="205" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE" font-weight="600">case_study_read</text>
+
+  <!-- Chips row 2 -->
+  <rect x="28" y="222" width="225" height="26" rx="5" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="141" y="239" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE" font-weight="600">blog_to_demo_converted</text>
+
+  <rect x="263" y="222" width="210" height="26" rx="5" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="368" y="239" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#06D4AE" font-weight="600">erp_system_declared</text>
+
+  <line x1="28" x2="832" y1="258" y2="258" stroke="white" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- SECTION 3: Code snippet -->
+  <text x="28" y="276" font-size="10" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">SERVER-SIDE CODE &#x2014; Browser cannot intercept</text>
+
+  <rect x="28" y="284" width="620" height="90" rx="8" fill="#0E0050"/>
+  <!-- Code comment -->
+  <text x="44" y="302" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#06D4AE" font-weight="600">// Server-side &#x2014; browser cannot intercept</text>
+  <!-- gtag line -->
+  <text x="44" y="320" font-family="JetBrains Mono,monospace" font-size="10.5" fill="rgba(255,255,255,0.85)">gtag(&#x27;event&#x27;,</text>
+  <text x="149" y="320" font-family="JetBrains Mono,monospace" font-size="10.5" fill="#FBC94B">&#x27;demo_booked&#x27;</text>
+  <text x="255" y="320" font-family="JetBrains Mono,monospace" font-size="10.5" fill="rgba(255,255,255,0.85)">, &#x7B;</text>
+  <!-- props -->
+  <text x="60" y="337" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.55)">source: utm_source,</text>
+  <text x="60" y="352" font-family="JetBrains Mono,monospace" font-size="10" fill="rgba(255,255,255,0.55)">erp_system: tally_erp_field,  icp_segment: erp_matched_segment</text>
+  <text x="44" y="366" font-family="JetBrains Mono,monospace" font-size="10.5" fill="rgba(255,255,255,0.85)">&#x7D;);</text>
+
+  <!-- SECTION 4: Result bar -->
+  <rect x="28" y="383" width="804" height="22" rx="5" fill="#020044" opacity="0.6" stroke="#06D4AE" stroke-width="1"/>
+  <text x="430" y="398" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">Data accuracy ~60% &#x2192; 90%+ &#xB7; LinkedIn CAPI match ~40% &#x2192; 65&#x2013;85% (benchmark) &#xB7; demo_booked attributes correctly for first time</text>
+</svg>
     </div>
 
     <div class="vf">
@@ -1700,7 +1900,81 @@ em { font-style: italic; }
 
     <!-- SVG-L2: Channel Architecture -->
     <div class="lsvg" id="svg-l2" data-diagram="l2-channels" data-bg="light">
-      <div style="height:200px;background:#F8F4FF;display:flex;align-items:center;justify-content:center;border-radius:12px;color:#9CA3AF;font-size:13px;font-style:italic">L2 diagram will be injected in Step 2B</div>
+      <!-- svg-l2 | 860×360 | light -->
+<svg viewBox="0 0 860 360" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <rect width="860" height="360" fill="#FBF7EF"/>
+  <!-- eyebrow -->
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">CHANNEL ARCHITECTURE &#xB7; Current vs Structured</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- LEFT PANEL: Current state (x=28 to x=402) -->
+  <rect x="28" y="36" width="374" height="292" rx="8" fill="white" stroke="#FECACA" stroke-width="1.5"/>
+  <rect x="28" y="36" width="374" height="28" rx="8" fill="#FEF2F2"/>
+  <rect x="28" y="52" width="374" height="12" rx="0" fill="#FEF2F2"/>
+  <text x="215" y="54" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B" letter-spacing="1">CURRENT &#x2014; Single CTA, No Capture</text>
+
+  <!-- Homepage CTA box (central) -->
+  <rect x="80" y="74" width="272" height="40" rx="6" fill="#1E1B17"/>
+  <text x="216" y="90" text-anchor="middle" font-size="12" font-weight="700" fill="white">Homepage</text>
+  <text x="216" y="106" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.6)">"Book a demo" — only CTA (5 placements)</text>
+
+  <!-- Warning annotations -->
+  <text x="50" y="130" font-size="10" fill="#991B1B" font-weight="600">&#x2717; No paid ad pixels detected</text>
+  <text x="50" y="147" font-size="10" fill="#991B1B" font-weight="600">&#x2717; No lead magnet / no email capture</text>
+  <text x="50" y="164" font-size="10" fill="#991B1B" font-weight="600">&#x2717; No landing pages per ICP segment</text>
+  <text x="50" y="181" font-size="10" fill="#991B1B" font-weight="600">&#x2717; Social &#x2192; owned email: not detected</text>
+  <text x="50" y="198" font-size="10" fill="#991B1B" font-weight="600">&#x2717; AI Search (G2/Capterra/TrustRadius): absent</text>
+
+  <!-- Organic channels (dim) -->
+  <text x="50" y="222" font-size="9.5" fill="#8B8276">Active organic: LinkedIn &#xB7; YouTube &#xB7; Instagram &#xB7; TikTok @arzana_automation &#xB7; Blog (1 post)</text>
+  <text x="50" y="237" font-size="9.5" fill="#8B8276">All active &#x2014; none piped to owned email list</text>
+
+  <!-- Result -->
+  <rect x="44" y="250" width="343" height="34" rx="5" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="215" y="263" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">95% of visitors leave</text>
+  <text x="215" y="277" text-anchor="middle" font-size="10" fill="#991B1B">with no way to reach them again</text>
+
+  <!-- RIGHT PANEL: After L2 (x=430 to x=832) -->
+  <rect x="430" y="36" width="402" height="292" rx="8" fill="white" stroke="#020044" stroke-width="1.5"/>
+  <rect x="430" y="36" width="402" height="28" rx="8" fill="#020044" opacity="0.08"/>
+  <rect x="430" y="52" width="402" height="12" rx="0" fill="#020044" opacity="0.08"/>
+  <text x="631" y="54" text-anchor="middle" font-size="10" font-weight="700" fill="#1E1B17" letter-spacing="1">AFTER L2 &#x2014; INTENT-STRUCTURED</text>
+
+  <!-- LinkedIn -->
+  <text x="446" y="76" font-size="11" font-weight="700" fill="#1E1B17">LinkedIn Ads &#x2014; 3 intent tiers + ABM</text>
+  <text x="446" y="91" font-size="9.5" fill="#8B8276">ToFu: Thought Leadership (William/Marshall)</text>
+  <text x="446" y="105" font-size="9.5" fill="#8B8276">MoFu: Sponsored Content (Iowa Mold, Kuebler case studies)</text>
+  <text x="446" y="119" font-size="9.5" fill="#8B8276">BoFu: Conversation Ads &#xB7; ABM 500&#x2013;2,000 target accounts</text>
+
+  <line x1="446" x2="816" y1="126" y2="126" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Google Ads -->
+  <text x="446" y="141" font-size="11" font-weight="700" fill="#1E1B17">Google Ads &#x2014; narrow intent only</text>
+  <text x="446" y="155" font-size="9.5" fill="#8B8276">Category: "ai quoting software", "automate rfq manufacturing"</text>
+  <text x="446" y="169" font-size="9.5" fill="#8B8276">Conquest: "Epicor alternative", "JobBoss alternative AI"</text>
+
+  <line x1="446" x2="816" y1="176" y2="176" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Email + SEO -->
+  <text x="446" y="192" font-size="11" font-weight="700" fill="#1E1B17">Email (owned) &#xB7; SEO 4 clusters &#xB7; GEO</text>
+  <text x="446" y="207" font-size="9.5" fill="#8B8276">Email list: 0 &#x2192; 500&#x2013;1,500 leads &#xB7; 5 emails segmented ERP + role</text>
+  <text x="446" y="221" font-size="9.5" fill="#8B8276">SEO: Quoting &#xB7; Order entry &#xB7; AI mfg front office &#xB7; ERP modernization</text>
+  <text x="446" y="235" font-size="9.5" fill="#8B8276">Directories: G2 &#xB7; Capterra &#xB7; TrustRadius &#xB7; Software Advice</text>
+
+  <line x1="446" x2="816" y1="242" y2="242" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Landing pages -->
+  <text x="446" y="257" font-size="10" fill="#8B8276">6 dedicated landing pages per ICP segment</text>
+  <text x="446" y="271" font-size="9" fill="#8B8276">/quoting-automation/ &#xB7; /for-mold-makers/ &#xB7; /for-paper-converters/ + 3 more</text>
+
+  <!-- Result bar -->
+  <rect x="446" y="283" width="368" height="34" rx="5" fill="#020044" opacity="0.08" stroke="#020044" stroke-width="1"/>
+  <text x="630" y="297" text-anchor="middle" font-size="10" font-weight="700" fill="#020044">LinkedIn CPL $400&#x2013;800 &#xB7; Google $300&#x2013;600</text>
+  <text x="630" y="311" text-anchor="middle" font-size="9.5" fill="#8B8276">(benchmark targets &#x2014; validated post-90-day data)</text>
+
+  <!-- Divider between panels -->
+  <line x1="410" x2="410" y1="36" y2="328" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+</svg>
     </div>
 
     <div class="vf">
@@ -1809,9 +2083,236 @@ em { font-style: italic; }
     <div class="ltag">William's calendar fills first-come-first-served. A Fortune 500 CEO ready this Tuesday sees "next available: 3 weeks" — and many of them don't come back.</div>
     <p class="sec-hl r">Demo show-up rate, trial-to-paid CVR, pipeline conversion — none are visible externally. The 9 form fields (Job Title, ERP, challenge) are rich enough to score every lead on submit, but without routing logic, they aren't used for anything. This layer makes pipeline predictable and shows who deserves William's time first.</p>
 
-    <!-- SVG-L3: HubSpot Pipeline + Lead Scoring -->
-    <div class="lsvg" id="svg-l3" data-diagram="l3-pipeline" data-bg="dark">
-      <div style="height:200px;background:#020044;display:flex;align-items:center;justify-content:center;border-radius:12px;color:rgba(255,255,255,.3);font-size:13px;font-style:italic">L3 diagram will be injected in Step 2B</div>
+    <!-- SVG-L3A: Pipeline Gaps -->
+    <div class="lsvg" id="svg-l3a" data-diagram="l3a-gaps" data-bg="light">
+      <div id="svg-l3a-inner" style="border-radius:12px;overflow:hidden"><!-- svg-l3a | 860×240 | light -->
+<svg viewBox="0 0 860 240" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <rect width="860" height="240" fill="#FBF7EF"/>
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">WHAT WE CANNOT CONFIRM &#xB7; Revenue Operations Today</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- 4 gap boxes (x: 28,228,428,628 | w=192 | h=88 | y=40) -->
+  <!-- Box 1: CRM config -->
+  <rect x="28" y="40" width="190" height="90" rx="7" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="123" y="62" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">CRM Configuration</text>
+  <text x="123" y="77" text-anchor="middle" font-size="9.5" fill="#991B1B">HubSpot / Attio /</text>
+  <text x="123" y="91" text-anchor="middle" font-size="9.5" fill="#991B1B">Salesforce / Sheets?</text>
+  <text x="123" y="108" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">Back-end: unverifiable</text>
+  <text x="123" y="122" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">from source code</text>
+
+  <!-- Box 2: Pipeline SLAs -->
+  <rect x="228" y="40" width="190" height="90" rx="7" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="323" y="62" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">Pipeline Stages + SLAs</text>
+  <text x="323" y="77" text-anchor="middle" font-size="9.5" fill="#991B1B">Any defined today?</text>
+  <text x="323" y="91" text-anchor="middle" font-size="9.5" fill="#991B1B">MQL/SQL definitions?</text>
+  <text x="323" y="108" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">Lead scoring: invisible</text>
+  <text x="323" y="122" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">externally</text>
+
+  <!-- Box 3: Demo show-up rate -->
+  <rect x="428" y="40" width="190" height="90" rx="7" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="523" y="62" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">Demo Show-Up Rate</text>
+  <text x="523" y="77" text-anchor="middle" font-size="9.5" fill="#991B1B">Current baseline?</text>
+  <text x="523" y="91" text-anchor="middle" font-size="9.5" fill="#991B1B">No-show frequency?</text>
+  <text x="523" y="108" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">Calendly analytics:</text>
+  <text x="523" y="122" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">account access needed</text>
+
+  <!-- Box 4: No-show recovery -->
+  <rect x="628" y="40" width="204" height="90" rx="7" fill="#FEF2F2" stroke="#FECACA" stroke-width="1.5"/>
+  <text x="730" y="62" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">No-Show Recovery</text>
+  <text x="730" y="77" text-anchor="middle" font-size="9.5" fill="#991B1B">Automated sequence?</text>
+  <text x="730" y="91" text-anchor="middle" font-size="9.5" fill="#991B1B">X5 recovery: not detected</text>
+  <text x="730" y="108" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">Standard Calendly only;</text>
+  <text x="730" y="122" text-anchor="middle" font-size="8.5" fill="#8B8276" font-style="italic">no T+1h/24h/72h found</text>
+
+  <!-- Confirmed facts bar -->
+  <rect x="28" y="144" width="804" height="44" rx="7" fill="#FEF3C7" stroke="#FBC94B" stroke-width="1.5"/>
+  <text x="430" y="161" text-anchor="middle" font-size="10.5" font-weight="700" fill="#92400E">Confirmed: calendly.com/william-arzana/30min &#x2014; single-person scheduler, no round-robin</text>
+  <text x="430" y="178" text-anchor="middle" font-size="9.5" fill="#92400E">No n8n / Zapier webhooks detectable &#x2014; server-side, cannot confirm or deny externally</text>
+
+  <!-- Pivot line -->
+  <rect x="28" y="198" width="804" height="28" rx="5" fill="#020044" opacity="0.08" stroke="#06D4AE" stroke-width="1.5"/>
+  <text x="430" y="216" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">&#x2192; The 30-minute audit call is where these 4 boxes turn green or red.</text>
+</svg></div>
+    </div>
+    <!-- SVG-L3B: Pipeline + Lead Scoring -->
+    <div class="lsvg" id="svg-l3b" data-diagram="l3b-pipeline" data-bg="dark" style="margin-top:16px">
+      <div id="svg-l3b-inner" style="border-radius:12px;overflow:hidden"><!-- svg-l3b | 860×500 | dark -->
+<svg viewBox="0 0 860 500" width="100%" style="display:block;background:#1E1B17" font-family="Outfit,sans-serif">
+  <defs>
+    <marker id="l3b-arr" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 Z" fill="rgba(255,255,255,0.4)"/>
+    </marker>
+  </defs>
+  <rect width="860" height="500" fill="#1E1B17"/>
+  <text x="28" y="22" font-size="11" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">REVENUE PIPELINE &#xB7; Stages, SLAs &amp; Lead Scoring</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="white" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- SECTION 1: Pipeline stages (7 stages, w=104 each, gap=7, y=40) -->
+  <!-- Stage positions: 28,139,250,361,472,583,694 (104+7=111 each) -->
+  <!-- New Lead -->
+  <rect x="28" y="40" width="104" height="68" rx="6" fill="#020044"/>
+  <text x="80" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="white">New Lead</text>
+  <text x="80" y="77" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">auto-scoring &lt;5min</text>
+  <text x="80" y="92" text-anchor="middle" font-size="9" font-weight="700" fill="#FBC94B">entry point</text>
+
+  <line x1="132" y1="74" x2="138" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#l3b-arr)"/>
+
+  <!-- MQL -->
+  <rect x="139" y="40" width="104" height="68" rx="6" fill="#1A1060"/>
+  <text x="191" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="white">MQL</text>
+  <text x="191" y="77" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">40&#x2013;59 pts &#xB7; &lt;2h</text>
+  <text x="191" y="92" text-anchor="middle" font-size="9" font-weight="700" fill="#FBC94B">auto-routed</text>
+
+  <line x1="243" y1="74" x2="249" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#l3b-arr)"/>
+
+  <!-- SQL -->
+  <rect x="250" y="40" width="104" height="68" rx="6" fill="#3A1A9A"/>
+  <text x="302" y="62" text-anchor="middle" font-size="11" font-weight="700" fill="white">SQL</text>
+  <text x="302" y="77" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">60&#x2013;79 pts &#xB7; &lt;24h</text>
+  <text x="302" y="92" text-anchor="middle" font-size="9" font-weight="700" fill="#FBC94B">BANT-qualified</text>
+
+  <line x1="354" y1="74" x2="360" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#l3b-arr)"/>
+
+  <!-- Demo Scheduled -->
+  <rect x="361" y="40" width="104" height="68" rx="6" fill="#5A28C8"/>
+  <text x="413" y="55" text-anchor="middle" font-size="10" font-weight="700" fill="white">Demo</text>
+  <text x="413" y="68" text-anchor="middle" font-size="10" font-weight="700" fill="white">Scheduled</text>
+  <text x="413" y="83" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">&#x2265;80 pts &#x2192; William</text>
+  <text x="413" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#FBC94B">prep brief &lt;5 min</text>
+
+  <line x1="465" y1="74" x2="471" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#l3b-arr)"/>
+
+  <!-- Demo Completed -->
+  <rect x="472" y="40" width="104" height="68" rx="6" fill="#0E0050" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="524" y="55" text-anchor="middle" font-size="10" font-weight="700" fill="white">Demo</text>
+  <text x="524" y="68" text-anchor="middle" font-size="10" font-weight="700" fill="white">Completed</text>
+  <text x="524" y="83" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">William marks</text>
+  <text x="524" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="#FBC94B">+15&#x2013;25% show rate</text>
+
+  <line x1="576" y1="74" x2="582" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#l3b-arr)"/>
+
+  <!-- Proposal Sent -->
+  <rect x="583" y="40" width="104" height="68" rx="6" fill="#0E0050" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <text x="635" y="62" text-anchor="middle" font-size="10" font-weight="700" fill="white">Proposal Sent</text>
+  <text x="635" y="77" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">follow-up &lt;48h</text>
+  <text x="635" y="92" text-anchor="middle" font-size="9" font-weight="700" fill="#FBC94B">2x follow within 10d</text>
+
+  <line x1="687" y1="74" x2="693" y2="74" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" marker-end="url(#l3b-arr)"/>
+
+  <!-- Closed Won/Lost -->
+  <rect x="694" y="40" width="138" height="68" rx="6" fill="#0E0050" stroke="#06D4AE" stroke-width="1.5"/>
+  <text x="763" y="62" text-anchor="middle" font-size="10" font-weight="700" fill="#06D4AE">Closed Won</text>
+  <text x="763" y="74" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.3)">/ Closed Lost</text>
+  <text x="763" y="89" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">28% win rate target</text>
+  <text x="763" y="102" text-anchor="middle" font-size="8.5" fill="#8B8276">(benchmark)</text>
+
+  <!-- Alert box: deal stuck -->
+  <rect x="28" y="120" width="804" height="22" rx="4" fill="#0E0050" stroke="#FBC94B" stroke-width="1"/>
+  <text x="430" y="135" text-anchor="middle" font-size="10" fill="#FBC94B">Deal stuck &gt;7 days at any stage &#x2192; auto-flag to William &#xB7; Score &#x2265;80 &#x2192; William &#xB7; 50&#x2013;79 &#x2192; rep/async Loom &#xB7; &lt;50 &#x2192; nurture</text>
+
+  <line x1="28" x2="832" y1="152" y2="152" stroke="white" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- SECTION 2: Lead Scoring Matrix (3 columns) -->
+  <text x="28" y="170" font-size="10" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">LEAD SCORING MODEL &#x2014; 0&#x2013;100 points</text>
+
+  <!-- Column headers (y=178, h=24) -->
+  <!-- Col A: Firmographic x=28 w=264 -->
+  <rect x="28" y="178" width="264" height="24" rx="4" fill="#0E0050"/>
+  <text x="160" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="white" letter-spacing="0.5">FIRMOGRAPHIC (25%)</text>
+  <!-- Col B: Behavioral x=300 w=236 -->
+  <rect x="300" y="178" width="236" height="24" rx="4" fill="#0E0050"/>
+  <text x="418" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="white" letter-spacing="0.5">BEHAVIORAL (20%)</text>
+  <!-- Col C: Title x=544 w=288 -->
+  <rect x="544" y="178" width="288" height="24" rx="4" fill="#0E0050"/>
+  <text x="688" y="194" text-anchor="middle" font-size="10" font-weight="700" fill="white" letter-spacing="0.5">TITLE MATCH (40%)</text>
+
+  <!-- Col A rows (y=204, 222, 240, 258 | h=18) -->
+  <text x="36" y="218" font-size="10" fill="rgba(255,255,255,0.7)">Mid-market mfg 50&#x2013;500 emp</text>
+  <text x="284" y="218" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+25</text>
+
+  <text x="36" y="236" font-size="10" fill="rgba(255,255,255,0.7)">Enterprise 500+</text>
+  <text x="284" y="236" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+20</text>
+
+  <text x="36" y="254" font-size="10" fill="rgba(255,255,255,0.7)">SMB &lt;50 employees</text>
+  <text x="284" y="254" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+15</text>
+
+  <text x="36" y="272" font-size="10" fill="rgba(255,255,255,0.45)">Non-manufacturing</text>
+  <text x="284" y="272" text-anchor="end" font-size="10" fill="rgba(255,255,255,0.3)">0</text>
+
+  <!-- Col B rows -->
+  <text x="308" y="218" font-size="10" fill="rgba(255,255,255,0.7)">ROI Calculator completed</text>
+  <text x="528" y="218" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+15</text>
+
+  <text x="308" y="236" font-size="10" fill="rgba(255,255,255,0.7)">Case study reads &#x2265;2</text>
+  <text x="528" y="236" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+10</text>
+
+  <text x="308" y="254" font-size="10" fill="rgba(255,255,255,0.7)">Pricing/Solutions &#x2265;3 visits</text>
+  <text x="528" y="254" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+10</text>
+
+  <!-- Col C rows -->
+  <text x="552" y="218" font-size="10" fill="rgba(255,255,255,0.7)">CEO / President / Owner</text>
+  <text x="824" y="218" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+40</text>
+
+  <text x="552" y="236" font-size="10" fill="rgba(255,255,255,0.7)">VP</text>
+  <text x="824" y="236" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+30</text>
+
+  <text x="552" y="254" font-size="10" fill="rgba(255,255,255,0.7)">Director</text>
+  <text x="824" y="254" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+20</text>
+
+  <text x="552" y="272" font-size="10" fill="rgba(255,255,255,0.7)">Manager</text>
+  <text x="824" y="272" text-anchor="end" font-size="10" font-weight="700" fill="#FBC94B">+10</text>
+
+  <!-- ERP fit bonus -->
+  <rect x="28" y="282" width="804" height="20" rx="4" fill="#0E0050" stroke="#FBC94B" stroke-width="1" opacity="0.7"/>
+  <text x="430" y="296" text-anchor="middle" font-size="9.5" fill="#FBC94B">ERP fit +10: Epicor &#xB7; JobBoss &#xB7; SAP &#xB7; NetSuite &#xB7; Sage &#xB7; IFS &#xB7; Dynamics &#xB7; Prophet 21</text>
+
+  <!-- Score bar 0-100 with markers -->
+  <rect x="28" y="310" width="804" height="14" rx="3" fill="#0E0050"/>
+  <!-- filled portion (benchmark: VP + mid-market + case study = 55) -->
+  <rect x="28" y="310" width="804" height="14" rx="3" fill="#020044" opacity="0.3"/>
+  <!-- MQL marker at 40 = 28 + 804*0.4 = 350 -->
+  <rect x="350" y="305" width="2" height="24" rx="1" fill="#FBC94B"/>
+  <text x="350" y="302" text-anchor="middle" font-size="9" fill="#FBC94B" font-weight="700">40=MQL</text>
+  <!-- SQL marker at 60 = 28 + 804*0.6 = 510 -->
+  <rect x="510" y="305" width="2" height="24" rx="1" fill="#06D4AE"/>
+  <text x="510" y="302" text-anchor="middle" font-size="9" fill="#06D4AE" font-weight="700">60=SQL</text>
+  <!-- William marker at 80 = 28 + 804*0.8 = 671 -->
+  <rect x="671" y="305" width="2" height="24" rx="1" fill="white"/>
+  <text x="671" y="302" text-anchor="middle" font-size="9" fill="white" font-weight="700">80=William</text>
+  <!-- score example (85 = VP+mid-market+ERP+behavioral) -->
+  <rect x="692" y="308" width="16" height="18" rx="3" fill="#06D4AE" opacity="0.9"/>
+  <text x="428" y="344" font-size="9.5" fill="rgba(255,255,255,0.6)" font-style="italic">Example: VP Ops &#xB7; paper converting 180 emp &#xB7; Epicor &#xB7; Milltown case study read = 85 pts &#x2192; SQL &#x2192; William&#x27;s calendar</text>
+
+  <line x1="28" x2="832" y1="356" y2="356" stroke="white" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- SECTION 3: No-show recovery (y=364) -->
+  <text x="28" y="374" font-size="10" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">NO-SHOW RECOVERY SEQUENCE &#x2014; 20&#x2013;30% recovery (benchmark)</text>
+
+  <!-- T+1h -->
+  <rect x="28" y="382" width="242" height="56" rx="6" fill="#020044"/>
+  <text x="149" y="402" text-anchor="middle" font-size="11" font-weight="700" fill="#FBC94B">T + 1 hour</text>
+  <text x="149" y="418" text-anchor="middle" font-size="10" fill="white">Warm reschedule email</text>
+  <text x="149" y="432" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">+ 3-min Loom (ICP-matched)</text>
+
+  <!-- T+24h -->
+  <rect x="282" y="382" width="242" height="56" rx="6" fill="#3A1A9A"/>
+  <text x="403" y="402" text-anchor="middle" font-size="11" font-weight="700" fill="#FBC94B">T + 24 hours</text>
+  <text x="403" y="418" text-anchor="middle" font-size="10" fill="white">ICP-matched case study</text>
+  <text x="403" y="432" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">Iowa Mold / Milltown / Kuebler</text>
+
+  <!-- T+72h -->
+  <rect x="536" y="382" width="296" height="56" rx="6" fill="#0E0050" stroke="#FBC94B" stroke-width="1"/>
+  <text x="684" y="402" text-anchor="middle" font-size="11" font-weight="700" fill="#FBC94B">T + 72 hours</text>
+  <text x="684" y="418" text-anchor="middle" font-size="10" fill="white">Break-up email &#x2014; William&#x27;s voice</text>
+  <text x="684" y="432" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">AI-drafted &#xB7; William-approved</text>
+
+  <!-- N/A note -->
+  <text x="28" y="456" font-size="9.5" fill="rgba(255,255,255,0.3)" font-style="italic">Trial sequence: N/A &#x2014; ARZANA&#x27;s motion is demo-only, no free trial</text>
+
+  <!-- Bottom note -->
+  <rect x="28" y="468" width="804" height="22" rx="4" fill="#0E0050" stroke="#06D4AE" stroke-width="1"/>
+  <text x="430" y="483" text-anchor="middle" font-size="10" fill="#06D4AE" font-weight="700">Recovery fires via n8n &#x2014; zero CEO time &#xB7; Demo no-show &#x2192; 20&#x2013;30% recovered without William lifting a finger (benchmark)</text>
+</svg></div>
     </div>
 
     <div class="vf">
@@ -1917,9 +2418,206 @@ em { font-style: italic; }
     <div class="lname">AI Automation <span class="ow">&amp; Agent</span></div>
     <div class="ltag">A 5-person team with forward-deployed engineers doesn't have bandwidth to run marketing manually. This layer handles the signals that can't wait for a human to notice them.</div>
 
-    <!-- SVG-L4: AI Automation + Triggers -->
-    <div class="lsvg" id="svg-l4" data-diagram="l4-automation" data-bg="dark">
-      <div style="height:200px;background:#020044;display:flex;align-items:center;justify-content:center;border-radius:12px;color:rgba(255,255,255,.3);font-size:13px;font-style:italic">L4 diagram will be injected in Step 2B</div>
+    <!-- SVG-L4A: AI Chatbot Demo Qualification -->
+    <div class="lsvg" id="svg-l4a" data-diagram="l4a-chatbot" data-bg="light">
+      <div id="svg-l4a-inner" style="border-radius:12px;overflow:hidden"><!-- svg-l4a | 860×640 | light -->
+<svg viewBox="0 0 860 640" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <rect width="860" height="640" fill="#FBF7EF"/>
+  <!-- eyebrow -->
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">AI QUALIFICATION CHATBOT &#xB7; 24/7 Demo Routing</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- ── LEFT: Phone frame (x=60, y=40, w=300, h=540) ── -->
+  <rect x="60" y="40" width="300" height="540" rx="28" fill="#1E1B17"/>
+  <!-- notch -->
+  <rect x="165" y="48" width="90" height="10" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <!-- Screen -->
+  <rect x="70" y="66" width="280" height="492" rx="10" fill="#F1F1F0"/>
+
+  <!-- Chat header -->
+  <rect x="70" y="66" width="280" height="40" rx="10" fill="#1E1B17"/>
+  <rect x="70" y="86" width="280" height="20" rx="0" fill="#1E1B17"/>
+  <circle cx="90" cy="86" r="11" fill="#020044"/>
+  <text x="90" y="90" text-anchor="middle" font-size="9" font-weight="700" fill="#06D4AE">AI</text>
+  <text x="110" y="83" font-size="10" font-weight="700" fill="white">arzana.com</text>
+  <text x="110" y="97" font-size="9" fill="rgba(255,255,255,0.55)">Tuesday &#xB7; 11:47 PM ET</text>
+
+  <!-- Context chip -->
+  <rect x="78" y="115" width="264" height="20" rx="10" fill="rgba(30,27,23,0.08)"/>
+  <text x="210" y="129" text-anchor="middle" font-size="9" fill="#8B8276">From NYT article &#x2192; Milltown case study</text>
+
+  <!-- Visitor bubble -->
+  <rect x="148" y="143" width="194" height="32" rx="10" fill="#1E1B17"/>
+  <text x="245" y="163" text-anchor="middle" font-size="10" fill="white">How did Milltown replace their ERP?</text>
+
+  <!-- AI bubble -->
+  <rect x="78" y="185" width="220" height="56" rx="10" fill="white" stroke="rgba(30,27,23,0.1)" stroke-width="1"/>
+  <text x="188" y="203" text-anchor="middle" font-size="9.5" fill="#1E1B17">Great question. A few quick</text>
+  <text x="188" y="217" text-anchor="middle" font-size="9.5" fill="#1E1B17">questions to tailor the answer:</text>
+  <text x="188" y="231" text-anchor="middle" font-size="9" fill="#8B8276">How many inventory SKUs? ERP today?</text>
+
+  <!-- Visitor response -->
+  <rect x="148" y="251" width="194" height="32" rx="10" fill="#1E1B17"/>
+  <text x="245" y="271" text-anchor="middle" font-size="10" fill="white">~200K SKUs. Epicor. Me+CEO+CFO.</text>
+
+  <!-- AI response -->
+  <rect x="78" y="293" width="238" height="68" rx="10" fill="white" stroke="rgba(30,27,23,0.1)" stroke-width="1"/>
+  <text x="197" y="309" text-anchor="middle" font-size="9.5" fill="#1E1B17">That matches Milltown&#x27;s profile closely.</text>
+  <text x="197" y="323" text-anchor="middle" font-size="9.5" fill="#1E1B17">I can book you a 30-min walkthrough</text>
+  <text x="197" y="337" text-anchor="middle" font-size="9.5" fill="#1E1B17">with William, or send the Milltown</text>
+  <text x="197" y="351" text-anchor="middle" font-size="9.5" fill="#1E1B17">120-day PDF first. Preference?</text>
+
+  <!-- CTA pills -->
+  <rect x="78" y="372" width="130" height="24" rx="12" fill="#020044" stroke="#06D4AE" stroke-width="1"/>
+  <text x="143" y="388" text-anchor="middle" font-size="9" fill="#06D4AE" font-weight="700">Book Tue/Wed demo</text>
+  <rect x="218" y="372" width="98" height="24" rx="12" fill="rgba(30,27,23,0.07)" stroke="#1E1B17" stroke-width="1" opacity="0.5"/>
+  <text x="267" y="388" text-anchor="middle" font-size="9" fill="#1E1B17">Send Milltown PDF</text>
+
+  <!-- Outcome banner -->
+  <rect x="70" y="406" width="280" height="32" rx="6" fill="#020044" opacity="0.12" stroke="#06D4AE" stroke-width="1.5"/>
+  <text x="210" y="426" text-anchor="middle" font-size="10" font-weight="700" fill="#06D4AE">&#x2713; Demo booked &#xB7; Tue 10 AM &#xB7; Confirmation sent</text>
+
+  <!-- Qualification logic at bottom of phone -->
+  <rect x="70" y="448" width="280" height="48" rx="6" fill="rgba(255,255,255,0.05)"/>
+  <text x="210" y="464" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.5)">Score &#x2265;80 &#x2192; William</text>
+  <text x="210" y="478" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.5)">50&#x2013;79 &#x2192; rep or async Loom</text>
+  <text x="210" y="492" text-anchor="middle" font-size="8.5" fill="rgba(255,255,255,0.5)">&lt;50 &#x2192; nurture sequence</text>
+
+  <!-- Persona tag -->
+  <text x="210" y="530" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.4)">VP Ops &#xB7; Paper converting &#xB7; WI &#xB7; 180 emp</text>
+  <text x="210" y="544" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.4)">from NYT backlink &#x2192; Milltown</text>
+
+  <!-- ── DIVIDER ── -->
+  <line x1="390" x2="390" y1="36" y2="596" stroke="#1E1B17" stroke-width="0.5" opacity="0.2"/>
+
+  <!-- ── RIGHT: Background actions (x=406, y=40) ── -->
+  <text x="406" y="50" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">BACKGROUND ACTIONS &#x2014; 11:47 PM ET</text>
+
+  <!-- Action 1 -->
+  <rect x="406" y="60" width="426" height="52" rx="6" fill="#1E1B17" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="416" y="79" font-size="10" font-weight="700" fill="#06D4AE">11:47 PM</text>
+  <text x="416" y="95" font-size="10" fill="white">Lead record created in CRM (Warmly enrichment attached)</text>
+  <text x="416" y="108" font-size="9" fill="rgba(255,255,255,0.5)">Company: Paper converting, WI &#xB7; ERP: Epicor &#xB7; Pain: quoting time</text>
+
+  <!-- Action 2: Lead Scoring -->
+  <rect x="406" y="122" width="426" height="90" rx="6" fill="#020044" stroke="#06D4AE" stroke-width="1"/>
+  <text x="416" y="141" font-size="10" font-weight="700" fill="#06D4AE">11:47 PM &#x2014; Lead Scoring Fires</text>
+  <text x="416" y="157" font-size="9.5" fill="rgba(255,255,255,0.8)">Title match (VP): +30</text>
+  <text x="416" y="172" font-size="9.5" fill="rgba(255,255,255,0.8)">Firmographic (mid-market mfg 180 emp): +25</text>
+  <text x="416" y="187" font-size="9.5" fill="rgba(255,255,255,0.8)">ERP fit (Epicor): +10 &#xB7; Behavioral (case study read + 2 pages): +20</text>
+  <text x="416" y="203" font-size="10" font-weight="700" fill="#06D4AE">Total: 85 pts &#x2192; SQL threshold cleared</text>
+
+  <!-- Action 3: Routing -->
+  <rect x="406" y="222" width="426" height="40" rx="6" fill="#1E1B17" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="416" y="241" font-size="10" font-weight="700" fill="#06D4AE">11:48 PM</text>
+  <text x="416" y="255" font-size="10" fill="white">Score &#x2265;80 &#x2192; William&#x27;s calendar (high-priority queue)</text>
+
+  <!-- Action 4: webhook -->
+  <rect x="406" y="272" width="426" height="40" rx="6" fill="#1E1B17" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <text x="416" y="291" font-size="10" font-weight="700" fill="#06D4AE">11:48 PM</text>
+  <text x="474" y="291" font-size="10" fill="white">Calendly webhook &#x2192; sGTM &#x2192;</text>
+  <text x="416" y="305" font-family="JetBrains Mono,monospace" font-size="9.5" fill="#FBC94B">demo_booked</text>
+  <text x="516" y="305" font-size="9.5" fill="rgba(255,255,255,0.6)">fires server-side, attributes to source</text>
+
+  <!-- Action 5: Prep brief -->
+  <rect x="406" y="322" width="426" height="100" rx="6" fill="#1E1B17" stroke="#FBC94B" stroke-width="1"/>
+  <text x="416" y="341" font-size="10" font-weight="700" fill="#FBC94B">Tuesday 8:00 AM &#x2014; Demo Prep Brief &#x2192; William</text>
+  <text x="416" y="357" font-size="9.5" fill="rgba(255,255,255,0.7)">&#x2022; Company: Paper converting, WI, 180 emp (Warmly)</text>
+  <text x="416" y="372" font-size="9.5" fill="rgba(255,255,255,0.7)">&#x2022; Current ERP: Epicor &#xB7; Declared pain: quoting time</text>
+  <text x="416" y="387" font-size="9.5" fill="rgba(255,255,255,0.7)">&#x2022; Matched case study: Milltown Paper (120-day replacement)</text>
+  <text x="416" y="402" font-size="9.5" fill="rgba(255,255,255,0.7)">&#x2022; Suggested demo flow + objection handling hints</text>
+  <text x="416" y="417" font-size="9" fill="rgba(255,255,255,0.4)" font-style="italic">Prep time: 5 minutes vs 20 manual</text>
+
+  <!-- Bottom bar -->
+  <rect x="406" y="432" width="426" height="32" rx="5" fill="#020044" opacity="0.15" stroke="#06D4AE" stroke-width="1"/>
+  <text x="619" y="444" text-anchor="middle" font-size="9.5" font-weight="700" fill="#06D4AE">Chatbot qualifies 30&#x2013;50% of visitor interactions</text>
+  <text x="619" y="458" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.5)">(vs 2&#x2013;5% form-only) &#x2014; stays on duty while William is onsite</text>
+</svg></div>
+    </div>
+    <!-- SVG-L4B: Behavioral Triggers -->
+    <div class="lsvg" id="svg-l4b" data-diagram="l4b-triggers" data-bg="dark" style="margin-top:16px">
+      <div id="svg-l4b-inner" style="border-radius:12px;overflow:hidden"><!-- svg-l4b | 860×340 | dark -->
+<svg viewBox="0 0 860 340" width="100%" style="display:block;background:#1E1B17" font-family="Outfit,sans-serif">
+  <rect width="860" height="340" fill="#1E1B17"/>
+  <text x="28" y="22" font-size="11" font-weight="700" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">BEHAVIORAL TRIGGERS &#xB7; 5 Automated Workflows</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="white" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- Column headers -->
+  <text x="28" y="46" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.35)" letter-spacing="1">EVENT</text>
+  <text x="320" y="46" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.35)" letter-spacing="1">AUTOMATED ACTION</text>
+  <text x="750" y="46" text-anchor="middle" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.35)" letter-spacing="1">TIMING</text>
+
+  <!-- Row heights: y=52,106,160,214,268 | h=46 | gap=8 -->
+  <!-- Trigger 1: roi_calculator_completed -->
+  <rect x="28" y="52" width="276" height="46" rx="5" fill="#0E0050"/>
+  <text x="166" y="72" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#FBC94B">roi_calculator_completed</text>
+  <text x="166" y="90" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">Tally ROI calc flow exit</text>
+
+  <rect x="312" y="52" width="390" height="46" rx="5" fill="#0E0050"/>
+  <text x="507" y="72" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Email with prospect&#x27;s specific numbers</text>
+  <text x="507" y="90" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">+ ICP-matched case study (Iowa Mold / Milltown / Kuebler)</text>
+
+  <rect x="710" y="52" width="122" height="46" rx="5" fill="#020044" opacity="0.35" stroke="#06D4AE" stroke-width="1"/>
+  <text x="771" y="72" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">&lt; 1h</text>
+  <text x="771" y="88" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">automated</text>
+
+  <!-- Trigger 2: pricing_page x2 in 7 days -->
+  <rect x="28" y="106" width="276" height="46" rx="5" fill="#0E0050"/>
+  <text x="166" y="126" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#FBC94B">pricing_page &#xD7;2 in 7 days</text>
+  <text x="166" y="144" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">no demo booked</text>
+
+  <rect x="312" y="106" width="390" height="46" rx="5" fill="#0E0050"/>
+  <text x="507" y="126" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Re-engagement email with Warmly company context</text>
+  <text x="507" y="144" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">Sales priority alert &#xB7; Not a generic template</text>
+
+  <rect x="710" y="106" width="122" height="46" rx="5" fill="#020044" opacity="0.35" stroke="#06D4AE" stroke-width="1"/>
+  <text x="771" y="126" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">&lt; 24h</text>
+  <text x="771" y="142" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">automated</text>
+
+  <!-- Trigger 3: case_study_read + no demo in 48h -->
+  <rect x="28" y="160" width="276" height="46" rx="5" fill="#0E0050"/>
+  <text x="166" y="178" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="700" fill="#FBC94B">case_study_read</text>
+  <text x="166" y="196" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">+ no demo within 48h</text>
+
+  <rect x="312" y="160" width="390" height="46" rx="5" fill="#0E0050"/>
+  <text x="507" y="178" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Personalized outreach (not a generic email)</text>
+  <text x="507" y="196" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">Matched to ICP segment from case study read</text>
+
+  <rect x="710" y="160" width="122" height="46" rx="5" fill="#020044" opacity="0.35" stroke="#06D4AE" stroke-width="1"/>
+  <text x="771" y="178" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">&lt; 48h</text>
+  <text x="771" y="194" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">automated</text>
+
+  <!-- Trigger 4: demo_no_show -->
+  <rect x="28" y="214" width="276" height="46" rx="5" fill="#0E0050"/>
+  <text x="166" y="234" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" fill="#FBC94B">demo_no_show</text>
+  <text x="166" y="252" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">Calendly marks no-show</text>
+
+  <rect x="312" y="214" width="390" height="46" rx="5" fill="#0E0050"/>
+  <text x="507" y="234" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">Recovery: T+1h warm reschedule + Loom</text>
+  <text x="507" y="252" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">T+24h case study &#xB7; T+72h founder break-up email</text>
+
+  <rect x="710" y="214" width="122" height="46" rx="5" fill="#020044" opacity="0.35" stroke="#06D4AE" stroke-width="1"/>
+  <text x="771" y="228" text-anchor="middle" font-size="10" font-weight="700" fill="#06D4AE">1h / 24h</text>
+  <text x="771" y="244" text-anchor="middle" font-size="10" font-weight="700" fill="#06D4AE">/ 72h</text>
+  <text x="771" y="256" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">3-touch</text>
+
+  <!-- Trigger 5: account_inactive_14_days -->
+  <rect x="28" y="268" width="276" height="46" rx="5" fill="#0E0050"/>
+  <text x="166" y="286" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9.5" font-weight="700" fill="#FBC94B">account_inactive_14_days</text>
+  <text x="166" y="304" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">user activity drops off</text>
+
+  <rect x="312" y="268" width="390" height="46" rx="5" fill="#0E0050"/>
+  <text x="507" y="286" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.85)">CS alert + win-back email (Day 14 trigger)</text>
+  <text x="507" y="304" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,0.55)">Intervene before cancel window opens</text>
+
+  <rect x="710" y="268" width="122" height="46" rx="5" fill="#020044" opacity="0.35" stroke="#06D4AE" stroke-width="1"/>
+  <text x="771" y="290" text-anchor="middle" font-size="11" font-weight="700" fill="#06D4AE">Day 14</text>
+  <text x="771" y="306" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">automated</text>
+
+  <!-- Bottom bar -->
+  <rect x="28" y="322" width="804" height="14" rx="3" fill="#0E0050" stroke="#06D4AE" stroke-width="0.5"/>
+  <text x="430" y="333" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.45)">All workflows via n8n &#xB7; demo_booked attributes via sGTM &#x2192; LinkedIn/Google CAPI &#xB7; Runs while founders are onsite</text>
+</svg></div>
     </div>
 
     <div class="vf">
@@ -2020,12 +2718,318 @@ em { font-style: italic; }
 
     <!-- svg-l5a: Revenue Intelligence Dashboard (MANDATORY) -->
     <div class="lsvg" id="svg-l5a" data-diagram="svg-l5a" data-bg="light" style="margin:32px 0">
-      <div style="height:200px;background:#F3F0FF;display:flex;align-items:center;justify-content:center;border-radius:12px;color:rgba(0,0,68,.3);font-size:13px;font-style:italic">L5 Revenue Intelligence — injected in Step 2B</div>
+      <!-- svg-l5a | 860×380 | light -->
+<svg viewBox="0 0 860 380" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <rect width="860" height="380" fill="#FBF7EF"/>
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">REVENUE INTELLIGENCE &#xB7; What You See After 90 Days</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- 4 KPI Cards: x=28,228,428,628 w=192 h=72 y=38 -->
+  <!-- Card 1: Blended CAC -->
+  <rect x="28" y="38" width="192" height="72" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <rect x="28" y="38" width="4" height="72" rx="2" fill="#020044"/>
+  <text x="42" y="57" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="0.5">BLENDED CAC</text>
+  <text x="42" y="82" font-size="22" font-weight="700" fill="#1E1B17">$1,800</text>
+  <text x="42" y="100" font-size="9" fill="#8B8276">LinkedIn+Google+Organic (benchmark)</text>
+
+  <!-- Card 2: LTV:CAC -->
+  <rect x="228" y="38" width="192" height="72" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <rect x="228" y="38" width="4" height="72" rx="2" fill="#3A1A9A"/>
+  <text x="242" y="57" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="0.5">LTV : CAC RATIO</text>
+  <text x="242" y="82" font-size="22" font-weight="700" fill="#1E1B17">&#x2265;3:1</text>
+  <text x="242" y="100" font-size="9" fill="#8B8276">Target &#x2014; validated post-90 days</text>
+
+  <!-- Card 3: MRR Growth -->
+  <rect x="428" y="38" width="192" height="72" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <rect x="428" y="38" width="4" height="72" rx="2" fill="#5A28C8"/>
+  <text x="442" y="57" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="0.5">MRR GROWTH MOM</text>
+  <text x="442" y="82" font-size="22" font-weight="700" fill="#1E1B17">+20%</text>
+  <text x="442" y="100" font-size="9" fill="#8B8276">+15&#x2013;25% target &#x2014; post-90-day (benchmark)</text>
+
+  <!-- Card 4: Email → Demo -->
+  <rect x="628" y="38" width="204" height="72" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <rect x="628" y="38" width="4" height="72" rx="2" fill="#06D4AE"/>
+  <text x="642" y="57" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="0.5">EMAIL &#x2192; DEMO RATE</text>
+  <text x="642" y="82" font-size="22" font-weight="700" fill="#1E1B17">3%</text>
+  <text x="642" y="100" font-size="9" fill="#8B8276">2&#x2013;4% target &#xB7; segmented ERP+role (benchmark)</text>
+
+  <line x1="28" x2="832" y1="120" y2="120" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Section 2: LEFT funnel (x=28 to x=415) | RIGHT attribution (x=440 to x=832) -->
+  <!-- LEFT: Conversion Funnel -->
+  <text x="28" y="138" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">DEMO CONVERSION FUNNEL (benchmark)</text>
+
+  <!-- Visitor 100% bar -->
+  <rect x="28" y="146" width="320" height="14" rx="2" fill="#020044"/>
+  <text x="356" y="158" font-size="10" fill="#1E1B17" font-weight="600">Visitor 100%</text>
+
+  <!-- Demo Requested 1-2% → target 3-5% | visual = 90px -->
+  <rect x="28" y="168" width="90" height="12" rx="2" fill="#3A1A9A"/>
+  <text x="356" y="179" font-size="9.5" fill="#1E1B17">Demo Req. 1&#x2013;2% &#x2192; 3&#x2013;5% target</text>
+
+  <!-- Show-Up 75-85% of demo req | visual = 76px -->
+  <rect x="28" y="188" width="76" height="12" rx="2" fill="#5A28C8"/>
+  <text x="356" y="199" font-size="9.5" fill="#1E1B17">Show-Up 75&#x2013;85% (post-recovery)</text>
+
+  <!-- Closed Won 15-25% | visual = 18px -->
+  <rect x="28" y="208" width="40" height="12" rx="2" fill="#06D4AE"/>
+  <text x="356" y="219" font-size="9.5" fill="#1E1B17">Closed Won 15&#x2013;25%</text>
+  <text x="356" y="232" font-size="8.5" fill="#8B8276" font-style="italic">high-ACV mfg B2B SaaS benchmark</text>
+
+  <!-- Vertical divider -->
+  <line x1="430" x2="430" y1="128" y2="260" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- RIGHT: Channel Attribution -->
+  <text x="446" y="138" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">CHANNEL ATTRIBUTION &#x2014; DEMO BOOKED (benchmark)</text>
+
+  <!-- Bars: track = 280px wide, x=446 -->
+  <!-- Organic SEO 45% = 126px -->
+  <rect x="446" y="148" width="280" height="12" rx="2" fill="rgba(30,27,23,0.06)"/>
+  <rect x="446" y="148" width="126" height="12" rx="2" fill="#020044"/>
+  <text x="580" y="158" font-size="9.5" fill="white" font-weight="600">Organic SEO 45%</text>
+  <text x="732" y="158" font-size="9.5" fill="#8B8276">highest close rate</text>
+
+  <!-- LinkedIn 30% = 84px -->
+  <rect x="446" y="168" width="280" height="12" rx="2" fill="rgba(30,27,23,0.06)"/>
+  <rect x="446" y="168" width="84" height="12" rx="2" fill="#3A1A9A"/>
+  <text x="536" y="178" font-size="9.5" fill="white" font-weight="600">LinkedIn 30%</text>
+
+  <!-- Email 18% = 50px -->
+  <rect x="446" y="188" width="280" height="12" rx="2" fill="rgba(30,27,23,0.06)"/>
+  <rect x="446" y="188" width="50" height="12" rx="2" fill="#A7B69A"/>
+  <text x="502" y="198" font-size="9.5" fill="#1E1B17">Email 18%</text>
+
+  <!-- Google 12% = 34px -->
+  <rect x="446" y="208" width="280" height="12" rx="2" fill="rgba(30,27,23,0.06)"/>
+  <rect x="446" y="208" width="34" height="12" rx="2" fill="#06D4AE"/>
+  <text x="486" y="218" font-size="9.5" fill="#1E1B17">Google 12%</text>
+
+  <!-- Referral variable -->
+  <rect x="446" y="228" width="280" height="12" rx="2" fill="rgba(30,27,23,0.06)"/>
+  <rect x="446" y="228" width="18" height="12" rx="2" fill="#FBC94B"/>
+  <text x="470" y="238" font-size="9.5" fill="#1E1B17">Referral / NYT halo (variable)</text>
+
+  <line x1="28" x2="832" y1="264" y2="264" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Section 3: 90-Day Reporting Cadence (3 cards) -->
+  <text x="28" y="282" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">90-DAY REPORTING CADENCE</text>
+
+  <!-- Weekly card -->
+  <rect x="28" y="290" width="254" height="80" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <text x="155" y="310" text-anchor="middle" font-size="11" font-weight="700" fill="#1E1B17">Weekly &#x2014; Monday 8 AM</text>
+  <text x="155" y="326" text-anchor="middle" font-size="9.5" fill="#8B8276">Executive snapshot PDF</text>
+  <text x="155" y="341" text-anchor="middle" font-size="9.5" fill="#8B8276">3 wins / 3 risks / 1 action</text>
+  <text x="155" y="356" text-anchor="middle" font-size="9.5" fill="#8B8276">Warmly top 10 accounts</text>
+
+  <!-- Monthly card -->
+  <rect x="296" y="290" width="254" height="80" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <text x="423" y="310" text-anchor="middle" font-size="11" font-weight="700" fill="#1E1B17">Monthly</text>
+  <text x="423" y="326" text-anchor="middle" font-size="9.5" fill="#8B8276">Performance review</text>
+  <text x="423" y="341" text-anchor="middle" font-size="9.5" fill="#8B8276">ICP refinement data</text>
+  <text x="423" y="356" text-anchor="middle" font-size="9.5" fill="#8B8276">Channel close-rate trends</text>
+
+  <!-- Quarterly card -->
+  <rect x="564" y="290" width="268" height="80" rx="7" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <text x="698" y="310" text-anchor="middle" font-size="11" font-weight="700" fill="#1E1B17">Quarterly</text>
+  <text x="698" y="326" text-anchor="middle" font-size="9.5" fill="#8B8276">Strategy session + pivot check</text>
+  <text x="698" y="341" text-anchor="middle" font-size="9.5" fill="#8B8276">Budget reallocation</text>
+  <text x="698" y="356" text-anchor="middle" font-size="9.5" fill="#8B8276">LTV &amp; Churn presentation (Month 3)</text>
+</svg>
     </div>
 
+    <!-- svg-l5c: CLV & Retention (TRIGGERED) -->
+    <div class="lsvg" id="svg-l5c" data-diagram="l5c-clv" data-bg="light" style="margin:16px 0">
+      <div id="svg-l5c-inner" style="border-radius:12px;overflow:hidden"><!-- svg-l5c | 860×320 | light | TRIGGERED -->
+<svg viewBox="0 0 860 320" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <rect width="860" height="320" fill="#FBF7EF"/>
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">CUSTOMER LIFETIME INTELLIGENCE &#xB7; Retention &amp; Expansion Signals</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- SECTION 1: LTV by ICP Segment (y=38-130) -->
+  <text x="28" y="50" font-size="9.5" font-weight="700" fill="#8B8276" letter-spacing="1">LTV BY ICP SEGMENT &#x2014; which buyers are worth acquiring most (benchmark)</text>
+
+  <!-- Paper converters (highest, teal) — full 500px -->
+  <rect x="28" y="58" width="500" height="16" rx="3" fill="#06D4AE" opacity="0.8"/>
+  <text x="536" y="70" font-size="10" font-weight="700" fill="#1E1B17">Paper converters (Milltown ref.)</text>
+  <text x="818" y="70" text-anchor="end" font-size="10" fill="#8B8276">highest LTV</text>
+
+  <!-- Industrial components — 420px -->
+  <rect x="28" y="82" width="420" height="16" rx="3" fill="#020044" opacity="0.75"/>
+  <text x="456" y="94" font-size="10" fill="#1E1B17">Industrial components (Kuebler ref.)</text>
+
+  <!-- Job shops / mold makers — 340px -->
+  <rect x="28" y="106" width="340" height="16" rx="3" fill="#3A1A9A" opacity="0.7"/>
+  <text x="376" y="118" font-size="10" fill="#1E1B17">Job shops / mold makers (Iowa Mold ref.)</text>
+
+  <!-- Distributors — 260px -->
+  <rect x="28" y="130" width="260" height="16" rx="3" fill="#5A28C8" opacity="0.6"/>
+  <text x="296" y="142" font-size="10" fill="#1E1B17">Distributors (Tier One ref.) &#x2014; lower LTV, higher volume</text>
+
+  <!-- Gap annotation (2 lines, ≤60 chars each) -->
+  <text x="28" y="162" font-size="9.5" fill="#8B8276" font-style="italic">
+    <tspan x="28" dy="0">Highest-LTV segment receives undifferentiated budget today.</tspan>
+    <tspan x="28" dy="13">X5 builds ICP refinement via 90-day close-rate data.</tspan>
+  </text>
+  <text x="28" y="188" font-size="8.5" fill="#8B8276">(benchmark &#x2014; validated post-90 days)</text>
+
+  <line x1="28" x2="832" y1="196" y2="196" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- SECTION 2: Cohort Retention (y=204-260) -->
+  <text x="28" y="214" font-size="9.5" font-weight="700" fill="#8B8276" letter-spacing="1">COHORT RETENTION &#x2014; B2B SaaS Annual-Contract Benchmark</text>
+
+  <!-- Bar chart: Month 0/1/3/6/12, bar widths based on retention -->
+  <!-- Month 0: 100% → h=36 -->
+  <rect x="60" y="220" width="50" height="36" rx="3" fill="#020044"/>
+  <text x="85" y="265" text-anchor="middle" font-size="9" fill="#8B8276">M0</text>
+  <text x="85" y="218" text-anchor="middle" font-size="9" font-weight="700" fill="#1E1B17">100%</text>
+
+  <!-- Month 1: 95% → h=34 -->
+  <rect x="190" y="222" width="50" height="34" rx="3" fill="#1A1060"/>
+  <text x="215" y="265" text-anchor="middle" font-size="9" fill="#8B8276">M1</text>
+  <text x="215" y="220" text-anchor="middle" font-size="9" font-weight="700" fill="#1E1B17">95%</text>
+  <text x="215" y="222" text-anchor="middle" font-size="8" fill="#991B1B">-5pp</text>
+
+  <!-- Month 3: 88% → h=32 -->
+  <rect x="320" y="224" width="50" height="32" rx="3" fill="#3A1A9A"/>
+  <text x="345" y="265" text-anchor="middle" font-size="9" fill="#8B8276">M3</text>
+  <text x="345" y="222" text-anchor="middle" font-size="9" font-weight="700" fill="#1E1B17">88%</text>
+  <text x="345" y="224" text-anchor="middle" font-size="8" fill="#991B1B">-7pp</text>
+
+  <!-- Month 6: 80% → h=29 -->
+  <rect x="450" y="227" width="50" height="29" rx="3" fill="#5A28C8"/>
+  <text x="475" y="265" text-anchor="middle" font-size="9" fill="#8B8276">M6</text>
+  <text x="475" y="225" text-anchor="middle" font-size="9" font-weight="700" fill="#1E1B17">80%</text>
+  <text x="475" y="227" text-anchor="middle" font-size="8" fill="#991B1B">-8pp</text>
+
+  <!-- Month 12: 72% → h=28 -->
+  <rect x="580" y="228" width="50" height="28" rx="3" fill="#06D4AE" opacity="0.7"/>
+  <text x="605" y="265" text-anchor="middle" font-size="9" fill="#8B8276">M12</text>
+  <text x="605" y="226" text-anchor="middle" font-size="9" font-weight="700" fill="#1E1B17">72%</text>
+  <text x="605" y="228" text-anchor="middle" font-size="8" fill="#991B1B">-8pp</text>
+
+  <!-- Tag: X5 builds this -->
+  <rect x="680" y="226" width="144" height="36" rx="5" fill="#020044" opacity="0.1" stroke="#06D4AE" stroke-width="1"/>
+  <text x="752" y="240" text-anchor="middle" font-size="9" font-weight="700" fill="#06D4AE">X5 BUILDS THIS</text>
+  <text x="752" y="254" text-anchor="middle" font-size="8.5" fill="#8B8276">CRM data &#x2192; calculable M1+</text>
+
+  <!-- Benchmark note (2 lines) -->
+  <text x="28" y="276" font-size="9" fill="#8B8276" font-style="italic">
+    <tspan x="28" dy="0">Currently: no retention tracking confirmed externally.</tspan>
+    <tspan x="28" dy="12">This is what you will see &#x2014; after L1 data foundation (benchmark only).</tspan>
+  </text>
+
+  <line x1="28" x2="832" y1="294" y2="294" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- SECTION 3: Expansion + Churn Warning (y=300) -->
+  <!-- Box A: Expansion Signal -->
+  <rect x="28" y="300" width="392" height="14" rx="5" fill="#06D4AE" opacity="0.12" stroke="#06D4AE" stroke-width="1"/>
+  <text x="214" y="311" text-anchor="middle" font-size="9" font-weight="700" fill="#06D4AE">Expansion Signal: Quoting &#x2192; OE &#x2192; AP adoption chain &#x2192; auto-alert CS &#xB7; X5 BUILDS THIS</text>
+
+  <!-- Box B: Churn Warning -->
+  <rect x="432" y="300" width="400" height="14" rx="5" fill="#FEF3C7" stroke="#FBC94B" stroke-width="1"/>
+  <text x="632" y="311" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">Churn Warning: Inactive 14d + user drop &#x2192; CS alert 30&#x2013;60 days before &#xB7; X5 BUILDS THIS</text>
+</svg></div>
+    </div>
     <!-- svg-l5b: Digital Marketing Performance Dashboard (MANDATORY) -->
     <div class="lsvg" id="svg-l5b" data-diagram="svg-l5b" data-bg="light" style="margin:32px 0">
-      <div style="height:200px;background:#F3F0FF;display:flex;align-items:center;justify-content:center;border-radius:12px;color:rgba(0,0,68,.3);font-size:13px;font-style:italic">L5 Digital Marketing Performance — injected in Step 2B</div>
+      <!-- svg-l5b | 860×340 | light -->
+<svg viewBox="0 0 860 340" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <rect width="860" height="340" fill="#FBF7EF"/>
+  <text x="28" y="22" font-size="11" font-weight="700" fill="#8B8276" letter-spacing="1.5">DIGITAL MARKETING PERFORMANCE &#xB7; Channel-by-Channel</text>
+  <line x1="28" x2="832" y1="30" y2="30" stroke="#1E1B17" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- TABLE HEADER -->
+  <rect x="28" y="36" width="804" height="26" rx="5" fill="#1E1B17"/>
+  <text x="36" y="53" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.9)" letter-spacing="0.5">CHANNEL</text>
+  <text x="220" y="53" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.9)" letter-spacing="0.5">BUDGET / REACH</text>
+  <text x="386" y="53" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.9)" letter-spacing="0.5">CPL (Cost per Demo)</text>
+  <text x="572" y="53" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.9)" letter-spacing="0.5">CVR TO DEMO</text>
+  <text x="720" y="53" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.9)" letter-spacing="0.5">TREND</text>
+
+  <!-- Row height = 24, starting y=62 -->
+  <!-- Row 1: LinkedIn (white) -->
+  <rect x="28" y="62" width="804" height="24" fill="white"/>
+  <rect x="28" y="62" width="3" height="24" fill="#1A1060"/>
+  <text x="36" y="78" font-size="10" fill="#1E1B17" font-weight="600">LinkedIn Ads &#x2014; 3-tier + ABM</text>
+  <text x="220" y="78" font-size="9.5" fill="#8B8276">$4&#x2013;6K/mo (Scenario 3 ref.)</text>
+  <text x="386" y="78" font-size="9.5" fill="#1E1B17">$400&#x2013;800 (benchmark target)</text>
+  <text x="572" y="78" font-size="9.5" fill="#1E1B17">1.2&#x2013;2.0% (benchmark)</text>
+  <text x="720" y="78" font-size="10" font-weight="700" fill="#166534">&#x2191; post-CAPI</text>
+
+  <!-- Row 2: Google (bg-alt) -->
+  <rect x="28" y="86" width="804" height="24" fill="#FBF7EF"/>
+  <rect x="28" y="86" width="3" height="24" fill="#020044"/>
+  <text x="36" y="102" font-size="10" fill="#1E1B17" font-weight="600">Google Ads &#x2014; narrow intent</text>
+  <text x="220" y="102" font-size="9.5" fill="#8B8276">Variable intent budget</text>
+  <text x="386" y="102" font-size="9.5" fill="#1E1B17">$300&#x2013;600 (benchmark target)</text>
+  <text x="572" y="102" font-size="9.5" fill="#1E1B17">3&#x2013;5% narrow intent</text>
+  <text x="720" y="102" font-size="10" font-weight="700" fill="#166534">&#x2191;</text>
+
+  <!-- Row 3: Email (white) -->
+  <rect x="28" y="110" width="804" height="24" fill="white"/>
+  <rect x="28" y="110" width="3" height="24" fill="#A7B69A"/>
+  <text x="36" y="126" font-size="10" fill="#1E1B17" font-weight="600">Email Nurture (MoFu backbone)</text>
+  <text x="220" y="126" font-size="9.5" fill="#8B8276">500&#x2013;1,500 list target</text>
+  <text x="386" y="126" font-size="9.5" fill="#8B8276">N/A (owned &#x2014; no CAC)</text>
+  <text x="572" y="126" font-size="9.5" fill="#1E1B17">2&#x2013;4% email&#x2192;demo</text>
+  <text x="720" y="126" font-size="10" font-weight="700" fill="#166534">&#x2191;</text>
+
+  <!-- Row 4: Organic SEO (bg-alt) -->
+  <rect x="28" y="134" width="804" height="24" fill="#FBF7EF"/>
+  <rect x="28" y="134" width="3" height="24" fill="#06D4AE"/>
+  <text x="36" y="150" font-size="10" fill="#1E1B17" font-weight="600">Organic SEO + Blog (4-6 posts/mo)</text>
+  <text x="220" y="150" font-size="9.5" fill="#8B8276">4&#x2013;6 posts/month</text>
+  <text x="386" y="150" font-size="9.5" fill="#8B8276">N/A (organic &#x2014; no CAC)</text>
+  <text x="572" y="150" font-size="9.5" fill="#1E1B17">Best close rate (historic)</text>
+  <text x="720" y="150" font-size="10" font-weight="700" fill="#166534">&#x2191;&#x2191; compound</text>
+
+  <!-- Row 5: ABM (white) -->
+  <rect x="28" y="158" width="804" height="24" fill="white"/>
+  <rect x="28" y="158" width="3" height="24" fill="#3A1A9A"/>
+  <text x="36" y="174" font-size="10" fill="#1E1B17" font-weight="600">ABM (LinkedIn target list)</text>
+  <text x="220" y="174" font-size="9.5" fill="#8B8276">500&#x2013;2,000 accounts</text>
+  <text x="386" y="174" font-size="9.5" fill="#1E1B17">Higher CPL &#xB7; higher LTV</text>
+  <text x="572" y="174" font-size="9.5" fill="#1E1B17">Higher CVR (ICP match)</text>
+  <text x="720" y="174" font-size="10" font-weight="700" fill="#166534">&#x2191;</text>
+
+  <!-- Row 6: Referral / NYT halo (bg-alt) -->
+  <rect x="28" y="182" width="804" height="24" fill="#FBF7EF"/>
+  <rect x="28" y="182" width="3" height="24" fill="#FBC94B"/>
+  <text x="36" y="198" font-size="10" fill="#1E1B17" font-weight="600">Referral / NYT halo</text>
+  <text x="220" y="198" font-size="9.5" fill="#8B8276">Non-recurring</text>
+  <text x="386" y="198" font-size="9.5" fill="#8B8276">N/A</text>
+  <text x="572" y="198" font-size="9.5" fill="#8B8276">Variable</text>
+  <text x="720" y="198" font-size="10" font-weight="700" fill="#991B1B">&#x2193; decaying</text>
+
+  <!-- Table note -->
+  <text x="28" y="218" font-size="8.5" fill="#8B8276" font-style="italic">All CPL/CVR values are benchmark targets &#x2014; real values validated post-90-day data collection</text>
+
+  <line x1="28" x2="832" y1="225" y2="225" stroke="#1E1B17" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- Section 2: 3 Highlight Metrics -->
+  <text x="28" y="241" font-size="10" font-weight="700" fill="#8B8276" letter-spacing="1">KEY PERFORMANCE HIGHLIGHTS</text>
+
+  <!-- Box 1: Best CVR -->
+  <rect x="28" y="248" width="254" height="72" rx="6" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <text x="155" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#1E1B17">Best CVR Channel</text>
+  <text x="155" y="286" text-anchor="middle" font-size="13" font-weight="700" fill="#06D4AE">Organic SEO + Blog</text>
+  <text x="155" y="302" text-anchor="middle" font-size="9" fill="#8B8276">Historically highest close rate</text>
+  <text x="155" y="315" text-anchor="middle" font-size="8.5" fill="#8B8276">(B2B SaaS benchmark)</text>
+
+  <!-- Box 2: Lowest CPL -->
+  <rect x="296" y="248" width="254" height="72" rx="6" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <text x="423" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#1E1B17">Lowest CPL</text>
+  <text x="423" y="286" text-anchor="middle" font-size="13" font-weight="700" fill="#020044">Google $300&#x2013;600</text>
+  <text x="423" y="302" text-anchor="middle" font-size="9" fill="#8B8276">Narrow-intent bottom-funnel</text>
+  <text x="423" y="315" text-anchor="middle" font-size="8.5" fill="#8B8276">(benchmark target)</text>
+
+  <!-- Box 3: Biggest gap -->
+  <rect x="564" y="248" width="268" height="72" rx="6" fill="white" stroke="rgba(30,27,23,0.12)" stroke-width="1"/>
+  <text x="698" y="268" text-anchor="middle" font-size="10" font-weight="700" fill="#1E1B17">Biggest Leverage Point</text>
+  <text x="698" y="284" text-anchor="middle" font-size="11" font-weight="700" fill="#991B1B">LinkedIn CAPI match rate</text>
+  <text x="698" y="300" text-anchor="middle" font-size="11" font-weight="700" fill="#166534">40% &#x2192; 65&#x2013;85%</text>
+  <text x="698" y="315" text-anchor="middle" font-size="8.5" fill="#8B8276">post-L1 sGTM (benchmark)</text>
+</svg>
     </div>
 
     <div class="vf">
@@ -2121,8 +3125,51 @@ em { font-style: italic; }
 
   <!-- Cascade Flow Diagram -->
   <div id="svg-cascade" data-diagram="cascade-flow" data-bg="light" style="background:var(--brand-bg-alt);border-radius:14px;padding:24px 28px;margin-top:8px;overflow:hidden">
-    <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--brand-dark);margin-bottom:16px;text-align:center">HOW THE LAYERS CONNECT — DATA FLOWS UP · INTELLIGENCE LOOPS BACK</div>
-    <div style="height:160px;display:flex;align-items:center;justify-content:center;color:#9CA3AF;font-size:13px;font-style:italic">Cascade flow diagram will be injected in Step 2B</div>
+<!-- svg-cascade | 860×175 | light -->
+<svg viewBox="0 0 860 175" width="100%" style="display:block" font-family="Outfit,sans-serif">
+  <defs>
+    <marker id="casc-arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 Z" fill="#1E1B17" opacity="0.45"/>
+    </marker>
+  </defs>
+  <!-- bg -->
+  <rect width="860" height="175" fill="#FBF7EF"/>
+  <!-- circles -->
+  <circle cx="80" cy="80" r="34" fill="#020044"/>
+  <circle cx="236" cy="80" r="34" fill="#1A1060"/>
+  <circle cx="392" cy="80" r="34" fill="#3A1A9A"/>
+  <circle cx="548" cy="80" r="34" fill="#5A28C8"/>
+  <circle cx="704" cy="80" r="34" fill="#06D4AE"/>
+  <!-- forward arrows -->
+  <line x1="115" y1="80" x2="200" y2="80" stroke="#1E1B17" stroke-width="1.5" opacity="0.45" marker-end="url(#casc-arr)"/>
+  <line x1="271" y1="80" x2="356" y2="80" stroke="#1E1B17" stroke-width="1.5" opacity="0.45" marker-end="url(#casc-arr)"/>
+  <line x1="427" y1="80" x2="512" y2="80" stroke="#1E1B17" stroke-width="1.5" opacity="0.45" marker-end="url(#casc-arr)"/>
+  <line x1="583" y1="80" x2="668" y2="80" stroke="#1E1B17" stroke-width="1.5" opacity="0.45" marker-end="url(#casc-arr)"/>
+  <!-- feedback arc (below circles) -->
+  <path d="M 704,114 Q 392,148 80,114" fill="none" stroke="#1E1B17" stroke-width="1.5" stroke-dasharray="5,3" opacity="0.3"/>
+  <!-- circle labels -->
+  <text x="80" y="75" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="600" letter-spacing="0.5">L1</text>
+  <text x="80" y="90" text-anchor="middle" font-size="9" fill="white" font-weight="700">Data</text>
+  <text x="236" y="75" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="600" letter-spacing="0.5">L2</text>
+  <text x="236" y="90" text-anchor="middle" font-size="9" fill="white" font-weight="700">Channels</text>
+  <text x="392" y="75" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="600" letter-spacing="0.5">L3</text>
+  <text x="392" y="90" text-anchor="middle" font-size="9" fill="white" font-weight="700">RevOps</text>
+  <text x="548" y="75" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="600" letter-spacing="0.5">L4</text>
+  <text x="548" y="90" text-anchor="middle" font-size="9" fill="white" font-weight="700">AI Agent</text>
+  <text x="704" y="75" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.75)" font-weight="600" letter-spacing="0.5">L5</text>
+  <text x="704" y="90" text-anchor="middle" font-size="9" fill="white" font-weight="700">Intel</text>
+  <!-- connection labels below -->
+  <text x="158" y="120" text-anchor="middle" font-size="9" fill="#8B8276">Clean data</text>
+  <text x="158" y="131" text-anchor="middle" font-size="9" fill="#8B8276">&rarr; channels</text>
+  <text x="314" y="120" text-anchor="middle" font-size="9" fill="#8B8276">Demand</text>
+  <text x="314" y="131" text-anchor="middle" font-size="9" fill="#8B8276">&rarr; pipeline</text>
+  <text x="470" y="120" text-anchor="middle" font-size="9" fill="#8B8276">Pipeline</text>
+  <text x="470" y="131" text-anchor="middle" font-size="9" fill="#8B8276">&rarr; automation</text>
+  <text x="626" y="120" text-anchor="middle" font-size="9" fill="#8B8276">Automation</text>
+  <text x="626" y="131" text-anchor="middle" font-size="9" fill="#8B8276">&rarr; intel</text>
+  <!-- feedback label -->
+  <text x="392" y="163" text-anchor="middle" font-size="9" fill="#1E1B17" opacity="0.4" font-style="italic">L5 insights improve L1 targeting &#xB7; After 90 days: predict, not just report</text>
+</svg>
   </div>
 
 </div>
